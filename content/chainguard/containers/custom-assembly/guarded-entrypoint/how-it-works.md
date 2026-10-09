@@ -62,7 +62,7 @@ The wrapper makes up to three attempts for each request, with backoff. It retrie
 
 ### Vault references
 
-`PATH` is the path of the Vault API request, as in `envconsul` and Vault Agent templates. For a KV version 2 mount, the path includes `/data/`. The wrapper does not look up mounts or insert it. `#KEY` is required.
+`PATH` is the path of the Vault API request, as in `envconsul` and Vault Agent templates. For a KV version 2 mount, the path includes `/data/`. The wrapper does not look up mounts or insert `/data/`. `#KEY` is required.
 
 | Reference | Reads |
 | --- | --- |
@@ -84,7 +84,7 @@ The wrapper reads its Vault settings from the container's environment. They must
 | `VAULT_NAMESPACE` | The Vault Enterprise or HCP namespace. |
 | `VAULT_CACERT` | A PEM bundle, at most 1 MiB, that verifies Vault's certificate in place of the system roots. |
 
-With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything with read access to the spec can read. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
+With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anyone with access to the spec can read. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
 
 ### Consul references
 
@@ -158,7 +158,7 @@ A preflight target expands a variable that `open` left unresolved to its literal
 | --- | --- |
 | `default` | `command`, only when the wrapper receives no arguments at all, which means the image has no ENTRYPOINT or CMD of its own and nothing is passed at run time. Otherwise, the arguments it received. |
 | `prepend` | `command` followed by the container's arguments. |
-| `override` | `command` alone. The image's ENTRYPOINT and CMD, and any arguments passed at run time, are dropped. |
+| `override` | `command` alone. The wrapper drops the image's ENTRYPOINT and CMD, and any arguments passed at run time. |
 
 `default` is the mode when you leave `mode` out. The `prepend` and `override` modes require a non-empty `command`.
 
@@ -168,7 +168,7 @@ The wrapper looks up the first element of `command` on the container's `PATH`. U
 
 An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use Custom Assembly Overlays, it cancels the override from a broader binding.
 
-`command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. Also refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+Chainguard stores `command` in the image configuration, where it is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. Also refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Variable expansion
 
@@ -216,7 +216,7 @@ A shell fragment that starts your application without `exec` keeps the shell bet
 
 ### Init systems aren't supported
 
-Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
+Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos. If it's already on, set `GUARDED_DISABLE` on the deployment.
 
 ### Refused builds
 

@@ -110,7 +110,7 @@ command_override:
     - ${PORT}
 ```
 
-In `override` mode, the wrapper starts `command` alone. The image's ENTRYPOINT and CMD, and any arguments you pass at run time, are dropped. The wrapper expands `${PORT}` from the container's environment, so a deployment can change the port by setting `PORT`. The image needs no shell, because the wrapper starts `python` directly.
+In `override` mode, the wrapper starts `command` alone. The wrapper drops the image's ENTRYPOINT and CMD, and any arguments you pass at run time. The wrapper expands `${PORT}` from the container's environment, so a deployment can change the port by setting `PORT`. The image needs no shell, because the wrapper starts `python` directly.
 
 To keep the image's own command and add arguments in front of it, use `mode: prepend` instead. Refer to [Command override](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#command-override).
 

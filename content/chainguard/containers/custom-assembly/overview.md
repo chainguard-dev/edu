@@ -234,7 +234,7 @@ This article provided a high-level overview of Custom Assembly. As a next step, 
 
 You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) for more information.
 
-To run startup logic in a Custom Assembly image without a derived image build, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). It resolves secrets, runs preflight checks, and overrides the command at container start.
+To run startup logic in a Custom Assembly image without a derived image build, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). It resolves secrets, runs preflight checks, and overrides the command at container start.
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/), including the following:
 

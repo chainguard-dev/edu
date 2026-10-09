@@ -85,7 +85,7 @@ environment:
   DB_PASSWORD: cg+vault://secret/data/orders#db_password
 ```
 
-Keep the keys that are already in the manifest. Applying a manifest replaces the repo's stored configuration, so a key you remove from the manifest is removed from the repo.
+Keep the keys that are already in the manifest. Applying a manifest replaces the repo's stored configuration, so removing a key from the manifest removes it from the repo.
 
 Save and close the editor. `chainctl` shows a diff and asks you to confirm. After you confirm, Chainguard rebuilds the repo's images with the wrapper as their entrypoint.
 
@@ -109,7 +109,7 @@ To list the builds, run the following command:
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-When Chainguard refuses to wrap an image, or when two bindings conflict, the build is recorded as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+When Chainguard refuses to wrap an image, or when two bindings conflict, Chainguard records the build as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
 To confirm that a rebuilt image uses the wrapper, check its entrypoint. The first element is `/usr/bin/guarded-entrypoint`. What follows depends on the image. For an image with a command, it is that command. For a shell fragment, it is `/bin/sh -c` and the fragment. For a service bundle, it is `/bin/s6-svscan /sv`. An image that has only a CMD has the wrapper alone:
 
@@ -162,7 +162,7 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 The request merges into the repo's stored overlay. The API builds an update mask from the fields in the request body, so only the fields you send change:
 
 * A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
-* `environment` and `preflight` are replaced as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
+* The request replaces `environment` and `preflight` as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
 
 To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
 

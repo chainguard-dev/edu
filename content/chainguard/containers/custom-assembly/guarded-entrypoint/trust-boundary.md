@@ -52,17 +52,17 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
 
-The settings are stored in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
+Chainguard stores the settings in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 
-A running container is a different case. The resolved values are in the application's environment, so anyone who can read the process's environment can read them.
+A running container is a different case. The resolved values are in the application's environment, so anyone with access to the process's environment can read them.
 
 ## Keep secrets out of command_override
 
-The text of `command_override` is stored in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
+Chainguard stores the text of `command_override` in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
 
 Put a `${VAR}` reference in `command` instead, and supply the value in the environment. For example, use `${DB_PASSWORD}`, and set `DB_PASSWORD` to a `cg+vault://` reference. The image then holds the reference and not the secret.
 
-An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can read it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
+An expanded value is visible in the application's command line while the container runs. Anything with access to `/proc/PID/cmdline` can read it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
 
 ## The escape hatch
 

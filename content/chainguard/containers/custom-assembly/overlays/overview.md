@@ -69,7 +69,7 @@ A binding normally attaches an overlay to one repository. An **all-repos binding
 
 An all-repos binding belongs to the organization or folder it covers, and it has a tag selector like any other binding. An overlay can have at most one all-repos binding per organization or folder. You can't change an all-repos binding's scope; to re-scope one, detach it and attach a new one.
 
-Folders nest, so a repository can be covered by several all-repos bindings at once: one on the organization and one on each folder above it. For example, an organization can bind a certificates overlay to every repository, and also bind a hardening overlay to its `golden-images` folder. Repositories in `golden-images` receive both.
+Folders nest, so several all-repos bindings can cover a repository at once: one on the organization and one on each folder above it. For example, an organization can bind a certificates overlay to every repository, and also bind a hardening overlay to its `golden-images` folder. Repositories in `golden-images` receive both.
 
 A repository can't opt out of an all-repos binding. To vary a setting for one repository, bind another overlay to that repository directly: the repository's own bindings take precedence, as described in the next section. All-repos bindings also don't apply to repositories that use standard Custom Assembly; those keep their standard customization.
 

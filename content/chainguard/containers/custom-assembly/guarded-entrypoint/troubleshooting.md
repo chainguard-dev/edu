@@ -46,7 +46,7 @@ When `GUARDED_DISABLE` is set, the wrapper does the following:
 
 If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
 
-If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values and skips its preflight checks. An application that needs its secrets can fail for that reason.
+If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values, and the preflight checks don't run. An application that needs its secrets can fail for that reason.
 
 With `GUARDED_DISABLE` set, an image whose only command comes from `command_override` exits with code `124` instead of starting.
 
@@ -108,7 +108,7 @@ To find the failure, list the repo's builds:
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-The `Result` column shows the failure, and the `Reason` column shows why. The `Reason` column is filled only for failures that Chainguard records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
+The `Result` column shows the failure, and the `Reason` column shows why. Chainguard fills the `Reason` column only for failures that it records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
 
 ```output
 guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
@@ -130,7 +130,7 @@ The tags named in the message aren't rebuilt until you resolve the refusal. A ta
 * Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
-To check ahead of time whether an image is supported, refer to the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
+To check ahead of time whether an image is supported, refer to [Supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 
 ## Learn more
 
