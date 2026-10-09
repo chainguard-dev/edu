@@ -69,6 +69,8 @@ environment:
 checks:
   vet:
     cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
   test:
     cmd: go test ./...
     network:
