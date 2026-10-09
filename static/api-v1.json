@@ -6039,7 +6039,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.CommandOverride"
               }
             ],
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint."
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint."
           },
           "contents": {
             "allOf": [
@@ -6061,14 +6061,14 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.FailMode"
               }
             ],
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint. Default is FAIL_MODE_CLOSED. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged."
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint. Default is FAIL_MODE_CLOSED. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged."
           },
           "guardedEntrypoint": {
-            "description": "NOTE: Guarded Entrypoint is IN DEVELOPMENT and not yet available;\nsetting this field is rejected for every organization.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.",
+            "description": "Guarded Entrypoint is a Beta feature. To get access, contact Chainguard\ncustomer support.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nAt container start the wrapper replaces each environment value written\nas a secret reference, cg+BACKEND://REF (for example\ncg+gsm://projects/acme/secrets/db/versions/latest), with the secret,\nruns any preflight checks, and then starts the app.",
             "type": "boolean"
           },
           "preflight": {
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint. Up to 32 entries. The syncer bakes each\nentry into the image as one environment variable using a flat\nencoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").",
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint. Up to 32 entries. The syncer bakes each\nentry into the image as one environment variable using a flat\nencoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Preflight"
             },
@@ -6106,10 +6106,10 @@
         "type": "object"
       },
       "chainguard.platform.registry.CustomOverlay.CommandOverride": {
-        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen the container passes no arguments, and its own argv (the\nimage's original ENTRYPOINT followed by CMD) otherwise; in\nMODE_PREPEND it execs command followed by that argv; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"hunter2\"].",
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen it receives no arguments at all (the image has no ENTRYPOINT\nor CMD and none are passed at run time), and otherwise execs the\narguments it received; in MODE_PREPEND it execs command followed\nby those arguments; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"${REDIS_PASSWORD}\"].",
         "properties": {
           "command": {
-            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, no override applies.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.",
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, the wrapper execs the arguments\nit received.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.\n\nThe command itself is stored in the image config, which anyone who\ncan pull the image can read, so never write a secret into it as a\nliteral value. Reference an environment variable that holds a\nsecret reference instead, for example ${REDIS_PASSWORD}. That keeps\nthe secret out of the image, but as with any ${VAR}, the expanded\nvalue is still visible in the process's command line.",
             "items": {
               "type": "string"
             },

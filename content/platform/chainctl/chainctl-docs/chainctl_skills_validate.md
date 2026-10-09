@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl skills validate"
 slug: chainctl_skills_validate
 url: /platform/chainctl/chainctl-docs/chainctl_skills_validate/
@@ -11,7 +11,17 @@ toc: true
 ---
 ## chainctl skills validate
 
-Check a skill directory for spec compliance without making network calls.
+Check a local skill directory's format (not its authenticity) without making network calls.
+
+### Synopsis
+
+Check a local skill directory for spec compliance without making network calls.
+
+validate checks format only: SKILL.md frontmatter, the name, description,
+compatibility, and allowed-tools fields, the directory size, and which files
+would be published. It does not check authenticity, and a passing result says
+nothing about who published a skill. To check that Chainguard signed a
+published skill, run `chainctl skills verify <ref>`.
 
 ```
 chainctl skills validate [<path>] [flags]

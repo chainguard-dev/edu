@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl skills pull"
 slug: chainctl_skills_pull
 url: /platform/chainctl/chainctl-docs/chainctl_skills_pull/
@@ -22,6 +22,16 @@ The optional directory sets the download destination. The download includes
 .hardened-artifact.json, which records the skill's registry reference and digest;
 packing the directory again leaves that file out.
 
+With --verify, the fetched digest must pass the same signature check as
+`chainctl skills verify` before anything is written; otherwise the command
+exits nonzero and writes nothing. A skill on a registry whose signatures
+chainctl cannot verify, such as a staging or development registry, fails
+too, unless --allow-unverifiable-host is also given.
+
+With -o json, a successful pull prints {"location": <absolute path>} plus,
+with --verify, "verification": the result `chainctl skills verify -o json`
+prints. A failed --verify prints that result on its own and exits 1.
+
 ```
 chainctl skills pull <ref> [<dir>] [flags]
 ```
@@ -31,12 +41,17 @@ chainctl skills pull <ref> [<dir>] [flags]
 ```
   # Pull into a specific directory:
   chainctl skills pull chainguard/github/lint ./my-skills/lint
+
+  # Pull only if Chainguard signed the skill:
+  chainctl skills pull --verify chainguard/github/lint
 ```
 
 ### Options
 
 ```
-      --force   Overwrite destination directory if it already exists.
+      --allow-unverifiable-host   With --verify, accept a skill from a registry whose signatures chainctl cannot verify, such as a staging or development registry, with a warning instead of failing.
+      --force                     Overwrite destination directory if it already exists.
+      --verify                    Check Chainguard's signature on the fetched skill, as 'chainctl skills verify' does, before writing anything. Fails unless verified, including for a skill on a registry whose signatures chainctl cannot verify.
 ```
 
 ### Options inherited from parent commands

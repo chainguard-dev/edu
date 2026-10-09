@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl skills"
 slug: chainctl_skills
 url: /platform/chainctl/chainctl-docs/chainctl_skills/
@@ -40,8 +40,10 @@ Skills registry related commands.
 * [chainctl skills list](/platform/chainctl/chainctl-docs/chainctl_skills_list/)	 - List skills published by an org.
 * [chainctl skills pull](/platform/chainctl/chainctl-docs/chainctl_skills_pull/)	 - Download a published skill to a local directory.
 * [chainctl skills push](/platform/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to uploads.cgr.dev.
+* [chainctl skills registry](/platform/chainctl/chainctl-docs/chainctl_skills_registry/)	 - Publish and install skills in any OCI registry by reference.
 * [chainctl skills status](/platform/chainctl/chainctl-docs/chainctl_skills_status/)	 - Check a harden job or wait for it to finish.
 * [chainctl skills uninstall](/platform/chainctl/chainctl-docs/chainctl_skills_uninstall/)	 - Remove a skill from agent directories on the local machine.
-* [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a skill directory for spec compliance without making network calls.
+* [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a local skill directory's format (not its authenticity) without making network calls.
+* [chainctl skills verify](/platform/chainctl/chainctl-docs/chainctl_skills_verify/)	 - Verify that Chainguard signed a published skill.
 * [chainctl skills versions](/platform/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.
 

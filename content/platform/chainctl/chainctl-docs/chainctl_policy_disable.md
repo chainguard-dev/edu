@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl policy disable"
 slug: chainctl_policy_disable
 url: /platform/chainctl/chainctl-docs/chainctl_policy_disable/

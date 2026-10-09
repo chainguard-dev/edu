@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -241,7 +241,11 @@
           "CAP_ENTITLEMENTS_FEATURES_MANAGE",
           "CAP_SANDBOX_SESSION_CREATE",
           "CAP_SANDBOX_SESSION_LIST",
-          "CAP_TELEMETRY_CONTAINERS_LIST"
+          "CAP_SANDBOX_IDENTITY_CREATE",
+          "CAP_SANDBOX_IDENTITY_USE",
+          "CAP_SANDBOX_IDENTITY_ADMIN",
+          "CAP_TELEMETRY_CONTAINERS_LIST",
+          "CAP_BILLING_MANAGE"
         ],
         "type": "string"
       },
@@ -812,6 +816,60 @@
           "encryptedIdtoken": {
             "description": "encrypted_idtoken is the encrypted idtoken.",
             "format": "byte",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CheckoutSession": {
+        "description": "CheckoutSession is a hosted checkout page.",
+        "properties": {
+          "expireTime": {
+            "description": "When the page stops accepting payment details.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "url": {
+            "description": "The URL of the hosted checkout page. Send the user's browser there.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CreateCheckoutSessionRequest": {
+        "description": "CreateCheckoutSessionRequest is the request message for\nCreateCheckoutSession.",
+        "properties": {
+          "parent": {
+            "description": "The organization to upgrade. Must be a Starter organization with no\nsubscription in progress.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.CreatePortalSessionRequest": {
+        "description": "CreatePortalSessionRequest is the request message for CreatePortalSession.",
+        "properties": {
+          "parent": {
+            "description": "The organization whose payment details to manage. Must have a\nsubscription.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.PortalSession": {
+        "description": "PortalSession is a hosted page for managing payment details.",
+        "properties": {
+          "url": {
+            "description": "The URL of the hosted page. Send the user's browser there.",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -2842,7 +2900,7 @@
             "type": "integer"
           },
           "blockingSubmit": {
-            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, wont_build, invalid_requirement and held. Blocked\nitems are deliberately NOT counted here — they stay requestable with the\nbuild held.",
+            "description": "Items the customer must resolve before the group can be submitted: the sum\nof not_found_upstream, invalid_requirement and held.\n\nTwo kinds of item are deliberately NOT counted. A blocked item stays\nrequestable with the build held. A wont_build item is not requestable at\nall, but the group keeps it as the record of a refusal, so it is counted\nonly under wont_build.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2872,7 +2930,7 @@
             "type": "integer"
           },
           "held": {
-            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit: unlike a blocked item, a held one is not requestable, so\nthe customer has to take it out of the group to submit.",
+            "description": "Versions whose build was declined and is being held. Counted in\nblocking_submit, because a hold is somebody else's decision and asking\nagain must not launder it, so the customer has to take the item out of the\ngroup to submit. Being unrequestable is not the reason: a wont_build item\nis unrequestable too and the group keeps it.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -2902,7 +2960,7 @@
             "type": "integer"
           },
           "total": {
-            "description": "Every item in the group, including removed and pending ones.\n\nIt is not the sum of the fields above, and it exists because that sum is\nwrong: blocking_submit deliberately re-counts not_found_upstream,\nwont_build, invalid_requirement and held, so adding the fields together\ncounts every blocking item twice. A field added here later would change\nwhat a summing client computed, as well.\n\nProgress is total - pending, which stays right however the buckets change.",
+            "description": "Every item in the group, including removed and pending ones.\n\nIt is not the sum of the fields above, and it exists because that sum is\nwrong: blocking_submit deliberately re-counts not_found_upstream,\ninvalid_requirement and held, so adding the fields together counts every\nblocking item twice. A field added here later would change what a summing\nclient computed, as well.\n\nProgress is total - pending, which stays right however the buckets change.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -3526,7 +3584,7 @@
             "readOnly": true
           },
           "availabilityReason": {
-            "description": "Human-readable reason accompanying availability, passed through verbatim from\nthe exclusion or block that produced it. Empty when there is nothing to say.",
+            "description": "Human-readable reason accompanying availability, written by Chainguard: why\nan item will not be built, is held, or could not be read. It is never an\ninternal note. Empty when there is nothing to say.",
             "readOnly": true,
             "type": "string"
           },
@@ -3874,7 +3932,7 @@
             "readOnly": true
           },
           "availabilityReason": {
-            "description": "Reason accompanying availability, passed through verbatim.",
+            "description": "Reason accompanying availability, written by Chainguard. It is never an\ninternal note.",
             "readOnly": true,
             "type": "string"
           },
@@ -4155,7 +4213,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride"
               }
             ],
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. When several overlay bindings apply to one\ntag, the most specific one that sets it wins (see TagSelector); one\nthat leaves it unset uses the value from a broader one. An empty\ncommand_override counts as set, so it cancels a broader override."
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nCommand override for the guarded_entrypoint wrapper. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. When several overlay bindings apply to one\ntag, the most specific one that sets it wins (see TagSelector); one\nthat leaves it unset uses the value from a broader one. An empty\ncommand_override counts as set, so it cancels a broader override."
           },
           "contents": {
             "allOf": [
@@ -4178,14 +4236,14 @@
                 "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.FailMode"
               }
             ],
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. FAIL_MODE_CLOSED when no applicable binding\nsets it. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged.\nWhen several overlay bindings apply to one tag, the most specific one\nthat sets it wins (see TagSelector); one that leaves it unset\n(FAIL_MODE_UNSPECIFIED) uses the value from a broader one, which may\nbe FAIL_MODE_OPEN. To keep a tag fail-closed, bind an overlay that\nsets guarded_entrypoint and FAIL_MODE_CLOSED to that tag at a more\nspecific layer than the one setting FAIL_MODE_OPEN. If the open value\ncomes from the tag's own KIND_EXACT binding, change that overlay."
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nHow the wrapper handles secret-resolution failures. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. FAIL_MODE_CLOSED when no applicable binding\nsets it. Baked into the\nimage by the syncer as GUARDED_FAIL_MODE=closed|open, emitted only\nwhen FAIL_MODE_OPEN; a closed repo's image is unchanged.\nWhen several overlay bindings apply to one tag, the most specific one\nthat sets it wins (see TagSelector); one that leaves it unset\n(FAIL_MODE_UNSPECIFIED) uses the value from a broader one, which may\nbe FAIL_MODE_OPEN. To keep a tag fail-closed, bind an overlay that\nsets guarded_entrypoint and FAIL_MODE_CLOSED to that tag at a more\nspecific layer than the one setting FAIL_MODE_OPEN. If the open value\ncomes from the tag's own KIND_EXACT binding, change that overlay."
           },
           "guardedEntrypoint": {
-            "description": "NOTE: Guarded Entrypoint is IN DEVELOPMENT and not yet available;\nsetting this field is rejected for every organization.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nWhen several overlay bindings apply to one tag, the entrypoint is\nwrapped if any of them sets this to true; a more specific binding\ncannot turn it off.",
+            "description": "Guarded Entrypoint is a Beta feature. To get access, contact Chainguard\ncustomer support.\n\nWraps the image entrypoint with /usr/bin/guarded-entrypoint on rebuild.\nAt container start the wrapper replaces each environment value written\nas a secret reference, cg+BACKEND://REF (for example\ncg+gsm://projects/acme/secrets/db/versions/latest), with the secret,\nruns any preflight checks, and then starts the app.\nWhen several overlay bindings apply to one tag, the entrypoint is\nwrapped if any of them sets this to true; a more specific binding\ncannot turn it off.",
             "type": "boolean"
           },
           "preflight": {
-            "description": "NOTE: Part of Guarded Entrypoint, which is IN DEVELOPMENT and not yet\navailable; setting this field is rejected for every organization.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. Up to 32 entries per overlay. The syncer\nbakes each entry into the image as one environment variable using a\nflat encoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").\nWhen several overlay bindings apply to one tag, their checks are\ncombined, broader bindings first, and identical entries are dropped.\nThe combined list can exceed 32.",
+            "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. Up to 32 entries per overlay. The syncer\nbakes each entry into the image as one environment variable using a\nflat encoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").\nWhen several overlay bindings apply to one tag, their checks are\ncombined, broader bindings first, and identical entries are dropped.\nThe combined list can exceed 32.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Preflight"
             },
@@ -4317,10 +4375,10 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride": {
-        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen the container passes no arguments, and its own argv (the\nimage's original ENTRYPOINT followed by CMD) otherwise; in\nMODE_PREPEND it execs command followed by that argv; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"hunter2\"].",
+        "description": "CommandOverride decides what the wrapper execs after preparing\nthe environment: in MODE_DEFAULT the wrapper execs command only\nwhen it receives no arguments at all (the image has no ENTRYPOINT\nor CMD and none are passed at run time), and otherwise execs the\narguments it received; in MODE_PREPEND it execs command followed\nby those arguments; in\nMODE_OVERRIDE it execs command alone. The image's ENTRYPOINT\n(wrapper-prefixed) and CMD are unchanged in every mode. The\nsyncer bakes this into the image as two environment variables:\nGUARDED_COMMAND_MODE=default|prepend|override and\nGUARDED_COMMAND=\u003cJSON array\u003e, e.g.\nGUARDED_COMMAND=[\"redis-server\",\"--requirepass\",\"${REDIS_PASSWORD}\"].",
         "properties": {
           "command": {
-            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, no override applies.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.",
+            "description": "Argument list that combines with the container's runtime\narguments per mode. When empty, the wrapper execs the arguments\nit received, and the override still counts as set, so it cancels\na broader binding's override.\n\nEach entry expands ${VAR} from the container's resolved\nenvironment, after secret references are resolved; the runtime\narguments are never expanded. $$ is a literal $, and any other $\nis kept as is. A ${VAR} whose variable is not set stops the\ncontainer (exit 121) instead of expanding to an empty string. An\nexpanded value is visible in the process's command line, so a\nsecret passed this way is readable by anything that can inspect\nthe process.\n\nThe command itself is stored in the image config, which anyone who\ncan pull the image can read, so never write a secret into it as a\nliteral value. Reference an environment variable that holds a\nsecret reference instead, for example ${REDIS_PASSWORD}. That keeps\nthe secret out of the image, but as with any ${VAR}, the expanded\nvalue is still visible in the process's command line.",
             "items": {
               "type": "string"
             },
@@ -4339,7 +4397,7 @@
       },
       "chainguard.platform.registry.v2beta1.CustomOverlay.CommandOverride.Mode": {
         "default": "MODE_UNSPECIFIED",
-        "description": "Mode decides how command combines with the container's runtime\narguments.\n\n - MODE_UNSPECIFIED: Treated as MODE_DEFAULT.\n - MODE_DEFAULT: Use command only when the container passes no arguments.\n - MODE_PREPEND: command first, then the container's arguments.\n - MODE_OVERRIDE: command always; container arguments are dropped.",
+        "description": "Mode decides how command combines with the container's runtime\narguments.\n\n - MODE_UNSPECIFIED: Treated as MODE_DEFAULT.\n - MODE_DEFAULT: Use command only when the wrapper receives no arguments at all.\n - MODE_PREPEND: command first, then the container's arguments.\n - MODE_OVERRIDE: command always; container arguments are dropped.",
         "enum": [
           "MODE_UNSPECIFIED",
           "MODE_DEFAULT",
@@ -4579,8 +4637,13 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.OverlayBinding": {
-        "description": "OverlayBinding binds one overlay to one repo under a tag selector.\nIts UID is a UIDP under the repo it attaches to. Bindings have no\nname; audit rendering comes from the repo, the selector, and the\nexpanded overlay content.",
+        "description": "OverlayBinding binds one overlay to one repo — or, when all_repos is\nset, to every repo in an organization — under a tag selector. Its UID\nis a UIDP under the resource it attaches to: the repo, or the\norganization (root group) for all-repos bindings. Bindings have no\nname; audit rendering comes from the repo (or the all-repos marker),\nthe selector, and the expanded overlay content.",
         "properties": {
+          "allRepos": {
+            "description": "AllRepos marks a binding that applies to every repo in the\norganization — current and future — instead of a single repo. Such a\nbinding's UID is a UIDP under the organization (root group) and\n`repo` is empty; the tag selector still scopes which tags are\ncustomized on each repo. Immutable, like the repo reference:\nchanging a binding's scope is delete plus create.",
+            "readOnly": true,
+            "type": "boolean"
+          },
           "overlay": {
             "allOf": [
               {
@@ -4591,7 +4654,7 @@
             "readOnly": true
           },
           "repo": {
-            "description": "The UIDP of the repo this binding applies to.",
+            "description": "The UIDP of the repo this binding applies to. Empty when all_repos\nis set.",
             "readOnly": true,
             "type": "string"
           },
@@ -4617,6 +4680,10 @@
       "chainguard.platform.registry.v2beta1.OverlayBindingsService.CreateOverlayBindingBody": {
         "description": "CreateOverlayBindingRequest is the request message for attaching an\noverlay to a repo.\n",
         "properties": {
+          "allRepos": {
+            "description": "AllRepos, when true, attaches the overlay to every repo in the\norganization named by `parent` — including repos created after the\nbinding exists — instead of a single repo. `parent` must then be the\norganization's root group UIDP; a non-root parent fails\nInvalidArgument. The tag selector still scopes which tags are\ncustomized on each repo. At create time an all-repos binding is\nchecked against the organization's other all-repos bindings only —\nat most one all-repos binding per (organization, overlay) pair\n(AlreadyExists), and co-matching selectors must reference overlays\nwhose configs merge commutatively (FailedPrecondition) — never\nagainst individual repos' bindings: the two scopes compose in\nseparate precedence layers at rebuild time (see TagSelector). Repos\nwhose legacy custom_overlay is set keep the legacy behavior and skip\nall-repos bindings at rebuild time.",
+            "type": "boolean"
+          },
           "overlay": {
             "description": "References the overlay to attach: its UIDP, or its name resolved\nwithin the repo's organization.",
             "type": "string"
@@ -4832,7 +4899,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.TagSelector": {
-        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. A later\nlayer is more specific. The Guarded Entrypoint fields\n(guarded_entrypoint, preflight, command_override, fail_mode) state how\nthey layer on each field of CustomOverlay. All three layers can stack on\na single tag (e.g. `latest-dev`). Within one layer, co-matching bindings\nmerge commutatively: the bind-time compatibility check (see\nCreateOverlayBindingRequest.tag_selector) guarantees their overlays'\nconfigs never set the same field to different values.",
+        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. A later\nlayer is more specific. The Guarded Entrypoint fields\n(guarded_entrypoint, preflight, command_override, fail_mode) state how\nthey layer on each field of CustomOverlay. All three layers can stack on\na single tag (e.g. `latest-dev`). Within one layer, co-matching bindings\nmerge commutatively: the bind-time compatibility check (see\nCreateOverlayBindingRequest.tag_selector) guarantees their overlays'\nconfigs never set the same field to different values.\n\nWhen the organization has all-repos bindings (see\nCreateOverlayBindingRequest.all_repos), their three kind layers apply\nBELOW the repo's own: all-repos ALL, VARIANT, EXACT compose first, then\nthe repo-scoped layers on top — a repo-scoped binding always wins\nscalar conflicts against an all-repos binding, so all-repos bindings\nact as organization-wide defaults that each repo's own bindings can\noverride. Packages still accumulate across all six layers. Scope\nlayers never co-match each other: the bind-time compatibility check\nruns among all-repos bindings of the organization and among the repo's\nown bindings, never across the two scopes.",
         "properties": {
           "kind": {
             "allOf": [
@@ -5929,6 +5996,94 @@
         "summary": "List Vulnerability Metadata",
         "tags": [
           "SecurityAdvisoryService"
+        ]
+      }
+    },
+    "/billing/v2beta1/checkoutSessions": {
+      "post": {
+        "description": "CreateCheckoutSession opens a hosted checkout page where an owner of a\nStarter organization enters a card to upgrade the organization to the\nTeam plan. The organization is upgraded once the first invoice is paid,\nnot when this call returns.",
+        "operationId": "BillingService_CreateCheckoutSession",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CreateCheckoutSessionRequest"
+              }
+            }
+          },
+          "description": "CreateCheckoutSessionRequest is the request message for\nCreateCheckoutSession.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CheckoutSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Checkout Session",
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
+    "/billing/v2beta1/portalSessions": {
+      "post": {
+        "description": "CreatePortalSession opens a hosted page where an owner of a Team\norganization updates the card the organization pays with.",
+        "operationId": "BillingService_CreatePortalSession",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CreatePortalSessionRequest"
+              }
+            }
+          },
+          "description": "CreatePortalSessionRequest is the request message for CreatePortalSession.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.PortalSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Portal Session",
+        "tags": [
+          "BillingService"
         ]
       }
     },
@@ -10858,7 +11013,7 @@
     },
     "/libraries/v2beta1/requestGroups/{uid}:submitRequestGroup": {
       "post": {
-        "description": "Its own RPC rather than a field mask on UpdateRequestGroup, because it is the\npoint where a preview becomes committed work and it carries the group-level\nCVE-remediation decision. That lets it hold a distinct, Owner-only\ncapability, which a mask on update could not express.\n\nItems in the cannot-be-requested set must be removed first.",
+        "description": "Its own RPC rather than a field mask on UpdateRequestGroup, because it is the\npoint where a preview becomes committed work and it carries the group-level\nCVE-remediation decision. That lets it hold a distinct, Owner-only\ncapability, which a mask on update could not express.\n\nItems that block a submit must be removed first: not_found_upstream,\ninvalid_requirement and held. A wont_build item does not block one. It\nstays in the group as the record of what Chainguard declined to rebuild,\nand nothing builds it.",
         "operationId": "RequestGroupsService_SubmitRequestGroup",
         "parameters": [
           {
@@ -11610,8 +11765,13 @@
           "content": {
             "*/*": {
               "schema": {
-                "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+                "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo, the all_repos scope, and the\noverlay reference are immutable (OUTPUT_ONLY): moving or re-scoping\na binding is delete on the old scope plus create on the new one.",
                 "properties": {
+                  "allRepos": {
+                    "description": "AllRepos marks a binding that applies to every repo in the\norganization — current and future — instead of a single repo. Such a\nbinding's UID is a UIDP under the organization (root group) and\n`repo` is empty; the tag selector still scopes which tags are\ncustomized on each repo. Immutable, like the repo reference:\nchanging a binding's scope is delete plus create.",
+                    "readOnly": true,
+                    "type": "boolean"
+                  },
                   "overlay": {
                     "allOf": [
                       {
@@ -11622,7 +11782,7 @@
                     "readOnly": true
                   },
                   "repo": {
-                    "description": "The UIDP of the repo this binding applies to.",
+                    "description": "The UIDP of the repo this binding applies to. Empty when all_repos\nis set.",
                     "readOnly": true,
                     "type": "string"
                   },
@@ -11642,7 +11802,7 @@
               }
             }
           },
-          "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo and overlay reference are\nimmutable (OUTPUT_ONLY): moving a binding is delete on the old repo\nplus create on the new one.",
+          "description": "The binding to update. The uid identifies the binding; tag_selector\nis its only mutable field. The repo, the all_repos scope, and the\noverlay reference are immutable (OUTPUT_ONLY): moving or re-scoping\na binding is delete on the old scope plus create on the new one.",
           "required": true,
           "x-originalParamName": "overlayBinding"
         },
@@ -11678,7 +11838,7 @@
         "operationId": "OverlayBindingsService_CreateOverlayBinding",
         "parameters": [
           {
-            "description": "The UIDP of the repo to attach to.",
+            "description": "The UIDP of the repo to attach to — or, when all_repos is set, the\nUIDP of the organization (root group) whose repos the binding\napplies to.",
             "in": "path",
             "name": "uid",
             "required": true,
@@ -13786,6 +13946,10 @@
     {
       "description": "SecurityAdvisoryService provides access to Chainguard security advisory data.",
       "name": "SecurityAdvisoryService"
+    },
+    {
+      "description": "BillingService starts self-serve plan purchases and card management for an\norganization. Payment pages are hosted by the payment provider; no card data\npasses through this API.",
+      "name": "BillingService"
     },
     {
       "description": "SubscriptionsService manages event subscriptions (webhooks).",

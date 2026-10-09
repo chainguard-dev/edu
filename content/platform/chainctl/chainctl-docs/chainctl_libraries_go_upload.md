@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl libraries go upload"
 slug: chainctl_libraries_go_upload
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_go_upload/
