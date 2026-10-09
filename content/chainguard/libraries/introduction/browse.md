@@ -4,7 +4,7 @@ linktitle: "Browsing and requesting"
 description: "Searching, browsing, inspecting, and requesting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-10-09T19:00:50+00:00
+lastmod: 2026-10-09T19:17:29+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -185,7 +185,7 @@ CVE remediation status appears when you opt in to remediation during submission:
 
 ## View repository configuration in the Chainguard Console
 
-The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream npm.
+The Chainguard Console provides visibility into your repository configuration and the packages being served. When the upstream fallback is configured for your organization, you will see all packages including those built by Chainguard and those that are mirrored from upstream fallback. Upstream browsing only shows versions that have been pulled and cached; it does. not yet show all scanned versions available to pull.
 
 ## Other resources
 
