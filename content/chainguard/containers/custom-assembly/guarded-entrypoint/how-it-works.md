@@ -17,15 +17,15 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
 
 ## What the wrapper does
 
-When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bin/guarded-entrypoint` as the first element of its entrypoint. The image's original entrypoint follows it. Chainguard stores your settings in environment variables in the image configuration. The names of these variables start with `GUARDED_`. You can see them with `docker inspect`. The `GUARDED_` prefix is reserved, and the API rejects it in your own `environment` keys.
+When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bin/guarded-entrypoint` as the first element of its entrypoint. The image's original entrypoint follows it. Chainguard stores your settings in environment variables in the image configuration. The names of these variables start with `GUARDED_`. `docker inspect` shows them. The `GUARDED_` prefix is reserved, and the API rejects it in your own `environment` keys.
 
 On every start, the wrapper runs these steps in order:
 
-1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. See [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. Refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 1. **Resolve secret references.** The wrapper replaces every environment value of the form `cg+BACKEND://REF` with the secret it names.
 1. **Resolve the command.** The wrapper applies `command_override`, if you set one, and expands `${VAR}` in it.
 1. **Run preflight checks.** The wrapper waits for the TCP endpoints and paths you listed.
@@ -44,7 +44,7 @@ The wrapper runs only when the container starts with the image's entrypoint. A K
 * It doesn't resolve references in the container's arguments. It resolves only environment values. Kubernetes expands `$(VAR)` in `args` before the wrapper runs, so `--password=$(DB_PASSWORD)` reaches the application as the literal `cg+...` reference. Have the application read secrets from its environment, or pass them through `command_override`, which expands after resolution.
 * It doesn't renew or revoke Vault leases. It reads each secret once, at startup.
 * It doesn't run code that you upload. It runs your application and, if you set `command_override`, the command you list.
-* It doesn't connect to Chainguard. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+* It doesn't connect to Chainguard. Refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Secret references
 
@@ -84,7 +84,7 @@ The wrapper reads its Vault settings from the container's environment. They must
 | `VAULT_NAMESPACE` | The Vault Enterprise or HCP namespace. |
 | `VAULT_CACERT` | A PEM bundle, at most 1 MiB, that verifies Vault's certificate in place of the system roots. |
 
-With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything that can read the spec can see. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
+With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything with read access to the spec can read. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
 
 ### Consul references
 
@@ -168,7 +168,7 @@ The wrapper looks up the first element of `command` on the container's `PATH`. U
 
 An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use Custom Assembly Overlays, it cancels the override from a broader binding.
 
-`command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. See also [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+`command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. Also refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Variable expansion
 
@@ -222,9 +222,9 @@ Images whose entrypoint is an init system that must run as PID 1, such as system
 
 Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
 
-The lists of the supported and refused entrypoints for each image come from a generated report. See the [lists of supported and refused entrypoints](https://PLACEHOLDER.invalid/guarded-entrypoint-supported-and-refused-lists). <!-- PLACEHOLDER: replace this URL when the generated lists are published. -->
+<!-- TODO: when the generated lists of supported and refused entrypoints are published, add a sentence here linking to them. -->
 
-For how a refusal appears in `chainctl`, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+For how a refusal appears in `chainctl`, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
 ## Learn more
 

@@ -226,7 +226,7 @@ After saving and confirming these changes, Custom Assembly will add these five c
 
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard. The `GUARDED_` prefix is reserved too.
 
-To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
 
 ## Custom runtime repositories
 

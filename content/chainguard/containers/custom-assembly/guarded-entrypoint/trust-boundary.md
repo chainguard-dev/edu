@@ -17,7 +17,7 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
+This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
 
 ## What the wrapper connects to
 
@@ -48,7 +48,7 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | --- | --- | --- |
 | Secret references, such as `cg+vault://secret/data/orders#db_password` | Yes | A reference names where a secret lives. It isn't the secret. Treat the paths as metadata that your organization is willing to share with anyone who can pull the image. |
 | Resolved secret values | No | The wrapper resolves them when the container starts, in the container's memory. They are never written to the image. |
-| `command_override` text | Yes | See the next section. |
+| `command_override` text | Yes | Described in the next section. |
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
 
@@ -62,7 +62,7 @@ The text of `command_override` is stored in the image configuration. Anyone who 
 
 Put a `${VAR}` reference in `command` instead, and supply the value in the environment. For example, use `${DB_PASSWORD}`, and set `DB_PASSWORD` to a `cg+vault://` reference. The image then holds the reference and not the secret.
 
-An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can see it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
+An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can read it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
 
 ## The escape hatch
 
@@ -72,9 +72,9 @@ Anyone who can set environment variables on a container can set `GUARDED_DISABLE
 
 The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
 
-For how to use the escape hatch, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+For how to use the escape hatch, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
 ## Learn more
 
-* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/)
 * [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)

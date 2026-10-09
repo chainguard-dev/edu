@@ -17,7 +17,7 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
+This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
 
 ## First move: set GUARDED_DISABLE
 
@@ -50,7 +50,7 @@ If the container still fails, the cause isn't necessarily the application or the
 
 With `GUARDED_DISABLE` set, an image whose only command comes from `command_override` exits with code `124` instead of starting.
 
-Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. Refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Find out why the container stopped
 
@@ -68,7 +68,7 @@ kubectl logs $POD
 
 For a pod in a restart loop, add `--previous` to read the logs of the container that stopped.
 
-To see more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
+For more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
 
 ### Exit codes before the application starts
 
@@ -96,13 +96,13 @@ An image whose entrypoint is an init system that must run as PID 1, such as syst
 * It exits with code `1` at start, and systemd prints `Explicit --user argument required to run as user manager.`
 * It exits with code `129` when you stop it.
 
-To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. See [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
+To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. Refer to [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
 
 ## Entrypoints the wrapper refuses
 
 When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
 
-To see the failure, list the repo's builds:
+To find the failure, list the repo's builds:
 
 ```shell
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
@@ -127,10 +127,10 @@ The text after the digest is the reason. It is one of the following:
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
-* Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
+* Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
-To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
+To check ahead of time whether an image is supported, refer to the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 
 ## Learn more
 

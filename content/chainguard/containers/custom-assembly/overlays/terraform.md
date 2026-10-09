@@ -20,15 +20,15 @@ toc: true
 
 This guide shows how to manage Custom Assembly Overlays with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+For an explanation of overlays, bindings, and tag selectors, refer to [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
-The provider doesn't support [all-repos bindings](/chainguard/containers/custom-assembly/overlays/#all-repos-bindings) yet; each binding resource names one repository. To bind an overlay to every repository in your organization or a folder, use [`chainctl`](/chainguard/containers/custom-assembly/overlays/chainctl/#apply-an-overlay-to-every-repository).
+The provider doesn't support [all-repos bindings](/chainguard/containers/custom-assembly/overlays/overview/#all-repos-bindings) yet; each binding resource names one repository. To bind an overlay to every repository in your organization or a folder, use [`chainctl`](/chainguard/containers/custom-assembly/overlays/chainctl/#apply-an-overlay-to-every-repository).
 
 ## Prerequisites
 
 Before you start, you need the following:
 
-* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
+* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, refer to [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
 * An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
 
@@ -80,9 +80,9 @@ resource "chainguard_image_overlay" "debug_tools" {
 }
 ```
 
-Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
+Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, refer to [Version templates in package names](/chainguard/containers/custom-assembly/overlays/overview/#version-templates-in-package-names).
 
-To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, see the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
+To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, refer to the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
 
 The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
 
@@ -107,7 +107,7 @@ resource "chainguard_image_overlay" "internal_ca" {
 }
 ```
 
-The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/overlays/#supported-customizations).
+The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, refer to [Supported customizations](/chainguard/containers/custom-assembly/overlays/overview/#supported-customizations).
 
 ## Bind overlays to tags
 
@@ -169,7 +169,7 @@ To remove a customization, delete the binding resource from your configuration a
 
 ## Learn more
 
-* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
 * [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
