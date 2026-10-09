@@ -1,10 +1,10 @@
 ---
-title: "Browsing Chainguard Libraries"
-linktitle: "Browsing"
-description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
+title: "Browsing and requesting Chainguard Libraries"
+linktitle: "Browsing and requesting"
+description: "Searching, browsing, inspecting, and requesting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T16:56:44+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -112,7 +112,7 @@ Some signals describe confirmed malicious behavior, while others describe greywa
 * **Compromised or untrusted releases**: The package exhibits signs that a release cannot be trusted.
     * Signals: Signs of maintainer account compromise, No trusted provenance or signed release, Published with a legacy token (not OIDC), Release integrity anomaly, Anomalous release change, Anomalous package contents, Weak build-pipeline security, Untrusted dependency source
 
-## Library page
+## View a library page
 
 To access a library page, click on the row for a specific library in the search
 results or the [initial library list](#initial-display).
@@ -132,6 +132,51 @@ The list of library versions includes the following columns:
 * **Built** - The date when this version was built and published by Chainguard.
 
 Click on the column titles to change the **sort** order of the list.
+
+## Request Chainguard Libraries in the Console
+
+{{< beta feature="Chainguard Libraries Requests in the Console" >}}
+
+Use the **Requests** page in the Console to check library availability, request builds for Python and Java libraries that are not yet available from Chainguard, and track request progress from one place.
+
+The beta supports up to 10,000 packages per request. You must have a Libraries entitlement and access to the beta for your organization. Only owners and administrators can submit requests. All organization users can view request status.
+
+Before you begin:
+
+* Prepare a dependency file for the ecosystem you want to request, using one of the supported file formats:
+    * Python: `requirements.txt`, `poetry.lock`, `uv.lock`
+    * Java: A text file containing a list of Maven coordinates in `group:artifact:version` format.
+
+### Submit a library request
+
+1. In the Chainguard Console, click **Requests** on the left.
+1. Select the **Python** or **Java** tab, then click **New Request** and upload a dependency file.
+1. Review the availability report. The report shows which packages are already built by Chainguard, which can be requested, and which cannot be requested.
+1. Optionally select the option to request CVE remediation. This queues asynchronous scans for high and critical CVEs and may request remediation for eligible versions.
+1. Click **Submit request**.
+
+After submitting the request, it appears in your organization's **My requests** view. Chainguard automatically attempts to build any newly requested libraries when possible.
+
+### Tracking requests
+
+After you submit a request, track its progress in the **My requests** view. Each request shows a build status:
+
+| Built status | Meaning |
+|--------------|---------|
+| Reviewing    | The request was submitted, but a build has not started. |
+| In progress  | One or more requested versions have been built. |
+| Complete      | All requested versions have been built. |
+| Won't build   | Chainguard cannot build the requested library or version. The reason is shown in the library details. |
+
+CVE remediation status appears when you opt in to remediation during submission:
+
+| Remediation status | Meaning |
+|--------------|---------|
+| Reviewing    | The request was submitted, but scanning has not started. |
+| In progress  | Scanning is complete and remediation work is underway. |
+| No high/critical CVEs detected      | No High or Critical CVEs were found. |
+| Complete      | One or more CVEs were remediated. |
+| Won't remediate   | Chainguard cannot remediate the request. The reason is shown in the library details. |
 
 ## View repository configuration in the Chainguard Console
 
