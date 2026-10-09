@@ -1,5 +1,5 @@
 ---
-date: 2026-10-07T14:01:35Z
+date: 2026-10-08T18:22:10Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -74,7 +74,8 @@ Customizable sections:
 
   environment
     Set environment variables that will be available in the image. Variables
-    with the 'CHAINGUARD_' prefix are reserved and cannot be used.
+    with the 'CHAINGUARD_' or 'GUARDED_' prefix are reserved and cannot be
+    used.
 
   annotations
     Add custom OCI annotations to the image for tracking build information,
@@ -94,6 +95,46 @@ Customizable sections:
     can be combined and all certificates are merged together.
     NOTE: This is a Beta feature that requires enrollment. Contact your Customer
     Success Team to enable this feature.
+
+  guarded_entrypoint
+    Set to true to wrap the image entrypoint with /usr/bin/guarded-entrypoint
+    when the image is rebuilt. At container start the wrapper replaces each
+    environment value written as a secret reference (cg+BACKEND://REF, for
+    example cg+gsm://projects/acme/secrets/db/versions/latest) with the
+    secret, runs any preflight checks, and then starts the app.
+    preflight, fail_mode, and command_override require guarded_entrypoint:
+    true in the same manifest.
+    NOTE: Guarded Entrypoint, including preflight, fail_mode, and
+    command_override, is a Beta feature. Contact Chainguard customer support
+    to get access.
+
+  preflight
+    Readiness checks the wrapper runs before starting the app, up to 32. Each
+    entry sets exactly one of tcp (a host:port to dial) or path (a file that
+    must exist), and optionally timeout (default 30s), interval (default
+    500ms), and on_failure: fail (the default; the container does not start)
+    or continue (the failure is logged). tcp and path expand ${VAR} from the
+    resolved environment and cannot contain ',' or '='.
+
+  fail_mode
+    What the wrapper does when a secret reference cannot be resolved: closed
+    (the default) stops the container; open logs the failure and starts the
+    app anyway.
+
+  command_override
+    What the wrapper starts after preparing the environment. In default mode
+    it runs command only when it receives no arguments at all (the image has
+    no ENTRYPOINT or CMD and none are passed at run time), and otherwise runs
+    the arguments it received; prepend runs command followed by those
+    arguments; override runs command and drops them. prepend and override
+    require a command. Each command entry expands ${VAR} from the resolved
+    environment; an unset ${VAR} stops the container instead of expanding
+    to empty. Write $$ for a literal $, for example $${PORT:-8080} to leave
+    ${PORT:-8080} for a shell. The command is stored in the image config,
+    which anyone who can pull the image can read, so never write a secret
+    into it; set it in environment as a cg+BACKEND://REF reference. An
+    expanded ${VAR} is visible in the process's command line, so prefer an
+    app that reads the secret from its environment.
 
 Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
 as part of the Custom Assembly tool, other than the personal data that Chainguard collects in
@@ -143,6 +184,29 @@ chainctl images repos build edit --repo=my-custom-python --with-runtime-keys=key
 
 # Combine file-based config with certificates
 chainctl images repos build edit --file=config.yaml --with-certificates=internal-ca.pem
+
+# Wrap the entrypoint with guarded-entrypoint from a --file manifest.
+# At start the wrapper resolves DB_PASSWORD from Secret Manager, waits
+# for the cache, and runs the command. The wrapper expands ${CACHE_HOST};
+# $${PORT:-8080} reaches the shell as ${PORT:-8080}. The sh -c form needs
+# an image with a shell; in a shell-less image, list the program directly,
+# as in [python, /app/main.py].
+#
+#   guarded_entrypoint: true
+#   environment:
+#     DB_PASSWORD: cg+gsm://projects/acme/secrets/db/versions/latest
+#     CACHE_HOST: redis
+#   fail_mode: closed
+#   preflight:
+#     - tcp: ${CACHE_HOST}:6379
+#       timeout: 60s
+#   command_override:
+#     mode: override
+#     command:
+#       - sh
+#       - -c
+#       - exec my-app --cache ${CACHE_HOST} --port $${PORT:-8080}
+chainctl images repos build edit --repo=my-custom-app --file=config.yaml
 
 ```
 
