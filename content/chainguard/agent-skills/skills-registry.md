@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T23:38:36+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -25,7 +25,7 @@ This guide walks through enabling the registry for your organization, then uploa
 
 To follow this guide, you need:
 
-* `chainctl` **v0.2.364** or later, installed and authenticated. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* `chainctl` **v0.2.376** or later, installed and authenticated. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 
@@ -128,9 +128,10 @@ chainctl skills validate hello-world
      SKILL.md
 
 Validation passed.
+This checks format only, not authenticity. To check that Chainguard signed a published skill, run `chainctl skills verify <ref>`.
 ```
 
-`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes.
+`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes. `validate` checks format only. It doesn't check who published a skill. To check that, verify the hardened skill's signature, as described in [Verify the skill](#verify-the-skill).
 
 To also flag optional fields that Chainguard recommends, add the `--strict` flag:
 
@@ -149,6 +150,7 @@ chainctl skills validate hello-world --strict
 ⚠  license field is recommended
 
 Validation passed.
+This checks format only, not authenticity. To check that Chainguard signed a published skill, run `chainctl skills verify <ref>`.
 ```
 
 Here, `--strict` warns that the skill omits the recommended `license` field. Warnings don't cause validation to fail, but addressing them produces a more complete skill.
@@ -221,6 +223,16 @@ Without `--recursive`, the organization-level listing may show only a `users` ro
 
 The listing includes skills with generated version tags and skills without tags. Use the exact `$HARDENED_REF` returned by the job to inspect and install the result you reviewed.
 
+### Verify the skill
+
+Chainguard signs every hardened skill it publishes to your organization's registry. Check that signature with the `verify` subcommand:
+
+```shell
+chainctl skills verify "$HARDENED_REF"
+```
+
+A `Status` of `verified` confirms that Chainguard signed the skill for your organization and that it hasn't changed since. Verifying a skill in your organization requires the `viewer` role or higher on the organization. For what `verify` checks, its other results, and how to verify with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
+
 ### Install the skill
 
 Download and install the skill to make it available to agents on your machine:
@@ -236,6 +248,12 @@ export INSTALLED_SKILL='<install-name-from-describe>'
 ```
 
 By default, `install` writes one shared copy to `.agents/skills/` and symlinks each agent's skills directory to it, so every agent reads the same files. Add `--copy` to give each agent its own copy, `--global` to install under your home directory instead of the current project, or `--agent` to target specific agents instead of every detected one.
+
+To check the signature as part of the install, add `--verify`. `install` then verifies the exact digest it fetches and installs nothing unless the skill is `verified`:
+
+```shell
+chainctl skills install --verify "$HARDENED_REF"
+```
 
 ### Run the skill from an agent
 
@@ -292,6 +310,8 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 | Check a hardening job | `chainctl skills status --group your-organization --id "$JOB_ID"` |
 | List hardened skills in all folders | `chainctl skills list --group your-organization --recursive` |
 | Describe a hardened skill | `chainctl skills describe "$HARDENED_REF"` |
+| Verify a hardened skill's signature | `chainctl skills verify "$HARDENED_REF"` |
 | Install a hardened skill | `chainctl skills install "$HARDENED_REF"` |
+| Install only if the signature verifies | `chainctl skills install --verify "$HARDENED_REF"` |
 | Uninstall a skill | `chainctl skills uninstall "$INSTALLED_SKILL"` |
 | Delete a published version | `chainctl skills delete "$HARDENED_REPO:$HARDENED_TAG"` |

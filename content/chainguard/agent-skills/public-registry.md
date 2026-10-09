@@ -6,7 +6,7 @@ aliases:
 description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T23:38:36+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -19,13 +19,13 @@ weight: 30
 
 Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.
 
-This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
+This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, verifying its signature, installing it, and running it with an agent.
 
 {{< beta feature="Chainguard Agent Skills" >}}
 
 ## Prerequisites
 
-To follow this guide, you need `chainctl` **v0.2.364** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+To follow this guide, you need `chainctl` **v0.2.376** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
 Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
@@ -128,6 +128,32 @@ Hardened by the multi-model harden pipeline. The per-model fix plans, cross-mode
 
 The report pins the exact upstream `sha` Chainguard hardened from, the outcome of the run, and whether the hardened overlay changed the skill's `SKILL.md`. Skills are hardened by a multi-model pipeline whose per-model fix plans and reconciled synthesis are recorded for the run, so you can trace exactly what was inspected and changed.
 
+## Verify a skill's signature
+
+Chainguard signs every skill in the public registry, and the signature covers the skill's files, including `HARDENING.md`. To check that Chainguard signed a skill and that it hasn't changed since, use the `verify` subcommand:
+
+```shell
+chainctl skills verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
+```
+
+```output
+   FIELD   |                                        VALUE
+-----------|--------------------------------------------------------------------------------------
+ Status    | verified
+ Digest    | sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f
+ Identity  | https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a
+ Issuer    | https://issuer.enforce.dev
+ Log Index | 141100935
+```
+
+To verify a skill as you fetch it, add `--verify` to `pull` or `install`. The command then checks the exact digest it fetches and writes nothing unless the skill is `verified`:
+
+```shell
+chainctl skills pull --verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest ./game-engine
+```
+
+For what `verify` checks, its other results, and how to verify a skill with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
+
 ## Install a skill
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
@@ -180,7 +206,9 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 | ----- | ----- |
 | List skills | `chainctl skills list --group public --recursive` |
 | Describe a skill | `chainctl skills describe skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
+| Verify a skill's signature | `chainctl skills verify skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
 | Pull a skill | `chainctl skills pull skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag> <dir>` |
+| Pull or install only if the signature verifies | Add `--verify` to `pull` or `install` |
 | Install a skill | `chainctl skills install skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
 | Uninstall a skill | `chainctl skills uninstall <install-name>` |
 
