@@ -87,9 +87,9 @@ In order to build customized container images, you must have the appropriate per
 
 As of this writing, only one of Chainguard's three main default roles (`viewer`, `editor`, and `owner`) has these capabilities: the `owner` role.
 
-This means that in order to use Custom Assembly (including `--save-as`), your account must be bound to the `owner` role, or to a custom role that also has the `repo.update` and `repo.create` capabilities.
+This means that in order to use Custom Assembly, your account must be bound to the `owner` role, or to a custom role with the capability for the operation you need: `repo.create` to create a new customized repository with `--save-as`, and `repo.update` to customize an existing repository in place. A role that does both needs both capabilities.
 
-To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, but with the added `repo.update` and `repo.create` capabilities:
+To create such a custom role, you can use the `chainctl iam roles create` command. The following example creates a custom role named `ca-role` with all the same capabilities as the `viewer` role, plus `repo.create` and `repo.update` so it can both create new customized repositories and edit existing ones:
 
 ```shell
 chainctl iam roles create ca-role --capabilities=repo.create,repo.update,build_report.list,account_associations.list,apk.list,group_invites.list,groups.list,identity.list,identity_providers.list,libraries.artifacts.list,libraries.entitlements.list,manifest.list,manifest.metadata.list,record_signatures.list,registry.entitlements.list,repo.list,roles.list,sboms.list,subscriptions.list,tag.list,version.list,vuln_report.list,vuln_reports.list
