@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Start a free trial of Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -146,3 +146,4 @@ The `delete` command asks you to confirm, then destroys the session's VM and its
 - [Manage sessions](/chainguard/workspaces/manage-sessions/) covers multiple sessions, keeping a session running while you're away, and the session menu.
 - [Configure a session's environment](/chainguard/workspaces/session-environment/) explains how to choose the packages and network access a session gets.
 - [Manage session credentials](/chainguard/workspaces/credentials/) explains what a session can reach and how to change it.
+- Ask questions in the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).

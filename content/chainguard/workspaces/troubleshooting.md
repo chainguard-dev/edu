@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces sessions, including sessions that won't open, missing changes, Claude Code errors, and failed pushes."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 weight: 70
 ---
 
-This page describes common problems with Chainguard Workspaces sessions and how to fix them. If your problem isn't listed here, contact your Chainguard account team or email [support@chainguard.dev](mailto:support@chainguard.dev).
+This page describes common problems with Chainguard Workspaces sessions and how to fix them. If your problem isn't listed here, ask in the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
 
 ## chainctl doesn't list the develop command
 

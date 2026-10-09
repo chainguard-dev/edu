@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -74,6 +74,10 @@ During the beta, Chainguard Workspaces has the following limits:
 - By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk. The `/tmp` directory is held in memory and is limited to 4 GB, so put large files under `/var/tmp` instead.
 - A session can't forward ports to your laptop.
 - A free trial lasts 30 days and includes 500 vCPU-hours of Workspaces. During the trial, each user can have one session at a time, including a parked one, and the organization can have three. Each organization can start one trial.
+
+## Get help
+
+To ask questions or get support, use the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw). If you aren't a member yet, the link invites you to join.
 
 ## Next steps
 
