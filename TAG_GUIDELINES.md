@@ -24,6 +24,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 
 - **Chainguard Containers** - For all container/image content
 - **Chainguard Libraries** - For library-specific content
+- **Chainguard Checks** - Chainguard Checks and `.chainguard/ci.yaml` configuration
 - **Chainguard Factory** - Factory platform documentation
 - **chainctl** - CLI tool documentation
 - **Chainguard OS** - Operating system documentation
