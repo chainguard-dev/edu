@@ -226,7 +226,7 @@ After saving and confirming these changes, Custom Assembly will add these five c
 
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard. The `GUARDED_` prefix is reserved too.
 
-To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. Refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
 
 ## Custom runtime repositories
 
@@ -417,7 +417,7 @@ For more information, refer to [chainctl images repos build apply](/platform/cha
 
 ## Customizing specific tags
 
-The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 ## Learn more
 

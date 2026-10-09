@@ -1,5 +1,5 @@
 ---
-title: "Managing Custom Assembly Overlays with chainctl"
+title: "Manage Custom Assembly Overlays with chainctl"
 linktitle: "Manage overlays with chainctl"
 type: "article"
 description: "How to use chainctl to create overlays and bind them to specific tags of a repository, or to every repository in an organization or folder."
@@ -20,7 +20,7 @@ toc: true
 
 This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags, or to every repository in your organization or a folder. You create an overlay that holds the customizations, then bind it with a tag selector.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+For an explanation of overlays, bindings, and tag selectors, refer to [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Every `attach` command takes exactly one tag selector: `--tag` for specific tags
 
 Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
 
-To check on the builds, see [Check the results](#check-the-results).
+To check on the builds, refer to [Check the results](#check-the-results).
 
 ## Add packages to every `-dev` tag
 
@@ -122,7 +122,7 @@ chainctl images overlays attach \
   --all
 ```
 
-The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
+The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, refer to [Version templates in package names](/chainguard/containers/custom-assembly/overlays/overview/#version-templates-in-package-names).
 
 ## Add other customizations
 
@@ -200,7 +200,7 @@ chainctl images overlays attach \
   --all
 ```
 
-An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, see [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/#how-overlapping-bindings-combine).
+An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, refer to [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/overview/#how-overlapping-bindings-combine).
 
 You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
 
@@ -317,7 +317,7 @@ If the overlay is still bound to a repository, `delete` fails and lists the bind
 
 ## Check the results
 
-Bindings and overlay updates start builds automatically. To see the builds for a repository and the tags each build produced, run the following command:
+Bindings and overlay updates start builds automatically. To list the builds for a repository and the tags each build produced, run the following command:
 
 ```shell
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
@@ -329,10 +329,10 @@ The following command shows a build's logs, including the configuration Chaingua
 chainctl images repos build logs --repo $REPO --parent $ORGANIZATION
 ```
 
-If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, see [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
+If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, refer to [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
 
 ## Learn more
 
-* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
-* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
+* [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
