@@ -124,9 +124,10 @@ jobs:
     - name: Scan the bundle for credentials
       run: |
         # The bundle is published publicly, so check it before it leaves the
-        # runner. compile_docs.py redacts the key formats it knows about; this
-        # catches the ones it does not. Report line numbers only, so a
-        # suspected key never lands in a public workflow log.
+        # runner. compile_docs.py replaces Tailscale tskey-client- example
+        # keys; this step catches AWS access keys, GitHub tokens (ghp_, ghs_),
+        # and sk- keys. Report line numbers only, so a suspected key never
+        # lands in a public workflow log.
         bundle=static/downloads/chainguard-complete-docs.md
         pattern='(AKIA[0-9A-Z]{16}|ghp_[0-9a-zA-Z]{36}|ghs_[0-9a-zA-Z]{36}|sk-[0-9a-zA-Z]{48})'
 
