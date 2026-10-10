@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-09 02:30:42_
+_Compiled on: 2026-10-10 02:29:10_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -4476,6 +4476,12 @@ the attestation was signed by Chainguard.
 
 ### Retrieve SBOMs
 
+To save the available SPDX SBOM and verified SLSA provenance bundle during
+verification, use `chainctl libraries verify --output-attestations` with
+`--output-dir`. Refer to [Download JavaScript SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-javascript-sboms-and-attestations)
+for examples, output paths, and the trust status of each file.
+
 Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format.
 
 To check whether an SBOM is available for a package, use npm show with the dist.sboms field:
@@ -6105,6 +6111,13 @@ the following examples as necessary.
 
 ## File analysis
 
+To save available Software Bills of Materials (SBOMs) and attestations while
+verifying Java artifacts, JavaScript packages, or Python wheels, add
+`--output-attestations`. Use `--output-dir` to choose the base directory, which
+defaults to the current directory. Only packages verified as Chainguard builds
+produce companion files. The verification report lists the saved files and their
+trust status in text, JSON, YAML, and CSV output.
+
 > **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
 ### Analyze a Python wheel file
@@ -6139,6 +6152,38 @@ For CI/CD, use JSON output to save a machine-readable report:
 ```bash
 chainctl libraries verify --detailed -o json .venv/ > provenance-report.json
 ```
+
+#### Download Python SBOMs and attestations
+
+Save the available companions for a verified wheel:
+
+```sh
+chainctl libraries verify flask-3.0.1-py3-none-any.whl \
+  --output-attestations --output-dir attestations
+```
+
+Files are saved under the normalized package name and version. For the preceding
+command, the directory is `attestations/flask/3.0.1/`, with these files when
+available:
+
+- `flask-3.0.1-py3-none-any.whl.signature-bundle.json` — The exact Sigstore bundle
+  used to verify the wheel.
+- `flask-3.0.1-py3-none-any.whl.pep740-attestation.json` — PEP 740 provenance.
+  Before saving it as trusted, `chainctl` independently verifies its signature,
+  the Chainguard Python signer identity and issuer, and the wheel's SHA-256
+  digest as an attested subject.
+- `flask-3.0.1-py3-none-any.whl.sbom.spdx.json` — The SPDX SBOM extracted from the
+  verified wheel's top-level `.dist-info/sboms/` directory.
+
+The full wheel filename distinguishes companions for different platform and
+Python builds of the same package version. Remediated versions with a `+cgr`
+suffix also support downloads. Legacy signature bundles served from the
+provenance endpoint do not produce a PEP 740 file.
+
+Downloads require a wheel file. An installed Python environment or a source
+distribution does not produce companion files. For details about the formats,
+refer to [SBOM and attestation
+files](/chainguard/libraries/python/overview/#sbom-and-attestation-files).
 
 ### Analyze a Java JAR file
 
@@ -6294,10 +6339,8 @@ and saved individually, so only the verified libraries contribute files. The
 saved files are listed in the text, JSON, YAML, and CSV output, with unverified
 files clearly marked.
 
-Downloading SBOMs and attestations is supported for Java artifacts only. The
-`--output-attestations` and `--output-dir` flags are ignored for all other
-ecosystems, and nothing is written for them. For a description of these files
-and the alternative of downloading them directly, refer to [SBOM and attestation
+For a description of these files and the alternative of downloading them
+directly, refer to [SBOM and attestation
 files](/chainguard/libraries/java/overview/#sbom-and-attestation-files).
 
 ### Analyze JavaScript packages
@@ -6400,6 +6443,46 @@ chainctl libraries verify package-lock.json
 Supported lockfiles include `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
 
 This command verifies what the lockfile claims will be installed. It does not verify the package bytes present on disk.
+
+#### Download JavaScript SBOMs and attestations
+
+Save the available companions for a verified npm tarball:
+
+```sh
+chainctl libraries verify lodash-4.17.21.tgz \
+  --output-attestations --output-dir attestations
+```
+
+Files are saved under `name/version/`, or `@scope/name/version/` for scoped
+packages. For the preceding command, the directory is
+`attestations/lodash/4.17.21/`, with these files when available:
+
+- `lodash-provenance-4.17.21.sigstore` — The exact signed SLSA provenance bundle
+  verified against the package's integrity digest and Chainguard signer identity.
+- `lodash-sbom-4.17.21.spdx.json` — The SPDX SBOM retrieved from the authenticated
+  Chainguard SBOM endpoint. `chainctl` reports it as trusted based on that
+  endpoint. The npm provenance does not cryptographically bind the SBOM's bytes.
+
+The flags also work for npm caches, pnpm stores, Yarn Classic caches, installed
+`node_modules` directories, and supported JavaScript lockfiles. For example,
+save companions while verifying the dependencies recorded in a lockfile:
+
+```sh
+chainctl libraries verify package-lock.json \
+  --output-attestations --output-dir attestations
+```
+
+For lockfiles, downloads require verified provenance that identifies the package
+the lockfile will install. Ambiguous entries with multiple candidate integrity
+hashes do not produce companion files unless the resolved URL identifies the
+Chainguard build.
+
+Missing SBOMs are skipped. If the verified provenance bundle cannot be read,
+`chainctl` warns and skips downloads for that package. If saving a later
+companion fails, the report still lists successfully saved files with a warning.
+
+For manual retrieval, refer to [Provenance and
+attestations](/chainguard/libraries/javascript/overview/#provenance-and-attestations).
 
 #### Verify a container image
 
@@ -9941,6 +10024,12 @@ Chainguard Libraries for Python include files that contain software bill of
 material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
+
+To save the available signature bundle, verified PEP 740 provenance, and
+embedded SPDX SBOM while verifying a wheel, use `chainctl libraries verify
+--output-attestations` with `--output-dir`. Refer to [Download Python SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-python-sboms-and-attestations)
+for examples and output paths.
 
 ### Embedded SBOMs
 
@@ -38334,7 +38423,7 @@ Custom Assembly only allows you to add packages into a given container image; yo
 
 The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
-By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
@@ -38912,7 +39001,7 @@ For more information, refer to [chainctl images repos build apply](/platform/cha
 
 ## Customizing specific tags
 
-The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 ## Learn more
 
@@ -39829,11 +39918,11 @@ When an added package is updated and available, your Custom Assembly image is re
 
 ## Can I customize only some of a repository's tags?
 
-Yes. With [tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
+Yes. With [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. You can also bind an overlay to every repository in your organization or a folder. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
 
-## Can I use standard and tag-based Custom Assembly on the same repository?
+## Can I use standard Custom Assembly and overlays on the same repository?
 
-No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To change that repository's customizations, update its overlays and bindings with `chainctl` or Terraform. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
+No. A repository uses one or the other. If a repository has overlay bindings, adding a standard customization fails, including from the Chainguard Console. To change that repository's customizations, update its overlays and bindings with `chainctl` or Terraform. To move a repository from standard Custom Assembly to overlays, contact your Chainguard account team.
 
 ## Custom Assembly troubleshooting
 
@@ -39927,21 +40016,20 @@ For more advanced workflows or automation, consider exploring the [`chainctl` CL
 
 ---
 
-### Managing tag-based Custom Assembly with chainctl
-_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl.md_
+### Managing Custom Assembly Overlays with chainctl
+_Path: chainguard/containers/custom-assembly/overlays/chainctl.md_
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" >}}
 
-This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags. You create an overlay that holds the customizations, then bind it to a repository with a tag selector.
+This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags, or to every repository in your organization or a folder. You create an overlay that holds the customizations, then bind it with a tag selector.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
 
 ## Prerequisites
 
 Before you start, you need the following:
 
-* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
-* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.367 or later. Run `chainctl update` to update it.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.379 or later. Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.
 
@@ -39983,6 +40071,8 @@ This example adds `py3.13-typer` to the Python 3.13 tags only, so the other Pyth
     ```output
     attached overlay "typer" to repo 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80 (binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21, selector EXACT [3.13 3.13-dev])
     ```
+
+Every `attach` command takes exactly one tag selector: `--tag` for specific tags, `--variant` for every tag of a variant, or `--all` for every tag. The next sections show the other two selectors.
 
 Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
 
@@ -40035,7 +40125,7 @@ chainctl images overlays attach \
   --all
 ```
 
-The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
+The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
 
 ## Add other customizations
 
@@ -40061,6 +40151,18 @@ chainctl images overlays create internal-ca --parent $ORGANIZATION -f internal-c
 
 If you pass both `-f` and `--package`, `chainctl` uses the file and ignores `--package`.
 
+For certificates, runtime repositories, and runtime keys, you can skip the YAML file and pass files or URLs directly with the following flags. They merge into whatever `--package` or `-f` defines:
+
+* `--with-certificates`: a comma-separated list of files to read custom certificates from.
+* `--with-runtime-repositories`: a comma-separated list of runtime APK repository URLs to write to `/etc/apk/repositories` in the image.
+* `--with-runtime-keys`: a comma-separated list of files to read APK signing public keys from. Each file becomes a key in `/etc/apk/keys` named after the file's basename, which must match the filename referenced by the repository's `APKINDEX` signature (`.SIGN.RSA256.<name>`).
+
+For example, the following command creates an overlay that carries certificates from a PEM bundle, with no YAML file:
+
+```shell
+chainctl images overlays create internal-ca --parent $ORGANIZATION --with-certificates ca-bundle.pem
+```
+
 An overlay belongs to your organization, so you can bind it to many repositories. The following loop binds `internal-ca` to every tag of three repositories:
 
 ```shell
@@ -40069,7 +40171,39 @@ for repo in python node go; do
 done
 ```
 
-Each repository gets its own binding, and each binding starts a rebuild of that repository.
+Each repository gets its own binding, and each binding starts a rebuild of that repository. To cover every repository without naming them, use an [all-repos binding](#apply-an-overlay-to-every-repository) instead.
+
+To attach several overlays in one command, separate their names with commas. Each overlay gets its own binding with the same selector:
+
+```shell
+chainctl images overlays attach --overlay internal-ca,cryptography --repo $REPO --parent $ORGANIZATION --all
+```
+
+## Apply an overlay to every repository
+
+To apply an overlay to every repository in your organization, pass `--all-repos` instead of `--repo`:
+
+```shell
+chainctl images overlays attach \
+  --overlay internal-ca \
+  --all-repos \
+  --parent $ORGANIZATION \
+  --all
+```
+
+The binding also covers repositories created after you run the command, so new repositories get the customization automatically. As with any binding, choose the tags with `--all`, `--variant`, or `--tag`.
+
+To cover one folder instead of the whole organization, name the folder in `--parent`:
+
+```shell
+chainctl images overlays attach \
+  --overlay hardening \
+  --all-repos \
+  --parent $ORGANIZATION/golden-images \
+  --all
+```
+
+An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, see [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/#how-overlapping-bindings-combine).
 
 You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
 
@@ -40108,7 +40242,7 @@ Each binding's `id` is its binding ID. You need it to change or remove the bindi
 
 To change an overlay's customizations, run `update` with the overlay's name or ID. The packages or file you pass replace the overlay's existing customizations completely, so include everything the overlay should contain.
 
-> **Note**: `--package` replaces the whole overlay, not only its packages. If you created the overlay from a file, for example with certificates or environment variables, running `update` with `--package` removes those customizations. To keep them, update the file and pass it with `-f`.
+> **Note**: `--package` replaces the whole overlay, not only its packages. If you created the overlay from a file, for example with certificates or environment variables, running `update` with `--package` removes those customizations. To keep them, update the file and pass it with `-f`. The `--with-certificates`, `--with-runtime-repositories`, and `--with-runtime-keys` flags behave differently: passed on their own, they merge into the overlay's existing customizations instead of replacing them.
 
 The following command replaces the packages in the `typer` overlay:
 
@@ -40202,44 +40336,45 @@ If a package can't be installed on a tag, that tag's build fails and the logs na
 
 ## Learn more
 
-* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
+* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
 
 ---
 
-### Overview of tag-based Custom Assembly
-_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/_index.md_
+### Overview of Custom Assembly Overlays
+_Path: chainguard/containers/custom-assembly/overlays/_index.md_
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" >}}
 
 Standard [Custom Assembly](/chainguard/containers/custom-assembly/overview/) applies one customization to every tag in a repository. This fails for images that ship several language or runtime versions side by side, because a package built for one version can't install on the others.
 
 For example, the `python` image publishes tags for Python 3.11, 3.12, 3.13, and 3.14. The `py3.13-typer` package depends on Python 3.13. If you add it with standard Custom Assembly, every tag tries to install it, and the 3.11, 3.12, and 3.14 builds fail.
 
-Tag-based Custom Assembly lets you choose which tags receive a customization. For example, you can do the following:
+Custom Assembly Overlays let you choose which tags, and which repositories, receive a customization. For example, you can do the following:
 
 * Add a package to specific tags, such as `3.13` and `3.13-dev`.
 * Add debugging tools to every `-dev` tag and keep the other tags minimal.
 * Add a package to every tag, with the package name matched to each tag's Python version.
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
+* Apply a customization to every repository in your organization or in a folder, including repositories created later.
 
-This page explains the concepts. To create and manage customizations, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/) or [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/).
+This page explains the concepts. To create and manage customizations, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/) or [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/).
 
 ## Overlays and bindings
 
-Tag-based Custom Assembly splits a customization into two resources:
+Custom Assembly Overlays split a customization into two resources:
 
 * An **overlay** is a named, reusable set of customizations, such as packages, environment variables, annotations, user accounts, certificates, and runtime repositories. An overlay belongs to your organization, not to a repository, and on its own it changes nothing.
-* A **binding** attaches one overlay to one repository and selects which of that repository's tags the overlay applies to.
+* A **binding** attaches one overlay to one repository, or to every repository under an organization or folder, and selects which tags the overlay applies to.
 
-To apply an overlay to several repositories, create one binding for each repository.
+To apply an overlay to several repositories, create one binding for each repository, or create one [all-repos binding](#all-repos-bindings) that covers them all.
 
 When you create, update, or delete a binding, or update an overlay, Chainguard rebuilds the affected tags without waiting for a new upstream release. An overlay update rebuilds the matching tags in every repository the overlay is bound to. As with standard Custom Assembly, a build normally takes less than 20 minutes, and Chainguard rebuilds the customized tags whenever their packages are updated.
 
 ## Tag selectors
 
-Each binding has a tag selector, which chooses the tags the overlay applies to. A selector is one of three kinds:
+Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all`, `--variant`, or `--tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
 
 | Selector | Matches | Example use |
 | --- | --- | --- |
@@ -40257,15 +40392,31 @@ An exact selector matches tag names, not images. When `3.13` moves to a new rele
 
 Chainguard doesn't check that an exact tag exists when you create the binding. A mistyped tag name matches nothing, so no build runs for it.
 
+## All-repos bindings
+
+A binding normally attaches an overlay to one repository. An **all-repos binding** attaches it to every repository under an organization or a folder instead, including repositories created later. Use one to apply a customization, such as your organization's internal certificates, everywhere at once.
+
+An all-repos binding belongs to the organization or folder it covers, and it has a tag selector like any other binding. An overlay can have at most one all-repos binding per organization or folder. You can't change an all-repos binding's scope; to re-scope one, detach it and attach a new one.
+
+Folders nest, so a repository can be covered by several all-repos bindings at once: one on the organization and one on each folder above it. For example, an organization can bind a certificates overlay to every repository, and also bind a hardening overlay to its `golden-images` folder. Repositories in `golden-images` receive both.
+
+A repository can't opt out of an all-repos binding. To vary a setting for one repository, bind another overlay to that repository directly: the repository's own bindings take precedence, as described in the next section. All-repos bindings also don't apply to repositories that use standard Custom Assembly; those keep their standard customization.
+
 ## How overlapping bindings combine
 
-A tag can match more than one binding. For example, `latest-dev` matches an all binding, a dev variant binding, and an exact binding that lists `latest-dev`. When a tag matches several bindings, Chainguard layers them in this order:
+A tag can match more than one binding. For example, `latest-dev` matches an all binding, a dev variant binding, and an exact binding that lists `latest-dev`. When a tag matches several bindings, Chainguard layers them first by scope, from broadest to most specific:
+
+1. The organization's all-repos bindings.
+1. Each folder's all-repos bindings, outer folders before nested ones.
+1. The repository's own bindings.
+
+Within each scope, bindings layer by selector kind:
 
 1. All bindings.
 1. Variant bindings.
 1. Exact bindings.
 
-Packages and runtime repositories accumulate across layers. When two layers set the same environment variable, annotation, or other single value, the more specific layer wins: exact over variant, and variant over all.
+Packages and runtime repositories accumulate across layers. When two layers set the same environment variable, annotation, or other single value, the more specific layer wins: exact over variant, variant over all, and the repository's own bindings over any all-repos binding.
 
 For example, suppose a repository has the following bindings:
 
@@ -40285,7 +40436,7 @@ Chainguard adds these packages to each tag:
 
 You can bind several overlays to one repository with the same kind of selector. For example, you can bind a certificates overlay and a packages overlay to a repository, both with an all selector.
 
-Bindings of the same kind have no precedence order, so their overlays must not contradict each other. Chainguard rejects a binding if it matches a tag that another binding of the same kind also matches, and the two overlays set any of the following to different values:
+Bindings of the same kind in the same scope have no precedence order, so their overlays must not contradict each other. Chainguard rejects a binding if it matches a tag that another binding of the same kind in the same scope also matches, and the two overlays set any of the following to different values:
 
 * An environment variable
 * An annotation
@@ -40294,7 +40445,7 @@ Bindings of the same kind have no precedence order, so their overlays must not c
 
 Packages and runtime repositories never cause a binding conflict, because Chainguard combines them. Combined packages can still fail a build if the packages themselves are incompatible, for example if two of them install the same file. Chainguard also runs the conflict check when you update an overlay, against every repository the overlay is bound to.
 
-You can bind a given overlay to a repository only once.
+Bindings in different scopes never conflict, because scopes have a precedence order. You can bind a given overlay to a repository only once.
 
 ## Version templates in package names
 
@@ -40340,9 +40491,9 @@ Overlays don't support Chainguard-managed certificate bundles (`certificates.pro
 
 ## Limitations
 
-Tag-based Custom Assembly has the following limitations:
+Custom Assembly Overlays have the following limitations:
 
-* **One model per repository.** A repository can use standard or tag-based Custom Assembly, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard to tag-based Custom Assembly, contact your Chainguard account team.
+* **One model per repository.** A repository can use standard Custom Assembly or overlays, but not both. If a repository has one kind of customization, adding the other kind fails with the error `repository custom overlay and overlay binding not allowed`. To move a repository from standard Custom Assembly to overlays, contact your Chainguard account team.
 * **No Chainguard Console support.** Manage overlays and bindings with `chainctl`, Terraform, or the Chainguard API. The Console's Custom Assembly editor manages standard Custom Assembly only.
 * **A missing package fails the build.** If a package in an overlay can't be installed on a tag, that tag's build fails. Chainguard doesn't skip the package. The build logs name the package that failed.
 * **No removing base packages.** As with standard Custom Assembly, an overlay can add to an image but can't remove packages from the source image.
@@ -40358,27 +40509,28 @@ To create a custom role with these capabilities, see [Overview of roles and role
 
 ## Learn more
 
-* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
-* [Managing tag-based Custom Assembly with Terraform](/chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform/)
+* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
+* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 * [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)
 
 ---
 
-### Managing tag-based Custom Assembly with Terraform
-_Path: chainguard/containers/custom-assembly/tag-based-custom-assembly/terraform.md_
+### Managing Custom Assembly Overlays with Terraform
+_Path: chainguard/containers/custom-assembly/overlays/terraform.md_
 
-{{< beta feature="Tag-based Custom Assembly" enroll="true" >}}
+{{< beta feature="Custom Assembly Overlays" >}}
 
-This guide shows how to manage tag-based Custom Assembly with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
+This guide shows how to manage Custom Assembly Overlays with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/).
+For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+
+The provider doesn't support [all-repos bindings](/chainguard/containers/custom-assembly/overlays/#all-repos-bindings) yet; each binding resource names one repository. To bind an overlay to every repository in your organization or a folder, use [`chainctl`](/chainguard/containers/custom-assembly/overlays/chainctl/#apply-an-overlay-to-every-repository).
 
 ## Prerequisites
 
 Before you start, you need the following:
 
-* Tag-based Custom Assembly enabled for your organization. Contact your Chainguard account team to enable it.
 * Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
 * An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
@@ -40431,7 +40583,7 @@ resource "chainguard_image_overlay" "debug_tools" {
 }
 ```
 
-Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#version-templates-in-package-names).
+Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
 
 To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, see the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
 
@@ -40458,7 +40610,7 @@ resource "chainguard_image_overlay" "internal_ca" {
 }
 ```
 
-The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/tag-based-custom-assembly/#supported-customizations).
+The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/overlays/#supported-customizations).
 
 ## Bind overlays to tags
 
@@ -40520,8 +40672,8 @@ To remove a customization, delete the binding resource from your configuration a
 
 ## Learn more
 
-* [Overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/)
-* [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
+* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
 
@@ -40771,7 +40923,7 @@ The tags named in the message aren't rebuilt until you resolve the refusal. A ta
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
 * Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
-* With tag-based Custom Assembly, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
+* With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
 To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 
@@ -41006,7 +41158,7 @@ The image's ENTRYPOINT and CMD are the same in every mode. The mode only changes
 
 The wrapper looks up the first element of `command` on the container's `PATH`. Use an absolute path when the lookup matters.
 
-An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use tag-based Custom Assembly, it cancels the override from a broader binding.
+An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use Custom Assembly Overlays, it cancels the override from a broader binding.
 
 `command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. See also [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
@@ -41230,13 +41382,13 @@ To replace the whole overlay with exactly what you send, add `?update_mask=custo
 
 The API validates the request with the rules in [API errors](#api-errors).
 
-## Use Guarded Entrypoint with tag-based Custom Assembly
+## Use Guarded Entrypoint with Custom Assembly Overlays
 
-An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of tag-based Custom Assembly](/chainguard/containers/custom-assembly/tag-based-custom-assembly/) for overlays, bindings, and tag selectors.
+An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/) for overlays, bindings, and tag selectors.
 
-Tag-based Custom Assembly is a separate feature with its own enrollment. To use Guarded Entrypoint on overlays and bindings, your organization needs both features enabled. Contact your Chainguard account team to enable tag-based Custom Assembly. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
+Guarded Entrypoint has its own enrollment, separate from Custom Assembly Overlays. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
 
-A repo uses its own configuration or overlay bindings, not both. The tag-based examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
+A repo uses its own configuration or overlay bindings, not both. The overlay examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
 
 Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
 
@@ -41261,7 +41413,7 @@ chainctl images overlays attach \
   --all
 ```
 
-For the other selectors, see [Managing tag-based Custom Assembly with chainctl](/chainguard/containers/custom-assembly/tag-based-custom-assembly/chainctl/).
+For the other selectors, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
 
@@ -41368,7 +41520,7 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
-| Overlay or binding path: organization is not enrolled in tag-based Custom Assembly | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
+| Overlay or binding path: organization is not enrolled in Custom Assembly Overlays | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
 | Overlay or binding path: the repo has its own configuration, or a repo with bindings gets one | `FailedPrecondition` | `repository custom overlay and overlay binding not allowed` |
 | Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, and fail_mode` |
 | Overlay path: `config` sets nothing | `InvalidArgument` | `config must set at least one customization field` |
@@ -56840,7 +56992,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-07T14:01:49.588901566Z
+Ce-Time: 2026-10-08T18:22:23.42357289Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -56870,7 +57022,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-07T14:01:49.587257"
+    "when": "2026-10-08T18:22:23.422671"
   }
 }
 
@@ -56893,7 +57045,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-07T14:01:49.587496004Z
+Ce-Time: 2026-10-08T18:22:23.422911111Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -56922,7 +57074,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-07T14:01:49.587234"
+    "when": "2026-10-08T18:22:23.422325"
   }
 }
 
@@ -56945,7 +57097,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-07T14:01:49.606614882Z
+Ce-Time: 2026-10-08T18:22:23.436040192Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -56985,7 +57137,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-07T14:01:49.60776722Z
+Ce-Time: 2026-10-08T18:22:23.440646359Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -57023,7 +57175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-07T14:01:49.607989779Z
+Ce-Time: 2026-10-08T18:22:23.44082622Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -57062,7 +57214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-07T14:01:49.589398101Z
+Ce-Time: 2026-10-08T18:22:23.426266193Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -57103,7 +57255,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-07T14:01:49.589611451Z
+Ce-Time: 2026-10-08T18:22:23.426470207Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57140,7 +57292,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.589750903Z
+Ce-Time: 2026-10-08T18:22:23.426611627Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -57188,7 +57340,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-07T14:01:49.602213376Z
+Ce-Time: 2026-10-08T18:22:23.425771147Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -57234,7 +57386,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-07T14:01:49.604387664Z
+Ce-Time: 2026-10-08T18:22:23.425928103Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -57280,7 +57432,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-07T14:01:49.604566757Z
+Ce-Time: 2026-10-08T18:22:23.426082124Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -57319,7 +57471,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-07T14:01:49.594668024Z
+Ce-Time: 2026-10-08T18:22:23.433242646Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -57359,7 +57511,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.594814229Z
+Ce-Time: 2026-10-08T18:22:23.433649233Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57398,7 +57550,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-07T14:01:49.591519259Z
+Ce-Time: 2026-10-08T18:22:23.434277324Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57437,7 +57589,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-07T14:01:49.591743322Z
+Ce-Time: 2026-10-08T18:22:23.434445817Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57476,7 +57628,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.591952632Z
+Ce-Time: 2026-10-08T18:22:23.434557644Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57515,7 +57667,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-07T14:01:49.590084441Z
+Ce-Time: 2026-10-08T18:22:23.43906772Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -57558,7 +57710,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-07T14:01:49.590266662Z
+Ce-Time: 2026-10-08T18:22:23.439239277Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57598,7 +57750,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.590494157Z
+Ce-Time: 2026-10-08T18:22:23.43940033Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57637,7 +57789,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-07T14:01:49.592225968Z
+Ce-Time: 2026-10-08T18:22:23.426816257Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -57680,7 +57832,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-07T14:01:49.592470567Z
+Ce-Time: 2026-10-08T18:22:23.426955461Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57720,7 +57872,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-07T14:01:49.592705102Z
+Ce-Time: 2026-10-08T18:22:23.427046792Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57757,7 +57909,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.592907684Z
+Ce-Time: 2026-10-08T18:22:23.427159611Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57797,7 +57949,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.593112802Z
+Ce-Time: 2026-10-08T18:22:23.427284527Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57841,7 +57993,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.593333985Z
+Ce-Time: 2026-10-08T18:22:23.42744494Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -57880,7 +58032,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.593520599Z
+Ce-Time: 2026-10-08T18:22:23.427563831Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -57921,7 +58073,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-07T14:01:49.593677019Z
+Ce-Time: 2026-10-08T18:22:23.439563351Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -57963,7 +58115,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-07T14:01:49.593815767Z
+Ce-Time: 2026-10-08T18:22:23.439704835Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -58006,7 +58158,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-07T14:01:49.593947155Z
+Ce-Time: 2026-10-08T18:22:23.439851159Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -58045,7 +58197,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-07T14:01:49.594052014Z
+Ce-Time: 2026-10-08T18:22:23.439997476Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -58084,7 +58236,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-07T14:01:49.590785014Z
+Ce-Time: 2026-10-08T18:22:23.435562234Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58123,7 +58275,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-07T14:01:49.5910069Z
+Ce-Time: 2026-10-08T18:22:23.435665893Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58162,7 +58314,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-07T14:01:49.591183113Z
+Ce-Time: 2026-10-08T18:22:23.435760199Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -58201,7 +58353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-07T14:01:49.606382139Z
+Ce-Time: 2026-10-08T18:22:23.435875635Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58244,7 +58396,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-07T14:01:49.606860249Z
+Ce-Time: 2026-10-08T18:22:23.436587408Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -58289,7 +58441,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.598934551Z
+Ce-Time: 2026-10-08T18:22:23.427857384Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58331,7 +58483,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.599376068Z
+Ce-Time: 2026-10-08T18:22:23.428051757Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58373,7 +58525,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.599576626Z
+Ce-Time: 2026-10-08T18:22:23.429488856Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58410,7 +58562,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-07T14:01:49.599740431Z
+Ce-Time: 2026-10-08T18:22:23.429624836Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58449,7 +58601,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-07T14:01:49.599895859Z
+Ce-Time: 2026-10-08T18:22:23.429763936Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58488,7 +58640,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-07T14:01:49.600048288Z
+Ce-Time: 2026-10-08T18:22:23.429905772Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -58527,7 +58679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-07T14:01:49.59554313Z
+Ce-Time: 2026-10-08T18:22:23.431522651Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58571,7 +58723,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-07T14:01:49.595773153Z
+Ce-Time: 2026-10-08T18:22:23.431701376Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58615,7 +58767,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-07T14:01:49.595945654Z
+Ce-Time: 2026-10-08T18:22:23.431835724Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58654,7 +58806,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-07T14:01:49.596150372Z
+Ce-Time: 2026-10-08T18:22:23.432010098Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -58696,7 +58848,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-07T14:01:49.596374035Z
+Ce-Time: 2026-10-08T18:22:23.432175766Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58735,7 +58887,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-07T14:01:49.59499077Z
+Ce-Time: 2026-10-08T18:22:23.430957691Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58779,7 +58931,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-07T14:01:49.595171719Z
+Ce-Time: 2026-10-08T18:22:23.431162961Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58823,7 +58975,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-07T14:01:49.595298315Z
+Ce-Time: 2026-10-08T18:22:23.431301085Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -58862,7 +59014,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-07T14:01:49.605270602Z
+Ce-Time: 2026-10-08T18:22:23.424746885Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -58908,7 +59060,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-07T14:01:49.605431479Z
+Ce-Time: 2026-10-08T18:22:23.424973659Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -58945,7 +59097,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-07T14:01:49.605529978Z
+Ce-Time: 2026-10-08T18:22:23.425173425Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -58993,7 +59145,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-07T14:01:49.607178379Z
+Ce-Time: 2026-10-08T18:22:23.436215141Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -59034,7 +59186,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-07T14:01:49.607381857Z
+Ce-Time: 2026-10-08T18:22:23.436327912Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -59071,7 +59223,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.607542077Z
+Ce-Time: 2026-10-08T18:22:23.436456036Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -59119,7 +59271,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-07T14:01:49.608346269Z
+Ce-Time: 2026-10-08T18:22:23.440274268Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -59159,7 +59311,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.608569756Z
+Ce-Time: 2026-10-08T18:22:23.440462193Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59198,7 +59350,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.605883364Z
+Ce-Time: 2026-10-08T18:22:23.436790678Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59235,7 +59387,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-07T14:01:49.606008984Z
+Ce-Time: 2026-10-08T18:22:23.436908105Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59274,7 +59426,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-07T14:01:49.606103019Z
+Ce-Time: 2026-10-08T18:22:23.436996508Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59315,7 +59467,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-07T14:01:49.601183129Z
+Ce-Time: 2026-10-08T18:22:23.432488312Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -59358,7 +59510,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-07T14:01:49.601421408Z
+Ce-Time: 2026-10-08T18:22:23.432699462Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59395,7 +59547,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-07T14:01:49.601586613Z
+Ce-Time: 2026-10-08T18:22:23.432850098Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59435,7 +59587,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-07T14:01:49.601726953Z
+Ce-Time: 2026-10-08T18:22:23.432990086Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -59475,7 +59627,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-07T14:01:49.609761215Z
+Ce-Time: 2026-10-08T18:22:23.434742114Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -59518,7 +59670,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-07T14:01:49.609887563Z
+Ce-Time: 2026-10-08T18:22:23.434868405Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -59558,7 +59710,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-07T14:01:49.609981486Z
+Ce-Time: 2026-10-08T18:22:23.434969344Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -59595,7 +59747,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.610073936Z
+Ce-Time: 2026-10-08T18:22:23.435052243Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -59635,7 +59787,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.610173339Z
+Ce-Time: 2026-10-08T18:22:23.435150982Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -59679,7 +59831,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.610286495Z
+Ce-Time: 2026-10-08T18:22:23.435256033Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59718,7 +59870,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-07T14:01:49.610510869Z
+Ce-Time: 2026-10-08T18:22:23.435400997Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59759,7 +59911,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-07T14:01:49.604733978Z
+Ce-Time: 2026-10-08T18:22:23.43838018Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59814,7 +59966,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-07T14:01:49.604962577Z
+Ce-Time: 2026-10-08T18:22:23.438614443Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59869,7 +60021,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-07T14:01:49.605096045Z
+Ce-Time: 2026-10-08T18:22:23.438844146Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -59908,7 +60060,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-07T14:01:49.609260304Z
+Ce-Time: 2026-10-08T18:22:23.433826159Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59953,7 +60105,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-07T14:01:49.609429509Z
+Ce-Time: 2026-10-08T18:22:23.43399466Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -59998,7 +60150,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-07T14:01:49.609549633Z
+Ce-Time: 2026-10-08T18:22:23.434109743Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -60037,7 +60189,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.600425987Z
+Ce-Time: 2026-10-08T18:22:23.437328141Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60079,7 +60231,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.600629953Z
+Ce-Time: 2026-10-08T18:22:23.437676704Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60121,7 +60273,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.600777213Z
+Ce-Time: 2026-10-08T18:22:23.437873989Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -60158,7 +60310,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-07T14:01:49.600930394Z
+Ce-Time: 2026-10-08T18:22:23.438014713Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60202,7 +60354,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-07T14:01:49.608736305Z
+Ce-Time: 2026-10-08T18:22:23.430169404Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -60244,7 +60396,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-07T14:01:49.608861732Z
+Ce-Time: 2026-10-08T18:22:23.430389106Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -60281,7 +60433,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-07T14:01:49.608967952Z
+Ce-Time: 2026-10-08T18:22:23.430566999Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -60324,7 +60476,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-07T14:01:49.609069395Z
+Ce-Time: 2026-10-08T18:22:23.43072282Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -60365,7 +60517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-07T14:01:49.594258644Z
+Ce-Time: 2026-10-08T18:22:23.424038376Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60404,7 +60556,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-07T14:01:49.594418841Z
+Ce-Time: 2026-10-08T18:22:23.424274967Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60443,7 +60595,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-07T14:01:49.594534244Z
+Ce-Time: 2026-10-08T18:22:23.424482125Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -60482,7 +60634,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-07T14:01:49.596663452Z
+Ce-Time: 2026-10-08T18:22:23.4254028Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60521,7 +60673,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-07T14:01:49.596882634Z
+Ce-Time: 2026-10-08T18:22:23.425591461Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -60560,7 +60712,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-07T14:01:49.605676982Z
+Ce-Time: 2026-10-08T18:22:23.437138512Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -61550,6 +61702,98 @@ chainctl images diff FROM_IMAGE TO_IMAGE [flags]
 
 ---
 
+### chainctl skills registry install
+_Path: platform/chainctl/chainctl-docs/chainctl_skills_registry_install.md_
+
+## chainctl skills registry install
+
+Install the skill at an OCI reference into agent directories.
+
+### Synopsis
+
+Install the skill at an OCI reference into agent directories.
+
+The artifact must be a skill (as published by "chainctl skills push" or
+"chainctl skills registry publish"). Like "chainctl skills install", a shared
+canonical copy is written under .agents/skills/ and agent-specific symlinks
+are created; use --copy to write independent copies.
+
+The installed directory is named for the last segment of the repository path
+(e.g. my-skill for skills.cgr.dev/chainguard/my-folder/my-skill); use --name
+to choose another.
+The install is recorded in the skills CLI lock file (skills-lock.json in the
+working directory, or ~/.agents/.skill-lock.json with --global) with the
+repository, tag, and image digest it came from. Installing fails if the lock
+records that name from a different source.
+
+The skill's signature is checked, as by "chainctl skills verify", before
+anything is written; installing fails if it doesn't pass. Only skills on
+skills.cgr.dev can be verified, so installing from any other registry requires
+--no-verify.
+
+The install locations are shown for confirmation before anything is
+downloaded; pass --yes to skip the prompt.
+
+```
+chainctl skills registry install <ref> [flags]
+```
+
+### Examples
+
+```
+
+# Install into the detected agents' project directories:
+chainctl skills registry install \
+  skills.cgr.dev/chainguard/my-folder/my-skill
+
+# Install globally for Claude Code only:
+chainctl skills registry install --global --agent claude-code \
+  skills.cgr.dev/chainguard/my-folder/my-skill
+
+# Install under a different name:
+chainctl skills registry install --name team-skill \
+  skills.cgr.dev/chainguard/my-folder/my-skill
+
+# Install from a registry chainctl can't verify signatures on:
+chainctl skills registry install --no-verify cgr.dev/my-org/my-skill:v1
+
+# Install without confirming the locations:
+chainctl skills registry install --yes \
+  skills.cgr.dev/chainguard/my-folder/my-skill
+```
+
+### Options
+
+```
+  -a, --agent stringArray   Target specific agents by ID (repeatable). Use --agent '*' for all known agents.
+      --copy                Copy files per agent instead of using a shared canonical copy + symlinks.
+      --global              Install to global (~/) directories instead of project-local.
+      --name string         Name to install the skill under (default: the last segment of the repository path).
+      --no-verify           Install without checking the skill's signature. Required for registries chainctl can't verify, which is any but skills.cgr.dev.
+  -y, --yes                 Automatic yes to prompts; assume "yes" as answer to all prompts and run non-interactively.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl skills registry](/platform/chainctl/chainctl-docs/chainctl_skills_registry/)	 - Publish and install skills in any OCI registry by reference.
+
+---
+
 ### chainctl
 _Path: platform/chainctl/chainctl-docs/chainctl.md_
 
@@ -62321,7 +62565,17 @@ _Path: platform/chainctl/chainctl-docs/chainctl_skills_validate.md_
 
 ## chainctl skills validate
 
-Check a skill directory for spec compliance without making network calls.
+Check a local skill directory's format (not its authenticity) without making network calls.
+
+### Synopsis
+
+Check a local skill directory for spec compliance without making network calls.
+
+validate checks format only: SKILL.md frontmatter, the name, description,
+compatibility, and allowed-tools fields, the directory size, and which files
+would be published. It does not check authenticity, and a passing result says
+nothing about who published a skill. To check that Chainguard signed a
+published skill, run `chainctl skills verify <ref>`.
 
 ```
 chainctl skills validate [<path>] [flags]
@@ -62793,8 +63047,10 @@ Manage tag-based Custom Assembly overlays.
 
 An overlay is a reusable image customization (packages, environment
 variables, annotations, accounts, and certificates) owned by an
-organization or folder. Attaching an overlay to a repo creates a binding
-that selects which of the repo's tags the overlay applies to:
+organization or folder. Attaching an overlay to a repo — or, with
+--all-repos, to every repo in an organization, including repos created
+later — creates a binding that selects which tags the overlay applies
+to:
 
 - --all: every tag.
 - --variant: a tag variant, such as dev.
@@ -62802,8 +63058,21 @@ that selects which of the repo's tags the overlay applies to:
 
 When bindings of different kinds match the same tag, they layer in the
 order ALL, then VARIANT, then EXACT, with later layers taking
-precedence. Bindings of the same kind may coexist on a repo only when
-their overlays do not conflict.
+precedence; a repo's own bindings layer above all-repos bindings.
+Bindings of the same kind may coexist on a repo only when their
+overlays do not conflict.
+
+The Guarded Entrypoint keys layer per key: fail_mode and command_override
+come from the most specific binding that sets them, and a binding that
+leaves one unset uses a broader binding's value (an empty command_override
+counts as set and cancels a broader one); guarded_entrypoint is on when
+any matching binding sets it, but an overlay that sets fail_mode,
+preflight, or command_override must still set guarded_entrypoint: true
+itself; preflight checks from every matching binding are combined,
+broader bindings first. A binding is rejected when
+it is created if its overlay sets a different fail_mode or command_override
+than a binding it co-matches in the same layer: two --all bindings, two
+--variant bindings for one variant, or two --tag bindings sharing a tag.
 
 Chainguard rebuilds the matching images after an overlay or binding
 changes. These rebuilds run only for organizations enrolled in tag-based
@@ -62840,7 +63109,7 @@ Custom Assembly. Contact your Chainguard account team to enroll.
 ### SEE ALSO
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach Custom Assembly overlays to a repo.
+* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach Custom Assembly overlays to a repo or to every repo in an organization.
 * [chainctl images overlays create](/platform/chainctl/chainctl-docs/chainctl_images_overlays_create/)	 - Create a Custom Assembly overlay.
 * [chainctl images overlays delete](/platform/chainctl/chainctl-docs/chainctl_images_overlays_delete/)	 - Delete a Custom Assembly overlay.
 * [chainctl images overlays detach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_detach/)	 - Detach a Custom Assembly overlay from a repo.
@@ -64638,9 +64907,11 @@ Skills registry related commands.
 * [chainctl skills list](/platform/chainctl/chainctl-docs/chainctl_skills_list/)	 - List skills published by an org.
 * [chainctl skills pull](/platform/chainctl/chainctl-docs/chainctl_skills_pull/)	 - Download a published skill to a local directory.
 * [chainctl skills push](/platform/chainctl/chainctl-docs/chainctl_skills_push/)	 - Package a skill directory and publish it to uploads.cgr.dev.
+* [chainctl skills registry](/platform/chainctl/chainctl-docs/chainctl_skills_registry/)	 - Publish and install skills in any OCI registry by reference.
 * [chainctl skills status](/platform/chainctl/chainctl-docs/chainctl_skills_status/)	 - Check a harden job or wait for it to finish.
 * [chainctl skills uninstall](/platform/chainctl/chainctl-docs/chainctl_skills_uninstall/)	 - Remove a skill from agent directories on the local machine.
-* [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a skill directory for spec compliance without making network calls.
+* [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a local skill directory's format (not its authenticity) without making network calls.
+* [chainctl skills verify](/platform/chainctl/chainctl-docs/chainctl_skills_verify/)	 - Verify that Chainguard signed a published skill.
 * [chainctl skills versions](/platform/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.
 
 ---
@@ -64726,7 +64997,8 @@ Customizable sections:
 
   environment
     Set environment variables that will be available in the image. Variables
-    with the 'CHAINGUARD_' prefix are reserved and cannot be used.
+    with the 'CHAINGUARD_' or 'GUARDED_' prefix are reserved and cannot be
+    used.
 
   annotations
     Add custom OCI annotations to the image for tracking build information,
@@ -64746,6 +65018,46 @@ Customizable sections:
     can be combined and all certificates are merged together.
     NOTE: This is a Beta feature that requires enrollment. Contact your Customer
     Success Team to enable this feature.
+
+  guarded_entrypoint
+    Set to true to wrap the image entrypoint with /usr/bin/guarded-entrypoint
+    when the image is rebuilt. At container start the wrapper replaces each
+    environment value written as a secret reference (cg+BACKEND://REF, for
+    example cg+gsm://projects/acme/secrets/db/versions/latest) with the
+    secret, runs any preflight checks, and then starts the app.
+    preflight, fail_mode, and command_override require guarded_entrypoint:
+    true in the same manifest.
+    NOTE: Guarded Entrypoint, including preflight, fail_mode, and
+    command_override, is a Beta feature. Contact Chainguard customer support
+    to get access.
+
+  preflight
+    Readiness checks the wrapper runs before starting the app, up to 32. Each
+    entry sets exactly one of tcp (a host:port to dial) or path (a file that
+    must exist), and optionally timeout (default 30s), interval (default
+    500ms), and on_failure: fail (the default; the container does not start)
+    or continue (the failure is logged). tcp and path expand ${VAR} from the
+    resolved environment and cannot contain ',' or '='.
+
+  fail_mode
+    What the wrapper does when a secret reference cannot be resolved: closed
+    (the default) stops the container; open logs the failure and starts the
+    app anyway.
+
+  command_override
+    What the wrapper starts after preparing the environment. In default mode
+    it runs command only when it receives no arguments at all (the image has
+    no ENTRYPOINT or CMD and none are passed at run time), and otherwise runs
+    the arguments it received; prepend runs command followed by those
+    arguments; override runs command and drops them. prepend and override
+    require a command. Each command entry expands ${VAR} from the resolved
+    environment; an unset ${VAR} stops the container instead of expanding
+    to empty. Write $$ for a literal $, for example $${PORT:-8080} to leave
+    ${PORT:-8080} for a shell. The command is stored in the image config,
+    which anyone who can pull the image can read, so never write a secret
+    into it; set it in environment as a cg+BACKEND://REF reference. An
+    expanded ${VAR} is visible in the process's command line, so prefer an
+    app that reads the secret from its environment.
 
 Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
 as part of the Custom Assembly tool, other than the personal data that Chainguard collects in
@@ -66541,7 +66853,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go|ruby|java|python|javascript|java_athena|python_athena|go_athena|ruby_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby|ruby_athena|java|python_athena|dotnet|go_athena|python|javascript|java_athena|javascript_athena|dotnet_athena|go}] [flags]
 ```
 
 ### Examples
@@ -66569,7 +66881,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -66663,15 +66975,17 @@ _Path: platform/chainctl/chainctl-docs/chainctl_images_overlays_attach.md_
 
 ## chainctl images overlays attach
 
-Attach Custom Assembly overlays to a repo.
+Attach Custom Assembly overlays to a repo or to every repo in an organization.
 
 ### Synopsis
 
-Attach one or more Custom Assembly overlays to a repo by creating a
-binding per overlay.
+Attach one or more Custom Assembly overlays by creating a binding per
+overlay. A binding attaches an overlay to a single repo (--repo) or to
+every repo in an organization (--all-repos), including repos created
+after the binding exists.
 
-Every binding selects which of the repo's tags its overlay applies to.
-Pass exactly one of:
+Every binding selects which tags its overlay applies to. Pass exactly
+one of:
 
 - --all: every tag.
 - --variant: a tag variant, such as dev.
@@ -66683,6 +66997,14 @@ error names the conflicting binding and fields. An overlay can be
 attached to a repo only once. Multiple overlays attach in the order
 given, one binding each; on a failure, the bindings already created are
 kept and the error names the overlay that failed.
+
+An all-repos binding is owned by the organization and applies its
+overlay to each repo's matching tags. An overlay can have at most one
+all-repos binding per organization. When an all-repos binding and a
+repo's own binding match the same tag, the repo's binding takes
+precedence where both overlays set the same field, and their package
+lists combine. Repos with a legacy customization keep the legacy
+behavior; all-repos bindings do not apply to them.
 
 The command prints each binding UID. Use them with "update-binding" and
 "detach", or look them up later with "chainctl images overlays list".
@@ -66696,6 +67018,10 @@ chainctl images overlays attach [flags]
 ```
   # Apply an overlay to every tag of a repo
   chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
+
+  # Apply an overlay to every tag of every repo in the organization,
+  # including repos created later
+  chainctl images overlays attach --overlay my-overlay --all-repos --parent my-org --all
 
   # Apply two overlays to every tag of a repo
   chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all
@@ -66711,9 +67037,10 @@ chainctl images overlays attach [flags]
 
 ```
       --all               Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
+      --all-repos         Attach to every repo in the organization, including repos created later; mutually exclusive with --repo.
       --overlay strings   Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
-      --parent string     Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
-      --repo string       Target repo: UIDP, or name resolved within --parent.
+      --parent string     Org name or UIDP: the organization the binding is created under with --all-repos, or the org for resolving --repo by name (unused when --repo is a UIDP). If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --repo string       Target repo: UIDP, or name resolved within --parent. Mutually exclusive with --all-repos.
       --tag strings       Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
       --variant string    Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
 ```
@@ -67261,6 +67588,72 @@ chainctl starter add-images IMAGE_NAME [IMAGE_NAME ...] [flags]
 
 ---
 
+### chainctl skills verify
+_Path: platform/chainctl/chainctl-docs/chainctl_skills_verify.md_
+
+## chainctl skills verify
+
+Verify that Chainguard signed a published skill.
+
+### Synopsis
+
+Verify that Chainguard's publishing pipeline signed a published skill for the
+organization that owns it.
+
+The reference accepts org/name:tag or org/name@sha256:DIGEST. A tag is resolved
+once and the digest is verified; the output prints that digest so you can pin
+it.
+
+Verification passes only when a sigstore bundle attached to the digest chains
+to the public-good Sigstore trusted root, was issued by
+https://issuer.enforce.dev to exactly the owning organization's SKILLS service
+principal, and has a verified transparency-log entry and timestamp. The
+signing identity of Chainguard's own organizations (public, chainguard) is
+built into chainctl; for any other organization, chainctl reads its SKILLS
+binding with your credentials, which requires the viewer role (or higher) on
+that organization.
+
+The result is one of: verified, unsigned, failed, or skipped. Skills on a
+staging or development registry are skipped with a warning; uploads are never
+Chainguard-signed and always fail. The command exits 0 for verified and
+skipped, and 1 for unsigned and failed (the status field tells them apart);
+an error that stops verification from running also exits nonzero.
+
+```
+chainctl skills verify <ref> [flags]
+```
+
+### Examples
+
+```
+  # Verify the latest version of a skill:
+  chainctl skills verify chainguard/github/lint
+
+  # Verify a pinned digest and print the result as JSON:
+  chainctl skills verify chainguard/github/lint@sha256:<digest> -o json
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+
+---
+
 ### chainctl iam account-associations unset aws
 _Path: platform/chainctl/chainctl-docs/chainctl_iam_account-associations_unset_aws.md_
 
@@ -67694,6 +68087,12 @@ prints).
 By default, a shared canonical copy is written to .agents/skills/<name>/ and
 agent-specific symlinks are created. Use --copy to write independent copies.
 
+With --verify, the fetched digest must pass the same signature check as
+`chainctl skills verify` before any file or symlink is written; otherwise
+the command exits nonzero and installs nothing. A skill on a registry whose
+signatures chainctl cannot verify, such as a staging or development registry,
+fails too, unless --allow-unverifiable-host is also given.
+
 ```
 chainctl skills install <ref> [flags]
 ```
@@ -67701,9 +68100,11 @@ chainctl skills install <ref> [flags]
 ### Options
 
 ```
-  -a, --agent stringArray   Target specific agents by ID (repeatable). Use --agent '*' for all known agents.
-      --copy                Copy files per agent instead of using a shared canonical copy + symlinks.
-      --global              Install to global (~/) directories instead of project-local.
+  -a, --agent stringArray         Target specific agents by ID (repeatable). Use --agent '*' for all known agents.
+      --allow-unverifiable-host   With --verify, accept a skill from a registry whose signatures chainctl cannot verify, such as a staging or development registry, with a warning instead of failing.
+      --copy                      Copy files per agent instead of using a shared canonical copy + symlinks.
+      --global                    Install to global (~/) directories instead of project-local.
+      --verify                    Check Chainguard's signature on the fetched skill, as 'chainctl skills verify' does, before writing anything. Fails unless verified, including for a skill on a registry whose signatures chainctl cannot verify.
 ```
 
 ### Options inherited from parent commands
@@ -68244,7 +68645,8 @@ Customizable sections:
 
   environment
     Set environment variables that will be available in the image. Variables
-    with the 'CHAINGUARD_' prefix are reserved and cannot be used.
+    with the 'CHAINGUARD_' or 'GUARDED_' prefix are reserved and cannot be
+    used.
 
   annotations
     Add custom OCI annotations to the image for tracking build information,
@@ -68264,6 +68666,46 @@ Customizable sections:
     can be combined and all certificates are merged together.
     NOTE: This is a Beta feature that requires enrollment. Contact your Customer
     Success Team to enable this feature.
+
+  guarded_entrypoint
+    Set to true to wrap the image entrypoint with /usr/bin/guarded-entrypoint
+    when the image is rebuilt. At container start the wrapper replaces each
+    environment value written as a secret reference (cg+BACKEND://REF, for
+    example cg+gsm://projects/acme/secrets/db/versions/latest) with the
+    secret, runs any preflight checks, and then starts the app.
+    preflight, fail_mode, and command_override require guarded_entrypoint:
+    true in the same manifest.
+    NOTE: Guarded Entrypoint, including preflight, fail_mode, and
+    command_override, is a Beta feature. Contact Chainguard customer support
+    to get access.
+
+  preflight
+    Readiness checks the wrapper runs before starting the app, up to 32. Each
+    entry sets exactly one of tcp (a host:port to dial) or path (a file that
+    must exist), and optionally timeout (default 30s), interval (default
+    500ms), and on_failure: fail (the default; the container does not start)
+    or continue (the failure is logged). tcp and path expand ${VAR} from the
+    resolved environment and cannot contain ',' or '='.
+
+  fail_mode
+    What the wrapper does when a secret reference cannot be resolved: closed
+    (the default) stops the container; open logs the failure and starts the
+    app anyway.
+
+  command_override
+    What the wrapper starts after preparing the environment. In default mode
+    it runs command only when it receives no arguments at all (the image has
+    no ENTRYPOINT or CMD and none are passed at run time), and otherwise runs
+    the arguments it received; prepend runs command followed by those
+    arguments; override runs command and drops them. prepend and override
+    require a command. Each command entry expands ${VAR} from the resolved
+    environment; an unset ${VAR} stops the container instead of expanding
+    to empty. Write $$ for a literal $, for example $${PORT:-8080} to leave
+    ${PORT:-8080} for a shell. The command is stored in the image config,
+    which anyone who can pull the image can read, so never write a secret
+    into it; set it in environment as a cg+BACKEND://REF reference. An
+    expanded ${VAR} is visible in the process's command line, so prefer an
+    app that reads the secret from its environment.
 
 Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
 as part of the Custom Assembly tool, other than the personal data that Chainguard collects in
@@ -68313,6 +68755,29 @@ chainctl images repos build edit --repo=my-custom-python --with-runtime-keys=key
 
 # Combine file-based config with certificates
 chainctl images repos build edit --file=config.yaml --with-certificates=internal-ca.pem
+
+# Wrap the entrypoint with guarded-entrypoint from a --file manifest.
+# At start the wrapper resolves DB_PASSWORD from Secret Manager, waits
+# for the cache, and runs the command. The wrapper expands ${CACHE_HOST};
+# $${PORT:-8080} reaches the shell as ${PORT:-8080}. The sh -c form needs
+# an image with a shell; in a shell-less image, list the program directly,
+# as in [python, /app/main.py].
+#
+#   guarded_entrypoint: true
+#   environment:
+#     DB_PASSWORD: cg+gsm://projects/acme/secrets/db/versions/latest
+#     CACHE_HOST: redis
+#   fail_mode: closed
+#   preflight:
+#     - tcp: ${CACHE_HOST}:6379
+#       timeout: 60s
+#   command_override:
+#     mode: override
+#     command:
+#       - sh
+#       - -c
+#       - exec my-app --cache ${CACHE_HOST} --port $${PORT:-8080}
+chainctl images repos build edit --repo=my-custom-app --file=config.yaml
 
 ```
 
@@ -68871,7 +69336,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go|ruby|java|python|javascript|java_athena|python_athena|go_athena|ruby_athena|javascript_athena|dotnet|dotnet_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby|ruby_athena|java|python_athena|dotnet|go_athena|python|javascript|java_athena|javascript_athena|dotnet_athena|go}] [flags]
 ```
 
 ### Examples
@@ -68898,7 +69363,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go
 ```
 
 ### Options inherited from parent commands
@@ -69697,6 +70162,63 @@ chainctl iam identity-providers delete IDENTITY_PROVIDER_ID|IDENTITY_PROVIDER_NA
 ### SEE ALSO
 
 * [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
+
+---
+
+### chainctl skills registry publish
+_Path: platform/chainctl/chainctl-docs/chainctl_skills_registry_publish.md_
+
+## chainctl skills registry publish
+
+Package a skill directory and publish it to an OCI reference.
+
+### Synopsis
+
+Package a skill directory and publish it to an OCI reference.
+
+Reads and validates SKILL.md from the skill directory (default: current
+directory, or --dir), packs it as a skill artifact, and publishes it to <ref>.
+Prints the published reference by digest.
+
+```
+chainctl skills registry publish <ref> [flags]
+```
+
+### Examples
+
+```
+
+# Publish the skill in the current directory:
+chainctl skills registry publish cgr.dev/my-org/my-skill:v1
+
+# Publish the skill in another directory:
+chainctl skills registry publish --dir ./my-skill cgr.dev/my-org/my-skill:v1
+```
+
+### Options
+
+```
+      --dir string   Skill directory to package (must contain SKILL.md). (default ".")
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl skills registry](/platform/chainctl/chainctl-docs/chainctl_skills_registry/)	 - Publish and install skills in any OCI registry by reference.
 
 ---
 
@@ -71627,6 +72149,16 @@ The optional directory sets the download destination. The download includes
 .hardened-artifact.json, which records the skill's registry reference and digest;
 packing the directory again leaves that file out.
 
+With --verify, the fetched digest must pass the same signature check as
+`chainctl skills verify` before anything is written; otherwise the command
+exits nonzero and writes nothing. A skill on a registry whose signatures
+chainctl cannot verify, such as a staging or development registry, fails
+too, unless --allow-unverifiable-host is also given.
+
+With -o json, a successful pull prints {"location": <absolute path>} plus,
+with --verify, "verification": the result `chainctl skills verify -o json`
+prints. A failed --verify prints that result on its own and exits 1.
+
 ```
 chainctl skills pull <ref> [<dir>] [flags]
 ```
@@ -71636,12 +72168,17 @@ chainctl skills pull <ref> [<dir>] [flags]
 ```
   # Pull into a specific directory:
   chainctl skills pull chainguard/github/lint ./my-skills/lint
+
+  # Pull only if Chainguard signed the skill:
+  chainctl skills pull --verify chainguard/github/lint
 ```
 
 ### Options
 
 ```
-      --force   Overwrite destination directory if it already exists.
+      --allow-unverifiable-host   With --verify, accept a skill from a registry whose signatures chainctl cannot verify, such as a staging or development registry, with a warning instead of failing.
+      --force                     Overwrite destination directory if it already exists.
+      --verify                    Check Chainguard's signature on the fetched skill, as 'chainctl skills verify' does, before writing anything. Fails unless verified, including for a skill on a registry whose signatures chainctl cannot verify.
 ```
 
 ### Options inherited from parent commands
@@ -71825,6 +72362,69 @@ chainctl iam role-bindings delete ROLE_BINDING_ID [--yes] [--output=id]
 ### SEE ALSO
 
 * [chainctl iam role-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/)	 - IAM role-bindings resource interactions.
+
+---
+
+### chainctl skills registry
+_Path: platform/chainctl/chainctl-docs/chainctl_skills_registry.md_
+
+## chainctl skills registry
+
+Publish and install skills in any OCI registry by reference.
+
+### Synopsis
+
+Publish and install skills in any OCI registry by reference.
+
+These commands address skills by full OCI reference
+(e.g. cgr.dev/my-org/my-skill:v1) rather than by Chainguard org path.
+Skills are packed in the same artifact format as "chainctl skills push".
+
+Registries authenticate with your docker credentials (~/.docker/config.json).
+For Chainguard registries, run "chainctl auth configure-docker" first.
+
+A skill is an ordinary OCI artifact, so crane handles everything else: list
+tags, copy, tag, or read the manifest and config. A skill's files are a single
+tar layer, which "crane export" writes as-is.
+
+### Examples
+
+```
+
+# Install a Chainguard skill (its signature is verified):
+chainctl skills registry install \
+  skills.cgr.dev/chainguard/my-folder/my-skill
+
+# Publish the skill in the current directory, then install it. Your own
+# skills aren't Chainguard-signed, so installing them needs --no-verify:
+chainctl skills registry publish cgr.dev/my-org/my-skill:v1
+chainctl skills registry install --no-verify cgr.dev/my-org/my-skill:v1
+
+# Inspect a skill's files without installing it:
+crane export cgr.dev/my-org/my-skill:v1 - | tar -tf -
+crane export cgr.dev/my-org/my-skill:v1 - | tar -xOf - SKILL.md
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
+* [chainctl skills registry install](/platform/chainctl/chainctl-docs/chainctl_skills_registry_install/)	 - Install the skill at an OCI reference into agent directories.
+* [chainctl skills registry publish](/platform/chainctl/chainctl-docs/chainctl_skills_registry_publish/)	 - Package a skill directory and publish it to an OCI reference.
 
 ---
 
@@ -73224,7 +73824,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, go, ruby, java, python, javascript, java_athena, python_athena, go_athena, ruby_athena, javascript_athena, dotnet, dotnet_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
