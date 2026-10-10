@@ -9137,6 +9137,17 @@
       },
       "chainguard.platform.registry.EntitlementImage": {
         "properties": {
+          "countsTowardSwapQuota": {
+            "description": "Whether the removal recorded by delete_time is charged against the\norganization's rolling swap budget. A property of the removal, not of the\nimage: re-adding the image clears it along with delete_time, so a live image\nalways reads false. Removals that are not charged include those made by\ndeleting the whole entitlement, which removes all of its images, by internal\nreconcilers, or by Chainguard staff acting on the organization's behalf.\nAlways false on ListEntitlementImages.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "deleteTime": {
+            "description": "delete_time is when the image was removed from the entitlement. It is set\nonly on a removed image, which ListEntitlementCatalogImages returns when\nasked with include_deleted. Always unset on ListEntitlementImages.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "externalImageGroupId": {
             "description": "Identifier for the image group in whatever external system defined it\n(Salesforce/SFDC, GitHub, or another source).",
             "readOnly": true,
@@ -25310,6 +25321,14 @@
               "pattern": ".+",
               "type": "string"
             }
+          },
+          {
+            "description": "include_deleted also returns images removed from the entitlement, each with\ndelete_time set. Honored only by ListEntitlementCatalogImages;\nListEntitlementImages accepts and ignores it.",
+            "in": "query",
+            "name": "includeDeleted",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -25353,6 +25372,14 @@
             "schema": {
               "pattern": ".+",
               "type": "string"
+            }
+          },
+          {
+            "description": "include_deleted also returns images removed from the entitlement, each with\ndelete_time set. Honored only by ListEntitlementCatalogImages;\nListEntitlementImages accepts and ignores it.",
+            "in": "query",
+            "name": "includeDeleted",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-09T15:36:02Z
 title: "chainctl images overlays create"
 slug: chainctl_images_overlays_create
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_create/
@@ -15,7 +15,11 @@ Create a Custom Assembly overlay.
 
 ### Synopsis
 
-Create a Custom Assembly overlay under an organization or folder.
+Create a Custom Assembly overlay under an organization.
+
+Overlays are organization-level resources: one definition is
+referencable from every scope. Attach scopes a binding to a single
+repo, to a folder's repos, or to the whole organization.
 
 Pass the overlay configuration either as repeated --package flags, or as
 a YAML file with --file in the same shape that "chainctl images repos
@@ -48,7 +52,7 @@ chainctl images overlays create <NAME> [flags]
 ```
   -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Takes precedence over --package.
       --package strings                     Package to include (repeatable).
-      --parent string                       Parent group name or UIDP under which to create the overlay. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string                       Org name or UIDP under which to create the overlay; overlays are always organization-level. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --with-certificates strings           Comma separated list of files to read the custom certificates from.
       --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
       --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
