@@ -1,17 +1,41 @@
 ---
 date: 2026-10-09T15:36:02Z
-title: "chainctl guardener github"
-slug: chainctl_guardener_github
-url: /platform/chainctl/chainctl-docs/chainctl_guardener_github/
+title: "chainctl guardener github migrate list"
+slug: chainctl_guardener_github_migrate_list
+url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_list/
 draft: false
 tags: ["chainctl", "Reference", "Product"]
 images: []
 type: "article"
 toc: true
 ---
-## chainctl guardener github
+## chainctl guardener github migrate list
 
-Link and unlink a GitHub organization to a Chainguard group.
+List a group's migration operations.
+
+### Synopsis
+
+List a group's migration operations, newest first.
+
+Each migration started with "migrate create", from the console, or by the
+scheduled resync is listed once. Pass its OPERATION to "migrate get" to see
+each feature's pull request. Use --repo to list one repository's migrations.
+
+Listing requires guardener.actions.migrate or guardener.images.migrate on the
+group. Operations for a feature you lack the permission for are left out.
+
+```
+chainctl guardener github migrate list [flags]
+```
+
+### Options
+
+```
+      --limit int       The most migrations to list. (default 20)
+  -o, --output string   Output format: table or json. (default "table")
+      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Prompts interactively if omitted.
+      --repo string     Only list migrations of this repository (a github.com URL or "owner/repo").
+```
 
 ### Options inherited from parent commands
 
@@ -24,15 +48,10 @@ Link and unlink a GitHub organization to a Chainguard group.
   -h, --help               Help for chainctl
       --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
       --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
   -v, --v int              Set the log verbosity level.
 ```
 
 ### SEE ALSO
 
-* [chainctl guardener](/platform/chainctl/chainctl-docs/chainctl_guardener/)	 - Manage guardener integrations.
-* [chainctl guardener github link](/platform/chainctl/chainctl-docs/chainctl_guardener_github_link/)	 - Link a GitHub organization to a Chainguard group.
 * [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate the Actions and images enabled by a repository's configuration.
-* [chainctl guardener github status](/platform/chainctl/chainctl-docs/chainctl_guardener_github_status/)	 - List the GitHub organizations linked to a Chainguard group.
-* [chainctl guardener github unlink](/platform/chainctl/chainctl-docs/chainctl_guardener_github_unlink/)	 - Unlink a GitHub organization from its Chainguard group.
 

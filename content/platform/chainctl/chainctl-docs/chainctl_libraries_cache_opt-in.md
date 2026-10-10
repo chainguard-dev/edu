@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-09T15:36:02Z
 title: "chainctl libraries cache opt-in"
 slug: chainctl_libraries_cache_opt-in
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_cache_opt-in/

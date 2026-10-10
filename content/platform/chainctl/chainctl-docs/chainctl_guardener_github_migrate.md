@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-09T15:36:02Z
 title: "chainctl guardener github migrate"
 slug: chainctl_guardener_github_migrate
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/
@@ -33,4 +33,5 @@ Migrate the Actions and images enabled by a repository's configuration.
 * [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 * [chainctl guardener github migrate create](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)	 - Enqueue the repository's configured Actions and image migrations.
 * [chainctl guardener github migrate get](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)	 - Show the state of a migration operation.
+* [chainctl guardener github migrate list](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_list/)	 - List a group's migration operations.
 

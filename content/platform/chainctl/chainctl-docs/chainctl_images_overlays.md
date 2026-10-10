@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-09T15:36:02Z
 title: "chainctl images overlays"
 slug: chainctl_images_overlays
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays/
@@ -19,8 +19,8 @@ Manage tag-based Custom Assembly overlays.
 
 An overlay is a reusable image customization (packages, environment
 variables, annotations, accounts, and certificates) owned by an
-organization or folder. Attaching an overlay to a repo — or, with
---all-repos, to every repo in an organization, including repos created
+organization. Attaching an overlay to a repo — or, with --all-repos, to
+every repo under an organization or folder, including repos created
 later — creates a binding that selects which tags the overlay applies
 to:
 
@@ -30,9 +30,11 @@ to:
 
 When bindings of different kinds match the same tag, they layer in the
 order ALL, then VARIANT, then EXACT, with later layers taking
-precedence; a repo's own bindings layer above all-repos bindings.
-Bindings of the same kind may coexist on a repo only when their
-overlays do not conflict.
+precedence. All-repos bindings layer by scope depth — the organization
+first, then each nested folder, deeper folders taking precedence — and
+a repo's own bindings layer above every all-repos binding. Bindings of
+the same kind may coexist in one scope only when their overlays do not
+conflict.
 
 The Guarded Entrypoint keys layer per key: fail_mode and command_override
 come from the most specific binding that sets them, and a binding that
