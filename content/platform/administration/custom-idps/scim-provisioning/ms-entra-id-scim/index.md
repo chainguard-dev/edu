@@ -131,23 +131,37 @@ Click **Test connection** to confirm the URL and token — the test must succeed
 
 Navigate to the **Attribute mapping** tab and select **Users**. Edit the mapping whose **Target attribute** is **`externalId`**, and change its **Source attribute** from the default (`mailNickname`) to **`objectId`** (`objectId` is in the source-attribute dropdown). Leave the mapping type as **Direct**, then click **Apply**.
 
+Entra ID doesn't apply any change on this page, including added or deleted mappings, until you click **Save** at the bottom of the **Attribute mapping** page. Click **Save** after the edits in this section.
+
 {{< note >}}
 Make this change before provisioning any user, including with **Provision on demand**, and do not change it afterward. `objectId` is the value the identity provider matches against at login; changing it after users exist leaves those users permanently unlinked. Map `externalId` only to `objectId` — a user-editable or non-unique attribute could link a login to the wrong identity.
 {{< /note >}}
 
-On the same page, delete every mapping whose **Target attribute** contains a value filter, such as `addresses[type eq "work"].streetAddress` or `phoneNumbers[type eq "work"].value`.
+On the same page, delete every mapping whose **Target attribute** contains a value filter on an attribute other than `emails`, such as `addresses[type eq "work"].streetAddress` or `phoneNumbers[type eq "work"].value`.
 
-Chainguard's SCIM endpoint doesn't support value-filter paths. One is enough to make it reject the entire request with `400 invalidPath`, so nothing in that update reaches Chainguard — deactivations included. Chainguard also doesn't store these attributes, so Entra ID finds the same gap on every cycle and retries the failing update until you delete the mappings.
+Chainguard's SCIM endpoint supports value filters on `emails` only, including the default `emails[type eq "work"].value` mapping, so leave that mapping in place. A value filter on any other attribute makes it reject the entire request with a `400` error (`invalidPath`), so nothing in that update reaches Chainguard — deactivations included. Chainguard also doesn't use these attributes, so Entra ID hits the same error on every cycle and retries the failing update until you delete the mappings.
 
-Keep the plain-path mappings. `userName` maps from `userPrincipalName`, which is the attribute Chainguard matches on. `active` maps through the default expression `Switch([IsSoftDeleted], , "False", "True", "True", "False")`, which inverts `IsSoftDeleted` so that a user Entra ID soft-deletes or unassigns arrives at Chainguard as inactive — this is what drives deactivation. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it; Chainguard's SCIM endpoint accepts user provisioning only.
+Chainguard stores `userName`, `externalId`, `displayName`, `active`, and the `name` sub-attributes (`givenName`, `familyName`, and `formatted`). It accepts other mapped attributes, such as `title` and the enterprise extension attributes, without storing them, so Entra ID reports them as synced even though Chainguard keeps no copy. Delete mappings you don't need to keep the sync quiet.
+
+Keep the plain-path mappings. Entra ID uses the `userName` mapping, which has matching precedence 1, to look up an existing Chainguard user before it creates one. `active` maps through the default expression `Switch([IsSoftDeleted], , "False", "True", "True", "False")`, which inverts `IsSoftDeleted` so that a user Entra ID soft-deletes or unassigns arrives at Chainguard as inactive — this is what drives deactivation. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it if your portal offers an **Enabled** setting for it, and don't assign any groups to the application; Chainguard's SCIM endpoint accepts user provisioning only.
+
+### Provision users under their email address
+
+By default, `userName` maps from `userPrincipalName`. If your users' `userPrincipalName` and email addresses use different domains, change the `userName` mapping's **Source attribute** from `userPrincipalName` to **`mail`** so Chainguard provisions each user under their email address, then click **Save**.
+
+{{< note >}}
+Set this before provisioning any user. Changing it later renames the existing Chainguard users to the new value — the same users, linked the same way, because linking uses `externalId`.
+
+Entra ID only syncs a user that has a value for the `userName` source attribute. A user with no `mail` value is skipped, and **Provision on demand** reports the user as skipped because it has no value for the matching attribute. Make sure every user you assign has a `mail` value.
+{{< /note >}}
 
 ### Assign users and turn on provisioning
 
-Under the application's **Users and groups**, assign the users or groups to provision.
+Under the application's **Users and groups**, assign the users to provision. Assigning a group to the application requires Entra ID P1 or P2; without it, Entra ID shows "Groups are not available for assignment due to your Active Directory plan level", and you assign users individually.
 
 On the **Provisioning** page, set **Provisioning Mode** to **Automatic**, and under **Settings** set **Scope** to **Sync only assigned users and groups**. Then set **Provisioning Status** to **On** and click **Save** to begin.
 
-Entra ID runs its provisioning cycle about every 40 minutes. While testing, use **Provision on demand** to push a user immediately.
+Entra ID runs its provisioning cycle about every 40 minutes. While testing, use **Provision on demand** to push a user immediately. It shows each step — import, scope, match, and perform action — and **View details** on a step lists the attribute values Entra ID sent and any error Chainguard returned.
 
 ## Verify the integration
 
@@ -157,7 +171,7 @@ Provision a user, then query the SCIM API to confirm the user's `externalId` is 
 curl -s -H "Authorization: Bearer <scim_token>" "<scim_base_url>/Users?count=5"
 ```
 
-Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev): click **Use Your Identity Provider**, then **Use Your Organization Name**, enter your organization name, and click **Login with Provider**. The first login must go through this browser flow for linking to complete. Afterward the user appears in your organization with the identity provider's default role.
+Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev): click **Use Your Identity Provider**, then **Use Your Organization Name**, enter your organization name, and click **Login with Provider**. The first login must go through this browser flow for linking to complete. Afterward the user is linked to their provisioned record. Enabling SCIM clears the identity provider's default role, so a provisioned user has no role in your organization until you grant one, for example with a role binding or with a [group mapping](/platform/administration/custom-idps/grant-roles-from-groups/).
 
 ## Map Entra ID groups to Chainguard roles
 
@@ -180,6 +194,14 @@ A correlation mismatch does not error — the login proceeds as a normal, unlink
 ### Login fails, or the identity provider isn't offered
 
 This is an SSO problem, not SCIM. Recheck the redirect URI, issuer, and client ID from the SSO application.
+
+### A user isn't provisioned
+
+**Provision on demand** reports the user as skipped, or the user never appears in Chainguard. The source attribute of the `userName` mapping — `userPrincipalName` by default, or `mail` if you remapped it — has no value for that user. Set the attribute on the user in Entra ID, then provision the user again.
+
+### Provisioning fails with a `400` error
+
+The error names `invalidPath`. A mapping whose **Target attribute** contains a value filter on an attribute other than `emails`, such as `addresses[type eq "work"].streetAddress`, is still in place. Delete it, click **Save** on the **Attribute mapping** page, and provision the user again.
 
 ### Test connection fails
 
