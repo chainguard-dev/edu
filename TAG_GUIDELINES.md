@@ -31,6 +31,7 @@ This document defines the approved tag taxonomy and usage guidelines for the Hug
 - **dfc** — Dockerfile Converter
 - **Console** - Chainguard's console
 - **Agent Skills** - Chainguard Agent Skills and the Skills Registry
+- **Chainguard Workspaces** - Chainguard Workspaces and `chainctl develop` sessions
 
 ### Action-Oriented Tags
 
