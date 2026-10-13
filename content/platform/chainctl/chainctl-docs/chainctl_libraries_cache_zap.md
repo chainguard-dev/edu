@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl libraries cache zap"
 slug: chainctl_libraries_cache_zap
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_cache_zap/
@@ -33,7 +33,7 @@ chainctl libraries cache zap [--ecosystem ECOSYSTEM] [--group G | --scope S | --
       --ecosystem string   Scope the zap to one ecosystem (JAVA, PYTHON, JAVASCRIPT). Omit for an org-wide zap.
       --group string       Zap a Maven group prefix (e.g. com.fasterxml.jackson). Requires --ecosystem.
       --package string     Zap a single package (java: group:artifact). Requires --ecosystem.
-      --parent string      The name or id of the organization whose resolution cache to zap.
+      --parent string      The name or id of the organization whose resolution cache to zap. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --registry string    Narrow a package or prefix zap to one registry.
       --scope string       Zap an npm scope prefix (e.g. @angular). Requires --ecosystem.
       --version string     Zap a single version. Requires --package.

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl starter add-images"
 slug: chainctl_starter_add-images
 url: /platform/chainctl/chainctl-docs/chainctl_starter_add-images/
@@ -17,7 +17,7 @@ Add catalog images to your catalog starter organization.
 
 Add catalog images to your catalog starter organization.
 
-The target organization is the single verified kind=starter org the
+The target organization is the single kind=starter org the
 caller's identity is bound to — auto-discovered, no flags needed.
 
 Images are resolved against the catalog by exact name match. The server

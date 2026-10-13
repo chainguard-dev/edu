@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -28,7 +28,10 @@ This command is interactive. It will:
 
     1. Prompt you to authenticate with a supported identity provider.
     2. Register a new Chainguard identity for your email address.
-    3. Create a new starter organization tied to your email domain.
+    3. Create a new starter organization. With a business email address it
+       is named after your email domain. With a personal email address you
+       name it yourself, at a prompt or with --name, and its registry and
+       package paths use its ID instead of the name.
 
 Once your organization exists, the Chainguard platform will automatically
 entitle it to choose images to be added. It should be ready within a
@@ -36,8 +39,9 @@ few minutes.
 
 Authentication requirements:
 
-    * You must use a business email address. Personal email providers (Gmail,
-      Yahoo, etc.) are not eligible.
+    * Use a business email address to get an organization named after your
+      company's domain. Where personal email providers (Gmail, Yahoo, etc.)
+      are accepted, the organization isn't tied to any domain.
     * Authentication must use one of:
         - Email and password; or
         - Google, only if your business uses a Google Workspace account
@@ -49,6 +53,12 @@ to request access.
 
 ```
 chainctl starter init [flags]
+```
+
+### Options
+
+```
+      --name string   Name of the organization, when you sign up with a personal email address. It can't look like a domain name. Ignored for an organization named after your email domain.
 ```
 
 ### Options inherited from parent commands
