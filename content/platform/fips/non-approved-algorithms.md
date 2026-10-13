@@ -81,7 +81,7 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 ### Chainguard Legacy Approved provider for OpenSSL
 
-Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_ALLOWED=0`. This provider enables all OpenSSL applications to uniformally access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
+Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_ALLOWED=0`. This provider enables all OpenSSL applications to uniformly access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
 
 This guidance applies to all images and software that uses OpenSSL:
 
