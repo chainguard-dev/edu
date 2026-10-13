@@ -69,7 +69,7 @@ Custom Assembly only allows you to add packages into a given container image; yo
 
 The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
-By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
@@ -234,7 +234,7 @@ This article provided a high-level overview of Custom Assembly. As a next step, 
 
 You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) for more information.
 
-To run startup logic in a Custom Assembly image without a derived image build, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/). It resolves secrets, runs preflight checks, and overrides the command at container start.
+To run startup logic in a Custom Assembly image without a derived image build, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). It resolves secrets, runs preflight checks, and overrides the command at container start.
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/), including the following:
 
