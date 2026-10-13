@@ -4,7 +4,7 @@ linktitle: "Browsing and requesting"
 description: "Searching, browsing, inspecting, and requesting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-10-13T13:59:48+00:00
+lastmod: 2026-10-13T19:08:26+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -112,7 +112,7 @@ Some signals describe confirmed malicious behavior, while others describe greywa
 * **Compromised or untrusted releases**: The package exhibits signs that a release cannot be trusted.
     * Signals: Signs of maintainer account compromise, No trusted provenance or signed release, Published with a legacy token (not OIDC), Release integrity anomaly, Anomalous release change, Anomalous package contents, Weak build-pipeline security, Untrusted dependency source
 
-## View a library page
+## Access a library page
 
 To access a library page, click on the row for a specific library in the search
 results or the [initial library list](#initial-display).
@@ -155,7 +155,8 @@ com.fasterxml.jackson.core:jackson-databind:2.18.2
 ### Submit a library request
 
 1. In the Chainguard Console, click **Requests** on the left.
-1. Select the **Python** or **Java** tab, then click **New Request** and upload a dependency file.
+1. Select the **Python** or **Java** tab.
+1. Click **New Request** then upload a dependency file.
 1. Optionally select the option to request CVE remediation. This queues asynchronous scans for high and critical CVEs and requests remediation for all eligible versions.
 1. Review the availability report. The report shows which package versions are already built or remediated by Chainguard, which can be requested, and which cannot be requested.
 1. Click **Submit request**.
