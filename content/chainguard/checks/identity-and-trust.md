@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -172,7 +172,7 @@ A pull request can't add an identity, or widen which checks, branches, or people
 
 Without a `trust` section on your default branch, a check that requests an identity gets it on every open pull request whose base branch matches the identity's `allow` rule, including drafts and pull requests from forks, whoever opened them. Those pull requests' commands run with the identity's access. Grant a presubmit identity only what an untrusted pull request may do, such as read-only access, or limit which pull requests get it with a `trust` section.
 
-## Limit which pull requests get an identity
+## Limit which pull requests get an identity {#limit-which-pull-requests-get-an-identity}
 
 To give identities only to pull requests opened by people you trust, add a `trust` section to `.chainguard/ci/identities.yaml` on your default branch, and give each identity a `ring`:
 
@@ -207,7 +207,7 @@ The `trust` section has the following keys:
 | `github_token` | Yes | The ring for a read-only GitHub token, in the same form as `ring`. During the beta, checks don't get this token, but the key is still required. |
 | `cache` | No | Which rings share build caches. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools). |
 
-### Rings
+### Rings {#rings}
 
 Chainguard Checks places each run in a *ring*, based on the `trust` section on your default branch:
 
@@ -258,7 +258,7 @@ gh api "/users/$SLUG%5Bbot%5D" --jq .id
 
 You can also list logins without IDs, such as `user: [octocat]`. Chainguard Checks then trusts whoever holds each login when it decides, so pin IDs instead.
 
-### When a pull request doesn't get an identity
+### When a pull request doesn't get an identity {#when-a-pull-request-doesnt-get-an-identity}
 
 On a pull request that doesn't reach an identity's ring, a check that requests the identity fails before its commands run, and Chainguard Checks doesn't retry it. The check's result on GitHub shows **Could not be executed**, and its output includes the reason, such as the following:
 

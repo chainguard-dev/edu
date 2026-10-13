@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -212,7 +212,7 @@ This example limits the Chainguard App to each session's own repository:
 chainctl develop policy set --org-github session --parent $ORGANIZATION
 ```
 
-## chainctl develop init
+## chainctl develop init {#chainctl-develop-init}
 
 Signs you in, creates a Chainguard Starter organization or picks one you belong to, and turns on Chainguard Checks and Chainguard Workspaces with a free monthly allowance. Run it in an interactive terminal.
 
@@ -231,7 +231,7 @@ Without `--parent`, the command creates a Starter organization if you don't belo
 
 For what the command asks as it runs, refer to [Step 3: Sign up and turn on Checks and Workspaces](/chainguard/workspaces/getting-started/#step-3-sign-up-and-turn-on-checks-and-workspaces).
 
-## chainctl develop accept-terms
+## chainctl develop accept-terms {#chainctl-develop-accept-terms}
 
 Accepts the Secured Platform Terms and the Master Service and License Agreement (MSLA) for an organization. Chainguard Workspaces refuses to open sessions in an organization until it accepts them. Someone with the `owner` or `limited_owner` role runs the command once, and running it again changes nothing.
 
@@ -277,7 +277,7 @@ A session in JSON output includes its `name`, such as `app/quiet-harbor`; its `l
 | `chainctl develop check` | `0` when every check passes, and `1` when a check fails or the checks can't run. |
 | Every other command | `0` when the command succeeds, and `1` when it fails. |
 
-## Roles
+## Roles {#roles}
 
 What you can do with `chainctl develop` depends on your role in the session's organization:
 

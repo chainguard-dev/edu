@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add a .chainguard/ci.yaml file to a repository, and see your first checks run on a GitHub pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -27,11 +27,11 @@ Before you begin, make sure you have the following:
 - A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
 - A repository on github.com that you can push to, and a local clone of it.
 
-## Step 1: Install or update chainctl
+## Step 1: Install or update chainctl {#step-1-install-or-update-chainctl}
 
 You sign up with `chainctl`. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
-This guide needs `chainctl` 0.2.380 or later. Earlier releases can't sign you up as this guide describes. If you already have `chainctl`, update it to the latest release, because Chainguard Checks changes often during the beta:
+This guide needs `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this guide describes. If you already have `chainctl`, update it to the latest release, because Chainguard Checks changes often during the beta:
 
 ```shell
 sudo chainctl update
@@ -50,7 +50,7 @@ Chainguard Checks receives pull request events and reports results through the C
 
 Installing the app doesn't change your repositories. Chainguard Checks runs only on repositories that have a `.chainguard/ci.yaml` file, after you link the account in the next step.
 
-## Step 3: Sign up and turn on Chainguard Checks
+## Step 3: Sign up and turn on Chainguard Checks {#step-3-sign-up-and-turn-on-chainguard-checks}
 
 The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces with a monthly compute allowance that resets on the first day of each month (UTC). [Availability and limits](/chainguard/checks/overview/#availability-and-limits) describes what the allowance includes. Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
 
@@ -177,7 +177,7 @@ To block merging until checks pass, add **Chainguard Checks (presubmit)** as a r
 
 Require only the summary check, not the per-check results. A check that a condition skips never reports a result, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
 
-## Give teammates access
+## Give teammates access {#give-teammates-access}
 
 Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session:
 

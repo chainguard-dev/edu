@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -28,11 +28,11 @@ Before you begin, make sure you have the following:
 - A local clone of a repository on github.com that you can push to.
 - Optional: [Claude Code](https://code.claude.com/docs/en/overview) installed and logged in on your laptop.
 
-## Step 1: Install or update chainctl
+## Step 1: Install or update chainctl {#step-1-install-or-update-chainctl}
 
 Workspaces uses the `chainctl develop` command. If you don't have `chainctl` yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
-This guide needs `chainctl` 0.2.380 or later. Earlier releases can't sign you up as this guide describes or run Claude Code in a session. If you already have `chainctl`, update it to the latest release, because Workspaces changes often during the beta:
+This guide needs `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this guide describes or run Claude Code in a session. If you already have `chainctl`, update it to the latest release, because Workspaces changes often during the beta:
 
 ```shell
 sudo chainctl update
@@ -49,7 +49,7 @@ By default, sessions fetch and push your repository through the Chainguard App, 
 3. Choose **All repositories**, or select the repositories you want to use with Workspaces.
 4. Review the requested permissions and select **Install**.
 
-## Step 3: Sign up and turn on Checks and Workspaces
+## Step 3: Sign up and turn on Checks and Workspaces {#step-3-sign-up-and-turn-on-checks-and-workspaces}
 
 The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces with a free monthly allowance that resets on the first day of each month (UTC). Run it in an interactive terminal, because it opens your browser and asks questions as it goes:
 
@@ -149,7 +149,7 @@ chainctl develop delete app/quiet-harbor --parent $ORGANIZATION
 
 The `delete` command asks you to confirm, then destroys the session's VM and its snapshot. Anything you didn't push is gone.
 
-## Give teammates access
+## Give teammates access {#give-teammates-access}
 
 Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. Refer to [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles).
 

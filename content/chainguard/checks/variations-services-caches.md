@@ -4,7 +4,7 @@ linktitle: "Variations, services, and caches"
 description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -17,7 +17,7 @@ weight: 32
 
 Most checks need only the keys that the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) describes. This page describes the keys for checks that need more: running a check once for each of several variations, passing files between checks, starting services such as a database, running as an unprivileged account, and reusing build output from earlier runs.
 
-## Run a check once per variation
+## Run a check once per variation {#run-a-check-once-per-variation}
 
 The `foreach` key runs a check once for each entry in a list, each in its own VM. All of a check's variations report as one GitHub check. For example, this check runs three variations, two at a time:
 
@@ -57,7 +57,7 @@ The `parallelism` key sets how many variations can run at once. Each entry can s
 
 An entry's values reach the check's commands only as environment variables and as the working directory. A `cmd` doesn't expand variables, so read them in a `script`, as in the example. An entry without a `name` is named after its `vars` values, sorted by variable name and joined with `-`. Set `name` when a value has characters that a name can't have, such as `:`, `=`, or `@`, or when it doesn't start and end with a letter or digit. `foreach: []` runs no variation.
 
-### Compute variations during a run
+### Compute variations during a run {#compute-variations-during-a-run}
 
 To compute the variations during the run, such as one for each module in your repository, define a planner under the top-level `plans` key and set the check's `foreach` to `plans.<name>`:
 
@@ -94,11 +94,11 @@ A planner works as follows:
 - Its output can be up to 1 MiB, with up to 1,000 variations across all arrays and names up to 128 bytes. If the planner fails or writes output that breaks these rules, the checks that use it don't run and report a failed dependency. If every check that uses it is advisory, a failed planner doesn't block merging.
 - A check can use a planner only from the same file. Planner names use letters, digits, `_`, and `-`, start with a letter, and can be up to 128 characters.
 
-## Inputs and outputs
+## Inputs and outputs {#inputs-and-outputs}
 
 A check can save a directory for later checks in the same run with `outputs`, and add files to its VM with `inputs`, either from another check's output or from another repository.
 
-### Pass files between checks
+### Pass files between checks {#pass-files-between-checks}
 
 To pass files from one check to another, declare an output on the check that writes them, and an input with `from` on the check that reads them:
 
@@ -129,7 +129,7 @@ In this example, `build` writes its binaries to `out/`, and `smoke` runs one of 
 
 Outputs pass files only between checks in a run. You can't download them.
 
-### Check out another repository
+### Check out another repository {#check-out-another-repository}
 
 To add another repository's files to a check's VM, use an input with `git`:
 
@@ -148,7 +148,7 @@ Chainguard Checks fetches the repository outside the VM, so the check doesn't ne
 
 If the repository is private or the ref doesn't exist, the summary check shows **Run creation failed**. `chainctl checks validate` can't check either of these offline.
 
-## Services
+## Services {#services}
 
 A service is a process, such as a database, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/<name>/<name>.yaml`, with the script that starts it in the same directory:
 
@@ -256,7 +256,7 @@ checks:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-## Run as another user
+## Run as another user {#run-as-another-user}
 
 By default, a check's commands run as `root`. To run them as an unprivileged account, set `user` to the account's name:
 
@@ -286,11 +286,11 @@ checks:
 
 A check that runs as another user can't declare `outputs`. A check that uses a [cache](#caches) must run as `build`.
 
-## Caches
+## Caches {#caches}
 
 By default, each check starts with nothing from earlier runs, so a Go check compiles every package on every run. A check can reuse build output from earlier runs through a cache that its environment names under `caches`. During the beta, only the Go build cache, `gobuild`, stores anything. The `gomod`, `python`, `node`, and `directory` caches pass validation but cache nothing, so keep the hosts that your tools download from in `egress`.
 
-### Build caches
+### Build caches {#build-caches}
 
 To reuse Go build output, name `gobuild` in the environment, and set `user: build` on each check that uses the environment:
 
@@ -318,7 +318,7 @@ The cache does nothing until your default branch defines cache pools, as describ
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
 - Go modules still download on every run, so keep `proxy.golang.org` and `sum.golang.org` in `egress`.
 
-### Set up cache pools
+### Set up cache pools {#set-up-cache-pools}
 
 Chainguard Checks mounts a cache only from a *cache pool*, which you define in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Each pool lists the [rings](/chainguard/checks/identity-and-trust/#rings) whose runs share it, so pull requests from people you don't trust can't change the build output that your default branch's runs reuse. This file defines two pools:
 
@@ -368,7 +368,7 @@ Cache pools keep a pull request from changing the build output that other runs u
 
 If you suspect a pool holds bad output, raise its `generation` to start it empty.
 
-### How caches fill
+### How caches fill {#how-caches-fill}
 
 A pool fills and empties as follows:
 
