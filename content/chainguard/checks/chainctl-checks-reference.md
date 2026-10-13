@@ -17,7 +17,7 @@ weight: 65
 
 The `chainctl checks` commands read your pull requests' results from your terminal, start and rerun checks, summarize your checks' history, and validate your configuration. This page lists each command's arguments, flags, exit codes, and JSON output. For examples of the commands in use, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-During the beta, `chainctl checks` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). To see a command's full help, run it with `--help`, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. This page describes `chainctl` 0.2.382. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+During the beta, `chainctl checks` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). To see a command's full help, run it with `--help`, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `acme/app#123` for a pull request. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
