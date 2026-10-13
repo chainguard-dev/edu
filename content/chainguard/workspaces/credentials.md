@@ -4,7 +4,7 @@ linktitle: "Session credentials"
 description: "Learn how a Chainguard Workspaces session reaches GitHub, Claude, and Chainguard without holding credentials, and how to approve, review, and revoke what it can reach."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Configuration"]
 images: []
@@ -117,7 +117,7 @@ A session gets credentials only for Claude, GitHub, Chainguard's `cgr.dev` and `
 - Amazon Web Services (AWS) and Microsoft Azure
 - Private npm, PyPI, and Maven registries
 - Container registries other than `cgr.dev`, such as `ghcr.io` and Google Artifact Registry on `*.pkg.dev`
-- Chainguard Libraries
+- Chainguard Libraries. A check in Chainguard Checks can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/).
 
 If you paste one of these credentials into a session, or sign in to a tool there, such as with `aws configure` or `npm login`, the credential stays on the session's disk or in its memory. When the session parks, Chainguard saves the credential in the session's snapshot with everything else, and keeps it until you delete the session or the session expires. Any program in the session, including a coding agent, can read the credential and send it anywhere the session can reach. Do work that needs these credentials on your laptop instead.
 

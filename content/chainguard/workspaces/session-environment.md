@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -59,6 +59,8 @@ The default environment doesn't include language toolchains. To add one to the c
 ```shell
 apk add python-3.13
 ```
+
+To find a package's name, ask a coding agent in the session. Every session configures the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages.
 
 Packages you install with `apk` last for the life of the session, including when it parks and resumes, but new sessions don't get them. To install packages in every new session, list them in a `.chainguard/develop.yaml` file.
 

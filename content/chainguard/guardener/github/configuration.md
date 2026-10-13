@@ -4,7 +4,7 @@ linktitle: "Configuration"
 description: "Understand Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-08T02:59:03+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -48,6 +48,8 @@ A repository with no `.chainguard/` files is unaffected by Guardener even when t
 | [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | `.chainguard/images.yaml` | Recommends Chainguard container images for the images a pull request adds or changes. |
 | [Container Image Migration](/chainguard/guardener/github/image-migration/) | `.chainguard/images.yaml` | Opens a pull request that replaces the images a repository already uses with Chainguard container images. |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
+
+The `.chainguard/` directory also holds configuration for two other products that use the Chainguard App: a `ci.yaml` file or `ci/` directory for [Chainguard Checks](/chainguard/checks/configuration/), and a `develop.yaml` file for [Chainguard Workspaces](/chainguard/workspaces/session-environment/#use-a-chainguarddevelopyaml-file).
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
 

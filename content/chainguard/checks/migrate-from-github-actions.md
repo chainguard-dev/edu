@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -18,6 +18,8 @@ weight: 60
 If your repository runs its pull request checks with GitHub Actions, you can move them to Chainguard Checks one workflow at a time. Chainguard Checks and GitHub Actions can run on the same pull requests, so you can compare their results before you remove a workflow.
 
 You can convert workflows by hand, or start from a draft that the `chainctl checks migrate` command writes for you.
+
+If you'd rather keep your workflows on GitHub Actions, [Chainguard Actions](/chainguard/actions/overview/) replaces the actions they use with hardened equivalents, and Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) feature can migrate them for you.
 
 ## Draft a configuration with chainctl
 

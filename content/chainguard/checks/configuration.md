@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -131,6 +131,8 @@ The `environment` key sets up the VM each check runs in:
 | `caches` | Caches that carry build output from earlier runs into each check's VM. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
 
 Every check's VM starts from a minimal base with BusyBox, GNU tar, and nothing else. Anything a check needs, including `git`, `bash`, `make`, `curl`, or a language toolchain, must be in `packages`. Package names often include a version, such as `go-1.24`, `nodejs-22`, or `python-3.13`. To pin a more specific version, add a version constraint after a tilde, such as `go-1.24~1.24.3`.
+
+To find a package's name, use the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages.
 
 In the directory layout, a check can name a different environment with its own `environment` key, either by name, such as `environment: node` for `env/node.yaml`, or as an inline mapping.
 

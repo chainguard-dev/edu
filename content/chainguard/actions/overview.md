@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-10-05T11:19:18+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -29,6 +29,8 @@ Each hardened action:
 Chainguard Actions protect against common threats including tag hijacking, dependency confusion, `pull_request_target` abuse, and secret exfiltration.
 
 This page provides enough to get you started. Browse the [Chainguard Actions organization](https://github.com/chainguard-actions) to find a specific action and read its hardening report.
+
+Chainguard Actions hardens workflows that stay on GitHub Actions. To move a repository's pull request checks off GitHub Actions runners instead, refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
 
 ## What hardening checks and fixes
 

@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -154,7 +154,7 @@ A definition in `identities.yaml` grants no access by itself. The provider must 
 Every Chainguard Checks customer's tokens come from the same issuer, and any repository can ask for any audience, so the subject is what sets your identities apart from everyone else's. Match the exact subject on the provider:
 
 - For Google Cloud, add an OIDC provider to a workload identity pool, with the issuer `https://issuer.enforce.dev` and the attribute mapping `google.subject=assertion.sub`. Grant IAM roles to the principal `principal://iam.googleapis.com/projects/<project-number>/locations/global/workloadIdentityPools/<pool>/subject/chainguard:<repository-id>:<identity>`, never to the whole pool. To refuse other repositories' tokens outright, also give the provider an attribute condition such as `assertion.sub.startsWith('chainguard:<repository-id>:')`.
-- For Chainguard, create an assumable identity in your organization that matches the issuer, the exact subject, and the `exchange_audience`, and bind it to a role that grants the access the check needs.
+- For Chainguard, create an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) in your organization that matches the issuer, the exact subject, and the `exchange_audience`, and bind it to a role that grants the access the check needs.
 
 `chainctl` doesn't show your repository's ID. During the beta, contact your Chainguard account team to set up workload identities and get the ID, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
 

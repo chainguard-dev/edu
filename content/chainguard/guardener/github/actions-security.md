@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-08T02:59:03+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["GitHub", "Automation"]
 images: []
@@ -23,6 +23,8 @@ Hardened Actions operates in two independent modes:
 - **Automated migration pull requests** — a periodically maintained pull request that updates workflows across your repository. You can also [trigger this migration on demand](#run-an-on-demand-migration) with `chainctl` instead of waiting for the next scheduled run.
 
 You can enable either mode on its own or both together.
+
+Hardened Actions keeps your workflows on GitHub Actions. To move a repository's pull request checks off GitHub Actions runners instead, refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
 
 ## Enable Hardened Actions
 
