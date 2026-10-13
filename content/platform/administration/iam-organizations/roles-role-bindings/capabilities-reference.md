@@ -7,7 +7,7 @@ lead: "Reference for Chainguard's built-in roles and their specific capabilities
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
-lastmod: 2026-10-13T13:53:01+00:00
+lastmod: 2026-10-13T13:55:57+00:00
 draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []
@@ -33,38 +33,38 @@ Every role grants actions on at least one Chainguard resource. Most actions are 
 This guide outlines the following built-in roles provided by Chainguard:
 
 * **Administrative Roles:**
-    * `owner` - Full administrative access with all capabilities
-    * `editor` - `viewer` access plus creating, updating, and deleting container repositories, editing Custom Assembly overlays, drafting library build requests, and managing event subscriptions
-    * `viewer` - Read-only access across all resources, **can** pull images, and can run Guardener sessions
-    * `limited_owner` - The owner of a Starter organization: `viewer` access plus pull tokens, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
-    * `console_viewer` - Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, or view legal terms
+    * `owner`: Full administrative access with all capabilities
+    * `editor`: `viewer` access plus creating, updating, and deleting container repositories, editing Custom Assembly overlays, drafting library build requests, and managing event subscriptions
+    * `viewer`: Read-only access across all resources, **can** pull images, and can run Guardener sessions
+    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
+    * `console_viewer`: Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, or view legal terms
 * **Registry and Container Roles:**
-    * `registry.pull` - Container image access
-    * `registry.pull_token_creator` - Chainguard registry token management with additional repository capabilities
-    * `registry.push` - `registry.pull` access plus pushing images, and creating, updating, and deleting repositories and tags
-    * `registry.editor` - `registry.pull` access plus creating, updating, and deleting repositories, and editing Custom Assembly overlays
-    * `apk.pull` - Access to the organization's APK packages, including the private APK repository
-    * `apk.push` - `apk.pull` access plus uploading and deleting APK packages
+    * `registry.pull`: Container image access
+    * `registry.pull_token_creator`: Chainguard registry token management with additional repository capabilities
+    * `registry.push`: `registry.pull` access plus pushing images, and creating, updating, and deleting repositories and tags
+    * `registry.editor`: `registry.pull` access plus creating, updating, and deleting repositories, and editing Custom Assembly overlays
+    * `apk.pull`: Access to the organization's APK packages, including the private APK repository
+    * `apk.push`: `apk.pull` access plus uploading and deleting APK packages
 * **Library Roles:**
-    * `libraries.java.pull` - Java library access
-    * `libraries.java.pull_token_creator` - Java token management
-    * `libraries.java.push` - `libraries.java.pull` access plus Java library uploads
-    * `libraries.python.pull` - Python library access
-    * `libraries.python.pull_token_creator` - Python library token management
-    * `libraries.python.push` - `libraries.python.pull` access plus Python library uploads
-    * `libraries.javascript.pull` - JavaScript library access
-    * `libraries.javascript.pull_token_creator` - JavaScript library token management
-    * `libraries.javascript.push` - `libraries.javascript.pull` access plus JavaScript library uploads
+    * `libraries.java.pull`: Java library access
+    * `libraries.java.pull_token_creator`: Java token management
+    * `libraries.java.push`: `libraries.java.pull` access plus Java library uploads
+    * `libraries.python.pull`: Python library access
+    * `libraries.python.pull_token_creator`: Python library token management
+    * `libraries.python.push`: `libraries.python.pull` access plus Python library uploads
+    * `libraries.javascript.pull`: JavaScript library access
+    * `libraries.javascript.pull_token_creator`: JavaScript library token management
+    * `libraries.javascript.push`: `libraries.javascript.pull` access plus JavaScript library uploads
 * **Guardener Roles**:
-    * `guardener.user` - Minimum role for running Guardener sessions, including Guardener conversion, terms lookup, and registry pull access
-    * `guardener.admin` - Extends `guardener.user` with permission to accept the legal terms required before Guardener sessions can start
+    * `guardener.user`: Minimum role for running Guardener sessions, including Guardener conversion, terms lookup, and registry pull access
+    * `guardener.admin`: Extends `guardener.user` with permission to accept the legal terms required before Guardener sessions can start
 * **Checks and Workspaces Roles**:
-    * `sandbox.user` - Start, view, and cancel Chainguard Checks runs, and open Chainguard Workspaces sessions
-    * `sandbox.identity.user` - Use shared identities in Chainguard Workspaces sessions
+    * `sandbox.user`: Start, view, and cancel Chainguard Checks runs, and open Chainguard Workspaces sessions
+    * `sandbox.identity.user`: Use shared identities in Chainguard Workspaces sessions
 * **MCP Roles**:
-    * `mcp.tool_user` - Call tools on Chainguard MCP servers
+    * `mcp.tool_user`: Call tools on Chainguard MCP servers
 * **Actions Roles**:
-    * `actions.viewer` - View the Chainguard Actions catalog
+    * `actions.viewer`: View the Chainguard Actions catalog
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
