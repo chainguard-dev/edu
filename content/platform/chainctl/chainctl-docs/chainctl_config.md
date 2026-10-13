@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl config"
 slug: chainctl_config
 url: /platform/chainctl/chainctl-docs/chainctl_config/
@@ -19,10 +19,10 @@ Local config file commands for chainctl.
 
 Every config property can also be set with an environment variable, which is
 useful for scripts and CI. Take the property name, uppercase it, replace dots
-with underscores, and add a `CHAINGUARD_` prefix:
+and hyphens with underscores, and add a `CHAINGUARD_` prefix:
 
   - `default.group` becomes `CHAINGUARD_DEFAULT_GROUP`
-  - `platform.api` becomes `CHAINGUARD_PLATFORM_API`
+  - `default.skip-version-check` becomes `CHAINGUARD_DEFAULT_SKIP_VERSION_CHECK`
   - `output.silent` becomes `CHAINGUARD_OUTPUT_SILENT`
 
 Environment variables take precedence over the config file, and command line
