@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -61,32 +61,32 @@ Before making any changes, confirm your project builds cleanly against Maven Cen
 
 {{< tabs label="Build tool for confirming your baseline build" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 ```shell
 cd your-project
 ./mvnw install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 ```shell
 cd your-project
 ./gradlew build
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 ```shell
 cd your-project
 bazel build //...
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -134,7 +134,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{< tabs label="Build tool for direct access configuration" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands.
 
@@ -214,9 +214,9 @@ Next, create a `.mvn/settings.xml` file with the following content. This configu
 </settings>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Update the repositories block in `app/build.gradle` to point to Chainguard Libraries. If you are using the remediated repository, set it first.
 
@@ -244,9 +244,9 @@ repositories {
 
 If a dependency's pom file is found in Chainguard but the JAR is not, Gradle fails rather than falling back to Central automatically. If this happens, check whether a newer version of the dependency is available in Chainguard's catalog and update the version in your `build.gradle`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`. The configuration described on this page uses `~/.netrc`, but note that `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Java will override credentials for any other ecosystem.
 
@@ -276,7 +276,7 @@ maven.install(
 
 The `use_credentials_from_home_netrc_file = True` attribute tells the dependency resolver to read credentials from `~/.netrc` when authenticating with repositories. Without this flag, the `~/.netrc` is ignored, and requests to Chainguard fail authentication silently.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -288,7 +288,7 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{< tabs label="Build tool for repository manager configuration" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. Refer to example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
 
@@ -359,9 +359,9 @@ Use a configuration similar to the following. Make sure to update the credential
 </settings>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Update the `repositories` block in `app/build.gradle` to point to your repository manager, removing any direct references to `mavenCentral()` or other repositories if your repository manager already proxies them:
 
@@ -378,9 +378,9 @@ repositories {
 
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 First, configure your repo manager authentication in `~/.netrc`:
 
@@ -404,7 +404,7 @@ maven.install(
 )
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -416,7 +416,7 @@ To force re-resolution from Chainguard, you can clear local caches or clear only
 
 {{< tabs label="Build tool for refreshing dependencies" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Remove local cache:
 
@@ -430,9 +430,9 @@ Remove specific artifact:
 rm -rf ~/.m2/repository/<group>/<artifact>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Remove local caches and stop any running daemons:
 
@@ -443,9 +443,9 @@ rm -rf ~/.gradle/caches
 
 > **Note**: Run `./gradlew --stop` after clearing the Gradle cache to stop any running daemons. Skipping this step can cause build errors on the next run.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Remove the Bazel cache, including all downloaded artifacts and build outputs:
 
@@ -453,7 +453,7 @@ Remove the Bazel cache, including all downloaded artifacts and build outputs:
 bazel clean --expunge
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -463,7 +463,7 @@ Run a full build and capture the output.
 
 {{< tabs label="Build tool for building the project" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 ```bash
 cd your-project
@@ -478,18 +478,18 @@ grep "Downloaded from" /tmp/mvn-output.txt
 
 All downloads should come from `chainguard` or `chainguard-remediated`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 ```bash
 cd your-project
 ./gradlew build --info 2>&1 | tee /tmp/gradle-output.txt
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 ```bash
 bazel build //... 2>&1 | tee /tmp/bazel-output.txt
@@ -497,7 +497,7 @@ bazel build //... 2>&1 | tee /tmp/bazel-output.txt
 
 Bazel embeds the source repository URL in the cache path for each downloaded artifact.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -513,7 +513,7 @@ When upstream fallback is enabled, [packages that aren't built by Chainguard] ar
 
 {{< tabs label="Build tool for verifying artifacts" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 To list all downloaded JARs:
 
@@ -537,9 +537,9 @@ rm ~/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0
 
 Then run `chainctl libraries verify` again.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Gradle stores JARs in a content-addressed cache. To list all downloaded JARs:
 
@@ -562,9 +562,9 @@ rm -rf ~/.gradle/caches/modules-2/files-2.1/commons-collections
 
 Then run `chainctl libraries verify` again.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Bazel embeds the source repository URL in the cache path, making it easy to identify which JARs came from Chainguard. Use `find` to locate a JAR. For example:
 
@@ -586,7 +586,7 @@ Then verify using the full path. For example:
 chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f4231148aeda823%40libraries.cgr.dev/java/com/fasterxml/jackson/core/jackson-databind/2.9.10/jackson-databind-2.9.10.jar
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 

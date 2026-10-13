@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -106,39 +106,39 @@ To see all currently active npm configuration and where each value comes from:
 
 {{< tabs label="Package manager for auditing registry configuration" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```shell
 npm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```shell
 yarn config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```shell
 cat bunfig.toml
@@ -146,7 +146,7 @@ cat bunfig.toml
 
 If there is no `bunfig.toml`, or if that file does not contain a specific registry, then it is using the standard npm registry by default.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -317,7 +317,7 @@ credentials — not a Chainguard pull token.
 
 {{< tabs label="Package manager for repository manager configuration" >}}
 
-{{% tab title="npm or Yarn Classic" %}}
+{{< tab title="npm or Yarn Classic" >}}
 
 ```shell
 cat > .npmrc << EOF
@@ -327,9 +327,9 @@ EOF
 
 Learn more in the build configuration docs for [npm](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager) and for [Yarn Classic](/chainguard/libraries/javascript/build-configuration/#using-a-repo-manager).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
@@ -337,9 +337,9 @@ pnpm config set registry https://<your-repo-manager-url>/repository/javascript-a
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
@@ -347,9 +347,9 @@ yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/jav
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Add the registry configuration to the `bunfig.toml` file of your project:
 
@@ -361,7 +361,7 @@ registry = "https://repo.example.com:8443/repository/javascript-all/"
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -408,7 +408,7 @@ refresh your dependency versions.
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
@@ -440,9 +440,9 @@ reinstalling.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the
 migration as an opportunity to update dependencies at the same time. Before you
@@ -472,7 +472,7 @@ resolved version is not yet available in Chainguard Libraries or is still within
 the cooldown window. Refer to [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -480,15 +480,15 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```bash
 rm -rf node_modules && npm cache clean --force
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 First, remove `node_modules`:
 
@@ -536,25 +536,25 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 
 > Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```bash
 rm -rf node_modules .yarn/cache
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```bash
 rm -rf node_modules && yarn cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```bash
 rm -rf node_modules && bun pm cache rm
@@ -562,7 +562,7 @@ rm -rf node_modules && bun pm cache rm
 
 If this command is not available on your version of Bun, you can instead delete Bun's cache directory manually.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -575,7 +575,7 @@ your repository manager host, not `registry.npmjs.org`.
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Install dependencies:
 
@@ -589,9 +589,9 @@ Then check the `resolved` field in `package-lock.json`:
 grep "resolved" package-lock.json | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Install dependencies:
 
@@ -611,9 +611,9 @@ For pnpm v9+, check the `integrity` field:
 grep "integrity" pnpm-lock.yaml | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn" %}}
+{{< tab title="Yarn" >}}
 
 Install dependencies:
 
@@ -627,9 +627,9 @@ Then check the `archiveUrl` field in `yarn.lock`:
 grep "archiveUrl" yarn.lock | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Install dependencies:
 
@@ -639,7 +639,7 @@ bun install
 
 Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -656,7 +656,7 @@ When upstream fallback is enabled, [packages that aren't built by Chainguard](#p
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Scan the npm cache:
 
@@ -670,9 +670,9 @@ Verify an npm tarball:
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Use `--store-dir` to install to an explicit path and verify that location:
 
@@ -683,9 +683,9 @@ chainctl libraries verify /tmp/my-pnpm-store
 
 Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/policies-and-security/verification/#analyze-javascript-packages).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 Verify a Yarn Classic cache:
 
@@ -693,9 +693,9 @@ Verify a Yarn Classic cache:
 chainctl libraries verify yarn:
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="node_modules" %}}
+{{< tab title="node_modules" >}}
 
 Scan the project directory:
 
@@ -703,7 +703,7 @@ Scan the project directory:
 chainctl libraries verify ./node_modules
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
