@@ -28,7 +28,7 @@ Chainguard signs each published skill as the SKILLS identity of the organization
 To follow this guide, you need:
 
 * `chainctl` **v0.2.376** or later. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
-* To verify a skill from your own organization, the `viewer` role or higher on that organization. Skills in the `public` and `chainguard` organizations need no role.
+* To verify a skill from your own organization, the `groups.list` capability on that organization, such as with the built-in `owner`, `editor`, `viewer`, `limited_owner`, or `console_viewer` role. For details, refer to the [capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/). Skills in the `public` and `chainguard` organizations need no role.
 * To verify with Cosign instead of `chainctl`, [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) **v3.1.1** or later. Earlier versions can't verify the transparency log entries Chainguard uses to sign skills.
 
 ## Verify a skill with `chainctl`
@@ -72,11 +72,11 @@ The output has the same fields. The `Identity` is your organization's SKILLS ide
 A skill is `verified` only when a Sigstore bundle attached to its digest passes all of these checks:
 
 * The signing certificate chains to the public-good Sigstore trusted root.
-* `https://issuer.enforce.dev` issued the certificate to exactly the SKILLS identity of the organization that owns the skill. No other identity is accepted, and you can't override the identity with a flag or setting.
+* `https://issuer.enforce.dev` issued the certificate to exactly the SKILLS identity of the organization that owns the skill. `chainctl` accepts no other identity, and you can't override the identity with a flag or setting.
 * The bundle has a verified transparency log entry and a verified timestamp.
-* The bundle signs the exact digest being checked.
+* The bundle signs the exact digest that `verify` checks.
 
-`chainctl` has the signing identities of the `public` and `chainguard` organizations built in. For any other organization, it reads the organization's SKILLS identity with your credentials, which is why you need the `viewer` role or higher on that organization.
+`chainctl` has the signing identities of the `public` and `chainguard` organizations built in. For any other organization, it looks up the organization's SKILLS identity with your credentials, which is why you need the `groups.list` capability on that organization.
 
 ### Results and exit codes
 
@@ -84,10 +84,10 @@ A skill is `verified` only when a Sigstore bundle attached to its digest passes 
 
 | Status | Meaning | Exit code |
 | ----- | ----- | ----- |
-| `verified` | A bundle signed by the owning organization's SKILLS identity passed every check. | 0 |
-| `unsigned` | The digest has no Sigstore bundle. | 1 |
-| `failed` | The digest has a bundle, but none of its bundles passed. The `Reason` field explains why. Skills in `uploads.cgr.dev` always fail, because uploads are not Chainguard-signed. | 1 |
-| `skipped` | The skill isn't on the production registry, `skills.cgr.dev`, so `chainctl` can't verify it. `verify` prints a warning. | 0 |
+| `verified` | A bundle signed by the owning organization's SKILLS identity passed every check. | `0` |
+| `unsigned` | The digest has no Sigstore bundle. | `1` |
+| `failed` | The digest has a bundle, but none of its bundles passed. The `Reason` field explains why. Skills in `uploads.cgr.dev` always fail, because Chainguard doesn't sign uploads. | `1` |
+| `skipped` | The skill isn't on the production registry, `skills.cgr.dev`, so `chainctl` can't verify it. `verify` prints a warning. | `0` |
 
 An error that stops verification from running, such as a skill that doesn't exist, also exits with a nonzero code.
 
@@ -99,7 +99,7 @@ Add `--verify` to `chainctl skills pull` or `chainctl skills install` to check t
 chainctl skills install --verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
 ```
 
-`chainctl` prints the verification result before it installs the skill. The following example output shows the results on a machine where Claude Code is present:
+`chainctl` prints the verification result before it installs the skill. The following example shows the output on a machine where Claude Code is installed:
 
 ```output
 Verified sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f: signed by https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a (log index 141100935)
@@ -143,17 +143,17 @@ chainctl iam account-associations describe your-organization --chainguard -o jso
   | jq -r '.[0].chainguard.service_bindings.SKILLS'
 ```
 
-The command prints the UIDP of your organization's SKILLS identity. For the `chainguard` organization, it prints the UIDP from the table above:
+The command prints the UIDP of your organization's SKILLS identity. For the `chainguard` organization, it prints the UIDP from the preceding table:
 
 ```output
 720909c9f5279097d847ad02a2f24ba8f59de36a/c09dd88a8a73ea84
 ```
 
-Prefix the UIDP with `https://issuer.enforce.dev/` to get the certificate identity. Reading account associations needs the `viewer` role or higher on the organization.
+Prefix the UIDP with `https://issuer.enforce.dev/` to get the certificate identity. Reading account associations needs the `account_associations.list` capability on the organization.
 
 ## Verify a skill with Cosign
 
-`chainctl skills verify` is the simplest way to check a skill's signature. You can also check it yourself with Cosign, using the signing identities from the previous section.
+Chainguard recommends `chainctl skills verify` for checking a skill's signature, but you can also check it yourself with Cosign, using the signing identities from the previous section.
 
 ### Public registry
 
@@ -186,7 +186,7 @@ Cosign needs credentials to pull from your organization's registry. Configure th
 chainctl auth configure-docker
 ```
 
-Then verify the skill with your organization's SKILLS identity, from the previous section, in place of `<skills-identity-uidp>`:
+Then run `cosign verify`, replacing `<skills-identity-uidp>` with the UIDP of your organization's SKILLS identity from the previous section:
 
 ```shell
 cosign verify \
@@ -200,10 +200,6 @@ cosign verify \
 {{< note >}}
 Earlier instructions for verifying skills used `--new-bundle-format=false` and a `--certificate-identity-regexp` that matched Google Cloud service accounts. Those flags check an older signature format that Chainguard no longer relies on. Use the SKILLS identities on this page instead.
 {{< /note >}}
-
-## Attestations
-
-Chainguard doesn't publish provenance attestations for skills yet. This guide will describe how to download and verify them once they're available.
 
 ## Learn more
 

@@ -131,7 +131,7 @@ Validation passed.
 This checks format only, not authenticity. To check that Chainguard signed a published skill, run `chainctl skills verify <ref>`.
 ```
 
-`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes. `validate` checks format only. It doesn't check who published a skill. To check that, verify the hardened skill's signature, as described in [Verify the skill](#verify-the-skill).
+`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes. `validate` checks format only, not who published a skill. To check that, verify the hardened skill's signature, as described in [Verify the skill](#verify-the-skill).
 
 To also flag optional fields that Chainguard recommends, add the `--strict` flag:
 
@@ -231,7 +231,7 @@ Chainguard signs every hardened skill it publishes to your organization's regist
 chainctl skills verify "$HARDENED_REF"
 ```
 
-A `Status` of `verified` confirms that Chainguard signed the skill for your organization and that it hasn't changed since. Verifying a skill in your organization requires the `viewer` role or higher on the organization. For what `verify` checks, its other results, and how to verify with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
+A `Status` of `verified` confirms that Chainguard signed the skill for your organization and that it hasn't changed since. Verifying a skill in your organization requires the `groups.list` capability on the organization, such as with the built-in `owner`, `editor`, `viewer`, `limited_owner`, or `console_viewer` role. For what `verify` checks, its other results, and how to verify with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
 
 ### Install the skill
 
