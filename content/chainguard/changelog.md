@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-13T18:20:58+00:00
+lastmod: 2026-10-13T18:41:45+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -18,6 +18,55 @@ This page logs Chainguard product updates week by week, newest first: product an
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
 
 ## Week of 2026-10-12
+
+{{< changelog-label "Product Announcements" >}}
+
+### Chainguard Actions is now generally available
+
+_Launched October 6, 2026._
+
+Chainguard Actions provides more than 1,000 continuously hardened, drop-in
+replacements for GitHub Actions. This release adds:
+
+- Hardening and pinning of transitive action dependencies.
+- A hardening report (`Hardening.md`) for every action that lists the
+  vulnerabilities removed.
+- Self-serve action requests, with a one-business-day SLA so coverage stays
+  gapless.
+- Automated migration through the Chainguard App or the migration skill.
+
+### The Chainguard Compliance Dashboard is now generally available
+
+_Launched October 7, 2026._
+
+The Chainguard Compliance Dashboard gives security and compliance teams a
+centralized view of container compliance, vulnerability posture, and
+audit-ready reporting in the Chainguard Console. It continuously logs image
+attestations and real-time CVE status, so you don't have to scrape SBOMs or
+stitch together periodic scanner reports between audit cycles.
+
+In the Chainguard Console, every FIPS image now shows:
+
+- OpenSCAP scan results against the DISA General Purpose Operating System
+  (GPOS) SRG.
+- FIPS 140-3 validation details.
+
+Each architecture has a downloadable XCCDF report you can include as
+supporting evidence in FedRAMP and other audit packages.
+
+### Guardener is available in Early Access
+
+_Launched October 8, 2026._
+
+Guardener, Chainguard's AI-native adoption agent, automates container
+discovery and migration across your organization. In Early Access, Guardener
+provides:
+
+- Continuous repository scanning across Dockerfiles, Helm charts, and
+  Kubernetes manifests.
+- Automated pull requests, configured in YAML, that run image swaps.
+- Non-blocking pull request guardrails that guide engineers toward hardened
+  images in daily workflows.
 
 {{< changelog-label "EOL" >}}
 
