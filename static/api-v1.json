@@ -1900,7 +1900,11 @@
         "description": "CheckEligibilityResponse is the response message for CheckEligibility.",
         "properties": {
           "eligible": {
-            "description": "Indicates if the domain of the caller's email address is eligible\nfor email-domain-gated Groups flows.",
+            "description": "eligible reports whether the domain of the caller's email address may\ncreate a self-serve Starter organization. A personal-mail domain can be\neligible: unverified_starter is then set too, and the organization the\ncaller creates is unverified. Such a domain stays ineligible for\nLookupGroup and RequestGroupAccess, so read unverified_starter before\noffering those flows.",
+            "type": "boolean"
+          },
+          "unverifiedStarter": {
+            "description": "unverified_starter is set with eligible when the caller's email domain is\na personal-mail provider: a Starter organization the caller creates is\nunverified, takes a name the caller chooses, and is never found by email\ndomain.",
             "type": "boolean"
           }
         },
@@ -1924,6 +1928,10 @@
           "identityProviderUidp": {
             "description": "identity_provider_uidp is the UIDP of the IdentityProvider this mapping belongs to.",
             "type": "string"
+          },
+          "privilegedRole": {
+            "description": "privileged_role reports whether role_uidp names a privileged role: the\nbuilt-in owner or support role. SCIM provisioning never creates persistent\nrole bindings from such a mapping, so its members hold the role only\nthrough capabilities granted at sign-in, which expire with the session.\nOutput only: derived from the role on every read; a value supplied on\nCreate is ignored. It reads false if that lookup fails, so false is not\nproof the role is unprivileged.",
+            "type": "boolean"
           },
           "roleUidp": {
             "description": "role_uidp is the UIDP of the Chainguard Role to grant.",
@@ -6314,6 +6322,17 @@
       },
       "chainguard.platform.registry.EntitlementImage": {
         "properties": {
+          "countsTowardSwapQuota": {
+            "description": "Whether the removal recorded by delete_time is charged against the\norganization's rolling swap budget. A property of the removal, not of the\nimage: re-adding the image clears it along with delete_time, so a live image\nalways reads false. Removals that are not charged include those made by\ndeleting the whole entitlement, which removes all of its images, by internal\nreconcilers, or by Chainguard staff acting on the organization's behalf.\nAlways false on ListEntitlementImages.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "deleteTime": {
+            "description": "delete_time is when the image was removed from the entitlement. It is set\nonly on a removed image, which ListEntitlementCatalogImages returns when\nasked with include_deleted. Always unset on ListEntitlementImages.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "externalImageGroupId": {
             "description": "Identifier for the image group in whatever external system defined it\n(Salesforce/SFDC, GitHub, or another source).",
             "readOnly": true,
@@ -11660,7 +11679,7 @@
     },
     "/iam/v1/groups:checkEligibility": {
       "get": {
-        "description": "CheckEligibility reports whether the caller passes the same eligibility\ngates applied by LookupGroup and RequestGroupAccess. A response of\neligible=true does not guarantee those calls succeed for other reasons\n(no matching org, already requested, etc.).",
+        "description": "CheckEligibility reports whether the caller's email domain may use the\nself-serve Groups flows. A personal-mail domain may only create an\nunverified Starter organization (see\nCheckEligibilityResponse.unverified_starter); LookupGroup and\nRequestGroupAccess refuse it. A response of eligible=true does not\nguarantee those calls succeed for other reasons (no matching org,\nalready requested, etc.).",
         "operationId": "Groups_CheckEligibility",
         "responses": {
           "200": {
@@ -16772,6 +16791,14 @@
               "pattern": ".+",
               "type": "string"
             }
+          },
+          {
+            "description": "include_deleted also returns images removed from the entitlement, each with\ndelete_time set. Honored only by ListEntitlementCatalogImages;\nListEntitlementImages accepts and ignores it.",
+            "in": "query",
+            "name": "includeDeleted",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -16815,6 +16842,14 @@
             "schema": {
               "pattern": ".+",
               "type": "string"
+            }
+          },
+          {
+            "description": "include_deleted also returns images removed from the entitlement, each with\ndelete_time set. Honored only by ListEntitlementCatalogImages;\nListEntitlementImages accepts and ignores it.",
+            "in": "query",
+            "name": "includeDeleted",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],

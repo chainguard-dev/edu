@@ -10,4 +10,4 @@ Tags: {{ delimit .Params.tags ", " }}
 {{ .Description }}
 {{- end }}
 
-{{ .Content | plainify }}
+{{ .RenderShortcodes }}

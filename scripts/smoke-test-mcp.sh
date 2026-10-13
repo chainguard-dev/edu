@@ -38,11 +38,11 @@ fail() {
 }
 
 # The MCP initialize request, reused as both the liveness probe and the
-# stateless assertion below. It MUST be a POST: POST /mcp is a request-response
-# cycle in every transport mode, whereas GET /mcp in stateless mode opens a
-# long-lived SSE stream that never closes and would hang curl (and this whole
-# script) indefinitely. --max-time bounds any unexpected stall; callers pass -f
-# so a non-2xx response is a failure, not a vacuous pass.
+# stateless assertion below. It is a POST because POST /mcp is a
+# request-response cycle in every transport mode. GET /mcp returns 405 (Check 5),
+# but before that fix it opened an SSE stream that never closed. --max-time
+# bounds any unexpected stall; callers pass -f so a non-2xx response is a
+# failure, not a vacuous pass.
 INIT_BODY='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"smoke","version":"0"}}}'
 
 post_init() {  # extra curl args in "$@"
@@ -107,3 +107,19 @@ if printf '%s' "$response" | grep -qi '^content-type:[[:space:]]*application/jso
 else
     fail "expected an application/json POST reply but the Content-Type differs (json_response regressed?)"
 fi
+
+# --- Check 5: GET /mcp is refused, not held open as a stream (EXP-577) -------
+# In stateless mode the SDK accepted GET /mcp and held an empty SSE stream open
+# until Cloud Run's request timeout, holding a request slot the whole time.
+# Enough of those filled every slot and Cloud Run returned 429 to all callers.
+# The server must answer 405. A 200 here means the stream is back; curl's
+# --max-time ends it, and -w still reports the status. `|| true` keeps set -e
+# from exiting on that timeout before fail() can report it.
+echo "Check 5: GET /mcp returns 405 (no SSE stream)"
+status=$(curl -s --max-time 5 -o /dev/null -w '%{http_code}' \
+    -H "Accept: text/event-stream" \
+    -H "MCP-Protocol-Version: 2025-06-18" \
+    "http://127.0.0.1:$HOST_PORT/mcp") || true
+[ "$status" = "405" ] \
+    || fail "GET /mcp returned $status, expected 405 (a 200 means the server opened an SSE stream: EXP-577)"
+echo "  OK: GET /mcp returned 405"

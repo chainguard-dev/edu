@@ -450,6 +450,12 @@ material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
 
+To save the available signature bundle, verified PEP 740 provenance, and
+embedded SPDX SBOM while verifying a wheel, use `chainctl libraries verify
+--output-attestations` with `--output-dir`. Refer to [Download Python SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-python-sboms-and-attestations)
+for examples and output paths.
+
 ### Embedded SBOMs
 
 The related files for Chainguard Libraries for Python are located within the

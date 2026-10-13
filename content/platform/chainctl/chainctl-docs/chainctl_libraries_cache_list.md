@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl libraries cache list"
 slug: chainctl_libraries_cache_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_cache_list/
@@ -31,7 +31,7 @@ chainctl libraries cache list [--ecosystem ECOSYSTEM] [--group G | --scope S | -
       --limit int32        Maximum number of entries to show. (default 100)
       --live               Only list live entries (the ones that govern serving).
       --package string     Only list entries for one package. Requires --ecosystem.
-      --parent string      The name or id of the organization whose resolution cache to list.
+      --parent string      The name or id of the organization whose resolution cache to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --registry string    Only list entries for one registry.
       --scope string       Only list entries under an npm scope prefix. Requires --ecosystem.
       --tier string        Only list entries recording this tier (CHAINGUARD or UPSTREAM).

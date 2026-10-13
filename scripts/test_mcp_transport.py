@@ -1,60 +1,126 @@
 #!/usr/bin/env python3
-"""Regression coverage for the docs MCP server's HTTP transport (CUS-1340).
+"""Regression coverage for the docs MCP server's HTTP transport.
 
-The hosted server runs several Cloud Run instances behind a global load
-balancer with no session affinity. A stateful streamable-HTTP transport keys
-each session to the instance that handled `initialize`, so a follow-up request
-(for example `notifications/initialized`) landing on another instance was
-rejected with 404 "Session not found". Running the transport with
-`stateless_http=True` makes every request self-contained, which is safe here
-because the docs tools are read-only and the server sends no server-initiated
-notifications.
+These tests send real HTTP requests to the app that production serves, built
+by build_http_app() in mcp-server.py, and guard three settings:
 
-This asserts the production invocation keeps that flag. It reads the source
-rather than importing, because the `server.run(...)` call lives under
-`if __name__ == "__main__"` and would block on uvicorn if executed.
+- Stateless (CUS-1340). The hosted server runs several Cloud Run instances
+  behind a global load balancer with no session affinity. A stateful transport
+  keys each session to the instance that handled `initialize`, so a follow-up
+  request landing on another instance was rejected with 404 "Session not
+  found". A stateless server mints no Mcp-Session-Id.
+- JSON responses. Each POST reply is a single application/json body, not a
+  one-shot text/event-stream.
+- No SSE stream (EXP-577). In stateless mode the SDK accepts GET /mcp and
+  holds an empty stream open until Cloud Run's 300-second request timeout,
+  holding one of the service's request slots the whole time. Enough of those
+  filled every slot, and Cloud Run returned 429 to all callers. The server
+  must answer GET with 405 instead.
+
+TestClient is used as a context manager so it runs the app's lifespan, which
+starts the SDK's session manager; without it every POST fails with 500.
 
 Run with:
     pytest scripts/test_mcp_transport.py -v
 """
 
-import ast
+import importlib.util
+import os
 from pathlib import Path
 
-SERVER = Path(__file__).parent / "mcp-server.py"
+import pytest
+from starlette.testclient import TestClient
 
 
-def streamable_http_run_calls(tree):
-    """Every `.run(transport="streamable-http", ...)` call in the module."""
-    calls = []
-    for node in ast.walk(tree):
-        if not isinstance(node, ast.Call):
-            continue
-        transport = next(
-            (kw.value for kw in node.keywords if kw.arg == "transport"), None
-        )
-        if isinstance(transport, ast.Constant) and transport.value == "streamable-http":
-            calls.append(node)
-    return calls
+def load_server_module():
+    """Import scripts/mcp-server.py, whose filename is not a valid module name.
+
+    The module indexes DOCS_PATH at import time. Point it at paths that do not
+    exist so the import stays cheap; these tests need no documentation content.
+    """
+    os.environ["DOCS_PATH"] = "/nonexistent/docs.md"
+    os.environ["CATALOG_PATH"] = "/nonexistent/catalog.json"
+
+    spec = importlib.util.spec_from_file_location(
+        "mcp_server_transport_under_test", Path(__file__).parent / "mcp-server.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
-def test_http_transport_runs_stateless():
-    """The streamable-HTTP server must run stateless, or CUS-1340 regresses."""
-    tree = ast.parse(SERVER.read_text(encoding="utf-8"))
-    calls = streamable_http_run_calls(tree)
-    assert calls, "expected a streamable-http server.run() call"
-    for call in calls:
-        flag = next(
-            (kw.value for kw in call.keywords if kw.arg == "stateless_http"), None
-        )
-        assert flag is not None, (
-            "stateless_http kwarg missing from the streamable-http run() call "
-            "(CUS-1340): stateful sessions break across unaffinitized Cloud "
-            "Run instances"
-        )
-        # `is True` is deliberate: it rejects truthy-but-not-True literals such
-        # as stateless_http=1, which the SDK would not treat as the boolean flag.
-        assert isinstance(flag, ast.Constant) and flag.value is True, (
-            "stateless_http must be the literal True, not a falsy or non-True "
-            "value (CUS-1340)"
-        )
+mcp_server = load_server_module()
+
+# The Envoy AI Gateway sends this protocol version, and clients on any 2025
+# version reach the SDK path that opened the stream.
+PROTOCOL_VERSION = "2025-06-18"
+
+POST_HEADERS = {
+    "Accept": "application/json, text/event-stream",
+    "Content-Type": "application/json",
+}
+
+INITIALIZE = {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "initialize",
+    "params": {
+        "protocolVersion": PROTOCOL_VERSION,
+        "capabilities": {},
+        "clientInfo": {"name": "transport-test", "version": "0"},
+    },
+}
+
+
+@pytest.fixture(scope="module")
+def client():
+    # Nothing binds here. The test passes production's host so the SDK picks
+    # the same transport-security settings; a localhost host would turn on DNS
+    # rebinding protection, which production doesn't run with.
+    with TestClient(mcp_server.build_http_app("0.0.0.0")) as test_client:  # nosec B104
+        yield test_client
+
+
+@pytest.mark.parametrize(
+    "headers",
+    [
+        {"Accept": "text/event-stream", "MCP-Protocol-Version": PROTOCOL_VERSION},
+        {"Accept": "text/event-stream"},
+    ],
+    ids=["with-protocol-version", "without-protocol-version"],
+)
+# If the 405 route regresses, the GET opens a stream that never ends and
+# TestClient waits forever for its body. The timeout (pytest-timeout) turns
+# that hang into a failure.
+@pytest.mark.timeout(10)
+def test_get_is_refused_with_405(client, headers):
+    """GET /mcp must not open an SSE stream (EXP-577)."""
+    response = client.get("/mcp", headers=headers)
+    assert response.status_code == 405
+    assert response.headers["allow"] == "POST"
+
+
+def test_initialize_is_stateless_and_json(client):
+    """POST initialize still works, mints no session, and replies in JSON."""
+    response = client.post("/mcp", headers=POST_HEADERS, json=INITIALIZE)
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("application/json")
+    # A JSON-RPC error also comes back as HTTP 200, so check for a result
+    # before trusting the absent session id.
+    assert "result" in response.json()
+    assert "mcp-session-id" not in response.headers, (
+        "stateless mode expected but the server minted an Mcp-Session-Id "
+        "(CUS-1340): stateful sessions break across unaffinitized Cloud Run "
+        "instances"
+    )
+
+
+def test_tools_list_works_without_a_session(client):
+    """A follow-up request needs no session, so any instance can serve it."""
+    response = client.post(
+        "/mcp",
+        headers={**POST_HEADERS, "MCP-Protocol-Version": PROTOCOL_VERSION},
+        json={"jsonrpc": "2.0", "id": 2, "method": "tools/list"},
+    )
+    assert response.status_code == 200
+    assert response.json()["result"]["tools"]

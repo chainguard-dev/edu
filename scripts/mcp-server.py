@@ -25,8 +25,13 @@ from typing import Any, Annotated, Dict, List, Literal, Optional
 
 # MCP SDK imports (2.0 high-level API)
 try:
+    import uvicorn
     from mcp.server import MCPServer
     from pydantic import Field
+    from starlette.applications import Starlette
+    from starlette.requests import Request
+    from starlette.responses import Response
+    from starlette.routing import Route
 except ImportError:
     import sys
 
@@ -690,6 +695,55 @@ def find_image_equivalent(
     return response
 
 
+async def refuse_sse_stream(request: Request) -> Response:
+    """Answer GET /mcp with 405: this server offers no server-to-client stream."""
+    return Response(status_code=405, headers={"Allow": "POST"})
+
+
+def build_http_app(host: str) -> Starlette:
+    """Build the streamable-HTTP app that serves /mcp.
+
+    stateless_http holds no per-session state in instance memory. The service
+    runs multiple Cloud Run instances behind a global load balancer with no
+    session affinity, so a session minted by initialize on one instance is
+    rejected with 404 "Session not found" when a follow-up request (e.g.
+    notifications/initialized) lands on another (CUS-1340). The docs tools are
+    read-only with no server-initiated notifications, so holding no shared
+    session state has no downside. Statelessness also retires the SDK's
+    per-session ceilings (max_sessions, session_idle_timeout); throughput is
+    now bounded by Cloud Run per-instance concurrency instead.
+
+    json_response returns each POST reply as a single application/json body
+    instead of a one-shot text/event-stream. These tools are read-only and
+    single-response, so nothing needs SSE framing, and plain JSON is friendlier
+    to the fronting load balancer and buffering proxies.
+
+    The first route answers GET (and HEAD) /mcp with 405, which the MCP spec
+    defines as "no SSE stream offered here" and requires clients to handle.
+    In stateless mode the SDK still accepts GET and holds the stream open,
+    sending only keepalive pings, until Cloud Run's 300-second request
+    timeout. Each open stream holds one of the service's Cloud Run request
+    slots; enough of them filled every slot, and Cloud Run returned 429 to all
+    callers (EXP-577; upstream: modelcontextprotocol/python-sdk#2474).
+    Starlette matches routes in order and this route accepts only GET and
+    HEAD, so it must come first; POST and DELETE fall through to the SDK's
+    /mcp route. The SDK's custom_route() can't do this, because it adds routes
+    after /mcp.
+    """
+    # streamable_http_path defaults to "/mcp" and max_request_body_size to
+    # 4 MiB. host is passed so the SDK applies the same transport-security
+    # defaults it would under server.run().
+    app = server.streamable_http_app(
+        host=host,
+        stateless_http=True,
+        json_response=True,
+    )
+    app.router.routes.insert(
+        0, Route("/mcp", endpoint=refuse_sse_stream, methods=["GET"])
+    )
+    return app
+
+
 def parse_args():
     """Parse command-line arguments with env var fallbacks."""
     parser = argparse.ArgumentParser(
@@ -721,34 +775,20 @@ if __name__ == "__main__":
     args = parse_args()
 
     if args.transport == "http":
-        # host must be passed explicitly: the SDK runner defaults to 127.0.0.1,
-        # but Cloud Run requires binding 0.0.0.0. streamable_http_path defaults
-        # to "/mcp" (matches the 1.x mount) and max_request_body_size to 4 MiB.
-        #
-        # stateless_http holds no per-session state in instance memory. The
-        # service runs multiple Cloud Run instances behind a global load
-        # balancer with no session affinity, so a session minted by initialize
-        # on one instance is rejected with 404 "Session not found" when a
-        # follow-up request (e.g. notifications/initialized) lands on another
-        # (CUS-1340). The docs tools are read-only with no server-initiated
-        # notifications, so holding no shared session state has no downside.
-        # Statelessness also retires the SDK's per-session ceilings
-        # (max_sessions, session_idle_timeout); throughput is now bounded by
-        # Cloud Run per-instance concurrency instead.
-        #
-        # json_response returns each POST reply as a single application/json
-        # body instead of a one-shot text/event-stream. These tools are
-        # read-only and single-response, so nothing needs SSE framing, and plain
-        # JSON is friendlier to the fronting load balancer and buffering proxies.
+        # host must be passed explicitly: it defaults to 127.0.0.1, but Cloud
+        # Run requires binding 0.0.0.0. This calls uvicorn the way the SDK's
+        # server.run() does (host, port, log level), and uvicorn reads
+        # FORWARDED_ALLOW_IPS from the environment (see serve-mcp-http.sh).
+        # build_http_app() explains the transport settings.
         logger.info(
-            "Starting HTTP transport with stateless_http=True, json_response=True (CUS-1340)"
+            "Starting HTTP transport: stateless_http=True, json_response=True, "
+            "GET /mcp returns 405 (CUS-1340, EXP-577)"
         )
-        server.run(
-            transport="streamable-http",
+        uvicorn.run(
+            build_http_app(args.host),
             host=args.host,
             port=args.port,
-            stateless_http=True,
-            json_response=True,
+            log_level=server.settings.log_level.lower(),
         )
     else:
         server.run()  # stdio

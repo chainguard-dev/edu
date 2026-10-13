@@ -1,5 +1,5 @@
 ---
-date: 2026-10-08T18:22:10Z
+date: 2026-10-12T15:51:44Z
 title: "chainctl images history"
 slug: chainctl_images_history
 url: /platform/chainctl/chainctl-docs/chainctl_images_history/
@@ -37,7 +37,7 @@ chainctl images history IMAGE[:TAG] [flags]
 ### Options
 
 ```
-      --parent string   Organization to view image history from Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string   Organization to view image history from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       Search repositories recursively through all descendants instead of just children
 ```
 

@@ -179,6 +179,12 @@ the attestation was signed by Chainguard.
 
 ### Retrieve SBOMs
 
+To save the available SPDX SBOM and verified SLSA provenance bundle during
+verification, use `chainctl libraries verify --output-attestations` with
+`--output-dir`. Refer to [Download JavaScript SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-javascript-sboms-and-attestations)
+for examples, output paths, and the trust status of each file.
+
 Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format.
 
 To check whether an SBOM is available for a package, use npm show with the dist.sboms field:
