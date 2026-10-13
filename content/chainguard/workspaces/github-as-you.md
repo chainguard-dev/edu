@@ -4,7 +4,7 @@ linktitle: "Act on GitHub as you"
 description: "Connect your GitHub account so that the Chainguard Workspaces sessions you create act on GitHub as you through the Chainguard Develop GitHub App, and learn how to limit what those sessions can do."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Procedural"]
 images: []
@@ -36,7 +36,7 @@ The connection applies to the sessions you create in every organization that doe
 
 Each session keeps the GitHub identity it was created with, so connecting your account doesn't change the sessions you already have. After you disconnect, a session that acts as you refuses `git` and `gh` requests until you connect again, and `chainctl` offers to connect your account when you attach to it.
 
-## Install the Chainguard Develop app
+## Install the Chainguard Develop app {#install-the-chainguard-develop-app}
 
 A session that acts as you reaches only the repositories where the Chainguard Develop app is installed. Install it from the [Chainguard Develop installation page](https://github.com/apps/chainguard-develop/installations/new) on the following accounts:
 
@@ -59,11 +59,11 @@ A session that acts as you can do anything your GitHub account can, within the C
 - It can push changes to files in `.github/workflows`.
 - It can't create or update check runs or commit statuses, or rerun GitHub Actions workflows, because the app can only read them. To rerun Chainguard Checks from a session, use `chainctl checks rerun`, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
-## Protect your branches
+## Protect your branches {#protect-your-branches}
 
 Because an agent in a session that acts as you can approve and merge as you, protect the branches it shouldn't change on its own with a branch protection rule or ruleset. Require pull request reviews, and turn on **Require approval of the most recent reviewable push**, so that someone other than the account that pushed last must approve each pull request.
 
-## Controls that don't apply to a session that acts as you
+## Controls that don't apply to a session that acts as you {#controls-that-dont-apply-to-a-session-that-acts-as-you}
 
 For a session that acts as you, `chainctl` doesn't ask you to approve GitHub requests, and the session's `github` source and bindings aren't used. The following have no effect on its GitHub access:
 

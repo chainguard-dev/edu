@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -69,7 +69,7 @@ Chainguard Workspaces and [Chainguard Checks](/chainguard/checks/overview/) read
 
 The `run-ci` command runs each check in the session's own environment, which can have different packages and network access than the check declares. It skips checks that only a pull request can run, such as a check that needs a [workload identity](/chainguard/checks/identity-and-trust/). Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run). For the checks it runs, its result predicts the pull request's result, but only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. You can use Chainguard Workspaces without Chainguard Checks, and the other way around.
 
-## Availability and limits
+## Availability and limits {#availability-and-limits}
 
 Chainguard Workspaces is offered as a Technology Preview, as described in the [Chainguard Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). Technology Previews aren't recommended for production use. Don't use a Technology Preview to process personal data, or any data subject to legal or regulatory compliance requirements, unless Chainguard specifically authorizes it.
 

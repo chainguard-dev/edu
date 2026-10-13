@@ -4,7 +4,7 @@ linktitle: "Session credentials"
 description: "Learn how a Chainguard Workspaces session reaches GitHub, Claude, and Chainguard without holding credentials, and how to approve, review, and revoke what it can reach."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Configuration"]
 images: []
@@ -19,7 +19,7 @@ A Chainguard Workspaces session holds no long-lived credentials: its VM stores n
 
 A check in Chainguard Checks can get short-lived credentials through a workload identity, which a session can't use. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/).
 
-## How credentials reach a session
+## How credentials reach a session {#how-credentials-reach-a-session}
 
 Each service a session can reach has a hostname inside the session, such as `http://github/` or `http://claude/`. Chainguard configures the session to use these hostnames. For example, `git` in the session rewrites `https://github.com/` URLs to `http://github/`, and Claude Code sends its requests to `http://claude/`.
 
@@ -36,7 +36,7 @@ A credential that `chainctl` sends to the session's host stays there until the s
 
 Requests that `chainctl` answers from your laptop work only while your laptop serves the session, which it does while you're attached. If your terminal served one of them while you were attached, it keeps serving after you detach and keep the session running, until you press `Ctrl+C`. If nothing serves a session, these requests fail with an error that says no laptop is attached.
 
-## What a session can reach by default
+## What a session can reach by default {#what-a-session-can-reach-by-default}
 
 A new session can reach the following services without asking you:
 
@@ -64,7 +64,7 @@ Pressing `Enter` declines, and so does leaving the prompt unanswered for 60 seco
 
 If no terminal is attached, a session can't ask you, so it refuses the request. A terminal that keeps serving after you detach also refuses new requests. To allow access ahead of time, use `--with`.
 
-## Allow access ahead of time
+## Allow access ahead of time {#allow-access-ahead-of-time}
 
 The `--with` flag adds access to a session when you create it or return to it. You can repeat the flag or separate entries with commas, and entries add to what the session already has. `chainctl` records each change on the session and remembers it on your laptop for the next session on the same organization and repository.
 
@@ -92,7 +92,7 @@ Wildcard entries allow fetching only. To push to a repository, name it with `+pu
 
 The `github` entries have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
 
-## Use your Google Cloud credentials in a session
+## Use your Google Cloud credentials in a session {#use-your-google-cloud-credentials-in-a-session}
 
 To let `gcloud` and the Google Cloud client libraries in a session act as you, run `gcloud auth application-default login` on your laptop. Then add `--with gcp` when you create a session or return to one. For example, this command turns on `gcp` for an existing session:
 
@@ -110,7 +110,7 @@ While the session has your credential, code in it can use your Google Cloud acce
 
 Every session sets `GOOGLE_APPLICATION_CREDENTIALS` and `CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE` to its placeholder credential, whether or not `gcp` is on. While `gcp` is off, `gcloud` and the Google Cloud client libraries fail with an error that says Google credentials are unavailable. To sign in to Google Cloud in the session another way, such as with `gcloud auth login`, unset both variables first.
 
-## Credentials a session can't supply
+## Credentials a session can't supply {#credentials-a-session-cant-supply}
 
 A session gets credentials only for Claude, GitHub, Chainguard's `cgr.dev` and `apk.cgr.dev` registries, your Chainguard identity, and, when you turn on `gcp`, Google APIs on `*.googleapis.com`. The `--with` flag takes only the entries listed in [Allow access ahead of time](#allow-access-ahead-of-time), so you can't add another service. A session has no credential for services such as the following:
 
@@ -121,7 +121,7 @@ A session gets credentials only for Claude, GitHub, Chainguard's `cgr.dev` and `
 
 If you paste one of these credentials into a session, or sign in to a tool there, such as with `aws configure` or `npm login`, the credential stays on the session's disk or in its memory. When the session parks, Chainguard saves the credential in the session's snapshot with everything else, and keeps it until you delete the session or the session expires. Any program in the session, including a coding agent, can read the credential and send it anywhere the session can reach. Do work that needs these credentials on your laptop instead.
 
-## Review and revoke a session's credentials
+## Review and revoke a session's credentials {#review-and-revoke-a-sessions-credentials}
 
 To see what a session can reach, run `chainctl develop creds` with the session's name or short ID:
 
@@ -166,7 +166,7 @@ The `claude` screen also offers **Use Vertex AI…** or **Use Anthropic…**, as
 
 When you attach, `chainctl` prints a line for each credential the session gets without asking you. A line that ends in `(turn off: ~. → Credentials)` or `(change: ~. → Credentials)` points to this screen, which you can open by pressing `Ctrl+]`, or by typing `~.` where it works, as described in [Detach from a session](/chainguard/workspaces/manage-sessions/#detach-from-a-session). If the attach has no session menu, the line names the `chainctl develop creds` command to run instead.
 
-## Set your organization's GitHub policy
+## Set your organization's GitHub policy {#set-your-organizations-github-policy}
 
 Your organization's policy controls which repositories the Chainguard App serves to sessions. Any session owner can read it:
 
@@ -184,11 +184,11 @@ To change the policy, you need permission to list every user's sessions in the o
 
 Sessions pick up a policy change at their next request. The `--org-github` and `--org-github-push-beyond-session` settings don't apply to sessions that act on GitHub as their owner.
 
-## Let sessions act on GitHub as you
+## Let sessions act on GitHub as you {#let-sessions-act-on-github-as-you}
 
 If you connect your GitHub account, the sessions you create afterward act on GitHub as you through the Chainguard Develop GitHub App, instead of through their `github` source. Such a session doesn't ask you to approve GitHub requests, and the `github` entries and sources on this page don't apply to it. Refer to [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
 
-## Your Chainguard identity in a session
+## Your Chainguard identity in a session {#your-chainguard-identity-in-a-session}
 
 `chainctl` and the Chainguard MCP servers in a session act as you through a delegated Chainguard identity, so they work without a login in the session:
 

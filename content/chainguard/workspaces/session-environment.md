@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -19,7 +19,7 @@ A Chainguard Workspaces session's *environment* is the set of packages installed
 
 A session's environment is fixed when the session is created. If your repository's `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file changes afterward, existing sessions keep the environment they started with, and `chainctl` reminds you when you return to them. To use the new environment, open a new session with `chainctl develop --new`.
 
-## How a session chooses its environment
+## How a session chooses its environment {#how-a-session-chooses-its-environment}
 
 When `chainctl develop` creates a session, it chooses the environment in the following order:
 
@@ -64,7 +64,7 @@ To find a package's name, ask a coding agent in the session. Every session confi
 
 Packages you install with `apk` last for the life of the session, including when it parks and resumes, but new sessions don't get them. To install packages in every new session, list them in a `.chainguard/develop.yaml` file.
 
-## Use a .chainguard/develop.yaml file
+## Use a .chainguard/develop.yaml file {#use-a-chainguarddevelopyaml-file}
 
 A `.chainguard/develop.yaml` file sets up sessions and nothing else. Chainguard Checks doesn't run anything from it, so changing it doesn't change your checks.
 
@@ -132,7 +132,7 @@ Keep the following in mind when you write the file for sessions:
 - If your repository uses the `.chainguard/ci/` directory layout instead of a single file, add a `.chainguard/develop.yaml` file whose `from` key names the check file or environment file that sessions should use, as described in [Use a .chainguard/develop.yaml file](#use-a-chainguarddevelopyaml-file). Without one, a session opens on the default environment, and `run-ci` runs your checks without the packages they declare.
 - Sessions don't read `.chainguard/ci/env/develop.yaml`. If your repository has that file for sessions, name it in `.chainguard/develop.yaml` with `from: .chainguard/ci/env/develop.yaml`.
 
-## Use a separate environment file
+## Use a separate environment file {#use-a-separate-environment-file}
 
 To give sessions an environment that's different from the one your checks use, without changing your repository, write it in a file of your own and pass the file with `--env`. A value for `--env` that contains a `/` or ends in `.yaml` is treated as a path.
 
@@ -160,7 +160,7 @@ chainctl develop --env ./session-env.yaml --parent $ORGANIZATION
 
 The session shows the file's contents in `/etc/chainguard/session.yaml`.
 
-## Generate an environment
+## Generate an environment {#generate-an-environment}
 
 If your repository has neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file, `chainctl` can generate an environment from your directory's toolchain files, such as `go.mod` or `package.json`. To try it, pass `--env generate`:
 
@@ -170,13 +170,13 @@ chainctl develop --env generate --parent $ORGANIZATION
 
 To generate the environment, `chainctl` uploads your directory to an AI agent that Chainguard hosts. The generated environment starts from the default environment's packages, adds the toolchains your directory needs, such as `go-1.24` for a Go module, and reaches the open internet. If your repository already has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, `--env generate` ignores it and says so. The option works only with a local directory, not with a repository URL.
 
-In a git checkout, the upload includes tracked files and untracked files that `.gitignore` doesn't exclude, so files that `.gitignore` excludes, such as a `.env` file, stay on your laptop. In a directory that isn't a git checkout, the upload includes every file, so move secrets out of the directory before you pass `--env generate`. Either way, the upload leaves out symbolic links and every directory with one of the following names, at any depth: `.git`, `node_modules`, `vendor`, `target`, `dist`, `build`, `.venv`, `venv`, `__pycache__`, `.tox`, `.mypy_cache`, `.pytest_cache`, `.gradle`, `.idea`, and `.vscode`. `chainctl` 0.2.381 or earlier also uploads files that `.gitignore` excludes, so update `chainctl` before you pass `--env generate` in a checkout that holds secrets.
+In a git checkout, the upload includes tracked files and untracked files that `.gitignore` doesn't exclude, so files that `.gitignore` excludes, such as a `.env` file, stay on your laptop. In a directory that isn't a git checkout, the upload includes every file, so move secrets out of the directory before you pass `--env generate`. Either way, the upload leaves out symbolic links and every directory with one of the following names, at any depth: `.git`, `node_modules`, `vendor`, `target`, `dist`, `build`, `.venv`, `venv`, `__pycache__`, `.tox`, `.mypy_cache`, `.pytest_cache`, `.gradle`, `.idea`, and `.vscode`. `chainctl` releases older than the [minimum version](/chainguard/workspaces/getting-started/#step-1-install-or-update-chainctl) also upload files that `.gitignore` excludes, so update `chainctl` before you pass `--env generate` in a checkout that holds secrets.
 
 The upload can be at most 32 MiB and 50,000 files. If it's over either limit, `chainctl develop` fails before it creates a session. Open the session with `--env default` or an `--env` file instead.
 
 The generated environment applies to the new session only, and `chainctl` doesn't add it to your repository. To keep it, copy it from `/etc/chainguard/session.yaml` in the session. Before you commit it as `.chainguard/ci.yaml`, give the `develop` check a `cmd`, because Chainguard Checks refuses a check that runs nothing. Also review its `network` key: the generated `develop` check allows every host, which would give that check open network access on pull requests.
 
-## Start with a warm Go build cache
+## Start with a warm Go build cache {#start-with-a-warm-go-build-cache}
 
 If your checks keep a Go build cache, a session can start with it, so `go build` and `go test` reuse what your checks already built on your default branch. To ask for the cache, open a session from a repository URL with `--cache`:
 
@@ -196,7 +196,7 @@ The cache holds what passing checks built after merging, so it's empty until a c
 
 Because `--cache` applies only when a session is created, it opens a new session, as `--new` does. To ask for the cache in every new session, set `CHAINCTL_DEVELOP_CACHE=true`. Unlike `--cache`, the variable doesn't make `chainctl develop` open a new session instead of returning to an existing one.
 
-## Network access
+## Network access {#network-access}
 
 A session's network access depends on its environment:
 
@@ -216,7 +216,7 @@ When a session tries to reach a host outside its `egress` list, Chainguard refus
 
 The `egress` list doesn't affect the session's credential endpoints, such as `http://github/` and `http://claude/`. A session with a narrow `egress` list can still push to GitHub and use Claude Code. Refer to [Manage session credentials](/chainguard/workspaces/credentials/) to control those.
 
-## Resources
+## Resources {#resources}
 
 By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk, and runs on x86-64. To change a session's size, set `resources` in the file that sets its environment:
 

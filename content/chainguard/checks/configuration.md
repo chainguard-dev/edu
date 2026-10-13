@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -20,7 +20,7 @@ You define your checks in YAML configuration files in your repository's `.chaing
 
 The same files also set up [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and `run-ci` in a session runs the checks they define.
 
-## File layouts
+## File layouts {#file-layouts}
 
 Chainguard Checks reads its configuration from one of two layouts. A repository uses one or the other, not both.
 
@@ -104,7 +104,7 @@ This file installs four packages in every check's VM and defines five checks:
 
 The rest of this page describes each option.
 
-## Top-level keys
+## Top-level keys {#top-level-keys}
 
 A configuration file has the following top-level keys:
 
@@ -119,7 +119,7 @@ A configuration file has the following top-level keys:
 
 Chainguard Checks refuses any other top-level key with an error that names the key. That includes GitHub Actions keys such as `jobs`, `on`, and `name`.
 
-## Environment
+## Environment {#environment}
 
 The `environment` key sets up the VM each check runs in:
 
@@ -166,7 +166,7 @@ Each entry under `checks` defines one check. The key is the check's name. A chec
 
 Chainguard Checks refuses keys it doesn't recognize, including GitHub Actions keys such as `runs-on`, `env`, `if`, and `timeout-minutes`. For some of them, such as `if` and `on`, the error names the key to use instead. Refer to [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/) for a full mapping.
 
-### Check names
+### Check names {#check-names}
 
 A check's name can use letters, digits, spaces, `_`, and `-`, and must start and end with a letter or digit. It can't contain `.` or `/`. Two checks in the same file can't have names that differ only in case, because [request labels](#run-on-request) ignore case.
 
@@ -176,7 +176,7 @@ A check's full name joins its file's name and its own, such as `ci/test` or `go/
 
 A check runs a single command, a script, or a list of steps.
 
-### The cmd key
+### The cmd key {#the-cmd-key}
 
 The `cmd` key runs one command without a shell. You can write it as a string or as a list of arguments:
 
@@ -196,7 +196,7 @@ Chainguard Checks splits a string `cmd` into arguments on whitespace and runs it
 
 For pipes, redirection, variables, or globs, use `script`, or run a shell yourself, such as `cmd: [sh, -c, "go vet ./... && go test ./..."]`.
 
-### The script key
+### The script key {#the-script-key}
 
 The `script` key runs a script with a shell. By default, the shell is `sh -e`, so the script stops at the first command that fails:
 
@@ -250,7 +250,7 @@ checks:
 
 All steps share the check's network access and timeout.
 
-## Network access
+## Network access {#network-access}
 
 A check has no network access unless it has a `network` key. To let a check reach specific hosts, list them under `network.egress`:
 
@@ -285,11 +285,11 @@ Whatever a check allows, it can never reach cloud metadata endpoints, loopback a
 
 To see which hosts a check tried to reach and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
 
-## Conditions
+## Conditions {#conditions}
 
 The `when` key limits when a check runs. A check without `when` runs on every pull request. An empty `when` makes the configuration invalid, so to run a check every time, leave out `when`.
 
-### Run when files change
+### Run when files change {#run-when-files-change}
 
 To run a check only when a pull request changes certain files, list glob patterns under `when.changed`:
 
@@ -312,7 +312,7 @@ checks:
 
 For a pull request, Chainguard Checks compares the pull request's changes against its base branch. For a run after merging, it compares the new commit against its first parent, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
 
-### Run when an expression is true
+### Run when an expression is true {#run-when-an-expression-is-true}
 
 To run a check based on the pull request, write a [Common Expression Language (CEL)](https://cel.dev/) expression under `when.expr`. The expression can read the following fields:
 
@@ -359,7 +359,7 @@ Chainguard Checks evaluates conditions when it creates a run, against the pull r
 
 A pull request's author sets its `draft`, `title`, `head_ref`, and `body` fields, and anyone who can label it sets its `labels`. If a condition on one of these fields skips a blocking check, those people decide whether the check runs, and the summary check can pass without it. `chainctl checks explain` adds a note to each blocking check whose condition reads one of these fields.
 
-### Run on request
+### Run on request {#run-on-request}
 
 A check with `when: {requested: true}` runs only when someone asks for it. Use this for slow or expensive checks that most pull requests don't need:
 
@@ -381,7 +381,7 @@ A check that runs on request follows these rules:
 
 To run the check on a pull request, add the label `ci/run:<check>`, such as `ci/run:e2e-full`. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request) for details. A run after merging never runs a check on request.
 
-## Describe a check
+## Describe a check {#describe-a-check}
 
 A check's `description` says what the check covers and when it's worth running, in up to 1,024 characters.
 
@@ -402,7 +402,7 @@ The file, `.chainguard/ci/e2e-full.md` in this example, must be directly in `.ch
 
 If you turn on `requested_checks_agent`, the agent reads each check's `description` and `docs` to decide which checks to request. Refer to [Let an agent request checks](/chainguard/checks/github/#let-an-agent-request-checks).
 
-## Advisory checks
+## Advisory checks {#advisory-checks}
 
 A check with `advisory: true` reports its real result on the pull request, with `(advisory)` in its title, but never makes the **Chainguard Checks (presubmit)** summary check fail. Use it for a check you want to see but not enforce yet, such as a new linter.
 
@@ -428,11 +428,11 @@ checks:
 
 Postsubmit results appear on the commit on your default branch, in a summary check named **Chainguard Checks (postsubmit)**.
 
-## Timeouts
+## Timeouts {#timeouts}
 
 By default, a check has no time limit of its own. A whole run can take up to 50 minutes, and a check still running at that point fails. To fail a check sooner, set `timeout` to a duration, such as `10m` or `1h`.
 
-## Resources
+## Resources {#resources}
 
 By default, each check's VM has 2 vCPUs, 8 GB of memory, and a 14 GB disk. To give a check more, set `resources` to one of the following classes:
 
@@ -450,7 +450,7 @@ Your organization's allowance sets the largest class you can use. With the Start
 
 In each check's VM, `/tmp` is held in memory, and can hold up to a quarter of the VM's memory: about 2 GB with the built-in default, and 4 GB with `medium`. Files in `/tmp` use memory that the check's processes would otherwise have. Put large files, such as a virtual environment or build output, under `/var/tmp` or `/work`, which are on the VM's disk.
 
-### Define your own resource classes
+### Define your own resource classes {#define-your-own-resource-classes}
 
 In the directory layout, a `.chainguard/ci/resources.yaml` file replaces the built-in classes with your own:
 
@@ -485,7 +485,7 @@ A check selects one of these classes by name, such as `resources: big`. The file
 
 Your organization's allowance limits your own classes too. If any check in a run asks for more vCPUs, memory, or disk than the allowance allows, the whole run fails before any check starts.
 
-## Environment variables
+## Environment variables {#environment-variables}
 
 Set environment variables with `vars`, either in `environment` for every check or on a single check:
 
@@ -519,7 +519,7 @@ If a binding breaks these rules, the run fails, as described in [The summary che
 
 Chainguard Checks doesn't set `CI` or any `GITHUB_` variables. When a run has a base commit, Chainguard Checks sets `CHAINGUARD_BASE_REVISION` to that commit's SHA. For a pull request, that's the base branch commit that GitHub merged the pull request into. For a run after merging, it's the new commit's first parent. Your repository's history is in the VM, so with `git` in your packages, a check can compare against it, such as with `git diff "$CHAINGUARD_BASE_REVISION"`.
 
-## Report errors and annotations
+## Report errors and annotations {#report-errors-and-annotations}
 
 A check can print special lines to its output that Chainguard Checks turns into annotations and summaries on the pull request, or uses to protect its log:
 
@@ -537,7 +537,7 @@ Chainguard Checks reads these lines only when `::` starts the line, and only fro
 
 The annotation lines use the same format as GitHub Actions workflow commands, so many linters that support GitHub Actions output work without changes.
 
-### Add a Markdown summary
+### Add a Markdown summary {#add-a-markdown-summary}
 
 In place of the `GITHUB_STEP_SUMMARY` file in GitHub Actions, a check can add a summary in Markdown to its output on GitHub, such as a list of the problems it found. Print the summary between a `::sandbox-summary::` line and a `::end-sandbox-summary::` line:
 
@@ -566,7 +566,7 @@ A summary works as follows:
 - An `@` mention in a summary doesn't notify anyone.
 - GitHub limits the size of a check's output, so Chainguard Checks cuts a summary longer than about 53 KiB and links to the full log. In a check with `foreach`, each variation's summary can be up to 8 KiB.
 
-## Credentials
+## Credentials {#credentials}
 
 A check runs without credentials by default. Its `/work` directory holds your repository's tracked files and history at the commit it tests, so most checks need none. Submodule directories are empty, and files that Git LFS tracks hold their pointer files instead of their content. During the beta, a check gets no GitHub credential, so it can't fetch from private GitHub repositories, such as private Go modules or submodules, or private Git LFS content. To add files from a public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
 

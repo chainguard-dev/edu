@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -18,7 +18,7 @@ weight: 70
 
 This page describes common problems with Chainguard Checks and how to fix them. If your problem isn't listed here, ask in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
 
-## A pull request gets no checks
+## A pull request gets no checks {#a-pull-request-gets-no-checks}
 
 If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chainguard Checks didn't start a run for it. Confirm the following:
 
@@ -29,7 +29,7 @@ If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chain
 - Your organization isn't at its run limit. With the [Starter allowance](/chainguard/checks/overview/#availability-and-limits), your organization can have 10 runs queued or running at a time, including runs after merging. At the limit, Chainguard Checks retries a new run for a few minutes, then gives up, and the pull request shows no summary check. The run doesn't start on its own when a place frees up, so once earlier runs finish, push a new commit, reopen the pull request, or use **Re-run**.
 - If your organization started a free trial with `chainctl` 0.2.379 or earlier, the trial hasn't ended. That trial lasts 30 days, plus a 7-day grace period, and includes 500 vCPU-hours of Checks. When the grace period ends, Chainguard Checks stops starting runs. To continue, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 
-## The summary check says the configuration is invalid
+## The summary check says the configuration is invalid {#the-summary-check-says-the-configuration-is-invalid}
 
 If **Chainguard Checks (presubmit)** fails with a title that starts with **Invalid config**, Chainguard Checks refused the pull request's configuration and ran nothing. The summary check's output lists each problem with its file and line. To find the same problems before you push, run `chainctl checks validate .` from your repository's directory.
 
@@ -63,7 +63,7 @@ The following table lists the most common causes, grouped by the key or file the
 | `.chainguard/` or `.chainguard/ci/` holds a file that the repository's layout doesn't allow, such as a `.yml` file. | Remove or rename the file. Refer to [File layouts](/chainguard/checks/configuration/#file-layouts) for the files each layout allows. |
 | The repository has a `.chainguard/ci.yaml` file and also has files in `.chainguard/ci/` other than `identities.yaml`. | A repository can't use both layouts. Move the checks from `.chainguard/ci.yaml` into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`. |
 
-## The summary check says the run couldn't be created or failed
+## The summary check says the run couldn't be created or failed {#the-summary-check-says-the-run-couldnt-be-created-or-failed}
 
 If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run failed**, Chainguard Checks read your configuration but didn't run it. The summary check's output gives the reason. The following table lists the most common causes:
 
@@ -80,7 +80,7 @@ If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run
 | Your organization used up this month's compute allowance. The output says that your organization can't start work until the allowance resets on the first day of the month (UTC), and that work already running finishes. | After the reset, use **Re-run** on the summary check, or push a new commit. To continue sooner, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs). Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits) for how checks use the allowance. |
 | Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have an organization owner run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
 
-## The summary check says checks could not be executed
+## The summary check says checks could not be executed {#the-summary-check-says-checks-could-not-be-executed}
 
 If **Chainguard Checks (presubmit)** says that checks could not be executed, or a check's title starts with **Could not be executed**, those checks stopped for a reason other than a command that failed. The summary check's output lists each one's reason under **Errors:**, as described in [Read the summary check](/chainguard/checks/github/#read-the-summary-check). These are the most common reasons:
 
@@ -92,17 +92,17 @@ If **Chainguard Checks (presubmit)** says that checks could not be executed, or 
 | `the package set does not resolve`, or `two packages in the set install the same file` | Chainguard Checks couldn't install the check's packages. Fix the names and version constraints in `environment.packages`, or remove one of the two packages that install the same file. |
 | Any other reason | The check's VM kept failing for a reason outside the check, even after [automatic retries](/chainguard/checks/github/#automatic-retries). Use **Re-run** on the summary check, or push a new commit. |
 
-## The summary check reports a merge conflict
+## The summary check reports a merge conflict {#the-summary-check-reports-a-merge-conflict}
 
 Chainguard Checks runs each pull request against the commit GitHub would create by merging it. If the pull request has merge conflicts with its base branch, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**. Resolve the conflicts and push.
 
-## A check can't find a command
+## A check can't find a command {#a-check-cant-find-a-command}
 
 A check's VM starts with BusyBox, GNU tar, and only the packages you list, so commands such as `git`, `bash`, `make`, and `curl` aren't available unless you list their packages. Add the package to `environment.packages` in your configuration file.
 
 If a script file fails with `not found`, its first line, such as `#!/bin/bash`, may name an interpreter that isn't installed. List the interpreter's package. If a `script` uses Bash syntax, also set `shell: bash` and list the `bash` package.
 
-## A check can't reach a host
+## A check can't reach a host {#a-check-cant-reach-a-host}
 
 A check has no network access unless it lists hosts under `network.egress`, so downloads and API calls fail, often with errors that a host couldn't be resolved or a connection was refused. Add each host the check needs to its `egress` list, such as `proxy.golang.org` for Go modules or `registry.npmjs.org` for npm packages. List bare hostnames, without a scheme or port. Refer to [Network access](/chainguard/checks/configuration/#network-access).
 
@@ -115,13 +115,13 @@ Some hosts redirect to others. For example, a package registry might serve files
 
 The table has a row for each hostname the check looked up and each address it connected to. A connection's row shows the IP address and port, followed by the hostnames the check looked up for that address. With `policy: destroy`, the page also names the host that stopped the check. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
-## A check can't find submodules, Git LFS files, or private repositories
+## A check can't find submodules, Git LFS files, or private repositories {#a-check-cant-find-submodules-git-lfs-files-or-private-repositories}
 
 A check's `/work` directory holds your repository's tracked files and history, but not submodules or Git LFS content. Submodule directories are empty, and files that Git LFS tracks hold their pointer files. During the beta, a check also has no GitHub credential, so commands that fetch from a private GitHub repository, such as a download of a private Go module, fail to authenticate. Refer to [Credentials](/chainguard/checks/configuration/#credentials).
 
 To add files from another public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
 
-## A check fails on pull requests but passes in run-ci
+## A check fails on pull requests but passes in run-ci {#a-check-fails-on-pull-requests-but-passes-in-run-ci}
 
 The `run-ci` command in a Workspaces session runs each check in the session's environment, which can differ from the pull request's:
 
@@ -138,17 +138,17 @@ chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --errors -C 3 --parent 
 
 For other ways to read part of a long log, and the role these commands need, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
 
-## A check stops after 50 minutes
+## A check stops after 50 minutes {#a-check-stops-after-50-minutes}
 
 A whole run can take up to 50 minutes from when it starts, and checks still running or waiting to start at that point fail. Split long checks into smaller ones, which run in parallel, up to four at a time with the Starter allowance. You can also move slow work to a [postsubmit check](/chainguard/checks/github/#run-checks-after-merging).
 
-## A check runs out of space in /tmp
+## A check runs out of space in /tmp {#a-check-runs-out-of-space-in-tmp}
 
 A check's `/tmp` directory is held in memory and can hold up to a quarter of the VM's memory: about 2 GB with the default class, or 4 GB with `medium`. When it's full, commands that write there fail with `No space left on device`, even though the VM's disk has room.
 
 Put large files, such as build output, downloaded archives, or a Python virtual environment, under `/var/tmp` or `/work`, which are on the VM's disk. Many tools write temporary files to the directory that `TMPDIR` names, so you can also set `TMPDIR` to `/var/tmp` in the check's `vars`. To give `/tmp` more room instead, choose a resource class with more memory. Refer to [Resources](/chainguard/checks/configuration/#resources).
 
-## A check doesn't use its cache
+## A check doesn't use its cache {#a-check-doesnt-use-its-cache}
 
 A check whose environment names a cache under `caches` runs without one, and without an error, in the following cases:
 
@@ -161,13 +161,13 @@ A check whose environment names a cache under `caches` runs without one, and wit
 
 To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists the cache types other than `gobuild` as `read-write`, though they cache nothing during the beta.
 
-## A required check never reports
+## A required check never reports {#a-required-check-never-reports}
 
 If GitHub waits indefinitely for a required check, you probably required a per-check result, such as **presubmit / ci / test**, instead of the summary check. A check that a condition skips, or that runs only on request, never reports a result. Require only **Chainguard Checks (presubmit)**, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 
 A GitHub merge queue that requires **Chainguard Checks (presubmit)** never gets a result either, because Chainguard Checks doesn't run on merge queues during the beta. The queue waits until its timeout expires, then removes the pull request. Don't require the summary check on a branch that uses a merge queue.
 
-## The requested checks agent doesn't comment on a pull request
+## The requested checks agent doesn't comment on a pull request {#the-requested-checks-agent-doesnt-comment-on-a-pull-request}
 
 The [requested checks agent](/chainguard/checks/github/#let-an-agent-request-checks) doesn't add a comment for each push. It keeps one **Requested checks** comment on the pull request, edits it, and names the commit that it answers for. If the comment doesn't appear at all, or names an earlier commit, check the following:
 
@@ -179,13 +179,13 @@ The [requested checks agent](/chainguard/checks/github/#let-an-agent-request-che
 
 The agent answers once for each pushed commit and base branch. Editing the pull request's title or description doesn't make it choose again, but pushing a commit or changing the base branch does. When it finds no check worth running, it still comments to say so.
 
-## chainctl doesn't list the checks command
+## chainctl doesn't list the checks command {#chainctl-doesnt-list-the-checks-command}
 
 During the beta, `chainctl checks` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). You can still run it, and `chainctl checks --help` shows its full help. For each subcommand and its flags, refer to the [`chainctl checks` reference](/chainguard/checks/chainctl-checks-reference/). The `chainctl develop` commands are hidden the same way, and the [`chainctl develop` reference](/chainguard/workspaces/chainctl-develop-reference/) describes them.
 
 If `chainctl checks validate .` reports that validating a directory isn't supported, or `chainctl` doesn't recognize a command on this site, your `chainctl` is out of date. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
-## chainctl checks status reports no platform verdict
+## chainctl checks status reports no platform verdict {#chainctl-checks-status-reports-no-platform-verdict}
 
 During the beta, `chainctl checks status`, `chainctl checks logs`, and the other commands that inspect runs can't find a run by its commit. When you pass a commit SHA or a directory, or run one of these commands with no argument, which uses the commit checked out in the current directory, they report that the platform created no run for it, even when its checks ran. The `chainctl checks list` command doesn't list pull request runs or runs after merging either.
 
@@ -195,13 +195,13 @@ To inspect a pull request's latest run, pass the pull request instead. Replace `
 chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 ```
 
-If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With `chainctl` 0.2.379 or earlier, pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/chainguard/checks/getting-started/#step-1-install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
 For a run after merging, pass the run's ID instead of a commit. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
 
 For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run), pass the ID that the command printed, or the start of it, instead of `.` or a commit. To find the ID later, run `chainctl checks list`. These runs never appear on GitHub.
 
-## The Details link or a chainctl checks command says you don't have access
+## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
 The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
 

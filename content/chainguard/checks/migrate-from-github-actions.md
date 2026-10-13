@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -23,7 +23,7 @@ If you'd rather keep your workflows on GitHub Actions, [Chainguard Actions](/cha
 
 ## Draft a configuration with chainctl
 
-With `chainctl` 0.2.380 or later, the `chainctl checks migrate --dry` command drafts a configuration from your GitHub Actions workflows without running anything. Run it from the root of a local clone of your repository whose `origin` remote is on github.com:
+The `chainctl checks migrate --dry` command drafts a configuration from your GitHub Actions workflows without running anything. Run it from the root of a local clone of your repository whose `origin` remote is on github.com:
 
 ```shell
 chainctl checks migrate --dry

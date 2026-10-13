@@ -4,7 +4,7 @@ linktitle: "chainctl checks reference"
 description: "Reference for the chainctl checks commands that inspect pull request runs, start and rerun checks, summarize check history, and validate your Chainguard Checks configuration."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Reference"]
 images: []
@@ -52,7 +52,7 @@ The `validate`, `explain`, and `migrate --dry` commands read only your local che
 
 The commands that need a role take `--parent` with the name or ID of your Chainguard organization. To use the name, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, pass the organization's ID. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
 
-## Name a run
+## Name a run {#name-a-run}
 
 Most commands that read runs take a `REF` argument that names the run. During the beta, use one of the following forms:
 
@@ -75,7 +75,7 @@ Unless a command's section says otherwise, it exits with `0` when it succeeds an
 
 ## Inspect runs
 
-### chainctl checks status
+### chainctl checks status {#chainctl-checks-status}
 
 Shows a run and whether each of its checks passed.
 
@@ -103,7 +103,7 @@ The output marks a failed advisory check as `(advisory)`, and shows the label th
 
 With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `revision`, `pull_request`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
 
-### chainctl checks logs
+### chainctl checks logs {#chainctl-checks-logs}
 
 Prints the combined standard output and standard error of a run's checks, followed by the errors, warnings, and notices each check reported, as described in [Report errors and annotations](/chainguard/checks/configuration/#report-errors-and-annotations). Without `--check`, the command prints every check's log, each after a line that names the check.
 
@@ -230,7 +230,7 @@ With `-o json`, the command prints a list with one object for each run, with its
 
 ## Start and stop runs
 
-### chainctl checks run
+### chainctl checks run {#chainctl-checks-run}
 
 Runs a commit's checks in Chainguard Checks without a pull request. The commit must be pushed to GitHub, because Chainguard Checks reads its configuration from there through your organization's link to the repository's GitHub account. To run checks against uncommitted changes, use `chainctl develop check` instead, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
 
@@ -301,7 +301,7 @@ The `stats`, `top`, and `trends` commands summarize your organization's checks a
 
 The `top` and `trends` output starts with the window it read and how current its data is, because the newest attempts can take time to appear. The first time you run either command, `chainctl` might ask you to sign in again. Without a terminal to sign in at, such as in a script, the command fails and prints the `chainctl auth login` command to run first.
 
-### chainctl checks stats
+### chainctl checks stats {#chainctl-checks-stats}
 
 Counts the outcomes of your organization's newest runs, by repository and by check.
 
@@ -317,7 +317,7 @@ In the output, `OPEN` counts runs or checks that haven't finished, and `RUNNING`
 
 With `-o json`, the command prints one object with the number of `runs` it read and a `repositories` list. Each repository has its `name`, `counts`, `configs`, and a `checks` list with each check's `name`, `counts`, and `median_seconds`. Each `counts` object has `total`, `passed`, `failed`, `errored`, `dependency_failed`, `not_instantiated`, `cancelled`, `open`, and `running`.
 
-### chainctl checks top
+### chainctl checks top {#chainctl-checks-top}
 
 Ranks your organization's checks over a window of time.
 
@@ -337,7 +337,7 @@ A check's failure rate is the share of its attempts that failed or couldn't fini
 
 With `-o json`, the command prints one object with the `window`, when the data was generated (`generatedAt`), the ranking (`by`), and a `checks` list. Each check has its `job_ref`, `name`, `attempts`, `failed`, `errored`, `runtime_seconds`, and `failure_rate`, which is `null` for a check with fewer than 100 attempts.
 
-### chainctl checks trends
+### chainctl checks trends {#chainctl-checks-trends}
 
 Shows the median, 95th percentile, and 99th percentile durations of checks for each hour of a window, for the 10 checks with the most total runtime in that window. Hours with no attempts don't appear.
 

@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -23,7 +23,7 @@ Claude Code is the only coding agent that sessions supply a model credential for
 
 Claude Code in a session uses the Claude credential from your laptop, so set it up there first:
 
-1. Update `chainctl` to version 0.2.380 or later, as described in [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl). Earlier versions don't send Claude's credential to a session.
+1. Update `chainctl` to the [minimum version](/chainguard/workspaces/getting-started/#step-1-install-or-update-chainctl) or later, as described in [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl). Earlier versions don't send Claude's credential to a session.
 2. Install Claude Code on your laptop, as described in the [Claude Code documentation](https://code.claude.com/docs/en/overview).
 3. Run `claude` on your laptop and log in.
 
@@ -43,7 +43,7 @@ Claude Code starts without asking you to log in. When you attach, `chainctl` sen
 
 If Claude Code in the session reports that the token sent to the session expired, attach to the session again so that `chainctl` sends a fresh one. If `chainctl` says that the Claude login on your laptop expired, run `claude` on your laptop once to refresh it. To keep a long task from stopping when a login expires, use a token from `claude setup-token`, as described in [Keep Claude Code working while you're away](#keep-claude-code-working-while-youre-away). For other errors, refer to [Claude Code reports an error in the session](/chainguard/workspaces/troubleshooting/#claude-code-reports-an-error-in-the-session).
 
-## Use Claude through Vertex AI
+## Use Claude through Vertex AI {#use-claude-through-vertex-ai}
 
 To use Vertex AI, set your Google Cloud project in `chainctl`. You don't need to change your Claude Code settings. Replace `$GCP_PROJECT` with your Google Cloud project ID:
 
@@ -68,7 +68,7 @@ If none of these applies, the session uses the Anthropic API, and Claude Code wo
 
 `chainctl` reads `CLAUDE_CODE_USE_VERTEX` and the other Claude Code variables from the `env` of your Claude Code settings, then from your environment. If Claude Code uses Vertex AI but names no project, `chainctl` uses `develop.vertex.project`, then the project your Google Cloud credentials name, and refuses to create the session if it finds none. When a new session uses Vertex AI, `chainctl` says so and names where the project came from.
 
-### Switch a session to another provider
+### Switch a session to another provider {#switch-a-session-to-another-provider}
 
 A session keeps its provider when it parks and resumes. To switch a running session between the Anthropic API and Vertex AI:
 
@@ -96,7 +96,7 @@ A session doesn't set a model, so Claude Code starts with its default model unle
 
 With Vertex AI, Claude Code's default model might not be enabled in your Google Cloud project. If Claude Code's requests fail with an error about the model, choose a model that your project has enabled.
 
-### MCP servers in a session
+### MCP servers in a session {#mcp-servers-in-a-session}
 
 Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner` and `mcp.tool_user` roles do. The `limited_owner` role that `chainctl develop init` gives you doesn't include it, and neither do the `viewer` and `sandbox.user` roles. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
 
@@ -122,7 +122,7 @@ If you connected your GitHub account before you created the session, and your or
 
 A session has no credentials for services such as AWS, Azure, or a private package registry. Don't paste one into the session for the agent to use: any agent or command in the session can read it, and it stays in the session's snapshot when the session parks. Do that work on your laptop instead, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
 
-## Keep Claude Code working while you're away
+## Keep Claude Code working while you're away {#keep-claude-code-working-while-youre-away}
 
 To leave Claude Code working in a session, detach and keep the session running, rather than letting it park:
 
@@ -149,7 +149,7 @@ While the terminal serves a detached session, it refuses new approval requests, 
 
 For a task that runs longer than a day, create a session with `--keep always`. Refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
 
-## Run several agents in parallel
+## Run several agents in parallel {#run-several-agents-in-parallel}
 
 You can run several agents in one session, each in its own terminal, or give each agent its own session.
 

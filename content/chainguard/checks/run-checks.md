@@ -4,7 +4,7 @@ linktitle: "Run checks before you push"
 description: "Run your repository's checks against uncommitted changes in a Chainguard Workspaces session, and validate your Chainguard Checks configuration offline before you push."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -53,7 +53,7 @@ The `run-ci` command exits with one of the following codes, so scripts and agent
 | `1` | A check failed. The last line names the check and the number of the step that failed. |
 | `2` | The checks couldn't run. The last line says why. |
 
-### How run-ci differs from a pull request run
+### How run-ci differs from a pull request run {#how-run-ci-differs-from-a-pull-request-run}
 
 The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. It differs from a pull request run in the following ways:
 
@@ -68,7 +68,7 @@ Because of these differences, a pass from `run-ci` predicts that the pull reques
 
 The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
 
-## Run checks in a session from your laptop
+## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
 
 To run a session's checks without attaching to it, use `chainctl develop check` on your laptop with the session's name or short ID. If the session is parked, `chainctl` resumes it first. Replace `$SESSION` with the session's name or short ID, and `$ORGANIZATION` with the name of your Chainguard organization:
 
@@ -86,7 +86,7 @@ The command uses the same runner as `run-ci` and streams each step's output. It 
 
 If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
 
-## Validate your configuration offline
+## Validate your configuration offline {#validate-your-configuration-offline}
 
 To find mistakes in your configuration without running anything, run `chainctl checks validate` anywhere in your repository's checkout:
 
@@ -94,7 +94,7 @@ To find mistakes in your configuration without running anything, run `chainctl c
 chainctl checks validate
 ```
 
-With no argument, the command finds your repository's root. You can also pass the path of a repository or of a configuration file. With `chainctl` 0.2.379 or earlier, pass the repository's directory instead, such as `.` from the repository's root. For a valid configuration, the command prints each workflow it found:
+With no argument, the command finds your repository's root. You can also pass the path of a repository or of a configuration file. For a valid configuration, the command prints each workflow it found:
 
 ```
 workflow ci (.chainguard/ci.yaml)

@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -17,9 +17,9 @@ weight: 55
 
 The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
 
-These commands need `chainctl` 0.2.380 or later and a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
+These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
 
-## Inspect pull request runs
+## Inspect pull request runs {#inspect-pull-request-runs}
 
 To check a pull request's latest run, pass the pull request to `chainctl checks status`. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL, and capitalize the owner and repository the same way GitHub does. Replace `$ORGANIZATION` with the name of your Chainguard organization:
 
@@ -81,7 +81,7 @@ Don't pass `.` or the commit's SHA instead. Because the run never counts as the 
 
 To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
 
-## See check history
+## See check history {#see-check-history}
 
 To find the checks that take the most time or fail most often, use `chainctl checks top`, `chainctl checks trends`, and `chainctl checks stats`.
 

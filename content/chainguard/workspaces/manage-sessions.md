@@ -4,7 +4,7 @@ linktitle: "Manage sessions"
 description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, and keep a session running while you're away."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Procedural"]
 images: []
@@ -19,7 +19,7 @@ A Chainguard Workspaces session lasts beyond a single terminal. You can detach f
 
 The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
 
-## How chainctl develop chooses a session
+## How chainctl develop chooses a session {#how-chainctl-develop-chooses-a-session}
 
 The `chainctl develop` command takes one optional argument, which tells it what to open:
 
@@ -32,7 +32,7 @@ The `chainctl develop` command takes one optional argument, which tells it what 
 
 Sessions you open from a directory and sessions you open from a repository URL are separate. Running `chainctl develop github.com/acme/app` doesn't return to a session you opened from your local clone of that repository.
 
-## Choose the session's repository
+## Choose the session's repository {#choose-the-sessions-repository}
 
 A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. When the session can start from one of the repository's commits, `chainctl` uploads only what differs from that commit. By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
 
@@ -56,7 +56,7 @@ git remote add upstream https://github.com/acme/app
 
 The session's `github` credential already covers your checkout's other github.com remotes where the Chainguard App is installed, as described in [What a session can reach by default](/chainguard/workspaces/credentials/#what-a-session-can-reach-by-default). To run your hooks in the session, install them again there, for example with `pre-commit install`.
 
-## Detach from a session
+## Detach from a session {#detach-from-a-session}
 
 While you're attached to a session, press `Ctrl+]` to open the session menu. You can also type `~.` at the session's shell prompt, or as the first thing you type after you attach or press `Enter`. In a program that draws its own input line, such as Claude Code, `~.` works only right after `Enter`, so use `Ctrl+]` there. The menu has the following options:
 
@@ -82,7 +82,7 @@ To send `Ctrl+]` to a program in the session, press it twice. To see every key, 
 
 If you exit the session's shell, for example with `exit`, any other terminals you opened in the session close too. If the session isn't already being kept running, `chainctl` asks whether to keep it running while you're away. Press `Esc` to let it park.
 
-## Return to a session
+## Return to a session {#return-to-a-session}
 
 To return to a session, run `chainctl develop` from the directory you opened it on, or pass the session's name or short ID from anywhere:
 
@@ -96,7 +96,7 @@ Returning to a session doesn't sync your directory again. Your directory syncs o
 
 Only one `chainctl` can be attached to a session at a time. If you attach from another terminal or laptop, the new one takes over, and the first one prints `Detached from acme/app/quiet-harbor: another client attached.` followed by the command that returns to the session.
 
-## Keep a session running while you're away
+## Keep a session running while you're away {#keep-a-session-running-while-youre-away}
 
 A session that keeps running uses compute while you're away, but an agent in it can keep working. It counts against your organization's monthly allowance the whole time it runs, as described in [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits).
 
@@ -122,7 +122,7 @@ Claude Code can keep working after you close the terminal, for as long as its cr
 
 For a credential that your laptop serves, such as a `cgr.dev` login you switched to your laptop, the terminal you detached from keeps serving the session until you press `Ctrl+C` or close the terminal. After that, requests that need your laptop fail until you return to the session. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
 
-## Use several terminals in a session
+## Use several terminals in a session {#use-several-terminals-in-a-session}
 
 When you run `chainctl develop` in an interactive terminal, it keeps a status row at the bottom of the window. The row lists the session's terminals and shows each message from `chainctl` for a few seconds. It ends with `^] menu`, or with a count of messages you might have missed, such as `^] menu · 2 new`. To read them, choose **Logs** in the session menu.
 
@@ -157,7 +157,7 @@ This command creates a session named `app/scratch`. Without `--name`, `chainctl`
 
 The `--name`, `--env`, `--check`, `--cache`, and `--keep always` flags each open a new session, so you don't need `--new` with them.
 
-## List sessions
+## List sessions {#list-sessions}
 
 To list your sessions, most recently used first, run `chainctl develop list`:
 
@@ -198,7 +198,7 @@ chainctl develop delete app/scratch --parent $ORGANIZATION
 
 The command asks you to confirm, then destroys the session's VM and its snapshot. Anything in the session that you didn't push is lost. To skip the confirmation, for example in a script, pass `--yes`.
 
-## Use sessions from scripts
+## Use sessions from scripts {#use-sessions-from-scripts}
 
 To use `chainctl develop` without a terminal, for example from a script or a coding agent on your laptop, pass `--non-interactive`. With it, `chainctl` never prompts or guesses. An ambiguous session reference is an error, and so is a repository with neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file, which would otherwise open on the default environment. To use the default environment, pass `--env default`.
 
