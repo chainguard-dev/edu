@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T15:17:49+00:00
+lastmod: 2026-10-13T18:44:47+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -89,6 +89,25 @@ Instead, Claude Code in a session uses the following:
 - Your repository's own `CLAUDE.md`, `.claude/` directory, and `.mcp.json` file, within the limits described in [MCP servers in a session](#mcp-servers-in-a-session).
 
 To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory.
+
+### Tell Claude Code how to work in a session {#tell-claude-code-how-to-work-in-a-session}
+
+The session's brief explains `run-ci`, but rules you commit to your repository's `CLAUDE.md` apply in every session. To add rules for sessions, copy the following section into `CLAUDE.md`, or into `AGENTS.md` for other coding agents. Replace `$ORGANIZATION` with the name of your Chainguard organization. Claude Code also reads `CLAUDE.md` on your laptop, so the section starts by saying when its rules apply.
+
+```markdown {title="CLAUDE.md"}
+## Chainguard Workspaces sessions
+
+Follow these rules when the `run-ci` command exists, which means you're working in a Chainguard Workspaces session.
+
+- Before you push, run `run-ci`. It checks the working tree in `/work` and exits with `0` when every check passes, `1` when a check fails, and `2` when the checks couldn't run. It skips checks that only a pull request can run, so list any skipped checks when you report the result.
+- Put large files, such as build output or virtual environments, under `/var/tmp` or `/work`. The `/tmp` directory is held in memory.
+- Don't run `chainctl auth login`. `chainctl` already acts as the user in the session.
+- Don't ask for credentials that the session doesn't supply, such as AWS keys or a private registry token. Tell the user what you need, so they can do that work on their laptop.
+- After you push, wait for the pull request's checks with `chainctl checks status OWNER/REPO#NUMBER --watch --parent $ORGANIZATION`.
+- If a check fails, run `chainctl checks failures OWNER/REPO#NUMBER --parent $ORGANIZATION` to see why. For more of a check's log, run `chainctl checks logs OWNER/REPO#NUMBER --check CHECK --errors --parent $ORGANIZATION`. Fix the change and push again.
+```
+
+In a Starter organization, the `limited_owner` role can't look up Chainguard Checks runs, so `chainctl checks status`, `chainctl checks logs`, and the other commands that read a run don't work for it, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
 ### Choose a model
 
