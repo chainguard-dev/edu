@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-13T18:50:45+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -32,7 +32,7 @@ A typical loop uses both products:
 1. Open a Workspaces session on your repository, and let Claude Code make a change.
 2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
 3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
-4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect and run checks from the command line](/chainguard/checks/inspect-and-run-checks/).
+4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
 
 ## Prerequisites {#prerequisites}
 
