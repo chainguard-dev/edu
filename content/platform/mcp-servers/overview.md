@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "The four Chainguard MCP servers that expose live product data — images, packages, version history, and platform APIs — to any MCP-compatible client."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-10-01T17:08:58+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["MCP", "Overview"]
 images: []
@@ -19,6 +19,8 @@ weight: 10
 Four of Chainguard's MCP servers give an AI tool direct access to live product data: the container images in `cgr.dev`, the Wolfi package index, upstream version and end-of-life history, and the Chainguard platform API. An MCP client connected to them can answer questions such as what a given image's SBOM contains, which Wolfi package replaces a Debian one, or whether an upstream release is still supported, using data from the product itself rather than from a model's training data.
 
 These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/) and the [Chainguard plugin for Cursor](/platform/integrations/cursor/), but you don't need either one. Any MCP-compatible client can connect to them directly.
+
+In a [Chainguard Workspaces](/chainguard/workspaces/overview/) session, Claude Code comes with the `cg-apk` and `cg-versions` servers already configured, with no browser sign-in. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session).
 
 ## What is MCP?
 

@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -35,6 +35,7 @@ A few rules govern connections:
 - **A GitHub organization can be linked to exactly one Chainguard organization at a time.** Linking an organization that is already linked elsewhere fails with an "already linked to a different Chainguard group" error; unlink it first (refer to [Moving a GitHub organization](#moving-a-github-organization-to-a-different-chainguard-organization)).
 - **A Chainguard organization can link any number of GitHub organizations.** Each linked GitHub organization appears as its own connection.
 - **Personal accounts work like organizations.** To connect your own GitHub user account instead of an organization, install the app on your account and pass your GitHub username as the organization.
+- **`chainctl develop init` creates the same link.** Turning on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/) with `chainctl develop init` links a GitHub organization the same way `chainctl guardener github link` does, so the one-organization rule applies to it too.
 - **Re-linking is safe.** Linking a GitHub organization that is already linked to the same Chainguard organization succeeds without changing anything.
 
 ### Required permissions

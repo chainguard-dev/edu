@@ -5,7 +5,7 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-10-13T13:59:25+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -32,6 +32,8 @@ Containers and Libraries are where most teams start, but Chainguard secures more
 - **[Chainguard Actions](/chainguard/actions/overview/)**, hardened replacements for popular GitHub Actions.
 - **[Guardener](/chainguard/guardener/)**, tooling to harden your own source code.
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, security-reviewed skills for AI agents.
+- **[Chainguard Checks](/chainguard/checks/overview/)**, CI for GitHub pull requests that runs each check in its own isolated microVM.
+- **[Chainguard Workspaces](/chainguard/workspaces/overview/)**, remote microVM sessions for development and coding agents that keep your credentials out of the session.
 
 ## The Chainguard Factory
 
