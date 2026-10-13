@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T14:55:46+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -224,7 +224,7 @@ chainctl develop init [--parent ORGANIZATION] [--github-org ACCOUNT] [--name NAM
 | ---- | ----------- |
 | `--github-org` | The GitHub organization to link, instead of your own GitHub user. |
 | `--parent` | An existing organization, such as an Enterprise organization, to turn on Checks and Workspaces for. You need the `owner` or `limited_owner` role in it. |
-| `--name` | The name of the organization to create, if you sign up with a personal email address. With a work email address, `chainctl` ignores it. You can't combine it with `--parent`. |
+| `--name` | Has no effect, because an organization you create is named after your work email domain. You can't combine it with `--parent`. |
 | `--port` | The local port that your browser returns to after you authorize the GitHub link. |
 
 Without `--parent`, the command creates a Starter organization if you don't belong to any organization, and uses your organization on the Starter or Team plan if you have exactly one. Otherwise, it fails and asks you to pass `--parent`. Unlike the other commands, it doesn't fall back to the `default.group` value in your `chainctl` configuration.

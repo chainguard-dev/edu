@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add a .chainguard/ci.yaml file to a repository, and see your first checks run on a GitHub pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T14:55:46+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -58,13 +58,13 @@ The `chainctl develop init` command signs you in, creates a free [Chainguard Sta
 chainctl develop init
 ```
 
-To create an organization, sign in with an email address and password or with a Google account, not with GitHub or GitLab.
+To create an organization, sign in with a work email address, using a password or a Google account, not GitHub or GitLab. A personal email address, such as a Gmail address, can't create an organization.
 
 The command does the following:
 
 1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
 2. Picks the Chainguard organization to use:
-    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one. With a work email address, the organization is named after your email domain. With a personal email address, you name it.
+    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
     - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
     - Otherwise, it stops and asks you to choose an organization with `--parent`.
 3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
@@ -82,7 +82,6 @@ You can answer some of the questions ahead of time with flags:
 | ---- | ------------ |
 | `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
 | `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
-| `--name` | Names the new organization when you sign up with a personal email address. The name can't look like a domain name. The command ignores `--name` for a work email address, and fails if you already belong to an organization. |
 
 For example, to link the `acme` GitHub organization:
 
@@ -221,7 +220,6 @@ Your teammate can then install `chainctl`, as described in [Step 1](#step-1-inst
 If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can invite a teammate with steps 1 and 2 of [Add a teammate](#add-a-teammate), within these limits:
 
 - Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
-- If you signed up with a personal email address, you can't invite anyone.
 - You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read results on GitHub instead of on the run page.
 - An invite can give only a role whose permissions you also have. Of those roles, only `limited_owner` can open sessions, and it also lets its holder manage your organization's billing and invite or remove members.
 
