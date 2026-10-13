@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T14:55:46+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -57,13 +57,13 @@ The `chainctl develop init` command signs you in, creates a free [Chainguard Sta
 chainctl develop init
 ```
 
-To create an organization, sign in with an email address and password or with Google. Other sign-in methods, such as GitHub, can't create one.
+To create an organization, sign in with a work email address, using a password or Google. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub.
 
 The command does the following:
 
 1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
 2. Picks the Chainguard organization to use:
-   - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one. With a work email address, the organization is named after your email domain. With a personal email address, you name it, and its registry paths use its ID instead of its name.
+   - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
    - Otherwise, it stops and asks you to name an organization with `--parent`.
 3. Asks you to accept the terms that Checks and Workspaces are offered under, if your organization hasn't accepted them yet: the Code Analysis Terms, the Secured Platform Terms, the Master Service and License Agreement (MSLA), and the Terms of Service and Data Privacy Agreement that cover linking the Chainguard App.
@@ -198,7 +198,6 @@ The `limited_owner` role also lets its holder manage your organization's billing
 Invites in a Starter organization have the following limits:
 
 - Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
-- If you signed up with a personal email address, you can't invite anyone.
 
 A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request.
 

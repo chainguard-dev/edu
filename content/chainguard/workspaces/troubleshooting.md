@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T14:55:46+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -28,7 +28,7 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 If `chainctl develop init` stops with an error, find its message in the following list. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
-- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with an email address and password or with Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password or Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access` to send its owners a request.
 - `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
 - `missing: terms.accept`: only the `owner` and `limited_owner` roles can turn on Checks and Workspaces. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
