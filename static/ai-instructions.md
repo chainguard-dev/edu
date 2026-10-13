@@ -10,11 +10,24 @@ Chainguard Education (edu.chainguard.dev) is a comprehensive documentation and l
 
 ### Main Sections
 
-1. **Chainguard Images** - Documentation about distroless container images
-2. **Open Source** - Guides for tools like Wolfi, Melange, Apko, and Cosign
-3. **Tutorials** - Step-by-step guides for specific tasks
-4. **Conceptual Articles** - In-depth explanations of security concepts
-5. **Reference** - API and CLI documentation
+The site has six top-level sections. Paths are relative to `https://edu.chainguard.dev`.
+
+1. **Get started** (`/get-started/`) - What Chainguard is, self-serve sign-up, setting up `chainctl`, onboarding teams, Containers and Libraries examples, and migration guides. The shared setup page for Chainguard Checks and Chainguard Workspaces is `/get-started/checks-and-workspaces/`.
+2. **Products** (`/chainguard/`) - One subsection per product, plus the weekly changelog at `/chainguard/changelog/`:
+   - **Chainguard Agent Skills** (`/chainguard/agent-skills/`) - Agent skills that Chainguard reviews, scopes, and publishes
+   - **Chainguard Containers** (`/chainguard/containers/`) - Container images: getting started, building and modifying, Custom Assembly, the registry, security and compliance, and troubleshooting
+   - **Chainguard Actions** (`/chainguard/actions/`) - Hardened drop-in replacements for popular GitHub Actions
+   - **Guardener** (`/chainguard/guardener/`) - Hardening for source code repositories, with capabilities you turn on independently
+   - **Chainguard Libraries** (`/chainguard/libraries/`) - Java, Python, and JavaScript dependencies that Chainguard builds from source
+   - **Chainguard OS** (`/chainguard/chainguard-os/`) - The operating system that Chainguard products build on, and Chainguard OS Packages
+   - **Chainguard Repository** (`/chainguard/chainguard-repository/`) - One policy-managed place to pull the artifacts that Chainguard builds or distributes
+   - **Chainguard VMs** (`/chainguard/vms/`) - Minimal virtual machine images for ephemeral workloads on cloud and on-premises hypervisors
+   - **Chainguard Checks** (`/chainguard/checks/`) - CI that runs each check in its own microVM on every GitHub pull request, configured in `.chainguard/ci.yaml`
+   - **Chainguard Workspaces** (`/chainguard/workspaces/`) - Remote development sessions that run your repository, tools, and coding agents in a microVM, without putting your credentials in the session
+3. **Platform and tools** (`/platform/`) - Administration (IAM, assumable identities, custom identity providers, CloudEvents, and the Terraform provider), the API reference, the `chainctl` reference and usage guides, the Chainguard Console, the Chainguard Factory, FIPS, integrations with Cursor and Kiro, and Chainguard MCP Servers
+4. **Compliance** (`/compliance/`) - CMMC 2.0, PCI DSS 4.0, and SLSA
+5. **Open source** (`/open-source/`) - Wolfi, the apko and melange build tools, Sigstore, SBOMs, and Octo STS
+6. **Education** (`/software-security/`) - Software supply chain security concepts, CVEs, and Learning Labs videos
 
 ### Content Types
 
@@ -51,6 +64,7 @@ Chainguard Education (edu.chainguard.dev) is a comprehensive documentation and l
 ### Semantic HTML Structure
 
 The site uses semantic HTML5 with:
+
 - `<article>` for main content
 - `<aside>` for supplementary information
 - `<nav>` for navigation elements
@@ -117,4 +131,4 @@ When referencing content from this site:
 
 ---
 
-*Last updated: 2025-07-09*
+*Last updated: 2026-10-13*
