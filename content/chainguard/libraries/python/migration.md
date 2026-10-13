@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-13T14:42:18+00:00
+lastmod: 2026-10-13T15:55:54+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -56,9 +56,9 @@ Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
 * [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-* An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python.
+* An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python. To enable entitlement for your organization, contact your Chainguard support team.
 
-If you do not have an entitlement to Chainguard Libraries for Python yet, run the following command to create an entitlement and enable upstream fallback:
+Once your entitlement is in place, enable upstream fallback by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
