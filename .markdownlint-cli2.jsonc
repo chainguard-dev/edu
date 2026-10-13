@@ -33,6 +33,9 @@
     // Agent skills (DOCS-247) are read by AI agents, not rendered by Hugo, and
     // the Strunk chapters reproduce a 1918 text. The docs conventions above,
     // such as 4-space list nesting, don't apply to them.
-    ".agents/skills"
+    ".agents/skills",
+    // Shortcode .md files are Go templates for the Markdown output format, not
+    // pages. They hold template actions and fragments, not whole documents.
+    "layouts/shortcodes"
   ]
 }
