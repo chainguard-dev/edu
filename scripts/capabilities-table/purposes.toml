@@ -1,0 +1,122 @@
+# Hand-written input for generate.py, which builds the capabilities table on
+# content/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference.md
+#
+# Edit this file, not the generated table. See scripts/README.md.
+
+# The built-in roles the page documents, in the order they appear inside each
+# table cell. Roles left out on purpose:
+#   argos.*            partner program roles
+#   gulfstream         a single controller capability
+#   signing.*          experimental; every sigstore.* capability is deprecated
+#   advisories.*       no Academy docs for authoring advisories through the API
+#   libraries.go.*, libraries.dotnet.*, libraries.ruby.*
+#                      no Academy docs for these ecosystems yet
+roles = [
+    "owner",
+    "editor",
+    "viewer",
+    "limited_owner",
+    "console_viewer",
+    "registry.pull",
+    "registry.pull_token_creator",
+    "registry.push",
+    "registry.editor",
+    "apk.pull",
+    "apk.push",
+    "libraries.java.pull",
+    "libraries.java.pull_token_creator",
+    "libraries.java.push",
+    "libraries.python.pull",
+    "libraries.python.pull_token_creator",
+    "libraries.python.push",
+    "libraries.javascript.pull",
+    "libraries.javascript.pull_token_creator",
+    "libraries.javascript.push",
+    "guardener.user",
+    "guardener.admin",
+    "sandbox.user",
+    "sandbox.identity.user",
+    "mcp.tool_user",
+    "actions.viewer",
+]
+
+# Resources that documented roles grant but the page leaves out. owner holds
+# capabilities on these, but Academy doesn't document the ecosystems yet.
+omitted_resources = [
+    "libraries.dotnet",
+    "libraries.go",
+    "libraries.ruby",
+]
+
+# The Purpose column, one entry per resource. A resource is a capability name
+# without its last segment: repo.blobs.get belongs to the repo.blobs resource.
+# Markdown links are allowed. Every resource that a documented role grants
+# needs an entry here, and every entry needs a deployed resource.
+[purposes]
+"account_associations" = "Link cloud provider accounts to organization"
+"actions" = "View the [Chainguard Actions](/chainguard/actions/overview/) catalog"
+"advisories" = "View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images"
+"apk" = "Manage APK packages in the registry"
+"apk.blobs" = "Download APK package binary content"
+"billing" = "Manage the organization's billing and payment method"
+"build_report" = "Access detailed build and scan reports for images and packages"
+"group_invites" = "Send and manage invitations to join Chainguard organization"
+"groups" = "Manage organization and hierarchical structures"
+"guardener.actions" = "Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request"
+"guardener.association" = "View and manage the GitHub organizations connected through [the Chainguard App](/chainguard/guardener/github/app-connections/)"
+"guardener.dfc" = "Convert Dockerfiles to use Chainguard images with [Guardener](/chainguard/guardener/dockerfile-migration/)"
+"guardener.entitlement" = "View the organization's Guardener settings, such as which repositories Guardener can access"
+"guardener.images" = "Request and view [container image migrations](/chainguard/guardener/github/image-migration/) for a repository"
+"guardener.scan" = "View the dependency scans Guardener runs on connected repositories"
+"identity" = "Create and manage user identities, service accounts, and pull tokens"
+"identity_providers" = "Configure [custom identity providers](/platform/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication"
+"identity_providers.scim" = "Turn on [SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/) for a custom identity provider and manage its tokens"
+"identity_providers.scim.users" = "View the users a custom identity provider provisioned through SCIM"
+"libraries.artifacts" = "View Chainguard Library artifact metadata and information"
+"libraries.aws_marketplace.subscriptions" = "Manage Chainguard Libraries subscriptions bought through AWS Marketplace"
+"libraries.cache" = "View and clear the organization's Chainguard Libraries resolution cache"
+"libraries.entitlements" = "Manage access permissions for Chainguard Libraries"
+"libraries.java" = "Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/)"
+"libraries.javascript" = "Access Chainguard Libraries for JavaScript"
+"libraries.policy" = "Create and manage the cooldown and malware policies applied to upstream library pulls"
+"libraries.policy.binding" = "Apply Chainguard Libraries policies to the organization"
+"libraries.policy.block_event" = "View the library pulls a policy blocked"
+"libraries.python" = "Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)"
+"libraries.remote_registries" = "Configure the upstream registries the organization's virtual repositories pull from"
+"libraries.request_groups" = "Request library versions for Chainguard to build, and track those requests"
+"libraries.request_groups.items" = "Edit the individual libraries in a draft build request"
+"libraries.storage_usage" = "View how much storage the organization's uploaded libraries use in each ecosystem"
+"manifest" = "Access and manage container image manifests"
+"manifest.metadata" = "View container image manifest metadata and attestations"
+"mcp.tool" = "Call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/)"
+"packages.entitlements" = "View which tier of Chainguard OS Packages the organization is entitled to, base or FIPS"
+"policies.binding" = "Turn image pull policies on for the organization"
+"policies.decision" = "View the allow and block decisions image pull policies made"
+"policies.override" = "Exempt a specific image from policy enforcement"
+"policies.policy" = "View and manage image pull policies, such as blocking end-of-life images"
+"record_signatures" = "View cryptographic signature verification records"
+"referrers" = "View the signatures, attestations, and other artifacts attached to an image"
+"registry.deployments" = "View the Helm charts associated with a container repository"
+"registry.entitlements" = "View registry access entitlements and permissions"
+"registry.entitlements.images" = "Add, remove, and swap the images in the organization's registry entitlement"
+"registry.overlays" = "View and edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/)"
+"registry.settings" = "View the organization's registry settings, such as whether unique tags and the End-of-Life Grace Period are on by default"
+"repo" = "Create and manage container repositories (including [Custom Assembly](/chainguard/containers/custom-assembly/) resources)"
+"repo.blobs" = "Download container image binary content"
+"role_bindings" = "[Assign roles to identities](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts)"
+"roles" = "Create, modify, and manage [custom Chainguard IAM roles](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/)"
+"sandbox.identity" = "Create the [Chainguard identity a Workspaces session acts through](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and define and use shared session identities"
+"sandbox.run" = "Start, view, and cancel [Chainguard Checks](/chainguard/checks/overview/) runs"
+"sandbox.session" = "Open [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and list every user's sessions in the organization"
+"sboms" = "Access Software Bill of Materials for packages and images"
+"skills" = "View the [Chainguard Agent Skills](/chainguard/agent-skills/overview/) catalog and publish skills"
+"skills.entitlements" = "Manage which Chainguard Agent Skills the organization can access"
+"skills.harden" = "Submit, track, and cancel [skill hardening](/chainguard/agent-skills/skill-hardening/) jobs"
+"subscriptions" = "Manage [CloudEvent](/platform/administration/cloudevents/events-reference/) subscriptions for notifications and automation"
+"tag" = "Manage Chainguard container image tags"
+"telemetry.containers" = "View the container images that connected repositories use, as Guardener observes them"
+"terms" = "View and accept the legal terms a Chainguard product requires before you can use it"
+"version" = "View version information across all resources and assets"
+"vuln" = "Create vulnerability reports and assessments"
+"vuln_report" = "Manage detailed vulnerability assessments for specific resources"
+"vuln_reports" = "View high-level vulnerability report summaries"
