@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T15:17:49+00:00
+lastmod: 2026-10-13T18:50:45+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -28,6 +28,14 @@ chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 ```
 
 The command shows the pull request's newest run and each check's result. It exits with `0` while the run is in progress, so to wait until the run finishes, add `--watch`. After you push a commit or start a rerun, the command shows the previous run until Chainguard Checks creates the new one. For its exit codes and JSON output, refer to [chainctl checks status](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-status).
+
+To see why a pull request's checks failed, run `chainctl checks failures`:
+
+```shell
+chainctl checks failures "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+For each failed check, the command shows the step that failed, with its exit code and command, and the end of the failing output, quoted from the check's log. To show one check, add `--check` with its name. To also list the checks that didn't run, and why, add `--not-run`. The output stays within a size limit that `--budget` sets in bytes: the command shows as many failed checks in full as fit, then one line for each of the rest.
 
 To print a check's log, pass the pull request and the check's name to `chainctl checks logs`:
 
