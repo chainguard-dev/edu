@@ -15,9 +15,9 @@ toc: true
 weight: 65
 ---
 
-The `chainctl develop` command opens and manages Chainguard Workspaces sessions. This page lists each `chainctl develop` command in `chainctl` 0.2.382, with its flags, output formats, exit codes, and the roles it needs. For how the commands fit together, refer to [Manage sessions](/chainguard/workspaces/manage-sessions/).
+The `chainctl develop` command opens and manages Chainguard Workspaces sessions. This page lists each `chainctl develop` command, with its flags, output formats, exit codes, and the roles it needs. For how the commands fit together, refer to [Manage sessions](/chainguard/workspaces/manage-sessions/).
 
-During the beta, `chainctl develop` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`.
+During the beta, `chainctl develop` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
 
