@@ -4,9 +4,12 @@ linktitle: "Chainguard Workspaces"
 description: "Remote development sessions that run your repository, your tools, and your coding agents in a Chainguard microVM, without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-13T15:19:50+00:00
 draft: false
 images: []
 weight: 76
+crosslinks:
+  - title: "Set up"
+    url: "/get-started/checks-and-workspaces/"
 landingpage: "/chainguard/workspaces/overview/"
 ---

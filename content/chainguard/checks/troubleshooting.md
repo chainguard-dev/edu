@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T15:17:49+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -181,7 +181,9 @@ The agent answers once for each pushed commit and base branch. Editing the pull 
 
 ## chainctl doesn't list the checks command {#chainctl-doesnt-list-the-checks-command}
 
-During the beta, `chainctl checks` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). You can still run it, and `chainctl checks --help` shows its full help. For each subcommand and its flags, refer to the [`chainctl checks` reference](/chainguard/checks/chainctl-checks-reference/). The `chainctl develop` commands are hidden the same way, and the [`chainctl develop` reference](/chainguard/workspaces/chainctl-develop-reference/) describes them.
+{{% blurb/hidden-chainctl-commands %}}
+
+For every subcommand and flag, refer to the [`chainctl checks` reference](/chainguard/checks/chainctl-checks-reference/) and the [`chainctl develop` reference](/chainguard/workspaces/chainctl-develop-reference/).
 
 If `chainctl checks validate .` reports that validating a directory isn't supported, or `chainctl` doesn't recognize a command on this site, your `chainctl` is out of date. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
@@ -195,7 +197,7 @@ To inspect a pull request's latest run, pass the pull request instead. Replace `
 chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 ```
 
-If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/chainguard/checks/getting-started/#step-1-install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
 For a run after merging, pass the run's ID instead of a commit. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
 
@@ -207,7 +209,7 @@ The **Details** link on a check opens the run on a page that Chainguard hosts, w
 
 To pass your organization's name to `--parent`, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, `chainctl` can't find your organization by its name, so pass the organization's ID instead.
 
-To get these roles, ask an owner of your organization, as described in [Give teammates access](/chainguard/checks/getting-started/#give-teammates-access).
+To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
 
 During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
 

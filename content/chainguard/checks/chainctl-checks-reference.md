@@ -4,7 +4,7 @@ linktitle: "chainctl checks reference"
 description: "Reference for the chainctl checks commands that inspect pull request runs, start and rerun checks, summarize check history, and validate your Chainguard Checks configuration."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T15:17:49+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Reference"]
 images: []
@@ -17,7 +17,9 @@ weight: 65
 
 The `chainctl checks` commands read your pull requests' results from your terminal, start and rerun checks, summarize your checks' history, and validate your configuration. This page lists each command's arguments, flags, exit codes, and JSON output. For examples of the commands in use, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-During the beta, `chainctl checks` doesn't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). To see a command's full help, run it with `--help`, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+{{% blurb/hidden-chainctl-commands %}}
+
+For example, run `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `acme/app#123` for a pull request. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
@@ -44,7 +46,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 
 ## Access and organization
 
-Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/chainguard/checks/getting-started/#give-teammates-access).
+Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
 
 If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. It can start runs with `chainctl checks run`, which use your allowance, but can't read any run, so don't use `chainctl checks run` there. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
@@ -411,7 +413,7 @@ With `-o json`, the command prints one object with the `repository`, `revision`,
 
 ### chainctl checks accept-terms
 
-Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-3-sign-up-and-turn-on-chainguard-checks).
+Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
 
 ```
 chainctl checks accept-terms [--parent ORGANIZATION] [--yes]
