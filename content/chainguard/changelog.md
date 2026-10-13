@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-05T19:28:18+00:00
+lastmod: 2026-10-13T18:20:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,41 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-12
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `spark:3.5` | 2026-04-12 | 2026-10-12 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 17 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sqs-controller/versions"><code>aws-sqs-controller</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zeek/versions"><code>zeek</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/istioctl/versions"><code>istioctl</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-coordinator/versions"><code>llm-d-router-coordinator</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-disagg-sidecar/versions"><code>llm-d-router-disagg-sidecar</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-endpoint-picker/versions"><code>llm-d-router-endpoint-picker</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-keystone-oshelm-fips/versions"><code>openstack-keystone-oshelm-fips</code></a></td><td>fips</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/verdaccio/versions"><code>verdaccio</code></a></td><td>application</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/whereabouts-fips/versions"><code>whereabouts-fips</code></a></td><td>fips</td><td>2026-10-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-barbican-oshelm/versions"><code>openstack-barbican-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-manila-oshelm/versions"><code>openstack-manila-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-10-05
 
