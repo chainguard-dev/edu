@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-13T16:15:35+00:00
 draft: false
 weight: 20
 toc: true

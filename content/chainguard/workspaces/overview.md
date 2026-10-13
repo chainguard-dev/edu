@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-13T15:08:26+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -71,7 +71,7 @@ The `run-ci` command runs each check in the session's own environment, which can
 
 ## Availability and limits {#availability-and-limits}
 
-Chainguard Workspaces is offered as a Technology Preview, as described in the [Chainguard Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). Technology Previews aren't recommended for production use. Don't use a Technology Preview to process personal data, or any data subject to legal or regulatory compliance requirements, unless Chainguard specifically authorizes it.
+{{% blurb/technology-preview product="Chainguard Workspaces" %}}
 
 During the beta, Chainguard Workspaces has the following limits:
 
@@ -86,7 +86,7 @@ When the allowance is used up, you can't create a session or resume a parked one
 
 ## Get help
 
-To ask questions or get support, use the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw). If you aren't a member yet, the link invites you to join.
+{{% blurb/checks-workspaces-help channel="workspaces-questions" %}}
 
 ## Next steps
 

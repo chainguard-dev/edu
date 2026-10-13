@@ -1,0 +1,1 @@
+During the beta, the `chainctl checks` and `chainctl develop` commands don't appear in `chainctl --help` or in the [chainctl reference](/platform/chainctl/chainctl-docs/chainctl/). You can still run them, and `--help` on either one shows its full help.
