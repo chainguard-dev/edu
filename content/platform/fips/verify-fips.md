@@ -52,7 +52,7 @@ When run on a system using the OpenSSL Project FIPS provider, `openssl-fips-test
 You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `$ORGANIZATION` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
 
 ```shell
-docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
+docker run -e OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0 -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
 ```
 
 ```output
@@ -140,7 +140,7 @@ This output confirms that OpenSSL in the `python-fips` image is properly configu
 
 [NIST SP 800-131A](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) requires HMAC to use approved digest and keys of at least 112 bits long (14 characters) for security purposes.
 
-Success scenario is HMAC with a 14 characters long key and a SHA256 digest:
+Success scenario is HMAC with a 14-character key and a SHA256 digest:
 
 ```sh
 openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
@@ -166,15 +166,15 @@ MAC parameter error
 808B8049E17F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:355:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
 ```
 
-The above checks can also be performed in other programming languages for images that systems that use OpenSSL to power FIPS cryptography, for example python, node, php, perl and similar.
+You can also perform these checks in other programming languages, such as Python, Node.js, PHP, and Perl, in images and systems that use OpenSSL to power FIPS cryptography.
 
-In non-fips images, all of the above commands are successful.
+In non-FIPS images, all of these commands succeed.
 
 ### OpenSSL FIPS 140-3 tamper test
 
 Cryptographic modules are required to perform startup self-tests, and
-must enter error state and stop all cryptoraphic services upon
-failure. One of the startup self-tests is intergity check of the
+must enter error state and stop all cryptographic services upon
+failure. One of the startup self-tests is an integrity check of the
 cryptographic module itself. To observe this one can tamper with the
 fips.so module itself, or tamper with the expected module HMAC value.
 
@@ -206,7 +206,7 @@ mac: Use -help for summary.
 80DB6818FB7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (HMAC : 0), Properties (<null>)
 ```
 
-If application continues to operate, even when the fips module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operation, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
+If an application continues to operate, even when the FIPS module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operational, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
 
 ### Opt in to different FIPS provider versions
 

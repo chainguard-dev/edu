@@ -60,7 +60,7 @@ Let's start with a Python example to verify FIPS is working.
 
 ### Pull the image
 
-Replace `ORGANIZATION` with your organization name in the Chainguard Registry:
+Replace `$ORGANIZATION` with your organization name in the Chainguard Registry:
 
 ```bash
 docker pull cgr.dev/$ORGANIZATION/python-fips:latest
@@ -97,8 +97,8 @@ docker run --rm -v $(pwd):/work -w /work \
 You should see output like:
 
 ```
-SHA-256 hash: 4a1e3b5c7d9f2a8c6b0e4f3a9d8c7b6a5e4d3c2b1a0f9e8d7c6b5a4e3d2c1b0a
-OpenSSL version: OpenSSL 3.4.0 5 Aug 2025
+SHA-256 hash: 8832699c6bbcc63001c75b098cb4499712bfc5680a1f517a9d5676abec8307bc
+OpenSSL version: OpenSSL 4.0.3 29 Sep 2026
 FIPS cryptography is active
 ```
 
