@@ -7,7 +7,7 @@ lead: ""
 description: "An overview of Chainguard's identities, roles, and role-bindings, as well as instructions for how to manage roles and role-bindings with chainctl."
 type: "article"
 date: 2024-04-03T08:48:45+00:00
-lastmod: 2026-10-05T00:00:00+00:00
+lastmod: 2026-10-13T13:36:45+00:00
 draft: false
 tags: ["chainctl", "Overview"]
 images: []
@@ -34,9 +34,9 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
 
-`limited_owner` is a special role designed for [Catalog Starter](/chainguard/containers/reference/catalog-starter/) users, combining the capabilities of the `viewer` role with pull token creation permissions. It does not allow users to invite others to the organization or access paid features like Custom Assembly.
+`limited_owner` is the role of a Starter organization's owner, such as a [Catalog Starter](/chainguard/containers/reference/catalog-starter/) user. It combines the capabilities of the `viewer` role with pull token creation. It can also invite people whose email address is in the organization's domain, remove members, manage billing, and turn on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/). It can't create identities other than pull tokens or use paid features like Custom Assembly.
 
-The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
+The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products. `sandbox.user` lets a member use Chainguard Checks and Chainguard Workspaces, and `mcp.tool_user` lets an identity call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/).
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 

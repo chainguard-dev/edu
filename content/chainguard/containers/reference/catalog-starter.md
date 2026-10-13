@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-09-29T16:13:27+00:00
+lastmod: 2026-10-13T13:36:45+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -162,7 +162,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
-* Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, create pull tokens, and invite colleagues whose email address is in your organization's domain. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 * Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
