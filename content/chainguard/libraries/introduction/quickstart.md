@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -51,13 +51,13 @@ Before getting started:
 
 {{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl" %}}
+{{< tab title="chainctl" >}}
 
 [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
 
@@ -75,7 +75,7 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 
 The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -122,29 +122,29 @@ You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chai
 
 {{< tabs label="Language ecosystem for creating a pull token" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 ```bash
 chainctl auth pull-token create --repository=java --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 ```bash
 chainctl auth pull-token create --repository=javascript --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 ```bash
 chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -170,7 +170,7 @@ Upstream packages served through the Chainguard Repository are subject to config
 
 {{< tabs label="Language ecosystem for build tool configuration" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 ### Java
 
@@ -193,9 +193,9 @@ Check out minimal example projects for
 and
 [Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 ### JavaScript
 
@@ -222,9 +222,9 @@ and
 > [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
 > build configuration page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 ### Python
 
@@ -257,7 +257,7 @@ Check out minimal example projects for
 > the authentication options in the
 > [Python build configuration page](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 

@@ -4,7 +4,7 @@ linktitle: "Add a package"
 description: "Choose how to add a package to a Chainguard Container, find the package name, apply the change, and confirm the package reached the finished image."
 type: "article"
 date: 2026-09-09T00:00:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural"]
 images: []
@@ -51,13 +51,13 @@ You can add only the packages your organization is entitled to, which are the pa
 
 {{< tabs label="Ways to find a package name" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 Open the image in the [Chainguard Console](https://console.chainguard.dev), click **Customize image**, then use the **Filter packages** box. The list holds every package your organization can add. If the package you want isn't listed, [open a Chainguard support ticket](/get-started/get-support/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="apk" %}}
+{{< tab title="apk" >}}
 
 Container images that include `apk` — such as a `-dev` variant — can search the repository from inside a running container. For a free container image, no authentication is needed:
 
@@ -83,7 +83,7 @@ docker run -it --rm --entrypoint /bin/sh --user root \
 
 From the container's shell, run `apk update` and then `apk search`.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -93,7 +93,7 @@ The three procedures below all produce the same result. Pick the tab that matche
 
 {{< tabs label="Ways to add a package with Custom Assembly" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 1. In the [Chainguard Console](https://console.chainguard.dev), open the image you want to customize.
 2. Click **Customize image**, then select the packages to add.
@@ -103,9 +103,9 @@ The three procedures below all produce the same result. Pick the tab that matche
 
 For the full walkthrough, including how to edit or remove customizations later, see [Using the Chainguard Console to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-console/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl, interactively" %}}
+{{< tab title="chainctl, interactively" >}}
 
 1. Open the image's build configuration:
 
@@ -145,9 +145,9 @@ For the full walkthrough, including how to edit or remove customizations later, 
 
 To save the result as a new image rather than changing the existing one, add `--save-as $NEW_NAME`. For the rest of what you can set in this file, including environment variables, annotations, and custom user accounts, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl, non-interactively" %}}
+{{< tab title="chainctl, non-interactively" >}}
 
 Both `apply` and `edit` accept a configuration file, which skips the editor and the prompt. Use this form in CI/CD and anywhere you keep image configuration in version control.
 
@@ -181,7 +181,7 @@ To save the result as a new image, add `--save-as $NEW_NAME`. This works when yo
 
 For a worked GitHub Actions pipeline built around these commands, see [Using GitOps to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-gitops/).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 

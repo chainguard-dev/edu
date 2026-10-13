@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-07T19:24:46+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -72,7 +72,7 @@ For authentication, you need a pull token or the Python keyring provider.
 
 {{< tabs label="Authentication method" >}}
 
-{{% tab title="Pull token" %}}
+{{< tab title="Pull token" >}}
 
 If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must have the `owner` role or have the `libraries.python.pull_token_creator` permission to create one.
 
@@ -88,9 +88,9 @@ eval $(chainctl auth pull-token --output env --repository=python --name=my-pytho
 
 Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
 The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
 
@@ -104,7 +104,7 @@ grep -A2 "libraries.cgr.dev" ~/.netrc
 
 Remove or correct any stale entry before proceeding.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -126,7 +126,7 @@ Setting pull token credentials in `.netrc` is a common approach for individual w
 
 {{< tabs label="Direct access authentication method" >}}
 
-{{% tab title="Pull token in .netrc" %}}
+{{< tab title="Pull token in .netrc" >}}
 
 > **Note**: `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Python will override credentials for any other ecosystem.
 
@@ -149,9 +149,9 @@ EOF
 chmod 600 ~/.netrc
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Pull token in pip.conf" %}}
+{{< tab title="Pull token in pip.conf" >}}
 
 Unlike `.netrc`, `pip.conf` can be scoped per project or per pipeline rather than shared globally across a whole workstation.
 
@@ -192,9 +192,9 @@ This method sets both the index and its credentials in one step.
 > version with a literal token embedded in the URL. Add `.pip/` to
 > `.gitignore` if you create it locally with real credentials for testing.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
@@ -202,7 +202,7 @@ Follow the [instructions to install the keyring package](/chainguard/libraries/i
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -214,7 +214,7 @@ Note that Chainguard publishes both standard and [remediated Python indexes](/ch
 
 {{< tabs label="Package manager for build tool configuration" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 If you configured authentication via `.netrc` or the Python keyring provider, run the following commands to set the remediated repository first, then the simple repository:
 
@@ -227,9 +227,9 @@ If you configured authentication via pull token credentials in `pip.conf`, this 
 is already done; the `index-url` you set in `.pip/pip.conf` already points
 at Chainguard with credentials embedded.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Edit the `pyproject.toml` for project-level or the `~/.config/uv/uv.toml` to make global-level changes, setting the remediated repository first:
 
@@ -260,9 +260,9 @@ If you are using the Python keyring, enable support for it in `pyproject.toml`:
 keyring-provider = "subprocess"
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Configure the Chainguard sources, setting the remediated index as the primary:
 
@@ -271,7 +271,7 @@ poetry source add --priority=primary chainguard-remediated https://libraries.cgr
 poetry source add chainguard https://libraries.cgr.dev/python/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -283,15 +283,15 @@ Once configured, point your build tool at your repository manager URL instead of
 
 {{< tabs label="Package manager for repository manager setup" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip config set global.index-url https://<your-repo-manager-url>/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Configure `~/.config/uv/uv.toml` for a global default across all projects:
 
@@ -311,9 +311,9 @@ url = "https://repo.example.com/repository/python-all/simple/"
 default = true
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Run the following command:
 
@@ -322,7 +322,7 @@ poetry config http-basic.python-all REPO_MANAGER_USERNAME REPO_MANAGER_PASSWORD
 poetry source add python-all https://repo.example.com/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -345,7 +345,7 @@ You can update your lockfile in one of two ways. Update the checksums in place t
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
@@ -373,9 +373,9 @@ chainctl libraries update-hashes
 
 By default, Chainguard hashes are appended alongside your existing hashes rather than replacing them. If your installer fails on a dual-hash entry, use the `--replace` flag.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, consider the following:
 
@@ -410,7 +410,7 @@ Poetry 2.x:
 poetry lock
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -421,29 +421,29 @@ from your previous index, with no error indicating this happened. To avoid this,
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip cache purge
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry cache clear --all pypi
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -459,30 +459,30 @@ Reinstall dependencies and confirm that the lockfile reflects Chainguard as the 
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip install --force-reinstall --no-cache-dir -r requirements.txt
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv sync --reinstall
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry env remove --all
 poetry install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -492,15 +492,15 @@ After reinstalling, you can use `chainctl` to verify which dependencies are buil
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="pip and uv" %}}
+{{< tab title="pip and uv" >}}
 
 ```shell
 chainctl libraries verify --detailed ./.venv/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Poetry's `virtualenv` location depends on your configuration. If `virtualenvs.in-project` is enabled, it's `.venv` in the project directory. Otherwise, find it with:
 
@@ -514,7 +514,7 @@ Then:
 chainctl libraries verify --detailed $(poetry env info --path)
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
