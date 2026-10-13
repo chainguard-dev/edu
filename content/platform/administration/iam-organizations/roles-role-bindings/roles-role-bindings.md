@@ -7,7 +7,7 @@ lead: ""
 description: "An overview of Chainguard's identities, roles, and role-bindings, as well as instructions for how to manage roles and role-bindings with chainctl."
 type: "article"
 date: 2024-04-03T08:48:45+00:00
-lastmod: 2026-10-13T13:36:45+00:00
+lastmod: 2026-10-13T13:53:01+00:00
 draft: false
 tags: ["chainctl", "Overview"]
 images: []
@@ -28,11 +28,11 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `owner` is the role with the most privileges. An owner can create, delete, view (list), and modify (update) organizations, account associations, role-bindings, organization invitations, custom roles, role-bindings, and subscriptions.
 
-`editor` is the role with read access and limited creation and modification access. As opposed to the owner role, an editor can view images, policies, records, organizations, organization invites, roles, and account associations but cannot create or make changes to these resources. It can modify the state of event subscriptions, but cannot grant roles or permissions. Editors can also push and pull images, libraries, and APKs.
+`editor` is the role with read access and limited creation and modification access. An editor has all the access of the `viewer` role. Beyond that, an editor can create, update, and delete container repositories, edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/), draft library build requests, and manage event subscriptions. An editor can pull images and APK packages, but can't push them, can't access Chainguard Libraries, and can't grant roles or permissions.
 
 `viewer` is a role that has read-only access and **can** pull images. That is, a viewer can list images, policies, organizations (and organization invites), records, roles and role-bindings, subscriptions, and account associations.
 
-`console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
+`console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. It also can't view legal terms or run Guardener conversions or migrations. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
 
 `limited_owner` is the role of a Starter organization's owner, such as a [Catalog Starter](/chainguard/containers/reference/catalog-starter/) user. It combines the capabilities of the `viewer` role with pull token creation. It can also invite people whose email address is in the organization's domain, remove members, manage billing, and turn on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/). It can't create identities other than pull tokens or use paid features like Custom Assembly.
 
@@ -40,7 +40,7 @@ The remaining roles are for more specialized functions. For example, `registry.p
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
+Every role grants actions on at least one Chainguard resource. Most actions are `create`, `list`, `update`, or `delete`, and a few resources use others, such as `get`, `accept`, or `call`. For example, the `apk.pull` role grants `list` access for APK packages and groups, and `get` access to APK package content. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
 
 Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
 
