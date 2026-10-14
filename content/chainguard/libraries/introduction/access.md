@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-05T00:00:00+00:00
+lastmod: 2026-10-14T15:22:57+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -51,6 +51,8 @@ workstation, which creates more overhead as you scale across teams and projects.
 
 Both approaches require pull tokens for authentication; refer to [Pull token
 characteristics and use](#pull-token-characteristics-and-use) for more information.
+
+A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
 
 {{< note >}}
 For Python users, the [Chainguard keyring

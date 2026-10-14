@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-14T15:22:57+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -116,7 +116,7 @@ Each `allow` entry names a kind of run and its branch:
 
 Each ref must be a full ref that starts with `refs/`.
 
-### Chainguard hosts
+### Chainguard hosts {#chainguard-hosts}
 
 Each key under `chainguard` is a Chainguard host, and its value has the following keys, all required:
 
