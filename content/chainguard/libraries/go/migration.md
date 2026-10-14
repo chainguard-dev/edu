@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Go project to pull dependencies from Chainguard Libraries"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-29T19:14:43+00:00
+lastmod: 2026-10-14T15:52:37+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
@@ -181,23 +181,3 @@ go mod verify
 ```
 
 After the build succeeds, inspect `go env GOPROXY` and your build logs to confirm that module requests are going through Chainguard. Keep the generated `go.sum` file with the project if it is part of your existing dependency-management workflow.
-
-## Step 5: Adopt remediated versions explicitly
-
-Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix. Go does not select these versions through `@latest` or `go get -u`, so you must request the version explicitly.
-
-For example:
-
-```bash
-go get example.com/module@v1.2.5-cgr.1
-go mod tidy
-go mod verify
-```
-
-You can also update the `require` directive in `go.mod` directly:
-
-```bash
-require example.com/module v1.2.5-cgr.1
-```
-
-Use the module version listed by Chainguard for the CVE remediation you want to adopt. A remediated version is a distinct source archive; it does not replace the upstream bytes for another version.
