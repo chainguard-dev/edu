@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-13 02:34:51_
+_Compiled on: 2026-10-14 02:21:39_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -291,6 +291,90 @@ _Path: chainguard/changelog.md_
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-12
+
+{{< changelog-label "Product Announcements" >}}
+
+### Chainguard Actions is now generally available
+
+_Launched October 6, 2026._
+
+Chainguard Actions provides more than 1,000 continuously hardened, drop-in
+replacements for GitHub Actions. This release adds:
+
+- Hardening and pinning of transitive action dependencies.
+- A hardening report (`Hardening.md`) for every action that lists the
+  vulnerabilities removed.
+- Self-serve action requests, with a one-business-day SLA so coverage stays
+  gapless.
+- Automated migration through the Chainguard App or the migration skill.
+
+### The Chainguard Compliance Dashboard is now generally available
+
+_Launched October 7, 2026._
+
+The Chainguard Compliance Dashboard gives security and compliance teams a
+centralized view of container compliance, vulnerability posture, and
+audit-ready reporting in the Chainguard Console. It continuously logs image
+attestations and real-time CVE status, so you don't have to scrape SBOMs or
+stitch together periodic scanner reports between audit cycles.
+
+In the Chainguard Console, every FIPS image now shows:
+
+- OpenSCAP scan results against the DISA General Purpose Operating System
+  (GPOS) SRG.
+- FIPS 140-3 validation details.
+
+Each architecture has a downloadable XCCDF report you can include as
+supporting evidence in FedRAMP and other audit packages.
+
+### Guardener is available in Early Access
+
+_Launched October 8, 2026._
+
+Guardener, Chainguard's AI-native adoption agent, automates container
+discovery and migration across your organization. In Early Access, Guardener
+provides:
+
+- Continuous repository scanning across Dockerfiles, Helm charts, and
+  Kubernetes manifests.
+- Automated pull requests, configured in YAML, that run image swaps.
+- Non-blocking pull request guardrails that guide engineers toward hardened
+  images in daily workflows.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `spark:3.5` | 2026-04-12 | 2026-10-12 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 17 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sqs-controller/versions"><code>aws-sqs-controller</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zeek/versions"><code>zeek</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/istioctl/versions"><code>istioctl</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-coordinator/versions"><code>llm-d-router-coordinator</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-disagg-sidecar/versions"><code>llm-d-router-disagg-sidecar</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-endpoint-picker/versions"><code>llm-d-router-endpoint-picker</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-keystone-oshelm-fips/versions"><code>openstack-keystone-oshelm-fips</code></a></td><td>fips</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/verdaccio/versions"><code>verdaccio</code></a></td><td>application</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/whereabouts-fips/versions"><code>whereabouts-fips</code></a></td><td>fips</td><td>2026-10-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-barbican-oshelm/versions"><code>openstack-barbican-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-manila-oshelm/versions"><code>openstack-manila-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-10-05
 
@@ -1065,6 +1149,4273 @@ Chainguard built 15 new container images this week, including both standard and 
 <tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-relay/versions"><code>crossplane-azure-relay</code></a></td><td>application</td><td>2026-07-28</td></tr>
 </tbody>
 </table>
+
+---
+
+### Configure a Chainguard Workspaces session's environment
+_Path: chainguard/workspaces/session-environment.md_
+
+A Chainguard Workspaces session's *environment* is the set of packages installed in its VM and the network access it has. Packages come from Chainguard OS, the same packages behind Chainguard Containers. This page explains where a session's environment comes from and how to change it.
+
+A session's environment is fixed when the session is created. If your repository's `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file changes afterward, existing sessions keep the environment they started with, and `chainctl` reminds you when you return to them. To use the new environment, open a new session with `chainctl develop --new`.
+
+## How a session chooses its environment {#how-a-session-chooses-its-environment}
+
+When `chainctl develop` creates a session, it chooses the environment in the following order:
+
+1. The environment you choose with `--env`, if any: a file, `default`, or `generate`.
+2. The check you name with `--check`, if it isn't `develop`. The session uses that check's environment and network access.
+3. Your repository's `.chainguard/develop.yaml` file, if it has one.
+4. Your repository's `.chainguard/ci.yaml` file, if it has one.
+5. The default environment.
+
+The order is the same for a session opened from a local directory and one opened from a repository URL, with one exception: from a local directory, `--check` can name only a check in `.chainguard/ci.yaml`. In a repository that uses the `.chainguard/ci/` directory layout, open the session from the repository URL to use `--check`, for example `chainctl develop github.com/acme/app --check test`. For a local directory, `chainctl` reads the files from your working tree, including changes you haven't committed. For a repository URL, the files come from the repository's default branch.
+
+If your repository has neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file and you don't pass `--env`, `chainctl` opens the session on the default environment and tells you so. When you run `chainctl develop` with `--non-interactive`, it refuses instead, so pass `--env default` explicitly in scripts.
+
+Whatever its environment, every session also gets `git`, `gh`, `chainctl`, `curl`, `bash`, `bash-completion`, `busybox`, and `gnutar`. Nothing else is installed unless the environment lists it, including Claude Code (`claude`). By default, the session's shell and each terminal you open from the session menu run `bash`, with completion and a history file at `~/.bash_history`. `bash` reads `~/.bashrc` last, if you create one in the session, so your own settings take precedence.
+
+`chainctl` never writes to your directory. To find out which environment a session uses, read `/etc/chainguard/session.yaml` in the session. To see each session's environment from your laptop, run `chainctl develop list -o wide`.
+
+## The default environment
+
+The default environment is a general-purpose shell with the following packages:
+
+- `bash`, `coreutils`, `make`, `curl`, and `git`
+- `apk-tools`, so you can install more packages from the shell
+- `claude`, the Claude Code CLI
+- `gh`, `jq`, `ripgrep`, `less`, and `vim`
+- `google-cloud-sdk`
+- `chainctl`
+
+The default environment reaches the open internet. To open a session on the default environment even when your repository has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, pass `--env default`:
+
+```shell
+chainctl develop --env default --parent $ORGANIZATION
+```
+
+The default environment doesn't include language toolchains. To add one to the current session, install it with `apk`. This example installs Python 3.13:
+
+```shell
+apk add python-3.13
+```
+
+To find a package's name, ask a coding agent in the session. Every session configures the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages.
+
+Packages you install with `apk` last for the life of the session, including when it parks and resumes, but new sessions don't get them. To install packages in every new session, list them in a `.chainguard/develop.yaml` file.
+
+## Use a .chainguard/develop.yaml file {#use-a-chainguarddevelopyaml-file}
+
+A `.chainguard/develop.yaml` file sets up sessions and nothing else. Chainguard Checks doesn't run anything from it, so changing it doesn't change your checks.
+
+The file can take its environment from your checks. In a repository that uses the `.chainguard/ci/` directory layout, this example gives sessions the same environment as the checks in `.chainguard/ci/go.yaml`, and adds Claude Code:
+
+```yaml {title=".chainguard/develop.yaml"}
+version: 1
+from: .chainguard/ci/go.yaml
+environment:
+  packages: [claude]
+```
+
+The `from` key can't name `.chainguard/ci.yaml`, so in a repository that uses the single-file layout, declare the environment in the file itself. This example also gives sessions a larger disk:
+
+```yaml {title=".chainguard/develop.yaml"}
+version: 1
+environment:
+  packages: [go, git, claude]
+resources: {cpus: 4, memory: 16Gi, disk: 100Gi}
+```
+
+The file accepts only the following keys:
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| `version` | Yes | The format version. Must be `1`. |
+| `from` | No | A check file, such as `.chainguard/ci/go.yaml`, or an environment file, such as `.chainguard/ci/env/go.yaml`. Sessions take only the file's top-level `environment`, or the environment file that it names. |
+| `environment` | Unless you set `from` | Without `from`, the session's environment, in the [same format](/chainguard/checks/configuration/#environment) as a Chainguard Checks file, except that it can't name `caches`. With `from`, only `packages` to add and `vars` to set, which replace any variables with the same name. |
+| `resources` | No | The session's size: `cpus`, `memory`, and `disk` together, or a resource class. Refer to [Resources](#resources). |
+| `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. `chainctl` 0.2.382 or earlier refuses this key in a session opened from a local directory. |
+
+Keep the following in mind when you write the file:
+
+- The file has no `network` key, so a session that uses it reaches the open internet. To limit a session to an `egress` list, open it with `--check` on a check that has one. In the `.chainguard/ci/` layout, do this from a repository URL. Refer to [Network access](#network-access).
+- If your repository uses Chainguard Checks, a pull request that changes the file gets an advisory check that tests it, as described in [File layouts](/chainguard/checks/configuration/#file-layouts).
+
+## Use your repository's .chainguard/ci.yaml file
+
+If your repository uses [Chainguard Checks](/chainguard/checks/overview/), its `.chainguard/ci.yaml` file already declares the packages your checks need, and sessions use the same packages. If your repository doesn't use Chainguard Checks, you can still add the file to give sessions the right tools.
+
+This example `.chainguard/ci.yaml` file installs Go, `git`, and Claude Code, and defines two checks:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go, git, claude]
+checks:
+  vet:
+    cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  test:
+    cmd: go test ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format.
+
+Keep the following in mind when you write the file for sessions:
+
+- A session uses the environment of a check named `develop` if the file has one. Otherwise, it uses the file's top-level `environment`.
+- To open a session with a specific check's environment, including that check's network access, pass `--check` with the check's name. In the example, `chainctl develop --check test` opens a session that can reach only the Go module proxy and checksum database.
+- The `run-ci` command runs your checks in the session's own environment, not in the environment each check declares, and skips checks that only a pull request can run, as described in [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
+- If your repository uses the `.chainguard/ci/` directory layout instead of a single file, add a `.chainguard/develop.yaml` file whose `from` key names the check file or environment file that sessions should use, as described in [Use a .chainguard/develop.yaml file](#use-a-chainguarddevelopyaml-file). Without one, a session opens on the default environment, and `run-ci` runs your checks without the packages they declare.
+- Sessions don't read `.chainguard/ci/env/develop.yaml`. If your repository has that file for sessions, name it in `.chainguard/develop.yaml` with `from: .chainguard/ci/env/develop.yaml`.
+
+## Use a separate environment file {#use-a-separate-environment-file}
+
+To give sessions an environment that's different from the one your checks use, without changing your repository, write it in a file of your own and pass the file with `--env`. A value for `--env` that contains a `/` or ends in `.yaml` is treated as a path.
+
+This example creates a file that defines a session environment that can reach only the Go module proxy and checksum database:
+
+```shell
+cat > session-env.yaml <<EOF
+version: 1
+environment:
+  packages: [bash, coreutils, curl, git, go, claude]
+checks:
+  develop:
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+EOF
+```
+
+The `develop` check sets the session's network access. It has no command, which a session accepts but a pull request check doesn't, so keep files like this one out of your repository's `.chainguard/` directory.
+
+To open a session with the file, pass its path with `--env`:
+
+```shell
+chainctl develop --env ./session-env.yaml --parent $ORGANIZATION
+```
+
+The session shows the file's contents in `/etc/chainguard/session.yaml`.
+
+## Generate an environment {#generate-an-environment}
+
+If your repository has neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file, `chainctl` can generate an environment from your directory's toolchain files, such as `go.mod` or `package.json`. To try it, pass `--env generate`:
+
+```shell
+chainctl develop --env generate --parent $ORGANIZATION
+```
+
+To generate the environment, `chainctl` uploads your directory to an AI agent that Chainguard hosts. The generated environment starts from the default environment's packages, adds the toolchains your directory needs, such as `go-1.24` for a Go module, and reaches the open internet. If your repository already has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, `--env generate` ignores it and says so. The option works only with a local directory, not with a repository URL.
+
+In a git checkout, the upload includes tracked files and untracked files that `.gitignore` doesn't exclude, so files that `.gitignore` excludes, such as a `.env` file, stay on your laptop. In a directory that isn't a git checkout, the upload includes every file, so move secrets out of the directory before you pass `--env generate`. Either way, the upload leaves out symbolic links and every directory with one of the following names, at any depth: `.git`, `node_modules`, `vendor`, `target`, `dist`, `build`, `.venv`, `venv`, `__pycache__`, `.tox`, `.mypy_cache`, `.pytest_cache`, `.gradle`, `.idea`, and `.vscode`. `chainctl` releases older than the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) also upload files that `.gitignore` excludes, so update `chainctl` before you pass `--env generate` in a checkout that holds secrets.
+
+The upload can be at most 32 MiB and 50,000 files. If it's over either limit, `chainctl develop` fails before it creates a session. Open the session with `--env default` or an `--env` file instead.
+
+The generated environment applies to the new session only, and `chainctl` doesn't add it to your repository. To keep it, copy it from `/etc/chainguard/session.yaml` in the session. Before you commit it as `.chainguard/ci.yaml`, give the `develop` check a `cmd`, because Chainguard Checks refuses a check that runs nothing. Also review its `network` key: the generated `develop` check allows every host, which would give that check open network access on pull requests.
+
+## Start with a warm Go build cache {#start-with-a-warm-go-build-cache}
+
+If your checks keep a Go build cache, a session can start with it, so `go build` and `go test` reuse what your checks already built on your default branch. To ask for the cache, open a session from a repository URL with `--cache`:
+
+```shell
+chainctl develop github.com/acme/app --check test --cache --parent $ORGANIZATION
+```
+
+The session mounts the Go build cache that your checks write after merging, as it was when the session started, and sets `GOCACHE` to it. Go can add to the cache in the session, but nothing the session builds goes back to your repository's cache. The session also adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests instead of reporting cached results.
+
+The cache mounts only when all of the following are true:
+
+- You open the session from a repository URL. A session opened from a local directory gets no cache, even with `--cache`.
+- The session's environment names a `gobuild` cache, as described in [Build caches](/chainguard/checks/variations-services-caches/#build-caches). Pass `--check` with a check whose environment names one, or, in the single-file layout, name it in your `.chainguard/ci.yaml` file's `environment`. A `.chainguard/develop.yaml` file can't give a session a cache, so in a repository that has one, pass `--check`. Sessions don't mount other cache types.
+- On your default branch, the `trust` section of `.chainguard/ci/identities.yaml` has a cache pool whose `rings` is exactly `[2]`, the ring of checks that run after merging. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
+
+The cache holds what passing checks built after merging, so it's empty until a check that names `gobuild` passes on your default branch. If any of these conditions isn't met, the session starts without a cache. `chainctl` doesn't report whether the cache mounted. To check, run `echo $GOCACHE` in the session, which prints nothing when no cache mounted.
+
+Because `--cache` applies only when a session is created, it opens a new session, as `--new` does. To ask for the cache in every new session, set `CHAINCTL_DEVELOP_CACHE=true`. Unlike `--cache`, the variable doesn't make `chainctl develop` open a new session instead of returning to an existing one.
+
+## Network access {#network-access}
+
+A session's network access depends on its environment:
+
+| Environment | Network access |
+| ----------- | -------------- |
+| The default environment | The open internet |
+| A `.chainguard/develop.yaml` file | The open internet |
+| A file's top-level `environment`, with no check selected | The open internet |
+| A check with no `network` key, selected with `--check` or named `develop` | The open internet |
+| A check with `network.egress`, selected with `--check` or named `develop` | Only the hosts in `egress` |
+
+That's different from Chainguard Checks, where a check with no `network` key has no network access at all. In a session, only an `egress` list restricts the network.
+
+A session never reaches cloud metadata endpoints, loopback addresses, or private IP ranges, whatever its environment allows.
+
+When a session tries to reach a host outside its `egress` list, Chainguard refuses the connection and the session keeps running. A check can declare `policy: destroy` to stop its VM on a refused connection instead, but in a session, `destroy` is treated as `deny`.
+
+The `egress` list doesn't affect the session's credential endpoints, such as `http://github/` and `http://claude/`. A session with a narrow `egress` list can still push to GitHub and use Claude Code. Refer to [Manage session credentials](/chainguard/workspaces/credentials/) to control those.
+
+## Resources {#resources}
+
+By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk, and runs on x86-64. To change a session's size, set `resources` in the file that sets its environment:
+
+| Environment | Where the size comes from |
+| ----------- | ------------------------- |
+| A `.chainguard/develop.yaml` file | The file's `resources` key, not the one in the file that `from` names |
+| A check, selected with `--check` or named `develop` | The check's `resources` key, or, if the check has none, its file's top-level `resources` key |
+| A file's top-level `environment`, with no check selected | The file's top-level `resources` key |
+| The default environment or a generated one | Always the default size |
+
+The `resources` key takes either of the following:
+
+- A resource class, such as `medium`. The built-in classes, listed in the [Chainguard Checks configuration reference](/chainguard/checks/configuration/#resources), each have a 40 GB disk, which is less than a session gets by default.
+- An exact size, with `cpus`, `memory`, and `disk` together, such as `{cpus: 4, memory: 16Gi, disk: 100Gi}`. Sizes for `memory` and `disk` are whole numbers of `Gi` or `Mi`. Only a `.chainguard/develop.yaml` file and an `--env` file accept an exact size. Chainguard Checks refuses one in `.chainguard/ci.yaml`.
+
+In an `--env` file, put an exact size on a check, because a file's top-level `resources` key takes only a class:
+
+```yaml {title="session-env.yaml"}
+version: 1
+environment:
+  packages: [bash, coreutils, curl, git, go, claude]
+checks:
+  develop:
+    resources: {cpus: 4, memory: 16Gi, disk: 100Gi}
+```
+
+Unless Chainguard has raised your organization's limit, a session can have at most 4 vCPUs, 16 GB of memory, and a 100 GB disk, which rules out the `large` and `xlarge` classes. A session that asks for more doesn't start, and its error says that it's `larger than this organization's largest resource class`.
+
+A session whose class ends in `-arm64`, such as `medium-arm64`, runs on arm64. Every other session runs on x86-64, including one whose class has no suffix. On pull requests, by contrast, a class without a suffix usually runs on arm64.
+
+The `/tmp` directory is an in-memory file system limited to a quarter of the session's memory, which is 4 GB by default. Put large files, such as model weights, build caches, or virtual environments, under `/var/tmp` or `/work`, which are on disk.
+
+---
+
+### Troubleshoot Chainguard Workspaces
+_Path: chainguard/workspaces/troubleshooting.md_
+
+This page describes common problems with Chainguard Workspaces sessions and how to fix them. If your problem isn't listed here, ask in the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
+
+## chainctl doesn't list the develop command {#chainctl-doesnt-list-the-develop-command}
+
+{{% blurb/hidden-chainctl-commands %}}
+
+For every subcommand and flag, refer to the [`chainctl checks` reference](/chainguard/checks/chainctl-checks-reference/) and the [`chainctl develop` reference](/chainguard/workspaces/chainctl-develop-reference/).
+
+If `chainctl` reports that `develop` is an unknown command, or doesn't recognize a flag or subcommand on this site, your `chainctl` is out of date. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+
+## chainctl develop init fails {#chainctl-develop-init-fails}
+
+If `chainctl develop init` stops with an error, find its message in the following list. Replace `$ORGANIZATION` with the name of your Chainguard organization.
+
+- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password or Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access` to send its owners a request.
+- `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
+- `missing: terms.accept`: only the `owner` and `limited_owner` roles can turn on Checks and Workspaces. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
+- `creating a Starter organization asks a few questions about you`, or `accepting the required legal agreements needs an interactive terminal`: run the command in an interactive terminal, without `--non-interactive`.
+- `This organization can't use self-serve Checks and Workspaces`, or `Checks and Workspaces were turned off for this organization`: [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `you must own the GitHub account (organization or user)`: link your own GitHub user, or a GitHub organization where you're an owner.
+
+### The GitHub account is linked to another organization {#the-github-account-is-linked-to-another-organization}
+
+If `chainctl develop init` fails with a message that says the GitHub account or organization you chose is `already linked` to another Chainguard organization, you can't link it until that link is removed, because a GitHub account can be linked to only one Chainguard organization at a time. In an interactive terminal, `chainctl develop init` names the account and asks for a different one to link. To keep that account linked where it is, or outside an interactive terminal, do one of the following:
+
+- Run `chainctl develop init` again and link a different GitHub account. The command uses the organization it already created.
+- Use the organization that holds the link instead. Have one of its owners run `chainctl develop init --parent $ORGANIZATION`, replacing `$ORGANIZATION` with that organization's name.
+- If you own the GitHub account, unlink it from the other organization with `chainctl guardener github unlink --github-org $GITHUB_ACCOUNT`, replacing `$GITHUB_ACCOUNT` with the account's name, and then run `chainctl develop init` again. Unlinking stops Guardener for that account in the other organization.
+
+For more about links, refer to [Managing Chainguard App connections](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
+
+## You don't have permission {#you-dont-have-permission}
+
+If a `chainctl develop` command fails with a `PermissionDenied` error that says only `permission denied`, the account you're logged in with doesn't have a role in the organization that allows the command, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles). Membership alone isn't enough, because the `viewer` and `editor` roles don't include Workspaces. Ask an organization owner to give you access, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access). If you have more than one Chainguard account, run `chainctl auth status` to check which one you're logged in with.
+
+The `chainctl develop list --all` and `chainctl develop policy set` commands need the `owner` role. Without it, `chainctl develop policy set` fails with the same error, and `chainctl develop list --all` fails with an error that says `listing another owner's sessions requires the list capability on the instance`.
+
+## Your organization isn't entitled to Chainguard Workspaces {#your-organization-isnt-entitled-to-chainguard-workspaces}
+
+If `chainctl develop` fails with a `PermissionDenied` error that says `this organization is not entitled to Chainguard Workspaces`, Checks and Workspaces aren't turned on for the organization. Have someone with the `owner` or `limited_owner` role turn them on with the following command, replacing `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl develop init --parent $ORGANIZATION
+```
+
+If an owner turned them on a moment ago, wait a minute and try again.
+
+## Your organization hasn't accepted the terms {#your-organization-hasnt-accepted-the-terms}
+
+If `chainctl develop` fails with a `FailedPrecondition` error that says your organization hasn't accepted the terms Chainguard Workspaces is offered under, Chainguard refuses to create sessions in the organization until someone with the `owner` or `limited_owner` role accepts them. The error names the terms. Have someone with one of those roles run the following command, replacing `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl develop accept-terms --parent $ORGANIZATION
+```
+
+The acceptance can take up to 30 seconds to take effect, so wait briefly before you try again. Sessions that are already running or parked keep working.
+
+## A session won't open on a directory {#a-session-wont-open-on-a-directory}
+
+If `chainctl develop` refuses to open a directory, the error says why. The following sections describe the most common causes.
+
+### Several sessions match the directory {#several-sessions-match-the-directory}
+
+If a directory has more than one session, `chainctl` asks which one you want, or lists them and fails when it can't ask. Pass the session's name or short ID instead of the directory.
+
+### The repository has no environment {#the-repository-has-no-environment}
+
+With `--non-interactive`, a repository that has neither a `.chainguard/develop.yaml` file nor a `.chainguard/ci.yaml` file is an error. Pass `--env default` to use the default environment.
+
+### The directory is too large to generate an environment {#the-directory-is-too-large-to-generate-an-environment}
+
+If `chainctl develop --env generate` fails with an error that says the directory is `larger than the 33554432-byte generation limit`, the files that `chainctl` uploads to generate the environment add up to more than 32 MiB. An error that says the upload `holds more than 50000 files` means that it has too many files. Either way, pass `--env default` or an [environment file of your own](/chainguard/workspaces/session-environment/#use-a-separate-environment-file) instead. To learn which files the upload includes, refer to [Generate an environment](/chainguard/workspaces/session-environment/#generate-an-environment).
+
+### The directory is the top of a linked worktree or submodule {#the-directory-is-the-top-of-a-linked-worktree-or-submodule}
+
+If `chainctl develop` fails with an error that says `the checkout's .git is a pointer to a git directory elsewhere`, the directory is the top of a linked worktree, which `git worktree add` creates, or of a submodule. Its history is stored outside the directory, so `chainctl` can't sync it. Run `chainctl develop` from the main checkout instead. A session opened there gets each submodule as an empty directory.
+
+From a subdirectory of a linked worktree or submodule, `chainctl` syncs only that subdirectory, without the repository's history.
+
+## You reached the session limit {#you-reached-the-session-limit}
+
+With the free monthly allowance, each user can have one session at a time, including a parked one, and the organization can have three. A parked session counts toward both limits until you delete it or it expires. At a limit, `chainctl develop` fails with a `ResourceExhausted` error:
+
+- If the error says `you are at your limit of 1 active sessions in this organization`, delete a session you no longer need with `chainctl develop delete`, or return to the one you have.
+- If the error says `this organization is at its active-session capacity (3)`, other users hold the organization's sessions. Only the user who created a session can delete it with `chainctl develop delete`, so ask your teammates to delete the sessions they no longer need. If you have the `owner` role, `chainctl develop list --all` shows every user's sessions with an `OWNER` column. In a Starter organization, no one can list other users' sessions, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles).
+
+## A session fails to start because of a package {#a-session-fails-to-start-because-of-a-package}
+
+If a session fails to start with an error about a package, such as `nothing provides` followed by a package name, the session's environment lists a package that doesn't exist or that your organization can't access. Check the package names in the file the environment comes from, such as `.chainguard/develop.yaml`, `.chainguard/ci.yaml`, or your `--env` file. Package names often include a version, such as `go-1.24` or `python-3.13`.
+
+## A session asks for more resources than your organization allows {#a-session-asks-for-more-resources-than-your-organization-allows}
+
+If a session fails with an error that says the environment's guest is `larger than this organization's largest resource class`, the session's environment asks for more vCPUs, memory, or disk than your organization allows. The error names what the environment asks for and your organization's limit. Choose a smaller size in the environment's `resources`, as described in [Resources](/chainguard/workspaces/session-environment/#resources), or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+
+## Changes on your laptop don't appear in the session {#changes-on-your-laptop-dont-appear-in-the-session}
+
+This is expected. Your directory syncs into a session only the first time you attach. After that, changes on your laptop don't reach the session, and changes in the session don't reach your laptop. Commit and push from the session, then pull on your laptop, or the other way around.
+
+To start a session from your laptop's current tree, open a new one with `chainctl develop --new`.
+
+## Claude Code reports an error in the session {#claude-code-reports-an-error-in-the-session}
+
+Most errors mean that the session doesn't have a current Claude credential. For how long a session keeps the credential that `chainctl` sends, refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away). Claude Code shows the error in the session, and `chainctl` prints messages about the credential on your laptop. To review those messages later, press `Ctrl+]` to open the session menu and choose **Logs**.
+
+The following sections describe the most common causes.
+
+### No credential has arrived {#no-credential-has-arrived}
+
+If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
+
+### The session's host is too old {#the-sessions-host-is-too-old}
+
+If the error says that the session's host `predates laptop credential push`, or `chainctl` says that the session's host was started before it could send model credentials, the host can't take a credential. Attach to the session with a current `chainctl`, press `Ctrl+]`, and choose **Restart the host**. You can also detach, let the session park, and attach again.
+
+### The credential sent to the session expired {#the-credential-sent-to-the-session-expired}
+
+If the error says that `the owner's Claude login token sent to this session expired`, the short-lived access token from your stored Claude login ran out. `chainctl` renews it while you're attached, and while a terminal that you detached from with a **Detach — keep running** option stays open. Attach again to send a fresh one.
+
+To keep a long unattended task from stopping, use a token from `claude setup-token`, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
+
+If you use Claude through Vertex AI, the error says instead that your Google credential or access token sent to the session for Vertex AI no longer works or expired. Attach again to send a fresh one.
+
+### Claude Code uses a different provider {#claude-code-uses-a-different-provider}
+
+If the error says that `claude in this session now uses` Vertex AI or the Anthropic API, the session's Claude provider changed while Claude Code was running. Exit Claude Code and run `claude --continue` to resume the conversation.
+
+### Claude is turned off for the session {#claude-is-turned-off-for-the-session}
+
+If the error says that `claude is turned off for this session`, the session's `claude` credential is turned off. Turn it back on with the command that the error names. Replace `$SESSION` with the session's short ID, which the error includes:
+
+```shell
+chainctl develop creds $SESSION --source claude=laptop
+```
+
+### Your Claude login expired {#your-claude-login-expired}
+
+If `chainctl` says that `your Claude login on this laptop` expires soon or has expired, run `claude` on your laptop once to refresh it. `chainctl` sends the refreshed login while you're attached. If you're detached, attach to the session again.
+
+### You aren't logged in to Claude {#you-arent-logged-in-to-claude}
+
+If `chainctl` says `claude: nothing to send` when you attach, it found no Claude login or Google credentials on your laptop. Run `claude` on your laptop and log in, or run `gcloud auth application-default login` if you use Claude through Vertex AI. `chainctl` tries again while you're attached.
+
+### Claude Code isn't installed in the session {#claude-code-isnt-installed-in-the-session}
+
+If `claude` isn't found in the session, the session's environment doesn't list it. Add `claude` to your environment's packages and open a new session, or open one on the default environment with `--env default`.
+
+## A push or fetch fails in the session {#a-push-or-fetch-fails-in-the-session}
+
+If `git push` or `git fetch` fails with a message that the org GitHub App can't serve the repository because it's not installed or not linked, the Chainguard App isn't installed on the GitHub account that owns the repository, or that account isn't linked to your organization. Install the app from the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new), selecting every account you work in. Then allow the repository, replacing `$OWNER` and `$REPO` with its owner and name:
+
+```shell
+chainctl develop --with github:$OWNER/$REPO --parent $ORGANIZATION
+```
+
+If the message says the request isn't allowed for the session yet, that the session owner declined it, or that nobody answered within 60 seconds, the session asked for access beyond its defaults and nobody approved it. Approve it on your attached terminal when the prompt appears, or allow it ahead of time with `--with`. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
+
+Pushing from the session over SSH doesn't work. The session rewrites only `https://github.com/` URLs, so keep your remotes on HTTPS.
+
+### The branch requires signed commits {#the-branch-requires-signed-commits}
+
+Commits that you make in a session aren't signed. If a GitHub rule requires signed commits on the branch that you push to, GitHub rejects the push. To get the commits onto that branch, push them to a branch that the rule doesn't cover, sign them on your laptop, and then merge them as you usually do:
+
+1. In the session, create a branch and push it, replacing `$BRANCH` with a name that the rule doesn't cover:
+
+   ```shell
+   git switch -c $BRANCH
+   git push origin $BRANCH
+   ```
+
+2. On your laptop, check out the branch, sign each of its commits, and push it again. If the session started from a branch other than `main`, replace `main` with that branch's name:
+
+   ```shell
+   git fetch origin
+   git switch $BRANCH
+   git rebase --exec 'git commit --amend --no-edit -S' origin/main
+   git push --force-with-lease
+   ```
+
+If a rule requires signed commits on every branch, you can't push commits from a session to the repository.
+
+### Find the details in the forwarding log {#find-the-details-in-the-forwarding-log}
+
+`chainctl` writes every GitHub and `cgr.dev` request that it serves from your laptop, and every failure, to `develop-forward.log` in its configuration directory on your laptop. On macOS, that's `~/Library/Application Support/chainctl/`. On Linux, it's `$XDG_CONFIG_HOME/chainctl/`, or `~/.config/chainctl/` if `XDG_CONFIG_HOME` isn't set. The log doesn't record Claude requests, because the session's host sends them itself.
+
+## A session that acts as you can't reach a repository {#a-session-that-acts-as-you-cant-reach-a-repository}
+
+If you connected your GitHub account with `chainctl develop github login`, the sessions you create act on GitHub as you through the Chainguard Develop GitHub App, `chainguard-develop`. This app is separate from the Chainguard App. To fetch a private repository or push to any repository, a session needs Chainguard Develop installed on the account that owns the repository. For how to install it, refer to [Install the Chainguard Develop app](/chainguard/workspaces/github-as-you/#install-the-chainguard-develop-app).
+
+When you open a session from a repository URL, Chainguard checks that your account can reach the repository. If it can't, `chainctl develop` fails with a `FailedPrecondition` error that names one of the following causes and where to fix it:
+
+- Chainguard Develop isn't installed on the account that owns the repository. An owner of that account installs it, and a member can request it, on the [Chainguard Develop installation page](https://github.com/apps/chainguard-develop/installations/new).
+- The app's installation hasn't granted it read access to repository contents. An owner of the account accepts the app's requested permissions.
+- The organization requires SAML single sign-on. Sign in at the page that the error names, and then run `chainctl develop github login` again.
+- Your account can't see the repository through the app. If the app is installed only on selected repositories, an owner of the account adds this one. Otherwise, ask an owner for access.
+
+On a terminal, `chainctl` offers to open the page where you make the fix, waits for you to press `Enter`, and then tries to create the session again.
+
+A session that you open on a directory isn't checked when you create it. Instead, `git fetch` or `git push` fails in the session with a message that begins `GitHub refused the push` or `GitHub refused the fetch` and names the cause and the fix. The fix takes effect at once, so retry the command after you make it. You don't need a new session. To check from inside a session whether your account reaches a repository, run the following command, replacing `$OWNER` and `$REPO` with the repository's owner and name:
+
+```shell
+curl -s "http://github/.chainguard/access?repo=$OWNER/$REPO"
+```
+
+On your laptop, `chainctl develop github status` shows which accounts the checkout in your current directory still needs the app installed on.
+
+## A session runs out of space or memory {#a-session-runs-out-of-space-or-memory}
+
+The `/tmp` directory in a session is held in memory and limited to a quarter of the session's memory, which is 4 GB with the default 16 GB. Writing large files there uses memory that your processes need. Put large files under `/var/tmp` or `/work`, which are on the session's disk, 50 GB by default. To change a session's memory or disk, refer to [Resources](/chainguard/workspaces/session-environment/#resources).
+
+## A session started fresh instead of resuming {#a-session-started-fresh-instead-of-resuming}
+
+Rarely, Chainguard can't restore a parked session's snapshot. The session then starts fresh, and `chainctl` says that the parked snapshot couldn't be restored and that uncommitted work was lost. Push your work regularly so that a lost snapshot doesn't cost you much.
+
+## A session has expired {#a-session-has-expired}
+
+A parked session expires 5 days after it parks, and an expired session can't be resumed. `chainctl develop list --expired` shows your expired sessions. An expired session keeps its name until you delete it, so to reuse the name, delete the expired session with `chainctl develop delete`. Then open a new session with `chainctl develop`.
+
+## Your organization's monthly compute allowance is used up {#your-organizations-monthly-compute-allowance-is-used-up}
+
+If `chainctl develop` fails with a `FailedPrecondition` error that says `this month's compute allowance is used up`, your organization has used its monthly vCPU-hours of Workspaces. Until the allowance resets on the first day of the month (UTC), you can't create a session or resume a parked one, and a session created with `--keep always` parks after you detach instead of staying up. Sessions that are already running aren't stopped.
+
+A parked session still expires 5 days after it parks, even if the allowance hasn't reset yet, so push your work regularly. To learn how sessions use the allowance, refer to [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits). To continue before the allowance resets, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+
+## Your organization's access to Chainguard Workspaces ended {#your-organizations-access-to-chainguard-workspaces-ended}
+
+If `chainctl develop` fails with a `PermissionDenied` error that says `this organization's access to Chainguard Workspaces has ended`, you can't create sessions, attach to them, or keep them running. You can still list, rename, and delete sessions, and use `chainctl develop creds`, `chainctl develop policy`, and `chainctl develop github`, so you can clean up. To continue, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+
+This happens, for example, when a free trial that your organization started with `chainctl` 0.2.379 or earlier ends. Such a trial includes 500 vCPU-hours of Workspaces over 30 days, followed by a 7-day grace period during which `chainctl` warns you each time you create a session. Its compute budget doesn't reset each month, and when the budget is used up, `chainctl develop` fails with a message that says `compute budget used up`.
+
+## chainctl can't find your session {#chainctl-cant-find-your-session}
+
+`chainctl develop list` shows only your own sessions, unless you have the `owner` role and pass `--all`. If you're logged in to `chainctl` with a different account than the one that created a session, `chainctl` reports that no session matches. In some cases, it says instead that you're logged in as one identity but the session belongs to another. Only a session's owner can attach to it. Run `chainctl auth login` and choose the account that owns the session.
+
+---
+
+### Manage Chainguard Workspaces sessions
+_Path: chainguard/workspaces/manage-sessions.md_
+
+A Chainguard Workspaces session lasts beyond a single terminal. You can detach from it and return later, keep it running while an agent works, run more than one terminal in it, or open several sessions on the same repository. This page explains how to do each of these with `chainctl develop`.
+
+The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
+
+## How chainctl develop chooses a session {#how-chainctl-develop-chooses-a-session}
+
+The `chainctl develop` command takes one optional argument, which tells it what to open:
+
+| Argument | What `chainctl develop` does |
+| -------- | ---------------------------- |
+| None, or a directory | Reattaches to the directory's session if it has exactly one, and creates one if it has none. If the directory has several sessions, it asks which one you want. |
+| A subdirectory of a checkout | Opens the whole repository with its history, and starts the shell in the subdirectory. |
+| A repository URL, such as `github.com/acme/app` | Opens the repository at its default branch, without syncing a local directory. |
+| A session name, such as `app/quiet-harbor`, or a short ID, such as `3f9a2c1e` | Returns to that session. |
+
+Sessions you open from a directory and sessions you open from a repository URL are separate. Running `chainctl develop github.com/acme/app` doesn't return to a session you opened from your local clone of that repository.
+
+## Choose the session's repository {#choose-the-sessions-repository}
+
+A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. When the session can start from one of the repository's commits, `chainctl` uploads only what differs from that commit. By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
+
+To choose ahead of time, pass `--git-remote` with the name of a remote. This example opens a session on the repository that the `upstream` remote points to:
+
+```shell
+chainctl develop --git-remote upstream --parent $ORGANIZATION
+```
+
+If the directory's session is on a different repository than the remote you name, `chainctl develop` fails and tells you to add `--new`, as described in [Open more than one session](#open-more-than-one-session).
+
+To open a session on no repository, pass `--git-remote -`, or choose **Upload this directory on no repository** when `chainctl` asks. The session then has no `github` service, so it gets no GitHub credential, and `chainctl` uploads the whole checkout with its history, instead of only what differs from a commit. Files that `.gitignore` excludes still stay on your laptop.
+
+Whatever the session is on, `chainctl` doesn't upload your checkout's `.git/config` file or its `.git/hooks` directory, because they can contain credentials and commands that git runs. Chainguard adds an `origin` remote that points to the session's repository, so `origin` is the session's only remote, even if you chose another remote. A session on no repository has no remotes. Your other remotes aren't in the session, and neither are hooks that you or a hook manager installed.
+
+To fetch from or push to another of your remotes in the session, add it with its HTTPS URL:
+
+```shell
+git remote add upstream https://github.com/acme/app
+```
+
+The session's `github` credential already covers your checkout's other github.com remotes where the Chainguard App is installed, as described in [What a session can reach by default](/chainguard/workspaces/credentials/#what-a-session-can-reach-by-default). To run your hooks in the session, install them again there, for example with `pre-commit install`.
+
+## Detach from a session {#detach-from-a-session}
+
+While you're attached to a session, press `Ctrl+]` to open the session menu. You can also type `~.` at the session's shell prompt, or as the first thing you type after you attach or press `Enter`. In a program that draws its own input line, such as Claude Code, `~.` works only right after `Enter`, so use `Ctrl+]` there. The menu has the following options:
+
+| Option | Key | What it does |
+| ------ | --- | ------------ |
+| **Detach — let it park** | `d` or `Enter` | Returns you to your laptop's shell. The session keeps running for about 10 minutes, then parks. |
+| **Detach — keep running 4h** | | Returns you to your laptop's shell and keeps the session running for 4 hours. |
+| **Detach — keep running for…** | | Asks for a duration, such as `90m`, or a time, such as `17:30`, up to 24 hours from now. |
+| **Park now** | | Returns you to your laptop's shell and parks the session right away, even one you're keeping running. To resume it, run `chainctl develop`, which waits for the park to finish. |
+| **Restart the host** | | Parks the session and resumes it on a new host while you stay attached. Running processes continue unless the snapshot can't be restored. |
+| **Rename…** | `n` | Changes the session's name. |
+| **Credentials** | | Shows and changes what the session can reach. Refer to [Manage session credentials](/chainguard/workspaces/credentials/). |
+| **Status** | | Shows the session's name and state, its repository and commit or its directory, its branch, its credential endpoints, what serves its laptop credentials, and the last clipboard copy. |
+| **Logs** | `l` | Shows every message `chainctl` has shown since you attached, newest last. |
+| **Help** | `h` or `?` | Lists every key. |
+| **Back** | `Esc` | Closes the menu and returns to the session. |
+
+The menu ignores what you type for a moment after it opens, so pause before you press a key.
+
+The first option is what `d` or `Enter` does, and the detach options depend on the session. For a session you're already keeping running, the first option is **Detach — keeps running until** followed by a time. A session created with `--keep always` has one detach option, which shows how long it keeps running. The `--keep` flag also changes the first option, as described in [Keep a session running while you're away](#keep-a-session-running-while-youre-away).
+
+To send `Ctrl+]` to a program in the session, press it twice. To see every key, choose **Help**, or type `~?` wherever `~.` works.
+
+If you exit the session's shell, for example with `exit`, any other terminals you opened in the session close too. If the session isn't already being kept running, `chainctl` asks whether to keep it running while you're away. Press `Esc` to let it park.
+
+## Return to a session {#return-to-a-session}
+
+To return to a session, run `chainctl develop` from the directory you opened it on, or pass the session's name or short ID from anywhere:
+
+```shell
+chainctl develop app/quiet-harbor --parent $ORGANIZATION
+```
+
+If the session is parked, `chainctl` resumes it first, which usually takes a few seconds. The session's memory is restored along with its disk, so running processes, such as a build or an agent, continue where they stopped.
+
+Returning to a session doesn't sync your directory again. Your directory syncs only the first time you attach, so move later changes between your laptop and the session with git.
+
+Only one `chainctl` can be attached to a session at a time. If you attach from another terminal or laptop, the new one takes over, and the first one prints `Detached from acme/app/quiet-harbor: another client attached.` followed by the command that returns to the session.
+
+## Keep a session running while you're away {#keep-a-session-running-while-youre-away}
+
+A session that keeps running uses compute while you're away, but an agent in it can keep working. It counts against your organization's monthly allowance the whole time it runs, as described in [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits).
+
+To keep a session running, choose one of the **Detach — keep running** options in the session menu.
+
+To decide ahead of time that a session keeps running when you detach, pass `--keep` with a duration of up to 24 hours when you open or return to it:
+
+```shell
+chainctl develop --keep 8h --parent $ORGANIZATION
+```
+
+With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**, and exiting the shell keeps the session running without asking.
+
+For a long-running task, create a new session with `--keep always`. That session keeps running instead of parking when you detach, until 7 days after you last detach from it:
+
+```shell
+chainctl develop --keep always --name migration --parent $ORGANIZATION
+```
+
+Because it doesn't park, a `--keep always` session can use up the monthly allowance in a few days. To stop it sooner, choose **Park now** in the session menu, or delete the session.
+
+Claude Code can keep working after you close the terminal, for as long as its credential lasts. Refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
+
+For a credential that your laptop serves, such as a `cgr.dev` login you switched to your laptop, the terminal you detached from keeps serving the session until you press `Ctrl+C` or close the terminal. After that, requests that need your laptop fail until you return to the session. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
+
+## Use several terminals in a session {#use-several-terminals-in-a-session}
+
+When you run `chainctl develop` in an interactive terminal, it keeps a status row at the bottom of the window. The row lists the session's terminals and shows each message from `chainctl` for a few seconds. It ends with `^] menu`, or with a count of messages you might have missed, such as `^] menu · 2 new`. To read them, choose **Logs** in the session menu.
+
+A session can run up to nine terminals, for example Claude Code in one and your tests in another. `chainctl` also calls them PTYs. To manage them, press `Ctrl+]` to open the session menu, which lists the session's terminals, and then press one of the following keys:
+
+| Key | What it does |
+| --- | ------------ |
+| `c` | Starts a terminal and switches to it. The new terminal opens in terminal 1's current directory. |
+| `1` to `9` | Switches to that terminal. |
+| `r` | Renames the terminal shown. Until you rename it, a terminal shows the title of the program running in it, or `shell`. |
+| `x` | Asks you to confirm, then closes the terminal shown and stops what runs in it. |
+
+On the status row, the name of the terminal shown is bold. A terminal you're not looking at is marked when it has new output, or when its program rings the bell or sends a notification. When a terminal's command exits, for example after you type `exit` in it, the terminal closes and the row shows the command's exit status.
+
+Terminal 1 is the session's shell, so you can't close it with `x`. Exiting it closes the other terminals and detaches you, as described in [Detach from a session](#detach-from-a-session). When you detach from the session menu instead, every terminal stays open, and when you return from the same laptop, `chainctl` opens the terminal you were in when you left.
+
+All the terminals share the session's `/work` directory. To run several coding agents in one session, refer to [Run several agents in parallel](/chainguard/workspaces/coding-agents/#run-several-agents-in-parallel).
+
+If the session menu doesn't list the session's terminals, the session was created before Workspaces supported more than one, and it has only its shell.
+
+## Open more than one session
+
+With the free monthly allowance, each user can have one session at a time, including a parked one. To open another, delete the one you have first. To work on more than one thing at a time in a single session, open more terminals in it, as described in [Use several terminals in a session](#use-several-terminals-in-a-session).
+
+If your organization's allowance includes more sessions, such as one arranged with your Chainguard account team, you can run several sessions on the same repository, for example to give each of several agents its own copy of the code. To open another session on a directory that already has one, pass `--new`, and optionally `--name` to choose the second part of its name:
+
+```shell
+chainctl develop --new --name scratch --parent $ORGANIZATION
+```
+
+This command creates a session named `app/scratch`. Without `--name`, `chainctl` generates a name. Once a directory has several sessions, return to one by its name or short ID.
+
+The `--name`, `--env`, `--check`, `--cache`, and `--keep always` flags each open a new session, so you don't need `--new` with them.
+
+## List sessions {#list-sessions}
+
+To list your sessions, most recently used first, run `chainctl develop list`:
+
+```shell
+chainctl develop list --parent $ORGANIZATION
+```
+
+The output shows each session's name, the branch checked out in it, its state, and when you last used it:
+
+```
+         NAME          |  BRANCH   |         STATE          | LAST USED
+-----------------------|-----------|------------------------|-----------
+ acme/app/quiet-harbor | main      | running, parks in 6m   | 4m ago
+ acme/app/scratch      | fix-tests | parked, expires Oct 13 | 2d ago
+```
+
+The `STATE` column tells you whether a session is running, when it parks or stops running, and when a parked session expires. To add each session's commit, environment, and directory, pass `-o wide`. To include expired sessions, pass `--expired`.
+
+To list every user's sessions in the organization, with an `OWNER` column, pass `--all`. Only organization owners can use `--all`, and you can return to, rename, or delete only your own sessions.
+
+## Rename a session
+
+To rename a session, pass its current name or short ID and the new second part of its name. The repository part stays the same:
+
+```shell
+chainctl develop rename app/quiet-harbor tests --parent $ORGANIZATION
+```
+
+This command renames the session to `app/tests`.
+
+## Delete a session
+
+A parked session expires 5 days after it parks. Chainguard then discards its VM and snapshot, but the session stays in `chainctl develop list --expired`, and its name stays in use until you delete it. To delete a session, run `chainctl develop delete` with its name or short ID:
+
+```shell
+chainctl develop delete app/scratch --parent $ORGANIZATION
+```
+
+The command asks you to confirm, then destroys the session's VM and its snapshot. Anything in the session that you didn't push is lost. To skip the confirmation, for example in a script, pass `--yes`.
+
+## Use sessions from scripts {#use-sessions-from-scripts}
+
+To use `chainctl develop` without a terminal, for example from a script or a coding agent on your laptop, pass `--non-interactive`. With it, `chainctl` never prompts or guesses. An ambiguous session reference is an error, and so is a repository with neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file, which would otherwise open on the default environment. To use the default environment, pass `--env default`.
+
+To create a session and print its details as JSON without attaching to it, pass `--output json`:
+
+```shell
+chainctl develop --new --non-interactive --output json --parent $ORGANIZATION
+```
+
+The session's `/work` directory stays empty until you attach with `chainctl develop` from the same directory, which uploads it. Without a terminal, a session can't ask you to approve requests beyond its defaults, so it refuses them. To allow them ahead of time, pass `--with`, as described in [Manage session credentials](/chainguard/workspaces/credentials/).
+
+---
+
+### Use Claude Code in a Chainguard Workspaces session
+_Path: chainguard/workspaces/coding-agents.md_
+
+A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session.
+
+Claude Code is the only coding agent that sessions supply a model credential for. You can install other coding agents in a session, but sessions don't send them a credential.
+
+## Before you begin
+
+Claude Code in a session uses the Claude credential from your laptop, so set it up there first:
+
+1. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) or later, as described in [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl). Earlier versions don't send Claude's credential to a session.
+2. Install Claude Code on your laptop, as described in the [Claude Code documentation](https://code.claude.com/docs/en/overview).
+3. Run `claude` on your laptop and log in.
+
+When you attach to a session, `chainctl` sends the session's host the first credential it finds on your laptop, in this order: a `chainctl-credential-claude` credential helper on your `PATH`, the `ANTHROPIC_API_KEY` environment variable, an `apiKeyHelper` from your Claude Code settings, the `CLAUDE_CODE_OAUTH_TOKEN` environment variable, and your stored Claude login. Apart from the credential helper, this is the order Claude Code uses on your laptop. Both an API key and a Claude subscription login work.
+
+Claude Code must also be installed in the session. The default environment includes it. If your session uses your repository's `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, add `claude` to that file's packages, as described in [Configure a session's environment](/chainguard/workspaces/session-environment/).
+
+## Start Claude Code
+
+Open a session, then run `claude` in it:
+
+```shell
+claude
+```
+
+Claude Code starts without asking you to log in. When you attach, `chainctl` sends your Claude credential to the session's host, outside the VM. Claude Code's requests go to `http://claude/` in the session, and the host sends them on with your credential. The host passes on only requests to the Claude API's messages and models endpoints, not its account or organization endpoints. For a stored Claude login, `chainctl` sends only the short-lived access token, never the refresh token.
+
+If Claude Code in the session reports that the token sent to the session expired, attach to the session again so that `chainctl` sends a fresh one. If `chainctl` says that the Claude login on your laptop expired, run `claude` on your laptop once to refresh it. To keep a long task from stopping when a login expires, use a token from `claude setup-token`, as described in [Keep Claude Code working while you're away](#keep-claude-code-working-while-youre-away). For other errors, refer to [Claude Code reports an error in the session](/chainguard/workspaces/troubleshooting/#claude-code-reports-an-error-in-the-session).
+
+## Use Claude through Vertex AI {#use-claude-through-vertex-ai}
+
+To use Vertex AI, set your Google Cloud project in `chainctl`. You don't need to change your Claude Code settings. Replace `$GCP_PROJECT` with your Google Cloud project ID:
+
+```shell
+chainctl config set develop.vertex.project $GCP_PROJECT
+```
+
+New sessions then use Vertex AI in that project, as described in [How a session chooses its provider](#how-a-session-chooses-its-provider). The region defaults to `global`. To use another region, set `develop.vertex.region` the same way.
+
+With Vertex AI, `chainctl` sends the session's host a Google credential from your laptop's application default credentials, which `gcloud auth application-default login` sets up. It sends the credential the same way it sends the `gcp` credential, as described in [Use your Google Cloud credentials in a session](/chainguard/workspaces/credentials/#use-your-google-cloud-credentials-in-a-session). Claude Code in the session holds no Google credential.
+
+### How a session chooses its provider
+
+When you create a session, `chainctl` chooses how Claude Code in it reaches Claude, in this order:
+
+1. If Claude Code on your laptop is set to use Vertex AI with `CLAUDE_CODE_USE_VERTEX`, the session uses Vertex AI with the project in `ANTHROPIC_VERTEX_PROJECT_ID` and the region in `CLOUD_ML_REGION`.
+2. If you set `develop.vertex.project` in your `chainctl` configuration, the session uses Vertex AI in that project.
+3. If Claude Code on your laptop has a Claude login or an API key, the session uses the Anthropic API.
+4. If your Google Cloud application default credentials name a project, the session uses Vertex AI in that project.
+
+If none of these applies, the session uses the Anthropic API, and Claude Code works once you log in to Claude on your laptop and attach again.
+
+`chainctl` reads `CLAUDE_CODE_USE_VERTEX` and the other Claude Code variables from the `env` of your Claude Code settings, then from your environment. If Claude Code uses Vertex AI but names no project, `chainctl` uses `develop.vertex.project`, then the project your Google Cloud credentials name, and refuses to create the session if it finds none. When a new session uses Vertex AI, `chainctl` says so and names where the project came from.
+
+### Switch a session to another provider {#switch-a-session-to-another-provider}
+
+A session keeps its provider when it parks and resumes. To switch a running session between the Anthropic API and Vertex AI:
+
+1. Press `Ctrl+]` to open the session menu, and choose **Credentials**.
+2. Choose `claude`, then choose **Use Vertex AI…**, or **Use Anthropic…** on a session that uses Vertex AI. To use Vertex AI, your laptop needs Google Cloud application default credentials.
+3. Choose whether the change applies to this session only or to new sessions too. For Vertex AI, check the project and region first. For new sessions, `chainctl` saves the project and region in `develop.vertex.project` and `develop.vertex.region`, or clears them when you switch to the Anthropic API.
+4. In the session, exit Claude Code with `/exit`, then run `claude --continue` to resume the conversation with the new provider.
+
+Claude Code that's already running keeps the old provider, so its next request fails with a message that tells you to restart it. If `chainctl` tells you to start a new session to use the new provider, the session is too old to switch, so create a new one.
+
+## Configure Claude Code in a session
+
+From your laptop, a session takes only your Claude credential and the Vertex AI settings described in [Use Claude through Vertex AI](#use-claude-through-vertex-ai). The rest of your Claude Code setup stays on your laptop: `chainctl` doesn't copy `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, your MCP servers, plugins, skills, subagents, slash commands, or model choice.
+
+Instead, Claude Code in a session uses the following:
+
+- The session's managed settings, which include a short brief that describes the session and its tools, including how to run your repository's checks with `run-ci`.
+- Your repository's own `CLAUDE.md`, `.claude/` directory, and `.mcp.json` file, within the limits described in [MCP servers in a session](#mcp-servers-in-a-session).
+
+To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory.
+
+### Tell Claude Code how to work in a session {#tell-claude-code-how-to-work-in-a-session}
+
+The session's brief explains `run-ci`, but rules you commit to your repository's `CLAUDE.md` apply in every session. To add rules for sessions, copy the following section into `CLAUDE.md`, or into `AGENTS.md` for other coding agents. Replace `$ORGANIZATION` with the name of your Chainguard organization. Claude Code also reads `CLAUDE.md` on your laptop, so the section starts by saying when its rules apply.
+
+```markdown {title="CLAUDE.md"}
+## Chainguard Workspaces sessions
+
+Follow these rules when the `run-ci` command exists, which means you're working in a Chainguard Workspaces session.
+
+- Before you push, run `run-ci`. It checks the working tree in `/work` and exits with `0` when every check passes, `1` when a check fails, and `2` when the checks couldn't run. It skips checks that only a pull request can run, so list any skipped checks when you report the result.
+- Put large files, such as build output or virtual environments, under `/var/tmp` or `/work`. The `/tmp` directory is held in memory.
+- Don't run `chainctl auth login`. `chainctl` already acts as the user in the session.
+- Don't ask for credentials that the session doesn't supply, such as AWS keys or a private registry token. Tell the user what you need, so they can do that work on their laptop.
+- After you push, wait for the pull request's checks with `chainctl checks status OWNER/REPO#NUMBER --watch --parent $ORGANIZATION`.
+- If a check fails, run `chainctl checks failures OWNER/REPO#NUMBER --parent $ORGANIZATION` to see why. For more of a check's log, run `chainctl checks logs OWNER/REPO#NUMBER --check CHECK --errors --parent $ORGANIZATION`. Fix the change and push again.
+```
+
+In a Starter organization, the `limited_owner` role can't look up Chainguard Checks runs, so `chainctl checks status`, `chainctl checks logs`, and the other commands that read a run don't work for it, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+
+### Choose a model
+
+A session doesn't set a model, so Claude Code starts with its default model unless your repository's `.claude/settings.json` sets one. To use another model, start Claude Code with `claude --model`, or run `/model` in Claude Code.
+
+With Vertex AI, Claude Code's default model might not be enabled in your Google Cloud project. If Claude Code's requests fail with an error about the model, choose a model that your project has enabled.
+
+### MCP servers in a session {#mcp-servers-in-a-session}
+
+Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner` and `mcp.tool_user` roles do. The `limited_owner` role that `chainctl develop init` gives you doesn't include it, and neither do the `viewer` and `sandbox.user` roles. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
+
+Claude Code also loads the `https://` MCP servers in your repository's `.mcp.json` without asking you to approve each one. The session adds no credential to their requests.
+
+The session's managed settings allow only MCP servers reached over `https://`, and settings in your repository can't allow others. MCP servers that run as local commands, and servers reached over `http://`, don't start, including ones you add in the session with `claude mcp add`.
+
+The [`cg-oci`](/platform/mcp-servers/cg-oci/) MCP server doesn't work in a session, because the session's requests to `cgr.dev` reach only the container registry.
+
+## Choose a permission mode
+
+Claude Code in a session starts in its default permission mode, so it asks you before it runs commands or edits files.
+
+Because the session is a separate VM that holds no long-lived credentials, you might choose to let Claude Code work without asking. Claude Code normally refuses `--dangerously-skip-permissions` when it runs as `root`, as it does in a session. The session sets `IS_SANDBOX=1` so that Claude Code allows it:
+
+```shell
+claude --dangerously-skip-permissions
+```
+
+Before you let an agent work unattended, consider what the session can still reach. By default, it can reach the open internet and push to its own repository. To narrow that, give the session an `egress` list, as described in [Network access](/chainguard/workspaces/session-environment/#network-access), and review its credentials, as described in [Manage session credentials](/chainguard/workspaces/credentials/). Requests beyond the session's defaults still need your approval on your terminal.
+
+If you connected your GitHub account before you created the session, and your organization allows it, the session acts on GitHub as you, without asking you first. It can push, approve other people's pull requests, and merge as you, and neither an `egress` list nor `chainctl develop creds` limits it. Before you let an agent work unattended in such a session, protect your branches, as described in [Protect your branches](/chainguard/workspaces/github-as-you/#protect-your-branches).
+
+A session has no credentials for services such as AWS, Azure, or a private package registry. Don't paste one into the session for the agent to use: any agent or command in the session can read it, and it stays in the session's snapshot when the session parks. Do that work on your laptop instead, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
+
+## Keep Claude Code working while you're away {#keep-claude-code-working-while-youre-away}
+
+To leave Claude Code working in a session, detach and keep the session running, rather than letting it park:
+
+1. Press `Ctrl+]` to open the session menu.
+2. Choose **Detach — keep running 4h**, or **Detach — keep running for…** to set a duration of up to 24 hours.
+
+The session's host keeps the Claude credential that `chainctl` sent, so Claude Code keeps working after you close the terminal. How long it keeps working without a terminal depends on the credential:
+
+| Credential | How long Claude Code keeps working |
+| ---------- | ---------------------------------- |
+| An API key, the output of an `apiKeyHelper`, or `CLAUDE_CODE_OAUTH_TOKEN` | Until the session parks. |
+| Your stored Claude login | Until the access token that `chainctl` sent expires. |
+| A Google credential, for Vertex AI | Until the access token that `chainctl` sent expires, or until the session parks if `chainctl` sent your refresh token. |
+
+When you attach, `chainctl` says which credential it sent and how long the session keeps it. The **Credentials** screen in the session menu shows the same.
+
+The terminal you detached from keeps serving the session, through sleep and network interruptions, until the session stops running, you press `Ctrl+C`, or you close the terminal. While it serves, it keeps the session's Claude credential current: it sends new Google access tokens, reruns your `apiKeyHelper`, and sends your stored login again each time Claude Code on your laptop refreshes it. If your stored login is about to expire without being refreshed, `chainctl` tells you to run `claude` on your laptop.
+
+For long unattended work with a Claude subscription, run `claude setup-token` on your laptop. In the shell where you run `chainctl develop`, set `CLAUDE_CODE_OAUTH_TOKEN` to the token it prints, and then attach. The session keeps that token until it parks.
+
+When the session parks, its host discards the credential. When you return, `chainctl` sends it again, and Claude Code is still running in the session, with its conversation intact.
+
+While the terminal serves a detached session, it refuses new approval requests, so allow anything the agent will need ahead of time with `--with`.
+
+For a task that runs longer than a day, create a session with `--keep always`. Refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
+
+## Run several agents in parallel {#run-several-agents-in-parallel}
+
+You can run several agents in one session, each in its own terminal, or give each agent its own session.
+
+### Run agents in one session
+
+To start another agent in a session you're attached to, press `Ctrl+]` to open the session menu, press `c` to start a terminal, and run `claude` in the new terminal. To switch between terminals, press `Ctrl+]`, then the terminal's number. A session runs up to nine terminals. Refer to [Use several terminals in a session](/chainguard/workspaces/manage-sessions/#use-several-terminals-in-a-session) for the other keys and the status row.
+
+Open each terminal from the session menu, not by running `chainctl develop` in another terminal window on your laptop. Only one `chainctl` can be attached to a session at a time, so a second one takes over and detaches the first, as described in [Return to a session](/chainguard/workspaces/manage-sessions/#return-to-a-session).
+
+The terminals share the session's VM, including its CPUs, memory, and `/work` directory. When two agents work in `/work`, each one's edits and branch switches change the files the other is working on. To keep their work apart, give each agent after the first its own branch in a git worktree outside `/work`. For example, in the new terminal, run:
+
+```shell
+git -C /work worktree add -b fix-cache /root/fix-cache
+cd /root/fix-cache
+claude
+```
+
+The `run-ci` command checks only `/work`, so an agent in another worktree can't check its work with it before it pushes. Only one `run-ci` or `chainctl develop check` can run in a session at a time, so one started while another runs fails and tells you to wait for the first to finish.
+
+### Run agents in separate sessions
+
+With the [free monthly allowance](/chainguard/workspaces/overview/#availability-and-limits), each user can have one session at a time, so this section applies only if your organization's allowance includes more sessions, such as one arranged with your Chainguard account team.
+
+Each session is its own VM with its own copy of your repository, so you can give each agent its own session. To open more sessions on the same repository, pass `--new` and a name for each one:
+
+```shell
+chainctl develop --new --name fix-auth --parent $ORGANIZATION
+chainctl develop --new --name fix-cache --parent $ORGANIZATION
+```
+
+Run each command in its own terminal. Each agent works on its own branch in its own session, and pushes its work when it's done.
+
+## Check the agent's work before it pushes
+
+If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes. The `run-ci` command exits with `0` when every check passes, `1` when a check fails, and `2` when the checks couldn't run.
+
+To run the same checks from your laptop without attaching, use `chainctl develop check`:
+
+```shell
+chainctl develop check app/fix-auth --parent $ORGANIZATION
+```
+
+If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
+
+Both commands run the checks in the session's own environment, against its working tree as it is now. They skip checks that only a pull request can run, and print a line for each, as described in [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run). A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
+
+A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.
+
+---
+
+### Let Chainguard Workspaces sessions act on GitHub as you
+_Path: chainguard/workspaces/github-as-you.md_
+
+By default, a Chainguard Workspaces session reaches GitHub through the Chainguard App with access to specific repositories, as described in [Manage session credentials](/chainguard/workspaces/credentials/). If you connect your GitHub account, the sessions you create afterward act on GitHub as you instead, unless your organization's `user_github` policy bans it. They act through the Chainguard Develop GitHub App (`chainguard-develop`), which is separate from the Chainguard App that runs Chainguard Checks. A session that acts as you can do the following:
+
+- Fetch and push with `git` for any repository you can access where the Chainguard Develop app is installed.
+- Use the `gh` CLI and the GitHub API, within the app's permissions and your own access.
+
+This page explains how to connect your account, where to install the app, and how to limit what these sessions can do.
+
+## Connect your GitHub account
+
+Your organization's policy allows this by default, so an organization owner doesn't need to turn anything on. To have the sessions you create act on GitHub as you, connect your GitHub account once. If a GitHub organization you work in requires SAML single sign-on, sign in to it in your browser first. `chainctl` opens your browser so you can authorize the connection:
+
+```shell
+chainctl develop github login
+```
+
+`chainctl develop init` offers the same step when you sign up, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/).
+
+The connection applies to the sessions you create in every organization that doesn't ban it, and renews itself until you disconnect it. No GitHub token is written to your laptop. If your organization allows it and you haven't connected an account, or your connection expired or was revoked, `chainctl develop` prints a one-line reminder when it creates a session, and creates the session anyway. To disconnect, run `chainctl develop github logout`.
+
+Each session keeps the GitHub identity it was created with, so connecting your account doesn't change the sessions you already have. After you disconnect, a session that acts as you refuses `git` and `gh` requests until you connect again, and `chainctl` offers to connect your account when you attach to it.
+
+## Install the Chainguard Develop app {#install-the-chainguard-develop-app}
+
+A session that acts as you reaches only the repositories where the Chainguard Develop app is installed. Install it from the [Chainguard Develop installation page](https://github.com/apps/chainguard-develop/installations/new) on the following accounts:
+
+- Every GitHub organization or account that owns a private repository your sessions fetch. Sessions read public repositories without the app.
+- Every organization or account that owns a repository your sessions push to.
+- Your own GitHub account, for your own repositories and forks.
+
+An organization owner installs the app on an organization, and a member can request it. The app asks for read and write access to contents, pull requests, and workflows, and read-only access to checks, commit statuses, and actions.
+
+On a terminal, `chainctl develop github login` and `chainctl develop init` check which accounts the checkout in your current directory needs, and walk you through each installation that's missing. To check again later, run `chainctl develop github status` in your checkout. It shows your GitHub account, the app it's connected through, whether the connection works, whether your organization's policy allows sessions to act as you, and which accounts still need the app.
+
+If the app can't reach a repository that a session needs, `chainctl develop` or the failed `git` command says why and where to fix it. Refer to [A session that acts as you can't reach a repository](/chainguard/workspaces/troubleshooting/#a-session-that-acts-as-you-cant-reach-a-repository).
+
+## What a session that acts as you can do
+
+A session that acts as you can do anything your GitHub account can, within the Chainguard Develop app's permissions, and GitHub attributes everything it does to you:
+
+- It can approve other people's pull requests, and its approvals count toward required reviews and code owner reviews as yours would. GitHub doesn't let it approve pull requests you opened.
+- It can merge any pull request you can merge, including with auto-merge or a merge queue.
+- It can push changes to files in `.github/workflows`.
+- It can't create or update check runs or commit statuses, or rerun GitHub Actions workflows, because the app can only read them. To rerun Chainguard Checks from a session, use `chainctl checks rerun`, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+
+## Protect your branches {#protect-your-branches}
+
+Because an agent in a session that acts as you can approve and merge as you, protect the branches it shouldn't change on its own with a branch protection rule or ruleset. Require pull request reviews, and turn on **Require approval of the most recent reviewable push**, so that someone other than the account that pushed last must approve each pull request.
+
+## Controls that don't apply to a session that acts as you {#controls-that-dont-apply-to-a-session-that-acts-as-you}
+
+For a session that acts as you, `chainctl` doesn't ask you to approve GitHub requests, and the session's `github` source and bindings aren't used. The following have no effect on its GitHub access:
+
+- `github:` entries of `--with`, and `--with all`
+- The GitHub part of `--with none`, which still turns off `claude`, `cgr.dev`, `chainguard`, and `gcp`
+- `chainctl develop creds --revoke github:...` and `--source github=...`
+- Your organization's `--org-github` and `--org-github-push-beyond-session` settings
+
+`chainctl develop creds` shows that the session acts as you on GitHub, and tells you when a change to its `github` credential has no effect. To keep a new session off your GitHub account, run `chainctl develop github logout` before you create the session, or have an organization owner ban sessions from acting as their owner.
+
+## Ban sessions from acting as their owner
+
+To ban sessions in an organization from acting as their owner, run the following command with the permissions described in [Set your organization's GitHub policy](/chainguard/workspaces/credentials/#set-your-organizations-github-policy):
+
+```shell
+chainctl develop policy set --user-github=false --parent $ORGANIZATION
+```
+
+Replace `$ORGANIZATION` with the name of your Chainguard organization. New sessions in the organization then reach GitHub through their `github` source, as sessions do by default. Sessions that already act as their owner refuse GitHub requests while the ban is on. To lift the ban, set `--user-github=true`. Sessions created during the ban keep reaching GitHub through their `github` source after you lift it.
+
+---
+
+### Get started with Chainguard Workspaces
+_Path: chainguard/workspaces/getting-started.md_
+
+This guide walks you through signing up for Chainguard Workspaces, opening a session on one of your repositories, detaching from the session, and returning to it. It takes about 15 minutes.
+
+{{< beta feature="Chainguard Workspaces" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly allowance, or that arrange access with their Chainguard account team" >}}
+
+## Step 1: Sign up {#step-1-sign-up}
+
+<span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-checks-and-workspaces"></span>
+
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Workspaces and Chainguard Checks together. You also need a local clone of a repository on github.com that you can push to. Optionally, install and log in to [Claude Code](https://code.claude.com/docs/en/overview) on your laptop, so you can use it in the session.
+
+## Step 2: Open a session
+
+Change to your repository's directory, then run `chainctl develop`. Replace `$REPO_DIR` with the path to your local clone, and `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+cd $REPO_DIR
+chainctl develop --parent $ORGANIZATION
+```
+
+If you belong to only one Chainguard organization, you can omit `--parent`.
+
+The first time you run the command in a directory, `chainctl` creates a session, syncs your directory into it, and attaches your terminal to a shell in the session. The session gets a name made of the repository name and two generated words, such as `app/quiet-harbor`, and a short ID, such as `3f9a2c1e`. If your repository has neither a `.chainguard/develop.yaml` file nor a `.chainguard/ci.yaml` file, the session opens on the default environment.
+
+While you're attached, `chainctl` keeps a status row at the bottom of your terminal. The row lists the session's terminals and shows messages from `chainctl`. To open more terminals in the session, refer to [Use several terminals in a session](/chainguard/workspaces/manage-sessions/#use-several-terminals-in-a-session). The first time you attach to a session from your laptop, `chainctl` also prints a short guide to the status row and the session menu's keys above the shell's prompt.
+
+## Step 3: Work in the session
+
+Your shell runs as `root` in `/work`, which holds your repository. Try a few commands to look around:
+
+```shell
+git status
+cat /etc/chainguard/session.yaml
+```
+
+The `git status` output matches your laptop's checkout at the moment you opened the session, including uncommitted changes. The `/etc/chainguard/session.yaml` file records the session's ID, repository, and commit, and the environment it was built from.
+
+From here, you can work as you would on your laptop. For example:
+
+- Run `claude` to start Claude Code. It uses your laptop's Claude Code login. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/).
+- Run `run-ci` to run your repository's checks against the working tree, if your `.chainguard/ci.yaml` defines checks.
+- Commit and run `git push`. Your laptop's git `user.name` and `user.email` are already set in the session, and the Chainguard App, or Chainguard Develop if you connected your GitHub account, adds the credential for the push.
+
+Commits you make in a session aren't signed, because the session gets your git `user.name` and `user.email` but not your signing key or settings. If a branch requires signed commits, GitHub rejects your push to it. To get your work onto that branch, refer to [The branch requires signed commits](/chainguard/workspaces/troubleshooting/#the-branch-requires-signed-commits).
+
+## Step 4: Detach and return to the session
+
+To detach, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to choose **Detach — let it park**. Your terminal returns to your laptop's shell. The session keeps running for about 10 minutes, then parks to a snapshot and stops using compute.
+
+To return, run `chainctl develop` again from the same directory:
+
+```shell
+chainctl develop --parent $ORGANIZATION
+```
+
+Because the directory has exactly one session, `chainctl` reattaches to it, resuming it first if it parked. Your files, running processes, and shell are as you left them.
+
+Your directory syncs into the session only the first time you attach. Changes you make on your laptop after that don't reach the session, and changes in the session don't reach your laptop. To move work between them, push from one and pull on the other.
+
+## Step 5: Delete the session
+
+A parked session expires 5 days after it parks, and until then it counts toward your session limit. With the free monthly allowance, you can have one session at a time, so delete it when you're done. First, list your sessions to find its name:
+
+```shell
+chainctl develop list --parent $ORGANIZATION
+```
+
+Then delete the session by name. This example deletes `app/quiet-harbor`:
+
+```shell
+chainctl develop delete app/quiet-harbor --parent $ORGANIZATION
+```
+
+The `delete` command asks you to confirm, then destroys the session's VM and its snapshot. Anything you didn't push is gone.
+
+## Give teammates access {#give-teammates-access}
+
+<span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
+
+Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+
+## Next steps
+
+- [Manage sessions](/chainguard/workspaces/manage-sessions/) covers using several terminals or sessions, keeping a session running while you're away, and the session menu.
+- [Configure a session's environment](/chainguard/workspaces/session-environment/) explains how to choose the packages and network access a session gets.
+- [Manage session credentials](/chainguard/workspaces/credentials/) explains what a session can reach and how to change it.
+- Ask questions in the #workspaces-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
+
+---
+
+### Chainguard Workspaces overview
+_Path: chainguard/workspaces/overview.md_
+
+Chainguard Workspaces moves development, and the coding agents that do it, off your laptop. The `chainctl develop` command opens a *session*: a Linux microVM in Chainguard's cloud with your repository checked out, the tools your repository needs, and, by default, Claude Code. You work in it from your own terminal.
+
+A coding agent that runs on your laptop can read your SSH keys, cloud credentials, and browser sessions, and every package it installs runs with the same access. In a session, the agent works in a separate VM that holds no long-lived credentials. When the agent pushes to GitHub or calls Claude, the request leaves the VM without a credential, and your laptop or Chainguard adds one on the way out.
+
+{{< beta feature="Chainguard Workspaces" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly allowance, or that arrange access with their Chainguard account team" >}}
+
+## How a session works
+
+When you run `chainctl develop` in a git checkout, `chainctl` creates a microVM and syncs your directory into it at `/work`. The sync includes tracked files, untracked files that `.gitignore` doesn't exclude, and the repository's history, so the session starts on exactly the tree you have, pushed or not. It leaves out your `.git/config` file and your `.git/hooks` directory. Submodules arrive as empty directories, and they're also empty in a session that you open from a repository URL. By default, you get a `bash` shell in the session as `root`.
+
+When your checkout has a github.com remote, the session is on one GitHub repository, as described in [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). Other directories sync differently:
+
+- A checkout with no github.com remote syncs with its history, but it has no remotes in the session, and the session gets no GitHub credential.
+- A directory that isn't a git checkout syncs every file in it, including dotfiles such as `.env`, and the session gets no GitHub credential.
+
+The session's packages come from Chainguard OS. If your repository has a `.chainguard/develop.yaml` file, the session installs the packages that file declares. Otherwise, it installs the packages your `.chainguard/ci.yaml` file declares. If the repository has neither file, the session opens a default environment with a shell, `git`, `gh`, Claude Code, `chainctl`, and other everyday tools. Refer to [Configure a session's environment](/chainguard/workspaces/session-environment/) for details.
+
+Sessions keep running after you detach, then park:
+
+- When you detach, the session keeps running for about 10 minutes. You can also ask it to keep running for longer, up to 24 hours at a time.
+- After that, the session *parks*: Chainguard saves its memory and disk to a snapshot and stops the VM, so it uses no compute.
+- When you return, the session resumes from the snapshot in seconds, with your processes, files, and shell as you left them.
+- A parked session expires 5 days after it parks.
+
+Each session is its own VM. You can open several sessions on the same repository, for example to give each of several agents its own copy of the code, without worktrees or duplicate dependency directories on your laptop.
+
+## How sessions get credentials
+
+No long-lived credential enters a session. Instead, the session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. Outside the VM, Chainguard or `chainctl` on your laptop adds the credential to each request. Depending on the service, the credential comes from your laptop, such as your Claude Code login, or from your Chainguard organization, such as the Chainguard App's access to your repositories.
+
+By default, a session can reach the following:
+
+- Claude, with the same credential Claude Code uses on your laptop.
+- The session's own GitHub repository, for fetch and push, and the other github.com repositories that your checkout's remotes point to, where the Chainguard App is installed. To use those, add them as remotes in the session.
+- `cgr.dev`, as the Chainguard platform rather than as you.
+- Your Chainguard identity, limited to the read, Chainguard Checks, and Model Context Protocol (MCP) capabilities you hold in the session's organization, while you're attached and for up to an hour after you detach.
+
+When the session asks for anything else, such as fetching another private repository, `chainctl` asks you on your terminal. You can approve requests ahead of time, or take access back, at any point. Refer to [Manage session credentials](/chainguard/workspaces/credentials/) for details.
+
+Claude Code can keep working after you close your terminal, for as long as its credential lasts, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away). A service that you set to use a credential from your laptop, such as `github` or `cgr.dev`, works only while you're attached or while the terminal you detached from keeps serving it.
+
+## Network access
+
+A session reaches the open internet by default, the same as a laptop, so package managers, `git`, and build tools work without configuration. Chainguard always blocks cloud metadata endpoints, loopback addresses, and private IP ranges.
+
+To restrict a session, open it on a check in your `.chainguard/ci.yaml` file that has a `network.egress` allowlist. A session honors the allowlist the same way a check does, and refuses connections to hosts outside it while it keeps running. Unlike Chainguard Checks, though, a session whose environment has no `network` key reaches the open internet. That includes every session that uses a `.chainguard/develop.yaml` file, which can't have a `network` key. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access) for details.
+
+## Use with Chainguard Checks
+
+Chainguard Workspaces and [Chainguard Checks](/chainguard/checks/overview/) read the same `.chainguard/ci.yaml` file. In a session, the `run-ci` command runs your repository's checks against the working tree in `/work`, uncommitted changes included, so you or an agent can find failures before pushing. Chainguard Checks runs the same checks on each pull request and reports the results to GitHub. After you push, most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, with the permissions you hold in the organization. In a Starter organization, they don't work for the `limited_owner` role, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+
+The `run-ci` command runs each check in the session's own environment, which can have different packages and network access than the check declares. It skips checks that only a pull request can run, such as a check that needs a [workload identity](/chainguard/checks/identity-and-trust/). Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run). For the checks it runs, its result predicts the pull request's result, but only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. You can use Chainguard Workspaces without Chainguard Checks, and the other way around.
+
+## Availability and limits {#availability-and-limits}
+
+{{% blurb/technology-preview product="Chainguard Workspaces" %}}
+
+During the beta, Chainguard Workspaces has the following limits:
+
+- GitHub features, including pushing from a session, work only with repositories on github.com.
+- By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk. Unless Chainguard has raised your organization's limit, a session can't have more vCPUs or memory than that, but its disk can be up to 100 GB. Refer to [Resources](/chainguard/workspaces/session-environment/#resources) to change a session's size. The `/tmp` directory is held in memory and is limited to a quarter of the session's memory, 4 GB by default, so put large files under `/var/tmp` instead.
+- A session can't forward ports to your laptop.
+- `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. An allowance arranged with your Chainguard account team can differ.
+
+A session counts its vCPUs against the allowance for every hour its VM runs, whether it's busy or idle. A session with the default 4 vCPUs uses 4 vCPU-hours an hour, including the roughly 10 minutes it keeps running after you detach, and a parked session uses none. A 4-vCPU session created with `--keep always` and left running uses the month's allowance in about 5 days. Chainguard doesn't show your usage during the beta.
+
+When the allowance is used up, you can't create a session or resume a parked one until the allowance resets, but sessions that are already running aren't stopped. Refer to [Your organization's monthly compute allowance is used up](/chainguard/workspaces/troubleshooting/#your-organizations-monthly-compute-allowance-is-used-up) for details.
+
+## Get help
+
+{{% blurb/checks-workspaces-help channel="workspaces-questions" %}}
+
+## Next steps
+
+- [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/) to sign up and open your first session.
+- [Manage sessions](/chainguard/workspaces/manage-sessions/) to learn how to detach from, return to, and delete sessions.
+- [Use Claude Code in a session](/chainguard/workspaces/coding-agents/) to run an agent in a session.
+
+---
+
+### Manage Chainguard Workspaces session credentials
+_Path: chainguard/workspaces/credentials.md_
+
+A Chainguard Workspaces session holds no long-lived credentials: its VM stores no API keys, tokens, or registry logins. Instead, the session reaches each service through a local hostname, and the credential is added to the request outside the VM. This page explains what a session can reach by default, how to change it, and [which credentials a session can't supply](#credentials-a-session-cant-supply).
+
+A check in Chainguard Checks can get short-lived credentials through a workload identity, which a session can't use. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/).
+
+## How credentials reach a session {#how-credentials-reach-a-session}
+
+Each service a session can reach has a hostname inside the session, such as `http://github/` or `http://claude/`. Chainguard configures the session to use these hostnames. For example, `git` in the session rewrites `https://github.com/` URLs to `http://github/`, and Claude Code sends its requests to `http://claude/`.
+
+When a request reaches one of these hostnames, `chainctl` on your laptop or Chainguard adds the credential outside the VM. Each credential has a *source*:
+
+| Source | Where the credential comes from |
+| ------ | ------------------------------- |
+| `laptop` | Your laptop. For `claude` and `gcp`, `chainctl` sends the credential to the session's host, outside the VM, when you attach. For `github` and `cgr.dev`, `chainctl` answers each request from your laptop, so the credential never leaves your machine. |
+| `org` | Your Chainguard organization, such as the Chainguard App's access to your GitHub repositories. |
+| `seat` | Your Chainguard identity, which your laptop delegates to the session when you attach. Only the `chainguard` service uses this source. |
+| `off` | Nothing. The session can't use the service. |
+
+A credential that `chainctl` sends to the session's host stays there until the session parks or the credential expires, so it keeps working after you close your terminal. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/) for how long Claude's credential lasts, and to [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session) for Google Cloud's.
+
+Requests that `chainctl` answers from your laptop work only while your laptop serves the session, which it does while you're attached. If your terminal served one of them while you were attached, it keeps serving after you detach and keep the session running, until you press `Ctrl+C`. If nothing serves a session, these requests fail with an error that says no laptop is attached.
+
+## What a session can reach by default {#what-a-session-can-reach-by-default}
+
+A new session can reach the following services without asking you:
+
+| Service | Default source | What it covers |
+| ------- | -------------- | -------------- |
+| `claude` | `laptop` | The credential Claude Code on your laptop uses, for the Claude API's messages and models endpoints. |
+| `github` | `org` | `git` fetch and push for the session's repository, and for the repositories of your checkout's other github.com remotes where the Chainguard App is installed. To use the others, add them as remotes in the session, as described in [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). |
+| `cgr.dev` | `org` | Pulls images and lists tags from `cgr.dev` as the Chainguard platform, not as you, so it can't pull or list your organization's private images. |
+| `chainguard` | `seat` | `chainctl` and the Chainguard Model Context Protocol (MCP) servers in the session act as you, limited to read, Chainguard Checks, and MCP capabilities in the session's organization, within the permissions you hold. Refer to [Your Chainguard identity in a session](#your-chainguard-identity-in-a-session). |
+
+The GitHub API isn't covered by default. The `gh` CLI is installed in every session, but it has no credential unless you connect your GitHub account before you create the session and your organization's policy allows it, as described in [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
+
+## Approve requests from a session
+
+When a session asks for something beyond its defaults, such as fetching a private repository that isn't one of your checkout's remotes, `chainctl` shows a prompt on your attached terminal. The prompt says what the session wants and which credential it would use.
+
+The keys you can press depend on the request:
+
+| Request | Keys |
+| ------- | ---- |
+| Fetch a repository | `y` approves the request and remembers your approval for the next session on the same repository. `n` declines it. |
+| Push to a repository | `p` approves the push for this session only. `n` declines it. |
+
+Pressing `Enter` declines, and so does leaving the prompt unanswered for 60 seconds. To protect you from approving a request by accident, `chainctl` ignores keys for a moment after a prompt appears, and treats a paste as a decline.
+
+If no terminal is attached, a session can't ask you, so it refuses the request. A terminal that keeps serving after you detach also refuses new requests. To allow access ahead of time, use `--with`.
+
+## Allow access ahead of time {#allow-access-ahead-of-time}
+
+The `--with` flag adds access to a session when you create it or return to it. You can repeat the flag or separate entries with commas, and entries add to what the session already has. `chainctl` records each change on the session and remembers it on your laptop for the next session on the same organization and repository.
+
+The `--with` flag accepts the following entries:
+
+| Entry | What it does |
+| ----- | ------------ |
+| `github:<owner>/<repo>` | Allows fetching another repository. |
+| `github:<owner>/<repo>+push` | Allows fetching and pushing to another repository. |
+| `github:<owner>/*` | Allows fetching every repository of a GitHub account or organization. |
+| `github:*` | Allows fetching any GitHub repository. |
+| `claude`, `chainguard` | Turns a default service back on. |
+| `cgr.dev` | Pulls from `cgr.dev` as you, with your laptop's `cgr.dev` login. |
+| `gcp` | Lets the session call Google Cloud APIs as you, with your laptop's Google Cloud application default credentials. You can add it to a new or existing session, `all` doesn't include it, and `chainctl` doesn't remember it for the next session. Refer to [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session). |
+| `all` | Restores the defaults and allows fetching any GitHub repository. |
+| `none` | Turns off `claude`, `cgr.dev`, `chainguard`, and `gcp`, and allows only the session's own repository. It can't be combined with other entries. |
+
+For example, this command lets the session push to a second repository, `acme/docs`, in addition to its own:
+
+```shell
+chainctl develop --with github:acme/docs+push --parent $ORGANIZATION
+```
+
+Wildcard entries allow fetching only. To push to a repository, name it with `+push`. Under your organization's default GitHub policy, the Chainguard App doesn't serve wildcard entries, so they give access to public repositories only. To fetch a private repository, name it.
+
+The `github` entries have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
+
+## Use your Google Cloud credentials in a session {#use-your-google-cloud-credentials-in-a-session}
+
+To let `gcloud` and the Google Cloud client libraries in a session act as you, run `gcloud auth application-default login` on your laptop. Then add `--with gcp` when you create a session or return to one. For example, this command turns on `gcp` for an existing session:
+
+```shell
+chainctl develop app/quiet-harbor --with gcp --parent $ORGANIZATION
+```
+
+While you're attached, you can also turn `gcp` on or off from the session menu: press `Ctrl+]`, choose **Credentials**, choose `gcp`, and then choose **Set the source**. The change can take up to 30 seconds to reach the session. If `chainctl` says that the session's guest `was booted without the wiring that lets it use your Google credentials`, or the **Credentials** screen has no `gcp`, the session was created before it could use your Google credentials, so it can't use them. Delete it and create a new one with `chainctl develop --new --with gcp`.
+
+The session's VM holds only a placeholder credential. Each time you attach, `chainctl` sends your Google Cloud credential to Chainguard, which keeps it outside the VM, adds it to the session's requests to Google APIs, and discards it when the session parks. Usually, `chainctl` sends a short-lived access token and renews it while you're attached. If you attach to a session you're already keeping running, however little of that time is left, `chainctl` sends your refresh token instead, and access lasts until the session parks. A session created with `--keep always` always gets the refresh token. If your application default credentials have no refresh token, such as a service account's, `chainctl` sends an access token either way. `chainctl` tells you which one it sent.
+
+If you detach with one of the session menu's **Detach — keep running** options, whatever duration you choose, `chainctl` sends your refresh token before it detaches, so access lasts until the session parks. If you exit the shell instead, `chainctl` can't send the refresh token, and access ends within an hour. The message `chainctl` prints when you detach says which applies.
+
+While the session has your credential, code in it can use your Google Cloud access, and anything it creates with that access, such as a service account key, outlives the session. If the session's environment has an `egress` list, include `sts.googleapis.com` and the Google APIs the session calls.
+
+Every session sets `GOOGLE_APPLICATION_CREDENTIALS` and `CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE` to its placeholder credential, whether or not `gcp` is on. While `gcp` is off, `gcloud` and the Google Cloud client libraries fail with an error that says Google credentials are unavailable. To sign in to Google Cloud in the session another way, such as with `gcloud auth login`, unset both variables first.
+
+## Credentials a session can't supply {#credentials-a-session-cant-supply}
+
+A session gets credentials only for Claude, GitHub, Chainguard's `cgr.dev` and `apk.cgr.dev` registries, your Chainguard identity, and, when you turn on `gcp`, Google APIs on `*.googleapis.com`. The `--with` flag takes only the entries listed in [Allow access ahead of time](#allow-access-ahead-of-time), so you can't add another service. A session has no credential for services such as the following:
+
+- Amazon Web Services (AWS) and Microsoft Azure
+- Private npm, PyPI, and Maven registries
+- Container registries other than `cgr.dev`, such as `ghcr.io` and Google Artifact Registry on `*.pkg.dev`
+- Chainguard Libraries. A check in Chainguard Checks can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/).
+
+If you paste one of these credentials into a session, or sign in to a tool there, such as with `aws configure` or `npm login`, the credential stays on the session's disk or in its memory. When the session parks, Chainguard saves the credential in the session's snapshot with everything else, and keeps it until you delete the session or the session expires. Any program in the session, including a coding agent, can read the credential and send it anywhere the session can reach. Do work that needs these credentials on your laptop instead.
+
+## Review and revoke a session's credentials {#review-and-revoke-a-sessions-credentials}
+
+To see what a session can reach, run `chainctl develop creds` with the session's name or short ID:
+
+```shell
+chainctl develop creds app/quiet-harbor --parent $ORGANIZATION
+```
+
+The output lists each service with its source and any repositories bound to it, what your laptop remembers approving, whether a laptop is serving the session right now, and the most recent changes to the session's credentials.
+
+To change a session's credentials, pass one or more of the following flags to `chainctl develop creds`:
+
+| Flag | What it does |
+| ---- | ------------ |
+| `--revoke <entry>` | Takes access back from the session and from your laptop's remembered approvals. `<entry>` is `claude`, `cgr.dev`, `chainguard`, `github:<owner>/<repo>`, or `github:<owner>/<repo>+push`, which takes back only the push. |
+| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, or `off`. The `claude` and `gcp` services take only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
+| `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
+
+Changes to `github` have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
+
+For example, to let a session pull your organization's private images from `cgr.dev` as you, switch the `cgr.dev` credential to your laptop:
+
+```shell
+chainctl develop creds app/quiet-harbor --source cgr.dev=laptop --parent $ORGANIZATION
+```
+
+Your laptop must have a `cgr.dev` login in its Docker credential helper, which you can set up as described in [Configure a Docker credential helper](/platform/chainctl-usage/how-to-install-chainctl/#configure-a-docker-credential-helper). The session can pull with it, but not push.
+
+Your laptop keeps remembered approvals in `develop/approvals.json` in the `chainctl` configuration directory, readable only by you. The file stores service names, sources, and scopes, never credentials, and Chainguard's servers can't write to it.
+
+### Change credentials from the session menu
+
+While you're attached, you can change a session's credentials without leaving it. Press `Ctrl+]` to open the session menu, choose **Credentials**, and then choose a credential. Its screen shows where the credential comes from, what it covers and what it doesn't, and what your laptop remembers for it. The screen offers the following actions:
+
+| Action | What it does |
+| ------ | ------------ |
+| **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:<owner>/<repo>+push` or `cgr.dev`. |
+| **Revoke…** | Takes access back from the session and from your laptop's remembered approvals, as `chainctl develop creds --revoke` does. For `github`, you choose a repository, or only its push. |
+| **Set the source** | Changes where the credential comes from. For `claude` and `gcp`, you choose your laptop or no credential. For `github` and `cgr.dev`, you choose your laptop, your organization, or no credential. For `chainguard`, you choose your delegated Chainguard identity, which you then approve with `y`, or no credential. |
+| **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `CAP[,CAP...] [in GROUP[,GROUP...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
+
+The `claude` screen also offers **Use Vertex AI…** or **Use Anthropic…**, as described in [Switch a session to another provider](/chainguard/workspaces/coding-agents/#switch-a-session-to-another-provider). For a session that acts on GitHub as you, the `github` screen shows your GitHub account and offers no actions. If the list has no `gcp`, the session can't use your Google Cloud credentials, as described in [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session).
+
+When you attach, `chainctl` prints a line for each credential the session gets without asking you. A line that ends in `(turn off: ~. → Credentials)` or `(change: ~. → Credentials)` points to this screen, which you can open by pressing `Ctrl+]`, or by typing `~.` where it works, as described in [Detach from a session](/chainguard/workspaces/manage-sessions/#detach-from-a-session). If the attach has no session menu, the line names the `chainctl develop creds` command to run instead.
+
+## Set your organization's GitHub policy {#set-your-organizations-github-policy}
+
+Your organization's policy controls which repositories the Chainguard App serves to sessions. Any session owner can read it:
+
+```shell
+chainctl develop policy describe --parent $ORGANIZATION
+```
+
+To change the policy, you need permission to list every user's sessions in the organization, which the `owner` role includes. A Starter organization has no role that includes it, so its policy stays at the defaults. Pass one or more of the following flags to `chainctl develop policy set`:
+
+| Flag | Values | What it controls |
+| ---- | ------ | ---------------- |
+| `--org-github` | `bound` (default), `session`, or `off` | With `bound`, the app serves the session's repository and any other repository the session's owner approved, with a token scoped to that repository and operation. With `session`, the app serves only the session's repository, and other repositories go to the session owner's laptop. With `off`, the app serves nothing. |
+| `--org-github-push-beyond-session` | `true` (default) or `false` | Whether the app can push to repositories other than the session's own, when the session's owner approved it. |
+| `--user-github` | `true` (default) or `false` | Whether sessions can act on GitHub as their owner. A session acts as its owner only if the owner connected a GitHub account before creating it. With `false`, new sessions reach GitHub through their `github` source instead, and sessions that already act as their owner have their GitHub requests refused. |
+
+Sessions pick up a policy change at their next request. The `--org-github` and `--org-github-push-beyond-session` settings don't apply to sessions that act on GitHub as their owner.
+
+## Let sessions act on GitHub as you {#let-sessions-act-on-github-as-you}
+
+If you connect your GitHub account, the sessions you create afterward act on GitHub as you through the Chainguard Develop GitHub App, instead of through their `github` source. Such a session doesn't ask you to approve GitHub requests, and the `github` entries and sources on this page don't apply to it. Refer to [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
+
+## Your Chainguard identity in a session {#your-chainguard-identity-in-a-session}
+
+`chainctl` and the Chainguard MCP servers in a session act as you through a delegated Chainguard identity, so they work without a login in the session:
+
+- The first time you attach to a session in an organization, `chainctl` creates an identity named `chainctl-develop` there. It acts for you only through grants that your laptop issues.
+- While you're attached to the session's shell, `chainctl` on your laptop issues a grant that lasts about an hour, and renews it before it expires. After you detach, the identity keeps working until the last grant expires, for up to an hour. A terminal that keeps serving after you detach doesn't renew it.
+- Your laptop needs a live `chainctl` login to issue grants. Don't run `chainctl auth login` in the session.
+- By default, a grant carries MCP tool calls, the read-only capabilities you hold in the session's organization, and the capabilities to list, run, rerun, and cancel Chainguard Checks runs. It never carries a capability you don't hold. To ask for more capabilities or groups, open the session menu, choose **Credentials**, choose `chainguard`, and then choose **Widen…**.
+
+The identity reaches the Chainguard API, `chainctl checks`, and the `cg-apk` and `cg-versions` MCP servers that every session includes. Whatever a grant carries, the session can't change anything through the Chainguard API except Chainguard Checks runs, and it can only list packages on `apk.cgr.dev`. Other MCP servers get no credential, and pulls from `cgr.dev` use the session's `cgr.dev` credential.
+
+Most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, within your own permissions, and a pull request records a rerun as your request. In a Starter organization, the `limited_owner` role can't list Chainguard Checks runs, so `chainctl checks` commands that look up a run, including `status`, `logs`, and `rerun`, don't work for that role, in a session or on your laptop. The `chainctl checks top`, `chainctl checks trends`, and `chainctl checks accept-terms` commands work only on your laptop.
+
+To turn off a session's Chainguard identity, run `chainctl develop creds` with `--revoke chainguard` or `--source chainguard=off`, pass `--with none`, or turn it off on the **Credentials** screen. To turn it back on, use `--with chainguard`. To stop it for every session at once, delete the `chainctl-develop` identity from your organization. Tokens that sessions already hold keep working until they expire.
+
+---
+
+### chainctl develop command reference
+_Path: chainguard/workspaces/chainctl-develop-reference.md_
+
+The `chainctl develop` command opens and manages Chainguard Workspaces sessions. This page lists each `chainctl develop` command, with its flags, output formats, exit codes, and the roles it needs. For how the commands fit together, refer to [Manage sessions](/chainguard/workspaces/manage-sessions/).
+
+{{% blurb/hidden-chainctl-commands %}}
+
+To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+
+The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
+
+## Commands
+
+| Command | What it does |
+| ------- | ------------ |
+| [`chainctl develop`](#chainctl-develop) | Opens a session, or returns to one. |
+| [`chainctl develop list`](#chainctl-develop-list) | Lists your sessions. |
+| [`chainctl develop rename`](#chainctl-develop-rename) | Renames a session. |
+| [`chainctl develop delete`](#chainctl-develop-delete) | Deletes a session. |
+| [`chainctl develop check`](#chainctl-develop-check) | Runs your repository's checks in a session. |
+| [`chainctl develop creds`](#chainctl-develop-creds) | Shows or changes what a session can reach. |
+| [`chainctl develop github`](#chainctl-develop-github) | Connects your GitHub account to the sessions you create. |
+| [`chainctl develop policy`](#chainctl-develop-policy) | Shows or changes your organization's GitHub policy for sessions. |
+| [`chainctl develop init`](#chainctl-develop-init) | Signs you up and turns on Chainguard Checks and Chainguard Workspaces. |
+| [`chainctl develop accept-terms`](#chainctl-develop-accept-terms) | Accepts the terms that Chainguard Workspaces is offered under. |
+
+## Flags for every command
+
+Every `chainctl develop` command accepts the following flags:
+
+| Flag | Description |
+| ---- | ----------- |
+| `--parent` | The organization or folder, by name or ID, that holds the sessions. Defaults to the `CHAINCTL_SANDBOX_GROUP` environment variable, then to the `default.group` value in your `chainctl` configuration. If none of these is set and you belong to one organization, `chainctl` uses it. If you belong to several, it asks which one, or lists them and fails when it can't ask. `chainctl develop init` handles `--parent` differently, as described in [`chainctl develop init`](#chainctl-develop-init). |
+| `--non-interactive` | Never prompts. Where `chainctl` would ask a question, such as which of several matching sessions you mean, it fails and lists the choices instead. |
+| `-o`, `--output` | The output format, for the commands listed in [Output formats](#output-formats). |
+
+## Session arguments
+
+Commands that take a `SESSION` argument accept any of the following:
+
+- The session's name, such as `app/quiet-harbor`, or the name with the repository's GitHub owner in front, such as `acme/app/quiet-harbor`, as `chainctl develop list` shows it.
+- The session's short ID, such as `3f9a2c1e`.
+- A directory or a repository URL, if exactly one of your sessions matches it.
+
+If several of your sessions match, `chainctl` asks which one you mean, or lists them and fails when it can't ask. Commands find only your own sessions.
+
+## chainctl develop
+
+Opens a session and attaches your terminal to its shell. If one of your sessions already matches the argument, `chainctl develop` returns to it instead, resuming it first if it's parked.
+
+```
+chainctl develop [DIR|REPO|SESSION] [flags]
+```
+
+The argument is a directory, a repository URL, or a session. Without one, `chainctl develop` uses the current directory. Refer to [How chainctl develop chooses a session](/chainguard/workspaces/manage-sessions/#how-chainctl-develop-chooses-a-session) for what each one opens.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--new` | Opens a new session even if one already matches the directory or repository. |
+| `--name` | Sets the second part of a new session's name, such as `scratch` in `app/scratch`. Without it, `chainctl` generates one. |
+| `--env` | Sets a new session's environment: the path to a file, `default`, or `generate`. Refer to [How a session chooses its environment](/chainguard/workspaces/session-environment/#how-a-session-chooses-its-environment). |
+| `--check` | Gives a new session the environment and network access of a check. From a local directory, the check must be in `.chainguard/ci.yaml`. From a repository URL, it can also be in the `.chainguard/ci/` directory. Refer to [How a session chooses its environment](/chainguard/workspaces/session-environment/#how-a-session-chooses-its-environment). |
+| `--cache` | For a session opened from a repository URL, mounts the Go build cache that your checks keep for your default branch. Refer to [Start with a warm Go build cache](/chainguard/workspaces/session-environment/#start-with-a-warm-go-build-cache). |
+| `--with` | Gives a new or existing session access beyond its defaults. Repeat the flag or separate entries with commas. Refer to [Allow access ahead of time](/chainguard/workspaces/credentials/#allow-access-ahead-of-time) for the entries. |
+| `--keep` | Keeps the session running when you detach, for a duration of up to `24h`, such as `8h`. With `always`, creates a session that keeps running instead of parking. Refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). |
+| `--git-remote` | For a directory, the git remote whose GitHub repository a new session is on, or `-` for no repository. Refer to [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). |
+| `-o json` | Prints the session as JSON instead of attaching to it, and creates the session first if none matches. Refer to [Use sessions from scripts](/chainguard/workspaces/manage-sessions/#use-sessions-from-scripts). |
+
+The `--name`, `--env`, `--check`, `--cache`, and `--keep always` flags each open a new session, so you don't need `--new` with them, and you can't combine them with a session name.
+
+In a checkout of a repository named `app`, this example opens a new session named `app/scratch` with the default environment:
+
+```shell
+chainctl develop --env default --name scratch --parent $ORGANIZATION
+```
+
+## chainctl develop list
+
+Lists your sessions that haven't expired, most recently used first, with each session's branch, state, and when you last used it. Alias: `ls`.
+
+```
+chainctl develop list [--all] [--expired] [-o json|table|wide]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `-a`, `--all` | Lists every user's sessions in the organization, with an `OWNER` column. Needs the `owner` role, as described in [Roles](#roles). |
+| `--expired` | Also lists your expired sessions. |
+| `-o wide` | Adds each session's commit, environment, and directory, in the `HEAD`, `ENV`, and `DIRECTORY` columns. |
+
+For example output, refer to [List sessions](/chainguard/workspaces/manage-sessions/#list-sessions).
+
+## chainctl develop rename
+
+Replaces the second part of a session's name. The repository part stays the same. Alias: `mv`.
+
+```
+chainctl develop rename SESSION NAME [-o json]
+```
+
+This example renames `app/quiet-harbor` to `app/tests`:
+
+```shell
+chainctl develop rename app/quiet-harbor tests --parent $ORGANIZATION
+```
+
+## chainctl develop delete
+
+Destroys a session's VM and its snapshot, after asking you to confirm. Anything in the session that you didn't push is lost. For an expired session, the command removes it from `chainctl develop list --expired` and frees its name. Alias: `rm`.
+
+```
+chainctl develop delete SESSION [--yes] [-o json]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `-y`, `--yes` | Deletes the session without asking you to confirm. |
+
+This example deletes `app/scratch` without asking:
+
+```shell
+chainctl develop delete app/scratch --yes --parent $ORGANIZATION
+```
+
+## chainctl develop check
+
+Runs the checks in a session's working tree, in the session's own environment, and streams each step's output to your terminal. If the session is parked, `chainctl` resumes it first. The command uses the same runner as the `run-ci` command in a session.
+
+```
+chainctl develop check SESSION [--check CHECK] [-o json]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | Runs only the named check. Without it, `chainctl` runs every check that has a command, in the order your configuration lists them, and stops at the first failure. |
+| `-o json` | Prints the result as JSON on standard output, and sends the steps' output to standard error. |
+
+This example runs the `test` check in `app/quiet-harbor`:
+
+```shell
+chainctl develop check app/quiet-harbor --check test --parent $ORGANIZATION
+```
+
+For which checks the command skips, and how its result compares with a pull request's, refer to [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+
+## chainctl develop creds
+
+Shows what a session can reach, or changes it.
+
+```
+chainctl develop creds SESSION [--revoke ENTRY]... [--source SERVICE=SOURCE]... [--forget] [-o json|table]
+```
+
+Without flags, the command lists each service's source and bindings, what your laptop remembers approving, what serves the session's laptop credentials right now, and the latest changes to the session's credentials.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--revoke` | Takes an entry back from the session and from your laptop's remembered approvals. Repeatable. |
+| `--source` | Sets where a service's credential comes from: `laptop`, `org`, or `off`. Repeatable. |
+| `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
+
+To add access, run `chainctl develop SESSION --with ENTRY` instead. Refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) for the entries and sources that each service takes.
+
+This example takes back a session's access to `cgr.dev`:
+
+```shell
+chainctl develop creds app/quiet-harbor --revoke cgr.dev --parent $ORGANIZATION
+```
+
+## chainctl develop github
+
+Connects your GitHub account so that the sessions you create act on GitHub as you, through the Chainguard Develop GitHub App. Refer to [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
+
+```
+chainctl develop github login [--port PORT] [-o json]
+chainctl develop github logout
+chainctl develop github status [-o json|table]
+```
+
+| Command | What it does |
+| ------- | ------------ |
+| `login` | Opens your browser to connect your GitHub account, replacing any earlier connection. The `--port` flag sets the local port that your browser returns to after you authorize the connection. |
+| `logout` | Disconnects your GitHub account. Sessions that act on GitHub as you refuse `git` and `gh` requests until you connect again. |
+| `status` | Shows your connected GitHub account, the app it's connected through, whether the connection works, whether your organization's policy allows sessions to act as you, and which accounts the checkout in your current directory still needs the app installed on. |
+
+## chainctl develop policy
+
+Shows or changes your organization's GitHub policy for sessions. Alias: `policies`.
+
+```
+chainctl develop policy describe [-o json|table]
+chainctl develop policy set [--org-github bound|session|off] [--org-github-push-beyond-session=true|false] [--user-github=true|false] [-o json|table]
+```
+
+The `describe` command, with the aliases `desc` and `get`, shows the policy, its revision, and who last changed it. The `set` command changes only the settings you pass, and needs the `owner` role. Refer to [Set your organization's GitHub policy](/chainguard/workspaces/credentials/#set-your-organizations-github-policy) for what each setting controls.
+
+This example limits the Chainguard App to each session's own repository:
+
+```shell
+chainctl develop policy set --org-github session --parent $ORGANIZATION
+```
+
+## chainctl develop init {#chainctl-develop-init}
+
+Signs you in, creates a Chainguard Starter organization or picks one you belong to, and turns on Chainguard Checks and Chainguard Workspaces with a free monthly allowance. Run it in an interactive terminal.
+
+```
+chainctl develop init [--parent ORGANIZATION] [--github-org ACCOUNT] [--name NAME] [--port PORT]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--github-org` | The GitHub organization to link, instead of your own GitHub user. |
+| `--parent` | An existing organization, such as an Enterprise organization, to turn on Checks and Workspaces for. You need the `owner` or `limited_owner` role in it. |
+| `--name` | Has no effect, because an organization you create is named after your work email domain. You can't combine it with `--parent`. |
+| `--port` | The local port that your browser returns to after you authorize the GitHub link. |
+
+Without `--parent`, the command creates a Starter organization if you don't belong to any organization, and uses your organization on the Starter or Team plan if you have exactly one. Otherwise, it fails and asks you to pass `--parent`. Unlike the other commands, it doesn't fall back to the `default.group` value in your `chainctl` configuration.
+
+For what the command asks as it runs, refer to [Sign up with chainctl develop init](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+
+## chainctl develop accept-terms {#chainctl-develop-accept-terms}
+
+Accepts the Secured Platform Terms and the Master Service and License Agreement (MSLA) for an organization. Chainguard Workspaces refuses to open sessions in an organization until it accepts them. Someone with the `owner` or `limited_owner` role runs the command once, and running it again changes nothing.
+
+```
+chainctl develop accept-terms [--parent ORGANIZATION] [--yes]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--yes` | Accepts the terms without asking, such as where no interactive terminal is available. Passing it means you agree to the statement in `chainctl develop accept-terms --help`, which the command also prints. |
+
+An organization that already has Workspaces through your Chainguard account team must accept the terms before anyone can open new sessions in it. Running `chainctl develop init --parent $ORGANIZATION` accepts them, turns on Checks, and keeps the allowance your account team arranged. To accept only the Workspaces terms, run `chainctl develop accept-terms` instead:
+
+```shell
+chainctl develop accept-terms --parent $ORGANIZATION
+```
+
+If you accept only the Workspaces terms and your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.
+
+## Output formats
+
+Each command accepts only the following output formats:
+
+| Command | Formats | JSON output |
+| ------- | ------- | ----------- |
+| `chainctl develop` | `json` | The session. `chainctl` doesn't attach. |
+| `list` | `table` (default), `wide`, `json` | An array of sessions. |
+| `rename` | `json` | The renamed session. |
+| `delete` | `json` | The deleted session, with `"deleted": true`. |
+| `check` | `json` | The result: `passed`, `jobs` (the checks that ran), `failed_job` and `failed_step` for a failure, `skipped`, and `elapsed`. |
+| `creds` | `table` (default), `json` | `sources`, with each service's `source` and `bindings`; `serving`, what serves the session's laptop credentials; and `trail`, the latest changes. |
+| `github login` | `json` | The connected account, in the same form as `github status`. |
+| `github status` | `table` (default), `json` | `login`, `valid`, `user_github`, `installed_accounts`, and `app_slug`. |
+| `policy describe`, `policy set` | `table` (default), `json` | The policy. |
+
+A session in JSON output includes its `name`, such as `app/quiet-harbor`; its `label`, the name with the repository's GitHub owner in front; its `id` and `short_id`; its `state`, `repository`, `branch`, `head`, and `directory`; and timestamps such as `create_time` and `expire_time`. Fields without a value are left out.
+
+## Exit codes
+
+| Command | Exit code |
+| ------- | --------- |
+| `chainctl develop` | When you exit the session's shell, such as with `exit`, the shell's exit status. Otherwise, `0` when you detach and `1` when the command fails. |
+| `chainctl develop check` | `0` when every check passes, and `1` when a check fails or the checks can't run. |
+| Every other command | `0` when the command succeeds, and `1` when it fails. |
+
+## Roles {#roles}
+
+What you can do with `chainctl develop` depends on your role in the session's organization:
+
+| Commands | Roles |
+| -------- | ----- |
+| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` together with a role that includes `groups.list`, such as `viewer` |
+| `accept-terms` | `owner` or `limited_owner` |
+| `list --all` and `policy set` | `owner` |
+
+The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. A teammate with `sandbox.user` also needs the `viewer` role, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access). To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+
+In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+
+## Environment variables and configuration
+
+| Name | What it sets |
+| ---- | ------------ |
+| `CHAINCTL_SANDBOX_GROUP` | The default for `--parent`. |
+| `CHAINCTL_DEVELOP_CACHE` | With `true`, new sessions ask for the Go build cache, as `--cache` does. Unlike `--cache`, it doesn't make `chainctl develop` open a new session. Refer to [Start with a warm Go build cache](/chainguard/workspaces/session-environment/#start-with-a-warm-go-build-cache). |
+| `default.group` | The `chainctl` configuration value that `--parent` falls back to when `CHAINCTL_SANDBOX_GROUP` isn't set. The `CHAINGUARD_DEFAULT_GROUP` environment variable also sets it. |
+| `develop.vertex.project`, `develop.vertex.region` | The Google Cloud project and region that new sessions use for Claude through Vertex AI. Refer to [Use Claude through Vertex AI](/chainguard/workspaces/coding-agents/#use-claude-through-vertex-ai). |
+
+---
+
+### Use Chainguard Checks on GitHub
+_Path: chainguard/checks/github.md_
+
+Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, and how to use them to protect your branches.
+
+## When Checks runs
+
+Chainguard Checks runs on a repository when the Chainguard App is installed on the repository, its GitHub account is linked to a Chainguard organization with access to Chainguard Checks, and the repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory. For a pull request, Chainguard Checks looks for the configuration on the pull request's branch and on its base branch.
+
+| Event | What Chainguard Checks runs |
+| ----- | --------------------------- |
+| A pull request is opened, reopened, or updated | The repository's presubmit checks, which are checks without a `trigger` key or with `trigger: presubmit`. |
+| A new commit arrives on the default branch | The repository's postsubmit checks, which are checks with `trigger: postsubmit`. |
+
+Pushes to other branches, tags, and closed pull requests don't start runs.
+
+For a pull request, Chainguard Checks runs against the commit GitHub would create by merging the pull request into its base branch, and reads the configuration from that commit. The result reflects the latest base branch as well as the change. If the pull request has merge conflicts, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**.
+
+When you push a new commit to a pull request, Chainguard Checks cancels the run for the previous commit and starts a new one.
+
+Pull requests from forks run without approval, the same way as pull requests from branches. To skip a check on pull requests from forks, give it a condition on `context.github.pull_request.head_repository`, as described in [Conditions](/chainguard/checks/configuration/#conditions). The condition also skips pull requests that your own team opens from forks.
+
+Without a `trust` section in `.chainguard/ci/identities.yaml` on your default branch, any open pull request, including one from a fork, can get a [workload identity](/chainguard/checks/identity-and-trust/). Refer to [Limit which pull requests get an identity](/chainguard/checks/identity-and-trust/#limit-which-pull-requests-get-an-identity).
+
+## How results appear {#how-results-appear}
+
+Each run reports a summary check and one GitHub check for each of your checks.
+
+For a pull request, the summary check is named **Chainguard Checks (presubmit)**. It's pending while the run is in progress, and passes only when every blocking check passes. When the run finishes, its output lists each check's result, as described in [Read the summary check](#read-the-summary-check).
+
+Each of your checks gets a GitHub check named `presubmit / <file> / <check>`, where `<file>` is `ci` in the single-file layout, or the file's name in the directory layout. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that runs once for each of several variations, with `foreach`, appears as one GitHub check that counts how many variations passed.
+
+If a pull request changes `.chainguard/develop.yaml`, or a file it takes its environment from, Chainguard Checks also reports a check named **Chainguard Checks / develop-environment**. This check reads the file the way a [Chainguard Workspaces](/chainguard/workspaces/session-environment/) session would, without starting a session or installing packages, and marks each problem on its file and line. It isn't part of the run: the summary check doesn't count it, and **Re-run** on it does nothing. If it finds a problem, it fails, but it doesn't block merging. To clear a problem, push a commit that fixes it.
+
+To read a check's output, select it on the pull request's **Checks** tab. The output shows each step's outcome, exit code, and duration, then the end of the check's log and any errors and warnings it reported. JSON log lines, such as the output of `go test -json` or Terraform's `-json` option, appear as readable messages, with errors and warnings marked `ERROR:` and `WARNING:`. If a long log has an error-level line well before its end, the output also keeps the lines leading up to that error under `[Earlier error context]`, then shows the end of the log under `[Log tail]`.
+
+The **Details** link opens the check on a run page that Chainguard hosts, separate from the Chainguard Console. To open it, sign in with your Chainguard account. You also need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). Without one, read the check's output on GitHub. Besides the full log, the run page shows a timeline of the run and the programs that each step started, with how long each program ran and how it exited. Chainguard keeps these program records for 30 days, and never records the programs' arguments.
+
+On the run page, the check's **Details** view lists each host and address that the check tried to reach under **Network activity**, with whether Chainguard Checks allowed the connection, and suggests an `egress` list to start from. To use it to fix a blocked connection, refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+
+### Read the summary check {#read-the-summary-check}
+
+The summary check's title says how the run ended:
+
+| Title | What it means |
+| ----- | ------------- |
+| **All N check(s) passed** | Every check passed or didn't need to run for this change. |
+| **All N blocking check(s) passed; M advisory check(s) did not** | Every blocking check passed, and at least one [advisory check](/chainguard/checks/configuration/#advisory-checks) didn't. |
+| **N of M blocking check(s) failed** | At least one blocking check failed. N also counts blocking checks that couldn't be executed. If no check is advisory, the title leaves out "blocking". |
+| **N check(s) could not be executed** | No blocking check failed, but at least one couldn't run to the end. |
+
+The output starts with the merge commit the run tested and how many checks passed. It then lists how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
+
+Then a table lists each check with its outcome, a class for a check that failed or couldn't be executed, and the exit code of a check that failed. A check with `foreach` has one row, plus a row for each variation that didn't pass. The table shows up to 50 rows, and an advisory check's outcome ends with `(advisory)`.
+
+| Outcome | Class | What it means |
+| ------- | ----- | ------------- |
+| `PASSED` | | The check passed. |
+| `FAILED` | `CHECK` | A command exited with a nonzero code, shown under **Exit code**. |
+| `FAILED` | `POLICY` | The check has `policy: destroy` and tried to reach a host it doesn't list, so Chainguard Checks stopped its VM. The check fails even if its commands would have succeeded. |
+| `ERRORED` | `TIMEOUT` | The check ran longer than its `timeout`. |
+| `ERRORED` | `INFRA` | Something else kept the check from finishing, such as packages that can't be installed together, a workload identity that the pull request doesn't get, or a VM that kept failing after [automatic retries](#automatic-retries). |
+| `DEPENDENCY_FAILED` | | A check that it `needs` didn't pass, so it didn't run. |
+| `NOT_INSTANTIATED` | | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
+
+For each check that couldn't be executed, the reason appears under **Errors:** after the table, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
+
+## Require checks before merging {#require-checks-before-merging}
+
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset for your default branch.
+
+Don't require the per-check results, such as **presubmit / ci / test**, or **Chainguard Checks / develop-environment**. A check that a condition skips, or that runs only on request, never reports a result for that pull request, and the develop-environment check appears only on pull requests that change its files, so GitHub would wait for them indefinitely. The summary check already accounts for every check that should block the pull request.
+
+During the beta, Chainguard Checks doesn't run on GitHub merge queues. If a branch uses a merge queue and requires **Chainguard Checks (presubmit)**, the queue waits for a result that never arrives, and removes the pull request when its timeout expires. Don't require the summary check on a branch that uses a merge queue.
+
+The summary check doesn't fail because of an [advisory check](/chainguard/checks/configuration/#advisory-checks), so you can add a check as advisory first and make it blocking later.
+
+## Change checks in a pull request {#change-checks-in-a-pull-request}
+
+A pull request can add checks and change what they run. It can't weaken its own checks:
+
+- If a pull request makes an existing check advisory, or changes it to run only on request, the change takes effect after the pull request merges. Until then, the check keeps blocking the pull request, and the summary check's output says so.
+- If a pull request removes a check, or changes its conditions or trigger so that it no longer runs for that pull request, the summary check fails with **Run creation failed**. The base branch's configuration would have run that check, and a change can't remove itself from its own checks. The exception is a check limited by `when.changed` to files that no longer exist.
+- If a pull request leaves no presubmit checks, such as by changing every check to `trigger: postsubmit`, it fails the same way when the base branch's configuration has any presubmit check, even one that wouldn't have run for this pull request. A check limited by `when.changed` to files that no longer exist doesn't count. The pull request also fails this way if the base branch's configuration is invalid. Otherwise, it gets no Chainguard Checks run or summary check at all.
+
+Chainguard Checks applies these rules to the pull request as it is now, including whether it's a draft and which labels it has. Conditions and labels can change which checks the base branch's configuration would run, so a change that passed as a draft can fail with **Run creation failed** when it [runs again](#reruns-when-a-pull-request-changes) after you mark it ready for review.
+
+## Rerun checks {#rerun-checks}
+
+To rerun a pull request's checks, for example after a flaky failure, use **Re-run** on the summary check or on one of its per-check results on GitHub. Chainguard Checks reruns the whole run for the same commit, without reusing earlier results or caches. Pushing a new commit also starts a new run. If the base branch has removed its Chainguard Checks configuration, or all of its presubmit checks, since the pull request's last run, a rerun or a `ci/run:` label starts nothing. The summary check shows that run's result again, notes that nothing can run, and lists any checks that labels requested under **Requested but not run**.
+
+You can also rerun a pull request's checks with `chainctl` after its latest run finishes. Like the run page, this needs a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). Without one, use **Re-run** on GitHub. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks rerun "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+The command reruns the pull request's latest run the same way as **Re-run** on GitHub. Nothing reruns if the pull request is closed, or if it has new commits since that run started. The summary check shows **Re-run requested** until the new run starts, and until then, `chainctl checks status` shows the previous run. After the summary check shows the new run's progress, follow the rerun:
+
+```shell
+chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION --watch
+```
+
+For more ways to inspect a pull request's run from your terminal, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). To find the checks that fail most often across runs, refer to [See check history](/chainguard/checks/inspect-and-run-checks/#see-check-history).
+
+During the beta, you can't rerun checks that run after merging. Selecting **Re-run** on **Chainguard Checks (postsubmit)** or on one of its per-check results doesn't start a new run. To run those checks again, push or merge a new commit to your default branch.
+
+### Reruns when a pull request changes {#reruns-when-a-pull-request-changes}
+
+After a run passes, Chainguard Checks runs the same commit again when you edit the pull request's title, add or remove a label, mark it ready for review, or convert it to a draft, if either of the following is true:
+
+- A [`when.expr` condition](/chainguard/checks/configuration/#run-when-an-expression-is-true) skipped one of the run's checks.
+- The pull request changes your Chainguard Checks configuration, such as `.chainguard/ci.yaml` or a file in `.chainguard/ci/`.
+
+The summary check goes back to pending with **Pull request changed; running again**, and every check runs again with the pull request as it is now. For a change to your configuration, Chainguard Checks applies the rules in [Change checks in a pull request](#change-checks-in-a-pull-request) again, so the summary check can fail with **Run creation failed**. Editing the pull request's description doesn't start a new run, and neither does a change to a pull request whose run failed.
+
+### Automatic retries {#automatic-retries}
+
+If a check can't finish for a reason outside the check, such as a VM that doesn't start or loses its connection, Chainguard Checks runs the check again in a new VM, up to three attempts in all. It doesn't retry a check that fails, times out, or is stopped by `policy: destroy`, or one with a problem that a retry can't fix, such as packages that can't be installed together, or a workload identity that the pull request doesn't get.
+
+A retry runs every step again from the first, so make steps with side effects, such as an upload, safe to repeat. The check's `timeout` keeps counting across attempts, except for the time spent starting each VM, and every attempt counts toward the run's [50-minute limit](/chainguard/checks/configuration/#timeouts).
+
+## Run a check on request {#run-a-check-on-request}
+
+A check with `when: {requested: true}` runs only when someone asks for it. Until then, it reports no result and doesn't block the pull request. When a run finishes, the summary check's output lists each check that can run on request, with the label that runs it.
+
+To run a check on request, add the label `ci/run:<check>` to the pull request. For example, `ci/run:e2e-full` runs the `e2e-full` check. If two files in the directory layout have a check with the same name, include the file's name, such as `ci/run:go/e2e-full`. Labels match check names regardless of case, so `ci/run:E2E-Full` also runs `e2e-full`. Adding labels requires the triage or write role on the repository.
+
+A check that runs on request has limits on its name and its other conditions, as described in [Run on request](/chainguard/checks/configuration/#run-on-request). To run a check when its files change and also on request, use `when.changed` alone, because a label also forces a check that `when.changed` would skip to run. A label doesn't override a `when.expr` condition.
+
+GitHub only offers labels that already exist in the repository, so create each label once. This example uses the GitHub CLI. Replace `$OWNER/$REPO` with your repository:
+
+```shell
+gh label create ci/run:e2e-full --repo $OWNER/$REPO --description "Run the e2e-full check"
+```
+
+After you create the label, anyone with the triage or write role can add it to a pull request from GitHub's label picker.
+
+What happens after you add the label depends on the current run:
+
+| Current run | What happens |
+| ----------- | ------------ |
+| It passed. | The summary check goes back to pending, and the commit runs again with the requested check included. |
+| It failed. | Nothing starts. The summary check's output lists the check under **Requested after this run did not pass, so not run**, and it runs on your next push or rerun. |
+| It's still running. | Chainguard Checks waits for it to finish. If it passes, Chainguard Checks runs the commit again with the requested check included. |
+
+The summary check's output lists the checks that labels requested under **Requested by label**. Removing a label takes effect from the next push. A rerun keeps every check the run was asked to include.
+
+## Let an agent request checks {#let-an-agent-request-checks}
+
+Instead of adding labels yourself, you can have an agent pick which checks each pull request should run. The agent chooses from *requestable checks*: presubmit checks with `when: {requested: true}`, and `when.changed` checks that the pull request's changes didn't select. It never picks a check that's already running, or one whose `when.expr` condition is false.
+
+To turn on the agent, set [`requested_checks_agent`](/chainguard/checks/configuration/#top-level-keys) at the top level of `.chainguard/ci.yaml`, or of `.chainguard/ci/env/default.yaml` in the directory layout:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+requested_checks_agent: comment
+environment:
+  packages: [go]
+checks:
+  # ...
+```
+
+| Value | What the agent does |
+| ----- | ------------------- |
+| `off` (default) | Nothing. |
+| `comment` | Comments with the checks it would request and the label for each. To run one, a person adds its label. |
+| `agent` | Adds a `ci/run:<check>` label for each check it picks, and comments with its reasons. |
+
+Start with `comment` to see what the agent picks before you let it add labels. Chainguard Checks reads the setting from the tip of the pull request's base branch, so it takes effect after the pull request that sets it merges.
+
+The agent runs when a pull request is opened or reopened, gets new commits, is marked ready for review, or changes its base branch. It skips drafts and closed pull requests, and answers once for each commit and base branch.
+
+The agent picks checks by their `description` and their [`docs`](/chainguard/checks/configuration/#describe-a-check) file. For a check that already exists on the base branch, it reads both from the base branch, so a pull request can't rewrite them to get a check picked. Write each description to say what the check covers and when it's worth running. The agent rarely picks a check without a description, so give `when.changed` checks a `description` too.
+
+### What the agent shows on the pull request
+
+The Chainguard App keeps one **Requested checks** comment on the pull request and edits it after each push. The comment lists each check that the agent picked, with its label and a one-sentence reason, then a collapsed list of the requestable checks it didn't pick. The agent doesn't comment when every requestable check already runs.
+
+Labels that the agent adds work the same way as labels a person adds, as described in [Run a check on request](#run-a-check-on-request). The agent never removes a label, and doesn't add back a label that someone removed. To stop a check that the agent requested from running, remove its label. The change takes effect from the next push. The agent only adds checks, so it can't make a failing summary check pass.
+
+### What the agent reads {#what-the-agent-reads}
+
+The agent is off unless your base branch sets `requested_checks_agent` to `comment` or `agent`. When it's on, each time the agent runs, Chainguard Checks sends the following to an Anthropic Claude model that Chainguard runs on Google Cloud Vertex AI:
+
+- The repository's name.
+- The pull request's title and description.
+- The changed files, with the number of lines added and removed in each.
+- Each requestable check's name, `when.changed` patterns, `description`, and `docs` file.
+
+The model can also read a changed file's diff and any file at the pull request's head commit, up to 15 reads each time. Chainguard Checks marks the pull request's title, description, and files as untrusted input for the model, and accepts only picks from the requestable checks. The agent's GitHub access is limited to reading the repository's contents and writing labels and comments on pull requests. It runs on pull requests from forks as well as on pull requests from branches.
+
+Before you turn on the agent, review the terms that Chainguard Checks is offered under, including the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Don't turn it on for a repository whose pull requests contain personal data, or any data subject to legal or regulatory compliance requirements.
+
+## Run checks after merging {#run-checks-after-merging}
+
+Checks with `trigger: postsubmit` run on each new commit on your default branch. Each new commit in the default branch's first-parent history gets its own run, so a merge commit gets one run, and a rebase merge of five commits gets five. The results appear on the commit as **Chainguard Checks (postsubmit)** and one GitHub check for each postsubmit check.
+
+For a run after merging, `when.changed` compares the new commit with its first parent. A merge commit or a squash merge selects checks by the whole pull request's changes, and each commit of a rebase merge selects them by its own changes only. A commit has no labels, so a check with `when: {requested: true}` never runs after merging, and one that also has only `trigger: postsubmit` never runs at all. To run that work on merged code, define a separate postsubmit check without `requested`.
+
+Use postsubmit checks for work that should run on merged code rather than on each pull request, such as a slow integration suite. A pull request can't fail because of a postsubmit check, so if a postsubmit check fails, fix it in a new pull request.
+
+---
+
+### Troubleshoot Chainguard Checks
+_Path: chainguard/checks/troubleshooting.md_
+
+This page describes common problems with Chainguard Checks and how to fix them. If your problem isn't listed here, ask in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
+
+## A pull request gets no checks {#a-pull-request-gets-no-checks}
+
+If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chainguard Checks didn't start a run for it. Confirm the following:
+
+- The Chainguard App is installed on the GitHub account that owns the repository, with access to the repository, and that account is linked to your Chainguard organization. Running `chainctl develop init` links the account when you sign up. A GitHub account can be linked to only one Chainguard organization at a time.
+- The repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory at its root, on the pull request's branch or its base branch. A file named `ci.yml` doesn't count.
+- The configuration has presubmit checks. Checks with only `trigger: postsubmit` run after merging, not on pull requests. A pull request that changes every check to `trigger: postsubmit` still gets a summary check, which fails with **Run creation failed**, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). It gets no checks only if each of the base branch's presubmit checks is limited by `when.changed` to files that no longer exist.
+- Chainguard Checks is turned on for your organization, either with `chainctl develop init` or by your Chainguard account team. Pull requests opened or updated before then get no checks, so push a new commit to the pull request to start a run. If `chainctl develop init` failed, refer to [chainctl develop init fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
+- Your organization isn't at its run limit. With the [Starter allowance](/chainguard/checks/overview/#availability-and-limits), your organization can have 10 runs queued or running at a time, including runs after merging. At the limit, Chainguard Checks retries a new run for a few minutes, then gives up, and the pull request shows no summary check. The run doesn't start on its own when a place frees up, so once earlier runs finish, push a new commit, reopen the pull request, or use **Re-run**.
+- If your organization started a free trial with `chainctl` 0.2.379 or earlier, the trial hasn't ended. That trial lasts 30 days, plus a 7-day grace period, and includes 500 vCPU-hours of Checks. When the grace period ends, Chainguard Checks stops starting runs. To continue, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+
+## The summary check says the configuration is invalid {#the-summary-check-says-the-configuration-is-invalid}
+
+If **Chainguard Checks (presubmit)** fails with a title that starts with **Invalid config**, Chainguard Checks refused the pull request's configuration and ran nothing. The summary check's output lists each problem with its file and line. To find the same problems before you push, run `chainctl checks validate .` from your repository's directory.
+
+The following table lists the most common causes, grouped by the key or file they involve:
+
+| Cause | What to do |
+| ----- | ---------- |
+| A configuration file doesn't have `version: 1`. | Add `version: 1` to the file. |
+| A configuration file uses GitHub Actions keys, such as `jobs`, `on`, `runs-on`, or `env`. | Replace them with their equivalents, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/). |
+| A string `cmd` contains unquoted shell syntax, such as a pipe, redirection, `&&`, a variable, or a glob character. | A string `cmd` runs without a shell. Quote those characters to pass them to the command as they are, or use `script` to run them with a shell. Inside double quotes, `$` and backticks are refused too, so put them in single quotes. Refer to [The cmd key](/chainguard/checks/configuration/#the-cmd-key). |
+| A check's `shell` isn't the exact name of a package in the check's environment. | Set `shell` to a package that the environment lists, such as `python-3.13`. |
+| A check has a `network` key with no hosts under `egress`. | List the hosts the check needs. To keep a check off the network, leave out `network` entirely. |
+| A `when` key is empty. | To run the check every time, leave out `when`. Refer to [Conditions](/chainguard/checks/configuration/#conditions). |
+| `when.changed` lists no patterns. | List at least one pattern, or leave out `changed`. |
+| `when.requested` is set to something other than `true`. | Set it to `true`, or leave it out. |
+| A `foreach` entry sets `when: {requested: true}`. | Set `when: {requested: true}` on the check instead. |
+| A check with `when: {requested: true}` has no `description`. | Add a `description` that says what the check covers and when it's worth running. Refer to [Run on request](/chainguard/checks/configuration/#run-on-request). |
+| A check with `when: {requested: true}` also sets `changed` or `expr` under `when`. | To run a check when its files change and also on request, use `when.changed` alone. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request). |
+| A check with `when: {requested: true}` has a name longer than 43 characters. | Shorten the name. Refer to [Run on request](/chainguard/checks/configuration/#run-on-request). |
+| A blocking check needs an advisory check, either with `needs` or by taking an input from it with `from`. | Make both checks advisory, or both blocking. Refer to [Advisory checks](/chainguard/checks/configuration/#advisory-checks). |
+| A check that doesn't run on request needs one that does, with `needs` or `from`. | Make both checks run on request, or neither. Refer to [Run on request](/chainguard/checks/configuration/#run-on-request). |
+| A check's name has a character that isn't allowed, or doesn't start and end with a letter or digit. | Rename the check. Unless the character is `.` or `/`, the error for a character that isn't allowed says only that the name must fit the 128-character limit, even when the name is short. Refer to [Check names](/chainguard/checks/configuration/#check-names). |
+| Two checks in the same file have names that differ only in case, such as `Test` and `test`. | Rename one of them. |
+| A check's full name, such as `ci/test`, is longer than 128 characters. | Shorten the check's name, or the file's. |
+| A check's environment names a cache under `caches`, but the check doesn't set `user: build`. | Set `user: build` on the check, or give it an environment without the cache. Refer to [Build caches](/chainguard/checks/variations-services-caches/#build-caches). |
+| A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
+| A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
+| `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
+| `resources.yaml` gives a `memory` or `disk` size in a unit other than `Mi` or `Gi`, such as `16GB`. | Write the size in `Mi` or `Gi`, such as `16Gi`. |
+| A check names a resource class that `resources.yaml` doesn't define. | The file replaces the built-in classes, so a check can't name `medium` or `large-amd64` unless the file defines it. Define the class, or name one that the file defines. |
+| `.chainguard/` or `.chainguard/ci/` holds a file that the repository's layout doesn't allow, such as a `.yml` file. | Remove or rename the file. Refer to [File layouts](/chainguard/checks/configuration/#file-layouts) for the files each layout allows. |
+| The repository has a `.chainguard/ci.yaml` file and also has files in `.chainguard/ci/` other than `identities.yaml`. | A repository can't use both layouts. Move the checks from `.chainguard/ci.yaml` into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`. |
+
+## The summary check says the run couldn't be created or failed {#the-summary-check-says-the-run-couldnt-be-created-or-failed}
+
+If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run failed**, Chainguard Checks read your configuration but didn't run it. The summary check's output gives the reason. The following table lists the most common causes:
+
+| Cause | What to do |
+| ----- | ---------- |
+| The pull request removes a check, changes a check's conditions or trigger so that it no longer runs for this pull request, or leaves no presubmit checks while the base branch's configuration still has one, even one that wouldn't have run for this pull request. The exception is a check limited by `when.changed` to files that no longer exist. | A change can't remove itself from its own checks. Refer to [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). |
+| The pull request changes 3,000 or more files, and the output says so. | Split the change into smaller pull requests, because **Re-run** fails the same way. A commit on your default branch that changes 3,000 or more files also fails in **Chainguard Checks (postsubmit)**. Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits). |
+| A check `needs` another check that doesn't run under the same trigger, such as a presubmit check that needs a check with only `trigger: postsubmit`. | Give both checks the same `trigger`. |
+| A check's `git` input names a private repository, or a `ref` that doesn't exist in the repository. | Chainguard Checks resolves each `git` input to a commit when it creates the run, without credentials, so it can check out only public GitHub repositories. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
+| A check's `user` is the name of an account that the VM already has, such as `daemon`, `mail`, or `nobody`, and the output says that the user collides with an existing account. | `chainctl checks validate` accepts these names, but the run fails. Choose another name, such as `build`, as described in [Run as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
+| A check binds `context.github.pull_request.body` to `CHAINGUARD_BASE_REVISION`, `GOOGLE_APPLICATION_CREDENTIALS`, `GITHUB_TOKEN`, or `GOFLAGS`. | Bind the description to a variable with another name. Refer to [Environment variables](/chainguard/checks/configuration/#environment-variables). |
+| A check binds the pull request's description, and the description is over 65,536 bytes or contains a NUL character. The output says how many bytes the description is, or that it contains NUL. | Shorten the description, then use **Re-run** on the summary check, or push a new commit. Characters outside ASCII take more than one byte each. |
+| A check asks for a larger resource class than your organization allows. The output says that a job asks for more CPUs and memory, or more scratch disk, than your organization's largest resource class. | Choose a smaller class with `resources`, or lower your class's `cpus`, `memory`, or `disk`. With the Starter allowance, the largest class is `medium`, which has 4 vCPUs and 16 GB of memory. Unless your organization's allowance sets a different limit, a check's VM can have at most 16 vCPUs, 64 GB of memory, and 100 GB of disk. The built-in classes are within these limits, but a class you [define in `resources.yaml`](/chainguard/checks/configuration/#define-your-own-resource-classes) can exceed them. |
+| Your organization used up this month's compute allowance. The output says that your organization can't start work until the allowance resets on the first day of the month (UTC), and that work already running finishes. | After the reset, use **Re-run** on the summary check, or push a new commit. To continue sooner, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs). Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits) for how checks use the allowance. |
+| Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have an organization owner run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
+
+## The summary check says checks could not be executed {#the-summary-check-says-checks-could-not-be-executed}
+
+If **Chainguard Checks (presubmit)** says that checks could not be executed, or a check's title starts with **Could not be executed**, those checks stopped for a reason other than a command that failed. The summary check's output lists each one's reason under **Errors:**, as described in [Read the summary check](/chainguard/checks/github/#read-the-summary-check). These are the most common reasons:
+
+| Reason | What to do |
+| ------ | ---------- |
+| `task timed out after`, followed by the check's `timeout` | The check ran longer than its own [timeout](/chainguard/checks/configuration/#timeouts). Raise `timeout`, or split the check into smaller ones. |
+| `workflow run exceeded the 50-minute limit` | The run reached its time limit before the check finished. Refer to [A check stops after 50 minutes](#a-check-stops-after-50-minutes). |
+| Includes `workflow identity rejected` | The check didn't get its workload identity, for example because the pull request doesn't reach the identity's ring. Refer to [When a pull request doesn't get an identity](/chainguard/checks/identity-and-trust/#when-a-pull-request-doesnt-get-an-identity). |
+| `the package set does not resolve`, or `two packages in the set install the same file` | Chainguard Checks couldn't install the check's packages. Fix the names and version constraints in `environment.packages`, or remove one of the two packages that install the same file. |
+| Any other reason | The check's VM kept failing for a reason outside the check, even after [automatic retries](/chainguard/checks/github/#automatic-retries). Use **Re-run** on the summary check, or push a new commit. |
+
+## The summary check reports a merge conflict {#the-summary-check-reports-a-merge-conflict}
+
+Chainguard Checks runs each pull request against the commit GitHub would create by merging it. If the pull request has merge conflicts with its base branch, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**. Resolve the conflicts and push.
+
+## A check can't find a command {#a-check-cant-find-a-command}
+
+A check's VM starts with BusyBox, GNU tar, and only the packages you list, so commands such as `git`, `bash`, `make`, and `curl` aren't available unless you list their packages. Add the package to `environment.packages` in your configuration file.
+
+If a script file fails with `not found`, its first line, such as `#!/bin/bash`, may name an interpreter that isn't installed. List the interpreter's package. If a `script` uses Bash syntax, also set `shell: bash` and list the `bash` package.
+
+## A check can't reach a host {#a-check-cant-reach-a-host}
+
+A check has no network access unless it lists hosts under `network.egress`, so downloads and API calls fail, often with errors that a host couldn't be resolved or a connection was refused. Add each host the check needs to its `egress` list, such as `proxy.golang.org` for Go modules or `registry.npmjs.org` for npm packages. List bare hostnames, without a scheme or port. Refer to [Network access](/chainguard/checks/configuration/#network-access).
+
+Some hosts redirect to others. For example, a package registry might serve files from a separate content delivery host. To see every host a check tried to reach, follow these steps:
+
+1. Open the check's **Details** link on the pull request, and sign in with your Chainguard account.
+2. In the run page's sidebar, under the check's name, select **Details**.
+3. Expand **Network activity**. It's already open if Chainguard Checks refused a connection.
+4. Add each host whose **Decision** is `deny` or `destroy` to the check's `egress` list.
+
+The table has a row for each hostname the check looked up and each address it connected to. A connection's row shows the IP address and port, followed by the hostnames the check looked up for that address. With `policy: destroy`, the page also names the host that stopped the check. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
+
+## A check can't find submodules, Git LFS files, or private repositories {#a-check-cant-find-submodules-git-lfs-files-or-private-repositories}
+
+A check's `/work` directory holds your repository's tracked files and history, but not submodules or Git LFS content. Submodule directories are empty, and files that Git LFS tracks hold their pointer files. During the beta, a check also has no GitHub credential, so commands that fetch from a private GitHub repository, such as a download of a private Go module, fail to authenticate. Refer to [Credentials](/chainguard/checks/configuration/#credentials).
+
+To add files from another public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
+
+## A check fails on pull requests but passes in run-ci {#a-check-fails-on-pull-requests-but-passes-in-run-ci}
+
+The `run-ci` command in a Workspaces session runs each check in the session's environment, which can differ from the pull request's:
+
+- The session might have packages or network access that the check's own environment doesn't list.
+- Sessions run on x86-64 unless their resource class pins arm64, while pull request checks usually run on arm64 unless their resource class pins x86-64. If a check downloads or runs an x86-64 binary, set its resource class to an `-amd64` variant of a built-in class, such as `medium-amd64`. If you [define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes), set `platform` on the check's class instead, because only `platform` pins the architecture.
+
+Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
+
+To see what failed on the pull request, print the error lines of the check's log from your terminal, with three lines around each. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, `test` with the check's name, and `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --errors -C 3 --parent $ORGANIZATION
+```
+
+For other ways to read part of a long log, and the role these commands need, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+## A check stops after 50 minutes {#a-check-stops-after-50-minutes}
+
+A whole run can take up to 50 minutes from when it starts, and checks still running or waiting to start at that point fail. Split long checks into smaller ones, which run in parallel, up to four at a time with the Starter allowance. You can also move slow work to a [postsubmit check](/chainguard/checks/github/#run-checks-after-merging).
+
+## A check runs out of space in /tmp {#a-check-runs-out-of-space-in-tmp}
+
+A check's `/tmp` directory is held in memory and can hold up to a quarter of the VM's memory: about 2 GB with the default class, or 4 GB with `medium`. When it's full, commands that write there fail with `No space left on device`, even though the VM's disk has room.
+
+Put large files, such as build output, downloaded archives, or a Python virtual environment, under `/var/tmp` or `/work`, which are on the VM's disk. Many tools write temporary files to the directory that `TMPDIR` names, so you can also set `TMPDIR` to `/var/tmp` in the check's `vars`. To give `/tmp` more room instead, choose a resource class with more memory. Refer to [Resources](/chainguard/checks/configuration/#resources).
+
+## A check doesn't use its cache {#a-check-doesnt-use-its-cache}
+
+A check whose environment names a cache under `caches` runs without one, and without an error, in the following cases:
+
+- Your default branch doesn't define cache pools yet. This includes the pull request that adds them, because Chainguard Checks reads pools only from your default branch. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
+- No pool lists the run's ring, such as ring `0` for a pull request opened by someone outside your subrings.
+- The cache isn't `gobuild`. During the beta, the other cache types cache nothing.
+- The run is a rerun from **Re-run** on GitHub or from `chainctl checks rerun`.
+- The check uses a workload identity, and a ring in its pool can't get the same identity.
+- The pool is still filling, as described in [How caches fill](/chainguard/checks/variations-services-caches/#how-caches-fill).
+
+To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists the cache types other than `gobuild` as `read-write`, though they cache nothing during the beta.
+
+## A required check never reports {#a-required-check-never-reports}
+
+If GitHub waits indefinitely for a required check, you probably required a per-check result, such as **presubmit / ci / test**, instead of the summary check. A check that a condition skips, or that runs only on request, never reports a result. Require only **Chainguard Checks (presubmit)**, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
+
+A GitHub merge queue that requires **Chainguard Checks (presubmit)** never gets a result either, because Chainguard Checks doesn't run on merge queues during the beta. The queue waits until its timeout expires, then removes the pull request. Don't require the summary check on a branch that uses a merge queue.
+
+## The requested checks agent doesn't comment on a pull request {#the-requested-checks-agent-doesnt-comment-on-a-pull-request}
+
+The [requested checks agent](/chainguard/checks/github/#let-an-agent-request-checks) doesn't add a comment for each push. It keeps one **Requested checks** comment on the pull request, edits it, and names the commit that it answers for. If the comment doesn't appear at all, or names an earlier commit, check the following:
+
+- `requested_checks_agent` is set to `comment` or `agent` on the pull request's base branch. The agent reads the setting from the latest commit on the base branch, so the pull request that sets it gets no answer. After it merges, pull requests that are already open get an answer at their next push or edit.
+- The pull request is open and isn't a draft. Marking a draft ready for review starts the agent.
+- If the pull request changes files in `.chainguard/`, its configuration is valid. To check, run `chainctl checks validate`.
+- The pull request has a check that the agent could request: a presubmit check with `when: {requested: true}`, or with `when.changed` patterns that the pull request's changes don't match. The agent skips checks whose `when.expr` is false and checks that already run, and when none are left, it doesn't comment.
+- The pull request changes fewer than 3,000 files.
+
+The agent answers once for each pushed commit and base branch. Editing the pull request's title or description doesn't make it choose again, but pushing a commit or changing the base branch does. When it finds no check worth running, it still comments to say so.
+
+## chainctl doesn't list the checks command {#chainctl-doesnt-list-the-checks-command}
+
+{{% blurb/hidden-chainctl-commands %}}
+
+For every subcommand and flag, refer to the [`chainctl checks` reference](/chainguard/checks/chainctl-checks-reference/) and the [`chainctl develop` reference](/chainguard/workspaces/chainctl-develop-reference/).
+
+If `chainctl checks validate .` reports that validating a directory isn't supported, or `chainctl` doesn't recognize a command on this site, your `chainctl` is out of date. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+
+## chainctl checks status reports no platform verdict {#chainctl-checks-status-reports-no-platform-verdict}
+
+During the beta, `chainctl checks status`, `chainctl checks logs`, and the other commands that inspect runs can't find a run by its commit. When you pass a commit SHA or a directory, or run one of these commands with no argument, which uses the commit checked out in the current directory, they report that the platform created no run for it, even when its checks ran. The `chainctl checks list` command doesn't list pull request runs or runs after merging either.
+
+To inspect a pull request's latest run, pass the pull request instead. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of the Chainguard organization linked to the repository's GitHub account:
+
+```shell
+chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+
+For a run after merging, pass the run's ID instead of a commit. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
+
+For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run), pass the ID that the command printed, or the start of it, instead of `.` or a commit. To find the ID later, run `chainctl checks list`. These runs never appear on GitHub.
+
+## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
+
+The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
+
+To pass your organization's name to `--parent`, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, `chainctl` can't find your organization by its name, so pass the organization's ID instead.
+
+To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+
+During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
+
+- Read the results on the pull request, as described in [How results appear](/chainguard/checks/github/#how-results-appear), and rerun checks with **Re-run** on GitHub.
+- Don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results.
+- To run checks before you push, use a Workspaces session with `chainctl develop check`, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+
+---
+
+### Variations, inputs, services, and caches in Chainguard Checks
+_Path: chainguard/checks/variations-services-caches.md_
+
+Most checks need only the keys that the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) describes. This page describes the keys for checks that need more: running a check once for each of several variations, passing files between checks, starting services such as a database, running as an unprivileged account, and reusing build output from earlier runs.
+
+## Run a check once per variation {#run-a-check-once-per-variation}
+
+The `foreach` key runs a check once for each entry in a list, each in its own VM. All of a check's variations report as one GitHub check. For example, this check runs three variations, two at a time:
+
+```yaml
+checks:
+  test:
+    script: go test -tags "$TAGS" ./...
+    vars:
+      TAGS: unit
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+    parallelism: 2
+    foreach:
+      - name: api
+        workdir: api
+      - name: api-integration
+        workdir: api
+        vars:
+          TAGS: integration
+        timeout: 30m
+      - name: cli
+        workdir: cli
+        resources: medium
+```
+
+The `parallelism` key sets how many variations can run at once. Each entry can set the following keys. Any other key, such as `cmd` or `needs`, makes the configuration invalid.
+
+| Key | Description |
+| --- | ----------- |
+| `name` | The variation's name. Every entry's name must be different. |
+| `vars` | Variables that override the check's `vars` with the same names. Each value can be up to 1,024 bytes. |
+| `workdir` | The directory to run in, in place of the check's `workdir`. |
+| `resources` | The resource class, in place of the check's. |
+| `timeout` | The time limit, in place of the check's. |
+| `when` | Conditions for the variation, which apply after the check's own `when`. They can't use `requested`. |
+| `network` | An `egress` list that replaces the check's for this variation. It can list only hosts that the check's `egress` allows, and `egress: []` gives the variation no network access. Without it, the variation uses the check's `network`. |
+
+An entry's values reach the check's commands only as environment variables and as the working directory. A `cmd` doesn't expand variables, so read them in a `script`, as in the example. An entry without a `name` is named after its `vars` values, sorted by variable name and joined with `-`. Set `name` when a value has characters that a name can't have, such as `:`, `=`, or `@`, or when it doesn't start and end with a letter or digit. `foreach: []` runs no variation.
+
+### Compute variations during a run {#compute-variations-during-a-run}
+
+To compute the variations during the run, such as one for each module in your repository, define a planner under the top-level `plans` key and set the check's `foreach` to `plans.<name>`:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go]
+plans:
+  modules:
+    environment:
+      packages: [bash, git]
+    cmd: ./ci/list-modules.sh
+checks:
+  test:
+    foreach: plans.modules
+    cmd: go test ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+The planner runs once, before the checks that use it, and writes its variations as JSON to the file that the `CG_PLAN` environment variable names. Each variation can have the same keys as a `foreach` entry, except that its `when` can hold only `changed`. For example, `ci/list-modules.sh` could write the following:
+
+```json
+[{"name": "api", "workdir": "api"}, {"name": "cli", "workdir": "cli"}]
+```
+
+A planner works as follows:
+
+- It needs its own `environment` and a `cmd`, and can have a `network`. Its environment can't name caches. Without `network`, it has no network access.
+- It runs in a VM with your repository, with `CHAINGUARD_BASE_REVISION` set the same way as for a check, and can run for up to five minutes.
+- It can write a JSON array of variations, or an object of named arrays, such as `{"unit": [...], "integration": [...]}`. A check uses one array with `foreach: plans.<name>.<group>`, such as `plans.modules.unit`.
+- A variation's `network` can only narrow the check's, as for a `foreach` entry.
+- A variation without a `name` is named `shard-1`, `shard-2`, and so on. An empty array runs no variation of the check.
+- Its output can be up to 1 MiB, with up to 1,000 variations across all arrays and names up to 128 bytes. If the planner fails or writes output that breaks these rules, the checks that use it don't run and report a failed dependency. If every check that uses it is advisory, a failed planner doesn't block merging.
+- A check can use a planner only from the same file. Planner names use letters, digits, `_`, and `-`, start with a letter, and can be up to 128 characters.
+
+## Inputs and outputs {#inputs-and-outputs}
+
+A check can save a directory for later checks in the same run with `outputs`, and add files to its VM with `inputs`, either from another check's output or from another repository.
+
+### Pass files between checks {#pass-files-between-checks}
+
+To pass files from one check to another, declare an output on the check that writes them, and an input with `from` on the check that reads them:
+
+```yaml
+checks:
+  build:
+    cmd: go build -o out/ ./cmd/...
+    outputs:
+      bin:
+        path: out
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  smoke:
+    cmd: bin/app --version
+    inputs:
+      - path: bin
+        from: {check: build, output: bin}
+```
+
+In this example, `build` writes its binaries to `out/`, and `smoke` runs one of them from `bin/` after `build` passes. Inputs and outputs work as follows:
+
+- An output's `path` is a directory relative to the repository's root. It starts empty, and your repository must not have files at that path, or the run fails.
+- After the producing check passes, the consuming check gets a read-only copy of the output at its input's `path`.
+- `from` works like `needs`: the producing check must be in the same file and run on the same triggers, and the consuming check waits for it and doesn't run if it fails. The same limits as for `needs` apply, as described in [Advisory checks](/chainguard/checks/configuration/#advisory-checks).
+- If the producing check has `foreach` variations, the input holds one subdirectory for each variation, named after the variation, with `/` written as `%2F`.
+- A check that [runs as another user](#run-as-another-user) can't declare outputs.
+- A check can declare up to 32 outputs and read up to 32 outputs of other checks. Each output can hold up to 10,000 files and directories and 64 MiB. Output names can't contain `.` or `/`, and inputs and outputs can't overlap each other or `.git`.
+
+Outputs pass files only between checks in a run. You can't download them.
+
+### Check out another repository {#check-out-another-repository}
+
+To add another repository's files to a check's VM, use an input with `git`:
+
+```yaml
+checks:
+  integration:
+    cmd: go test ./integration/...
+    inputs:
+      - path: fixtures
+        git:
+          repo: https://github.com/acme/fixtures
+          ref: main
+```
+
+Chainguard Checks fetches the repository outside the VM, so the check doesn't need network access for it. The repository must be public, and `repo` must be an `https://github.com` URL. Chainguard Checks resolves `ref`, a branch, tag, or commit SHA, to a commit when it creates the run. Without `ref`, it uses the repository's default branch. The files arrive at `path` without a `.git` directory.
+
+If the repository is private or the ref doesn't exist, the summary check shows **Run creation failed**. `chainctl checks validate` can't check either of these offline.
+
+## Services {#services}
+
+A service is a process, such as a database, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/<name>/<name>.yaml`, with the script that starts it in the same directory:
+
+```yaml {title=".chainguard/ci/services/postgres/postgres.yaml"}
+version: 1
+name: postgres
+packages: [busybox, postgresql-18, postgresql-18-client, su-exec]
+cmd: [sh, ./postgres.sh]
+timeout: 60s
+inputs:
+  port:
+    type: integer
+    default: "5432"
+    env: PGPORT
+exports:
+  PGHOST: 127.0.0.1
+  PGUSER: postgres
+```
+
+The script starts the database, waits until it accepts connections, prints `::service-ready::`, and then waits on the database:
+
+```shell {title=".chainguard/ci/services/postgres/postgres.sh"}
+#!/bin/sh
+set -eu
+: "${PGDATA:=/tmp/postgres}"
+: "${PGPORT:=5432}"
+export PGDATA PGPORT
+# PostgreSQL refuses to run as root, so run it as a postgres account.
+if [ "$(id -u)" = 0 ]; then
+  id postgres >/dev/null 2>&1 || adduser -S -D -H -s /bin/sh postgres
+  mkdir -p "$PGDATA"
+  chown postgres "$PGDATA"
+  chmod 700 "$PGDATA"
+  exec su-exec postgres sh "$0"
+fi
+if [ ! -f "$PGDATA/PG_VERSION" ]; then
+  initdb --no-sync --pgdata="$PGDATA" --username=postgres --auth=trust --encoding=UTF8 --locale=C
+fi
+postgres -D "$PGDATA" -h 127.0.0.1 -p "$PGPORT" -k "$PGDATA" &
+daemon=$!
+trap 'kill "$daemon" 2>/dev/null || true' EXIT
+trap 'exit 1' HUP INT TERM
+until pg_isready -h 127.0.0.1 -p "$PGPORT" -U postgres >/dev/null 2>&1; do
+  kill -0 "$daemon" 2>/dev/null || exit 1
+  sleep 0.1
+done
+printf '\n::service-ready::\n'
+wait "$daemon"
+exit 1
+```
+
+A check uses the service by naming it in its environment's `services`:
+
+```yaml {title=".chainguard/ci/db.yaml"}
+version: 1
+environment:
+  packages: [go]
+  services: [postgres]
+checks:
+  integration:
+    cmd: go test ./db/...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+A service works as follows:
+
+- Chainguard Checks adds the service's `packages` to the environment, and runs its `cmd` without a shell, from the directory of the file that defines it.
+- The command must stay in the foreground, and print `::service-ready::` on a line of its own to standard output when the service is ready. The check's commands start after every service is ready.
+- If a service isn't ready within its `timeout`, which defaults to one minute, or its command exits while the check runs, the check fails. Chainguard Checks never restarts a service.
+- The service's output appears in the check's log.
+- Connections to `127.0.0.1` stay inside the VM, so a check doesn't need a `network` entry to reach its services.
+- `exports` become environment variables for the check's commands and the service. `inputs` turn values that a check passes with `with` into environment variables that only the service's command gets.
+- A definition can be up to 64 KiB. Service names use lowercase letters, digits, and `-`, start with a letter, and can be up to 63 characters.
+
+To run a service under another name, or to pass it inputs, use a mapping with `uses`, `name`, and `with`:
+
+```yaml
+environment:
+  packages: [go]
+  services:
+    - uses: postgres
+      name: db
+      with:
+        port: "5433"
+```
+
+Services in `services/` need the directory layout. In the single-file layout, define a service inline, with the same keys as a definition file. Its command runs from the `.chainguard/` directory, which can hold only `.yaml` files, so keep its script elsewhere in your repository:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go]
+  services:
+    - name: postgres
+      packages: [busybox, postgresql-18, postgresql-18-client, su-exec]
+      cmd: [sh, ../ci/postgres.sh]
+      exports:
+        PGHOST: 127.0.0.1
+        PGUSER: postgres
+checks:
+  integration:
+    cmd: go test ./db/...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+## Run as another user {#run-as-another-user}
+
+By default, a check's commands run as `root`. To run them as an unprivileged account, set `user` to the account's name:
+
+```yaml
+checks:
+  test:
+    cmd: go test ./...
+    user: build
+```
+
+Chainguard Checks creates the account with UID and GID 65532 and the home directory `/home/<name>`, and makes it the owner of `/work`. A name uses lowercase letters, digits, `_`, and `-`, starts with a lowercase letter or `_`, and can be up to 32 characters.
+
+Don't use a name that the VM already has: `bin`, `daemon`, `adm`, `lp`, `sync`, `shutdown`, `halt`, `mail`, `news`, `uucp`, `operator`, `man`, `postmaster`, `cron`, `ftp`, `sshd`, or `nobody`. `chainctl checks validate` accepts these names, but the run refuses them. A check also fails to start if one of its packages creates an account with the same name.
+
+The account owns `/work`, but not your repository's files and `.git` directory, so `git` refuses to work in `/work` because of their ownership. For a check that runs `git`, mark the repository as safe with Git's configuration variables:
+
+```yaml
+checks:
+  test:
+    cmd: go test ./...
+    user: build
+    vars:
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: safe.directory
+      GIT_CONFIG_VALUE_0: "*"
+```
+
+A check that runs as another user can't declare `outputs`. A check that uses a [cache](#caches) must run as `build`.
+
+## Caches {#caches}
+
+By default, each check starts with nothing from earlier runs, so a Go check compiles every package on every run. A check can reuse build output from earlier runs through a cache that its environment names under `caches`. During the beta, only the Go build cache, `gobuild`, stores anything. The `gomod`, `python`, `node`, and `directory` caches pass validation but cache nothing, so keep the hosts that your tools download from in `egress`.
+
+### Build caches {#build-caches}
+
+To reuse Go build output, name `gobuild` in the environment, and set `user: build` on each check that uses the environment:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go]
+  caches:
+    gobuild: {}
+checks:
+  test:
+    cmd: go test ./...
+    user: build
+    trigger: [presubmit, postsubmit]
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+The cache does nothing until your default branch defines cache pools, as described in [Set up cache pools](#set-up-cache-pools). A Go build cache works as follows:
+
+- `gobuild: {}` takes no settings, and the environment's packages must include `go` or a `go-<version>` package.
+- Every check in an environment that names a cache must set `user: build`, so its commands run as an unprivileged account, as described in [Run as another user](#run-as-another-user). A command that needs root fails. In the directory layout, give the checks that use a cache an environment of their own.
+- Chainguard Checks sets `GOCACHE` to the cache's directory, so don't set `GOCACHE` in `vars`.
+- Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
+- A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
+- Go modules still download on every run, so keep `proxy.golang.org` and `sum.golang.org` in `egress`.
+
+### Set up cache pools {#set-up-cache-pools}
+
+Chainguard Checks mounts a cache only from a *cache pool*, which you define in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Each pool lists the [rings](/chainguard/checks/identity-and-trust/#rings) whose runs share it, so pull requests from people you don't trust can't change the build output that your default branch's runs reuse. This file defines two pools:
+
+```yaml {title=".chainguard/ci/identities.yaml"}
+version: 1
+trust:
+  groups:
+    members:
+      github: {org: acme}
+  subrings:
+    member:
+      authors: [members]
+  github_token: 1.member
+  cache:
+    trunk:
+      rings: [2]
+    trusted:
+      rings: [1.member]
+      seed: trunk
+identities: {}
+```
+
+With this file, runs after merging, which are in ring `2`, read and write the `trunk` pool. Pull requests opened by members of the `acme` GitHub organization, which are in ring `1.member`, read and write the `trusted` pool, and also start from a read-only copy of `trunk`, which `seed` names. Other pull requests are in ring `0` and get no cache, because no pool lists ring `0`.
+
+Pools follow these rules:
+
+- A pool's name uses lowercase letters, digits, and `-`, and starts with a letter. Each pool lists one or more `rings`, and a ring can be in at most one pool.
+- A `seed` must name a pool whose `rings` are exactly `[2]`, and which has no seed of its own.
+- Changing a pool's `rings`, or raising its optional `generation` number, starts the pool empty.
+- Chainguard Checks reads the pools from your default branch, so the pull request that adds or changes them runs with the pools your default branch had before it.
+- [Chainguard Workspaces sessions](/chainguard/workspaces/session-environment/#start-with-a-warm-go-build-cache) started with `--cache` read only a pool whose `rings` are exactly `[2]`.
+
+A `trust` section that you add for caches also applies to workload identities, so every identity in the file then needs a `ring`. For the section's other keys, refer to [Limit which pull requests get an identity](/chainguard/checks/identity-and-trust/#limit-which-pull-requests-get-an-identity).
+
+To see what each check would mount in each pool, run `chainctl checks explain`.
+
+### Who can read and write a cache
+
+Cache pools keep a pull request from changing the build output that other runs use:
+
+- Your default branch's `identities.yaml` decides which pool a pull request's run uses, so a pull request can't change its own pool.
+- A ring in no pool gets no cache. With separate pools for ring `2` and for a subring, as in the example, pull requests from members read your default branch's cache through the seed but never write to it. Put ring `2` and a subring in the same pool only if you trust every author in that subring with the cache that your default branch's runs use.
+- A pool that lists ring `0` keeps a separate cache for each pull request, and runs after merging don't use it.
+- Only checks that pass, and aren't canceled, add to a pool.
+- A check that uses a workload identity, or whose outputs feed a check that does, never adds to a pool. It reads a pool only if every ring in the pool can get the same identities.
+- Workspaces sessions never add to a pool.
+
+If you suspect a pool holds bad output, raise its `generation` to start it empty.
+
+### How caches fill {#how-caches-fill}
+
+A pool fills and empties as follows:
+
+- A new pool starts empty. Chainguard Checks adds the build output of passing checks to it about every 15 minutes at most, so a pool warms up over several runs.
+- Each check adds up to 2 GiB and 200,000 files and directories to each cache.
+- A pool holds up to about 128 GiB. Chainguard Checks drops entries that no run uses for about three weeks.
+- When a pull request closes, Chainguard Checks deletes its cache in a pool that lists ring `0`.
+- **Re-run** on GitHub and `chainctl checks rerun` run every check without a cache.
+
+---
+
+### Get started with Chainguard Checks
+_Path: chainguard/checks/getting-started.md_
+
+This guide walks you through signing up for Chainguard Checks, adding checks to one of your GitHub repositories, and seeing them run on a pull request. It uses a Go repository as the example and takes about 15 minutes.
+
+{{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
+
+## Step 1: Sign up {#step-1-sign-up}
+
+<span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-chainguard-checks"></span>
+
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
+
+## Step 2: Add a configuration file to your repository
+
+In your local clone, create a branch for the change. Replace `$REPO_DIR` with the path to your local clone:
+
+```shell
+cd $REPO_DIR
+git checkout -b add-chainguard-checks
+```
+
+Next, create a `.chainguard/ci.yaml` configuration file that defines two checks:
+
+```shell
+mkdir -p .chainguard
+cat > .chainguard/ci.yaml <<EOF
+version: 1
+environment:
+  packages: [go]
+checks:
+  vet:
+    cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  test:
+    cmd: go test ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+EOF
+```
+
+This file tells Chainguard Checks to install the `go` package in each check's VM, then run `go vet` in one check and `go test` in another. Each check runs in a fresh VM with no network access unless it asks for some, so both checks list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. If your repository isn't a Go repository, replace the package and the commands with your own. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+
+To find mistakes in the file before you push it, run `chainctl checks validate` with the repository's directory:
+
+```shell
+chainctl checks validate .
+```
+
+The command reads the file the same way Chainguard Checks does, without running anything. For this file, it prints `workflow ci (.chainguard/ci.yaml)` followed by `ok: the document lowers`. For a file with problems, it prints each problem with its line number.
+
+## Step 3: Open a pull request
+
+Commit the file, push the branch, and open a pull request. This example uses the GitHub CLI to open the pull request, but you can also open it on github.com:
+
+```shell
+git add .chainguard/ci.yaml
+git commit -m "Add Chainguard Checks"
+git push -u origin add-chainguard-checks
+gh pr create --fill
+```
+
+Chainguard Checks reads the configuration file from the pull request itself, so the pull request that adds `.chainguard/ci.yaml` runs its checks.
+
+## Step 4: Review the results
+
+Open the pull request on GitHub and scroll to its checks. After a few seconds, you'll see the following:
+
+- **Chainguard Checks (presubmit)**, the summary check for the whole run. It's pending while checks run, then passes only if every blocking check passed.
+- **presubmit / ci / vet** and **presubmit / ci / test**, one GitHub check for each check in your file. Each appears when that check finishes.
+
+To read a check's output, select the check. On GitHub, its output shows each step's outcome, exit code, and duration, followed by the end of its log and any errors it reported. The **Details** link opens the check's full log on a run page that Chainguard hosts. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). If you created your organization with `chainctl develop init`, you don't have that role, so read the output on GitHub.
+
+If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
+
+## Step 5: Require checks before merging
+
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch.
+
+Require only the summary check, not the per-check results. A check that a condition skips never reports a result, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
+
+## Give teammates access {#give-teammates-access}
+
+<span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
+
+Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+
+## Next steps
+
+- [Chainguard Checks configuration reference](/chainguard/checks/configuration/) covers packages, network access, conditions, and more.
+- [Use Chainguard Checks on GitHub](/chainguard/checks/github/) explains reruns, checks that run on request, and checks that run after merging.
+- [Run checks before you push](/chainguard/checks/run-checks/) shows how to run the same checks in a Chainguard Workspaces session.
+- [Workload identities and trust](/chainguard/checks/identity-and-trust/) explains how to give a check short-lived Google Cloud or Chainguard credentials.
+- [chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/) lists every `chainctl checks` command and flag.
+- Ask questions in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
+
+---
+
+### Chainguard Checks overview
+_Path: chainguard/checks/overview.md_
+
+Chainguard Checks runs your repository's CI on Chainguard's infrastructure instead of on GitHub Actions runners. You define your checks, such as linting and tests, in a `.chainguard/ci.yaml` file in your repository. On every pull request, Chainguard Checks runs each check in its own microVM, built on Chainguard OS, and reports the results on the pull request as GitHub checks.
+
+CI runners usually hold long-lived secrets and can reach the whole internet while they run untrusted code, such as a pull request's changes or a compromised dependency. In Chainguard Checks, each check runs in a fresh VM that has no long-lived credentials, and no network access unless the check lists the hosts it needs.
+
+{{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
+
+## How Checks works
+
+Chainguard Checks reaches your repositories through the Chainguard App, a GitHub App that you install on your GitHub organization or personal account. When you link that account to your Chainguard organization, each repository that has a `.chainguard/ci.yaml` file, or a `.chainguard/ci/` directory, opts in to Chainguard Checks.
+
+When someone opens or updates a pull request, the following happens:
+
+1. Chainguard Checks plans a run against the commit GitHub would create by merging the pull request into its base branch, so each run tests the change together with the latest base branch.
+2. It reads the configuration from that merged commit, so a pull request can add checks or change them.
+3. Each check runs in its own microVM with the packages your configuration file declares.
+4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus one GitHub check for each of your checks.
+
+Each new push to the pull request cancels the run for the previous push and starts a new one. Chainguard Checks can also run checks on each new commit on your default branch, for work that should run after a change merges. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/) for details.
+
+Here's a minimal `.chainguard/ci.yaml` file for a Go repository:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go]
+checks:
+  vet:
+    cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  test:
+    cmd: go test ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+This file installs Go in every check's VM and defines two checks, `vet` and `test`. Each check runs in a fresh VM with no network access unless it asks for some, so both list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+
+## Isolation by default
+
+Every check starts from the same minimal base and gets only what you declare:
+
+| Resource | What a check gets |
+| -------- | ----------------- |
+| Packages | BusyBox, GNU tar, and the packages your configuration file lists. A check has no `git`, package manager, or language toolchain unless you list it. |
+| Network | No network access unless the check lists hosts under `network.egress`. Chainguard Checks always blocks cloud metadata endpoints, loopback addresses, and private IP ranges. |
+| Credentials | No long-lived credentials. Your repository's code is already in the VM, so most checks need none. A check that must authenticate to Google Cloud or to Chainguard can request a [workload identity](/chainguard/checks/identity-and-trust/) for short-lived access. |
+| Caches | None unless the check declares one. During the beta, a Go check can reuse build output from earlier runs through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
+
+By default, Chainguard Checks refuses a connection to a host the check doesn't list, and the check keeps running. With `policy: destroy`, Chainguard Checks stops the check's VM instead, and the check fails.
+
+## Use with Chainguard Workspaces
+
+[Chainguard Workspaces](/chainguard/workspaces/overview/) reads the same `.chainguard/ci.yaml` file. In a Workspaces session, the `run-ci` command runs your checks against the session's working tree, uncommitted changes included, so you or a coding agent can find failures before pushing.
+
+The `run-ci` command runs each check in the session's own environment, which can have different packages and network access than the check declares. Its result predicts the pull request's result, but only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. You can use Chainguard Checks without Chainguard Workspaces, and the other way around. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
+
+## Availability and limits {#availability-and-limits}
+
+{{% blurb/technology-preview product="Chainguard Checks" %}}
+
+If you turn on the [requested checks agent](/chainguard/checks/github/#what-the-agent-reads), Chainguard Checks sends pull request content to a model, so don't turn it on for a repository whose pull requests contain such data.
+
+During the beta, Chainguard Checks has the following limits:
+
+- It works with repositories on github.com only.
+- It doesn't run on GitHub merge queues, so don't require **Chainguard Checks (presubmit)** on a branch that uses one. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
+- It doesn't run checks on a pull request, or on a commit to your default branch, that changes 3,000 or more files. The summary check fails with **Run creation failed** instead, so split a change that large into smaller pull requests. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed).
+- A run can take up to 50 minutes from when it starts. Checks still running or waiting to start at that point fail.
+
+`chainctl develop init` turns on the *Starter allowance*: 500 vCPU-hours of Checks each month, separate from the Workspaces allowance. The allowance resets on the first day of each month (UTC) and comes with the following limits:
+
+- Your organization can have 10 runs queued or running at a time, including runs after merging.
+- Each run can use up to 4 VMs and 16 vCPUs at once, so up to four of its checks run at the same time.
+- Each check's VM can have up to 4 vCPUs and 16 GB of memory.
+
+Chainguard counts each check's vCPUs for as long as its VM runs. A check with the [default resources](/chainguard/checks/configuration/#resources) uses 2 vCPU-hours for each hour it runs, and a `medium` check uses 4. Chainguard doesn't show your usage during the beta. When the allowance is used up, Chainguard Checks doesn't start new runs until it resets, and runs already in progress finish. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed) for what a pull request shows then.
+
+If your organization arranged access with its Chainguard account team, its allowance and limits can differ.
+
+## Get help
+
+{{% blurb/checks-workspaces-help channel="checks-questions" %}}
+
+## Next steps
+
+- [Get started with Chainguard Checks](/chainguard/checks/getting-started/) to sign up and run your first checks on a pull request.
+- [Chainguard Checks configuration reference](/chainguard/checks/configuration/) to learn the `.chainguard/ci.yaml` format.
+- [Use Chainguard Checks on GitHub](/chainguard/checks/github/) to require checks before merging.
+- [Workload identities and trust](/chainguard/checks/identity-and-trust/) to give a check short-lived Google Cloud or Chainguard credentials.
+- [chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/) for every `chainctl checks` command and flag.
+
+---
+
+### Chainguard Checks configuration reference
+_Path: chainguard/checks/configuration.md_
+
+You define your checks in YAML configuration files in your repository's `.chainguard/` directory. This page describes the file format: where the files go, the packages and commands each check gets, and the options that control when and how checks run. For variations, inputs and outputs, services, and caches, refer to [Variations, inputs, services, and caches](/chainguard/checks/variations-services-caches/).
+
+The same files also set up [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and `run-ci` in a session runs the checks they define.
+
+## File layouts {#file-layouts}
+
+Chainguard Checks reads its configuration from one of two layouts. A repository uses one or the other, not both.
+
+| Layout | Use it when |
+| ------ | ----------- |
+| A single `.chainguard/ci.yaml` file | You're getting started, or all your checks share one set of packages. |
+| A `.chainguard/ci/` directory | You want to split checks into several files, or give checks different environments. |
+
+In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. Checks in the single-file layout appear as `presubmit / ci / <check>`. The directory layout can also hold the following:
+
+- `env/<name>.yaml` files, each defining a named environment that checks can share, and their `.lock` files. A check that names no environment uses `env/default.yaml`.
+- `resources.yaml`, which replaces the built-in resource classes with your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
+- `<name>.md` files that explain checks in more detail. Chainguard Checks never reads them as configuration. Refer to [Describe a check](#describe-a-check).
+- `services/<name>/<name>.yaml` files, each defining a service, with any files the service needs beside it. Refer to [Services](/chainguard/checks/variations-services-caches/#services).
+
+Either layout can declare workload identities and cache pools in `.chainguard/ci/identities.yaml`. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) and [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
+
+Chainguard Checks reads configuration only from files with the `.yaml` extension, so a `.chainguard/ci.yml` file doesn't turn it on. The following table shows how each layout treats the files in `.chainguard/`:
+
+| File | Single-file layout | Directory layout |
+| ---- | ------------------ | ---------------- |
+| `.chainguard/ci.yaml` | Required | Makes the configuration invalid |
+| `.chainguard/ci/identities.yaml` | Allowed | Allowed |
+| Other files in `.chainguard/ci/` | Make the configuration invalid | Allowed if they're among the files listed earlier. Any other file, such as a `.yml` file, makes the configuration invalid. |
+| `.chainguard/develop.yaml` | Allowed, unless it has a `checks` key | Allowed |
+| `.chainguard/actions.yaml`, `.chainguard/images.yaml`, and `.chainguard/source.yaml` | Ignored | Ignored |
+| `.chainguard/README.md`, a `.yml` file, or another file that isn't a `.yaml` or `.lock` file, directly in `.chainguard/` | Makes the configuration invalid | Ignored |
+
+In the directory layout, a `.yaml` file directly in `.chainguard/` with single-file layout keys, such as `version` or `checks`, also makes the configuration invalid.
+
+A `.chainguard/develop.yaml` file sets up [Chainguard Workspaces](/chainguard/workspaces/session-environment/) sessions. Chainguard Checks runs nothing from it, so changing it doesn't change your checks. Put checks in `.chainguard/ci.yaml` or `.chainguard/ci/` instead. Sessions don't read `.chainguard/ci/env/develop.yaml`, which is an environment like any other that a check can name with `environment: develop`. A pull request that changes `.chainguard/develop.yaml` also gets a **Chainguard Checks / develop-environment** check, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
+
+Most examples on this page use the single-file layout. The keys inside each check are the same in both.
+
+## A complete example
+
+The following `.chainguard/ci.yaml` file uses the most common options:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [bash, git, go, make]
+checks:
+  vet:
+    cmd: go vet ./...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  test:
+    cmd: go test ./...
+    timeout: 15m
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  lint:
+    script: |
+      gofmt -l . > /tmp/unformatted
+      cat /tmp/unformatted
+      test ! -s /tmp/unformatted
+    advisory: true
+  build:
+    steps:
+      - name: compile
+        cmd: [go, build, ./...]
+      - name: package
+        cmd: make dist
+    needs: [test]
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+  docs:
+    cmd: make docs
+    when:
+      changed: ["docs/**"]
+```
+
+This file installs four packages in every check's VM and defines five checks:
+
+- `vet` runs `go vet`, and can reach the Go module proxy and checksum database to download modules.
+- `test` runs `go test`, can reach the same hosts, and fails if it runs longer than 15 minutes.
+- `lint` runs a shell script. Because it's advisory, it reports its result but never blocks merging.
+- `build` runs two steps in order, can reach the Go module hosts, and runs only after `test` passes.
+- `docs` runs only when a pull request changes a file under `docs/`.
+
+The rest of this page describes each option.
+
+## Top-level keys {#top-level-keys}
+
+A configuration file has the following top-level keys:
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| `version` | Yes | The format version. Must be `1`. |
+| `environment` | Yes, in the single-file layout | The packages and variables every check in the file gets. Refer to [Environment](#environment). |
+| `resources` | No | The default resource class for the file's checks. Refer to [Resources](#resources). |
+| `checks` | Yes | A map from each check's name to its definition. |
+| `plans` | No | Named commands that compute a check's `foreach` variations during the run. Refer to [Compute variations during a run](/chainguard/checks/variations-services-caches/#compute-variations-during-a-run). |
+| `requested_checks_agent` | No | `off` (default), `comment`, or `agent`. Turns on an agent that requests checks for each pull request. Refer to [Let an agent request checks](/chainguard/checks/github/#let-an-agent-request-checks). |
+
+Chainguard Checks refuses any other top-level key with an error that names the key. That includes GitHub Actions keys such as `jobs`, `on`, and `name`.
+
+## Environment {#environment}
+
+The `environment` key sets up the VM each check runs in:
+
+| Key | Description |
+| --- | ----------- |
+| `packages` | A list of packages to install, such as `go` or `nodejs-22`. |
+| `vars` | A map of environment variables to set for every check. |
+| `services` | Services, such as a database, to start in each check's VM before the check's commands run. Refer to [Services](/chainguard/checks/variations-services-caches/#services). |
+| `caches` | Caches that carry build output from earlier runs into each check's VM. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
+
+Every check's VM starts from a minimal base with BusyBox, GNU tar, and nothing else. Anything a check needs, including `git`, `bash`, `make`, `curl`, or a language toolchain, must be in `packages`. Package names often include a version, such as `go-1.24`, `nodejs-22`, or `python-3.13`. To pin a more specific version, add a version constraint after a tilde, such as `go-1.24~1.24.3`.
+
+To find a package's name, use the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages.
+
+In the directory layout, a check can name a different environment with its own `environment` key, either by name, such as `environment: node` for `env/node.yaml`, or as an inline mapping.
+
+## Check keys
+
+Each entry under `checks` defines one check. The key is the check's name. A check must have exactly one of `cmd`, `script`, or `steps`, and can have any of the other keys:
+
+| Key | Description |
+| --- | ----------- |
+| `cmd` | A command to run without a shell. Refer to [Commands](#commands). |
+| `script` | A script to run with a shell. Refer to [Commands](#commands). |
+| `shell` | The shell for `script`. Defaults to `sh -e`. A check with `cmd` or `steps` can't set it, but each step can set its own. Refer to [The script key](#the-script-key). |
+| `steps` | A list of commands to run in order. Refer to [Commands](#commands). |
+| `network` | The hosts the check can reach. Refer to [Network access](#network-access). Defaults to no network access. |
+| `timeout` | How long the check can run, as a duration such as `10m` or `1h30m`. Refer to [Timeouts](#timeouts). |
+| `needs` | A list of checks in the same file that must pass before this one runs. Refer to [Advisory checks](#advisory-checks) and [Run on request](#run-on-request) for limits. |
+| `when` | Conditions under which the check runs. Refer to [Conditions](#conditions). |
+| `trigger` | `presubmit`, `postsubmit`, or a list of both. Refer to [Triggers](#triggers). Defaults to `presubmit`. |
+| `advisory` | If `true`, the check reports its result but never blocks merging. Defaults to `false`. |
+| `description` | What the check covers and when it's worth running. Refer to [Describe a check](#describe-a-check). |
+| `docs` | The name of a Markdown file beside the check file that explains the check in more detail. Directory layout only. Refer to [Describe a check](#describe-a-check). |
+| `vars` | A map of environment variables for this check. |
+| `workdir` | The directory to run in, relative to the repository's root. Defaults to the root, which is `/work` in the VM. |
+| `inputs` | Files to add to the check's VM from another check's output or from another repository. Refer to [Inputs and outputs](/chainguard/checks/variations-services-caches/#inputs-and-outputs). |
+| `outputs` | Directories that the check produces for later checks in the same run. Refer to [Inputs and outputs](/chainguard/checks/variations-services-caches/#inputs-and-outputs). |
+| `resources` | The check's resource class. Refer to [Resources](#resources). |
+| `foreach` | A list of variations to run the check once for each, such as one per package directory, or `plans.<name>` to compute the variations during the run. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `parallelism` | How many `foreach` variations can run at once. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `user` | The name of an account to run the check's commands as, such as `build`. Defaults to `root`. Refer to [Run as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
+| `identity` | A workload identity for the check. Refer to [Credentials](#credentials). |
+
+Chainguard Checks refuses keys it doesn't recognize, including GitHub Actions keys such as `runs-on`, `env`, `if`, and `timeout-minutes`. For some of them, such as `if` and `on`, the error names the key to use instead. Refer to [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/) for a full mapping.
+
+### Check names {#check-names}
+
+A check's name can use letters, digits, spaces, `_`, and `-`, and must start and end with a letter or digit. It can't contain `.` or `/`. Two checks in the same file can't have names that differ only in case, because [request labels](#run-on-request) ignore case.
+
+A check's full name joins its file's name and its own, such as `ci/test` or `go/test`. Each `foreach` variation's full name adds the variation's name, such as `go/test/api`. Every full name can be up to 128 characters. If a name has a character that isn't allowed, the error says only that the name must fit the 128-character limit, so check its characters too.
+
+## Commands
+
+A check runs a single command, a script, or a list of steps.
+
+### The cmd key {#the-cmd-key}
+
+The `cmd` key runs one command without a shell. You can write it as a string or as a list of arguments:
+
+```yaml
+checks:
+  test:
+    cmd: go test ./...
+  test-short:
+    cmd: [go, test, -short, ./...]
+```
+
+Chainguard Checks splits a string `cmd` into arguments on whitespace and runs it without a shell. Quotes and backslashes work the way they do in a shell, so `cmd: find . -name '*.go'` passes `*.go` to `find` as it is. Chainguard Checks refuses a string `cmd` that contains any of the following:
+
+- An unquoted `|`, `&`, `;`, `<`, `>`, `(`, `)`, `$`, `` ` ``, `*`, `?`, `[`, `]`, `{`, or `}`.
+- An argument that starts with an unquoted `#` or `~`.
+- A `$` or a backtick inside double quotes.
+
+For pipes, redirection, variables, or globs, use `script`, or run a shell yourself, such as `cmd: [sh, -c, "go vet ./... && go test ./..."]`.
+
+### The script key {#the-script-key}
+
+The `script` key runs a script with a shell. By default, the shell is `sh -e`, so the script stops at the first command that fails:
+
+```yaml
+checks:
+  fmt:
+    script: |
+      gofmt -l . > /tmp/unformatted
+      if [ -s /tmp/unformatted ]; then
+        cat /tmp/unformatted
+        exit 1
+      fi
+```
+
+To use a different interpreter, set `shell` to the interpreter's package name, such as `bash`, `python-3.13`, or `nodejs-22`, and list that same package in the environment. The BusyBox `sh` is always available. Chainguard Checks passes the whole script to the interpreter as one argument:
+
+| Interpreter | Runs the script with |
+| ----------- | -------------------- |
+| BusyBox `sh` (default) | `sh -e -c` |
+| Bash | `bash -e -c` |
+| Python | `python3 -c` |
+| Node.js | `node -e` |
+| Ruby | `ruby -e` |
+| Perl | `perl -e` |
+
+Neither `sh -e` nor `bash -e` sets `pipefail`, so a pipeline succeeds whenever its last command does. For example, `go test ./... | tee test.log` passes even when tests fail. To make a pipeline fail when any of its commands fails, set `shell: bash` and start the script with `set -o pipefail`, or use a `cmd` such as `[bash, -eo, pipefail, -c, "go test ./... | tee test.log"]`. Either way, list `bash` in the environment's packages.
+
+### The steps key
+
+The `steps` key runs a list of commands in order, in the same VM, and stops at the first one that fails. Each step has a `cmd` or a `script`, and can also have the following keys:
+
+| Key | Description |
+| --- | ----------- |
+| `name` | A name that appears in the check's results. |
+| `shell` | The shell for the step's `script`, the same as a check's `shell`. |
+| `id` | An identifier for the step in the check's logs. |
+
+For example:
+
+```yaml
+checks:
+  build:
+    steps:
+      - name: compile
+        cmd: go build ./...
+      - name: test
+        cmd: go test ./...
+      - name: smoke test
+        script: ./bin/app --version | grep -q "app"
+```
+
+All steps share the check's network access and timeout.
+
+## Network access {#network-access}
+
+A check has no network access unless it has a `network` key. To let a check reach specific hosts, list them under `network.egress`:
+
+```yaml
+checks:
+  test:
+    cmd: npm test
+    network:
+      egress:
+        - registry.npmjs.org
+        - "*.githubusercontent.com"
+      policy: deny
+```
+
+Each entry in `egress` can be one of the following:
+
+- A hostname, such as `registry.npmjs.org`, in lowercase and without a scheme or port.
+- A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard can't cover a whole top-level domain, such as `*.com`.
+- An IPv4 address or CIDR range. IPv6 isn't supported.
+- `*`, which allows any host.
+
+An entry with a scheme or a port, such as `https://registry.npmjs.org` or `registry.npmjs.org:443`, passes validation but matches nothing. If you include a `network` key, `egress` must list at least one entry. To keep a check off the network, leave out `network` entirely.
+
+The `policy` key controls what happens when the check tries to reach a host that isn't listed:
+
+| Policy | What happens |
+| ------ | ------------ |
+| `deny` (default) | Chainguard Checks refuses the connection, and the check keeps running. |
+| `destroy` | Chainguard Checks stops the check's VM, and the check fails. |
+
+Whatever a check allows, it can never reach cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+To see which hosts a check tried to reach and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+
+## Conditions {#conditions}
+
+The `when` key limits when a check runs. A check without `when` runs on every pull request. An empty `when` makes the configuration invalid, so to run a check every time, leave out `when`.
+
+### Run when files change {#run-when-files-change}
+
+To run a check only when a pull request changes certain files, list glob patterns under `when.changed`:
+
+```yaml
+checks:
+  docs:
+    cmd: make docs
+    when:
+      changed: ["docs/**", "mkdocs.yml"]
+```
+
+`changed` must list at least one pattern. Patterns match file paths as follows:
+
+- A pattern is relative to the repository's root, such as `docs/**` or `cmd/*/main.go`. A pattern that starts with `/` or `./` never matches.
+- `*` matches any characters except `/`, and `?` matches any one character except `/`. A set in brackets, such as `[abc]` or `[a-z]`, matches one character from the set.
+- `**` matches any number of directories, including none, but only as a whole segment between slashes. `docs/**` matches every file under `docs/`, and `**/*.go` matches every Go file in the repository. `**.go` works like `*.go`, so it matches only Go files at the root.
+- `!`, braces such as `{a,b}`, and `+` have no special meaning, and there's no `when.unchanged`, so you can't exclude files. List the paths that should run the check instead.
+
+`chainctl checks validate` refuses a malformed pattern, such as one with an unclosed `[`, but not a pattern that can never match, such as `/docs/**`.
+
+For a pull request, Chainguard Checks compares the pull request's changes against its base branch. For a run after merging, it compares the new commit against its first parent, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
+
+### Run when an expression is true {#run-when-an-expression-is-true}
+
+To run a check based on the pull request, write a [Common Expression Language (CEL)](https://cel.dev/) expression under `when.expr`. The expression can read the following fields:
+
+| Field | Description |
+| ----- | ----------- |
+| `context.trigger` | The run's trigger. Compare it to the unquoted constants `presubmit` and `postsubmit`, such as `context.trigger == postsubmit`. |
+| `context.github.pull_request.number` | The pull request's number. |
+| `context.github.pull_request.title` | The pull request's title. |
+| `context.github.pull_request.body` | The pull request's description as it was when the run started, or an empty string if it has none. |
+| `context.github.pull_request.html_url` | The pull request's URL on GitHub. |
+| `context.github.pull_request.draft` | Whether the pull request is a draft. |
+| `context.github.pull_request.labels` | The pull request's labels. |
+| `context.github.pull_request.head_ref` | The pull request's branch name. |
+| `context.github.pull_request.head_repository` | The repository the pull request's branch is in, which differs from yours for a pull request from a fork. |
+| `context.github.pull_request.author.login` | The GitHub login of the pull request's author. |
+| `context.github.pull_request.author.id` | The numeric GitHub account ID of the pull request's author. |
+| `context.github.pull_request.author.type` | The type of the author's GitHub account: `User`, `Bot`, or `Organization`. |
+
+For example, this check skips draft pull requests:
+
+```yaml
+checks:
+  e2e:
+    cmd: make e2e
+    when:
+      expr: "!context.github.pull_request.draft"
+```
+
+A run after merging has no pull request, and reading a `context.github.pull_request` field in that run is an error that fails the run. For a check that also runs after merging, guard the field with `has()`, such as `expr: "!has(context.github.pull_request) || !context.github.pull_request.draft"`.
+
+If you set both `changed` and `expr`, the check runs only when both are true. To combine changed files with other conditions in other ways, call `changed()` in the expression with a list of patterns, which match files the same way as `when.changed`. For example, this check runs when a pull request changes a file under `docs/` or has the `docs` label:
+
+```yaml
+checks:
+  docs:
+    cmd: make docs
+    when:
+      expr: 'changed(["docs/**"]) || "docs" in context.github.pull_request.labels'
+```
+
+An expression can be up to 2,048 characters, and Chainguard Checks refuses one whose estimated cost to evaluate is over its limit.
+
+Chainguard Checks evaluates conditions when it creates a run, against the pull request as it is then. If the run passes while a condition skipped a check, and you then change the pull request, such as its title or labels, the commit runs again. A passed run of a pull request that changes your Chainguard Checks configuration also runs again after such a change, whether or not a condition skipped a check. Refer to [Reruns when a pull request changes](/chainguard/checks/github/#reruns-when-a-pull-request-changes).
+
+A pull request's author sets its `draft`, `title`, `head_ref`, and `body` fields, and anyone who can label it sets its `labels`. If a condition on one of these fields skips a blocking check, those people decide whether the check runs, and the summary check can pass without it. `chainctl checks explain` adds a note to each blocking check whose condition reads one of these fields.
+
+### Run on request {#run-on-request}
+
+A check with `when: {requested: true}` runs only when someone asks for it. Use this for slow or expensive checks that most pull requests don't need:
+
+```yaml
+checks:
+  e2e-full:
+    cmd: make e2e-full
+    description: The full end-to-end suite against every supported database. Run it for changes to the storage layer or to database migrations.
+    when:
+      requested: true
+```
+
+A check that runs on request follows these rules:
+
+- It must have a [`description`](#describe-a-check) that says what it covers and when it's worth running.
+- `requested` can only be `true`, and the same `when` can't also set `changed` or `expr`.
+- Its name can be at most 43 characters, so that its label fits GitHub's 50-character limit. When two files in the directory layout have a check with the same name, the label includes the file's name, such as `ci/run:go/e2e-full`, and the limit counts the file's name and the `/` after it too.
+- A check that doesn't run on request can't need one that does, because it would then run only when the other check is requested.
+
+To run the check on a pull request, add the label `ci/run:<check>`, such as `ci/run:e2e-full`. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request) for details. A run after merging never runs a check on request.
+
+## Describe a check {#describe-a-check}
+
+A check's `description` says what the check covers and when it's worth running, in up to 1,024 characters.
+
+In the directory layout, a check can also point to a longer explanation with `docs`, which names a Markdown file beside the check file:
+
+```yaml {title=".chainguard/ci/e2e.yaml"}
+version: 1
+checks:
+  e2e-full:
+    cmd: make e2e-full
+    description: The full end-to-end suite against every supported database. Run it for changes to the storage layer or to database migrations.
+    docs: e2e-full.md
+    when:
+      requested: true
+```
+
+The file, `.chainguard/ci/e2e-full.md` in this example, must be directly in `.chainguard/ci/` and can be up to 1 MiB. Its name must end in `.md`, can use letters, digits, `.`, `_`, and `-`, and can be up to 128 bytes. If the file is missing or larger than 1 MiB, the configuration is invalid. Set `docs` on the check, not on a `foreach` entry. The single-file layout doesn't support `docs`.
+
+If you turn on `requested_checks_agent`, the agent reads each check's `description` and `docs` to decide which checks to request. Refer to [Let an agent request checks](/chainguard/checks/github/#let-an-agent-request-checks).
+
+## Advisory checks {#advisory-checks}
+
+A check with `advisory: true` reports its real result on the pull request, with `(advisory)` in its title, but never makes the **Chainguard Checks (presubmit)** summary check fail. Use it for a check you want to see but not enforce yet, such as a new linter.
+
+A blocking check can't need an advisory check, either with `needs` or by taking an [input](/chainguard/checks/variations-services-caches/#pass-files-between-checks) from it. If the advisory check failed, the blocking check wouldn't run, and the summary check would fail. Make both checks advisory, or both blocking.
+
+## Triggers
+
+The `trigger` key sets which events run a check:
+
+| Trigger | When the check runs |
+| ------- | ------------------- |
+| `presubmit` (default) | On each pull request, against the commit GitHub would create by merging it. |
+| `postsubmit` | On each new commit on your default branch, after a change merges. |
+
+To run a check at both times, list both:
+
+```yaml
+checks:
+  test:
+    cmd: go test ./...
+    trigger: [presubmit, postsubmit]
+```
+
+Postsubmit results appear on the commit on your default branch, in a summary check named **Chainguard Checks (postsubmit)**.
+
+## Timeouts {#timeouts}
+
+By default, a check has no time limit of its own. A whole run can take up to 50 minutes, and a check still running at that point fails. To fail a check sooner, set `timeout` to a duration, such as `10m` or `1h`.
+
+## Resources {#resources}
+
+By default, each check's VM has 2 vCPUs, 8 GB of memory, and a 14 GB disk. To give a check more, set `resources` to one of the following classes:
+
+| Class | vCPUs | Memory | Disk |
+| ----- | ----- | ------ | ---- |
+| `medium` | 4 | 16 GB | 40 GB |
+| `large` | 8 | 32 GB | 40 GB |
+| `xlarge` | 16 | 64 GB | 40 GB |
+
+On pull requests, a class without a suffix can run on either CPU architecture, and usually runs on arm64. Each built-in class also has `-amd64` and `-arm64` variants, such as `large-amd64`, that pin the architecture. With the built-in classes, use an `-amd64` class for a check that needs x86-64, such as one that downloads an x86-64 binary.
+
+Chainguard Checks takes each check's class from the first of these that sets `resources`: the `foreach` entry, the check, the check's file, and `env/default.yaml` in the directory layout. If none of them sets `resources`, the check gets the default class.
+
+Your organization's allowance sets the largest class you can use. With the Starter allowance, the largest is `medium`. If any check in a run asks for `large` or `xlarge`, the whole run fails before any check starts, and the summary check shows **Run failed**.
+
+In each check's VM, `/tmp` is held in memory, and can hold up to a quarter of the VM's memory: about 2 GB with the built-in default, and 4 GB with `medium`. Files in `/tmp` use memory that the check's processes would otherwise have. Put large files, such as a virtual environment or build output, under `/var/tmp` or `/work`, which are on the VM's disk.
+
+### Define your own resource classes {#define-your-own-resource-classes}
+
+In the directory layout, a `.chainguard/ci/resources.yaml` file replaces the built-in classes with your own:
+
+```yaml {title=".chainguard/ci/resources.yaml"}
+version: 1
+resource_classes:
+  default:
+    cpus: 2
+    memory: 8Gi
+    disk: 20Gi
+  big:
+    cpus: 4
+    memory: 16Gi
+    disk: 40Gi
+  big-amd64:
+    cpus: 4
+    memory: 16Gi
+    disk: 40Gi
+    platform:
+      os: linux
+      architecture: amd64
+```
+
+A check selects one of these classes by name, such as `resources: big`. The file follows these rules:
+
+- It must define `default`, which a check gets when nothing sets its `resources`.
+- It replaces the built-in classes, so `medium`, `large`, `xlarge`, and their `-amd64` and `-arm64` variants aren't available unless you define classes with those names.
+- Each class needs `cpus`. `memory` and `disk` are whole numbers of `Mi` or `Gi`, such as `512Mi` or `16Gi`. A class without `memory` gets 4 GiB, and a class without `disk` gets 5 GiB.
+- Only `platform` pins a class to an architecture, with `os: linux` and `architecture` set to `amd64` or `arm64`. A class without `platform` can run on either architecture, whatever its name.
+- Class names use lowercase letters, digits, and `-`, start with a letter, and can be up to 63 characters.
+- The single-file layout doesn't support `resources.yaml`. A `.chainguard/ci/resources.yaml` file beside `.chainguard/ci.yaml` makes the configuration invalid.
+
+Your organization's allowance limits your own classes too. If any check in a run asks for more vCPUs, memory, or disk than the allowance allows, the whole run fails before any check starts.
+
+## Environment variables {#environment-variables}
+
+Set environment variables with `vars`, either in `environment` for every check or on a single check:
+
+```yaml
+environment:
+  packages: [go]
+  vars:
+    CGO_ENABLED: "0"
+checks:
+  test:
+    cmd: go test ./...
+    vars:
+      GOFLAGS: -tags=integration
+```
+
+In a check's `vars` or a `foreach` entry's `vars`, but not in `environment.vars`, a variable's value can also come from the pull request, with a binding such as `"${{ context.github.pull_request.number }}"`. The binding must be the variable's whole value, and it reads the same fields as [`when.expr`](#run-when-an-expression-is-true). Chainguard Checks fills in bindings when it creates the run:
+
+- A list, such as `labels`, becomes a JSON array, such as `["bug","docs"]`.
+- `context.trigger` becomes `presubmit` or `postsubmit`.
+- A run after merging has no pull request, so a binding to a `context.github.pull_request` field leaves the variable unset. To tell an unset variable from an empty one in a script, test it with `${VAR+set}`.
+
+A binding to `context.github.pull_request.body` works as follows:
+
+- It sets the variable to the pull request's description as it was when the run started, line breaks included.
+- Only the check's commands get the variable, not its [services](/chainguard/checks/variations-services-caches/#services).
+- To pick up an edited description, use **Re-run** or push a new commit.
+- The variable can't be `CHAINGUARD_BASE_REVISION`, `GOOGLE_APPLICATION_CREDENTIALS`, `GITHUB_TOKEN`, or `GOFLAGS`, which Chainguard Checks can set itself.
+- The description can be up to 65,536 bytes, and can't contain a NUL character. A character outside ASCII takes more than one byte.
+
+If a binding breaks these rules, the run fails, as described in [The summary check says the run couldn't be created or failed](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed).
+
+Chainguard Checks doesn't set `CI` or any `GITHUB_` variables. When a run has a base commit, Chainguard Checks sets `CHAINGUARD_BASE_REVISION` to that commit's SHA. For a pull request, that's the base branch commit that GitHub merged the pull request into. For a run after merging, it's the new commit's first parent. Your repository's history is in the VM, so with `git` in your packages, a check can compare against it, such as with `git diff "$CHAINGUARD_BASE_REVISION"`.
+
+## Report errors and annotations {#report-errors-and-annotations}
+
+A check can print special lines to its output that Chainguard Checks turns into annotations and summaries on the pull request, or uses to protect its log:
+
+| Line | What it does |
+| ---- | ------------ |
+| `::error file=main.go,line=12::message` | Reports an error as an annotation on that file and line. |
+| `::warning file=main.go,line=12::message` | Reports a warning as an annotation on that file and line. |
+| `::notice file=main.go,line=12::message` | Reports a notice as an annotation on that file and line. |
+| `::sandbox-summary::`, then `::end-sandbox-summary::` | Adds the Markdown between the two lines to the check's output on GitHub. Refer to [Add a Markdown summary](#add-a-markdown-summary). |
+| `::add-mask::value` | Hides `value` wherever it appears later in the check's log. |
+
+An `::error`, `::warning`, or `::notice` line with a `file` becomes an annotation at that level. Without a `file`, the line appears in the check's output only. The `file` path must be relative to the repository's root, not to the check's `workdir`. A line can also set `endLine`, `col`, `endColumn`, and `title`. Without `line`, the annotation goes on line 1 of the file. Columns apply only to an annotation on a single line.
+
+Chainguard Checks reads these lines only when `::` starts the line, and only from the last 1 MiB of a check's log, so a check with a long log should print them near the end. Chainguard Checks shows up to 50 annotations for each check, and annotations don't change whether a check passes.
+
+The annotation lines use the same format as GitHub Actions workflow commands, so many linters that support GitHub Actions output work without changes.
+
+### Add a Markdown summary {#add-a-markdown-summary}
+
+In place of the `GITHUB_STEP_SUMMARY` file in GitHub Actions, a check can add a summary in Markdown to its output on GitHub, such as a list of the problems it found. Print the summary between a `::sandbox-summary::` line and a `::end-sandbox-summary::` line:
+
+```yaml
+checks:
+  fmt:
+    script: |
+      gofmt -l . > /tmp/unformatted
+      if [ -s /tmp/unformatted ]; then
+        echo '::sandbox-summary::'
+        echo 'These files need `gofmt`:'
+        echo
+        sed 's/^/- /' /tmp/unformatted
+        echo '::end-sandbox-summary::'
+        exit 1
+      fi
+```
+
+A summary works as follows:
+
+- Each marker must be on a line of its own. The summary appears in the check's output, above the end of the check's log.
+- If a check prints several summaries, they appear together, in the order the check printed them.
+- A summary ends with the step that prints it. If the step ends before `::end-sandbox-summary::`, the summary appears as far as it went, with a note.
+- HTML appears as text, except the `<details>`, `<summary>`, and `<br>` tags.
+- Links and images stay only if they point into your repository on GitHub, under `https://github.com/<owner>/<repo>/`, or to the run pages that a check's **Details** link opens. Other links become plain text.
+- An `@` mention in a summary doesn't notify anyone.
+- GitHub limits the size of a check's output, so Chainguard Checks cuts a summary longer than about 53 KiB and links to the full log. In a check with `foreach`, each variation's summary can be up to 8 KiB.
+
+## Credentials {#credentials}
+
+A check runs without credentials by default. Its `/work` directory holds your repository's tracked files and history at the commit it tests, so most checks need none. Submodule directories are empty, and files that Git LFS tracks hold their pointer files instead of their content. During the beta, a check gets no GitHub credential, so it can't fetch from private GitHub repositories, such as private Go modules or submodules, or private Git LFS content. To add files from a public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
+
+A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well. During the beta, contact your Chainguard account team to set them up, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
+
+Unless `identities.yaml` on your default branch has a `trust` section, any open pull request can get an identity, including one from a fork. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) for the file's format, which pull requests get an identity, and how to limit them.
+
+## Validate your configuration
+
+To find mistakes in your configuration without running anything, run `chainctl checks validate .` from your repository's directory. To see how Chainguard Checks interprets your configuration, run `chainctl checks explain`. Refer to [Validate your configuration offline](/chainguard/checks/run-checks/#validate-your-configuration-offline) for details.
+
+## More examples
+
+### Node.js
+
+This file installs Node.js 22 and npm, installs dependencies, and runs the tests:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [nodejs-22, npm]
+checks:
+  test:
+    steps:
+      - name: install
+        cmd: npm ci
+      - name: test
+        cmd: npm test
+    network:
+      egress: [registry.npmjs.org]
+```
+
+The `install` and `test` steps run in the same VM, so the packages that `npm ci` installs are available to `npm test`. If your project uses packages from another registry, add that registry's host to `egress`.
+
+### Python
+
+This file installs Python 3.13 and pip, installs the project's requirements, and runs `pytest`:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [python-3.13, py3.13-pip]
+checks:
+  test:
+    script: |
+      python3 -m venv /var/tmp/venv
+      . /var/tmp/venv/bin/activate
+      pip install -r requirements.txt
+      pytest
+    network:
+      egress: [pypi.org, files.pythonhosted.org]
+```
+
+The script creates a virtual environment so that `pip` installs packages for the check alone. It puts the environment in `/var/tmp`, on the VM's disk, because [`/tmp` is held in memory](#resources). Both `pypi.org` and `files.pythonhosted.org` are in `egress`, because pip reads the package index from the first and downloads files from the second.
+
+---
+
+### Inspect and run checks with chainctl
+_Path: chainguard/checks/inspect-and-run-checks.md_
+
+The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
+
+These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
+
+## Inspect pull request runs {#inspect-pull-request-runs}
+
+To check a pull request's latest run, pass the pull request to `chainctl checks status`. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL, and capitalize the owner and repository the same way GitHub does. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+The command shows the pull request's newest run and each check's result. It exits with `0` while the run is in progress, so to wait until the run finishes, add `--watch`. After you push a commit or start a rerun, the command shows the previous run until Chainguard Checks creates the new one. For its exit codes and JSON output, refer to [chainctl checks status](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-status).
+
+To see why a pull request's checks failed, run `chainctl checks failures`:
+
+```shell
+chainctl checks failures "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+```
+
+For each failed check, the command shows the step that failed, with its exit code and command, and the end of the failing output, quoted from the check's log. To show one check, add `--check` with its name. To also list the checks that didn't run, and why, add `--not-run`. The output stays within a size limit that `--budget` sets in bytes: the command shows as many failed checks in full as fit, then one line for each of the rest.
+
+To print a check's log, pass the pull request and the check's name to `chainctl checks logs`:
+
+```shell
+chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --parent $ORGANIZATION
+```
+
+To keep reading a running check's output until it finishes, add `--follow`. To show only a long log's error lines, with three lines around each, add `--errors -C 3`. For other ways to read part of a log, refer to [chainctl checks logs](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-logs).
+
+To see the programs that each step of a failed check started, and which one most likely failed, run `chainctl checks trace` with `--failed`:
+
+```shell
+chainctl checks trace "$OWNER/$REPO#$NUMBER" --check test --failed --parent $ORGANIZATION
+```
+
+These commands also work in a Workspaces session, where `chainctl` acts as you. During the beta, they can't find a run by its commit, so pass the pull request, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
+
+For a run after merging, pass the run's ID instead, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
+
+## Run checks on a pushed commit
+
+To run your checks in fresh VMs without opening a pull request, push your commit and run `chainctl checks run` in your checkout. Unlike `run-ci` in a [Workspaces session](/chainguard/checks/run-checks/), it runs only what you pushed, not uncommitted changes. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks run . --watch --parent $ORGANIZATION
+```
+
+The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+
+The command prints the run's name, followed by its checks. With `--watch`, it waits until the run finishes, and exits with `1` if a blocking check doesn't pass. To run only one check and the checks it `needs`, add `--check` with its name. To include a check that runs only on request, name it with `--check`, or add `--request` with its name, as a `ci/run:` label does on a pull request. For every flag, refer to the [`chainctl checks run` reference](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run).
+
+A run you start this way differs from a pull request run in the following ways:
+
+- It's for your information only. It doesn't appear on GitHub and never counts as a pull request's or commit's result, but it uses your organization's Checks allowance like any other run.
+- It runs only checks that run on pull requests, so it skips checks whose `trigger` is only `postsubmit`.
+- Its `when.changed` conditions compare the commit with where it branched from the remote's default branch, or with its parent if the commit is on that branch. To compare it with another commit, add `--base` with that commit.
+- It has no pull request, trigger, or labels. If a check's `when` expression reads any `context` field, the command names the check and doesn't start a run. To run other checks, select one with `--check`.
+- A check with a workload `identity` fails, because only pull request runs and runs after merging get identities.
+
+In a Starter organization, don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results, so open a pull request instead.
+
+### Read a run you started
+
+To read a run you started, pass its ID, or the start of it, to `chainctl checks status` or the other commands that read runs. The ID is the part after `/runs/` in the run's name. Replace `$RUN_ID` with the ID:
+
+```shell
+chainctl checks status $RUN_ID --watch --parent $ORGANIZATION
+```
+
+Don't pass `.` or the commit's SHA instead. Because the run never counts as the commit's result, `status` reports that the platform created no run for the commit.
+
+To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
+
+## See check history {#see-check-history}
+
+To find the checks that take the most time or fail most often, use `chainctl checks top`, `chainctl checks trends`, and `chainctl checks stats`.
+
+To rank a repository's checks by their total runtime over the past week, run `chainctl checks top`. Replace `$OWNER/$REPO` with the repository, such as `acme/app`, and `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl checks top --repo $OWNER/$REPO --since 7d --parent $ORGANIZATION
+```
+
+To rank the checks by failure rate instead, add `--by failures`. For the other rankings, the time windows you can read, and how the command counts failures, refer to [chainctl checks top](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-top).
+
+To see how long a check takes, hour by hour, pass its name to `chainctl checks trends`:
+
+```shell
+chainctl checks trends --repo $OWNER/$REPO --check test --parent $ORGANIZATION
+```
+
+For each hour, the command shows the check's median, 95th percentile, and 99th percentile durations. Only the 10 checks with the most total runtime in the window have trends. For more, refer to [chainctl checks trends](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-trends).
+
+To count the outcomes of your organization's recent runs, run `chainctl checks stats`:
+
+```shell
+chainctl checks stats --parent $ORGANIZATION
+```
+
+The command prints a table of each repository's runs by outcome, and a table of each check's results by outcome, with the check's failure percentage and median duration. For what each column counts, refer to [chainctl checks stats](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-stats).
+
+---
+
+### chainctl checks command reference
+_Path: chainguard/checks/chainctl-checks-reference.md_
+
+The `chainctl checks` commands read your pull requests' results from your terminal, start and rerun checks, summarize your checks' history, and validate your configuration. This page lists each command's arguments, flags, exit codes, and JSON output. For examples of the commands in use, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
+
+{{% blurb/hidden-chainctl-commands %}}
+
+For example, run `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+
+The examples on this page use `acme/app#123` for a pull request. Replace `$ORGANIZATION` with the name of your Chainguard organization.
+
+## Commands
+
+| Command | What it does |
+| ------- | ------------ |
+| [`chainctl checks status`](#chainctl-checks-status) | Shows a run and whether each of its checks passed. |
+| [`chainctl checks logs`](#chainctl-checks-logs) | Prints a run's check logs, or part of one. |
+| [`chainctl checks trace`](#chainctl-checks-trace) | Shows the programs that each step of a check started. |
+| [`chainctl checks events`](#chainctl-checks-events) | Prints the events that one attempt at a check recorded. |
+| [`chainctl checks describe`](#chainctl-checks-describe) | Shows where a run came from, its status, and each of its checks. |
+| [`chainctl checks list`](#chainctl-checks-list) | Lists the runs you started with `chainctl checks run`. |
+| [`chainctl checks run`](#chainctl-checks-run) | Runs a pushed commit's checks without a pull request. |
+| [`chainctl checks rerun`](#chainctl-checks-rerun) | Reruns a pull request's latest run. |
+| [`chainctl checks cancel`](#chainctl-checks-cancel) | Cancels a run you started with `chainctl checks run`. |
+| [`chainctl checks stats`](#chainctl-checks-stats) | Counts the outcomes of your organization's newest runs. |
+| [`chainctl checks top`](#chainctl-checks-top) | Ranks your organization's checks over a window of time. |
+| [`chainctl checks trends`](#chainctl-checks-trends) | Shows how long checks take, hour by hour. |
+| [`chainctl checks validate`](#chainctl-checks-validate) | Finds problems in your configuration without running anything. |
+| [`chainctl checks explain`](#chainctl-checks-explain) | Prints each check as Chainguard Checks reads it. |
+| [`chainctl checks migrate`](#chainctl-checks-migrate) | Drafts a configuration from your GitHub Actions workflows. |
+| [`chainctl checks accept-terms`](#chainctl-checks-accept-terms) | Accepts the terms that Chainguard Checks is offered under. |
+
+## Access and organization
+
+Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+
+If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. It can start runs with `chainctl checks run`, which use your allowance, but can't read any run, so don't use `chainctl checks run` there. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
+
+The `validate`, `explain`, and `migrate --dry` commands read only your local checkout, so they don't need a Chainguard account or network access.
+
+The commands that need a role take `--parent` with the name or ID of your Chainguard organization. To use the name, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, pass the organization's ID. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
+
+## Name a run {#name-a-run}
+
+Most commands that read runs take a `REF` argument that names the run. During the beta, use one of the following forms:
+
+| `REF` | Example | What it names |
+| ----- | ------- | ------------- |
+| A pull request | `acme/app#123`, or `https://github.com/acme/app/pull/123` | The pull request's newest run. Capitalize the owner and repository the same way GitHub does. |
+| A run ID | `$RUN_ID` | One run. For a run after merging, use the whole ID after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. For a run you started with `chainctl checks run`, you can use the start of its ID. |
+
+The `chainctl checks status -o json` command prints the run's full name in its `run` field. Pass that name to the other commands to keep reading the same run after someone pushes to the pull request.
+
+The commands also accept a directory, which stands for the commit checked out there, or a full commit SHA. During the beta, these never find your repositories' runs, so the commands report that the platform created no run, even when checks ran. Without a `REF`, the commands use the current directory, so pass a pull request or a run ID instead. Refer to [chainctl checks status reports no platform verdict](/chainguard/checks/troubleshooting/#chainctl-checks-status-reports-no-platform-verdict).
+
+## Output and exit codes
+
+To print JSON for a script or a coding agent, add `-o json`, which is short for `--output json`. Each command's section describes its JSON.
+
+On a terminal, commands that print your repository's output remove escape sequences and other control characters from it. To keep them, add `--raw` to a command that takes it. When the output isn't a terminal, such as when you pipe it to a file, the commands always print it as it is.
+
+Unless a command's section says otherwise, it exits with `0` when it succeeds and `1` when it fails.
+
+## Inspect runs
+
+### chainctl checks status {#chainctl-checks-status}
+
+Shows a run and whether each of its checks passed.
+
+```
+chainctl checks status REF [--watch]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--watch` | Waits until the run finishes, and prints the checks again each time they change. |
+
+For example, to wait for a pull request's checks to finish:
+
+```shell
+chainctl checks status acme/app#123 --watch --parent $ORGANIZATION
+```
+
+The output marks a failed advisory check as `(advisory)`, and shows the label that runs each check that runs only on request. The command exits with one of the following codes:
+
+| Exit code | Meaning |
+| --------- | ------- |
+| `0` | The run passed, or it's still running and you didn't add `--watch`. |
+| `1` | The run finished and a blocking check didn't pass, or the command failed. |
+| `2` | Chainguard Checks created no run for the `REF`. |
+
+With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `revision`, `pull_request`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
+
+### chainctl checks logs {#chainctl-checks-logs}
+
+Prints the combined standard output and standard error of a run's checks, followed by the errors, warnings, and notices each check reported, as described in [Report errors and annotations](/chainguard/checks/configuration/#report-errors-and-annotations). Without `--check`, the command prints every check's log, each after a line that names the check.
+
+```
+chainctl checks logs REF [--check CHECK [--workflow WORKFLOW]] [--follow] [--attempt N] [--raw]
+chainctl checks logs REF --check CHECK (--errors | --grep RE) [-C N] [--max N] [--offset BYTES]
+chainctl checks logs REF --check CHECK --tail N
+chainctl checks logs REF --check CHECK --offset BYTES [--limit-bytes N]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | Prints only this check's log. |
+| `--workflow` | Names the file of the check, when two files in the directory layout have a check with that name. |
+| `-f`, `--follow` | Keeps reading a running check's output until it finishes, and waits for a check that hasn't started. Without `--check`, it keeps reading until every check in the run finishes. |
+| `--attempt` | Reads this attempt of a check that ran more than once, such as `1` for the first. Needs `--check`. |
+| `--errors` | Shows only error lines, such as `::error` lines and error-level JSON or logfmt lines. If the log has none, the command shows its last 30 lines. |
+| `--grep` | Shows only the lines that match this RE2 regular expression, reading at most 64 MiB of the log. |
+| `-C`, `--context` | With `--errors` or `--grep`, shows this many lines before and after each line. |
+| `--max` | With `--errors` or `--grep`, shows at most this many lines, 10 error lines or 20 matching lines by default. |
+| `--tail` | Shows the log's last lines, up to this number or 16 KiB. |
+| `--offset` | Starts `--errors` or `--grep` at this byte of the log, or reads the log from this byte. |
+| `--limit-bytes` | With `--offset`, reads this many bytes, 64 KiB by default. |
+| `--raw` | Prints the log as it is, including escape sequences, even on a terminal. |
+
+The `--errors`, `--grep`, `--tail`, `--offset`, and `--limit-bytes` flags read part of one check's log, so they need `--check`, and you can't combine them with `--follow`. Use only one of `--errors`, `--grep`, and `--tail` at a time. Each excerpt starts with the byte range it covers. If the command leaves lines out, it says so, and gives the `--offset` to continue from.
+
+For example, to show a failed check's error lines with three lines around each one:
+
+```shell
+chainctl checks logs acme/app#123 --check test --errors -C 3 --parent $ORGANIZATION
+```
+
+The `-o json` flag works only with `--errors`, `--grep`, `--tail`, `--offset`, or `--limit-bytes`. The command then prints one JSON object per line: one with `type` set to `excerpt` for each excerpt, with its `check`, `attempt`, `offset`, `end_offset`, and `text`, followed by one with `type` set to `summary`. The summary says how much the command showed, whether it left anything out, and the `next_offset` to continue from.
+
+### chainctl checks trace
+
+Shows the programs that each step of a check started, with each program's name, how long it ran, and how it exited. Chainguard Checks records program names, never their arguments. For a failed step, the output names the program that most likely failed it. This guess comes from the recorded programs, so it can be wrong, such as when a shell or build tool ignores a program's exit code.
+
+```
+chainctl checks trace REF [--check CHECK [--workflow WORKFLOW]] [--failed]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | Shows only this check's steps. Without it, the command shows every check that has recorded programs. |
+| `--workflow` | Names the file of the check, when two files in the directory layout have a check with that name. |
+| `--failed` | Shows only failed steps, each as the path from the step's command to the program that most likely failed it. |
+
+For example:
+
+```shell
+chainctl checks trace acme/app#123 --check test --failed --parent $ORGANIZATION
+```
+
+A trace marked `INCOMPLETE` lost some of its records, or `chainctl` cut it to fit, so parts of it might be missing. With `-o json`, the command prints one JSON object per line for each step, with the step's `workflow`, `check`, `step` number, and its tree of programs in `document`.
+
+### chainctl checks events
+
+Prints the events that one attempt at a check recorded, in order: when its setup, each of its steps, and each program that a step started began and ended, and any diagnostics attached to them.
+
+```
+chainctl checks events REF --check CHECK [--workflow WORKFLOW] [--attempt N]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | The check to print events for. Required. |
+| `--workflow` | Names the file of the check, when two files in the directory layout have a check with that name. |
+| `--attempt` | Reads this attempt instead of the latest one. |
+
+For example:
+
+```shell
+chainctl checks events acme/app#123 --check test --parent $ORGANIZATION
+```
+
+With `-o json`, the command prints the events as the API returns them.
+
+### chainctl checks describe
+
+Shows where a run came from, its status, and each of its checks.
+
+```
+chainctl checks describe RUN [--steps] [--events]
+```
+
+`RUN` is a run ID, as described in [Name a run](#name-a-run). The command doesn't take a pull request, so to describe a pull request's run, pass the `run` field that `chainctl checks status -o json` prints.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--steps` | Adds each check's steps. |
+| `--events` | Adds the run's events, and how long each attempt spent queued, waiting for a free slot, booting its VM, setting up, and running its steps. |
+
+For example:
+
+```shell
+chainctl checks describe $RUN_ID --events --parent $ORGANIZATION
+```
+
+With `-o json`, the command prints one object with the `run`, its `workflow_runs`, and with `--events`, its `events`, as the API returns them.
+
+### chainctl checks list
+
+Lists the runs you started with `chainctl checks run`, newest first. During the beta, it doesn't list pull request runs or runs after merging.
+
+```
+chainctl checks list [--repo REPO] [--outcome OUTCOME] [--limit N]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--repo` | Lists only runs of this repository, such as `acme/app`. |
+| `--outcome` | Lists only finished runs with this outcome: `passed`, `failed`, `errored`, `dependency_failed`, or `cancelled`. It searches the 500 newest runs. |
+| `--limit` | Lists at most this many runs, 20 by default. |
+
+For example:
+
+```shell
+chainctl checks list --repo acme/app --outcome failed --parent $ORGANIZATION
+```
+
+With `-o json`, the command prints a list with one object for each run, with its `run`, `create_time`, `repository`, `revision`, `phase`, and `outcome`.
+
+## Start and stop runs
+
+### chainctl checks run {#chainctl-checks-run}
+
+Runs a commit's checks in Chainguard Checks without a pull request. The commit must be pushed to GitHub, because Chainguard Checks reads its configuration from there through your organization's link to the repository's GitHub account. To run checks against uncommitted changes, use `chainctl develop check` instead, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+
+```
+chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK]... [--git-remote NAME] [--base REV] [--watch]
+```
+
+`DIR` is a local checkout, the current directory by default. The command runs the commit checked out there, in the github.com repository of its `origin` remote.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | Runs only this check and the checks it `needs`, including a check that runs only on request. |
+| `--workflow` | Names the file of the check, when two files in the directory layout have a check with that name. |
+| `--request` | Runs this check if it runs only on request, as a `ci/run:` label does on a pull request. Repeat the flag for more checks. |
+| `--git-remote` | Uses the github.com repository of this remote instead of `origin`, such as `upstream` in a checkout of a fork. |
+| `--base` | The commit that `when.changed` conditions compare against. By default, it's where the commit branched from the remote's default branch, or the commit's parent if the commit is on that branch. |
+| `--watch` | Waits until the run finishes, and prints the checks again each time they change. |
+
+For example, to run the `test` check and wait for its result:
+
+```shell
+chainctl checks run . --check test --watch --parent $ORGANIZATION
+```
+
+The run doesn't report to GitHub, and it never counts as a pull request's or commit's result. It uses your organization's Checks allowance like any other run. Because the run has no pull request, the command refuses a check whose `when.expr` condition reads the trigger, the pull request, or its labels.
+
+The command prints the run's name, followed by its checks. The run's ID is the part of the name after `/runs/`. Pass the ID to `chainctl checks status`, `cancel`, or the other commands that read runs. With `--watch`, the command exits with `1` when a blocking check doesn't pass. With `-o json`, it prints the run as the API returns it, or with `--watch`, the run's final status in the same form as `chainctl checks status -o json`.
+
+### chainctl checks rerun
+
+Reruns a pull request's latest run after it finishes, the same way as **Re-run** on GitHub. Refer to [Rerun checks](/chainguard/checks/github/#rerun-checks) for what reruns and how to follow the new run.
+
+```
+chainctl checks rerun REF
+```
+
+During the beta, `REF` must be a pull request. The command can't rerun runs after merging or runs you started with `chainctl checks run`. To run checks after merging again, push or merge a new commit to your default branch. To repeat a run you started with `chainctl checks run`, run that command again.
+
+For example:
+
+```shell
+chainctl checks rerun acme/app#123 --parent $ORGANIZATION
+```
+
+With `-o json`, the command prints the run whose checks it reruns, as the API returns it.
+
+### chainctl checks cancel
+
+Cancels a run you started with `chainctl checks run`, stopping its checks that are queued or running. You can't cancel a run that has finished.
+
+```
+chainctl checks cancel RUN
+```
+
+`RUN` is the run's ID, or the start of it. During the beta, you can't cancel pull request runs or runs after merging with `chainctl`. A new push to a pull request cancels the run for the previous push.
+
+For example:
+
+```shell
+chainctl checks cancel $RUN_ID --parent $ORGANIZATION
+```
+
+With `-o json`, the command prints the run as the API returns it.
+
+## Summarize check history
+
+The `stats`, `top`, and `trends` commands summarize your organization's checks across runs. For examples, refer to [See check history](/chainguard/checks/inspect-and-run-checks/#see-check-history).
+
+The `top` and `trends` output starts with the window it read and how current its data is, because the newest attempts can take time to appear. The first time you run either command, `chainctl` might ask you to sign in again. Without a terminal to sign in at, such as in a script, the command fails and prints the `chainctl auth login` command to run first.
+
+### chainctl checks stats {#chainctl-checks-stats}
+
+Counts the outcomes of your organization's newest runs, by repository and by check.
+
+```
+chainctl checks stats [--limit N]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--limit` | Counts at most this many runs, 500 by default and 2,000 at most. |
+
+In the output, `OPEN` counts runs or checks that haven't finished, and `RUNNING` is the part of `OPEN` that's running. `FAIL%` is the share of failed results among the results that passed or failed, so checks that are still running, were canceled or skipped, or couldn't finish don't change it. `CONFIGS` counts the different configurations a repository's runs used.
+
+With `-o json`, the command prints one object with the number of `runs` it read and a `repositories` list. Each repository has its `name`, `counts`, `configs`, and a `checks` list with each check's `name`, `counts`, and `median_seconds`. Each `counts` object has `total`, `passed`, `failed`, `errored`, `dependency_failed`, `not_instantiated`, `cancelled`, `open`, and `running`.
+
+### chainctl checks top {#chainctl-checks-top}
+
+Ranks your organization's checks over a window of time.
+
+```
+chainctl checks top [--repo REPO] [--since DURATION | --from TIME --to TIME] [--by count|runtime|failures] [--limit N]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--by` | Ranks checks by their number of attempts (`count`), their total runtime (`runtime`), or their failure rate (`failures`). The default is `runtime`. Only a check with at least 100 attempts in the window has a failure rate. |
+| `--repo` | Ranks only checks of this repository, such as `acme/app`. |
+| `--since` | Reads the window that ends now and lasts this long, such as `7d` or `36h`. The default is `14d`, and the longest is `31d`. |
+| `--from`, `--to` | Reads the window between these RFC 3339 times, such as `2026-10-01T00:00:00Z`. Use both together, for a window of up to 31 days. |
+| `--limit` | Shows at most this many checks, up to 20, which is the default. |
+
+A check's failure rate is the share of its attempts that failed or couldn't finish, such as by timing out. Attempts include retries, but not attempts whose result Chainguard Checks reused from an earlier run.
+
+With `-o json`, the command prints one object with the `window`, when the data was generated (`generatedAt`), the ranking (`by`), and a `checks` list. Each check has its `job_ref`, `name`, `attempts`, `failed`, `errored`, `runtime_seconds`, and `failure_rate`, which is `null` for a check with fewer than 100 attempts.
+
+### chainctl checks trends {#chainctl-checks-trends}
+
+Shows the median, 95th percentile, and 99th percentile durations of checks for each hour of a window, for the 10 checks with the most total runtime in that window. Hours with no attempts don't appear.
+
+```
+chainctl checks trends [--repo REPO] [--since DURATION | --from TIME --to TIME] [--check CHECK]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--check` | Shows only this check. A check outside the 10 has no trend. |
+| `--repo` | Shows only checks of this repository, such as `acme/app`. |
+| `--since` | Reads the window that ends now and lasts this long, such as `7d` or `36h`. The default is `14d`, and the longest is `31d`. |
+| `--from`, `--to` | Reads the window between these RFC 3339 times. Use both together, for a window of up to 31 days. |
+
+With `-o json`, the command prints one object with the `window`, `generatedAt`, and a `trends` list with one object for each check and hour. Each object has the check's `job_ref`, the `hour`, the number of attempts it measured in `samples`, and the `median_seconds`, `p95_seconds`, and `p99_seconds` durations.
+
+## Set up checks
+
+### chainctl checks validate
+
+Finds problems in your configuration without running anything, the way Chainguard Checks reads it for a pull request, with the differences described in [Validate your configuration offline](/chainguard/checks/run-checks/#validate-your-configuration-offline). That section also shows the command's output.
+
+```
+chainctl checks validate [PATH]
+```
+
+`PATH` is a repository's root directory, a configuration file under its `.chainguard/` directory, or a standalone configuration file. For a file under `.chainguard/`, the command validates its repository's whole configuration. Without `PATH`, the command validates the repository that the current directory is in.
+
+For example, to validate another repository's configuration:
+
+```shell
+chainctl checks validate ../app
+```
+
+The command exits with `1` when the configuration has a problem that Chainguard Checks would refuse. Warnings, such as for a key that Chainguard Checks ignores, don't change the exit code. With `-o json`, the command prints one object with the repository's `root`, the problems that kept it from reading the configuration in `diagnostics`, and a `workflows` list. Each workflow has its `workflow` name, its `path`, its `refusals` and `warnings`, problems with `needs` in `graph`, and `ok`. The object's own `ok` is `true` when the whole configuration is valid.
+
+### chainctl checks explain
+
+Prints each check as Chainguard Checks reads it for a pull request, with its environment, trigger, steps, and resource class, without running anything.
+
+```
+chainctl checks explain [DIR] [--raw]
+```
+
+`DIR` is the repository's root directory. Without it, the command reads the repository that the current directory is in.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--raw` | Prints check names, commands, and other text from your repository as they are, including escape sequences, even on a terminal. |
+
+If Chainguard Checks would refuse the configuration, the command prints each problem with its file and position, and exits with `1`. With `-o json`, it prints the resolved configuration, or the problems when it's refused.
+
+### chainctl checks migrate
+
+Drafts a `.chainguard/ci/migrated.yaml` file from your repository's GitHub Actions workflows that run on `pull_request`. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/) for how to review the draft.
+
+```
+chainctl checks migrate [PATH] --dry
+```
+
+`PATH` is a local clone whose `origin` remote is on github.com, the current directory by default. The `--dry` flag drafts the file and prints it, followed by a list of what the draft carried over, flagged, and ignored, without running anything.
+
+For example, to write the draft to its file:
+
+```shell
+mkdir -p .chainguard/ci
+chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
+```
+
+With `-o json`, the command prints one object with the `repository`, `revision`, the draft's `path`, the number of `jobs` it drafted, the draft itself in `document`, and the `ledger` of what it carried over, flagged, and ignored.
+
+### chainctl checks accept-terms
+
+Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+
+```
+chainctl checks accept-terms [--parent ORGANIZATION] [--yes]
+```
+
+| Flag | Description |
+| ---- | ----------- |
+| `--parent` | The organization to accept the terms for. Without it, the command uses the `default.group` value in your `chainctl` configuration, or asks you to choose. |
+| `--yes` | Accepts the terms without asking, for use without an interactive terminal. By adding it, you agree to the statement in the command's help, which it also prints. |
+
+For example:
+
+```shell
+chainctl checks accept-terms --parent $ORGANIZATION
+```
+
+Running the command again after the organization accepts the terms changes nothing.
+
+---
+
+### Run checks before you push with Chainguard Workspaces
+_Path: chainguard/checks/run-checks.md_
+
+Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
+
+## Run checks in a Workspaces session
+
+Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. To run every check, run `run-ci` with no arguments in the session:
+
+```shell
+run-ci
+```
+
+The command prints each step's output as it runs, followed by a result line. For a repository with `vet` and `test` checks, the output looks similar to the following:
+
+```
+run-ci: checks vet, test (advisory: the gate runs the verdict on push)
+── vet[0]: go vet ./...
+── vet[0]: exit 0 (9.281s)
+── test[0]: go test ./...
+ok      github.com/acme/app    0.004s
+── test[0]: exit 0 (3.843s)
+PASS in 13.131s
+```
+
+Each `──` line names a check and the number of the step within it, counting from `0`, followed by the step's command or its exit code and duration. The first line is a reminder that the pull request's run, not `run-ci`, decides what GitHub shows. When a check declares a different environment from the session's, `run-ci` also prints a note about it.
+
+To run a single check, pass its name:
+
+```shell
+run-ci test
+```
+
+The `run-ci` command exits with one of the following codes, so scripts and agents can act on the result:
+
+| Exit code | Meaning |
+| --------- | ------- |
+| `0` | Every check passed. |
+| `1` | A check failed. The last line names the check and the number of the step that failed. |
+| `2` | The checks couldn't run. The last line says why. |
+
+### How run-ci differs from a pull request run {#how-run-ci-differs-from-a-pull-request-run}
+
+The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. It differs from a pull request run in the following ways:
+
+- It runs the checks that have commands, in the order they appear in your configuration, and stops at the first check that fails, including an advisory check.
+- It skips checks that need something only a pull request run provides: a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs`. It prints a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. Those checks run only on the pull request, so a pass from `run-ci` doesn't cover them. If you name a skipped check, as in `run-ci deploy`, or if it skips every check, `run-ci` exits with `2`.
+- It runs checks as the session's user, not as each check's `user`. Sessions run as `root` unless their environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`. In a `root` session, every check runs as `root`. A session that runs as another user runs only the checks with that `user`, and skips the rest the same way.
+- It ignores `needs`, `when` conditions, `trigger`, and `timeout`, so it also runs checks that a pull request would skip. A check with `foreach` runs once for each variation, and each one appears in the output as `<check>/<variation>`, such as `test/api`.
+- It runs each check in the session as it is, not in a fresh VM per check. Packages you installed in the session are available, and a check's own package list and network access don't apply.
+- It uses the session's size and CPU architecture, not each check's `resources`. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). On pull requests, a class without a suffix usually runs on arm64.
+
+Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
+
+The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+
+## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
+
+To run a session's checks without attaching to it, use `chainctl develop check` on your laptop with the session's name or short ID. If the session is parked, `chainctl` resumes it first. Replace `$SESSION` with the session's name or short ID, and `$ORGANIZATION` with the name of your Chainguard organization:
+
+```shell
+chainctl develop check $SESSION --parent $ORGANIZATION
+```
+
+To run a single check, add `--check` with its name:
+
+```shell
+chainctl develop check $SESSION --check test --parent $ORGANIZATION
+```
+
+The command uses the same runner as `run-ci` and streams each step's output. It skips the same checks as `run-ci`, and prints a line for each, such as `Skipped deploy: declares identity gcp-prod, which only CI provides`. It exits with `0` when the checks pass, or `1` when a check fails or the checks can't run, including when you name a skipped check with `--check`. To print the result as JSON, add `--output json`. The JSON lists the checks it skipped under `skipped`.
+
+If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
+
+## Validate your configuration offline {#validate-your-configuration-offline}
+
+To find mistakes in your configuration without running anything, run `chainctl checks validate` anywhere in your repository's checkout:
+
+```shell
+chainctl checks validate
+```
+
+With no argument, the command finds your repository's root. You can also pass the path of a repository or of a configuration file. For a valid configuration, the command prints each workflow it found:
+
+```
+workflow ci (.chainguard/ci.yaml)
+ok: the document lowers
+```
+
+For a configuration with problems, it prints each problem with its file, line, and column, and exits with a non-zero status. For example, a string `cmd` with a pipe in it produces an error that suggests using a shell:
+
+```
+.chainguard/ci.yaml:6:10: check t: cmd "go test ./... | tee out": unquoted shell metacharacter '|': a string `cmd:` is safe-split with no shell behind it (no pipes, redirects, globs, or expansion) — quote the character, or write `cmd: [sh, -c, "..."]` to opt into a shell explicitly
+```
+
+Because `validate` needs no network access or Chainguard account, you can run it in a git pre-commit hook.
+
+To see how Chainguard Checks interprets your configuration, run `chainctl checks explain`. It prints each check with its environment, trigger, and commands, plus its conditions, network access, and timeout when they're set:
+
+```shell
+chainctl checks explain
+```
+
+Run `explain` when a check doesn't behave as you expect, such as running when you thought a condition would skip it.
+
+For a pull request, Chainguard Checks reads only the files directly in your repository's root `.chainguard/` directory and the files under `.chainguard/ci/`. In the directory layout, `validate` and `explain` read the same files. In the single-file layout, they also read `.chainguard/` directories below the root, such as `testdata/.chainguard/`, and folders inside `.chainguard/`. As a result, they can list a workflow that pull requests never run, or fail on a file that pull requests ignore. To avoid this, move those files out of `.chainguard/` directories, or use the [directory layout](/chainguard/checks/configuration/#file-layouts).
+
+---
+
+### Workload identities and trust in Chainguard Checks
+_Path: chainguard/checks/identity-and-trust.md_
+
+A check that must authenticate to Google Cloud or to Chainguard, such as to read a Cloud Storage bucket or to pull private images from `cgr.dev`, can use a *workload identity*: short-lived credentials that Chainguard Checks gives the check while it runs. This page explains how workload identities work, how to declare and set one up, how to limit which pull requests get one, and how to revoke access.
+
+## How workload identities work
+
+A check's VM holds no long-lived credentials. When a check uses a workload identity, Chainguard Checks issues the check an OpenID Connect (OIDC) token that lasts five minutes, renews the token while the check runs, and keeps the real credentials outside the VM:
+
+| Provider | What the check's VM holds |
+| --- | --- |
+| Google Cloud | `GOOGLE_APPLICATION_CREDENTIALS`, set to `/run/chainguard/identities/<identity>/adc.json`, a credential configuration that Google Cloud client libraries use without further setup. The tokens that code in the VM can read are sealed stand-ins. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains, such as `storage.googleapis.com`. |
+| Chainguard | Nothing. Chainguard Checks adds a credential to the check's requests to each Chainguard host the identity lists, so the check doesn't sign in or need a credential file. |
+
+Code in the check can't read the real tokens, but it can use them: each request it sends to those hosts carries the identity's access. If that access lets the code create a credential, such as a Google Cloud service account key, that credential works outside the check until you delete it. Grant each identity only the access its checks need.
+
+What code can use depends on where it runs:
+
+| Where code runs | Credentials it can use |
+| --- | --- |
+| A check on a pull request | The identity the check names, if `identities.yaml` on the pull request's base branch allows it for that check and branch. If your default branch has a [`trust` section](#limit-which-pull-requests-get-an-identity), the pull request must also reach the identity's ring. |
+| A check after a change merges | The identity the check names, if `identities.yaml` on your default branch allows it for that check and branch. |
+| A Chainguard Workspaces session, including the checks that `run-ci` runs in it | The session's own credentials, as described in [Manage Chainguard Workspaces session credentials](/chainguard/workspaces/credentials/). Sessions don't get workload identities, so [`run-ci`](/chainguard/checks/run-checks/) skips checks that use one. |
+
+## Declare an identity
+
+You declare workload identities in `.chainguard/ci/identities.yaml`, which works with either [file layout](/chainguard/checks/configuration/#file-layouts). The file has the following top-level keys:
+
+| Key | Required | Description |
+| --- | --- | --- |
+| `version` | Yes | The format version. Must be `1`. |
+| `identities` | Yes | A map from each identity's name to its definition. Refer to [Identity keys](#identity-keys). |
+| `trust` | No | Which pull requests get identities, decided by who opened them. Refer to [Limit which pull requests get an identity](#limit-which-pull-requests-get-an-identity). |
+
+Chainguard Checks refuses keys it doesn't recognize. To check the file before you merge it, run `chainctl checks validate .`, as described in [Validate your configuration offline](/chainguard/checks/run-checks/#validate-your-configuration-offline).
+
+The following file declares an identity named `gcs-read` that the `integration` check in `.chainguard/ci.yaml` can use on pull requests into `main`:
+
+```yaml {title=".chainguard/ci/identities.yaml"}
+version: 1
+identities:
+  gcs-read:
+    description: Read test fixtures from Cloud Storage.
+    checks:
+      - ci.checks.integration
+    audiences:
+      - https://iam.googleapis.com/projects/123456789012/locations/global/workloadIdentityPools/checks/providers/checks
+    gcp:
+      provider: projects/123456789012/locations/global/workloadIdentityPools/checks/providers/checks
+      audience: https://iam.googleapis.com/projects/123456789012/locations/global/workloadIdentityPools/checks/providers/checks
+    allow:
+      - run: presubmit
+        target_ref: refs/heads/main
+```
+
+A check uses an identity by naming it with `identity`. For a Google Cloud identity, the check's `network.egress` must list `sts.googleapis.com`, where client libraries exchange the identity's token, and each Google API host the check calls:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go]
+checks:
+  integration:
+    cmd: go test -tags=integration ./...
+    identity: gcs-read
+    network:
+      egress:
+        - proxy.golang.org
+        - sum.golang.org
+        - sts.googleapis.com
+        - storage.googleapis.com
+```
+
+Merge an identity's definition before you use it. Chainguard Checks reads definitions from the base branch, so on the pull request that adds `gcs-read`, the `integration` check can't get the identity and fails.
+
+A check that uses an identity can't set `GOOGLE_APPLICATION_CREDENTIALS` in its `vars` or in its environment's `vars`. If it does, the whole run fails.
+
+### Identity keys
+
+Each identity has the following keys:
+
+| Key | Required | Description |
+| --- | --- | --- |
+| `description` | No | A description of the identity. |
+| `checks` | Yes | A list of selectors for the checks that can use the identity. |
+| `audiences` | Yes | A list of the audiences that the identity's tokens can carry. It must include `gcp.audience` and each Chainguard host's `exchange_audience`. |
+| `allow` | Yes | A list of the runs that can get the identity. |
+| `gcp` | No | Google Cloud settings, both required: `provider`, the workload identity pool provider's resource name, in the form `projects/<project-number>/locations/global/workloadIdentityPools/<pool>/providers/<provider>`, and `audience`, an audience that the provider accepts. |
+| `chainguard` | No | A map from each Chainguard host to its settings. Refer to [Chainguard hosts](#chainguard-hosts). |
+| `ring` | With a `trust` section | Which pull requests get the identity. Refer to [Limit which pull requests get an identity](#limit-which-pull-requests-get-an-identity). |
+
+An identity needs `gcp`, `chainguard`, or both to give a check any credentials. Identity names are 1 to 48 lowercase letters, digits, and `-`, and start with a letter.
+
+Each `checks` entry has the form `<file>.checks.<check>`. `<file>` is a check file's name without `.yaml`, such as `go` for `.chainguard/ci/go.yaml`, or `ci` in the single-file layout. `<check>` is a check's name in that file. Either part can be `*` to match any file or any check, but only as the whole part, so `go.checks.test-*` is an error. Quote a selector that starts with `*`, such as `"*.checks.lint"`, because YAML reads a leading `*` as an alias.
+
+Each `allow` entry names a kind of run and its branch:
+
+| `run` | Ref key | Runs it allows |
+| --- | --- | --- |
+| `presubmit` | `target_ref`, such as `refs/heads/main` | Pull requests whose base branch is that branch. |
+| `postsubmit` | `ref`, such as `refs/heads/main` | Runs after a change merges to that branch. Chainguard Checks runs these only on your default branch. |
+
+Each ref must be a full ref that starts with `refs/`.
+
+### Chainguard hosts
+
+Each key under `chainguard` is a Chainguard host, and its value has the following keys, all required:
+
+| Key | Description |
+| --- | ----------- |
+| `identity` | The ID of an assumable identity in your Chainguard organization that trusts this workload identity's tokens. Refer to [Set up the provider](#set-up-the-provider). |
+| `exchange_audience` | The audience that the assumable identity accepts. It must also be in the identity's `audiences`. |
+| `role` | The most access the check gets on the host, from the following table. The assumable identity's role bindings must also grant that access. |
+| `scopes` | A list of group IDs, such as your organization's ID. Only the assumable identity's role bindings on these groups, or on the groups that contain them, apply. |
+
+Each host accepts the following roles:
+
+| Host | `role` | What the check can do |
+| ---- | ------ | --------------------- |
+| `cgr.dev` | `registry.pull` | Pull container images. |
+| `cgr.dev` | `registry.push` | Pull and push container images. |
+| `apk.cgr.dev` | `apk.pull` | Download packages. |
+| `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
+| `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
+| `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
+
+A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
+
+## Set up the provider
+
+A definition in `identities.yaml` grants no access by itself. The provider must also trust the identity's tokens and grant them access. Chainguard Checks issues each token with the following claims:
+
+| Claim | Value |
+| ----- | ----- |
+| `iss` | `https://issuer.enforce.dev` |
+| `sub` | `chainguard:<repository-id>:<identity>`, where `<repository-id>` is a 32-character hexadecimal ID that Chainguard assigns to your GitHub repository, and `<identity>` is the identity's name. |
+| `aud` | The identity's `gcp.audience`, or a Chainguard host's `exchange_audience`. |
+| `ref` | For a run after merging, the ref it runs on, such as `refs/heads/main`. Tokens for pull requests have no `ref` claim. |
+
+Every Chainguard Checks customer's tokens come from the same issuer, and any repository can ask for any audience, so the subject is what sets your identities apart from everyone else's. Match the exact subject on the provider:
+
+- For Google Cloud, add an OIDC provider to a workload identity pool, with the issuer `https://issuer.enforce.dev` and the attribute mapping `google.subject=assertion.sub`. Grant IAM roles to the principal `principal://iam.googleapis.com/projects/<project-number>/locations/global/workloadIdentityPools/<pool>/subject/chainguard:<repository-id>:<identity>`, never to the whole pool. To refuse other repositories' tokens outright, also give the provider an attribute condition such as `assertion.sub.startsWith('chainguard:<repository-id>:')`.
+- For Chainguard, create an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) in your organization that matches the issuer, the exact subject, and the `exchange_audience`, and bind it to a role that grants the access the check needs.
+
+`chainctl` doesn't show your repository's ID. During the beta, contact your Chainguard account team to set up workload identities and get the ID, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
+
+## Which runs get an identity
+
+Chainguard Checks reads each part of an identity's use from a different place:
+
+| Part | Where Chainguard Checks reads it |
+| ---- | -------------------------------- |
+| The identity's definition in `identities.yaml` | For a pull request, its base branch, at the commit GitHub merges the pull request into. For a run after merging, your default branch's latest commit. |
+| The `trust` section and each identity's `ring` | Your default branch's latest commit, for every pull request. |
+| The check's `identity` key, its commands, and its `network.egress` | The commit Chainguard Checks runs, which for a pull request includes the pull request's changes. |
+
+A pull request can't add an identity, or widen which checks, branches, or people get one, until it merges. It can change what a check that already gets an identity runs, and which hosts that check can reach. If `identities.yaml` is invalid on the base branch or on your default branch, no check gets an identity until you fix it.
+
+Without a `trust` section on your default branch, a check that requests an identity gets it on every open pull request whose base branch matches the identity's `allow` rule, including drafts and pull requests from forks, whoever opened them. Those pull requests' commands run with the identity's access. Grant a presubmit identity only what an untrusted pull request may do, such as read-only access, or limit which pull requests get it with a `trust` section.
+
+## Limit which pull requests get an identity {#limit-which-pull-requests-get-an-identity}
+
+To give identities only to pull requests opened by people you trust, add a `trust` section to `.chainguard/ci/identities.yaml` on your default branch, and give each identity a `ring`:
+
+```yaml {title=".chainguard/ci/identities.yaml"}
+version: 1
+trust:
+  groups:
+    maintainers:
+      github:
+        user: {octocat: 583231}
+    bots:
+      github:
+        app: {dependabot: 49699333}
+  subrings:
+    trusted:
+      authors: [maintainers, bots]
+  github_token: 1.trusted
+identities:
+  gcs-read:
+    ring: 1.trusted
+    # ...the rest of the identity's definition
+```
+
+With this file, the `gcs-read` identity goes only to pull requests opened by `octocat` or by Dependabot, and to runs after merging.
+
+The `trust` section has the following keys:
+
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| `groups` | Yes | A map from each group's name to the GitHub accounts in it. Refer to [Groups](#groups). |
+| `subrings` | Yes | A map from each subring's name to its `authors`, a list of groups. A pull request meets a subring when the account that opened it is in one of those groups. |
+| `github_token` | Yes | The ring for a read-only GitHub token, in the same form as `ring`. During the beta, checks don't get this token, but the key is still required. |
+| `cache` | No | Which rings share build caches. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools). |
+
+### Rings {#rings}
+
+Chainguard Checks places each run in a *ring*, based on the `trust` section on your default branch:
+
+| Ring | Runs in the ring |
+| ---- | ---------------- |
+| `2` | Runs after merging, on your default branch. |
+| `1.<subring>` | Pull requests opened by an account in one of the subring's `authors` groups, such as `1.trusted` for pull requests that `octocat` or Dependabot opens in the earlier example. |
+| `0` | Every other pull request. |
+
+Ring `2` is above every subring, and every subring is above ring `0`. The `trust` section uses rings in the following ways:
+
+- An identity's `ring` is the lowest ring that gets the identity. With `ring: 1.trusted`, pull requests in ring `1.trusted` and runs after merging get it. With `ring: 2`, only runs after merging get it, and with `ring: 0`, every run does, the same as without a `trust` section.
+- `github_token` sets the lowest ring that gets a GitHub token, in the same way.
+- A [cache pool](/chainguard/checks/variations-services-caches/#set-up-cache-pools) lists the exact rings whose runs share it. A run whose ring isn't in any pool gets no cache.
+
+A ring only narrows an identity's `allow` rules, so a run still needs a matching `allow` rule to get the identity.
+
+Only the account that opened the pull request counts. Who pushed its commits, who reviewed it, and whether its branch is in a fork don't change the result.
+
+Because Chainguard Checks reads the `trust` section and every `ring` from your default branch, a pull request can't change its own trust, even a pull request into another branch. An identity that your default branch's file doesn't define gets ring `2`, so a pull request into another branch never gets an identity that only that branch defines.
+
+When the file has a `trust` section, every identity in it needs a `ring`, and every group must be in at least one subring's `authors`. Without a `trust` section, `ring` is an error. Group and subring names follow the same rules as identity names.
+
+### Groups
+
+Each group has exactly one source under `github`:
+
+| Source | Example | Matches |
+| ------ | ------- | ------- |
+| `org` | `{github: {org: acme}}` | Members of the GitHub organization. |
+| `team` | `{github: {team: acme/maintainers}}` | Members of the team, including members of its child teams. |
+| `user` | `{github: {user: {octocat: 583231}}}` | The listed GitHub users. |
+| `app` | `{github: {app: {dependabot: 49699333}}}` | Pull requests that the listed GitHub Apps open. |
+
+To trust specific people, list them in a `user` group and pin each one's ID, as in the earlier example. Chainguard Checks reads organization and team members from GitHub through the Chainguard App, and can take up to three minutes to see a change to them.
+
+For `user` and `app`, map each login to its numeric GitHub account ID. Chainguard Checks matches the ID, and the login is only a label. To find a user's ID, run the following command, replacing `$LOGIN` with the user's GitHub login:
+
+```shell
+gh api "/users/$LOGIN" --jq .id
+```
+
+An app opens pull requests as its bot account, `<slug>[bot]`. To find that account's ID, replace `$SLUG` with the app's slug, such as `dependabot`:
+
+```shell
+gh api "/users/$SLUG%5Bbot%5D" --jq .id
+```
+
+You can also list logins without IDs, such as `user: [octocat]`. Chainguard Checks then trusts whoever holds each login when it decides, so pin IDs instead.
+
+### When a pull request doesn't get an identity {#when-a-pull-request-doesnt-get-an-identity}
+
+On a pull request that doesn't reach an identity's ring, a check that requests the identity fails before its commands run, and Chainguard Checks doesn't retry it. The check's result on GitHub shows **Could not be executed**, and its output includes the reason, such as the following:
+
+```
+trust policy places gcs-read at ring 1.trusted, which this pull request does not reach: its opener is in none of subring trusted's authors groups
+```
+
+If the check is blocking, the summary check fails too, with a title such as **1 check(s) could not be executed**.
+
+To keep these failures from blocking pull requests opened by people outside your `trust` section, make the check [advisory](/chainguard/checks/configuration/#advisory-checks), or skip it on those pull requests with a [condition](/chainguard/checks/configuration/#run-when-an-expression-is-true). A condition only decides whether the check runs. A pull request can remove a condition that would skip a check, so a condition doesn't keep an identity from a pull request. The `trust` section does. A condition on `context.github.pull_request.head_repository` also skips pull requests that people you trust open from their own forks.
+
+## Revoke access
+
+To take access back, change the place that grants it:
+
+| To stop | Change | When it takes effect |
+| ------- | ------ | -------------------- |
+| A check from getting an identity | Remove the identity, the check's selector, or the `allow` rule from `identities.yaml` on the base branch, or on your default branch for runs after merging. | New runs, once the change merges. A running check loses the identity at its next renewal, within about five minutes. |
+| Pull requests from some people from getting identities | In the `trust` section on your default branch, remove them from a group, or move identities to a higher ring. | New runs, once the change merges. A running check loses the identity at a later renewal, within about 10 minutes. Chainguard Checks can take up to three minutes to see a change to an organization's or team's members on GitHub. |
+| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a check already has can keep working until it expires, for up to an hour. |
+
+Chainguard Workspaces sessions don't use workload identities. To revoke what a session can reach, refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+
+---
+
+### Migrate from GitHub Actions to Chainguard Checks
+_Path: chainguard/checks/migrate-from-github-actions.md_
+
+If your repository runs its pull request checks with GitHub Actions, you can move them to Chainguard Checks one workflow at a time. Chainguard Checks and GitHub Actions can run on the same pull requests, so you can compare their results before you remove a workflow.
+
+You can convert workflows by hand, or start from a draft that the `chainctl checks migrate` command writes for you.
+
+If you'd rather keep your workflows on GitHub Actions, [Chainguard Actions](/chainguard/actions/overview/) replaces the actions they use with hardened equivalents, and Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) feature can migrate them for you.
+
+## Draft a configuration with chainctl
+
+The `chainctl checks migrate --dry` command drafts a configuration from your GitHub Actions workflows without running anything. Run it from the root of a local clone of your repository whose `origin` remote is on github.com:
+
+```shell
+chainctl checks migrate --dry
+```
+
+The command reads each workflow that runs on `pull_request` and prints a draft `.chainguard/ci/migrated.yaml` file, followed by a list of what it carried over, flagged, and ignored. To write the draft to its file, run the following commands:
+
+```shell
+mkdir -p .chainguard/ci
+chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
+```
+
+The draft has one check for each job it can carry over, and a separate check for each combination of a static matrix of up to 8 combinations. A job whose matrix uses `include` or an expression, or has more than 8 combinations, isn't carried over. The list after the draft flags it, so convert it by hand. The draft's checks appear on GitHub as `presubmit / migrated / <check>`.
+
+The draft uses the [directory layout](/chainguard/checks/configuration/#file-layouts), and a repository can't use both layouts. If your repository already has a `.chainguard/ci.yaml` file, move its checks into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`, before you add the draft.
+
+Review the draft before you commit it:
+
+- Add the packages each check needs. The draft lists packages for setup actions, such as `actions/setup-go`, but not for tools that the GitHub Actions runner image includes, such as `git` and `make`.
+- Add the hosts each check needs under `network.egress`. The draft gives checks no network access. To find the hosts, refer to [Find the hosts a check needs](#find-the-hosts-a-check-needs).
+- For each check that needs x86-64, set `resources` to a class that pins it, such as the built-in `medium-amd64`. The draft ignores `runs-on`, so its checks usually run on arm64.
+- Read each `# migrator:` comment. Each one marks something the draft couldn't carry over, such as a step that uses a third-party action, a step with a `${{ }}` expression, a service container, or a `paths` filter. Convert each one by hand.
+
+Then run `chainctl checks validate` to check the result. The rest of this page explains how to convert what the draft leaves out, including workflows that run on other events, such as `push`.
+
+## How the models differ
+
+A GitHub Actions job starts on a general-purpose runner image, checks out your code, and installs its tools with setup actions before running its commands. In Chainguard Checks, a check starts in a minimal VM with your code already in `/work`, installs the packages you list, and runs its commands. The following table summarizes the differences:
+
+| Area | GitHub Actions | Chainguard Checks |
+| ---- | -------------- | ----------------- |
+| Actions | Steps can use actions with `uses:`. | There are no actions. List each tool's package and run it directly. You don't need `actions/checkout`, because `/work` already holds your repository's tracked files and history at the commit under test, but not its submodules or Git LFS content. |
+| Preinstalled tools | The runner image includes many tools. | The VM includes BusyBox, GNU tar, and the packages you list. List every tool a check uses, including `git`, `bash`, and `make`. |
+| Network | Jobs can reach the internet. | A check has no network access unless it lists hosts under `network.egress`, such as your package registry. |
+| Shell | A `run` step uses `bash -e`, or `bash -eo pipefail` with `shell: bash`. | A `script` runs with BusyBox `sh -e`, or with `bash -e` if you list the `bash` package and set `shell: bash`. Neither sets `pipefail`, so for a step that had `shell: bash`, start its script with `set -o pipefail`. The draft keeps `pipefail` for these steps. Refer to [The script key](/chainguard/checks/configuration/#the-script-key). |
+| Caches | Jobs save and restore caches with actions, such as `actions/cache`. | A check starts with no cache. If the `trust` section of `.chainguard/ci/identities.yaml` on your default branch defines a cache pool, a Go check can reuse build output from earlier runs. |
+| Run length | A job can run for up to 6 hours. | A whole run can take up to 50 minutes, and checks still running at that point fail. Split long jobs into several checks, which run in parallel. |
+| Secrets | Jobs read secrets from the `secrets` context, and get a `GITHUB_TOKEN`. | There's no `secrets` context. During the beta, a check gets no GitHub token, so it can't fetch your private GitHub repositories, such as private Go modules. A check that must authenticate to Google Cloud or Chainguard can use a workload identity, as described in [Credentials](/chainguard/checks/configuration/#credentials). |
+
+## Key mapping
+
+The following table maps common GitHub Actions keys and actions to their Chainguard Checks equivalents:
+
+| GitHub Actions | Chainguard Checks |
+| -------------- | ----------------- |
+| `on: pull_request` | The default. A check runs on pull requests unless you set `trigger`. |
+| `on: push` to the default branch | `trigger: postsubmit` |
+| `on: pull_request: paths:` | `when: changed:`. A `**` matches any number of directories only as a whole path segment, so write `**.go` as `**/*.go`. A pattern that starts with `!` has no equivalent. Refer to [Run when files change](/chainguard/checks/configuration/#run-when-files-change). |
+| `on: pull_request: paths-ignore:` | No equivalent. List the paths that should run the check under `when: changed:` instead. |
+| `if:` | `when: expr:` with a CEL expression |
+| `workflow_dispatch`, or a job that a label starts | `when: {requested: true}`, run with a `ci/run:<check>` label |
+| `continue-on-error: true`, or a job that isn't required | `advisory: true` |
+| `jobs.<job_id>` | `checks.<name>` |
+| `runs-on` | `resources`. A built-in class without a suffix usually runs on arm64, while `ubuntu-latest` is x86-64, so use an `-amd64` class, such as `medium-amd64`, for a job that needs x86-64. If your repository defines its own classes in `.chainguard/ci/resources.yaml`, the built-in classes aren't available, and only a class with a `platform` pins the architecture. Refer to [Resources](/chainguard/checks/configuration/#resources). |
+| `steps[*].run` | `steps[*].cmd` or `steps[*].script`. A step takes only `id`, `name`, `cmd`, `script`, and `shell`, so step-level `env`, `if`, and `working-directory` are refused. |
+| `steps[*].uses` | Not supported. List the tool's package and run it. |
+| `actions/checkout` with `repository` | `inputs` with `git`, for a public repository on github.com. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
+| `actions/checkout` with `submodules` or `lfs` | No equivalent. Submodule directories are empty, and Git LFS files hold their pointer files. |
+| `actions/upload-artifact` and `actions/download-artifact` | `outputs` on the check that writes the files, and `inputs` with `from` on a check in the same file that reads them. Refer to [Pass files between checks](/chainguard/checks/variations-services-caches/#pass-files-between-checks). A run keeps no files that you can download. |
+| `actions/cache`, or the caching in `actions/setup-go` | For the Go build cache, `environment.caches: {gobuild: {}}`, with `user: build` on the check and a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). Other cache types have no effect during the beta. |
+| `jobs.<job_id>.services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). |
+| `env` | `vars` |
+| `needs` | `needs`, for checks in the same file |
+| `timeout-minutes` | `timeout`, as a duration such as `15m` |
+| `strategy.matrix` | `foreach`. Chainguard Checks doesn't expand a matrix, so write one entry for each combination, and replace each `${{ matrix.<key> }}` with a variable that the entry sets in `vars`, such as `$GOARCH` in a `script`. An entry can't change the check's packages, so for a matrix of tool versions, write a separate check with its own environment for each version, as the draft does. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `strategy.max-parallel` | `parallelism` |
+| `defaults.run.working-directory` | `workdir` |
+| `$GITHUB_STEP_SUMMARY` | Not set, so a command that writes to it fails. Instead, print Markdown between a `::sandbox-summary::` line and an `::end-sandbox-summary::` line, and the check's output on GitHub shows it before the log. Refer to [Add a Markdown summary](/chainguard/checks/configuration/#add-a-markdown-summary). |
+| `on: schedule` | Not supported. |
+| `on: merge_group` | Not supported. Chainguard Checks doesn't run on merge queues, so don't require **Chainguard Checks (presubmit)** on a branch that uses one. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging). |
+
+Refer to the [configuration reference](/chainguard/checks/configuration/) for each Chainguard Checks key.
+
+## Example
+
+The following GitHub Actions workflow runs Go tests on pull requests that change Go files:
+
+```yaml {title=".github/workflows/test.yaml"}
+name: test
+on:
+  pull_request:
+    paths: ["**/*.go", "go.mod", "go.sum"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - run: go test ./...
+        env:
+          CGO_ENABLED: "0"
+```
+
+The equivalent `.chainguard/ci.yaml` file installs Go 1.24 as a package instead of using `actions/setup-go` and drops `actions/checkout`:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go-1.24]
+checks:
+  test:
+    cmd: go test ./...
+    vars:
+      CGO_ENABLED: "0"
+    timeout: 15m
+    when:
+      changed: ["**/*.go", "go.mod", "go.sum"]
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+The `network` key lets the check download modules. The workflow doesn't list these hosts, because a GitHub Actions job can reach any host. To find the hosts a check needs, refer to [Find the hosts a check needs](#find-the-hosts-a-check-needs).
+
+By default, `actions/setup-go` caches downloaded modules and build output between runs. This file uses no cache, so each run downloads its modules and builds from scratch. To reuse Go build output between runs, add the `gobuild` cache, as described in [Caches](/chainguard/checks/variations-services-caches/#caches). During the beta, Chainguard Checks doesn't cache modules, so keep the `network` hosts. With the cache, `go test` still runs every test instead of reusing earlier results.
+
+## Find the hosts a check needs
+
+The run page that a check's **Details** link opens lists each host the check tried to reach, and suggests an `egress` list built from the hosts it connected to. The suggestion includes only connections that the check's `egress` allowed, so to see every host a check uses, let it reach any host for one run:
+
+1. In a pull request whose code you trust, set the check's `network.egress` to `["*"]`. With `*`, the check's commands can reach any public host.
+2. When the check finishes, open its **Network activity** on the run page, as described in [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+3. Review the hosts listed after **Suggested allowlist (review before applying)**, replace `*` with them, and push the change.
+
+The suggestion covers only that run. It leaves out connections to an IP address that the check didn't look up by name, and hosts that the check reaches only on other paths, such as retries, fallback mirrors, or code that the run didn't exercise.
+
+To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). Without one, list the hosts you expect, run the check, and look in its log for connection errors.
+
+## Switch over
+
+To move a workflow to Chainguard Checks without a gap in coverage, follow these steps:
+
+1. In a pull request, add the equivalent checks to `.chainguard/ci.yaml`, or add the `.chainguard/ci/migrated.yaml` file that you drafted, and keep the GitHub Actions workflow.
+2. Compare the results of both on that pull request and the ones after it.
+3. When the results match, add **Chainguard Checks (presubmit)** as a required status check, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
+4. Remove the GitHub Actions workflow, and remove its jobs from your required status checks.
 
 ---
 
@@ -2546,6 +6897,8 @@ Chainguard Actions protect against common threats including tag hijacking, depen
 
 This page provides enough to get you started. Browse the [Chainguard Actions organization](https://github.com/chainguard-actions) to find a specific action and read its hardening report.
 
+Chainguard Actions hardens workflows that stay on GitHub Actions. To move a repository's pull request checks off GitHub Actions runners instead, refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
+
 ## What hardening checks and fixes
 
 Every action in the catalog goes through the same two-stage review. A deterministic static pre-pass runs first and catches patterns mechanically. An AI-powered analysis pass then evaluates the action against the policy ruleset. Findings from either stage carry an ID that appears in the action's `HARDENING.md` report, so you can trace any change back to the check that produced it.
@@ -2905,6 +7258,14 @@ Chainguard also retrieves packages from the public npm Registry on your
 behalf when upstream fallback is enabled. This includes protections such as
 malware detection and a cooldown period for newly published
 packages.
+
+The same `https://libraries.cgr.dev/javascript/` upstream also serves remediated
+`-cgr.N` artifacts, so you do not configure a separate remediated repository in
+your repository manager. Selecting remediated versions happens in the project
+with `chainctl libraries remediate --apply`, not through your repository manager
+configuration. Refer to [CVE
+remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
+details.
 
 At a high level, adopting the use of Chainguard Libraries consists of the following steps:
 
@@ -3620,39 +7981,39 @@ To see all currently active npm configuration and where each value comes from:
 
 {{< tabs label="Package manager for auditing registry configuration" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```shell
 npm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```shell
 yarn config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```shell
 cat bunfig.toml
@@ -3660,7 +8021,7 @@ cat bunfig.toml
 
 If there is no `bunfig.toml`, or if that file does not contain a specific registry, then it is using the standard npm registry by default.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -3831,7 +8192,7 @@ credentials — not a Chainguard pull token.
 
 {{< tabs label="Package manager for repository manager configuration" >}}
 
-{{% tab title="npm or Yarn Classic" %}}
+{{< tab title="npm or Yarn Classic" >}}
 
 ```shell
 cat > .npmrc << EOF
@@ -3841,9 +8202,9 @@ EOF
 
 Learn more in the build configuration docs for [npm](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager) and for [Yarn Classic](/chainguard/libraries/javascript/build-configuration/#using-a-repo-manager).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
@@ -3851,9 +8212,9 @@ pnpm config set registry https://<your-repo-manager-url>/repository/javascript-a
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
@@ -3861,9 +8222,9 @@ yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/jav
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Add the registry configuration to the `bunfig.toml` file of your project:
 
@@ -3875,7 +8236,7 @@ registry = "https://repo.example.com:8443/repository/javascript-all/"
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -3922,7 +8283,7 @@ refresh your dependency versions.
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
@@ -3954,9 +8315,9 @@ reinstalling.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the
 migration as an opportunity to update dependencies at the same time. Before you
@@ -3986,7 +8347,7 @@ resolved version is not yet available in Chainguard Libraries or is still within
 the cooldown window. Refer to [Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -3994,15 +8355,15 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```bash
 rm -rf node_modules && npm cache clean --force
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 First, remove `node_modules`:
 
@@ -4050,25 +8411,25 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 
 > Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```bash
 rm -rf node_modules .yarn/cache
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```bash
 rm -rf node_modules && yarn cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```bash
 rm -rf node_modules && bun pm cache rm
@@ -4076,7 +8437,7 @@ rm -rf node_modules && bun pm cache rm
 
 If this command is not available on your version of Bun, you can instead delete Bun's cache directory manually.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -4089,7 +8450,7 @@ your repository manager host, not `registry.npmjs.org`.
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Install dependencies:
 
@@ -4103,9 +8464,9 @@ Then check the `resolved` field in `package-lock.json`:
 grep "resolved" package-lock.json | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Install dependencies:
 
@@ -4125,9 +8486,9 @@ For pnpm v9+, check the `integrity` field:
 grep "integrity" pnpm-lock.yaml | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn" %}}
+{{< tab title="Yarn" >}}
 
 Install dependencies:
 
@@ -4141,9 +8502,9 @@ Then check the `archiveUrl` field in `yarn.lock`:
 grep "archiveUrl" yarn.lock | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Install dependencies:
 
@@ -4153,7 +8514,7 @@ bun install
 
 Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -4170,7 +8531,7 @@ When upstream fallback is enabled, [packages that aren't built by Chainguard](#p
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Scan the npm cache:
 
@@ -4184,9 +8545,9 @@ Verify an npm tarball:
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Use `--store-dir` to install to an explicit path and verify that location:
 
@@ -4197,9 +8558,9 @@ chainctl libraries verify /tmp/my-pnpm-store
 
 Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/policies-and-security/verification/#analyze-javascript-packages).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 Verify a Yarn Classic cache:
 
@@ -4207,9 +8568,9 @@ Verify a Yarn Classic cache:
 chainctl libraries verify yarn:
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="node_modules" %}}
+{{< tab title="node_modules" >}}
 
 Scan the project directory:
 
@@ -4217,7 +8578,7 @@ Scan the project directory:
 chainctl libraries verify ./node_modules
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -4394,13 +8755,24 @@ Configure this endpoint [globally through a repository manager](/chainguard/libr
 
 ## Updating lockfile hashes
 
-Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
+Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes).
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
 If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+
+## CVE remediation
+
+Chainguard Libraries for JavaScript includes the [CVE
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated packages carry an appended prerelease identifier of `-cgr.N`. For example, a remediated build of `example-package` version `4.17.21` is published as `example-package@4.17.21-cgr.1`.
+
+Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
+
+Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and updates each eligible package to the corresponding `-cgr.N` version. The change depends on where the package sits in your dependency tree: for a direct dependency, the command sets the exact `-cgr.N` version in `package.json`; for a transitive dependency, it adds an override or resolution rule that your package manager supports. In both cases, it also updates the lockfile. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+
+Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 ## Provenance and attestations
 
@@ -4531,6 +8903,13 @@ fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-con
 enabled for your organization, the same endpoint can also serve requested
 versions from upstream, under Chainguard security controls.
 
+The same endpoint also serves remediated `-cgr.N` artifacts, so there is no
+separate remediated repository to configure. The registry configuration on this
+page does not select remediated versions on its own; to select them, run
+`chainctl libraries remediate` in your project. Refer to [CVE
+remediation](/chainguard/libraries/policies-and-security/cve-remediation/) for
+details.
+
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
 | If you want to... | Use this page |
@@ -4543,7 +8922,9 @@ This guide outlines how to configure your build tool. If you are looking for som
 
 If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
 
-## JFrog Artifactory
+## Access approaches
+
+### Repository manager: JFrog Artifactory
 
 Build configuration to retrieve artifacts from Artifactory typically requires
 you to authenticate and use the identity token in the configuration of your
@@ -4553,7 +8934,7 @@ Follow the steps from the [global
 configuration](/chainguard/libraries/javascript/global-configuration/#jfrog-artifactory)
 to determine URL and authentication details.
 
-## Sonatype Nexus Repository
+### Repository manager: Sonatype Nexus Repository
 
 Build configuration to retrieve artifacts from Nexus may require authentication.
 Use your username and password for Nexus in your build tool configuration.
@@ -4564,7 +8945,7 @@ to determine URL and authentication details.
 
 <a id="direct-access"></a>
 
-## Direct access
+### Direct access
 
 Build configuration to retrieve artifacts **directly** from the Chainguard
 Libraries for JavaScript repository at `https://libraries.cgr.dev/javascript/`
@@ -4630,6 +9011,93 @@ When you target a repository manager with `--registry-url`, authenticate with **
 entry. Chainguard-scoped tokens are never sent to third-party hosts.
 
 Learn more about using a repository manager in the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/).
+
+## Adopting remediated JavaScript artifacts
+
+Pointing your build tool at the Chainguard registry does not select remediated
+`-cgr.N` artifacts on its own. JavaScript remediation operates on the resolved
+dependency tree in your lockfile, so you adopt it with `chainctl libraries
+remediate` after your project is configured to use the Chainguard registry and a
+lockfile exists.
+
+> **Note**: Running `chainctl libraries remediate` requires the
+> `libraries.javascript.pull` permission or the Owner role.
+
+First, preview the available remediations:
+
+```bash
+chainctl libraries remediate
+```
+
+The `--apply` step reads credentials from a `.npmrc` file in your project
+directory. Some registry setup options on this page store those settings
+elsewhere, such as your user-level `.npmrc` or your package manager's own
+configuration, so you can finish registry setup without a project `.npmrc`. If
+you don't have one, create it by running `chainctl auth configure-npm` from the
+project directory:
+
+```bash
+chainctl auth configure-npm
+```
+
+This writes a project-level `.npmrc` with the registry URL and credentials. Do
+not commit these credentials to version control; supply them through environment
+variables or CI secrets at build time. Yarn and pnpm authenticate differently;
+see [Yarn](#yarn) and [pnpm](#pnpm) for their setup steps.
+
+Then adopt them:
+
+```bash
+chainctl libraries remediate --apply
+```
+
+With `--apply`, the command walks your lockfile and updates each eligible
+package to the corresponding Chainguard remediated version. How it records the
+change depends on where the package sits in your dependency tree: for a direct
+dependency, it sets the exact `-cgr.N` version in `package.json`; for a
+transitive dependency, it adds an override or resolution rule your package
+manager supports (for example, the `overrides` field for npm or `resolutions`
+for Yarn). The command also updates the lockfile. Only packages with a `-cgr.N`
+build for the exact version resolved in your lockfile are changed; every other
+dependency stays unchanged.
+
+Because `--apply` updates the lockfile and verifies the result before it changes
+your project, adoption is complete once the command succeeds. You don't need to
+regenerate the lockfile or rewrite hashes afterward. To confirm the change,
+review the modified files (`package.json` and your lockfile), run an install
+that preserves the lockfile, and run your application's tests.
+
+If you also changed your registry configuration, see the per-tool **Apply
+registry changes** sections for [npm](#npm-apply), [pnpm](#pnpm-apply),
+[Yarn](#yarn-apply), or [Bun](#bun-apply).
+
+Re-run `chainctl libraries remediate` after every install or dependency update
+so that newly resolved entries are evaluated.
+
+### Adopt remediated versions manually
+
+You can also adopt a remediation manually, without `chainctl libraries
+remediate`:
+
+1. Identify the exact remediated version.
+1. Pin the exact `-cgr.N` version as an override or resolution in the
+`package.json` or lockfile (the `overrides` field for npm or Bun, `pnpm.overrides` for pnpm, or `resolutions` for Yarn).
+1. Regenerate only the relevant lockfile entries. For example:
+    - `npm install --package-lock-only`
+    - `pnpm install --lockfile-only`
+    - `yarn install`
+    - `bun install`
+
+Review the lockfile diff and run your normal tests afterward. An override may affect multiple occurrences, and some package managers apply the rule tree-wide.
+
+Refreshing the lockfile alone
+doesn't adopt the remediation: because `-cgr.N` is an npm prerelease identifier,
+a semver range such as `^4.17.21` never matches it, so the override is what
+selects the remediated build.
+
+For remediated version naming and how remediation propagates through transitive
+dependencies, see [CVE remediation for Chainguard
+Libraries](/chainguard/libraries/policies-and-security/cve-remediation/).
 
 <a id="npm"></a>
 
@@ -4717,9 +9185,11 @@ Example URLs:
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
 - Direct access: `https://libraries.cgr.dev/javascript/`
 
+<a id="npm-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `npm install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `npm install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -5004,9 +9474,11 @@ Example URLs:
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all/`
 - Direct access: `https://libraries.cgr.dev/javascript/`
 
+<a id="pnpm-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `pnpm install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `pnpm install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -5221,6 +9693,8 @@ Example URLs:
 - JFrog Artifactory: `https://example.jfrog.io/artifactory/javascript-all`
 - Sonatype Nexus: `https://repo.example.com:8443/repository/javascript-all`
 - Direct access: `https://libraries.cgr.dev/javascript`
+
+<a id="yarn-apply"></a>
 
 ### Apply registry changes
 
@@ -5453,7 +9927,7 @@ Refer to the [`.yarnrc`
 documentation](https://classic.yarnpkg.com/lang/en/docs/yarnrc/) for more
 details.
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `yarn install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `yarn install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -5601,9 +10075,11 @@ Example registry URLs:
 - Sonatype Nexus: https://repo.example.com:8443/repository/javascript-all/
 - Direct access: https://libraries.cgr.dev/javascript/
 
+<a id="bun-apply"></a>
+
 ### Apply registry changes
 
-To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#update-lockfile-hashes), then run the `bun install` command again. This re-fetches all
+To apply the registry changes, remove the `node_modules` directory, [update the artifact hashes](#updating-lockfile-hashes), then run the `bun install` command again. This re-fetches all
 packages from Chainguard and updates the lockfile in place with updated hashes:
 
 ```bash
@@ -5659,6 +10135,541 @@ contains the source URL for each package in the `packages` section.
 
 Adjust the registry configuration to use your repository manager and add any
 other desired packages for further testing.
+
+---
+
+### Global configuration
+_Path: chainguard/libraries/go/global-configuration.md_
+
+Go module consumption in a large organization is typically managed by a repository manager. The repository manager acts as a single point of access for developers and development tools to retrieve Go modules.
+
+Configure Artifactory with a single remote repository pointed at `https://libraries.cgr.dev/go/`. Chainguard Repository handles upstream fallback and policy enforcement; Artifactory handles local caching, access control, and the endpoint used by your Go toolchains.
+
+## JFrog Artifactory
+
+JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-repositories) for more information.
+
+If an existing Artifactory remote repository points directly to a public Go module proxy, disable or remove it from the virtual repository that your builds use. Artifactory resolves virtual repositories according to their configured order, so a misconfiguration can cause an unprotected module to be served without an obvious build failure.
+
+### Prerequisites
+
+Before you begin, you need:
+
+- An [entitlement to Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-an-entitlement)
+- Administrator access to your repository manager instance
+- A [pull token for Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-a-pull-token)
+
+### Initial configuration
+
+Use the following steps to add Chainguard Libraries for Go as an Artifactory remote repository:
+
+1. Sign in to Artifactory as a user with administrator privileges.
+1. Click **Administration** in the top navigation bar.
+1. In the left navigation, click **Repositories**.
+1. Click **Create a Repository**, then choose **Remote**.
+1. Configure the remote repository with the following values:
+    - **Package type**: Go
+    - **Repository key**: `go-chainguard`
+    - **URL**: `https://libraries.cgr.dev/go/`
+    - **Username**: the username returned by `chainctl`
+    - **Password**: the password returned by `chainctl`
+1. Open the **Advanced configuration** tab and configure the following:
+    - In the **Network** section, confirm that **Lenient Host Authentication** is unchecked. This prevents Artifactory from forwarding credentials across a redirect.
+    - Optionally select **Enable Cookie Management**. JFrog recommends this for remote repositories that use redirects.
+    - In the **Others** section, select **Bypass HEAD Requests** so that Artifactory retrieves package files with GET requests instead of probing with HEAD requests first.
+    - In the **Others** section, uncheck **Block Mismatching Mime Types**.
+    - Select **Disable URL Normalization** so that Artifactory does not rewrite a pre-signed redirect URL.
+1. Click **Create Remote Repository**.
+
+Chainguard Libraries serves module metadata and source archives through the standard Go module proxy protocol. Some module files may be served through redirects to pre-signed storage URLs. These settings prevent Artifactory from rewriting the redirect, forwarding credentials to another host, or caching a redirect response instead of the module file.
+
+### Create a virtual repository
+
+Create a virtual repository to give developers and CI systems a single Go module endpoint:
+
+1. Click **Create a Repository**, then choose **Virtual**.
+1. Configure the virtual repository with the following values:
+    - **Package type**: Go
+    - **Repository Key**: `go-all`
+    - **Repositories**: add `go-chainguard`
+1. Click **Create Virtual Repository**.
+
+For the recommended configuration, `go-chainguard` should be the only external upstream in `go-all`.
+
+### Validate the remote repository
+
+Validate the Artifactory remote before configuring developer workstations or CI/CD systems. The Artifactory **Test** button is not a reliable indicator of a working Chainguard configuration; a remote can pass the test but still be misconfigured for package retrieval.
+
+Use a module and version that are available through your organization's Chainguard Libraries for Go entitlement. The following example uses `rsc.io/quote` version `v1.5.2`:
+
+Fetch the module archive directly from Chainguard and compute its checksum:
+
+```bash
+ curl -fsS -L \\
+   -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \\
+   "https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.zip" \\
+   | sha256sum
+```
+
+Fetch the same archive through the Artifactory remote repository and compute its checksum:
+
+```bash
+ curl -fsS -L \\
+   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
+   "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \\
+   | sha256sum
+```
+
+Replace `artifactory-host` with your Artifactory hostname. Replace `ARTIFACTORY_USERNAME` and `ARTIFACTORY_TOKEN` with credentials that can read from Artifactory.
+
+Fetch the archive through the virtual repository that developers and CI systems will use:
+
+```bash
+ curl -fsS -L \\
+   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
+   "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \\
+   | sha256sum
+```
+
+The three checksums must match. Do not proceed to production rollout if the Artifactory checksum differs from the direct Chainguard checksum or if either Artifactory request fails.
+
+If validation fails, review the following settings:
+
+- URL: confirm that the remote repository URL is exactly https://libraries.cgr.dev/go/.
+- Credentials: regenerate the pull token with `chainctl auth pull-token create --repository=go` and update the Artifactory remote repository credentials. Expired tokens can fail without a clear error in the Artifactory user interface.
+- Advanced configuration: confirm that the redirect and request settings from the initial configuration are applied.
+- Cached files: if the remote repository was previously configured with incorrect settings, delete the affected cached module files from the `go-chainguard` cache and repeat the validation.
+- Virtual repository order: confirm that no public Go proxy appears ahead of `go-chainguard` or is still included in `go-all`.
+
+### Configure build tools
+
+Use the URL of the `go-all` virtual repository in Go configuration. In Artifactory, select the `go-all` repository and use **Set Me Up** or **Generate Settings** to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://exampleorg.jfrog.io/artifactory/go-all`.
+
+See [Configuring your build tool](/chainguard/libraries/go/build-configuration/#repository-manager) for more information.
+
+---
+
+### Migrating a Go project to Chainguard Libraries
+_Path: chainguard/libraries/go/migration.md_
+
+Chainguard Libraries for Go provides an authenticated Go module proxy that applies Chainguard security controls to Go dependencies.
+
+Because Chainguard Libraries uses the standard [GOPROXY protocol](https://go.dev/ref/mod#goproxy-protocol), migrating an existing project does not require application-code changes or a new dependency declaration format. You configure the Go toolchain to use Chainguard, refresh any cached modules, and verify the build.
+
+This guide covers two common setups:
+
+- **Direct access**: Your Go toolchain connects directly to `libraries.cgr.dev`. This is useful for an evaluation, a small team, or an isolated CI job.
+- **Repository manager**: Your Go toolchain connects to a repository manager that proxies Chainguard Libraries. This is recommended for organization-wide use.
+
+## Prerequisites
+
+Before you begin, you need:
+
+- An existing Go project with a `go.mod file`. A `go.sum` file is recommended.
+- A supported Go toolchain. Go 1.21 or later is recommended for the current Go Libraries beta.
+- [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/).
+- An [entitlement to Chainguard Libraries for Go](#create-an-entitlement)
+- A [pull token for Chainguard Libraries for Go](#create-a-pull-token)
+
+### Create an entitlement
+
+To create an entitlement to Chainguard Libraries for Go, run:
+
+```bash
+chainctl libraries entitlements create --ecosystems=GO
+```
+
+You do not need to manually enable upstream fallback for Go; the entitlement for Go automatically includes Chainguard protections for upstream artifacts.
+
+You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+
+```bash
+chainctl libraries policy create --name=go-cooldown-14d --cooldown-days=14
+chainctl libraries policy enable go-cooldown-14d --ecosystem=GO --mode=ENFORCE
+```
+
+It can take up to 30 minutes for configured policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
+
+### Create a pull token
+
+Create a pull token for the Go repository:
+
+```bash
+chainctl auth pull-token --repository=go --ttl=8670h
+```
+
+The command returns a username and password. Use these values to authenticate Go to Chainguard Libraries.
+
+> **Note**: Do not commit the credentials to source control. Keep the configuration file out of the repository when it contains literal credentials, or generate it at build time from secrets stored in your CI/CD system. For shared environments, use a dedicated machine identity or service account instead of a personal token when available.
+
+For local development, you can store the credentials in `~/.netrc`:
+
+```bash
+cat >> ~/.netrc <<EOF
+machine libraries.cgr.dev
+login ${CHAINGUARD_GO_IDENTITY_ID}
+password ${CHAINGUARD_GO_TOKEN}
+EOF
+chmod 600 ~/.netrc
+```
+
+Go sends credentials to HTTPS proxies. Make sure the machine entry is exactly `libraries.cgr.dev` and that the token has not expired.
+
+## Step 1: Confirm your baseline build
+
+Run your existing build and tests before changing the module proxy:
+
+```bash
+go version
+go mod download
+go test ./...
+```
+
+Resolve any existing build or test failures first. This gives you a baseline to compare against after migration.
+
+## Step 2: Configure Go to use Chainguard Libraries
+
+{{< tabs label="Access method for configuring authentication and registry" >}}
+
+{{% tab title="Direct access" %}}
+
+Set Chainguard as the only Go module proxy:
+
+```bash
+go env -w GOPROXY=https://libraries.cgr.dev/go
+go env -w GONOSUMDB='*'
+```
+
+You can use `GOSUMDB=off` instead of `GONOSUMDB=*`:
+
+```bash
+go env -w GOSUMDB=off
+```
+
+Do not add `direct`, `https://proxy.golang.org`, or another public proxy to `GOPROXY`. A sole Chainguard entry ensures that module requests remain within your organization’s configured controls.
+
+Do not set `GOPRIVATE`. It also sets `GONOPROXY` and can bypass Chainguard. Do not set `GONOSUMCHECK`; it is not a current Go configuration variable.
+
+Check the effective configuration:
+
+```bash
+go env GOPROXY GONOSUMDB GOSUMDB
+```
+
+{{% /tab %}}
+
+{{% tab title="Repository manager" %}}
+
+For team and organization-wide deployments, configure your repository manager as the authenticated upstream for Chainguard Libraries for Go.
+
+The repository manager should expose a Go module proxy endpoint to your developers and CI systems. Point Go at that endpoint, for example:
+
+```bash
+go env -w GOPROXY=https://<your-repository-manager>/go
+```
+
+Use repository-manager credentials in the developer and CI environments. Do not distribute the Chainguard pull token to every developer when your repository manager can centralize access.
+
+Configure Chainguard as the primary upstream for Go modules and avoid adding a separate public Go proxy as a fallback. This preserves Chainguard’s policy, cooldown, and malware controls for requests that are not yet available as Chainguard-built modules.
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+## Step 3: Verify authentication and proxy access
+
+You can test the endpoint directly with the credentials exported by chainctl:
+
+```bash
+curl -fsS -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \
+  https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.info
+```
+
+A successful response contains JSON similar to:
+
+```bash
+{
+  "Version": "v1.5.2",
+  "Time": "2021-05-05T15:00:00Z"
+}
+```
+
+The exact timestamp may differ. If the request returns 401, check the token, `.netrc` hostname, and token expiration. If it returns 404, confirm that your organization has upstream fallback enabled and that the module version is available.
+
+## Step 4: Pull modules and verify the build
+
+Use a clean module cache when first testing the migration so that existing cached modules do not hide proxy configuration problems:
+
+```bash
+go clean -modcache
+go mod download
+go test ./...
+go mod verify
+```
+
+For a minimal smoke test in a temporary directory:
+
+```bash
+workdir=$(mktemp -d)
+cd "$workdir"
+go mod init example.com/proxy-check
+go get rsc.io/quote@v1.5.2
+go mod verify
+```
+
+After the build succeeds, inspect `go env GOPROXY` and your build logs to confirm that module requests are going through Chainguard. Keep the generated `go.sum` file with the project if it is part of your existing dependency-management workflow.
+
+## Step 5: Adopt remediated versions explicitly
+
+Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix. Go does not select these versions through `@latest` or `go get -u`, so you must request the version explicitly.
+
+For example:
+
+```bash
+go get example.com/module@v1.2.5-cgr.1
+go mod tidy
+go mod verify
+```
+
+You can also update the `require` directive in `go.mod` directly:
+
+```bash
+require example.com/module v1.2.5-cgr.1
+```
+
+Use the module version listed by Chainguard for the CVE remediation you want to adopt. A remediated version is a distinct source archive; it does not replace the upstream bytes for another version.
+
+---
+
+### Chainguard Libraries for Go overview
+_Path: chainguard/libraries/go/overview.md_
+
+Chainguard Libraries for Go provides enhanced security for the Go module ecosystem through an authenticated, secure-by-default Go module proxy. The proxy applies organization-defined policies, malware and greyware protections, cooldown controls, and CVE remediation to Go dependencies before they reach development and build environments.
+
+Go modules support cloud-native infrastructure, high-volume services, fintech, networking, and security applications. Chainguard Libraries for Go helps reduce the risks of consuming modules from public sources, including malicious modules, typosquats, and vulnerabilities in versions your applications still need to use.
+
+{{< beta feature="Chainguard Libraries for Go" enroll="true" >}}
+
+## Runtime requirements
+
+Go modules retrieved from Chainguard have the same module paths, APIs, and Go toolchain requirements as their corresponding upstream projects unless a remediated release explicitly documents otherwise. Your application’s existing go.mod remains the source of truth for module requirements.
+
+## Technical details
+
+You must use the username and password [retrieved with chainctl](/chainguard/libraries/introduction/access/) to access the Chainguard Libraries for Go repository.
+
+The URL for the repository is: `https://libraries.cgr.dev/go/`.
+
+When a Go command requests a module, Chainguard resolves the request through the sources enabled for your organization:
+
+- Chainguard-remediated module versions
+- Eligible versions from the upstream Go module proxy, when upstream fallback is enabled
+
+The `/go` endpoint is the endpoint you configure in `GOPROXY`. It uses the standard Go module proxy paths for version lists, metadata, `go.mod` files, and module source archives.
+Go builds from source on the customer side. Unlike ecosystems that distribute prebuilt language artifacts, Chainguard Libraries for Go distributes module source archives. A CVE-remediated module is published as a distinct Go version rather than replacing the upstream bytes for the same version.
+
+## CVE remediation
+
+Chainguard Libraries for Go can provide backported fixes for high and critical CVEs in older module versions when upgrading to a newer upstream release is not practical.
+
+Remediated Go versions use the `-cgr.N` prerelease suffix. For example, a remediated build of upstream `v1.2.5` is `v1.2.5-cgr.1`.
+
+The incremented patch number ensures that vulnerability scanners recognize the remediated version as newer than upstream `v1.2.5`, while the `-cgr1` suffix identifies it as  a Chainguard prerelease. A remediated version is a distinct module source archive; it does not replace the upsream bytes for another version.
+
+The suffix identifies a Chainguard-remediated source archive. Because `-cgr.N` versions are prereleases, Go’s minimal version selection and `@latest` do not select them automatically. Use a [`replace` directive](https://go.dev/ref/mod#go-mod-file-replace) in `go.mod` to pin a dependency to its remediated version:
+
+```bash
+require example.com/module v1.2.5
+replace example.com/module v1.2.5 => example.com/module v1.2.6-cgr1
+```
+
+This version-specific form replaces upstream v1.2.5 wherever it is selected, including as a transitive dependency. To force the remediated version regardless of the selected upstream version, omit the old version from the directive:
+
+```bash
+replace example.com/module => example.com/module v1.2.6-cgr1
+```
+
+Replace the module path and versions with the remediated version available for your dependency. After adding or updating a replace directive, run:
+
+```bash
+go mod tidy
+go mod verify
+```
+
+You can also select the remediated version directly with `go get`, but use `replace` when you need a stable project-level pin:
+
+```bash
+go get example.com/module@v1.2.6-cgr1
+go mod tidy
+go mod verify
+```
+
+## Go checksum verification
+
+Chainguard-remediated versions are not recorded in the public Go checksum database because they are not available from public upstream origins. Configure Go to skip public checksum verification for modules retrieved through Chainguard:
+
+```bash
+go env -w GONOSUMDB='*'
+```
+
+You can alternatively disable checksum database verification globally:
+
+```bash
+go env -w GOSUMDB=off
+```
+
+The Go module proxy remains authenticated over TLS, and `go.sum` continues to pin the module bytes after the first successful fetch.
+
+Do not use `GOPRIVATE` for this configuration. `GOPRIVATE` also sets `GONOPROXY`, which causes Go to bypass Chainguard. `GONOSUMCHECK` is not a current Go configuration variable and should not be used.
+
+## Upstream fallback
+
+By default, Chainguard Libraries endpoints serve Chainguard-built modules. When [upstream fallback](/chainguard/libraries/introduction/#upstream-fallback-and-controls) is enabled for your organization, the Go endpoint can also serve eligible versions from the upstream Go module proxy under Chainguard security controls.
+
+Upstream fallback can help you adopt Chainguard without waiting for every module and version to be rebuilt. It does not make Chainguard Libraries a complete mirror of the upstream registry. A module or version may be unavailable because it is not yet supported, is inside the cooldown window, or is blocked by Chainguard or your organization’s policies.
+
+### View packages blocked due to malware
+
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the Chainguard Repository. You can get a list of blocked packages via chainctl or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+
+---
+
+### Configure Go build tools
+_Path: chainguard/libraries/go/build-configuration.md_
+
+Chainguard Libraries for Go implements the standard [GOPROXY protocol](https://go.dev/ref/mod#goproxy-protocol). To use it, configure Go to retrieve modules through the Chainguard Go module proxy.
+
+This page is a reference for configuring Go projects and CI/CD environments. It covers authentication, proxy configuration, cache clearing, verification, and using Chainguard-remediated module versions. Apply these changes on every workstation and build server that downloads Go modules, including CI/CD systems such as GitHub Actions, Jenkins, and TeamCity.
+
+The Chainguard Go module proxy endpoint, `https://libraries.cgr.dev/go`, is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Go. It serves requested versions from upstream [under Chainguard security controls](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
+
+This guide outlines build tool configuration. If you are looking for something else, refer to the following guides depending on your goals:
+
+| If you want to... | Use this page |
+| --- | --- |
+| Understand what Chainguard Libraries for Go is and how it works | [Go overview](/chainguard/libraries/go/overview/) |
+| Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/go/global-configuration/) |
+| Look up how to configure Go for use with Chainguard Libraries | This page |
+| Migrate an existing project step by step | [Go migration guide](/chainguard/libraries/go/migration/) |
+
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
+
+## Direct access
+
+Pulling artifacts directly from Chainguard Libraries for Go requires authentication with username and password for a pull token as detailed in the [Libraries Access documentation](/chainguard/libraries/introduction/access/).
+
+Direct access configures Go to use Chainguard Libraries without a repository manager:
+
+```bash
+go env -w GOPROXY=https://libraries.cgr.dev/go
+go env -w GONOSUMDB='*'
+```
+
+You can use `GOSUMDB=off` instead of `GONOSUMDB=*`:
+
+```bash
+go env -w GOSUMDB=off
+```
+
+Do not add `,direct`, `https://proxy.golang.org`, or another public proxy to `GOPROXY`. Use the Chainguard endpoint as the only entry so that module requests remain within your organization’s configured controls.
+
+Direct access requires per-project and per-workstation configuration. For organizations with multiple teams, proxying through an artifact manager may be a more suitable approach. Learn more in the [global configuration documentation](/chainguard/libraries/go/global-configuration/).
+
+### Authentication
+
+Go can read HTTP Basic authentication credentials from a `.netrc` file. For local development, add an entry for the Chainguard host:
+
+```bash
+cat >> ~/.netrc <<EOF
+machine libraries.cgr.dev
+login ${CHAINGUARD_GO_IDENTITY_ID}
+password ${CHAINGUARD_GO_TOKEN}
+EOF
+chmod 600 ~/.netrc
+```
+
+Make sure the machine entry is exactly `libraries.cgr.dev` and that the token has not expired. Go sends credentials only to HTTPS proxies.
+
+For CI/CD, use the CI system’s secret store to provide the credentials. Avoid embedding credentials in `GOPROXY` URLs or checked-in configuration files.
+
+If you use a repository manager, authenticate Go to the repository manager with that system’s credentials. Chainguard pull-token credentials should not be sent to a third-party repository manager unless your organization has explicitly configured that flow.
+
+## Configure Go
+
+Set the following environment variables for any environment that builds the project:
+
+```bash
+go env -w GOPROXY=https://libraries.cgr.dev/go
+go env -w GONOSUMDB='*'
+```
+
+Use your repository manager URL instead when your organization uses a repository manager:
+
+```bash
+go env -w GOPROXY=https://<your-repository-manager>/go
+go env -w GONOSUMDB='*'
+```
+
+Check the effective configuration:
+
+```bash
+go env GOPROXY GONOSUMDB GOSUMDB
+```
+
+### Checksum database settings
+
+Chainguard-remediated versions are not available from public upstream origins, so they cannot be verified by the public Go checksum database. `GONOSUMDB=*` tells Go not to use the public checksum database for modules retrieved through the configured proxy. The authenticated HTTPS proxy and the project’s `go.sum` file continue to protect module retrieval.
+
+Do not use `GOPRIVATE` for modules that should be retrieved through Chainguard. `GOPRIVATE` also sets `GONOPROXY` and can cause Go to bypass Chainguard.
+
+Do not use `GONOSUMCHECK`; it is not a current Go configuration variable.
+
+## Verify the configuration
+
+Use a clean module cache when testing the configuration for the first time. This prevents previously cached modules from hiding proxy or authentication problems:
+
+```bash
+go clean -modcache
+go mod download
+go test ./...
+go mod verify
+```
+
+Inspect `GOPROXY` and your build logs to confirm that module requests are going through Chainguard.
+
+## Minimal example project
+
+Use the following commands to test access in a temporary directory:
+
+```bash
+workdir=$(mktemp -d)
+cd "$workdir"
+go mod init example.com/proxy-check
+go get rsc.io/quote@v1.5.2
+go mod verify
+```
+
+A successful `go mod verify` confirms that the downloaded module content matches the checksums recorded in `go.sum`.
+
+## Use remediated Go versions
+
+Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix. For example: `v1.2.5-cgr.1`.
+
+A remediated version is a distinct module source archive. It does not replace the upstream bytes for another version.
+
+Go does not select `-cgr.N` versions automatically through `@latest`, minimal version selection, or `go get -u`. Adopt a remediated version explicitly:
+
+```bash
+go get example.com/module@v1.2.5-cgr.1
+go mod tidy
+go mod verify
+```
+
+Replace the module path and version with the remediated version available for your dependency. You can also update the require directive in `go.mod` directly:
+
+```bash
+require example.com/module v1.2.5-cgr.1
+```
 
 ---
 
@@ -5902,15 +10913,25 @@ to pulling directly from public registries like Maven Central, npm, and PyPI.
 feature where Chainguard backports High and Critical vulnerability fixes from
 newer upstream releases to older versions that customers are still using,
 particularly when upstream maintainers no longer ship patches for those older
-versions. Remediated versions are:
+versions. Each ecosystem uses a version suffix so you can distinguish remediated
+builds from non‑remediated upstream versions, but how you select them differs:
 
-* Published in a separate repository:
-  `https://libraries.cgr.dev/python-remediated/simple/` for Python and
-  `https://libraries.cgr.dev/java-remediated/` for Java.
-* Given a local version suffix -- like `+cgr.N` for Python (for example,
-  2.0.0+cgr.1) and `-0.cgr.N` for Java -- so dependency resolvers can
-  distinguish them from non‑remediated upstream versions while still preferring
-  the remediated build during resolution.
+* **Python**: A `+cgr.N` local version suffix (for example, `2.0.0+cgr.1`),
+  published in a separate index at
+  `https://libraries.cgr.dev/python-remediated/simple/`. Python package managers
+  treat it as a higher‑precedence version and can select it automatically during
+  resolution.
+* **Java**: A `-0.cgr.N` suffix (for example, `3.18.0-0.cgr.1`), published in a
+  separate repository at `https://libraries.cgr.dev/java-remediated/`. Maven and
+  Gradle sort it higher than the base version, so dependency management rules can
+  resolve to it when the overlay repository is available.
+* **JavaScript**: A `-cgr.N` prerelease suffix (for example, `4.17.21-cgr.1`),
+  served through the standard endpoint at `https://libraries.cgr.dev/javascript/`.
+  Because npm treats `-cgr.N` as a prerelease rather than a newer release, you
+  select remediated versions by running `chainctl libraries remediate --apply`.
+  Rather than relying on version precedence, the command sets the exact `-cgr.N`
+  version for direct dependencies and adds override or resolution rules for
+  transitive ones, then updates the lockfile.
 
 ## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?
 
@@ -6713,7 +11734,7 @@ First, force a fresh install:
 
 {{< tabs label="Language ecosystem for adopting a Chainguard build" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 Java (Maven):
 
@@ -6728,9 +11749,9 @@ Java (Gradle):
 ./gradlew build --refresh-dependencies
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 JavaScript (npm):
 
@@ -6739,9 +11760,9 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 Python (pip):
 
@@ -6749,7 +11770,7 @@ Python (pip):
 pip install --no-cache-dir --force-reinstall <package>==<version>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -7199,7 +12220,7 @@ quickly, especially when moving to a newer version would introduce disruptive
 changes. Remediated artifacts are published as incremental patch versions, allowing teams to take a targeted fix for a CVE without taking on a broader upgrade at the same time.
 
 CVE remediation is available for a subset of [Chainguard Libraries for
-Python](/chainguard/libraries/python/overview/) and [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) (available in private preview). If you want to request CVE
+Python](/chainguard/libraries/python/overview/), [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) (available in private preview), and [Chainguard Libraries for JavaScript](/chainguard/libraries/javascript/overview/). If you want to request CVE
 remediation for additional libraries, reach out to your account team.
 
 ## About CVE remediation
@@ -7223,9 +12244,19 @@ versions only.
 
 Chainguard publishes remediated versions using ecosystem-specific version suffixes.
 
+#### Python version naming
+
 For Python, remediated packages use a `+cgr.N` local version suffix. For example, if `flask==1.1.2` has a remediated build, Chainguard publishes it as `flask==1.1.2+cgr.1`. Python package managers treat this as a higher-precedence local version of the base release, so remediated versions can be selected automatically during dependency resolution when the remediated index is configured.
 
+#### Java version naming
+
 For Java, remediated artifacts use a `-0.cgr.N` suffix appended to the base version. For example, if `org.apache.commons:commons-lang3:3.18.0` has a remediated build, that build is published as org.apache.`commons:commons-lang3:3.18.0-0.cgr.1`. If Chainguard publishes another remediated iteration for the same base version, the trailing number increases, such as `-0.cgr.2` or `-0.cgr.3`.
+
+#### JavaScript version naming
+
+For JavaScript, remediated artifacts use a `-cgr.N` suffix appended to the base version. For example, a remediated build of `example-package v4.17.21` is published as `example-package@4.17.21-cgr.1`.
+
+Because `-cgr.N` is an npm prerelease identifier, it must not be treated as a newer ordinary release by npm semver resolution. The JavaScript build integration selects the remediated artifact while preserving the dependency version requested by the application.
 
 ### Remediation and transitive dependencies
 
@@ -7246,6 +12277,34 @@ dependency trees. To ensure full control over dependency versions in your
 project, use `dependencyManagement` or equivalent tooling to explicitly manage
 and override dependency versions.
 
+**JavaScript**
+
+JavaScript remediation operates on the resolved dependency tree in the project lockfile rather than through package metadata or semver precedence.
+
+To preview available remediations, run:
+
+```bash
+chainctl libraries remediate
+```
+
+To adopt remediated artifacts, run:
+
+```bash
+chainctl libraries remediate --apply
+```
+
+The command walks the lockfile and updates each eligible package occurrence to the corresponding Chainguard remediated version when one is available. For a direct dependency, it sets the exact `-cgr.N` version in `package.json`. For a transitive dependency, it adds an override or resolution rule supported by your package manager. In both cases, it updates the lockfile.
+
+This process can remediate transitive dependencies, but only when a remediated build exists for the exact package version resolved in the lockfile. Dependencies without a published `-cgr.N` build remain unchanged.
+
+A single rule can cover more than one occurrence of a package. The package manager applies the rule during resolution wherever a dependency matches the rule's package name and version, then records the substituted versions in the lockfile. Because matching is by name and version rather than by position, one rule can remediate every matching node in the dependency tree — you don't need a separate rule for each occurrence. How widely a rule applies depends on its syntax: a rule scoped to a name and version matches only that version, while broader patterns can match additional ranges or nesting.
+
+After applying remediation, review the updated lockfile to confirm that each dependency you intended to remediate resolves to the selected `-cgr.N` version. The lockfile is the authoritative record of what your package manager will install.
+
+Re-run `chainctl libraries remediate` after every install or dependency update so that newly resolved entries are evaluated. You can also use a direct package override in `package.json` to select an exact remediated version manually.
+
+Unlike Python, JavaScript remediation does not rely on a remediated index selecting a higher-precedence version. Unlike Java, it does not depend on BOM updates to propagate remediation through the dependency tree.
+
 ### CVE remediation for vendored dependencies
 
 Some Python packages bundle compiled code written in other languages (such as Go, Rust, or C/C++) directly into their wheel. When a CVE exists in a dependency of that
@@ -7265,6 +12324,7 @@ Remediated libraries are published in dedicated repositories:
 
 - Python: In a PyPI-compatible index at `https://libraries.cgr.dev/python-remediated/` - the simple index is at `https://libraries.cgr.dev/python-remediated/simple/`
 - Java: In a repository at `https://libraries.cgr.dev/java-remediated/` - a companion to the standard Chainguard Libraries for Java repository at `https://libraries.cgr.dev/java/`
+- JavaScript: Consume remediated artifacts through the standard JavaScript endpoint: `https://libraries.cgr.dev/javascript/`.
 
 You can:
 
@@ -7345,13 +12405,13 @@ Before getting started:
 
 {{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl" %}}
+{{< tab title="chainctl" >}}
 
 [Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
 
@@ -7369,7 +12429,7 @@ chainctl libraries entitlements create --ecosystems=JAVASCRIPT
 
 The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -7416,29 +12476,29 @@ You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chai
 
 {{< tabs label="Language ecosystem for creating a pull token" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 ```bash
 chainctl auth pull-token create --repository=java --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 ```bash
 chainctl auth pull-token create --repository=javascript --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 ```bash
 chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -7464,7 +12524,7 @@ Upstream packages served through the Chainguard Repository are subject to config
 
 {{< tabs label="Language ecosystem for build tool configuration" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 ### Java
 
@@ -7487,9 +12547,9 @@ Check out minimal example projects for
 and
 [Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 ### JavaScript
 
@@ -7516,9 +12576,9 @@ and
 > [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
 > build configuration page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 ### Python
 
@@ -7551,7 +12611,7 @@ Check out minimal example projects for
 > the authentication options in the
 > [Python build configuration page](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9077,7 +14137,7 @@ For authentication, you need a pull token or the Python keyring provider.
 
 {{< tabs label="Authentication method" >}}
 
-{{% tab title="Pull token" %}}
+{{< tab title="Pull token" >}}
 
 If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must have the `owner` role or have the `libraries.python.pull_token_creator` permission to create one.
 
@@ -9093,9 +14153,9 @@ eval $(chainctl auth pull-token --output env --repository=python --name=my-pytho
 
 Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
 The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
 
@@ -9109,7 +14169,7 @@ grep -A2 "libraries.cgr.dev" ~/.netrc
 
 Remove or correct any stale entry before proceeding.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9131,7 +14191,7 @@ Setting pull token credentials in `.netrc` is a common approach for individual w
 
 {{< tabs label="Direct access authentication method" >}}
 
-{{% tab title="Pull token in .netrc" %}}
+{{< tab title="Pull token in .netrc" >}}
 
 > **Note**: `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Python will override credentials for any other ecosystem.
 
@@ -9154,9 +14214,9 @@ EOF
 chmod 600 ~/.netrc
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Pull token in pip.conf" %}}
+{{< tab title="Pull token in pip.conf" >}}
 
 Unlike `.netrc`, `pip.conf` can be scoped per project or per pipeline rather than shared globally across a whole workstation.
 
@@ -9197,9 +14257,9 @@ This method sets both the index and its credentials in one step.
 > version with a literal token embedded in the URL. Add `.pip/` to
 > `.gitignore` if you create it locally with real credentials for testing.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
@@ -9207,7 +14267,7 @@ Follow the [instructions to install the keyring package](/chainguard/libraries/i
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9219,7 +14279,7 @@ Note that Chainguard publishes both standard and [remediated Python indexes](/ch
 
 {{< tabs label="Package manager for build tool configuration" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 If you configured authentication via `.netrc` or the Python keyring provider, run the following commands to set the remediated repository first, then the simple repository:
 
@@ -9232,9 +14292,9 @@ If you configured authentication via pull token credentials in `pip.conf`, this 
 is already done; the `index-url` you set in `.pip/pip.conf` already points
 at Chainguard with credentials embedded.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Edit the `pyproject.toml` for project-level or the `~/.config/uv/uv.toml` to make global-level changes, setting the remediated repository first:
 
@@ -9265,9 +14325,9 @@ If you are using the Python keyring, enable support for it in `pyproject.toml`:
 keyring-provider = "subprocess"
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Configure the Chainguard sources, setting the remediated index as the primary:
 
@@ -9276,7 +14336,7 @@ poetry source add --priority=primary chainguard-remediated https://libraries.cgr
 poetry source add chainguard https://libraries.cgr.dev/python/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9288,15 +14348,15 @@ Once configured, point your build tool at your repository manager URL instead of
 
 {{< tabs label="Package manager for repository manager setup" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip config set global.index-url https://<your-repo-manager-url>/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Configure `~/.config/uv/uv.toml` for a global default across all projects:
 
@@ -9316,9 +14376,9 @@ url = "https://repo.example.com/repository/python-all/simple/"
 default = true
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Run the following command:
 
@@ -9327,7 +14387,7 @@ poetry config http-basic.python-all REPO_MANAGER_USERNAME REPO_MANAGER_PASSWORD
 poetry source add python-all https://repo.example.com/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9350,7 +14410,7 @@ You can update your lockfile in one of two ways. Update the checksums in place t
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
@@ -9378,9 +14438,9 @@ chainctl libraries update-hashes
 
 By default, Chainguard hashes are appended alongside your existing hashes rather than replacing them. If your installer fails on a dual-hash entry, use the `--replace` flag.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, consider the following:
 
@@ -9415,7 +14475,7 @@ Poetry 2.x:
 poetry lock
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9426,29 +14486,29 @@ from your previous index, with no error indicating this happened. To avoid this,
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip cache purge
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry cache clear --all pypi
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9464,30 +14524,30 @@ Reinstall dependencies and confirm that the lockfile reflects Chainguard as the 
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip install --force-reinstall --no-cache-dir -r requirements.txt
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv sync --reinstall
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry env remove --all
 poetry install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -9497,15 +14557,15 @@ After reinstalling, you can use `chainctl` to verify which dependencies are buil
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="pip and uv" %}}
+{{< tab title="pip and uv" >}}
 
 ```shell
 chainctl libraries verify --detailed ./.venv/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Poetry's `virtualenv` location depends on your configuration. If `virtualenvs.in-project` is enabled, it's `.venv` in the project directory. Otherwise, find it with:
 
@@ -9519,7 +14579,7 @@ Then:
 chainctl libraries verify --detailed $(poetry env info --path)
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -11058,6 +16118,553 @@ pinning](/chainguard/libraries/policies-and-security/build-pinning/) for more in
 ---
 
 ### Global configuration
+_Path: chainguard/libraries/dotnet/global-configuration.md_
+
+.NET package consumption in a large organization is typically managed by a repository manager. The repository manager acts as a single point of access for developers and development tools to retrieve NuGet packages.
+
+This page describes how to configure [JFrog Artifactory](https://jfrog.com/artifactory/) and [Sonatype Nexus Repository](https://www.sonatype.com/products/sonatype-nexus-repository) to proxy Chainguard Libraries for .NET. The instructions use Chainguard Repository's built-in upstream fallback, which is the recommended configuration.
+
+With upstream fallback enabled, configure Artifactory with a single remote repository that points to the Chainguard NuGet v3 service index: `https://libraries.cgr.dev/dotnet/v3/index.json`.
+
+Chainguard Repository handles upstream fallback and policy enforcement. Artifactory handles local caching, access control, and the endpoint used by your NuGet clients. Do not add a direct `nuget.org` remote to the virtual repository used by your builds unless you intentionally want to manage fallback yourself.
+
+## Prerequisites
+
+Before you begin, you need:
+
+- An [entitlement to Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-an-entitlement)
+- Administrator access to your repository manager instance
+- A [pull token for Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-a-pull-token)
+
+## JFrog Artifactory
+
+JFrog Artifactory supports NuGet repositories for proxying packages and virtual repositories for combining repositories behind a single endpoint.
+
+The following configuration uses the recommended upstream-fallback approach. A remote repository that points directly to nuget.org can bypass Chainguard Repository protections. Because Artifactory resolves packages through a virtual repository, a misplaced or incorrectly ordered remote can result in an unprotected package being served without an obvious build error.
+
+### Initial configuration
+
+Use the following steps to add Chainguard Libraries for .NET as an Artifactory remote repository:
+
+1. Sign in to Artifactory as a user with administrator privileges.
+1. Click **Administration** in the top navigation bar.
+1. In the left navigation, click **Repositories**.
+1. Click **Create a Repository**, then choose **Remote**.
+1. Configure the remote repository with the following values:
+    - **Package type**: NuGet
+    - **Repository key**: `dotnet-chainguard`
+    - **URL**: `https://libraries.cgr.dev/dotnet/v3/index.json`
+    - **Username**: the username returned by `chainctl`
+    - **Password**: the password returned by `chainctl`
+1. Open the **Advanced configuration** tab and configure the following:
+    - In the **Network** section, confirm that **Lenient Host Authentication** is unchecked. This prevents Artifactory from forwarding credentials across a redirect.
+    - Optionally select **Enable Cookie Management**. JFrog recommends this for remote repositories that use redirects.
+    - In the **Others** section, select **Bypass HEAD Requests** so that Artifactory retrieves package files with GET requests instead of probing with HEAD requests first.
+    - In the **Others** section, uncheck **Block Mismatching Mime Types**.
+    - Select **Disable URL Normalization** so that Artifactory does not rewrite a pre-signed redirect URL.
+1. Click **Create Remote Repository**.
+
+These settings are required because Chainguard Libraries stores artifacts behind redirects to pre-signed URLs. Without them, Artifactory may rewrite the redirect, forward credentials to the redirected host, or cache the redirect response instead of the NuGet package.
+
+### Create a virtual repository
+
+Create a virtual repository to give NuGet clients a single access point:
+
+1. Click **Create a Repository**, then choose **Virtual**.
+1. Configure the virtual repository with the following values:
+    - **Package type**: NuGet
+    - **Repository Key**: `dotnet-all`
+    - **Repositories**: add `dotnet-chainguard`
+1. Click **Create Virtual Repository**.
+
+For the recommended configuration, `dotnet-chainguard` should be the only external upstream in `dotnet-all`. You can also add approved internal NuGet repositories to the virtual repository according to your organization's access-control requirements.
+
+### Validate the remote repository
+
+Validate the Artifactory remote before configuring developer workstations or CI/CD systems. The Artifactory **Test** button is not a reliable indicator of a working Chainguard configuration; a remote can pass the test but still be misconfigured for package retrieval.
+
+- Confirm that the remote repository URL is `https://libraries.cgr.dev/dotnet/v3/index.json`.
+- Confirm that the remote uses the current .NET pull-token username and password. Confirm that the token is not expired and was copied correctly.
+- Confirm that the [Advanced configuration settings](#initial-configuration) are applied.
+- Clear any previously cached test content from `dotnet-chainguard` if the repository was configured with different settings.
+- Create or use a test .NET project that references a package available from Chainguard Libraries.
+- Configure the test project to use the Artifactory virtual repository, then clear the NuGet HTTP cache:
+
+```bash
+ dotnet nuget locals all --clear
+ ```
+
+- Force a network restore:
+
+ ```bash
+ dotnet restore --force --no-cache --verbosity normal
+```
+
+- Inspect `obj/project.assets.json`. The `sources` entry must contain the Artifactory `dotnet-all` URL, and must not contain `nuget.org`.
+- In Artifactory, confirm that the package is present in the `dotnet-chainguard` remote cache and that the request is available through the `dotnet-all` virtual repository.
+
+### Configure build tools
+
+After validation, configure each workstation and build server that restores .NET dependencies, including CI/CD infrastructure, to use the Artifactory virtual repository.
+
+In Artifactory, select the `dotnet-all` virtual repository and use **Set Me Up** or **Generate Settings** to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://<artifactory-host>/artifactory/api/nuget/dotnet-all`
+
+See [Configuring your build tool](/chainguard/libraries/dotnet/build-configuration/#repository-manager) for more information.
+
+<a id="nexus"></a>
+
+## Sonatype Nexus Repository
+
+[Sonatype Nexus
+Repository](https://www.sonatype.com/products/sonatype-nexus-repository) allows
+for merging multiple remote repositories as a repository group. The following
+instructions are based on the [Nexus documentation for
+NuGet](https://help.sonatype.com/en/nuget-repositories.html).
+
+The recommended approach is to rely on Chainguard Repository's [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
+configuring a single proxy repository pointed at the Chainguard NuGet v3 service
+index rather than adding a separate nuget.org proxy. A proxy that points
+directly to nuget.org can bypass Chainguard Repository protections.
+
+### Initial configuration
+
+The following steps create a proxy repository for Chainguard Libraries for .NET
+and a repository group that exposes it to your build tools.
+
+First, log in to Sonatype Nexus as a user with administrator privileges and
+access the **Server administration** and configuration section with the gear
+icon in the top navigation bar.
+
+Next, configure a proxy repository for the Chainguard Libraries for .NET
+repository:
+
+1. Select **Repository - Repositories** in the left hand navigation.
+1. Click **Create repository**.
+1. Select the **nuget (proxy)** recipe.
+1. Configure the following:
+    - **Name**: `dotnet-chainguard`
+    - **Protocol Version**: `NuGet V3`
+    - **Proxy - Remote storage**: Add the URL
+   `https://libraries.cgr.dev/dotnet/v3/index.json`.
+    - **HTTP - Authentication**: Select `Username` as the Authentication type,
+   and provide the [username and password values as retrieved with
+   chainctl](/chainguard/libraries/introduction/access/).
+1. Click **Create repository**.
+
+Create a repository group, or add to an existing repository group:
+
+1. Select **Repository - Repositories** in the left hand navigation.
+1. Click **Create repository**.
+1. Select the **nuget (group)** recipe.
+1. Configure the following:
+    - **Name**: `dotnet-all`
+    - Under **Group - Member repositories**, move the new repository
+   `dotnet-chainguard` to the right to include it in the group. Position
+   `dotnet-chainguard` at the top of the list using the arrow controls.
+
+In a typical configuration, the Chainguard repository is placed first so that
+packages are retrieved through Chainguard when available. If you are manually
+managing fallback, you can configure an additional nuget.org proxy repository
+and add it to the group after `dotnet-chainguard`.
+
+### Build tool access
+
+NuGet v3 clients access a Nexus group through its service index, which commonly
+has the form `https://repo.example.com/repository/dotnet-all/index.json` (with
+`repo.example.com` replaced with the hostname of your repository manager).
+
+See [Configuring your build
+tool](/chainguard/libraries/dotnet/build-configuration/#repository-manager) for
+information on setting the package source and authenticating to your repository
+manager.
+
+---
+
+### Migrating a .NET project to Chainguard Libraries
+_Path: chainguard/libraries/dotnet/migration.md_
+
+Chainguard Libraries for .NET provides a registry of NuGet packages that have been scanned for malware and are subject to configurable policies. Switching an existing project requires only a registry configuration change – no changes to your application code or dependency versions.
+
+This guide walks through migrating an existing .NET project to Chainguard Libraries, covering the two most common setups:
+
+- **Direct access**: Your build tool connects directly to libraries.cgr.dev. This option is faster for initial evaluation and smaller-scale setups.
+- **Repository manager**: Your build tool connects to a repository manager, which proxies requests to Chainguard Libraries. This option is recommended for teams and organizations.
+
+## Prerequisites
+
+Before getting started, you need:
+
+- A .NET project with a .csproj file
+- The .NET SDK
+    - If you are using macOS, install the .NET SDK with Homebrew: `brew install --cask dotnet-sdk`
+- `chainctl` installed and authenticated
+- An [entitlement to Chainguard Libraries for .NET](#create-an-entitlement)
+- A [pull token for Chainguard Libraries for .NET](#create-a-pull-token)
+
+### Create an entitlement
+
+To create an entitlement to Chainguard Libraries for .NET, run:
+
+```bash
+chainctl libraries entitlements create --ecosystems=DOTNET
+```
+
+You do not need to manually enable upstream fallback for .NET; the entitlement for .NET automatically includes Chainguard protections for upstream artifacts.
+
+You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+
+```bash
+chainctl libraries policy create --name=dotnet-cooldown-14d --cooldown-days=14
+chainctl libraries policy enable dotnet-cooldown-14d --ecosystem=DOTNET --mode=ENFORCE
+```
+
+It can take up to 30 minutes for configured policies to take effect. Learn more about cooldown and other policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/).
+
+### Create a pull token
+
+Create a pull token for the .NET repository:
+
+```bash
+chainctl auth pull-token --repository=dotnet --ttl=8670h
+```
+
+The command returns a username and password. Use these values to authenticate NuGet to Chainguard Libraries.
+
+> **Note**: Do not commit the credentials to source control. Keep `nuget.config` out of the repository when it contains literal credentials, or generate it at build time from secrets stored in your CI/CD system. For shared environments, use a dedicated machine identity or service account instead of a personal token when available.
+
+## Step 1: Configure authentication and registry
+
+Choose the setup that matches your organization. With direct access, your build tool connects to libraries.cgr.dev. With a repository manager, your build tool connects to a proxy that you configure to fetch from Chainguard Libraries.
+
+{{< tabs label="Access method for configuring authentication and registry" >}}
+
+{{% tab title="Direct access" %}}
+
+NuGet reads package sources from `nuget.config` files at the project, solution, user, and machine levels. Before changing the configuration, list the sources currently in use:
+
+```bash
+dotnet nuget list source
+```
+
+Edit or create a file named `nuget.config` in the project directory, alongside the `.csproj` file. Replace its contents with the following configuration, substituting the username and password with the values of your pull token:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="chainguard" value="https://libraries.cgr.dev/dotnet/v3/index.json" />
+  </packageSources>
+  <packageSourceCredentials>
+    <chainguard>
+      <add key="Username" value="REPLACE WITH USERNAME FROM pull-token" />
+      <add key="ClearTextPassword" value="REPLACE WITH PASSWORD FROM pull-token" />
+    </chainguard>
+  </packageSourceCredentials>
+</configuration>
+```
+
+The `<clear />` element removes previously configured package sources, including `nuget.org`. This prevents NuGet from silently falling back to `nuget.org`.
+
+Confirm the active sources:
+
+```bash
+dotnet nuget list source
+```
+
+The expected output shows Chainguard as enabled:
+
+```output
+Registered Sources:
+  1.  chainguard [Enabled]
+      https://libraries.cgr.dev/dotnet/v3/index.json
+```
+
+{{% /tab %}}
+
+{{% tab title="Repository manager" %}}
+
+Before you configure your project, set up your repository manager to proxy Chainguard Libraries for .NET. Follow the [global configuration guide](/chainguard/libraries/dotnet/global-configuration/) to add Chainguard Libraries as an upstream source. Once the repository manager is configured, point your project at its URL instead of libraries.cgr.dev.
+
+From the project directory, create a NuGet configuration file:
+
+```bash
+dotnet new nugetconfig
+```
+
+Replace its contents with the following configuration, substituting your repository manager URL and credentials:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="organization" value="https://repo.example.com/nuget/dotnet" />
+  </packageSources>
+  <packageSourceCredentials>
+    <organization>
+      <add key="Username" value="REPLACE WITH REPOSITORY MANAGER USERNAME" />
+      <add key="ClearTextPassword" value="REPLACE WITH REPOSITORY MANAGER PASSWORD" />
+    </organization>
+  </packageSourceCredentials>
+</configuration>
+```
+
+Authenticate with your repository manager credentials, not your Chainguard pull token. The pull token authenticates the repository manager to Chainguard; it does not authenticate individual build tools to the repository manager.
+
+The `<clear />` element removes previously configured package sources, including `nuget.org`. This prevents NuGet from silently falling back to `nuget.org`.
+
+Confirm the active sources:
+
+```bash
+dotnet nuget list source
+```
+
+The expected output shows your repository manager as enabled:
+
+```output
+Registered Sources:
+  1.  organization [Enabled]
+      https://repo.example.com/nuget/dotnet
+```
+
+{{% /tab %}}
+
+{{< /tabs >}}
+
+## Step 2: Clear caches, restore, and build
+
+Because packages have previously been served from upstream, you must clear the NuGet HTTP cache and restore:
+
+```bash
+dotnet nuget locals http-cache --clear
+dotnet restore --force --no-cache --verbosity normal
+```
+
+The output should include requests to the Chainguard endpoint. If you configured access through a repository manager, the output shows your repository manager URL instead. If the URL or credentials are incorrect, `restore` fails instead of using a cached package. Common errors include `NU1301`, `NU1101`, and `HTTP 401` responses.
+
+After restoring, build your project:
+
+```bash
+dotnet build
+```
+
+## Step 3: Verify your libraries
+
+Inspect the project assets file to confirm that your project is using Chainguard Libraries:
+
+```bash
+dotnet nuget list source
+```
+
+The expected output includes the Chainguard endpoint:
+
+```output
+      "sources": {
+        "https://libraries.cgr.dev/dotnet/v3/index.json": {}
+```
+
+If you configured access through a repository manager, the `sources` entry shows your repository manager URL instead of `libraries.cgr.dev`, and must not contain `nuget.org`.
+
+---
+
+### Chainguard Libraries for .NET overview
+_Path: chainguard/libraries/dotnet/overview.md_
+
+Chainguard Libraries for .NET provides a secure source for your open source NuGet dependencies. NuGet is the primary public registry for .NET packages, but packages from public registries can expose applications and build pipelines to malicious or compromised code. Chainguard addresses these supply chain risks through the [Chainguard Repository](/chainguard/chainguard-repository/overview/) by applying malware and greyware scanning, organization-defined policies, and additional security controls before packages are made available. The Chainguard Repository provides a single endpoint for package retrieval.
+
+In combination with third-party software repository managers, you can use Chainguard Libraries for .NET as a secure source of truth for your .NET development and build processes.
+
+{{< beta feature="Chainguard Libraries for .NET" enroll="true" >}}
+
+## Runtime requirements
+
+The runtime requirements for .NET artifacts available from Chainguard Libraries for .NET are identical to the requirements of the original upstream project.
+
+## Technical details
+
+You must use the username and password [retrieved with chainctl](/chainguard/libraries/introduction/access/) to access the Chainguard Libraries for .NET repository.
+
+The URL for the repository is: `https://libraries.cgr.dev/dotnet/`.
+
+## View packages blocked due to malware
+
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the [Chainguard Repository](/chainguard/chainguard-repository/overview/). You can get a list of blocked packages via `chainctl` or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+
+---
+
+### Configure .NET build tools
+_Path: chainguard/libraries/dotnet/build-configuration.md_
+
+Chainguard Libraries for .NET works with the standard NuGet client through a package-source configuration change. This page is a reference for configuration, authentication, and cache clearing. Apply these changes on every workstation and build server that builds and restores .NET dependencies, including CI/CD infrastructure.
+
+The `https://libraries.cgr.dev/dotnet` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for .NET. It serves requested versions from upstream [under Chainguard security controls](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
+
+This guide outlines build tool configuration. If you are looking for something else, refer to the following guides depending on your goals:
+
+| If you want to... | Use this page |
+| --- | --- |
+| Understand what Chainguard Libraries for .NET is and how it works | [.NET overview](/chainguard/libraries/dotnet/overview/) |
+| Set up organization-wide access through a repository manager | [Global configuration](/chainguard/libraries/dotnet/global-configuration/) |
+| Look up how to configure .NET for use with Chainguard Libraries | This page |
+| Migrate an existing project step by step | [.NET migration guide](/chainguard/libraries/dotnet/migration/) |
+
+If a package or version is blocked by a policy or malware scan, your build tool returns an error. Refer to the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/) for more details.
+
+## Library access approaches
+
+### Direct access
+
+For direct access, add your current session’s Chainguard credentials to your NuGet configuration file:
+
+```bash
+chainctl auth configure nuget
+```
+
+To configure NuGet with a long-lived pull token instead:
+
+```bash
+chainctl auth configure nuget --pull-token
+```
+
+#### Manually configure direct access
+
+For direct access, add your Chainguard credentials to your NuGet configuration file. If you do not have a configuration yet, create a project-level NuGet configuration file:
+
+```bash
+dotnet new nugetconfig
+```
+
+Add the following configuration, making sure to substitute the username and password returned by `chainctl auth pull-token`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="chainguard" value="https://libraries.cgr.dev/dotnet/v3/index.json" />
+  </packageSources>
+  <packageSourceCredentials>
+    <chainguard>
+      <add key="Username" value="REPLACE WITH USERNAME" />
+      <add key="ClearTextPassword" value="REPLACE WITH PASSWORD" />
+    </chainguard>
+  </packageSourceCredentials>
+</configuration>
+```
+
+### Repository manager
+
+If your organization uses a repository manager, configure it to proxy the Chainguard .NET endpoint. Then configure NuGet to use the repository manager URL, for example:
+
+```xml
+<configuration>
+  <packageSources>
+    <clear />
+    <add key="organization" value="https://repo.example.com/nuget/dotnet" />
+  </packageSources>
+</configuration>
+```
+
+Use the repository manager’s credentials in the NuGet configuration. Do not use the Chainguard pull token to authenticate directly to a third-party repository manager.
+
+## Applying configuration
+
+### Clear caches
+
+If you suspect stale or corrupted package data, clear the NuGet HTTP cache:
+
+```bash
+dotnet nuget locals http-cache --clear
+```
+
+To force a network fetch and bypass both the global packages cache and the HTTP cache, run:
+
+```bash
+dotnet restore --force --no-cache --verbosity normal
+```
+
+When Chainguard is configured correctly, the restore output should include requests to `https://libraries.cgr.dev/...`.
+
+### Restore and build
+
+Restore dependencies and build the project:
+
+```bash
+dotnet restore
+dotnet build
+dotnet run
+```
+
+An existing project does not require changes to `Program.cs`, dependency declarations, or application code. The package-source configuration controls where NuGet retrieves the existing dependencies.
+
+Verify that Chainguard was used:
+
+```bash
+dotnet nuget list source
+```
+
+The output should return a Chainguard source.
+
+## Minimal example project
+
+To test the configuration with a small application, create a console project and add a package:
+
+```bash
+dotnet new console -o MyConsoleApp
+cd MyConsoleApp
+dotnet add package Newtonsoft.Json
+```
+
+For this sample project only, update `Program.cs` so the application uses the package:
+
+```Program.cs
+using System;
+using Newtonsoft.Json;
+
+namespace MyConsoleApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var account = new { Name = "Alice", Joined = DateTime.Now };
+            string json = JsonConvert.SerializeObject(account, Formatting.Indented);
+            Console.WriteLine(json);
+        }
+    }
+}
+```
+
+Restore and run the sample:
+
+```bash
+dotnet restore
+dotnet run
+```
+
+### Verify the package source
+
+Inspect the project assets file to confirm that the restore used Chainguard Libraries:
+
+```bash
+dotnet nuget list source
+```
+
+The output should include the Chainguard endpoint:
+
+```output
+Registered Sources:
+  1.  chainguard [Enabled]
+      https://libraries.cgr.dev/dotnet/v3/index.json
+```
+
+If the project uses a repository manager, the assets file should instead show the repository manager URL.
+
+---
+
+### Global configuration
 _Path: chainguard/libraries/java/global-configuration.md_
 
 Java and JVM library consumption in a large organization is typically managed by
@@ -11598,32 +17205,32 @@ Before making any changes, confirm your project builds cleanly against Maven Cen
 
 {{< tabs label="Build tool for confirming your baseline build" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 ```shell
 cd your-project
 ./mvnw install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 ```shell
 cd your-project
 ./gradlew build
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 ```shell
 cd your-project
 bazel build //...
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -11671,7 +17278,7 @@ The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repositor
 
 {{< tabs label="Build tool for direct access configuration" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Maven repository and credentials configuration lives in a `settings.xml` file. For a project-local setup, place this file in the `.mvn` folder of your project and pass `-s .mvn/settings.xml` when running Maven commands.
 
@@ -11751,9 +17358,9 @@ Next, create a `.mvn/settings.xml` file with the following content. This configu
 </settings>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Update the repositories block in `app/build.gradle` to point to Chainguard Libraries. If you are using the remediated repository, set it first.
 
@@ -11781,9 +17388,9 @@ repositories {
 
 If a dependency's pom file is found in Chainguard but the JAR is not, Gradle fails rather than falling back to Central automatically. If this happens, check whether a newer version of the dependency is available in Chainguard's catalog and update the version in your `build.gradle`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Bazel uses `MODULE.bazel` to configure repositories via `rules_jvm_external`. The configuration described on this page uses `~/.netrc`, but note that `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Java will override credentials for any other ecosystem.
 
@@ -11813,7 +17420,7 @@ maven.install(
 
 The `use_credentials_from_home_netrc_file = True` attribute tells the dependency resolver to read credentials from `~/.netrc` when authenticating with repositories. Without this flag, the `~/.netrc` is ignored, and requests to Chainguard fail authentication silently.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -11825,7 +17432,7 @@ Once configured, point your build tool at your repository manager URL. In this s
 
 {{< tabs label="Build tool for repository manager configuration" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Create or update `~/.m2/settings.xml` to point Maven at your repository manager and override Central with invalid URLs. Refer to example settings files in [Chainguard's demo repository on GitHub](https://github.com/chainguard-demo/chainguard-libraries-java/tree/main/tools) for different repository managers.
 
@@ -11888,9 +17495,9 @@ Use a configuration similar to the following. Make sure to update the credential
 </settings>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Update the `repositories` block in `app/build.gradle` to point to your repository manager, removing any direct references to `mavenCentral()` or other repositories if your repository manager already proxies them:
 
@@ -11907,9 +17514,9 @@ repositories {
 
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 First, configure your repo manager authentication in `~/.netrc`:
 
@@ -11933,7 +17540,7 @@ maven.install(
 )
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -11945,7 +17552,7 @@ To force re-resolution from Chainguard, you can clear local caches or clear only
 
 {{< tabs label="Build tool for refreshing dependencies" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 Remove local cache:
 
@@ -11959,9 +17566,9 @@ Remove specific artifact:
 rm -rf ~/.m2/repository/<group>/<artifact>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Remove local caches and stop any running daemons:
 
@@ -11972,9 +17579,9 @@ rm -rf ~/.gradle/caches
 
 > **Note**: Run `./gradlew --stop` after clearing the Gradle cache to stop any running daemons. Skipping this step can cause build errors on the next run.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Remove the Bazel cache, including all downloaded artifacts and build outputs:
 
@@ -11982,7 +17589,7 @@ Remove the Bazel cache, including all downloaded artifacts and build outputs:
 bazel clean --expunge
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -11992,7 +17599,7 @@ Run a full build and capture the output.
 
 {{< tabs label="Build tool for building the project" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 ```bash
 cd your-project
@@ -12007,18 +17614,18 @@ grep "Downloaded from" /tmp/mvn-output.txt
 
 All downloads should come from `chainguard` or `chainguard-remediated`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 ```bash
 cd your-project
 ./gradlew build --info 2>&1 | tee /tmp/gradle-output.txt
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 ```bash
 bazel build //... 2>&1 | tee /tmp/bazel-output.txt
@@ -12026,7 +17633,7 @@ bazel build //... 2>&1 | tee /tmp/bazel-output.txt
 
 Bazel embeds the source repository URL in the cache path for each downloaded artifact.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -12042,7 +17649,7 @@ When upstream fallback is enabled, [packages that aren't built by Chainguard] ar
 
 {{< tabs label="Build tool for verifying artifacts" >}}
 
-{{% tab title="Maven" %}}
+{{< tab title="Maven" >}}
 
 To list all downloaded JARs:
 
@@ -12066,9 +17673,9 @@ rm ~/.m2/repository/org/apache/commons/commons-lang3/3.13.0/commons-lang3-3.13.0
 
 Then run `chainctl libraries verify` again.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Gradle" %}}
+{{< tab title="Gradle" >}}
 
 Gradle stores JARs in a content-addressed cache. To list all downloaded JARs:
 
@@ -12091,9 +17698,9 @@ rm -rf ~/.gradle/caches/modules-2/files-2.1/commons-collections
 
 Then run `chainctl libraries verify` again.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bazel" %}}
+{{< tab title="Bazel" >}}
 
 Bazel embeds the source repository URL in the cache path, making it easy to identify which JARs came from Chainguard. Use `find` to locate a JAR. For example:
 
@@ -12115,7 +17722,7 @@ Then verify using the full path. For example:
 chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f4231148aeda823%40libraries.cgr.dev/java/com/fasterxml/jackson/core/jackson-databind/2.9.10/jackson-databind-2.9.10.jar
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -13991,6 +19598,206 @@ Chainguard OS is designed specifically for more secure and containerized applica
 
 ---
 
+### Verifying Chainguard Agent Skills signatures
+_Path: chainguard/agent-skills/verifying-skills.md_
+
+Chainguard signs every skill it publishes to `skills.cgr.dev`. The signature lets you confirm that a skill came from Chainguard's publishing pipeline and that nobody changed it after Chainguard signed it.
+
+Chainguard signs each published skill as the SKILLS identity of the organization that owns it, and attaches the signature to the skill's digest as a [Sigstore](https://www.sigstore.dev/) bundle. The signature covers the skill's manifest digest, which covers everything in the artifact: the hardened skill files, the `HARDENING.md` report, and the skill's metadata. Chainguard signs only hardened, published skills. It doesn't sign the skills in your organization's uploads registry (`uploads.cgr.dev`).
+
+`chainctl skills validate` doesn't check signatures. It checks that a local skill directory is formatted correctly, and a passing result says nothing about who published a skill. To check that Chainguard signed a skill, use `chainctl skills verify`, as described in this guide.
+
+{{< beta feature="Chainguard Agent Skills" >}}
+
+## Prerequisites
+
+To follow this guide, you need:
+
+* `chainctl` **v0.2.376** or later. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* To verify a skill from your own organization, the `groups.list` capability on that organization, such as with the built-in `owner`, `editor`, `viewer`, `limited_owner`, or `console_viewer` role. For details, refer to the [capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/). Skills in the `public` and `chainguard` organizations need no role.
+* To verify with Cosign instead of `chainctl`, [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) **v3.1.1** or later. Earlier versions can't verify the transparency log entries Chainguard uses to sign skills.
+
+## Verify a skill with `chainctl`
+
+Pass a skill reference to the `verify` subcommand:
+
+```shell
+chainctl skills verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
+```
+
+```output
+   FIELD   |                                        VALUE
+-----------|--------------------------------------------------------------------------------------
+ Status    | verified
+ Digest    | sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f
+ Identity  | https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a
+ Issuer    | https://issuer.enforce.dev
+ Log Index | 141100935
+```
+
+`verify` accepts a reference by tag or by digest. It resolves a tag to a digest once, verifies that digest, and prints it, so you can pin the exact version you verified. To verify a pinned digest and get the result as JSON, add `-o json`:
+
+```shell
+chainctl skills verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine@sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f -o json
+```
+
+```output
+{"status":"verified","digest":"sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f","issuer":"https://issuer.enforce.dev","identity":"https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a","logIndex":141100935}
+```
+
+For a skill in your organization's private registry, pass the hardened reference that `chainctl skills harden` or `chainctl skills status` returned:
+
+```shell
+chainctl skills verify "$HARDENED_REF"
+```
+
+The output has the same fields. The `Identity` is your organization's SKILLS identity rather than the `public` one, as described in [Chainguard's skill signing identities](#chainguards-skill-signing-identities).
+
+### What `verify` checks
+
+A skill is `verified` only when a Sigstore bundle attached to its digest passes all of these checks:
+
+* The signing certificate chains to the public-good Sigstore trusted root.
+* `https://issuer.enforce.dev` issued the certificate to exactly the SKILLS identity of the organization that owns the skill. `chainctl` accepts no other identity, and you can't override the identity with a flag or setting.
+* The bundle has a verified transparency log entry and a verified timestamp.
+* The bundle signs the exact digest that `verify` checks.
+
+`chainctl` has the signing identities of the `public` and `chainguard` organizations built in. For any other organization, it looks up the organization's SKILLS identity with your credentials, which is why you need the `groups.list` capability on that organization.
+
+### Results and exit codes
+
+`verify` reports one of four results in the `Status` field, or the `status` key of the JSON output:
+
+| Status | Meaning | Exit code |
+| ----- | ----- | ----- |
+| `verified` | A bundle signed by the owning organization's SKILLS identity passed every check. | `0` |
+| `unsigned` | The digest has no Sigstore bundle. | `1` |
+| `failed` | The digest has a bundle, but none of its bundles passed. The `Reason` field explains why. Skills in `uploads.cgr.dev` always fail, because Chainguard doesn't sign uploads. | `1` |
+| `skipped` | The skill isn't on the production registry, `skills.cgr.dev`, so `chainctl` can't verify it. `verify` prints a warning. | `0` |
+
+An error that stops verification from running, such as a skill that doesn't exist, also exits with a nonzero code.
+
+## Verify before you pull or install
+
+Add `--verify` to `chainctl skills pull` or `chainctl skills install` to check the signature on the exact digest that `chainctl` fetches before it writes anything to disk:
+
+```shell
+chainctl skills install --verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
+```
+
+`chainctl` prints the verification result before it installs the skill. The following example shows the output on a machine where Claude Code is installed:
+
+```output
+Verified sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f: signed by https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a (log index 141100935)
+Recorded skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine@sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f in skills-lock.json
+Installing github.com/github/awesome-copilot/game-engine
+    AGENT    |                              LOCATION                               |                                        MODE
+-------------|---------------------------------------------------------------------|-------------------------------------------------------------------------------------
+ Claude Code | .claude/skills/public-github.com-github-awesome-copilot-game-engine | symlink → ../../.agents/skills/public-github.com-github-awesome-copilot-game-engine
+```
+
+`pull` works the same way:
+
+```shell
+chainctl skills pull --verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest ./game-engine
+```
+
+```output
+Verified sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f: signed by https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a (log index 141100935)
+Skill written to: /home/linky/game-engine
+```
+
+If the skill isn't `verified`, the command exits with a nonzero code and writes no files or symlinks. `--verify` is stricter than `verify`: a `skipped` result fails too. With `-o json`, `pull` and `install` include the result that `chainctl skills verify -o json` prints in a `verification` field of their output.
+
+`chainctl` reads its registry setting from configuration files and environment variables, including a `chainctl/config.yaml` in the current working directory. A project you clone could point `chainctl` at a registry other than `skills.cgr.dev`. Treating `skipped` as a failure keeps such a project from silently turning `--verify` off.
+
+If you deliberately work with a staging or development registry, add `--allow-unverifiable-host` along with `--verify` to accept a skill from that registry unverified, with a warning. `--allow-unverifiable-host` has no effect on skills from `skills.cgr.dev`, and `chainctl` rejects it without `--verify`.
+
+## Chainguard's skill signing identities
+
+Chainguard signs each organization's skills as that organization's SKILLS identity. The certificate issuer is always `https://issuer.enforce.dev`, and the certificate identity is the issuer URL followed by the identity's UIDP:
+
+| Organization | Certificate identity |
+| ----- | ----- |
+| `public` | `https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a` |
+| `chainguard` | `https://issuer.enforce.dev/720909c9f5279097d847ad02a2f24ba8f59de36a/c09dd88a8a73ea84` |
+
+To find the SKILLS identity of your own organization, read its account associations:
+
+```shell
+chainctl iam account-associations describe your-organization --chainguard -o json \
+  | jq -r '.[0].chainguard.service_bindings.SKILLS'
+```
+
+The command prints the UIDP of your organization's SKILLS identity. For the `chainguard` organization, it prints the UIDP from the preceding table:
+
+```output
+720909c9f5279097d847ad02a2f24ba8f59de36a/c09dd88a8a73ea84
+```
+
+Prefix the UIDP with `https://issuer.enforce.dev/` to get the certificate identity. Reading account associations needs the `account_associations.list` capability on the organization.
+
+## Verify a skill with Cosign
+
+Chainguard recommends `chainctl skills verify` for checking a skill's signature, but you can also check it yourself with Cosign, using the signing identities from the previous section.
+
+### Public registry
+
+Verifying a skill from the public registry needs no credentials:
+
+```shell
+cosign verify \
+  --certificate-oidc-issuer=https://issuer.enforce.dev \
+  --certificate-identity=https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a \
+  skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine@sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f
+```
+
+```output
+Verification for skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine@sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f --
+The following checks were performed on each of these signatures:
+  - The cosign claims were validated
+  - Existence of the claims in the transparency log was verified offline
+  - The code-signing certificate was verified using trusted certificate authority certificates
+
+[{"critical":{"identity":{"docker-reference":"skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine@sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f"},"image":{"docker-manifest-digest":"sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f"},"type":"https://sigstore.dev/cosign/sign/v1"},"optional":{}}]
+```
+
+Get the digest of the version you want from `chainctl skills describe` or `chainctl skills verify`. Cosign also accepts a tag, but verifying by digest makes sure you check the exact version you go on to use.
+
+### Private registry
+
+Cosign needs credentials to pull from your organization's registry. Configure the Chainguard Docker credential helper, which Cosign also uses:
+
+```shell
+chainctl auth configure-docker
+```
+
+Then run `cosign verify`, replacing `<skills-identity-uidp>` with the UIDP of your organization's SKILLS identity from the previous section:
+
+```shell
+cosign verify \
+  --certificate-oidc-issuer=https://issuer.enforce.dev \
+  --certificate-identity=https://issuer.enforce.dev/<skills-identity-uidp> \
+  "$HARDENED_REF"
+```
+
+`$HARDENED_REF` is the full hardened reference, including its digest, that `chainctl skills harden` or `chainctl skills status` returned.
+
+{{< note >}}
+Earlier instructions for verifying skills used `--new-bundle-format=false` and a `--certificate-identity-regexp` that matched Google Cloud service accounts. Those flags check an older signature format that Chainguard no longer relies on. Use the SKILLS identities on this page instead.
+{{< /note >}}
+
+## Learn more
+
+* [Getting started with the Chainguard Skills Registry](/chainguard/agent-skills/skills-registry/)
+* [Getting started with the Chainguard Agent Skills public registry](/chainguard/agent-skills/public-registry/)
+* [Getting started with skill hardening](/chainguard/agent-skills/skill-hardening/)
+* [`chainctl skills verify` reference](/platform/chainctl/chainctl-docs/chainctl_skills_verify/)
+* [An introduction to Cosign](/open-source/sigstore/cosign/an-introduction-to-cosign/)
+* [Verifying signatures in air-gapped environments](/open-source/sigstore/cosign/verifying-in-air-gapped-environments/)
+
+---
+
 ### Using the Chainguard Agent Skills Public Skills MCP server
 _Path: chainguard/agent-skills/public-skills-mcp.md_
 
@@ -14200,7 +20007,7 @@ This guide walks through enabling the registry for your organization, then uploa
 
 To follow this guide, you need:
 
-* `chainctl` **v0.2.364** or later, installed and authenticated. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+* `chainctl` **v0.2.376** or later, installed and authenticated. Check your version with `chainctl version`. Refer to [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 * An active Chainguard organization.
 * Owner access on the organization.
 
@@ -14303,9 +20110,10 @@ chainctl skills validate hello-world
      SKILL.md
 
 Validation passed.
+This checks format only, not authenticity. To check that Chainguard signed a published skill, run `chainctl skills verify <ref>`.
 ```
 
-`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes.
+`validate` confirms that the directory contains a `SKILL.md`, that its frontmatter is valid, that the `name` field matches the directory name, and that the skill is within the size limit. It also lists the files that `push` publishes. `validate` checks format only, not who published a skill. To check that, verify the hardened skill's signature, as described in [Verify the skill](#verify-the-skill).
 
 To also flag optional fields that Chainguard recommends, add the `--strict` flag:
 
@@ -14324,6 +20132,7 @@ chainctl skills validate hello-world --strict
 ⚠  license field is recommended
 
 Validation passed.
+This checks format only, not authenticity. To check that Chainguard signed a published skill, run `chainctl skills verify <ref>`.
 ```
 
 Here, `--strict` warns that the skill omits the recommended `license` field. Warnings don't cause validation to fail, but addressing them produces a more complete skill.
@@ -14396,6 +20205,16 @@ Without `--recursive`, the organization-level listing may show only a `users` ro
 
 The listing includes skills with generated version tags and skills without tags. Use the exact `$HARDENED_REF` returned by the job to inspect and install the result you reviewed.
 
+### Verify the skill
+
+Chainguard signs every hardened skill it publishes to your organization's registry. Check that signature with the `verify` subcommand:
+
+```shell
+chainctl skills verify "$HARDENED_REF"
+```
+
+A `Status` of `verified` confirms that Chainguard signed the skill for your organization and that it hasn't changed since. Verifying a skill in your organization requires the `groups.list` capability on the organization, such as with the built-in `owner`, `editor`, `viewer`, `limited_owner`, or `console_viewer` role. For what `verify` checks, its other results, and how to verify with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
+
 ### Install the skill
 
 Download and install the skill to make it available to agents on your machine:
@@ -14411,6 +20230,12 @@ export INSTALLED_SKILL='<install-name-from-describe>'
 ```
 
 By default, `install` writes one shared copy to `.agents/skills/` and symlinks each agent's skills directory to it, so every agent reads the same files. Add `--copy` to give each agent its own copy, `--global` to install under your home directory instead of the current project, or `--agent` to target specific agents instead of every detected one.
+
+To check the signature as part of the install, add `--verify`. `install` then verifies the exact digest it fetches and installs nothing unless the skill is `verified`:
+
+```shell
+chainctl skills install --verify "$HARDENED_REF"
+```
 
 ### Run the skill from an agent
 
@@ -14467,7 +20292,9 @@ Unlike `uninstall`, `delete` removes the skill from the registry for your whole 
 | Check a hardening job | `chainctl skills status --group your-organization --id "$JOB_ID"` |
 | List hardened skills in all folders | `chainctl skills list --group your-organization --recursive` |
 | Describe a hardened skill | `chainctl skills describe "$HARDENED_REF"` |
+| Verify a hardened skill's signature | `chainctl skills verify "$HARDENED_REF"` |
 | Install a hardened skill | `chainctl skills install "$HARDENED_REF"` |
+| Install only if the signature verifies | `chainctl skills install --verify "$HARDENED_REF"` |
 | Uninstall a skill | `chainctl skills uninstall "$INSTALLED_SKILL"` |
 | Delete a published version | `chainctl skills delete "$HARDENED_REPO:$HARDENED_TAG"` |
 
@@ -14706,15 +20533,18 @@ Copy the full hardened reference printed by `harden` or `status`:
 ```shell
 export HARDENED_REF='<full-hardened-reference-including-@sha256:digest>'
 chainctl skills describe "$HARDENED_REF"
-chainctl skills install "$HARDENED_REF"
+chainctl skills verify "$HARDENED_REF"
+chainctl skills install --verify "$HARDENED_REF"
 ```
+
+`verify` checks that Chainguard signed the hardened result for your organization. With `--verify`, `install` checks the signature again on the exact digest it fetches and installs nothing unless the skill is `verified`. For details, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
 
 `install` detects your local agents and reports where it placed the skill. Use the installed name and location shown by the command to load it in your agent, then ask it to prepare a release checklist for a test project.
 
 If `./hardened/harden-demo/` already contains a previous download, `--wait` will not overwrite it. Check `status` without `--wait`, then pull the returned reference into a new directory:
 
 ```shell
-chainctl skills pull "$HARDENED_REF" ./harden-demo-reviewed
+chainctl skills pull --verify "$HARDENED_REF" ./harden-demo-reviewed
 ```
 
 ---
@@ -14740,7 +20570,7 @@ Every skill installed without review is an unaudited dependency with arbitrary p
 
 ## How Chainguard hardens skills
 
-Chainguard applies the same model it brings to container images and language libraries — hardened defaults, continuous updates, and verifiable provenance — to agent skills:
+Chainguard applies the same model it brings to container images and language libraries — hardened defaults, continuous updates, and [verifiable provenance](/chainguard/agent-skills/verifying-skills/) — to agent skills:
 
 - **Ingest and review.** Chainguard pulls popular skills from community registries and reviews each one against a security and quality ruleset.
 - **Target real attack vectors.** The ruleset addresses how attackers exploit the agent-skill trust relationship, including unrestricted shell access, overly broad tool permissions, and vague descriptions that enable mis-invocation.
@@ -14771,13 +20601,13 @@ _Path: chainguard/agent-skills/public-registry.md_
 
 Chainguard publishes a curated set of hardened agent skills in a public registry at `skills.cgr.dev/public`. Anyone with `chainctl` can browse and install them — no entitlement and no legal terms required. The Chainguard Agent Skills public registry is pull-only: you can install skills from the registry, but you can't push your own skills to it.
 
-This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, installing it, and running it with an agent.
+This guide walks through the full workflow: listing the available skills, inspecting one, pulling it to audit how Chainguard hardened it, verifying its signature, installing it, and running it with an agent.
 
 {{< beta feature="Chainguard Agent Skills" >}}
 
 ## Prerequisites
 
-To follow this guide, you need `chainctl` **v0.2.364** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
+To follow this guide, you need `chainctl` **v0.2.376** or later, installed. Refer to our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't have it yet.
 
 Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-registry/), the public registry requires no entitlement, terms acceptance, or organization membership. You do need a Chainguard account to list and pull skills, but you don't need to be a customer.
 
@@ -14880,6 +20710,32 @@ Hardened by the multi-model harden pipeline. The per-model fix plans, cross-mode
 
 The report pins the exact upstream `sha` Chainguard hardened from, the outcome of the run, and whether the hardened overlay changed the skill's `SKILL.md`. Skills are hardened by a multi-model pipeline whose per-model fix plans and reconciled synthesis are recorded for the run, so you can trace exactly what was inspected and changed.
 
+## Verify a skill's signature
+
+Chainguard signs every skill in the public registry, and the signature covers the skill's files, including `HARDENING.md`. To check that Chainguard signed a skill and that it hasn't changed since, use the `verify` subcommand:
+
+```shell
+chainctl skills verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest
+```
+
+```output
+   FIELD   |                                        VALUE
+-----------|--------------------------------------------------------------------------------------
+ Status    | verified
+ Digest    | sha256:ed8ffbbd8ccf13b3230ebc64e924799824a91676d0444896b28810f906a4072f
+ Identity  | https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a
+ Issuer    | https://issuer.enforce.dev
+ Log Index | 141100935
+```
+
+To verify a skill as you fetch it, add `--verify` to `pull` or `install`. The command then checks the exact digest it fetches and writes nothing unless the skill is `verified`:
+
+```shell
+chainctl skills pull --verify skills.cgr.dev/public/github.com/github/awesome-copilot/game-engine:latest ./game-engine
+```
+
+For what `verify` checks, its other results, and how to verify a skill with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
+
 ## Install a skill
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
@@ -14932,7 +20788,9 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 | ----- | ----- |
 | List skills | `chainctl skills list --group public --recursive` |
 | Describe a skill | `chainctl skills describe skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
+| Verify a skill's signature | `chainctl skills verify skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
 | Pull a skill | `chainctl skills pull skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag> <dir>` |
+| Pull or install only if the signature verifies | Add `--verify` to `pull` or `install` |
 | Install a skill | `chainctl skills install skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
 | Uninstall a skill | `chainctl skills uninstall <install-name>` |
 
@@ -24978,7 +30836,7 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
     * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
 * The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
-* Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, and create pull tokens, but does not include permission to invite other users to the organization or access features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, create pull tokens, and invite colleagues whose email address is in your organization's domain. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 * Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
@@ -27386,20 +33244,16 @@ Traditionally, to meet these compliance requirements, containers would access an
 <center><img src="fedramp-considerations-2.png" alt="Diagram labeled 'FIPS Module + SP 800-90B Entropy Source'. The diagram shows two boxes labeled 'Container Image' and 'Host OS Linux Kernel.' The 'Container Image' box holds two boxes within it labeled 'Application' and 'FIPS Module,' with 'FIPS Module' surrounded by a rectangle labeled 'FIPS Cryptographic Boundary.' The 'Host OS Linux Kernel' box contains a box labeled 'Kernel FIPS Module' and a cylinder labeled 'SP 800-90B Entropy Source,' both of which are surrounded by a rectangle labeled 'FIPS Cryptographic Boundary.' An arrow points from the 'Application' to the 'FIPS Module' and from the 'FIPS Module' to the 'Entropy Source.'" style="width:1050px;"></center>
 <br />
 
-This architecture drives significant friction for vendors delivering FIPS compliant workloads for  modern cloud-native applications. First, very few versions of the Linux Kernel are certified. Second, Linux Kernel certification timelines are often long and arduous.
+This architecture drives significant friction for vendors delivering FIPS compliant workloads for modern cloud-native applications. First, very few versions of the Linux Kernel are certified. Second, Linux Kernel certification timelines are often long and arduous.
 Ultimately, this results in a very limited choice of certified runtimes and compatible underlying hardware for developers to build on. In practice, it means that a certified kernel from a given vendor might be over 5 years old. Outdated kernels typically lack support and optimizations for the latest generation of hardware, and are often incompatible with the latest cloud instance types. It also means when sticking to the same vendor, the application runtimes are equally as out of date and vulnerable.
 Chainguard's solution has the FIPS module and the SP 800-90B entropy source co-located in the container image userspace. This eliminates the need for a certified Linux kernel for the majority of workloads and streamlines engineering effort for workload deployments. This is why Chainguard FIPS images now ship with a certified userspace SP 800-90B entropy source, as in this design:
 
 <center><img src="fedramp-considerations-3.png" alt="Diagram labeled Kernel Independent FIPS Container Images. The diagram contains a box labeled 'New Chainguard FIPS Container Image' which contains three objects: a box labeled 'Application', a box labeled 'FIPS Module' (which is surrounded by a rectangle labeled 'FIPS Cryptographic Boundary') and a cylinder labeled 'SP 800-90B Entropy Source.' An arrow points from 'Application' to 'FIPS Module,' and another arrow points from 'FIPS Module' to the 'Entropy Source' cylinder." style="width:1050px;"></center>
 <br />
 
-This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
+This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud Kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own Entropy Source Validation (ESV)](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
 
-For more information, please refer to the CMVP entries for Chainguard's FIPS Modules and entropy source:
-
-* OpenSSL FIPS 3.0 Provider Module (CMVP #4856)
-* Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
-* Chainguard CPU Time Jitter RNG Entropy Source ([ESV Entropy Certificate #E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
+For the current list of Chainguard's FIPS modules and entropy sources, along with their CMVP and ESV certificates, refer to the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 Additionally, check out our blog post on [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 
@@ -36528,13 +42382,13 @@ You can add only the packages your organization is entitled to, which are the pa
 
 {{< tabs label="Ways to find a package name" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 Open the image in the [Chainguard Console](https://console.chainguard.dev), click **Customize image**, then use the **Filter packages** box. The list holds every package your organization can add. If the package you want isn't listed, [open a Chainguard support ticket](/get-started/get-support/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="apk" %}}
+{{< tab title="apk" >}}
 
 Container images that include `apk` — such as a `-dev` variant — can search the repository from inside a running container. For a free container image, no authentication is needed:
 
@@ -36560,7 +42414,7 @@ docker run -it --rm --entrypoint /bin/sh --user root \
 
 From the container's shell, run `apk update` and then `apk search`.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -36570,7 +42424,7 @@ The three procedures below all produce the same result. Pick the tab that matche
 
 {{< tabs label="Ways to add a package with Custom Assembly" >}}
 
-{{% tab title="Console" %}}
+{{< tab title="Console" >}}
 
 1. In the [Chainguard Console](https://console.chainguard.dev), open the image you want to customize.
 2. Click **Customize image**, then select the packages to add.
@@ -36580,9 +42434,9 @@ The three procedures below all produce the same result. Pick the tab that matche
 
 For the full walkthrough, including how to edit or remove customizations later, see [Using the Chainguard Console to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-console/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl, interactively" %}}
+{{< tab title="chainctl, interactively" >}}
 
 1. Open the image's build configuration:
 
@@ -36622,9 +42476,9 @@ For the full walkthrough, including how to edit or remove customizations later, 
 
 To save the result as a new image rather than changing the existing one, add `--save-as $NEW_NAME`. For the rest of what you can set in this file, including environment variables, annotations, and custom user accounts, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="chainctl, non-interactively" %}}
+{{< tab title="chainctl, non-interactively" >}}
 
 Both `apply` and `edit` accept a configuration file, which skips the editor and the prompt. Use this form in CI/CD and anywhere you keep image configuration in version control.
 
@@ -36658,7 +42512,7 @@ To save the result as a new image, add `--save-as $NEW_NAME`. This works when yo
 
 For a worked GitHub Actions pipeline built around these commands, see [Using GitOps to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-gitops/).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -38423,7 +44277,7 @@ Custom Assembly only allows you to add packages into a given container image; yo
 
 The packages you can add to a container image are those that your organization already has access to, based on the Chainguard Containers that your organization is entitled to. Additionally, you can only add supported versions of packages to a customized image.
 
-By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+By default, a Custom Assembly customization applies to every tag in the repository. To apply a customization to some tags only, for example to add a package that only works with one Python version, use [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
 The changes you make to your customized container image may affect its functional behavior when deployed. Chainguard doesn’t test your final customized image and therefore doesn't guarantee its functional behavior. Please test your customized images extensively to ensure they meet your requirements.
 
@@ -38588,7 +44442,7 @@ This article provided a high-level overview of Custom Assembly. As a next step, 
 
 You can also add custom certificates to Custom Assembly images. Refer to our guide on [Adding custom certificates with Custom Assembly](/chainguard/containers/custom-assembly/custom-assembly-certs/) for more information.
 
-To run startup logic in a Custom Assembly image without a derived image build, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/). It resolves secrets, runs preflight checks, and overrides the command at container start.
+To run startup logic in a Custom Assembly image without a derived image build, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). It resolves secrets, runs preflight checks, and overrides the command at container start.
 
 We encourage you to check out our resources on our other [Chainguard Containers features](/chainguard/containers/), including the following:
 
@@ -38810,7 +44664,7 @@ After saving and confirming these changes, Custom Assembly will add these five c
 
 Be aware that Custom Assembly blocks any environment variable that begins with `CHAINGUARD_` from being added or changed. This is to prevent conflicts with configuration details managed by Chainguard. The `GUARDED_` prefix is reserved too.
 
-To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. See [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+To set a variable from a secret store when the container starts, use a secret reference such as `cg+vault://secret/data/app#password` as the value. A reference resolves only when Guarded Entrypoint is turned on for the repo. Refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
 
 ## Custom runtime repositories
 
@@ -39001,7 +44855,7 @@ For more information, refer to [chainctl images repos build apply](/platform/cha
 
 ## Customizing specific tags
 
-The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
+The `chainctl images repos build` commands apply a customization to every tag in a repository. To apply a customization to some tags only, use the `chainctl images overlays` commands. For details, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 ## Learn more
 
@@ -39918,7 +45772,7 @@ When an added package is updated and available, your Custom Assembly image is re
 
 ## Can I customize only some of a repository's tags?
 
-Yes. With [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. You can also bind an overlay to every repository in your organization or a folder. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
+Yes. With [Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/), you create an overlay that holds your customizations and bind it to specific tags, to every `-dev` tag, or to every tag. You can also bind an overlay to every repository in your organization or a folder. This is useful when a package only works with some of an image's versions, such as a Python package built for one Python version.
 
 ## Can I use standard Custom Assembly and overlays on the same repository?
 
@@ -40016,14 +45870,14 @@ For more advanced workflows or automation, consider exploring the [`chainctl` CL
 
 ---
 
-### Managing Custom Assembly Overlays with chainctl
+### Manage Custom Assembly Overlays with chainctl
 _Path: chainguard/containers/custom-assembly/overlays/chainctl.md_
 
 {{< beta feature="Custom Assembly Overlays" >}}
 
 This guide shows how to use `chainctl` to apply Custom Assembly customizations to some of a repository's tags, or to every repository in your organization or a folder. You create an overlay that holds the customizations, then bind it with a tag selector.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+For an explanation of overlays, bindings, and tag selectors, refer to [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
 ## Prerequisites
 
@@ -40076,7 +45930,7 @@ Every `attach` command takes exactly one tag selector: `--tag` for specific tags
 
 Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
 
-To check on the builds, see [Check the results](#check-the-results).
+To check on the builds, refer to [Check the results](#check-the-results).
 
 ## Add packages to every `-dev` tag
 
@@ -40125,7 +45979,7 @@ chainctl images overlays attach \
   --all
 ```
 
-The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
+The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, refer to [Version templates in package names](/chainguard/containers/custom-assembly/overlays/overview/#version-templates-in-package-names).
 
 ## Add other customizations
 
@@ -40203,7 +46057,7 @@ chainctl images overlays attach \
   --all
 ```
 
-An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, see [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/#how-overlapping-bindings-combine).
+An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, refer to [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/overview/#how-overlapping-bindings-combine).
 
 You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
 
@@ -40320,7 +46174,7 @@ If the overlay is still bound to a repository, `delete` fails and lists the bind
 
 ## Check the results
 
-Bindings and overlay updates start builds automatically. To see the builds for a repository and the tags each build produced, run the following command:
+Bindings and overlay updates start builds automatically. To list the builds for a repository and the tags each build produced, run the following command:
 
 ```shell
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
@@ -40332,18 +46186,18 @@ The following command shows a build's logs, including the configuration Chaingua
 chainctl images repos build logs --repo $REPO --parent $ORGANIZATION
 ```
 
-If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, see [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
+If a package can't be installed on a tag, that tag's build fails and the logs name the package. The failure doesn't affect other tags. For more on these commands, refer to [Retrieving information about Custom Assembly containers](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#retrieving-information-about-custom-assembly-containers).
 
 ## Learn more
 
-* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
-* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
+* [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
 
 ---
 
 ### Overview of Custom Assembly Overlays
-_Path: chainguard/containers/custom-assembly/overlays/_index.md_
+_Path: chainguard/containers/custom-assembly/overlays/overview.md_
 
 {{< beta feature="Custom Assembly Overlays" >}}
 
@@ -40359,7 +46213,7 @@ Custom Assembly Overlays let you choose which tags, and which repositories, rece
 * Reuse one customization, such as your organization's internal certificates, across many repositories.
 * Apply a customization to every repository in your organization or in a folder, including repositories created later.
 
-This page explains the concepts. To create and manage customizations, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/) or [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/).
+This page explains the concepts. To create and manage customizations, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/) or [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/).
 
 ## Overlays and bindings
 
@@ -40398,7 +46252,7 @@ A binding normally attaches an overlay to one repository. An **all-repos binding
 
 An all-repos binding belongs to the organization or folder it covers, and it has a tag selector like any other binding. An overlay can have at most one all-repos binding per organization or folder. You can't change an all-repos binding's scope; to re-scope one, detach it and attach a new one.
 
-Folders nest, so a repository can be covered by several all-repos bindings at once: one on the organization and one on each folder above it. For example, an organization can bind a certificates overlay to every repository, and also bind a hardening overlay to its `golden-images` folder. Repositories in `golden-images` receive both.
+Folders nest, so several all-repos bindings can cover a repository at once: one on the organization and one on each folder above it. For example, an organization can bind a certificates overlay to every repository, and also bind a hardening overlay to its `golden-images` folder. Repositories in `golden-images` receive both.
 
 A repository can't opt out of an all-repos binding. To vary a setting for one repository, bind another overlay to that repository directly: the repository's own bindings take precedence, as described in the next section. All-repos bindings also don't apply to repositories that use standard Custom Assembly; those keep their standard customization.
 
@@ -40485,7 +46339,7 @@ An overlay supports the same customizations as standard Custom Assembly, with th
 * [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) (`environment` and `annotations`)
 * [User accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) (`accounts`)
 * [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) (`certificates.additional`)
-* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) (`guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`). To see how these fields combine when several bindings match one tag, see [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/#how-the-fields-combine-across-bindings).
+* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) (`guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`). To learn how these fields combine when several bindings match one tag, refer to [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#how-the-fields-combine-across-bindings).
 
 Overlays don't support Chainguard-managed certificate bundles (`certificates.providers`). If an overlay contains a field that overlays don't support, Chainguard rejects the whole overlay instead of ignoring the field.
 
@@ -40505,33 +46359,33 @@ Overlays and bindings use their own capabilities:
 * `registry.overlays.list` lets you view overlays and bindings. The built-in `viewer`, `editor`, and `owner` roles include it.
 * `registry.overlays.edit` lets you create, update, and delete overlays and bindings. The built-in `editor` and `owner` roles include it.
 
-To create a custom role with these capabilities, see [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+To create a custom role with these capabilities, refer to [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 ## Learn more
 
-* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
-* [Managing Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
+* [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
+* [Manage Custom Assembly Overlays with Terraform](/chainguard/containers/custom-assembly/overlays/terraform/)
 * [Overview of Chainguard Custom Assembly](/chainguard/containers/custom-assembly/overview/)
 * [Custom Assembly FAQs](/chainguard/containers/custom-assembly/faq/)
 
 ---
 
-### Managing Custom Assembly Overlays with Terraform
+### Manage Custom Assembly Overlays with Terraform
 _Path: chainguard/containers/custom-assembly/overlays/terraform.md_
 
 {{< beta feature="Custom Assembly Overlays" >}}
 
 This guide shows how to manage Custom Assembly Overlays with the [Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest). You define overlays with the `chainguard_image_overlay` resource and bind them to repositories with the `chainguard_image_overlay_binding` resource.
 
-For an explanation of overlays, bindings, and tag selectors, see [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/).
+For an explanation of overlays, bindings, and tag selectors, refer to [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/).
 
-The provider doesn't support [all-repos bindings](/chainguard/containers/custom-assembly/overlays/#all-repos-bindings) yet; each binding resource names one repository. To bind an overlay to every repository in your organization or a folder, use [`chainctl`](/chainguard/containers/custom-assembly/overlays/chainctl/#apply-an-overlay-to-every-repository).
+The provider doesn't support [all-repos bindings](/chainguard/containers/custom-assembly/overlays/overview/#all-repos-bindings) yet; each binding resource names one repository. To bind an overlay to every repository in your organization or a folder, use [`chainctl`](/chainguard/containers/custom-assembly/overlays/chainctl/#apply-an-overlay-to-every-repository).
 
 ## Prerequisites
 
 Before you start, you need the following:
 
-* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, see [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
+* Terraform and the Chainguard Terraform provider, version 0.5.0 or later. To configure the provider, refer to [Introduction to the Chainguard Terraform provider](/platform/administration/terraform-provider/).
 * An identity with the `registry.overlays.edit` capability, such as one bound to the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both.
 
@@ -40583,9 +46437,9 @@ resource "chainguard_image_overlay" "debug_tools" {
 }
 ```
 
-Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, see [Version templates in package names](/chainguard/containers/custom-assembly/overlays/#version-templates-in-package-names).
+Package names can use the `{{major}}` and `{{minor}}` placeholders, as in `py{{major}}.{{minor}}-cryptography`. For details, refer to [Version templates in package names](/chainguard/containers/custom-assembly/overlays/overview/#version-templates-in-package-names).
 
-To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, see the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
+To add other customizations, such as certificates, environment variables, or annotations, set the `config` attribute instead of `packages`. An overlay can set one of the two, but not both. The `config` attribute takes a JSON-encoded configuration. Its field names follow the Chainguard API, not the YAML file that `chainctl` accepts, and some names differ. For example, the user an image runs as is `accounts.run_as` in `config` but `accounts.run-as` in a `chainctl` file. For the field names, refer to the [`chainguard_image_overlay` schema](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay).
 
 The following example uses `jsonencode` to build an overlay that adds an internal certificate authority, an environment variable, and a package:
 
@@ -40610,7 +46464,7 @@ resource "chainguard_image_overlay" "internal_ca" {
 }
 ```
 
-The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, see [Supported customizations](/chainguard/containers/custom-assembly/overlays/#supported-customizations).
+The `file` function reads the certificate from `internal-ca.pem` in the same directory as your configuration, so the certificate text doesn't need to appear in the configuration itself. For the full list of supported fields, refer to [Supported customizations](/chainguard/containers/custom-assembly/overlays/overview/#supported-customizations).
 
 ## Bind overlays to tags
 
@@ -40672,8 +46526,8 @@ To remove a customization, delete the binding resource from your configuration a
 
 ## Learn more
 
-* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/)
-* [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
+* [Overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/)
+* [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/)
 * [`chainguard_image_overlay` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay)
 * [`chainguard_image_overlay_binding` in the Terraform Registry](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay_binding)
 
@@ -40684,7 +46538,7 @@ _Path: chainguard/containers/custom-assembly/guarded-entrypoint/examples.md_
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page has four example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/). Each one is a complete manifest for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
+This page has four example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). Each one is a complete manifest for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
 
 Applying a manifest replaces the repo's stored configuration. If your repo already has other customizations, such as packages, add the Guarded Entrypoint keys to your existing manifest instead of replacing it.
 
@@ -40777,9 +46631,9 @@ command_override:
     - ${PORT}
 ```
 
-In `override` mode, the wrapper starts `command` alone. The image's ENTRYPOINT and CMD, and any arguments you pass at run time, are dropped. The wrapper expands `${PORT}` from the container's environment, so a deployment can change the port by setting `PORT`. The image needs no shell, because the wrapper starts `python` directly.
+In `override` mode, the wrapper starts `command` alone. The wrapper drops the image's ENTRYPOINT and CMD, and any arguments you pass at run time. The wrapper expands `${PORT}` from the container's environment, so a deployment can change the port by setting `PORT`. The image needs no shell, because the wrapper starts `python` directly.
 
-To keep the image's own command and add arguments in front of it, use `mode: prepend` instead. See [Command override](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#command-override).
+To keep the image's own command and add arguments in front of it, use `mode: prepend` instead. Refer to [Command override](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#command-override).
 
 Don't pass a secret on the command line. The expanded value is visible in the process's command line. Have the application read a secret from its environment, and use a [secret reference](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#secret-references) to supply it.
 
@@ -40797,11 +46651,11 @@ environment:
 
 If Consul can't serve the key, the application starts anyway. `FEATURE_FLAGS_URL` keeps the literal value `cg+consul://apps/web/feature-flags-url`, and the wrapper logs a warning for it. The application must handle that value, for example by falling back to its default when the value starts with `cg+`.
 
-Use `open` only for variables that aren't credentials. An unresolved variable holds a value that anyone with access to the image configuration can read. For a password or a token, keep the default of `closed`. See [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode).
+Use `open` only for variables that aren't credentials. An unresolved variable holds a value that anyone with access to the image configuration can read. For a password or a token, keep the default of `closed`. Refer to [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode).
 
 ## Learn more
 
-* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/)
 * [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
 * [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/)
 
@@ -40812,7 +46666,7 @@ _Path: chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting.
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
+This page covers two kinds of problems. A container that is built with [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) can fail to start. A build can also fail because Chainguard refuses to wrap an image.
 
 ## First move: set GUARDED_DISABLE
 
@@ -40841,11 +46695,11 @@ When `GUARDED_DISABLE` is set, the wrapper does the following:
 
 If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
 
-If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values and skips its preflight checks. An application that needs its secrets can fail for that reason.
+If the container still fails, the cause isn't necessarily the application or the deployment. With `GUARDED_DISABLE` set, your application receives the literal `cg+...` values, and the preflight checks don't run. An application that needs its secrets can fail for that reason.
 
 With `GUARDED_DISABLE` set, an image whose only command comes from `command_override` exits with code `124` instead of starting.
 
-Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. This is true for a repo with `fail_mode: closed` too. Refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Find out why the container stopped
 
@@ -40863,7 +46717,7 @@ kubectl logs $POD
 
 For a pod in a restart loop, add `--previous` to read the logs of the container that stopped.
 
-To see more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
+For more detail, set `GUARDED_ENTRYPOINT_LOG` on the container to `debug`. The levels are `debug`, `info`, `warn`, and `quiet`.
 
 ### Exit codes before the application starts
 
@@ -40891,19 +46745,19 @@ An image whose entrypoint is an init system that must run as PID 1, such as syst
 * It exits with code `1` at start, and systemd prints `Explicit --user argument required to run as user manager.`
 * It exits with code `129` when you stop it.
 
-To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. See [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
+To fix it, set `GUARDED_DISABLE` on the deployment, or turn off Guarded Entrypoint for the repo. Refer to [Init systems aren't supported](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#init-systems-arent-supported).
 
 ## Entrypoints the wrapper refuses
 
 When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard doesn't ship a broken image. Instead, the build records a failure and its reason.
 
-To see the failure, list the repo's builds:
+To find the failure, list the repo's builds:
 
 ```shell
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-The `Result` column shows the failure, and the `Reason` column shows why. The `Reason` column is filled only for failures that Chainguard records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
+The `Result` column shows the failure, and the `Reason` column shows why. Chainguard fills the `Reason` column only for failures that it records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
 
 ```output
 guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved
@@ -40922,10 +46776,10 @@ The text after the digest is the reason. It is one of the following:
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
 * For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
-* Turn off Guarded Entrypoint for the repo. See [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/#turn-off-guarded-entrypoint).
+* Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
-To check ahead of time whether an image is supported, see the [lists of supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
+To check ahead of time whether an image is supported, refer to [Supported and refused entrypoints](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#supported-and-refused-entrypoints).
 
 ## Learn more
 
@@ -40940,7 +46794,7 @@ _Path: chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary.m
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
+This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
 
 ## What the wrapper connects to
 
@@ -40971,21 +46825,21 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | --- | --- | --- |
 | Secret references, such as `cg+vault://secret/data/orders#db_password` | Yes | A reference names where a secret lives. It isn't the secret. Treat the paths as metadata that your organization is willing to share with anyone who can pull the image. |
 | Resolved secret values | No | The wrapper resolves them when the container starts, in the container's memory. They are never written to the image. |
-| `command_override` text | Yes | See the next section. |
+| `command_override` text | Yes | Described in the next section. |
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
 
-The settings are stored in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
+Chainguard stores the settings in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 
-A running container is a different case. The resolved values are in the application's environment, so anyone who can read the process's environment can read them.
+A running container is a different case. The resolved values are in the application's environment, so anyone with access to the process's environment can read them.
 
 ## Keep secrets out of command_override
 
-The text of `command_override` is stored in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
+Chainguard stores the text of `command_override` in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
 
 Put a `${VAR}` reference in `command` instead, and supply the value in the environment. For example, use `${DB_PASSWORD}`, and set `DB_PASSWORD` to a `cg+vault://` reference. The image then holds the reference and not the secret.
 
-An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can see it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
+An expanded value is visible in the application's command line while the container runs. Anything with access to `/proc/PID/cmdline` can read it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
 
 ## The escape hatch
 
@@ -40995,11 +46849,11 @@ Anyone who can set environment variables on a container can set `GUARDED_DISABLE
 
 The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
 
-For how to use the escape hatch, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+For how to use the escape hatch, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
 ## Learn more
 
-* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/)
 * [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)
 
 ---
@@ -41009,15 +46863,15 @@ _Path: chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works.md_
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, see [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/).
+This page describes what the Guarded Entrypoint binary does when a container starts. The page calls the binary the wrapper. To turn Guarded Entrypoint on, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
 
 ## What the wrapper does
 
-When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bin/guarded-entrypoint` as the first element of its entrypoint. The image's original entrypoint follows it. Chainguard stores your settings in environment variables in the image configuration. The names of these variables start with `GUARDED_`. You can see them with `docker inspect`. The `GUARDED_` prefix is reserved, and the API rejects it in your own `environment` keys.
+When you turn on Guarded Entrypoint, Chainguard rebuilds the image with `/usr/bin/guarded-entrypoint` as the first element of its entrypoint. The image's original entrypoint follows it. Chainguard stores your settings in environment variables in the image configuration. The names of these variables start with `GUARDED_`. `docker inspect` shows them. The `GUARDED_` prefix is reserved, and the API rejects it in your own `environment` keys.
 
 On every start, the wrapper runs these steps in order:
 
-1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. See [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. Refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 1. **Resolve secret references.** The wrapper replaces every environment value of the form `cg+BACKEND://REF` with the secret it names.
 1. **Resolve the command.** The wrapper applies `command_override`, if you set one, and expands `${VAR}` in it.
 1. **Run preflight checks.** The wrapper waits for the TCP endpoints and paths you listed.
@@ -41036,7 +46890,7 @@ The wrapper runs only when the container starts with the image's entrypoint. A K
 * It doesn't resolve references in the container's arguments. It resolves only environment values. Kubernetes expands `$(VAR)` in `args` before the wrapper runs, so `--password=$(DB_PASSWORD)` reaches the application as the literal `cg+...` reference. Have the application read secrets from its environment, or pass them through `command_override`, which expands after resolution.
 * It doesn't renew or revoke Vault leases. It reads each secret once, at startup.
 * It doesn't run code that you upload. It runs your application and, if you set `command_override`, the command you list.
-* It doesn't connect to Chainguard. See [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+* It doesn't connect to Chainguard. Refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Secret references
 
@@ -41054,7 +46908,7 @@ The wrapper makes up to three attempts for each request, with backoff. It retrie
 
 ### Vault references
 
-`PATH` is the path of the Vault API request, as in `envconsul` and Vault Agent templates. For a KV version 2 mount, the path includes `/data/`. The wrapper does not look up mounts or insert it. `#KEY` is required.
+`PATH` is the path of the Vault API request, as in `envconsul` and Vault Agent templates. For a KV version 2 mount, the path includes `/data/`. The wrapper does not look up mounts or insert `/data/`. `#KEY` is required.
 
 | Reference | Reads |
 | --- | --- |
@@ -41076,7 +46930,7 @@ The wrapper reads its Vault settings from the container's environment. They must
 | `VAULT_NAMESPACE` | The Vault Enterprise or HCP namespace. |
 | `VAULT_CACERT` | A PEM bundle, at most 1 MiB, that verifies Vault's certificate in place of the system roots. |
 
-With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anything that can read the spec can see. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
+With neither `VAULT_TOKEN` nor `VAULT_K8S_ROLE`, resolution fails with `no Vault credentials`. Use Kubernetes authentication where you can. A `VAULT_TOKEN` in the image or the pod spec is a long-lived secret that anyone with access to the spec can read. The wrapper doesn't follow redirects, so `VAULT_ADDR` must name the active Vault node or a load balancer in front of it. Auth methods other than tokens and Kubernetes aren't supported. With an `https://` `VAULT_ADDR`, the wrapper honors `HTTPS_PROXY` and `NO_PROXY` from the container's environment. These must be literal values too. It never uses a proxy for an `http://` address.
 
 ### Consul references
 
@@ -41150,7 +47004,7 @@ A preflight target expands a variable that `open` left unresolved to its literal
 | --- | --- |
 | `default` | `command`, only when the wrapper receives no arguments at all, which means the image has no ENTRYPOINT or CMD of its own and nothing is passed at run time. Otherwise, the arguments it received. |
 | `prepend` | `command` followed by the container's arguments. |
-| `override` | `command` alone. The image's ENTRYPOINT and CMD, and any arguments passed at run time, are dropped. |
+| `override` | `command` alone. The wrapper drops the image's ENTRYPOINT and CMD, and any arguments passed at run time. |
 
 `default` is the mode when you leave `mode` out. The `prepend` and `override` modes require a non-empty `command`.
 
@@ -41160,7 +47014,7 @@ The wrapper looks up the first element of `command` on the container's `PATH`. U
 
 An empty `command` with `command_override` set is a setting. It means "default mode, no command". When you use Custom Assembly Overlays, it cancels the override from a broader binding.
 
-`command` is stored in the image configuration and is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. See also [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
+Chainguard stores `command` in the image configuration, where it is visible to anyone who can pull the image. Don't put a secret in it as a literal. Use a `${VAR}` reference, as the next section describes. Also refer to [Guarded Entrypoint trust boundary](/chainguard/containers/custom-assembly/guarded-entrypoint/trust-boundary/).
 
 ## Variable expansion
 
@@ -41208,15 +47062,13 @@ A shell fragment that starts your application without `exec` keeps the shell bet
 
 ### Init systems aren't supported
 
-Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos, or set `GUARDED_DISABLE` on the deployment.
+Images whose entrypoint is an init system that must run as PID 1, such as systemd (`/sbin/init`) or s6-overlay's `/init`, aren't supported. An image that uses an s6 service bundle, which the wrapper runs in front of, is a different case and is supported. Under the wrapper, systemd exits at start and s6-overlay's shutdown is cut short. Don't turn on Guarded Entrypoint for these repos. If it's already on, set `GUARDED_DISABLE` on the deployment.
 
 ### Refused builds
 
 Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
 
-The lists of the supported and refused entrypoints for each image come from a generated report. See the [lists of supported and refused entrypoints](https://PLACEHOLDER.invalid/guarded-entrypoint-supported-and-refused-lists). 
-
-For how a refusal appears in `chainctl`, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+For how a refusal appears in `chainctl`, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
 ## Learn more
 
@@ -41227,7 +47079,7 @@ For how a refusal appears in `chainctl`, see [Entrypoints the wrapper refuses](/
 ---
 
 ### Guarded Entrypoint for Custom Assembly
-_Path: chainguard/containers/custom-assembly/guarded-entrypoint/_index.md_
+_Path: chainguard/containers/custom-assembly/guarded-entrypoint/overview.md_
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
@@ -41258,8 +47110,8 @@ The binary forwards signals to your application and exits with your application'
 
 Before you start, you need the following:
 
-* A Custom Assembly repo. See the [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/) to create one.
-* A role that lets you edit Custom Assembly repos. See the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements).
+* A Custom Assembly repo. Refer to the [Custom Assembly overview](/chainguard/containers/custom-assembly/overview/) to create one.
+* A role that lets you edit Custom Assembly repos. Refer to the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements).
 * The latest [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/). Run `chainctl update` to update it. An older `chainctl` drops the Guarded Entrypoint keys when it reads a repo, so a teammate who edits the repo with an older version can turn the feature off without noticing. Update every copy of `chainctl` that edits the repo.
 * Guarded Entrypoint enabled for your organization. It's a beta feature, so contact Chainguard customer support to enable it. Until then, the API rejects `guarded_entrypoint` with the error in [API errors](#api-errors).
 
@@ -41281,7 +47133,7 @@ A repo's Custom Assembly configuration is a YAML manifest. Guarded Entrypoint ad
 | `preflight` | A list of checks to run before the application starts. |
 | `command_override` | A command to run in place of, or in front of, the image's own command. |
 
-Secret references go in the existing `environment` key. For details on each key, see [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/).
+Secret references go in the existing `environment` key. For details on each key, refer to [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/).
 
 To turn it on interactively, open the repo's manifest in your editor:
 
@@ -41299,7 +47151,7 @@ environment:
   DB_PASSWORD: cg+vault://secret/data/orders#db_password
 ```
 
-Keep the keys that are already in the manifest. Applying a manifest replaces the repo's stored configuration, so a key you remove from the manifest is removed from the repo.
+Keep the keys that are already in the manifest. Applying a manifest replaces the repo's stored configuration, so removing a key from the manifest removes it from the repo.
 
 Save and close the editor. `chainctl` shows a diff and asks you to confirm. After you confirm, Chainguard rebuilds the repo's images with the wrapper as their entrypoint.
 
@@ -41313,17 +47165,17 @@ The `--yes` flag skips the confirmation prompt. To preview the change first, use
 
 `chainctl` checks the manifest before it sends anything to the API. For example, it rejects `preflight` without `guarded_entrypoint`.
 
-For more on `edit` and `apply`, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
+For more on `edit` and `apply`, refer to [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
 
 ### Check the result
 
-To see the builds, run the following command:
+To list the builds, run the following command:
 
 ```shell
 chainctl images repos build list --repo $REPO --parent $ORGANIZATION
 ```
 
-When Chainguard refuses to wrap an image, or when two bindings conflict, the build is recorded as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, see [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
+When Chainguard refuses to wrap an image, or when two bindings conflict, Chainguard records the build as a failure and the `Reason` column shows why. The column is empty for an ordinary build failure. To read a reason in full, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. For the reasons that relate to Guarded Entrypoint, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
 To confirm that a rebuilt image uses the wrapper, check its entrypoint. The first element is `/usr/bin/guarded-entrypoint`. What follows depends on the image. For an image with a command, it is that command. For a shell fragment, it is `/bin/sh -c` and the fragment. For a service bundle, it is `/bin/s6-svscan /sv`. An image that has only a CMD has the wrapper alone:
 
@@ -41335,11 +47187,11 @@ crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq '.config.Entrypoint'
 
 To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`. The API rejects the other three keys when `guarded_entrypoint` is not set. Also remove any `cg+...` values from `environment`. Without the wrapper, they ship as literal strings. The next rebuild produces an image with its original entrypoint.
 
-To bypass the wrapper on a running container without a rebuild, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+To bypass the wrapper on a running container without a rebuild, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
 ## Turn on Guarded Entrypoint with the API
 
-The Chainguard API accepts the same four fields. They are `guardedEntrypoint`, `failMode`, `preflight`, and `commandOverride` on the repo's `customOverlay`. For general guidance on authenticating and calling the API, see [Using the Chainguard API](/platform/api/api-v2-tutorial/).
+The Chainguard API accepts the same four fields. They are `guardedEntrypoint`, `failMode`, `preflight`, and `commandOverride` on the repo's `customOverlay`. For general guidance on authenticating and calling the API, refer to [Using the Chainguard API](/platform/api/api-v2-tutorial/).
 
 The API's enum fields take enum names. `failMode` is `FAIL_MODE_CLOSED` or `FAIL_MODE_OPEN`. A `commandOverride` `mode` is `MODE_DEFAULT`, `MODE_PREPEND`, or `MODE_OVERRIDE`. A preflight `onFailure` is `ON_FAILURE_FAIL` or `ON_FAILURE_CONTINUE`.
 
@@ -41376,7 +47228,7 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 The request merges into the repo's stored overlay. The API builds an update mask from the fields in the request body, so only the fields you send change:
 
 * A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
-* `environment` and `preflight` are replaced as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
+* The request replaces `environment` and `preflight` as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
 
 To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
 
@@ -41384,7 +47236,7 @@ The API validates the request with the rules in [API errors](#api-errors).
 
 ## Use Guarded Entrypoint with Custom Assembly Overlays
 
-An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. See the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/) for overlays, bindings, and tag selectors.
+An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. Refer to the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/) for overlays, bindings, and tag selectors.
 
 Guarded Entrypoint has its own enrollment, separate from Custom Assembly Overlays. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
 
@@ -41413,7 +47265,7 @@ chainctl images overlays attach \
   --all
 ```
 
-For the other selectors, see [Managing Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
+For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
 Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
 
@@ -41494,7 +47346,7 @@ command_override:
 
 Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode` or `command_override` to different values. Identical values merge.
 
-The same check runs when you update an overlay, against every repo the overlay is bound to, and when you update a binding's selector. The error for an overlay update differs from the error for a new binding. See [API errors](#api-errors). To fix a conflict, make the two overlays agree, or bind them to selectors that don't match the same tags.
+The same check runs when you update an overlay, against every repo the overlay is bound to, and when you update a binding's selector. The error for an overlay update differs from the error for a new binding. Refer to [API errors](#api-errors). To fix a conflict, make the two overlays agree, or bind them to selectors that don't match the same tags.
 
 ## API errors
 
@@ -41784,6 +47636,7 @@ A few rules govern connections:
 - **A GitHub organization can be linked to exactly one Chainguard organization at a time.** Linking an organization that is already linked elsewhere fails with an "already linked to a different Chainguard group" error; unlink it first (refer to [Moving a GitHub organization](#moving-a-github-organization-to-a-different-chainguard-organization)).
 - **A Chainguard organization can link any number of GitHub organizations.** Each linked GitHub organization appears as its own connection.
 - **Personal accounts work like organizations.** To connect your own GitHub user account instead of an organization, install the app on your account and pass your GitHub username as the organization.
+- **`chainctl develop init` creates the same link.** Turning on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/) with `chainctl develop init` links a GitHub organization the same way `chainctl guardener github link` does, so the one-organization rule applies to it too.
 - **Re-linking is safe.** Linking a GitHub organization that is already linked to the same Chainguard organization succeeds without changing anything.
 
 ### Required permissions
@@ -42089,6 +47942,8 @@ A repository with no `.chainguard/` files is unaffected by Guardener even when t
 | [Container Image Migration](/chainguard/guardener/github/image-migration/) | `.chainguard/images.yaml` | Opens a pull request that replaces the images a repository already uses with Chainguard container images. |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
 
+The `.chainguard/` directory also holds configuration for two other products that use the Chainguard App: a `ci.yaml` file or `ci/` directory for [Chainguard Checks](/chainguard/checks/configuration/), and a `develop.yaml` file for [Chainguard Workspaces](/chainguard/workspaces/session-environment/#use-a-chainguarddevelopyaml-file).
+
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
 
 ## Organization-level configuration with the `.github` repository
@@ -42155,6 +48010,8 @@ Hardened Actions operates in two independent modes:
 - **Automated migration pull requests** — a periodically maintained pull request that updates workflows across your repository. You can also [trigger this migration on demand](#run-an-on-demand-migration) with `chainctl` instead of waiting for the next scheduled run.
 
 You can enable either mode on its own or both together.
+
+Hardened Actions keeps your workflows on GitHub Actions. To move a repository's pull request checks off GitHub Actions runners instead, refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
 
 ## Enable Hardened Actions
 
@@ -49834,6 +55691,8 @@ Containers and Libraries are where most teams start, but Chainguard secures more
 - **[Chainguard Actions](/chainguard/actions/overview/)**, hardened replacements for popular GitHub Actions.
 - **[Guardener](/chainguard/guardener/)**, tooling to harden your own source code.
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, security-reviewed skills for AI agents.
+- **[Chainguard Checks](/chainguard/checks/overview/)**, CI for GitHub pull requests that runs each check in its own isolated microVM.
+- **[Chainguard Workspaces](/chainguard/workspaces/overview/)**, remote microVM sessions for development and coding agents that keep your credentials out of the session.
 
 ## The Chainguard Factory
 
@@ -50058,6 +55917,10 @@ Pull and run hardened, low-CVE container images from `cgr.dev`. Work through a [
 
 Swap your existing dependencies for Chainguard Libraries — rebuilt from verified source, drop-in compatible. Currently available for Java, Python, and JavaScript. Start with the [libraries on-ramp](/get-started/libraries-examples/).
 
+## Build with Checks and Workspaces
+
+Run your pull request checks in isolated microVMs with Chainguard Checks, and your coding agents in remote sessions that hold none of your long-lived credentials with Chainguard Workspaces. [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/) explains how the two work together and signs you up for both.
+
 ## Evaluate trust
 
 Deciding whether Chainguard is right for your organization? Review how Chainguard's container images are built, what guarantees they carry, and how they compare on CVEs.
@@ -50163,6 +56026,194 @@ A support engineer can start on a problem instead of asking you for more informa
 
 ---
 
+### Set up Chainguard Checks and Chainguard Workspaces
+_Path: get-started/checks-and-workspaces.md_
+
+[Chainguard Checks](/chainguard/checks/overview/) runs your repository's CI on every GitHub pull request, with each check in its own microVM. [Chainguard Workspaces](/chainguard/workspaces/overview/) runs your development work, and the coding agents that do it, in a remote microVM session that holds none of your long-lived credentials. You can use either product on its own, but they're built to work together, and you set them up together: one command, `chainctl develop init`, turns on both. This page explains what the products share, then walks you through signing up and giving teammates access.
+
+{{< beta feature="Each product" >}}
+
+## What the products share {#what-the-products-share}
+
+| Shared piece | What it means |
+| ------------ | ------------- |
+| One sign-up | `chainctl develop init` turns on both products, each with its own free monthly allowance. Refer to [Sign up with chainctl develop init](#sign-up-with-chainctl-develop-init). |
+| One GitHub App | The Chainguard App delivers pull request events to Chainguard Checks and, by default, fetches and pushes your repository for Workspaces sessions. A GitHub account can be linked to only one Chainguard organization. |
+| One configuration file | Chainguard Checks runs the checks in your repository's `.chainguard/ci.yaml` file on every pull request. In a Workspaces session, `run-ci` runs the same checks against your working tree, and a session can use the file's environment. |
+| One role | The `sandbox.user` role lets a member use both products. Refer to [Give teammates access](#give-teammates-access). |
+
+## How they work together {#how-they-work-together}
+
+A typical loop uses both products:
+
+1. Open a Workspaces session on your repository, and let Claude Code make a change.
+2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
+3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
+4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+## Prerequisites {#prerequisites}
+
+Before you begin, make sure you have the following:
+
+- A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
+- A local clone of a repository on github.com that you can push to.
+- A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
+
+## Install or update chainctl {#install-or-update-chainctl}
+
+You sign up with `chainctl`, and you use it with both products: `chainctl checks` for Chainguard Checks and `chainctl develop` for Chainguard Workspaces. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
+
+Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
+
+```shell
+sudo chainctl update
+```
+
+If you installed `chainctl` with Homebrew, run `brew upgrade chainctl` instead. Refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
+
+## Install the Chainguard App {#install-the-chainguard-app}
+
+The Chainguard App is a GitHub App that connects your repositories to Chainguard. Chainguard Checks receives pull request events and reports results through it, and by default, Workspaces sessions fetch and push your repository through it. [Guardener](/chainguard/guardener/) uses the same app.
+
+1. Go to the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new).
+2. Choose the personal account or organization that owns your repository.
+3. Choose **All repositories**, or select the repositories you want to use with Chainguard Checks or Chainguard Workspaces.
+4. Review the requested permissions and select **Install**.
+
+Installing the app doesn't change your repositories. Chainguard Checks runs only on repositories that have a `.chainguard/ci.yaml` file, after you link the account in the next step.
+
+## Sign up with chainctl develop init {#sign-up-with-chainctl-develop-init}
+
+The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
+
+Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
+
+```shell
+chainctl develop init
+```
+
+To create an organization, sign in with a work email address, using a password or a Google account. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub or GitLab.
+
+The command does the following:
+
+1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
+2. Picks the Chainguard organization to use:
+    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
+    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
+    - Otherwise, it stops and asks you to choose an organization with `--parent`.
+3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
+4. If your organization isn't linked to a GitHub account yet, asks which one to link. Link the account that owns your repository: press `Enter` to link your own GitHub user, or enter the name of a GitHub organization where you have the owner role, such as `acme`, not a URL. The command opens your browser so you can authorize the link. If the Chainguard App isn't installed on the account, the command offers to open the installation page, then authorizes and links the account again.
+5. Turns on Chainguard Checks and Chainguard Workspaces with their monthly allowances, and prints each product's limits. If Chainguard already granted your organization an allowance, the command keeps it.
+6. Offers to connect your GitHub account, if you haven't yet and your organization allows it, so that the Workspaces sessions you create act on GitHub as you. The connection uses Chainguard Develop, a GitHub App separate from the Chainguard App. If you run the command in your repository's directory, it also offers to install Chainguard Develop on the GitHub accounts your repository needs. Chainguard Checks doesn't need this connection, so you can decline and connect later with `chainctl develop github login`, as described in [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
+
+When you authorize the link, GitHub might ask you to authorize single sign-on for your GitHub organizations. If you're linking your own GitHub user, select **Continue**. To link an organization that uses SAML single sign-on, authorize single sign-on for that organization.
+
+A GitHub account can be linked to only one Chainguard organization at a time. If the account you choose is already linked to another Chainguard organization, `chainctl develop init` names the account and, in an interactive terminal, asks for a different one to link. To move the account to your organization instead, press `Ctrl+C` to stop the command, and then refer to [Moving a GitHub organization to a different Chainguard organization](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
+
+If `chainctl develop init` stops with an error, refer to [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
+
+### Answer questions ahead of time {#answer-questions-ahead-of-time}
+
+You can answer some of the command's questions with flags:
+
+| Flag | What it does |
+| ---- | ------------ |
+| `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
+| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
+
+For example, to link the `acme` GitHub organization:
+
+```shell
+chainctl develop init --github-org acme
+```
+
+For every flag, refer to the [`chainctl develop init` reference](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-init).
+
+### Use an organization your company already has {#use-an-organization-your-company-already-has}
+
+If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). An owner can then turn on both products in it, replacing `$ORGANIZATION` with the organization's name:
+
+```shell
+chainctl develop init --parent $ORGANIZATION
+```
+
+If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
+
+An organization that has a product through the account team must also accept that product's terms, which takes the `owner` role. Until an owner accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
+
+```shell
+chainctl checks accept-terms --parent $ORGANIZATION
+chainctl develop accept-terms --parent $ORGANIZATION
+```
+
+If your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.
+
+## Give teammates access {#give-teammates-access}
+
+Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization to open the Chainguard Checks run page, to use `chainctl checks` commands such as `status` and `rerun`, or to open Workspaces sessions. Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits).
+
+| Role | In Chainguard Checks | In Chainguard Workspaces |
+| ---- | -------------------- | ------------------------ |
+| `viewer` | Lets `chainctl` find your organization by name, which `--parent $ORGANIZATION` needs. | Lets `chainctl develop` find your organization by name. |
+| `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. |
+| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. |
+
+A teammate who uses `sandbox.user` also needs `viewer`. For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+
+### Add a teammate {#add-a-teammate}
+
+In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate and grant them the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+1. Create an invite for your teammate with the `viewer` role. Your teammate needs it as well as `sandbox.user`, because `sandbox.user` alone doesn't let `chainctl` find your organization. Replace `$EMAIL` with your teammate's email address:
+
+    ```shell
+    chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
+    ```
+
+2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `$INVITE_CODE` with the code:
+
+    ```shell
+    chainctl auth login --invite-code $INVITE_CODE
+    ```
+
+3. After your teammate accepts, list your organization's role-bindings. The output shows each member's identity ID next to their email address:
+
+    ```shell
+    chainctl iam role-bindings list --parent $ORGANIZATION
+    ```
+
+4. Grant your teammate the `sandbox.user` role, replacing `$IDENTITY_ID` with their identity ID:
+
+    ```shell
+    chainctl iam role-bindings create --identity $IDENTITY_ID --role sandbox.user --parent $ORGANIZATION
+    ```
+
+Your teammate can then install `chainctl`, as described in [Install or update chainctl](#install-or-update-chainctl), and open a session, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session).
+
+### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
+
+If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+
+To invite a teammate, run steps 1 and 2 of [Add a teammate](#add-a-teammate). To let your teammate open sessions, use `--role limited_owner` instead of `--role viewer` in step 1:
+
+```shell
+chainctl iam invite create $ORGANIZATION --role limited_owner --email $EMAIL
+```
+
+The `limited_owner` role also lets its holder manage your organization's billing and invite or remove members.
+
+Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
+
+A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request. For details, refer to [Request access with chainctl](/chainguard/containers/reference/catalog-starter/#request-access-with-chainctl).
+
+## Next steps {#next-steps}
+
+- [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
+- [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
+- [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.
+
+---
+
 ### Onboard your teams
 _Path: get-started/onboard-your-teams.md_
 
@@ -50255,6 +56306,8 @@ Chainguard's platform reaches beyond containers and libraries. Your organization
 
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)** — hardened AI agent skills that Chainguard reviews, scopes, and publishes with a full audit trail, so your teams can install them without inheriting unknown risk.
 - **[Chainguard Actions](/chainguard/actions/overview/)** — hardened, drop-in replacements for popular GitHub Actions that protect your CI/CD pipelines from supply chain attacks.
+- **[Chainguard Checks](/chainguard/checks/overview/)** — CI for GitHub pull requests that runs each check in its own isolated microVM, with no network access unless a check asks for it.
+- **[Chainguard Workspaces](/chainguard/workspaces/overview/)** — remote microVM sessions for development and coding agents that keep your credentials out of the session.
 - **[Guardener](/chainguard/guardener/)** — a tool for managing and hardening your source code through a suite of capabilities you opt into independently.
 
 ## Next steps
@@ -50378,6 +56431,8 @@ You don't have to make these edits by hand. Two tools do the migration for you, 
 
 - [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Chainguard App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
 - [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), a Claude Code skill, audits one repository's Actions usage and opens a pull request swapping in the hardened equivalents. Use this for a pilot, or where installing an app across the organization isn't an option.
+
+To move pull request checks off GitHub Actions runners instead, [Chainguard Checks](/chainguard/checks/overview/) runs each check in its own microVM. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
 
 Separately, if agents run anywhere in your pipeline, [Chainguard Agent Skills](/chainguard/agent-skills/overview/) applies the same hardening idea to the skills those agents load.
 
@@ -51370,71 +57425,123 @@ This guide outlines the built-in Chainguard IAM roles available to most customer
 chainctl iam roles list
 ```
 
-Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `owner` role can create, delete, list, and update custom roles within Chainguard, while the `viewer` role can only list them.
+Every role grants actions on at least one Chainguard resource. Most actions are `create`, `list`, `update`, or `delete`, and a few resources use others, such as `get`, `accept`, or `call`. For example, the `owner` role can create, delete, list, and update custom roles within Chainguard, while the `viewer` role can only list them.
 
 This guide outlines the following built-in roles provided by Chainguard:
 
 * **Administrative Roles:**
-    * `owner` - Full administrative access with all capabilities
-    * `editor` - Limited administrative access with mostly read permissions and event management
-    * `viewer` - Read-only access across all resources, **can** pull images, and can run Guardener sessions
-    * `limited_owner` - Read access across all resources with ability to create identities and role bindings, and pull images
-    * `console_viewer` - Read-only access across all resources and **cannot** pull images, without blob access or the ability to manage event subscriptions
+    * `owner`: Full administrative access with all capabilities
+    * `editor`: `viewer` access plus creating, updating, and deleting container repositories, editing Custom Assembly overlays, drafting library build requests, and managing event subscriptions
+    * `viewer`: Read-only access across all resources, **can** pull images, and can run Guardener sessions
+    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
+    * `console_viewer`: Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, or view legal terms
 * **Registry and Container Roles:**
-    * `registry.pull` - Container image access
-    * `registry.pull_token_creator` - Chainguard registry token management with additional repository capabilities
-    * `apk.pull` - Access to the organization's APK packages, including the private APK repository
+    * `registry.pull`: Container image access
+    * `registry.pull_token_creator`: Chainguard registry token management with additional repository capabilities
+    * `registry.push`: `registry.pull` access plus pushing images, and creating, updating, and deleting repositories and tags
+    * `registry.editor`: `registry.pull` access plus creating, updating, and deleting repositories, and editing Custom Assembly overlays
+    * `apk.pull`: Access to the organization's APK packages, including the private APK repository
+    * `apk.push`: `apk.pull` access plus uploading and deleting APK packages
 * **Library Roles:**
-    * `libraries.java.pull` - Java library access
-    * `libraries.java.pull_token_creator` - Java token management
-    * `libraries.python.pull` - Python library access
-    * `libraries.python.pull_token_creator` - Python library token management
-    * `libraries.javascript.pull` - JavaScript library access
-    * `libraries.javascript.pull_token_creator` - JavaScript library token management
+    * `libraries.java.pull`: Java library access
+    * `libraries.java.pull_token_creator`: Java token management
+    * `libraries.java.push`: `libraries.java.pull` access plus Java library uploads
+    * `libraries.python.pull`: Python library access
+    * `libraries.python.pull_token_creator`: Python library token management
+    * `libraries.python.push`: `libraries.python.pull` access plus Python library uploads
+    * `libraries.javascript.pull`: JavaScript library access
+    * `libraries.javascript.pull_token_creator`: JavaScript library token management
+    * `libraries.javascript.push`: `libraries.javascript.pull` access plus JavaScript library uploads
 * **Guardener Roles**:
-    * `guardener.user` - Minimum role for running Guardener sessions, including Guardener conversion, terms lookup, and registry pull access
-    * `guardener.admin` - Extends `guardener.user` with permission to accept the legal terms required before Guardener sessions can start
+    * `guardener.user`: Minimum role for running Guardener sessions, including Guardener conversion, terms lookup, and registry pull access
+    * `guardener.admin`: Extends `guardener.user` with permission to accept the legal terms required before Guardener sessions can start
+* **Checks and Workspaces Roles**:
+    * `sandbox.user`: Start, view, and cancel Chainguard Checks runs, and open Chainguard Workspaces sessions
+    * `sandbox.identity.user`: Use shared identities in Chainguard Workspaces sessions
+* **MCP Roles**:
+    * `mcp.tool_user`: Call tools on Chainguard MCP servers
+* **Actions Roles**:
+    * `actions.viewer`: View the Chainguard Actions catalog
 
 The administrative roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) resources.
+For example, the `apk.pull` role grants `list` access for APK packages and groups, and `get` access to APK package content. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) resources.
 
 ## Chainguard role capabilities
 
-The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which built-in roles have what capabilities (create, delete, list, update) for that resource.
+The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which actions each built-in role has on that resource.
 
 <div style="overflow-x: auto;">
 
 | Resource | Purpose | Roles with access to this resource |
 |------------|---------|---------------------------|
 | `account_associations` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li></ul> |
-| `apk.blobs` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li></ul> |
+| `actions` | View the [Chainguard Actions](/chainguard/actions/overview/) catalog | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`actions.viewer` (list)</li></ul> |
+| `advisories` | View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (create, delete, list)</li></ul> |
+| `apk.blobs` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`apk.pull` (get)</li><li>`apk.push` (get)</li></ul> |
+| `billing` | Manage the organization's billing and payment method | <ul><li>`owner` (manage)</li><li>`limited_owner` (manage)</li></ul> |
 | `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li></ul> |
+| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, rename, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, rename)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, list)</li><li>`registry.editor` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `guardener.actions` | Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
+| `guardener.association` | View and manage the GitHub organizations connected through [the Chainguard App](/chainguard/guardener/github/app-connections/) | <ul><li>`owner` (list, manage)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, manage)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list, manage)</li></ul> |
+| `guardener.dfc` | Convert Dockerfiles to use Chainguard images with [Guardener](/chainguard/guardener/dockerfile-migration/) | <ul><li>`owner` (convert)</li><li>`editor` (convert)</li><li>`viewer` (convert)</li><li>`limited_owner` (convert)</li><li>`guardener.user` (convert)</li><li>`guardener.admin` (convert)</li></ul> |
+| `guardener.entitlement` | View the organization's Guardener settings, such as which repositories Guardener can access | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `guardener.images` | Request and view [container image migrations](/chainguard/guardener/github/image-migration/) for a repository | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
+| `guardener.scan` | View the dependency scans Guardener runs on connected repositories | <ul><li>`owner` (get, list)</li><li>`editor` (get, list)</li><li>`viewer` (get, list)</li><li>`limited_owner` (get, list)</li><li>`console_viewer` (get, list)</li><li>`guardener.user` (get, list)</li><li>`guardener.admin` (get, list)</li></ul> |
 | `identity` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
 | `identity_providers` | Configure [custom identity providers](/platform/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `identity_providers.scim` | Turn on [SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/) for a custom identity provider and manage its tokens | <ul><li>`owner` (manage)</li></ul> |
+| `identity_providers.scim.users` | View the users a custom identity provider provisioned through SCIM | <ul><li>`owner` (list)</li></ul> |
 | `libraries.artifacts` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `libraries.java` | Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | <ul><li>`owner` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li></ul> |
-| `libraries.javascript` | Access Chainguard Libraries for JavaScript | <ul><li>`owner` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `libraries.python` | Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | <ul><li>`owner` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li></ul> |
-| `manifest` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
-| `manifest.metadata` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `record_signatures` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `libraries.aws_marketplace.subscriptions` | Manage Chainguard Libraries subscriptions bought through AWS Marketplace | <ul><li>`owner` (create, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.cache` | View and clear the organization's Chainguard Libraries resolution cache | <ul><li>`owner` (invalidate, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (list)</li></ul> |
+| `libraries.java` | Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | <ul><li>`owner` (create, list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (create, list)</li></ul> |
+| `libraries.javascript` | Access Chainguard Libraries for JavaScript | <ul><li>`owner` (create, list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (create, list)</li></ul> |
+| `libraries.policy` | Create and manage the cooldown and malware policies applied to upstream library pulls | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.policy.binding` | Apply Chainguard Libraries policies to the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.policy.block_event` | View the library pulls a policy blocked | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.python` | Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | <ul><li>`owner` (create, list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (create, list)</li></ul> |
+| `libraries.remote_registries` | Configure the upstream registries the organization's virtual repositories pull from | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.request_groups` | Request library versions for Chainguard to build, and track those requests | <ul><li>`owner` (create, delete, list, submit, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.request_groups.items` | Edit the individual libraries in a draft build request | <ul><li>`owner` (update)</li><li>`editor` (update)</li></ul> |
+| `libraries.storage_usage` | View how much storage the organization's uploaded libraries use in each ecosystem | <ul><li>`owner` (get)</li></ul> |
+| `manifest` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `manifest.metadata` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `mcp.tool` | Call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/) | <ul><li>`owner` (call)</li><li>`mcp.tool_user` (call)</li></ul> |
+| `packages.entitlements` | View which tier of Chainguard OS Packages the organization is entitled to, base or FIPS | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.binding` | Turn image pull policies on for the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.decision` | View the allow and block decisions image pull policies made | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.override` | Exempt a specific image from policy enforcement | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.policy` | View and manage image pull policies, such as blocking end-of-life images | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `record_signatures` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `referrers` | View the signatures, attestations, and other artifacts attached to an image | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `registry.deployments` | View the Helm charts associated with a container repository | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
 | `registry.entitlements` | View registry access entitlements and permissions | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `repo` | Create and manage container repositories (including [Custom Assembly](/chainguard/containers/custom-assembly/) resources) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (create, delete, list, update)</li></ul> |
-| `repo.blobs` | Download container image binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li></ul> |
-| `role_bindings` | [Assign roles to identities](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `registry.entitlements.images` | Add, remove, and swap the images in the organization's registry entitlement | <ul><li>`owner` (add, remove, swap)</li><li>`limited_owner` (add)</li></ul> |
+| `registry.overlays` | View and edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/) | <ul><li>`owner` (edit, list)</li><li>`editor` (edit, list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.editor` (edit, list)</li></ul> |
+| `registry.settings` | View the organization's registry settings, such as whether unique tags and the End-of-Life Grace Period are on by default | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `repo` | Create and manage container repositories (including [Custom Assembly](/chainguard/containers/custom-assembly/) resources) | <ul><li>`owner` (check_policies, create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (create, delete, list, update)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `repo.blobs` | Download container image binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`registry.push` (get)</li><li>`registry.editor` (get)</li><li>`guardener.user` (get)</li><li>`guardener.admin` (get)</li></ul> |
+| `role_bindings` | [Assign roles to identities](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
 | `roles` | Create, modify, and manage [custom Chainguard IAM roles](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `sboms` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `sandbox.identity` | Create the [Chainguard identity a Workspaces session acts through](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and define and use shared session identities | <ul><li>`owner` (admin, create, use)</li><li>`sandbox.user` (create)</li><li>`sandbox.identity.user` (use)</li></ul> |
+| `sandbox.run` | Start, view, and cancel [Chainguard Checks](/chainguard/checks/overview/) runs | <ul><li>`owner` (cancel, create, list)</li><li>`limited_owner` (cancel, create)</li><li>`sandbox.user` (cancel, create, list)</li></ul> |
+| `sandbox.session` | Open [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and list every user's sessions in the organization | <ul><li>`owner` (create, list)</li><li>`limited_owner` (create)</li><li>`sandbox.user` (create)</li></ul> |
+| `sboms` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `skills` | View the [Chainguard Agent Skills](/chainguard/agent-skills/overview/) catalog and publish skills | <ul><li>`owner` (list, publish)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `skills.entitlements` | Manage which Chainguard Agent Skills the organization can access | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `skills.harden` | Submit, track, and cancel [skill hardening](/chainguard/agent-skills/skill-hardening/) jobs | <ul><li>`owner` (cancel, read, write)</li></ul> |
 | `subscriptions` | Manage [CloudEvent](/platform/administration/cloudevents/events-reference/) subscriptions for notifications and automation | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `tag` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `tag` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `telemetry.containers` | View the container images that connected repositories use, as Guardener observes them | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `terms` | View and accept the legal terms a Chainguard product requires before you can use it | <ul><li>`owner` (accept, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (accept, list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (accept, list)</li></ul> |
 | `version` | View version information across all resources and assets | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
 | `vuln` | Create vulnerability reports and assessments | <ul><li>`owner` (create)</li></ul> |
 | `vuln_report` | Manage detailed vulnerability assessments for specific resources | <ul><li>`owner` (create, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `vuln_reports` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li></ul> |
+| `vuln_reports` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
 
 </div>
 
@@ -51453,15 +57560,25 @@ The following table compares the general abilities of the built-in roles describ
 | `console_viewer` | ✕ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull_token_creator` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
+| `registry.push` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `registry.editor` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `apk.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| `apk.push` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
 | `libraries.java.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.java.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `libraries.java.push` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.python.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.python.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `libraries.python.push` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.javascript.pull` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `libraries.javascript.pull_token_creator` | ✕ | ✕ | ✕ | ✅ | ✅ | ✅ |
+| `libraries.javascript.push` | ✕ | ✕ | ✕ | ✕ | ✕ | ✅ |
 | `guardener.user` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `guardener.admin` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
+| `sandbox.user` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| `sandbox.identity.user` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| `mcp.tool_user` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
+| `actions.viewer` | ✕ | ✕ | ✕ | ✕ | ✕ | ✕ |
 
 </div>
 
@@ -51469,7 +57586,7 @@ The following table compares the general abilities of the built-in roles describ
 
 * **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
 * **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
-* **Console Viewer**: Has the same broad `list` access as `editor`, but cannot pull blobs (`apk.blobs`, `repo.blobs`) and cannot create, update, or delete event subscriptions. This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
+* **Console Viewer**: Has the same broad `list` access as `viewer`, but can't pull blobs (`apk.blobs`, `repo.blobs`), view legal terms (`terms`), run Guardener conversions or migrations (`guardener.dfc`, `guardener.actions`, `guardener.images`), or list the GitHub organizations connected through the Chainguard App (`guardener.association`). This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
 
 ### Pull token creator roles
 
@@ -51517,19 +57634,19 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `owner` is the role with the most privileges. An owner can create, delete, view (list), and modify (update) organizations, account associations, role-bindings, organization invitations, custom roles, role-bindings, and subscriptions.
 
-`editor` is the role with read access and limited creation and modification access. As opposed to the owner role, an editor can view images, policies, records, organizations, organization invites, roles, and account associations but cannot create or make changes to these resources. It can modify the state of event subscriptions, but cannot grant roles or permissions. Editors can also push and pull images, libraries, and APKs.
+`editor` is the role with read access and limited creation and modification access. An editor has all the access of the `viewer` role. Beyond that, an editor can create, update, and delete container repositories, edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/), draft library build requests, and manage event subscriptions. An editor can pull images and APK packages, but can't push them, can't access Chainguard Libraries, and can't grant roles or permissions.
 
 `viewer` is a role that has read-only access and **can** pull images. That is, a viewer can list images, policies, organizations (and organization invites), records, roles and role-bindings, subscriptions, and account associations.
 
-`console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
+`console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. It also can't view legal terms or run Guardener conversions or migrations. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
 
-`limited_owner` is a special role designed for [Catalog Starter](/chainguard/containers/reference/catalog-starter/) users, combining the capabilities of the `viewer` role with pull token creation permissions. It does not allow users to invite others to the organization or access paid features like Custom Assembly.
+`limited_owner` is the role of a Starter organization's owner, such as a [Catalog Starter](/chainguard/containers/reference/catalog-starter/) user. It combines the capabilities of the `viewer` role with pull token creation. It can also invite people whose email address is in the organization's domain, remove members, manage billing, and turn on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/). It can't create identities other than pull tokens or use paid features like Custom Assembly.
 
-The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products.
+The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products. `sandbox.user` lets a member use Chainguard Checks and Chainguard Workspaces, and `mcp.tool_user` lets an identity call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/).
 
 The `owner`, `editor`, and `viewer` roles are useful for user profiles that require broad, but clearly defined capabilities. The registry, container, and library roles have limited permissions, allowing them to manage only one specific Chainguard resource. These specialized, resource-specific roles grant minimal required access.
 
-Every role has at least one of four capabilities (`create`, `list`, `update`, `delete`) in relation to at least one Chainguard resource. For example, the `apk.pull` role only grants `list` access for APK packages and groups. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
+Every role grants actions on at least one Chainguard resource. Most actions are `create`, `list`, `update`, or `delete`, and a few resources use others, such as `get`, `accept`, or `call`. For example, the `apk.pull` role grants `list` access for APK packages and groups, and `get` access to APK package content. This means identities with this role can pull the organization's APK packages and retrieve information about the organization, but won't have general access to the organization's [Chainguard registry](/chainguard/containers/registry/overview/) access.
 
 Chainguard's built-in default roles serve as building blocks and can be complemented with custom roles for specific use cases. Custom roles can extend or restrict default role capabilities, and offer your organization greater flexibility, allowing you to mix default and custom roles based on your team's structure and needs.
 
@@ -56703,41 +62820,38 @@ For more information about how assumable identities work in Chainguard, check ou
 ### Introduction to the Chainguard Terraform provider
 _Path: platform/administration/terraform-provider/index.md_
 
-[Terraform](https://www.terraform.io/) is an infrastructure as code tool that allows users to declaratively configure resources in cloud providers like AWS and GCP, SaaS platforms, and many other API-driven environments. [Terraform providers](https://developer.hashicorp.com/terraform/language/providers) are written by third-party developers to allow Terraform to manage resources in their environment.
+[Terraform](https://www.terraform.io/) is an infrastructure as code tool that lets you declaratively configure resources in cloud providers like AWS and GCP, SaaS platforms, and many other API-driven environments. Third-party developers write [Terraform providers](https://developer.hashicorp.com/terraform/language/providers) so that Terraform can manage resources in their environments.
 
-[The Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest) enables users to manage resources on the Chainguard Platform, such as identities, role-bindings, custom roles, and more. This guide provides a brief introduction to the Chainguard Terraform provider, including how to configure it and use it to manage your Chainguard resources.
+[The Chainguard Terraform provider](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest) lets you manage resources on the Chainguard Platform, such as identities, role-bindings, custom roles, and more. This guide shows how to configure the provider and use it to manage your Chainguard resources.
 
 ## Prerequisites
 
-In order to use the Chainguard Terraform provider, you will need to [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) on your local machine.
+To use the Chainguard Terraform provider, [install Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) on your local machine.
 
-Also, while it isn't necessary for using the Chainguard Terraform provider, this guide assumes you have [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) in order to retrieve some information about your Chainguard resources.
+This guide also uses [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to retrieve some information about your Chainguard resources. The provider itself doesn't require it.
 
-## Configuring the Chainguard Terraform provider
+## Configure the Chainguard Terraform provider
 
-Terraform uses [a native configuration language](https://developer.hashicorp.com/terraform/language) to define resources. Each configuration is stored in one or more `.tf` files, which in turn are stored in what is called a *root module*. When using the Terraform CLI, the root module is the working directory where you invoke `terraform` commands to create or destroy your resources.
+Terraform uses [a native configuration language](https://developer.hashicorp.com/terraform/language) to define resources. You store each configuration in one or more `.tf` files in a directory called the *root module*. With the Terraform CLI, the root module is the working directory where you run `terraform` commands to create or destroy your resources.
 
 To use the Chainguard Terraform provider, add it to the block of required providers in your configuration:
 
 ```hcl
 terraform {
   required_providers {
- chainguard = { source = "chainguard-dev/chainguard" }
+    chainguard = { source = "chainguard-dev/chainguard" }
   }
 }
 ```
 
-If you don't have an active Chainguard token when you apply the configuration, the provider will automatically launch a browser to complete the Oauth 2 flow with one of the default identity providers: GitHub, GitLab, or Google. This means the Terraform provider does not require `chainctl` to be installed to manage authentication with Chainguard.
+If you don't have an active Chainguard token when you apply the configuration, the provider launches a browser to complete the OAuth 2.0 flow with one of the default identity providers: GitHub, GitLab, or Google. The provider doesn't need `chainctl` to authenticate.
 
-You can customize the behavior of the authentication flow in a number of ways. For example, you can specify an identity to assume, or a [verified organization](/platform/administration/iam-organizations/verified-orgs/) name in order to use a previously-configured custom identity provider:
+You can customize the behavior of the authentication flow in several ways. For example, you can specify a [verified organization](/platform/administration/iam-organizations/verified-orgs/) name to use a previously configured custom identity provider:
 
 ```hcl
 provider "chainguard" {
   login_options {
- organization_name = "my-org.com"
- # identity_id is the exact ID of an assumable identity.
- # Get this ID with chainctl iam identities list
- identity_id = "1f127a7c0609329f04b43d845cf80eea4247a07c/d6305475446bbef6"
+    organization_name = "my-org.com"
   }
 }
 ```
@@ -56747,30 +62861,33 @@ You can also configure the provider to use an OIDC token, either by supplying it
 ```hcl
 provider "chainguard" {
   login_options {
- # Disable the automatic browser authentication flow.
- disabled    = true
- identity_token = "/path/to/oidc/token"
+    # Disable the automatic browser authentication flow.
+    disabled = true
+    # identity_id is the exact ID of an assumable identity.
+    # Get this ID with chainctl iam identities list
+    identity_id    = "1f127a7c0609329f04b43d845cf80eea4247a07c/d6305475446bbef6"
+    identity_token = "/path/to/oidc/token"
   }
 }
 ```
 
 You can find more information about authenticating with the Chainguard Terraform provider in the [provider documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs) and [the included examples](https://github.com/chainguard-dev/terraform-provider-chainguard/tree/main/examples).
 
-## Defining organization references
+## Define organization references
 
-Terraform was designed to allow users to manage various resources declaratively. In practice, this means that you define the state you want your resources to be in and then you let Terraform and the provider handle the details of bringing that state to reality.
+Terraform manages resources declaratively: you define the state you want your resources in, and Terraform and the provider handle the details of reaching that state.
 
-Resources on the Chainguard platform are organized in a hierarchical structure consisting of [**Organizations** and **folders**](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#organizations-and-folders). An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization. Most users will only need to work at the organization level.
+Resources on the Chainguard platform are organized in a hierarchical structure consisting of [organizations and folders](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/#organizations-and-folders). An organization is a customer or group of customers working with the same Chainguard resources, while a folder is a collection of resources within a Chainguard organization. Most users only need to work at the organization level.
 
-![Diagram outlining hierarchical structure of Chainguard resources. The diagram has two halves: one labeled "Organization" and another labeled "Chainguard". Under Organization is a box labeled "Tags" with an arrow pointing toward another box labeled "Repos." Under both halves is a box labeled "Role Bindings" which has four arrows pointing from it. Two arrows point to boxes (labeled "Identities" and "Custom Roles") under Organization and the other two point to boxes (labeled "User Identities" and "roles) under Chainguard.](tf-diagram.png)
+![Diagram outlining hierarchical structure of Chainguard resources. The diagram has two halves: one labeled "Organization" and another labeled "Chainguard". Under Organization is a box labeled "Tags" with an arrow pointing toward another box labeled "Repos." Under both halves is a box labeled "Role Bindings" which has four arrows pointing from it. Two arrows point to boxes (labeled "Identities" and "Custom Roles") under Organization and the other two point to boxes (labeled "User Identities" and "Roles") under Chainguard.](tf-diagram.png)
 
-All user-managed resources are defined in relation to the organization to which they belong. This means developers need to be able to reference their organization throughout their configuration. We'll outline two ways to define this kind of reference: using local values and data sources. For more details on referencing an organization, please refer to the [`chainguard_group` resource documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/group) for more information.
+All user-managed resources are defined in relation to the organization to which they belong. This means developers need to be able to reference their organization throughout their configuration. This section describes two ways to define this kind of reference: using local values and data sources. For more on referencing an organization, refer to the [`chainguard_group` resource documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/group).
 
-> **Note:** Chainguard organizations were previously called "groups," with a "root group" representing what is now referred to as an organization and "subgroups" referring to folders. As of this writing, the Chainguard Terraform provider still refers to "groups" instead of organizations. To align with our other [IAM resources](/platform/administration/iam-organizations/), this document uses the new nomenclature wherever possible.
+> **Note:** Chainguard organizations were previously called "groups," with a "root group" representing what is now referred to as an organization and "subgroups" referring to folders. The Chainguard Terraform provider still refers to "groups" instead of organizations. To align with our other [IAM resources](/platform/administration/iam-organizations/), this document uses the new nomenclature wherever possible.
 
-### Defining local values
+### Define local values
 
-The Terraform configuration language allows you to define *local values* which assign a name to a given expression. This allows you to reference the name of a local value multiple times throughout a Terraform configuration rather than repeating the expression each time. As an example, this section will outline how to define a local variable representing the ID of a Chainguard organization.
+The Terraform configuration language allows you to define *local values* that assign a name to a given expression. This allows you to reference the name of a local value multiple times throughout a Terraform configuration rather than repeating the expression each time. This section shows how to define a local value that holds the ID of a Chainguard organization.
 
 If you are familiar with `chainctl`, you can find your organization's ID with the following command:
 
@@ -56778,7 +62895,7 @@ If you are familiar with `chainctl`, you can find your organization's ID with th
 chainctl iam organizations list -o table
 ```
 
-Once you've copied the UIDP of your organization (the 40-digit long hex string listed in the `ID` column of the previous command's output), you can use it to create a local variable in Terraform:
+Once you've copied the UIDP of your organization (the 40-character hex string listed in the `ID` column of the previous command's output), use it to create a local value in Terraform:
 
 ```hcl
 locals {
@@ -56786,29 +62903,29 @@ locals {
 }
 ```
 
-Throughout your Terraform code, you can refer to this value as `local.org_id`. If you are setting up a reusable Terraform module, you may consider using an input variable instead. Please refer to the [Terraform documentation](https://developer.hashicorp.com/terraform/language/values/variables) for more  information.
+Throughout your Terraform code, you can refer to this value as `local.org_id`. If you are setting up a reusable Terraform module, consider an input variable instead. For more information, refer to the [Terraform documentation](https://developer.hashicorp.com/terraform/language/values/variables).
 
-### Using data sources
+### Use data sources
 
-*Data sources* allow Terraform to access and use information that was defined outside ofWe'll outline two ways to define this kind of reference: using local values and data sources. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
+*Data sources* allow Terraform to access and use information defined outside of Terraform. The available data sources for Chainguard resources are [groups](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/group), [identities](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/identity), and [roles](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/data-sources/role).
 
-If you know the exact name of your organization, you can use a data resource to query the API for it:
+If you know the exact name of your organization, you can use a data source to query the API for it:
 
 ```hcl
 data "chainguard_group" "org" {
   # This indicates the group is an organization.
   parent_id = "/"
-  name   = "[organization name]"
+  name      = "[organization name]"
 }
 ```
 
-To refer to the organization's ID in other parts of your Terraform configuration, you would use the reference `data.chainguard_group.org.id`. The rest of the examples in this document will use this for referring to the organization's ID.
+To refer to the organization's ID in other parts of your Terraform configuration, use the reference `data.chainguard_group.org.id`. The remaining examples in this guide use this reference.
 
-## Managing users
+## Manage users
 
 The Chainguard Terraform provider is useful for configuring your organization's users and roles. When authenticating with the Chainguard platform, you have the option of using the default OIDC providers (GitHub, GitLab, Google). You can also bring your own identity provider, as long as it is OIDC compliant.
 
-To configure a new identity provider for your organization, use the `chainguard_identity_provider` resource. You must provide a `parent_id` (your organization's ID), a `name` (the identity provider service is a good choice), a `default_role` that new users will be bound to upon their first login, and an `oidc` configuration:
+To configure a new identity provider for your organization, use the `chainguard_identity_provider` resource. You must provide a `parent_id` (your organization's ID), a `name` (the identity provider service is a good choice), a `default_role` that new users are bound to when they first log in, and an `oidc` configuration:
 
 ```hcl
 # The default role can be either a built-in role, or a custom role.
@@ -56820,21 +62937,21 @@ data "chainguard_role" "default_role" {
 
 resource "chainguard_identity_provider" "idp" {
   parent_id   = data.chainguard_group.org.id
-  name     = "[identity provider service]"
+  name        = "[identity provider service]"
   description = "My org's identity provider"
-  # Role data sources return list of matched roles.
+  # Role data sources return a list of matched roles.
   # Don't use data.chainguard_role.default_role.id here, as that
   # is not the ID of the returned role.
   default_role = data.chainguard_role.default_role.items.0.id
 
   oidc {
- issuer     = "[URL of identity provider issuer]"
- client_id  = "[identity provider client ID]"
- client_secret = "[identity provider client secret]"
+    issuer        = "[URL of identity provider issuer]"
+    client_id     = "[identity provider client ID]"
+    client_secret = "[identity provider client secret]"
 
- # openid scope is always requested, add additional scopes
- # your identity provider provides (e.g. email, profile)
- additional_scopes = ["email"]
+    # The openid scope is always requested. Add any other scopes
+    # your identity provider supports, such as email or profile.
+    additional_scopes = ["email"]
   }
 }
 ```
@@ -56843,57 +62960,57 @@ As this example shows, you also have the option of including a `description` of 
 
 If you're not bringing your own identity provider, but rather relying on one of the default OIDC providers, you can still pre-bind users to roles within your organization so they can log in and access your organization's resources right away.
 
-As an example, say you want your users to log in with their GitHub account. To pre-bind users to a role within your organization, you will need to know their GitHub IDs and add them to a Terraform configuration like the following:
+As an example, say you want your users to log in with their GitHub account. To pre-bind users to a role within your organization, you need their GitHub IDs. Add them to a Terraform configuration like the following:
 
 ```hcl
-# Create a custom role in this example for first time users.
+# Create a custom role in this example for first-time users.
 resource "chainguard_role" "default_role" {
   parent_id   = data.chainguard_group.org.id
-  name     = "org-default-role"
+  name        = "org-default-role"
   description = "The role new users are bound to on first login."
 
   # A full list of all capabilities you can assign to a role
-  # are available with chainctl iam roles capabilities list
+  # is available with chainctl iam roles capabilities list
   capabilities = [
- "groups.list",
- "repo.list",
- "tag.list",
- ...
+    "groups.list",
+    "repo.list",
+    "tag.list",
+    ...
   ]
 }
 
 # Gather a list of user identities
 data "chainguard_identity" "users" {
-  # Assumes there exists a github_ids set variable defined
-  # with the GitHub IDs of your users
+  # Assumes a github_ids set variable that holds
+  # your users' GitHub IDs
   for_each = var.github_ids
 
   # The issuer is always the same when using the default
   # OIDC providers.
-  issuer  = "https://auth.chainguard.dev/"
+  issuer = "https://auth.chainguard.dev/"
 
   # Subjects are prepended with the name of the OIDC provider
   # when using the default provider: github, gitlab, or google-oauth2
-  subject = "github|${each.key}”
+  subject = "github|${each.key}"
 }
 
 # Bind your users to a default role
 resource "chainguard_rolebinding" "default_bindings" {
   for_each = var.github_ids
 
-  group  = data.chainguard_group.org.id
-  identity  = data.chainguard_identity.users[each.key].id
-  role   = chainguard_role.default_role.id
+  group    = data.chainguard_group.org.id
+  identity = data.chainguard_identity.users[each.key].id
+  role     = chainguard_role.default_role.id
 }
 ```
 
-After applying this Terraform configuration, any user whose GitHub ID was included can log in and will already be bound to the default role.
+After applying this Terraform configuration, any user whose GitHub ID you included can log in and is already bound to the default role.
 
 ## Learn more
 
 The [Chainguard Terraform provider documentation](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs) includes examples of how you can use it to manage your Chainguard resources.
 
-For more information on setting up custom identity providers, we encourage you to check out our documentation on setting up [custom IdPs](/platform/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/), and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/). Additionally, [our tutorial](/platform/administration/iam-organizations/roles-role-bindings/rolebinding-terraform-gh/) on using the Terraform provider to grant members of a GitHub team access to the resources managed by a Chainguard organization provides more context and information to the method outlined in this guide.
+For more information on setting up custom identity providers, refer to [Custom IdPs](/platform/administration/custom-idps/custom-idps/), as well as our examples for [Okta](/platform/administration/custom-idps/idp-providers/okta/), [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/), and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/). For a fuller example of this guide's approach, refer to the tutorial on [using the Terraform provider to grant a GitHub team access to a Chainguard organization](/platform/administration/iam-organizations/roles-role-bindings/rolebinding-terraform-gh/).
 
 ---
 
@@ -56992,7 +63109,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-08T18:22:23.42357289Z
+Ce-Time: 2026-10-12T15:51:50.671585504Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 777
 Content-Type: application/json
@@ -57022,7 +63139,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-08T18:22:23.422671"
+    "when": "2026-10-12T15:51:50.670794"
   }
 }
 
@@ -57045,7 +63162,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-08T18:22:23.422911111Z
+Ce-Time: 2026-10-12T15:51:50.670991639Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -57074,7 +63191,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-08T18:22:23.422325"
+    "when": "2026-10-12T15:51:50.670769"
   }
 }
 
@@ -57097,7 +63214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-08T18:22:23.436040192Z
+Ce-Time: 2026-10-12T15:51:50.695359332Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -57137,7 +63254,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-08T18:22:23.440646359Z
+Ce-Time: 2026-10-12T15:51:50.689477761Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -57175,7 +63292,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-08T18:22:23.44082622Z
+Ce-Time: 2026-10-12T15:51:50.689673804Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -57214,7 +63331,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-08T18:22:23.426266193Z
+Ce-Time: 2026-10-12T15:51:50.6869683Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -57255,7 +63372,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-08T18:22:23.426470207Z
+Ce-Time: 2026-10-12T15:51:50.687081268Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -57292,7 +63409,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.426611627Z
+Ce-Time: 2026-10-12T15:51:50.687190397Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -57340,7 +63457,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-08T18:22:23.425771147Z
+Ce-Time: 2026-10-12T15:51:50.677837107Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -57386,7 +63503,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-08T18:22:23.425928103Z
+Ce-Time: 2026-10-12T15:51:50.678047317Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -57432,7 +63549,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-08T18:22:23.426082124Z
+Ce-Time: 2026-10-12T15:51:50.678224674Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -57471,7 +63588,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-08T18:22:23.433242646Z
+Ce-Time: 2026-10-12T15:51:50.682029563Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -57511,7 +63628,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.433649233Z
+Ce-Time: 2026-10-12T15:51:50.682234534Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57550,7 +63667,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-08T18:22:23.434277324Z
+Ce-Time: 2026-10-12T15:51:50.677093851Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57589,7 +63706,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-08T18:22:23.434445817Z
+Ce-Time: 2026-10-12T15:51:50.677316741Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -57628,7 +63745,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.434557644Z
+Ce-Time: 2026-10-12T15:51:50.677482242Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57667,7 +63784,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-08T18:22:23.43906772Z
+Ce-Time: 2026-10-12T15:51:50.685515098Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -57710,7 +63827,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-08T18:22:23.439239277Z
+Ce-Time: 2026-10-12T15:51:50.685671512Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -57750,7 +63867,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.43940033Z
+Ce-Time: 2026-10-12T15:51:50.685826318Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -57789,7 +63906,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-08T18:22:23.426816257Z
+Ce-Time: 2026-10-12T15:51:50.67270336Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -57832,7 +63949,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-08T18:22:23.426955461Z
+Ce-Time: 2026-10-12T15:51:50.672843639Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -57872,7 +63989,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-08T18:22:23.427046792Z
+Ce-Time: 2026-10-12T15:51:50.673131396Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -57909,7 +64026,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.427159611Z
+Ce-Time: 2026-10-12T15:51:50.673303017Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -57949,7 +64066,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.427284527Z
+Ce-Time: 2026-10-12T15:51:50.673518875Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -57993,7 +64110,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.42744494Z
+Ce-Time: 2026-10-12T15:51:50.673755083Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -58032,7 +64149,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.427563831Z
+Ce-Time: 2026-10-12T15:51:50.673911793Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -58073,7 +64190,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-08T18:22:23.439563351Z
+Ce-Time: 2026-10-12T15:51:50.679070899Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -58115,7 +64232,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-08T18:22:23.439704835Z
+Ce-Time: 2026-10-12T15:51:50.679292781Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -58158,7 +64275,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-08T18:22:23.439851159Z
+Ce-Time: 2026-10-12T15:51:50.679471849Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -58197,7 +64314,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-08T18:22:23.439997476Z
+Ce-Time: 2026-10-12T15:51:50.679601489Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -58236,7 +64353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-08T18:22:23.435562234Z
+Ce-Time: 2026-10-12T15:51:50.680767693Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58275,7 +64392,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-08T18:22:23.435665893Z
+Ce-Time: 2026-10-12T15:51:50.681646612Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58314,7 +64431,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-08T18:22:23.435760199Z
+Ce-Time: 2026-10-12T15:51:50.681831392Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -58353,7 +64470,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-08T18:22:23.435875635Z
+Ce-Time: 2026-10-12T15:51:50.685937614Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -58396,7 +64513,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-08T18:22:23.436587408Z
+Ce-Time: 2026-10-12T15:51:50.695576454Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -58441,7 +64558,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.427857384Z
+Ce-Time: 2026-10-12T15:51:50.69001255Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58483,7 +64600,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.428051757Z
+Ce-Time: 2026-10-12T15:51:50.690228904Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -58525,7 +64642,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.429488856Z
+Ce-Time: 2026-10-12T15:51:50.69245432Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -58562,7 +64679,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-08T18:22:23.429624836Z
+Ce-Time: 2026-10-12T15:51:50.692617494Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58601,7 +64718,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-08T18:22:23.429763936Z
+Ce-Time: 2026-10-12T15:51:50.692724311Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -58640,7 +64757,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-08T18:22:23.429905772Z
+Ce-Time: 2026-10-12T15:51:50.692816025Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -58679,7 +64796,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-08T18:22:23.431522651Z
+Ce-Time: 2026-10-12T15:51:50.675088485Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58723,7 +64840,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-08T18:22:23.431701376Z
+Ce-Time: 2026-10-12T15:51:50.675332717Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -58767,7 +64884,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-08T18:22:23.431835724Z
+Ce-Time: 2026-10-12T15:51:50.675605532Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -58806,7 +64923,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-08T18:22:23.432010098Z
+Ce-Time: 2026-10-12T15:51:50.675873826Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -58848,7 +64965,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-08T18:22:23.432175766Z
+Ce-Time: 2026-10-12T15:51:50.676105171Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -58887,7 +65004,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-08T18:22:23.430957691Z
+Ce-Time: 2026-10-12T15:51:50.674330646Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58931,7 +65048,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-08T18:22:23.431162961Z
+Ce-Time: 2026-10-12T15:51:50.674629275Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -58975,7 +65092,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-08T18:22:23.431301085Z
+Ce-Time: 2026-10-12T15:51:50.674868531Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59014,7 +65131,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-08T18:22:23.424746885Z
+Ce-Time: 2026-10-12T15:51:50.676418863Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -59060,7 +65177,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-08T18:22:23.424973659Z
+Ce-Time: 2026-10-12T15:51:50.676692069Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -59097,7 +65214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-08T18:22:23.425173425Z
+Ce-Time: 2026-10-12T15:51:50.676892432Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -59145,7 +65262,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-08T18:22:23.436215141Z
+Ce-Time: 2026-10-12T15:51:50.686180671Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -59186,7 +65303,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-08T18:22:23.436327912Z
+Ce-Time: 2026-10-12T15:51:50.686364467Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -59223,7 +65340,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.436456036Z
+Ce-Time: 2026-10-12T15:51:50.68649761Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -59271,7 +65388,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-08T18:22:23.440274268Z
+Ce-Time: 2026-10-12T15:51:50.686717012Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -59311,7 +65428,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.440462193Z
+Ce-Time: 2026-10-12T15:51:50.686849771Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59350,7 +65467,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.436790678Z
+Ce-Time: 2026-10-12T15:51:50.687419526Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59387,7 +65504,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-08T18:22:23.436908105Z
+Ce-Time: 2026-10-12T15:51:50.68760689Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59426,7 +65543,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-08T18:22:23.436996508Z
+Ce-Time: 2026-10-12T15:51:50.687785447Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -59467,7 +65584,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-08T18:22:23.432488312Z
+Ce-Time: 2026-10-12T15:51:50.671997805Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -59510,7 +65627,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-08T18:22:23.432699462Z
+Ce-Time: 2026-10-12T15:51:50.672200696Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -59547,7 +65664,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-08T18:22:23.432850098Z
+Ce-Time: 2026-10-12T15:51:50.672325432Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -59587,7 +65704,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-08T18:22:23.432990086Z
+Ce-Time: 2026-10-12T15:51:50.672475702Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -59627,7 +65744,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-08T18:22:23.434742114Z
+Ce-Time: 2026-10-12T15:51:50.693038906Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -59670,7 +65787,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-08T18:22:23.434868405Z
+Ce-Time: 2026-10-12T15:51:50.69316121Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -59710,7 +65827,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-08T18:22:23.434969344Z
+Ce-Time: 2026-10-12T15:51:50.693251021Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -59747,7 +65864,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.435052243Z
+Ce-Time: 2026-10-12T15:51:50.693367901Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -59787,7 +65904,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.435150982Z
+Ce-Time: 2026-10-12T15:51:50.693467935Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -59831,7 +65948,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.435256033Z
+Ce-Time: 2026-10-12T15:51:50.693568264Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -59870,7 +65987,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-08T18:22:23.435400997Z
+Ce-Time: 2026-10-12T15:51:50.693668186Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -59911,7 +66028,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-08T18:22:23.43838018Z
+Ce-Time: 2026-10-12T15:51:50.678455075Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -59966,7 +66083,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-08T18:22:23.438614443Z
+Ce-Time: 2026-10-12T15:51:50.678722306Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -60021,7 +66138,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-08T18:22:23.438844146Z
+Ce-Time: 2026-10-12T15:51:50.67889839Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -60060,7 +66177,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-08T18:22:23.433826159Z
+Ce-Time: 2026-10-12T15:51:50.694810952Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -60105,7 +66222,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-08T18:22:23.43399466Z
+Ce-Time: 2026-10-12T15:51:50.694970165Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -60150,7 +66267,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-08T18:22:23.434109743Z
+Ce-Time: 2026-10-12T15:51:50.695145738Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -60189,7 +66306,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.437328141Z
+Ce-Time: 2026-10-12T15:51:50.69422199Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60231,7 +66348,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.437676704Z
+Ce-Time: 2026-10-12T15:51:50.694322759Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60273,7 +66390,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.437873989Z
+Ce-Time: 2026-10-12T15:51:50.694470806Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -60310,7 +66427,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-08T18:22:23.438014713Z
+Ce-Time: 2026-10-12T15:51:50.694613804Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -60354,7 +66471,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-08T18:22:23.430169404Z
+Ce-Time: 2026-10-12T15:51:50.693804649Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -60396,7 +66513,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-08T18:22:23.430389106Z
+Ce-Time: 2026-10-12T15:51:50.693910298Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -60433,7 +66550,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-08T18:22:23.430566999Z
+Ce-Time: 2026-10-12T15:51:50.693996708Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -60476,7 +66593,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-08T18:22:23.43072282Z
+Ce-Time: 2026-10-12T15:51:50.694081687Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -60517,7 +66634,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-08T18:22:23.424038376Z
+Ce-Time: 2026-10-12T15:51:50.679850289Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60556,7 +66673,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-08T18:22:23.424274967Z
+Ce-Time: 2026-10-12T15:51:50.680043676Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -60595,7 +66712,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-08T18:22:23.424482125Z
+Ce-Time: 2026-10-12T15:51:50.680177771Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -60634,7 +66751,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-08T18:22:23.4254028Z
+Ce-Time: 2026-10-12T15:51:50.682492269Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -60673,7 +66790,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-08T18:22:23.425591461Z
+Ce-Time: 2026-10-12T15:51:50.683654554Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -60712,7 +66829,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-08T18:22:23.437138512Z
+Ce-Time: 2026-10-12T15:51:50.674059448Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -61315,6 +67432,8 @@ For ecosystem-specific instructions, see:
 _Path: platform/chainctl/_index.md_
 
 The CLI tool `chainctl` helps you interact with the account model that Chainguard provides. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. The current `chainctl` reference is below.
+
+The `chainctl develop` and `chainctl checks` commands aren't in the generated reference yet. Refer to the <ins>[chainctl develop command reference](/chainguard/workspaces/chainctl-develop-reference/)</ins> and the <ins>[chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/)</ins>.
 
 To install `chainctl`, follow our <ins>[installation guide](/platform/chainctl-usage/how-to-install-chainctl/)</ins>. Additionally, you may find these resources on working with `chainctl` to be of interest:
 
@@ -61997,6 +68116,9 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--paren
   
   # Delete all expired static identities in an organization
   chainctl iam identities delete --expired --parent=my-org
+  
+  # Delete all expired static identities in every location, even with default.group set
+  chainctl iam identities delete --expired --parent=""
 ```
 
 ### Options
@@ -62871,9 +68993,9 @@ Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" s
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
 
-Downloading SBOMs and attestations with --output-attestations is supported for
-Java artifacts only. The flag has no effect for other ecosystems, and nothing is
-written for them.
+With --output-attestations, available SBOMs and attestations are saved under
+each verified artifact's repository path in --output-dir. Unsupported inputs
+produce no companion files.
 
 ```
 chainctl libraries verify [path...] [flags]
@@ -62894,7 +69016,7 @@ chainctl libraries verify [path...] [flags]
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
 
-  # Download the SBOM and SLSA attestation alongside verification (Java artifacts only)
+  # Download available SBOMs and attestations alongside verification
   chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations --output-dir ./attestations
 
   # Analyze container images
@@ -62930,8 +69052,8 @@ chainctl libraries verify [path...] [flags]
       --ecosystems-url string   URL for the Ecosystems Proxy (defaults to https://libraries.cgr.dev)
       --no-color                Disable colored output
   -o, --output string           Output format (text, json, yaml) (default "text")
-      --output-attestations     Download the SBOM, SLSA attestation, and CycloneDX SBOMs into --output-dir. Java artifacts only; ignored for all other ecosystems
-      --output-dir string       Base directory for files downloaded by --output-attestations, laid out under each Java artifact's Maven repository path. No effect without --output-attestations (default ".")
+      --output-attestations     Download available SBOMs and attestations for verified artifacts into --output-dir; ignored for unsupported ecosystems
+      --output-dir string       Base directory for files downloaded by --output-attestations, laid out under each artifact's repository path. No effect without --output-attestations (default ".")
       --parent string           Parent organization for authentication
       --verbose                 Enable verbose output
 ```
@@ -63047,8 +69169,8 @@ Manage tag-based Custom Assembly overlays.
 
 An overlay is a reusable image customization (packages, environment
 variables, annotations, accounts, and certificates) owned by an
-organization or folder. Attaching an overlay to a repo — or, with
---all-repos, to every repo in an organization, including repos created
+organization. Attaching an overlay to a repo — or, with --all-repos, to
+every repo under an organization or folder, including repos created
 later — creates a binding that selects which tags the overlay applies
 to:
 
@@ -63058,9 +69180,11 @@ to:
 
 When bindings of different kinds match the same tag, they layer in the
 order ALL, then VARIANT, then EXACT, with later layers taking
-precedence; a repo's own bindings layer above all-repos bindings.
-Bindings of the same kind may coexist on a repo only when their
-overlays do not conflict.
+precedence. All-repos bindings layer by scope depth — the organization
+first, then each nested folder, deeper folders taking precedence — and
+a repo's own bindings layer above every all-repos binding. Bindings of
+the same kind may coexist in one scope only when their overlays do not
+conflict.
 
 The Guarded Entrypoint keys layer per key: fail_mode and command_override
 come from the most specific binding that sets them, and a binding that
@@ -63686,7 +69810,7 @@ chainctl libraries cache opt-in [--ecosystem ECOSYSTEM] [--parent ORG] [flags]
 
 ```
       --ecosystem string   Change one ecosystem (JAVA, PYTHON, JAVASCRIPT). Omit for all ecosystems.
-      --parent string      The name or id of the organization whose opt-out to change.
+      --parent string      The name or id of the organization whose opt-out to change. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands
@@ -65270,7 +71394,7 @@ chainctl libraries cache opt-out [--ecosystem ECOSYSTEM] [--parent ORG] [flags]
 
 ```
       --ecosystem string   Change one ecosystem (JAVA, PYTHON, JAVASCRIPT). Omit for all ecosystems.
-      --parent string      The name or id of the organization whose opt-out to change.
+      --parent string      The name or id of the organization whose opt-out to change. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands
@@ -65659,7 +71783,7 @@ chainctl libraries cache list [--ecosystem ECOSYSTEM] [--group G | --scope S | -
       --limit int32        Maximum number of entries to show. (default 100)
       --live               Only list live entries (the ones that govern serving).
       --package string     Only list entries for one package. Requires --ecosystem.
-      --parent string      The name or id of the organization whose resolution cache to list.
+      --parent string      The name or id of the organization whose resolution cache to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --registry string    Only list entries for one registry.
       --scope string       Only list entries under an npm scope prefix. Requires --ecosystem.
       --tier string        Only list entries recording this tier (CHAINGUARD or UPSTREAM).
@@ -66088,6 +72212,57 @@ chainctl images repos build list [--parent ORGANIZATION_NAME | ORGANIZATION_ID |
 
 ---
 
+### chainctl guardener github migrate list
+_Path: platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_list.md_
+
+## chainctl guardener github migrate list
+
+List a group's migration operations.
+
+### Synopsis
+
+List a group's migration operations, newest first.
+
+Each migration started with "migrate create", from the console, or by the
+scheduled resync is listed once. Pass its OPERATION to "migrate get" to see
+each feature's pull request. Use --repo to list one repository's migrations.
+
+Listing requires guardener.actions.migrate or guardener.images.migrate on the
+group. Operations for a feature you lack the permission for are left out.
+
+```
+chainctl guardener github migrate list [flags]
+```
+
+### Options
+
+```
+      --limit int       The most migrations to list. (default 20)
+  -o, --output string   Output format: table or json. (default "table")
+      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Prompts interactively if omitted.
+      --repo string     Only list migrations of this repository (a github.com URL or "owner/repo").
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl guardener github migrate](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate/)	 - Migrate the Actions and images enabled by a repository's configuration.
+
+---
+
 ### chainctl iam identity-providers scim token revoke
 _Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_token_revoke.md_
 
@@ -66143,10 +72318,10 @@ Local config file commands for chainctl.
 
 Every config property can also be set with an environment variable, which is
 useful for scripts and CI. Take the property name, uppercase it, replace dots
-with underscores, and add a `CHAINGUARD_` prefix:
+and hyphens with underscores, and add a `CHAINGUARD_` prefix:
 
   - `default.group` becomes `CHAINGUARD_DEFAULT_GROUP`
-  - `platform.api` becomes `CHAINGUARD_PLATFORM_API`
+  - `default.skip-version-check` becomes `CHAINGUARD_DEFAULT_SKIP_VERSION_CHECK`
   - `output.silent` becomes `CHAINGUARD_OUTPUT_SILENT`
 
 Environment variables take precedence over the config file, and command line
@@ -66307,7 +72482,11 @@ Create a Custom Assembly overlay.
 
 ### Synopsis
 
-Create a Custom Assembly overlay under an organization or folder.
+Create a Custom Assembly overlay under an organization.
+
+Overlays are organization-level resources: one definition is
+referencable from every scope. Attach scopes a binding to a single
+repo, to a folder's repos, or to the whole organization.
 
 Pass the overlay configuration either as repeated --package flags, or as
 a YAML file with --file in the same shape that "chainctl images repos
@@ -66340,7 +72519,7 @@ chainctl images overlays create <NAME> [flags]
 ```
   -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Takes precedence over --package.
       --package strings                     Package to include (repeatable).
-      --parent string                       Parent group name or UIDP under which to create the overlay. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string                       Org name or UIDP under which to create the overlay; overlays are always organization-level. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --with-certificates strings           Comma separated list of files to read the custom certificates from.
       --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
       --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.
@@ -66373,6 +72552,10 @@ _Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_enab
 ## chainctl iam identity-providers scim enable
 
 Enable SCIM provisioning for an identity provider.
+
+### Synopsis
+
+Enable SCIM provisioning for an identity provider. The identity provider's SCIM configuration is created when its first SCIM token is generated, so run `chainctl iam identity-providers scim token generate` before switching provisioning on or off.
 
 ```
 chainctl iam identity-providers scim enable IDENTITY_PROVIDER [flags]
@@ -66853,7 +73036,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby|ruby_athena|java|python_athena|dotnet|go_athena|python|javascript|java_athena|javascript_athena|dotnet_athena|go}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java_athena|python_athena|javascript_athena|dotnet|dotnet_athena|java|javascript|go|go_athena|ruby|ruby_athena|python}] [flags]
 ```
 
 ### Examples
@@ -66881,7 +73064,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, java, javascript, go, go_athena, ruby, ruby_athena, python. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -66981,8 +73164,9 @@ Attach Custom Assembly overlays to a repo or to every repo in an organization.
 
 Attach one or more Custom Assembly overlays by creating a binding per
 overlay. A binding attaches an overlay to a single repo (--repo) or to
-every repo in an organization (--all-repos), including repos created
-after the binding exists.
+every repo under an organization or folder (--all-repos with --parent
+naming the organization or the folder), including repos created after
+the binding exists.
 
 Every binding selects which tags its overlay applies to. Pass exactly
 one of:
@@ -66998,13 +73182,15 @@ attached to a repo only once. Multiple overlays attach in the order
 given, one binding each; on a failure, the bindings already created are
 kept and the error names the overlay that failed.
 
-An all-repos binding is owned by the organization and applies its
-overlay to each repo's matching tags. An overlay can have at most one
-all-repos binding per organization. When an all-repos binding and a
-repo's own binding match the same tag, the repo's binding takes
-precedence where both overlays set the same field, and their package
-lists combine. Repos with a legacy customization keep the legacy
-behavior; all-repos bindings do not apply to them.
+An all-repos binding is owned by the organization or folder named by
+--parent and applies its overlay to the matching tags of every repo
+under that scope. An overlay can have at most one all-repos binding
+per organization or folder. When bindings at several scopes match the
+same tag, they layer by depth — the organization first, then each
+nested folder — with deeper scopes taking precedence where both
+overlays set the same field, the repo's own binding above all, and
+their package lists combining. Repos with a legacy customization keep
+the legacy behavior; all-repos bindings do not apply to them.
 
 The command prints each binding UID. Use them with "update-binding" and
 "detach", or look them up later with "chainctl images overlays list".
@@ -67023,6 +73209,10 @@ chainctl images overlays attach [flags]
   # including repos created later
   chainctl images overlays attach --overlay my-overlay --all-repos --parent my-org --all
 
+  # Apply an overlay to every repo under a folder, including repos
+  # created later
+  chainctl images overlays attach --overlay my-overlay --all-repos --parent my-org/golden-images --all
+
   # Apply two overlays to every tag of a repo
   chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all
 
@@ -67037,9 +73227,9 @@ chainctl images overlays attach [flags]
 
 ```
       --all               Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --all-repos         Attach to every repo in the organization, including repos created later; mutually exclusive with --repo.
+      --all-repos         Attach to every repo under the organization or folder named by --parent, including repos created later; mutually exclusive with --repo.
       --overlay strings   Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
-      --parent string     Org name or UIDP: the organization the binding is created under with --all-repos, or the org for resolving --repo by name (unused when --repo is a UIDP). If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string     Org or folder name or UIDP: the scope the binding is created under with --all-repos, or the group for resolving --repo by name (unused when --repo is a UIDP). If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --repo string       Target repo: UIDP, or name resolved within --parent. Mutually exclusive with --all-repos.
       --tag strings       Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
       --variant string    Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
@@ -67556,7 +73746,7 @@ Add catalog images to your catalog starter organization.
 
 Add catalog images to your catalog starter organization.
 
-The target organization is the single verified kind=starter org the
+The target organization is the single kind=starter org the
 caller's identity is bound to — auto-discovered, no flags needed.
 
 Images are resolved against the catalog by exact name match. The server
@@ -69336,7 +75526,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby|ruby_athena|java|python_athena|dotnet|go_athena|python|javascript|java_athena|javascript_athena|dotnet_athena|go}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java_athena|python_athena|javascript_athena|dotnet|dotnet_athena|java|javascript|go|go_athena|ruby|ruby_athena|python}] [flags]
 ```
 
 ### Examples
@@ -69363,7 +75553,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, java, javascript, go, go_athena, ruby, ruby_athena, python
 ```
 
 ### Options inherited from parent commands
@@ -69759,7 +75949,7 @@ chainctl libraries cache zap [--ecosystem ECOSYSTEM] [--group G | --scope S | --
       --ecosystem string   Scope the zap to one ecosystem (JAVA, PYTHON, JAVASCRIPT). Omit for an org-wide zap.
       --group string       Zap a Maven group prefix (e.g. com.fasterxml.jackson). Requires --ecosystem.
       --package string     Zap a single package (java: group:artifact). Requires --ecosystem.
-      --parent string      The name or id of the organization whose resolution cache to zap.
+      --parent string      The name or id of the organization whose resolution cache to zap. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --registry string    Narrow a package or prefix zap to one registry.
       --scope string       Zap an npm scope prefix (e.g. @angular). Requires --ecosystem.
       --version string     Zap a single version. Requires --package.
@@ -70455,7 +76645,10 @@ This command is interactive. It will:
 
     1. Prompt you to authenticate with a supported identity provider.
     2. Register a new Chainguard identity for your email address.
-    3. Create a new starter organization tied to your email domain.
+    3. Create a new starter organization. With a business email address it
+       is named after your email domain. With a personal email address you
+       name it yourself, at a prompt or with --name, and its registry and
+       package paths use its ID instead of the name.
 
 Once your organization exists, the Chainguard platform will automatically
 entitle it to choose images to be added. It should be ready within a
@@ -70463,8 +76656,9 @@ few minutes.
 
 Authentication requirements:
 
-    * You must use a business email address. Personal email providers (Gmail,
-      Yahoo, etc.) are not eligible.
+    * Use a business email address to get an organization named after your
+      company's domain. Where personal email providers (Gmail, Yahoo, etc.)
+      are accepted, the organization isn't tied to any domain.
     * Authentication must use one of:
         - Email and password; or
         - Google, only if your business uses a Google Workspace account
@@ -70476,6 +76670,12 @@ to request access.
 
 ```
 chainctl starter init [flags]
+```
+
+### Options
+
+```
+      --name string   Name of the organization, when you sign up with a personal email address. It can't look like a domain name. Ignored for an organization named after your email domain.
 ```
 
 ### Options inherited from parent commands
@@ -70679,6 +76879,10 @@ _Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_disa
 ## chainctl iam identity-providers scim disable
 
 Disable SCIM provisioning for an identity provider.
+
+### Synopsis
+
+Disable SCIM provisioning for an identity provider. The identity provider's SCIM configuration is created when its first SCIM token is generated, so run `chainctl iam identity-providers scim token generate` before switching provisioning on or off.
 
 ```
 chainctl iam identity-providers scim disable IDENTITY_PROVIDER [flags]
@@ -72892,7 +79096,7 @@ chainctl images history IMAGE[:TAG] [flags]
 ### Options
 
 ```
-      --parent string   Organization to view image history from Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --parent string   Organization to view image history from. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --recursive       Search repositories recursively through all descendants instead of just children
 ```
 
@@ -73754,6 +79958,7 @@ Migrate the Actions and images enabled by a repository's configuration.
 * [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 * [chainctl guardener github migrate create](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_create/)	 - Enqueue the repository's configured Actions and image migrations.
 * [chainctl guardener github migrate get](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_get/)	 - Show the state of a migration operation.
+* [chainctl guardener github migrate list](/platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_list/)	 - List a group's migration operations.
 
 ---
 
@@ -73824,7 +80029,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, ruby_athena, java, python_athena, dotnet, go_athena, python, javascript, java_athena, javascript_athena, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, java_athena, python_athena, javascript_athena, dotnet, dotnet_athena, java, javascript, go, go_athena, ruby, ruby_athena, python. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -74025,7 +80230,7 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ### Options
 
 ```
-      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, and the hosted sandbox sessions and workflow runs) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
+      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, the hosted sandbox sessions and workflow runs, and Facts analytics) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. When the cached session lacks any platform audience, the login signs in again rather than renewing it. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
       --headless                     Skip browser authentication and use device flow.
       --identity string              The unique ID of the identity to assume when logging in.
       --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
@@ -78107,6 +84312,8 @@ Four of Chainguard's MCP servers give an AI tool direct access to live product d
 
 These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/) and the [Chainguard plugin for Cursor](/platform/integrations/cursor/), but you don't need either one. Any MCP-compatible client can connect to them directly.
 
+In a [Chainguard Workspaces](/chainguard/workspaces/overview/) session, Claude Code comes with the `cg-apk` and `cg-versions` servers already configured, with no browser sign-in. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session).
+
 ## What is MCP?
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
@@ -79893,7 +86100,7 @@ When run on a system using the OpenSSL Project FIPS provider, `openssl-fips-test
 You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `$ORGANIZATION` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
 
 ```shell
-docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
+docker run -e OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0 -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
 ```
 
 ```output
@@ -79981,7 +86188,7 @@ This output confirms that OpenSSL in the `python-fips` image is properly configu
 
 [NIST SP 800-131A](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) requires HMAC to use approved digest and keys of at least 112 bits long (14 characters) for security purposes.
 
-Success scenario is HMAC with a 14 characters long key and a SHA256 digest:
+Success scenario is HMAC with a 14-character key and a SHA256 digest:
 
 ```sh
 openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
@@ -80007,15 +86214,15 @@ MAC parameter error
 808B8049E17F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:355:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
 ```
 
-The above checks can also be performed in other programming languages for images that systems that use OpenSSL to power FIPS cryptography, for example python, node, php, perl and similar.
+You can also perform these checks in other programming languages, such as Python, Node.js, PHP, and Perl, in images and systems that use OpenSSL to power FIPS cryptography.
 
-In non-fips images, all of the above commands are successful.
+In non-FIPS images, all of these commands succeed.
 
 ### OpenSSL FIPS 140-3 tamper test
 
 Cryptographic modules are required to perform startup self-tests, and
-must enter error state and stop all cryptoraphic services upon
-failure. One of the startup self-tests is intergity check of the
+must enter error state and stop all cryptographic services upon
+failure. One of the startup self-tests is an integrity check of the
 cryptographic module itself. To observe this one can tamper with the
 fips.so module itself, or tamper with the expected module HMAC value.
 
@@ -80047,7 +86254,7 @@ mac: Use -help for summary.
 80DB6818FB7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (HMAC : 0), Properties (<null>)
 ```
 
-If application continues to operate, even when the fips module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operation, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
+If an application continues to operate, even when the FIPS module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operational, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
 
 ### Opt in to different FIPS provider versions
 
@@ -80255,7 +86462,7 @@ Let's start with a Python example to verify FIPS is working.
 
 ### Pull the image
 
-Replace `ORGANIZATION` with your organization name in the Chainguard Registry:
+Replace `$ORGANIZATION` with your organization name in the Chainguard Registry:
 
 ```bash
 docker pull cgr.dev/$ORGANIZATION/python-fips:latest
@@ -80292,8 +86499,8 @@ docker run --rm -v $(pwd):/work -w /work \
 You should see output like:
 
 ```
-SHA-256 hash: 4a1e3b5c7d9f2a8c6b0e4f3a9d8c7b6a5e4d3c2b1a0f9e8d7c6b5a4e3d2c1b0a
-OpenSSL version: OpenSSL 3.4.0 5 Aug 2025
+SHA-256 hash: 8832699c6bbcc63001c75b098cb4499712bfc5680a1f517a9d5676abec8307bc
+OpenSSL version: OpenSSL 4.0.3 29 Sep 2026
 FIPS cryptography is active
 ```
 
@@ -80614,7 +86821,7 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 ### Chainguard Legacy Approved provider for OpenSSL
 
-Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_APPROVED=0`. This provider enables all OpenSSL applications to uniformally access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
+Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_ALLOWED=0`. This provider enables all OpenSSL applications to uniformly access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
 
 This guidance applies to all images and software that uses OpenSSL:
 
@@ -80657,9 +86864,11 @@ This architectural approach addresses a longstanding limitation in deploying FIP
 
 **Jitterentropy library**: A userspace entropy generator that produces randomness from CPU execution timing variations. This library runs entirely within the container and has its own NIST SP 800-90B Entropy Source Validation (ESV).
 
-**OpenSSL FIPS provider**: The CMVP-validated cryptographic module (Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) that uses the userspace entropy source instead of kernel entropy.
+**OpenSSL FIPS provider**: The CMVP-validated cryptographic module that uses the userspace entropy source instead of kernel entropy.
 
 **Self-contained packaging**: Both the entropy source and cryptographic module are bundled in the container image, making each container self-sufficient for FIPS compliance.
+
+This page uses the OpenSSL FIPS provider as its example because all Chainguard FIPS images ship OpenSSL in FIPS mode. Chainguard FIPS images also use other validated cryptographic modules and entropy sources. The [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment) lists the current modules, entropy sources, and their certificate numbers.
 
 ### How it works
 
@@ -80676,9 +86885,11 @@ The FIPS cryptographic boundary is entirely within the container. The host kerne
 
 The design relies on two separate NIST certifications:
 
-**CMVP Certificate #4282**: Validates the OpenSSL FIPS provider's cryptographic algorithms. This certificate includes a caveat noting that an approved entropy source is required.
+**CMVP certificate**: Validates the OpenSSL FIPS provider's cryptographic algorithms. This certificate includes a caveat noting that an approved entropy source is required.
 
-**ESV Certificate**: Validates the Jitterentropy library as meeting SP 800-90B entropy requirements, satisfying the CMVP certificate's entropy caveat.
+**ESV certificate**: Validates the Jitterentropy library as meeting SP 800-90B entropy requirements, satisfying the CMVP certificate's entropy caveat.
+
+For the current CMVP and ESV certificate numbers, refer to the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 The entropy source sits outside the cryptographic boundary but is independently validated. This architecture is sound and meets NIST requirements.
 
@@ -80774,6 +86985,8 @@ cosign download sbom cgr.dev/ORGANIZATION/IMAGE:TAG
 ```
 
 Then search for the required packages and versions.
+
+For other ways to check an image's FIPS configuration, refer to [Verify that Chainguard FIPS containers are configured to use FIPS modules](/platform/fips/verify-fips/).
 
 ## Architecture comparison
 
@@ -80890,6 +87103,7 @@ The `openssl-config-fipshardened` package implements these configurations. Appli
 
 - [Getting started with FIPS](/platform/fips/getting-started/) - Deploy your first FIPS container
 - [Frequently asked questions](/platform/fips/faqs/) - Common questions about FIPS implementation
+- [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment) - Current validated modules, entropy sources, and certificates
 - [Blog: Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images) - Original announcement with additional details
 - [Blog: Kernel-Independent FIPS for Java](https://www.chainguard.dev/unchained/announcing-kernel-independent-fips-for-java) - Java-specific implementation
 
@@ -81002,7 +87216,7 @@ Chainguard provides FIPS-validated container images to help organizations meet f
 
 ## What to expect from Chainguard FIPS containers
 
-Chainguard offers 700+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider (CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) and Bouncy Castle FIPS for Java.
+Chainguard offers 700+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider and Bouncy Castle FIPS for Java.
 
 All FIPS images include STIG hardening, daily builds with zero-to-minimal CVEs under SLA, and build-time SBOMs. Chainguard's warranties and certification details are on the [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) page.
 
@@ -81080,6 +87294,7 @@ The following Operating Systems, and newer versions of thereof, are known to sup
 * iOS 10
 * AWS RDS Postgres 16.11-R1
 * AWS MQ Apache ActiveMQ
+* AWS ELB Application Load Balancer
 
 This list is not exhaustive. To find FIPS products that support TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
 
@@ -81092,6 +87307,14 @@ AWS RDS Postgres 16.11-R1 and later support TLSv1.3. If you require access to Po
 At this time AWS MQ RabbitMQ [does not support](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/data-protection.html) TLSv1.2 RFC 7627 or TLSv1.3. This product is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final).
 
 Please consider using AWS MQ Apache ActiveMQ, Chainguard's [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image, or a VM instead.
+
+### AWS Elastic Load Balancing - Classic Load Balancers - no connectivity
+
+At this time the AWS Elastic Load Balancing - Classic Load Balancer [does not support](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-ssl-security-policy.html#elb-backend-cipher-suite) any secure or approved cipher suites for back-end connections. The usage of the backend connectivity in Classic Load balancer is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final). This is also documented at [Elastic Load Balancing in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-elb.html) which states that:
+
+> Some features of Elastic Load Balancing (ELB) TLS do not support FIPS 140-3 requirements by default. When using the Classic or Network Load Balancer, you can pass TCP traffic and terminate TLS on your target (for example, web server), that is configured to support FIPS 140-3 requirements. Application Load Balancer (ALB) supports selecting FIPS algorithms.
+
+Please consider upgrading to AWS Elastic Load Balancing - Application Load Balancer product, or configure Classic Load Balancer to pass TCP traffic and terminate TLS on the target with any Chainguard FIPS images.
 
 ### Amazon Linux 2 connectivity support
 
