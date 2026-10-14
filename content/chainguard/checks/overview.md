@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T15:08:26+00:00
+lastmod: 2026-10-14T12:09:30+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -34,6 +34,8 @@ When someone opens or updates a pull request, the following happens:
 4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus one GitHub check for each of your checks.
 
 Each new push to the pull request cancels the run for the previous push and starts a new one. Chainguard Checks can also run checks on each new commit on your default branch, for work that should run after a change merges. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/) for details.
+
+{{< note >}}Attestations for Checks runs are planned. With them, Chainguard Checks will verify an earlier passing run instead of running your checks again. Until then, Chainguard Checks runs your checks on every push to a pull request.{{< /note >}}
 
 Here's a minimal `.chainguard/ci.yaml` file for a Go repository:
 
