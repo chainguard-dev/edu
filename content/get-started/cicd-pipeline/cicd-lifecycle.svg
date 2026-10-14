@@ -42,8 +42,10 @@
 <text x="241.5" y="234.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Actions</text>
 <rect x="323" y="220.0" width="133" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
 <text x="389.5" y="234.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">cg-actions skill</text>
-<rect x="168" y="254.0" width="182" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
-<text x="259.0" y="268.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Agent Skills</text>
+<rect x="168" y="254.0" width="140" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="238.0" y="268.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Checks</text>
+<rect x="316" y="254.0" width="182" height="28" rx="14.0" fill="#f1ecfe" stroke="#6226f0" stroke-width="1.5"/>
+<text x="407.0" y="268.0" fill="#0d161c" font-size="12" text-anchor="middle" dominant-baseline="central">Chainguard Agent Skills</text>
 <rect x="10" y="296" width="150" height="62" rx="8" fill="#6226f0"/>
 <text x="85.0" y="319.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">4. Pull trusted</text>
 <text x="85.0" y="335.0" fill="#ffffff" font-size="13" font-weight="600" text-anchor="middle" dominant-baseline="central">inputs</text>

@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T18:44:47+00:00
+lastmod: 2026-10-14T15:29:50+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -79,7 +79,7 @@ A session keeps its provider when it parks and resumes. To switch a running sess
 
 Claude Code that's already running keeps the old provider, so its next request fails with a message that tells you to restart it. If `chainctl` tells you to start a new session to use the new provider, the session is too old to switch, so create a new one.
 
-## Configure Claude Code in a session
+## Configure Claude Code in a session {#configure-claude-code-in-a-session}
 
 From your laptop, a session takes only your Claude credential and the Vertex AI settings described in [Use Claude through Vertex AI](#use-claude-through-vertex-ai). The rest of your Claude Code setup stays on your laptop: `chainctl` doesn't copy `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, your MCP servers, plugins, skills, subagents, slash commands, or model choice.
 
@@ -88,7 +88,7 @@ Instead, Claude Code in a session uses the following:
 - The session's managed settings, which include a short brief that describes the session and its tools, including how to run your repository's checks with `run-ci`.
 - Your repository's own `CLAUDE.md`, `.claude/` directory, and `.mcp.json` file, within the limits described in [MCP servers in a session](#mcp-servers-in-a-session).
 
-To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory.
+To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory. This includes skills. For example, to use a hardened skill from [Chainguard Agent Skills](/chainguard/agent-skills/overview/) in every session, run [`chainctl skills install`](/chainguard/agent-skills/public-registry/#install-a-skill) on your laptop from your repository's top-level directory, then commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file.
 
 ### Tell Claude Code how to work in a session {#tell-claude-code-how-to-work-in-a-session}
 
