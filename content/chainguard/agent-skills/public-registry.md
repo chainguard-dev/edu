@@ -6,7 +6,7 @@ aliases:
 description: "Browse, inspect, install, and run hardened agent skills from Chainguard's public registry with chainctl."
 type: "article"
 date: 2026-06-08T08:48:45+00:00
-lastmod: 2026-10-09T23:38:36+00:00
+lastmod: 2026-10-14T15:29:50+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -154,7 +154,7 @@ chainctl skills pull --verify skills.cgr.dev/public/github.com/github/awesome-co
 
 For what `verify` checks, its other results, and how to verify a skill with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
 
-## Install a skill
+## Install a skill {#install-a-skill}
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
 
@@ -170,6 +170,8 @@ Installing github.com/github/awesome-copilot/game-engine
 -------------|--------------------------------------------------------------------|------------------------------------------------------------------------------------
  Claude Code | .claude/skills/public-github.com-github-awesome-copilot-game-engine | symlink → ../../.agents/skills/public-github.com-github-awesome-copilot-game-engine
 ```
+
+The `install` command writes to project-local directories unless you add `--global`. To use the skill in [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, run it from your repository's top-level directory and commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file, as described in [Configure Claude Code in a session](/chainguard/workspaces/coding-agents/#configure-claude-code-in-a-session).
 
 ## Run the skill from an agent
 

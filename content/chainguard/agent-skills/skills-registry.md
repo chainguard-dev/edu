@@ -4,7 +4,7 @@ linktitle: "Skills Registry"
 description: "Enable the Chainguard Skills Registry, then upload, harden, install, and run an agent skill scoped to your organization."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-10-09T23:38:36+00:00
+lastmod: 2026-10-14T15:29:50+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -248,6 +248,8 @@ export INSTALLED_SKILL='<install-name-from-describe>'
 ```
 
 By default, `install` writes one shared copy to `.agents/skills/` and symlinks each agent's skills directory to it, so every agent reads the same files. Add `--copy` to give each agent its own copy, `--global` to install under your home directory instead of the current project, or `--agent` to target specific agents instead of every detected one.
+
+To use the skill in [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, run `install` from your repository's top-level directory and commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file. Refer to [Configure Claude Code in a session](/chainguard/workspaces/coding-agents/#configure-claude-code-in-a-session).
 
 To check the signature as part of the install, add `--verify`. `install` then verifies the exact digest it fetches and installs nothing unless the skill is `verified`:
 
