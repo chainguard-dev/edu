@@ -4,7 +4,7 @@ linktitle: ".NET overview"
 description: "Learn about Chainguard Libraries for .NET, providing enhanced security for NuGet dependencies"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-10-14T18:07:25+00:00
+lastmod: 2026-10-14T18:18:18+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET", "NuGet"]
 menu:
@@ -38,4 +38,4 @@ Chainguard’s source code and maintainer behavior scanning identifies and block
 
 [Upstream fallback](/chainguard/libraries/introduction/#upstream-fallback-and-controls) is enabled by default for Chainguard Libraries for .NET. The .NET endpoint serves eligible versions from upstream under Chainguard security controls.
 
-Upstream fallback does not make Chainguard Libraries a complete mirror of the upstream registry. An artifact or version may be unavailable because it is not yet supported, is inside the cooldown window, or is blocked by Chainguard or your organization’s policies.
+Upstream fallback does not make Chainguard Libraries a complete mirror of the upstream registry. An artifact or version may be unavailable because it is inside the cooldown window or is blocked by Chainguard or your organization’s policies.
