@@ -39,8 +39,6 @@ To open the full dashboard for a container image, follow these steps:
 3. Click the name of a container image.
 4. On the image's details page, click the **Compliance** tab.
 
-If the **Compliance** tab is unavailable, the Console has no metadata for the image's current version yet.
-
 To view compliance results for one tag, follow these steps:
 
 1. On the image's details page, click the **Tags** tab.
