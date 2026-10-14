@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-14T16:30:14+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -197,6 +197,11 @@ SLSA‑aligned build environment, and publishes them to hardened registries for
 customers to consume. This closes off most supply chain malware vectors compared
 to pulling directly from public registries like Maven Central, npm, and PyPI.
 
+For Go, Chainguard serves module source archives through an authenticated proxy
+with the same malware and greyware scanning and policy controls, rather than
+rebuilding prebuilt artifacts, because Go modules are distributed as source and
+compiled on the customer side.
+
 [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) is an additional
 feature where Chainguard backports High and Critical vulnerability fixes from
 newer upstream releases to older versions that customers are still using,
@@ -220,6 +225,11 @@ builds from non‑remediated upstream versions, but how you select them differs:
   Rather than relying on version precedence, the command sets the exact `-cgr.N`
   version for direct dependencies and adds override or resolution rules for
   transitive ones, then updates the lockfile.
+* **Go**: A `-cgr.N` prerelease suffix (for example, `v1.2.5-cgr.1`), served
+  through the standard endpoint at `https://libraries.cgr.dev/go/`. Because Go
+  treats `-cgr.N` as a prerelease, minimal version selection and `@latest` do
+  not select it automatically. You select a remediated version explicitly with a
+  `replace` directive in `go.mod` or with `go get`.
 
 ## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?
 
@@ -254,7 +264,7 @@ Chibbies](https://www.youtube.com/watch?v=adfU9LJg3I0&t=2843s).
 
 ## JFrog Artifactory troubleshooting
 
-The following questions apply to repo manager configurations for Chainguard Libraries, using JFrog Artifactory. Learn more about using a repo manager in the global configuration pages for each ecosystem: [Java](/chainguard/libraries/java/global-configuration/), [JavaScript](/chainguard/libraries/javascript/global-configuration/), [Python](/chainguard/libraries/python/global-configuration/).
+The following questions apply to repo manager configurations for Chainguard Libraries, using JFrog Artifactory. Learn more about using a repo manager in the global configuration pages for each ecosystem: [Go](/chainguard/libraries/go/global-configuration/), [Java](/chainguard/libraries/java/global-configuration/), [JavaScript](/chainguard/libraries/javascript/global-configuration/), [Python](/chainguard/libraries/python/global-configuration/).
 
 ### What are the most common setup mistakes when using Artifactory with Chainguard Libraries?
 

@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Go in your organization"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-29T19:14:43+00:00
+lastmod: 2026-10-14T16:30:14+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 images: []
@@ -121,3 +121,9 @@ If validation fails, review the following settings:
 Use the URL of the `go-all` virtual repository in Go configuration. In Artifactory, select the `go-all` repository and use **Set Me Up** or **Generate Settings** to obtain the URL and authentication instructions for your Artifactory version. The URL commonly has the following form: `https://exampleorg.jfrog.io/artifactory/go-all`.
 
 See [Configuring your build tool](/chainguard/libraries/go/build-configuration/#repository-manager) for more information.
+
+## Serve remediated Go versions
+
+Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix, such as `v1.2.5-cgr.1`, and are served through the same `https://libraries.cgr.dev/go/` endpoint as every other module. Unlike Chainguard Libraries for Python and Java, which publish remediated artifacts in a separate repository, Go remediated versions need no additional repository in your repository manager. The `go-chainguard` remote and `go-all` virtual repository already serve them.
+
+Remediated versions reach developers through the same `go-all` endpoint you configured earlier. Because Go does not resolve `-cgr.N` prereleases automatically, developers select a remediated version explicitly with a `replace` directive in `go.mod` or with `go get`. See [Use remediated Go versions](/chainguard/libraries/go/build-configuration/#use-remediated-go-versions) for the selection workflow.
