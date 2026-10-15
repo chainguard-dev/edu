@@ -227,6 +227,10 @@ rules:
   # above the catch-all for that section.
   - regex: '^/open-source/slsa/what-is-slsa(/.*)?$'
     to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-slsa'
+  # The SLSA section moved to /compliance/slsa/ with no alias for its old
+  # root, so /open-source/slsa/ returned 403.
+  - regex: '^/open-source/slsa/?(index\.html|index\.xml)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-slsa'
   # Sections left with no pages. The roots are anchored so they match only
   # themselves and their index files.
   - regex: '^/open-source/oci/?(index\.html|index\.xml)?$'
@@ -261,3 +265,73 @@ rules:
     to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor'
   - regex: '^/platform/fips/understanding-fips(\.md|/.*)?$'
     to: 'https://www.chainguard.dev/supply-chain-security-101/understanding-fips'
+
+  # Pages from the migration sheet's Redirect Only tab that duplicated
+  # chainguard.dev content (DOCS-269). "(\.md|/.*)?" also matches each
+  # page's Markdown copy.
+  - regex: '^/software-security/cves/infamous-cves(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/5-real-cve-examples-and-how-to-prevent-them'
+  - regex: '^/software-security/what-is-software-supply-chain-security(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/understanding-software-supply-chain-security'
+  - regex: '^/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - regex: '^/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  # The old paths of the last two pages. Section aliases on other pages
+  # match these before any regex rule here, and would now send them to
+  # paths that no longer exist. Exact rules are checked before every alias,
+  # but match one string, so each path is listed with and without its
+  # trailing slash.
+  - path: '/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/chainguard-images/recommended-practices/strategies-tools-updating-images/'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/chainguard-images/staying-secure/updating-images/strategies-tools-updating-images'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/chainguard-images/staying-secure/updating-images/strategies-tools-updating-images/'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/recommended-practices/strategies-tools-updating-images'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/recommended-practices/strategies-tools-updating-images/'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/staying-secure/updating-images/strategies-tools-updating-images'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/staying-secure/updating-images/strategies-tools-updating-images/'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/staying-secure/updating-containers/strategies-tools-updating-images'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/containers/staying-secure/updating-containers/strategies-tools-updating-images/'
+    to: 'https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images'
+  - path: '/chainguard/chainguard-images/recommended-practices/how-eol-software-accumulates-cves'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/chainguard-images/recommended-practices/how-eol-software-accumulates-cves/'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/chainguard-images/staying-secure/updating-images/how-eol-software-accumulates-cves/'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/recommended-practices/how-eol-software-accumulates-cves'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/recommended-practices/how-eol-software-accumulates-cves/'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/staying-secure/updating-images/how-eol-software-accumulates-cves'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/staying-secure/updating-images/how-eol-software-accumulates-cves/'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/staying-secure/updating-containers/how-eol-software-accumulates-cves'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  - path: '/chainguard/containers/staying-secure/updating-containers/how-eol-software-accumulates-cves/'
+    to: 'https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year'
+  # Section roots that redirect away. Each is anchored so it matches only
+  # itself and its index files: the cves section is now empty, and the
+  # project sections under /open-source/ keep their own URLs.
+  - regex: '^/software-security/cves/?(index\.html|index\.xml)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve'
+  - regex: '^/open-source/?(index\.html|index\.xml)?$'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-chainguard'
+
+  # Contributor list pages, which Hugo generated from the "contributors"
+  # taxonomy until it was removed (DOCS-269). Bylines still read the
+  # "contributors" front matter; they never linked to these pages.
+  - regex: '^/contributors(/.*)?$'
+    to: 'https://www.chainguard.dev/about-us'

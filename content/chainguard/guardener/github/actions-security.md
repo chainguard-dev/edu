@@ -4,8 +4,10 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-15T14:26:56+00:00
 draft: false
+aliases:
+- /chainguard/guardener/actions-security/
 tags: ["GitHub", "Automation"]
 images: []
 menu:
