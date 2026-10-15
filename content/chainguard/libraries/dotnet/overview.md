@@ -4,7 +4,7 @@ linktitle: ".NET overview"
 description: "Learn about Chainguard Libraries for .NET, providing enhanced security for NuGet dependencies"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-10-14T18:18:18+00:00
+lastmod: 2026-10-15T13:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET", "NuGet"]
 menu:
@@ -14,7 +14,7 @@ weight: 51
 toc: true
 ---
 
-Chainguard Libraries for .NET provides a secure source for your open source NuGet dependencies. NuGet is the primary public registry for .NET packages, but packages from public registries can expose applications and build pipelines to malicious or compromised code. Chainguard addresses these supply chain risks through the [Chainguard Repository](/chainguard/chainguard-repository/overview/) by applying malware and greyware scanning, organization-defined policies, and additional security controls before packages are made available. The Chainguard Repository provides a single endpoint for package retrieval.
+Chainguard Libraries for .NET provides a secure source for your open source NuGet dependencies. The NuGet Gallery (`https://www.nuget.org/`) is the primary public registry for .NET packages, but packages from public registries can expose applications and build pipelines to malicious or compromised code. Chainguard addresses these supply chain risks through the [Chainguard Repository](/chainguard/chainguard-repository/overview/) by applying malware and greyware scanning, organization-defined policies, and additional security controls before packages are made available. The Chainguard Repository provides a single endpoint for package retrieval.
 
 In combination with third-party software repository managers, you can use Chainguard Libraries for .NET as a secure source of truth for your .NET development and build processes.
 
