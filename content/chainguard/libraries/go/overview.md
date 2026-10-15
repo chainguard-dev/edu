@@ -4,7 +4,7 @@ linktitle: "Go overview"
 description: "Go modules for your application development"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-10-14T14:52:48+00:00
+lastmod: 2026-10-14T18:18:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go", "Overview"]
 menu:
@@ -58,9 +58,9 @@ Do not use `GOPRIVATE` for this configuration. `GOPRIVATE` also sets `GONOPROXY`
 
 ## Upstream fallback
 
-By default, Chainguard Libraries endpoints serve Chainguard-built modules. When [upstream fallback](/chainguard/libraries/introduction/#upstream-fallback-and-controls) is enabled for your organization, the Go endpoint can also serve eligible versions from the upstream Go module proxy under Chainguard security controls.
+[Upstream fallback](/chainguard/libraries/introduction/#upstream-fallback-and-controls) is enabled by default for Chainguard Libraries for Go. The Go endpoint serves eligible versions from the upstream Go module proxy under Chainguard security controls.
 
-Upstream fallback can help you adopt Chainguard without waiting for every module and version to be rebuilt. It does not make Chainguard Libraries a complete mirror of the upstream registry. A module or version may be unavailable because it is not yet supported, is inside the cooldown window, or is blocked by Chainguard or your organization’s policies.
+Upstream fallback does not make Chainguard Libraries a complete mirror of the upstream registry. A module or version may be unavailable because it is inside the cooldown window or is blocked by Chainguard or your organization’s policies.
 
 ### View packages blocked due to malware
 
