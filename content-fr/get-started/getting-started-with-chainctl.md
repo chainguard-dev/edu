@@ -10,7 +10,7 @@ tags: ["chainctl", "Getting Started"]
 images: []
 weight: 80
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-08T13:25:53+00:00
   reviewed: false
 ---
 
@@ -86,7 +86,7 @@ Pour en savoir plus, consultez [Gérer la configuration de chainctl](/platform/c
 
 ## Lister les images disponibles
 
-Pour voir quelles images Chainguard Containers sont disponibles pour votre compte, exécutez :
+Pour voir quelles images de conteneur sont disponibles pour votre compte, exécutez :
 
 ```shell
 chainctl images list

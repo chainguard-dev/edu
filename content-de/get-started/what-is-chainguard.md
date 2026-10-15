@@ -11,7 +11,7 @@ tags: ["Getting Started"]
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T13:59:25+00:00
   reviewed: false
 ---
 
@@ -23,7 +23,7 @@ Chainguards Mission ist es, die sichere Quelle für Open Source zu sein. Statt I
 
 Chainguard baut Open-Source-Software neu und macht daraus Produkte, die Sie direkt einsetzen können – je nachdem, wie Sie Abhängigkeiten beziehen:
 
-- **[Chainguard Containers](/chainguard/containers/overview/)** sind minimale, gehärtete Container-Images. Nach dem Distroless-Prinzip enthält jedes Image nur Ihre Anwendung und deren unverzichtbare Laufzeitabhängigkeiten, was die Angriffsfläche insgesamt minimiert. Diese Minimalität ist ein wesentlicher Grund dafür, dass sie [wenige bis gar keine CVEs](/chainguard/containers/concepts/zerocve/) aufweisen.
+- **[Chainguard Containers](/chainguard/containers/overview/)** ist eine Sammlung minimaler, gehärteter Container-Images. Nach dem Distroless-Prinzip enthält jedes Image nur Ihre Anwendung und deren unverzichtbare Laufzeitabhängigkeiten, was die Angriffsfläche insgesamt minimiert. Diese Minimalität ist ein wesentlicher Grund dafür, dass sie [wenige bis gar keine CVEs](/chainguard/containers/concepts/zerocve/) aufweisen.
 - **[Chainguard Libraries](/chainguard/libraries/introduction/overview/)** übertragen denselben Ansatz auf Sprachabhängigkeiten. Sie sind Drop-in-Ersatz für Open-Source-Pakete in den Ökosystemen Java, Python und JavaScript, aus verifizierten Quellen neu gebaut und kontinuierlich überwacht.
 
 Sie pullen Chainguard Containers und Libraries von einem einzigen Endpunkt, der Richtlinien berücksichtigt: dem [Chainguard Repository](/chainguard/chainguard-repository/overview/).
@@ -35,6 +35,8 @@ Mit Containers und Libraries beginnen die meisten Teams, aber Chainguard sichert
 - **[Chainguard Actions](/chainguard/actions/overview/)**, gehärteter Ersatz für beliebte GitHub Actions.
 - **[Guardener](/chainguard/guardener/)**, Werkzeuge zum Härten Ihres eigenen Quellcodes.
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, sicherheitsgeprüfte Skills für KI-Agenten.
+- **[Chainguard Checks](/chainguard/checks/overview/)**, CI für GitHub-Pull-Requests, die jeden Check in einer eigenen isolierten microVM ausführt.
+- **[Chainguard Workspaces](/chainguard/workspaces/overview/)**, Remote-Sitzungen in microVMs für Entwicklung und Coding-Agents, die Ihre Anmeldedaten aus der Sitzung heraushalten.
 
 ## Die Chainguard Factory
 

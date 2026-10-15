@@ -4,13 +4,13 @@ lead: "A CLI chainctl da Chainguard permite gerenciar com mais segurança imagen
 description: "Primeiros passos com o chainctl: autenticação, gerenciamento de organizações e comandos essenciais da plataforma de segurança de contêineres da Chainguard"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-10-08T00:00:00+00:00
+lastmod: 2026-10-14T00:00:00+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
 weight: 80
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-08T13:25:53+00:00
   reviewed: false
 ---
 
@@ -86,7 +86,7 @@ Saiba mais em [Como gerenciar a configuração do chainctl](/platform/chainctl-u
 
 ## Listar as imagens disponíveis
 
-Para ver quais Chainguard Containers estão disponíveis para sua conta, use:
+Para ver quais imagens de contêiner estão disponíveis para sua conta, use:
 
 ```shell
 chainctl images list

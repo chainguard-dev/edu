@@ -8,7 +8,7 @@ draft: false
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T15:20:21+00:00
   reviewed: false
 ---
 
@@ -22,9 +22,13 @@ Récupérez et exécutez depuis `cgr.dev` des images de conteneur renforcées, a
 
 Remplacez vos dépendances actuelles par Chainguard Libraries : des bibliothèques reconstruites à partir de sources vérifiées et compatibles sans modification. Elles sont disponibles pour Java, Python et JavaScript. Commencez par l'[introduction aux bibliothèques](/get-started/libraries-examples/).
 
+## Développer avec Checks et Workspaces
+
+Exécutez les vérifications de vos pull requests dans des microVM isolées avec Chainguard Checks, et vos agents de codage dans des sessions distantes qui ne détiennent aucun de vos identifiants à longue durée de vie avec Chainguard Workspaces. [Configurer Chainguard Checks et Chainguard Workspaces](/get-started/checks-and-workspaces/) explique comment les deux fonctionnent ensemble et vous guide pour vous inscrire aux deux.
+
 ## Évaluer la confiance
 
-Vous vous demandez si Chainguard convient à votre organisation ? Découvrez comment les images Chainguard Containers sont construites, quelles garanties elles offrent et comment elles se comparent en nombre de CVE.
+Vous vous demandez si Chainguard convient à votre organisation ? Découvrez comment les images de conteneur de Chainguard sont construites, quelles garanties elles offrent et comment elles se comparent en nombre de CVE.
 
 ## Intégrer vos équipes
 

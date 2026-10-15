@@ -4,14 +4,14 @@ linktitle: "OPA Gatekeeper"
 type: "article"
 description: "Como aplicar boas práticas e garantir a conformidade com o OPA Gatekeeper."
 date: 2025-09-02T10:00:00-00:00
-lastmod: 2026-10-01T00:00:00+00:00
+lastmod: 2026-10-14T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
 weight: 20
 toc: true
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-08T13:25:53+00:00
   reviewed: false
 ---
 
@@ -80,7 +80,7 @@ Este exemplo tenta criar um pod usando uma imagem de contêiner baixada do regis
 
 ## Garantir que as imagens sejam referenciadas por digest
 
-Os Chainguard Containers são atualizados com frequência para incorporar correções de CVEs e atualizações de pacotes. As tags das imagens de contêiner da Chainguard são altamente mutáveis, ou seja, a imagem subjacente muda com frequência, mesmo em tags muito específicas, como `v1.2.3-r1`.
+A Chainguard atualiza suas imagens de contêiner com frequência para incorporar correções de CVEs e atualizações de pacotes. As tags das imagens de contêiner da Chainguard são altamente mutáveis, ou seja, a imagem subjacente muda com frequência, mesmo em tags muito específicas, como `v1.2.3-r1`.
 
 Para evitar que atualizações introduzam mudanças incompatíveis, você pode baixar as imagens por digest e assim garantir o uso de uma imagem específica.
 

@@ -8,7 +8,7 @@ draft: false
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T15:20:21+00:00
   reviewed: false
 ---
 
@@ -22,9 +22,13 @@ Descargue y ejecute imágenes de contenedor reforzadas y con pocos CVE desde `cg
 
 Sustituya sus dependencias actuales por Chainguard Libraries, recompiladas a partir de código fuente verificado y compatibles como reemplazo directo. Están disponibles para Java, Python y JavaScript. Comience con la [introducción a las bibliotecas](/get-started/libraries-examples/).
 
+## Crear con Checks y Workspaces
+
+Ejecute las comprobaciones de sus pull requests en microVM aisladas con Chainguard Checks, y sus agentes de programación en sesiones remotas que no guardan ninguna de sus credenciales de larga duración con Chainguard Workspaces. [Configurar Chainguard Checks y Chainguard Workspaces](/get-started/checks-and-workspaces/) explica cómo funcionan juntos y le guía para registrarse en ambos.
+
 ## Evaluar la confianza
 
-¿Está decidiendo si Chainguard es adecuado para su organización? Revise cómo se compilan las Chainguard Containers, qué garantías ofrecen y cómo se comparan en cuanto a CVE.
+¿Está decidiendo si Chainguard es adecuado para su organización? Revise cómo se compilan las imágenes de contenedor de Chainguard, qué garantías ofrecen y cómo se comparan en cuanto a CVE.
 
 ## Incorporar a sus equipos
 

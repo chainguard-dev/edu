@@ -4,7 +4,7 @@ linktitle: "FIPS e algoritmos não aprovados"
 type: "article"
 description: "Análise técnica de como as imagens FIPS da Chainguard dão acesso a algoritmos não aprovados, como MD5 e SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2026-10-01T00:00:00+00:00
+lastmod: 2026-10-14T00:00:00+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
@@ -84,7 +84,7 @@ O SHA1 está disponível como aprovado nas versões 3.0.9, 3.1.2 e 3.4.0 do Chai
 
 ### Chainguard Legacy Approved provider for OpenSSL
 
-As imagens FIPS e não FIPS da Chainguard são configuradas para usar um provider legado que expõe os algoritmos mencionados acima para fins que não são de segurança. Em tempo de execução, é possível desabilitá-los com a variável de ambiente `CHAINGUARD_LEGACY_APPROVED=0`. Esse provider permite que todas as aplicações OpenSSL acessem de maneira uniforme os algoritmos legados para fins que não são de segurança. Eles continuam bloqueados dentro dos limites do módulo FIPS para fins de segurança, como a proteção de dados em repouso ou em trânsito.
+As imagens FIPS e não FIPS da Chainguard são configuradas para usar um provider legado que expõe os algoritmos mencionados acima para fins que não são de segurança. Em tempo de execução, é possível desabilitá-los com a variável de ambiente `CHAINGUARD_LEGACY_ALLOWED=0`. Esse provider permite que todas as aplicações OpenSSL acessem de maneira uniforme os algoritmos legados para fins que não são de segurança. Eles continuam bloqueados dentro dos limites do módulo FIPS para fins de segurança, como a proteção de dados em repouso ou em trânsito.
 
 Esta orientação se aplica a todas as imagens e a todo software que usa OpenSSL:
 

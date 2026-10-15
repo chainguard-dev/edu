@@ -3,12 +3,12 @@ title: "Primeiros passos"
 lead: "É novo na Chainguard? Comece por aqui. Entenda o básico e escolha o caminho que corresponde ao que você quer fazer: criar com contêineres, criar com bibliotecas, avaliar a confiança ou migrar uma organização."
 description: "Primeiros passos com a Chainguard: entenda o básico e escolha seu caminho, seja criar com contêineres, criar com bibliotecas, avaliar a confiança ou migrar uma organização existente."
 date: 2026-06-09T08:48:23+00:00
-lastmod: 2026-10-01T00:00:00+00:00
+lastmod: 2026-10-14T00:00:00+00:00
 draft: false
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T15:20:21+00:00
   reviewed: false
 ---
 
@@ -22,9 +22,13 @@ Baixe e execute imagens de contêiner protegidas e com poucas CVEs a partir do `
 
 Substitua suas dependências atuais pelas Chainguard Libraries, recompiladas a partir de código-fonte verificado e compatíveis com o que você já usa. Disponíveis para Java, Python e JavaScript. Comece pela [introdução às bibliotecas](/get-started/libraries-examples/).
 
+## Criar com Checks e Workspaces
+
+Execute as verificações dos seus pull requests em microVMs isoladas com o Chainguard Checks, e seus agentes de programação em sessões remotas que não guardam nenhuma das suas credenciais de longa duração com o Chainguard Workspaces. [Configurar o Chainguard Checks e o Chainguard Workspaces](/get-started/checks-and-workspaces/) explica como os dois funcionam juntos e orienta sua inscrição em ambos.
+
 ## Avaliar a confiança
 
-Está decidindo se a Chainguard é a escolha certa para sua organização? Veja como os Chainguard Containers são criados, quais garantias eles oferecem e como se comparam em número de CVEs.
+Está decidindo se a Chainguard é a escolha certa para sua organização? Veja como as imagens de contêiner da Chainguard são criadas, quais garantias elas oferecem e como se comparam em número de CVEs.
 
 ## Integrar suas equipes
 

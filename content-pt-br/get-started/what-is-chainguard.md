@@ -5,13 +5,13 @@ lead: "Uma introdução geral à Chainguard: o problema que ela resolve, os prod
 description: "Uma visão geral da Chainguard: sua missão de ser a fonte segura de código aberto, seus produtos (Containers, Libraries e OS) e a Factory que os cria."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-10-01T00:00:00+00:00
+lastmod: 2026-10-14T00:00:00+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T13:59:25+00:00
   reviewed: false
 ---
 
@@ -23,7 +23,7 @@ A missão da Chainguard é ser a fonte segura de código aberto. Em vez de deixa
 
 A Chainguard recompila software de código aberto em produtos que você pode adotar diretamente, de acordo com a forma como você consome dependências:
 
-- **[Chainguard Containers](/chainguard/containers/overview/)** são imagens de contêiner mínimas e protegidas. Seguindo a filosofia distroless, cada imagem inclui apenas o seu aplicativo e as dependências de tempo de execução essenciais, o que reduz a superfície de ataque. Esse minimalismo é um dos principais motivos pelos quais elas têm [poucas ou nenhuma CVE](/chainguard/containers/concepts/zerocve/).
+- **[Chainguard Containers](/chainguard/containers/overview/)** é uma coleção de imagens de contêiner mínimas e protegidas. Seguindo a filosofia distroless, cada imagem inclui apenas o seu aplicativo e as dependências de tempo de execução essenciais, o que reduz a superfície de ataque. Esse minimalismo é um dos principais motivos pelos quais elas têm [poucas ou nenhuma CVE](/chainguard/containers/concepts/zerocve/).
 - **[Chainguard Libraries](/chainguard/libraries/introduction/overview/)** aplicam a mesma abordagem às dependências de linguagem. Elas substituem diretamente pacotes de código aberto dos ecossistemas Java, Python e JavaScript, são recompiladas a partir de fontes verificadas e monitoradas continuamente.
 
 Você baixa os Chainguard Containers e as Chainguard Libraries de um único endpoint que aplica políticas, o [Chainguard Repository](/chainguard/chainguard-repository/overview/).
@@ -35,6 +35,8 @@ A maioria das equipes começa pelos Containers e pelas Libraries, mas a Chaingua
 - **[Chainguard Actions](/chainguard/actions/overview/)**, substitutos protegidos para GitHub Actions populares.
 - **[Guardener](/chainguard/guardener/)**, ferramentas para proteger o seu próprio código-fonte.
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, skills para agentes de IA com revisão de segurança.
+- **[Chainguard Checks](/chainguard/checks/overview/)**, CI para pull requests do GitHub que executa cada verificação em sua própria microVM isolada.
+- **[Chainguard Workspaces](/chainguard/workspaces/overview/)**, sessões remotas em microVMs para desenvolvimento e agentes de programação, que mantêm suas credenciais fora da sessão.
 
 ## A Chainguard Factory
 

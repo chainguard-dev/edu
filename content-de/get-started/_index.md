@@ -8,7 +8,7 @@ draft: false
 images: []
 weight: 10
 translation:
-  sourceLastmod: 2026-09-28T14:00:04+00:00
+  sourceLastmod: 2026-10-13T15:20:21+00:00
   reviewed: false
 ---
 
@@ -22,9 +22,13 @@ Pullen und starten Sie gehärtete Container-Images mit wenigen CVEs aus `cgr.dev
 
 Ersetzen Sie Ihre bestehenden Abhängigkeiten durch Chainguard Libraries – aus verifiziertem Quellcode neu gebaut und als Drop-in-Ersatz kompatibel. Derzeit verfügbar für Java, Python und JavaScript. Beginnen Sie mit dem [Einstieg in Bibliotheken](/get-started/libraries-examples/).
 
+## Mit Checks und Workspaces entwickeln
+
+Führen Sie die Checks Ihrer Pull Requests mit Chainguard Checks in isolierten microVMs aus und Ihre Coding-Agents mit Chainguard Workspaces in Remote-Sitzungen, die keine Ihrer langlebigen Anmeldedaten enthalten. [Chainguard Checks und Chainguard Workspaces einrichten](/get-started/checks-and-workspaces/) erklärt, wie beide zusammenarbeiten, und führt Sie durch die Registrierung für beide.
+
 ## Vertrauenswürdigkeit bewerten
 
-Sie prüfen, ob Chainguard das Richtige für Ihre Organisation ist? Erfahren Sie, wie Chainguard Containers gebaut werden, welche Garantien sie bieten und wie sie bei CVEs im Vergleich abschneiden.
+Sie prüfen, ob Chainguard das Richtige für Ihre Organisation ist? Erfahren Sie, wie die Container-Images von Chainguard gebaut werden, welche Garantien sie bieten und wie sie bei CVEs im Vergleich abschneiden.
 
 ## Teams einbinden
 
