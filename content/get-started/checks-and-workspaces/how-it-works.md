@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-15T12:11:42+00:00
+lastmod: 2026-10-15T16:23:41+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -28,11 +28,15 @@ Each check, and each session, runs in its own microVM built on Chainguard OS:
 | How long the VM lasts | One check. The next run, and every retry, starts a fresh VM. | The life of the session. The VM stops when the session parks, and resumes from a snapshot. |
 | What starts in the VM | BusyBox, GNU tar, and the packages the configuration declares. Your repository's code is already in the VM. | Your synced directory at `/work`, the packages the configuration declares, and by default `git`, `gh`, Claude Code, and `chainctl`. By default, you work as `root`. |
 
+Chainguard treats the code in every VM as hostile, so the VM is the boundary that holds it:
+
+- Chainguard puts no credential in the VM in a form its code could spend elsewhere. Credentials are added outside the VM, as described in [Credentials](#credentials).
+- No host directory is mounted in the VM. Chainguard streams your repository, or the directory you sync to a session, into it.
+- A session's snapshot is sealed and bound to its owner, so a copy of it can't restore anyone else's session.
+
 A check starts with nothing from earlier runs unless it declares a cache. Even then, a run gets a cache only from a cache pool that your default branch defines for the run's [ring](#rings).
 
 In a session, `run-ci` runs your checks inside the session's own VM, not in fresh VMs, so its environment can differ from a pull request run. Only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
-
-{{< alert context="warning" >}}**Draft gap (DOCS-261):** what this section says about isolation below the VM is waiting on a security review.{{< /alert >}}
 
 ## Credentials {#credentials}
 
@@ -45,6 +49,8 @@ Neither product puts a long-lived credential in the VM. Where a check or session
 | Who decides | `identities.yaml` on the pull request's base branch, and the `trust` section on your default branch. | Your organization's policy and the session's credential settings. A request beyond the defaults needs your approval on your terminal. |
 
 Code in the VM can't read the real credentials, but it can use them. Each request it sends carries the credential's access, and anything it creates with that access, such as a Google Cloud service account key, outlives the check or session. Grant each workload identity only the access its checks need, and review a session's credentials before you let an agent work in it unattended. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
+
+For a check's workload identity, and for your Google Cloud credential in a session, a proxy outside the VM swaps in the real credential only on requests that it has verified over TLS as going to an allowed host. For a check's Chainguard identity, the proxy also refuses opaque TLS tunnels to Chainguard hosts, and sends each request only to the host whose TLS name it verified.
 
 Sessions can't use workload identities, so `run-ci` skips checks that use one.
 
@@ -72,7 +78,7 @@ The `egress` list doesn't apply to a session's credential hostnames, such as `ht
 
 To see which hosts a check tried to reach, and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link on GitHub. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
 
-{{< alert context="warning" >}}**Draft gap (DOCS-261):** how Chainguard handles TLS for checks and sessions, and how `egress` matches hosts, is waiting on Engineering.{{< /alert >}}
+{{< alert context="warning" >}}**Draft gap (DOCS-261):** which certificate authority the VM trusts for the proxy's TLS, and how `egress` matches hosts, are waiting on Engineering.{{< /alert >}}
 
 ## Trust {#trust}
 
@@ -114,13 +120,11 @@ A *run* is one pass of a repository's checks for one commit. The following table
 | 1. Event | GitHub tells Chainguard Checks, through the Chainguard App, that a pull request was opened, reopened, or updated. | Pushes to other branches, tags, and closed pull requests start no run. |
 | 2. Test merge | Chainguard Checks uses the commit GitHub would create by merging the pull request into its base branch. | Merge conflicts: the summary check fails with **Merge conflict with the base branch**. |
 | 3. Plan | Chainguard Checks reads the configuration from the merge commit, applies the base branch's rules, and selects the checks that this change runs. | An invalid configuration fails with **Invalid config**. A change that weakens its own gate, or that changes 3,000 or more files, fails with **Run creation failed**. |
-| 4. Admission | The run starts only if the organization can take it. | The organization is at its run limit, such as 10 runs queued or running with the Starter allowance; has used up its monthly compute allowance; or hasn't accepted the terms. |
-| 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, or is stopped by `policy: destroy`. |
+| 4. Admission | Chainguard Checks admits the run only if Chainguard Checks is turned on for the organization and the organization is within its limits. | Chainguard Checks isn't turned on for the organization, or the organization is at its run limit, such as 10 runs queued or running with the Starter allowance. Either way, no summary check appears. The summary check fails with **Run creation failed** when the organization has used up its monthly compute allowance or hasn't accepted the terms. |
+| 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. Before a check gets a workload identity, Chainguard Checks verifies again, against GitHub, that the pull request is still open at the head and base this run tests, and that the base branch allows the identity for this check. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, is stopped by `policy: destroy`, or doesn't get the workload identity it requests. |
 | 6. Summary | Each check reports a GitHub check named `presubmit / <file> / <check>` as it finishes. The summary check, **Chainguard Checks (presubmit)**, passes only when every blocking check passes. | |
 
 A new push to the pull request cancels the current run and starts a new one at stage 1. After a change merges, each new commit on your default branch gets its own run in ring `2`, which reports **Chainguard Checks (postsubmit)**. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/).
-
-{{< alert context="warning" >}}**Draft gap (DOCS-261):** whether stage 4 lists every admission limit, and where the limits apply relative to stage 3, is waiting on Engineering.{{< /alert >}}
 
 ## Session lifecycle {#session-lifecycle}
 
@@ -134,9 +138,9 @@ A session moves through the following states:
 | Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. Five days after parking, it expires. |
 | Expired | Chainguard discards the VM and the snapshot. The session can't be resumed, but it stays in `chainctl develop list --expired`, and its name stays in use. | `chainctl develop delete` removes it. |
 
-You can delete a session in any state. Anything you didn't push is lost. A parked session counts toward your session limit until it expires or you delete it. Refer to [Manage Chainguard Workspaces sessions](/chainguard/workspaces/manage-sessions/).
+However a session is used, its VM runs for at most 6 days at a stretch. Then Chainguard parks the session and resumes it right away, the same way the session menu's **Restart the host** option does, so a session in long use isn't cut off.
 
-{{< alert context="warning" >}}**Draft gap (DOCS-261):** whether an attached session has a maximum age, and the `--keep always` limit, are waiting on Engineering.{{< /alert >}}
+You can delete a session in any state. Anything you didn't push is lost. A parked session counts toward your session limit until it expires or you delete it. Refer to [Manage Chainguard Workspaces sessions](/chainguard/workspaces/manage-sessions/).
 
 ## Glossary {#glossary}
 
