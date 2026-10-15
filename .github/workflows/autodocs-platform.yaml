@@ -22,7 +22,7 @@ jobs:
 
     steps:
     - name: 'Github Actions Runner'
-      uses: step-security/harden-runner@351661ca32ac09a36dc5ee2d536e3128f2a3c8ed # v2.22.0
+      uses: step-security/harden-runner@ccd8616d44fd3846e67624a50d5aad6d37bf2d25 # v2.22.1
       with:
         egress-policy: audit
 
@@ -32,7 +32,7 @@ jobs:
         persist-credentials: false
 
     - name: 'Setup gitsign'
-      uses: chainguard-dev/actions/setup-gitsign@84b1be4c638f12d4256ddddef17af98853b6d0d9 # v1.6.40
+      uses: chainguard-dev/actions/setup-gitsign@3403a578b543fd3f0debdaef9dd989ae54e3fcef # v1.6.41
 
     - name: Authenticate to Google Cloud
       id: auth
@@ -49,7 +49,7 @@ jobs:
         project_id: "${{ secrets.PROJECT_ID }}"
         storage_bucket: "${{ secrets.STORAGE_BUCKET }}"
 
-    - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
       with:
         node-version-file: .nvmrc
 
