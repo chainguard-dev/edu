@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add a .chainguard/ci.yaml file to a repository, and see your first checks run on a GitHub pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T15:17:49+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -24,7 +24,7 @@ This guide walks you through signing up for Chainguard Checks, adding checks to 
 
 <span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-chainguard-checks"></span>
 
-Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
 
 ## Step 2: Add a configuration file to your repository
 
@@ -99,7 +99,7 @@ Require only the summary check, not the per-check results. A check that a condit
 
 <span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
 
-Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 ## Next steps
 

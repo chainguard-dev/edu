@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T18:50:45+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -63,7 +63,7 @@ To run your checks in fresh VMs without opening a pull request, push your commit
 chainctl checks run . --watch --parent $ORGANIZATION
 ```
 
-The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
 
 The command prints the run's name, followed by its checks. With `--watch`, it waits until the run finishes, and exits with `1` if a blocking check doesn't pass. To run only one check and the checks it `needs`, add `--check` with its name. To include a check that runs only on request, name it with `--check`, or add `--request` with its name, as a `ci/run:` label does on a pull request. For every flag, refer to the [`chainctl checks run` reference](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run).
 

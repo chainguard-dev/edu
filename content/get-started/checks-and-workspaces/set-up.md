@@ -8,11 +8,11 @@ lastmod: 2026-10-13T18:50:45+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
-weight: 25
+weight: 10
 toc: true
 ---
 
-[Chainguard Checks](/chainguard/checks/overview/) runs your repository's CI on every GitHub pull request, with each check in its own microVM. [Chainguard Workspaces](/chainguard/workspaces/overview/) runs your development work, and the coding agents that do it, in a remote microVM session that holds none of your long-lived credentials. You can use either product on its own, but they're built to work together, and you set them up together: one command, `chainctl develop init`, turns on both. This page explains what the products share, then walks you through signing up and giving teammates access.
+[Chainguard Checks](/chainguard/checks/overview/) runs your repository's CI on every GitHub pull request, with each check in its own microVM. [Chainguard Workspaces](/chainguard/workspaces/overview/) runs your development work, and the coding agents that do it, in a remote microVM session that holds none of your long-lived credentials. You can use either product on its own, but they're built to work together, and you set them up together: one command, `chainctl develop init`, turns on both. This page explains what the products share, then walks you through signing up and giving teammates access. For how the two products isolate your code, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 {{< beta feature="Each product" >}}
 

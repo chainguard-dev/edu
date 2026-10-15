@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T15:17:49+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -50,7 +50,7 @@ For more about links, refer to [Managing Chainguard App connections](/chainguard
 
 ## You don't have permission {#you-dont-have-permission}
 
-If a `chainctl develop` command fails with a `PermissionDenied` error that says only `permission denied`, the account you're logged in with doesn't have a role in the organization that allows the command, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles). Membership alone isn't enough, because the `viewer` and `editor` roles don't include Workspaces. Ask an organization owner to give you access, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access). If you have more than one Chainguard account, run `chainctl auth status` to check which one you're logged in with.
+If a `chainctl develop` command fails with a `PermissionDenied` error that says only `permission denied`, the account you're logged in with doesn't have a role in the organization that allows the command, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles). Membership alone isn't enough, because the `viewer` and `editor` roles don't include Workspaces. Ask an organization owner to give you access, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access). If you have more than one Chainguard account, run `chainctl auth status` to check which one you're logged in with.
 
 The `chainctl develop list --all` and `chainctl develop policy set` commands need the `owner` role. Without it, `chainctl develop policy set` fails with the same error, and `chainctl develop list --all` fails with an error that says `listing another owner's sessions requires the list capability on the instance`.
 
@@ -125,7 +125,7 @@ The following sections describe the most common causes.
 
 ### No credential has arrived {#no-credential-has-arrived}
 
-If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
+If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
 
 ### The session's host is too old {#the-sessions-host-is-too-old}
 

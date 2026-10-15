@@ -12,7 +12,7 @@ Chainguard Education (edu.chainguard.dev) is a comprehensive documentation and l
 
 The site has six top-level sections. Paths are relative to `https://edu.chainguard.dev`.
 
-1. **Get started** (`/get-started/`) - What Chainguard is, self-serve sign-up, setting up `chainctl`, onboarding teams, Containers and Libraries examples, and migration guides. The shared setup page for Chainguard Checks and Chainguard Workspaces is `/get-started/checks-and-workspaces/`.
+1. **Get started** (`/get-started/`) - What Chainguard is, self-serve sign-up, setting up `chainctl`, onboarding teams, Containers and Libraries examples, and migration guides. The shared setup page for Chainguard Checks and Chainguard Workspaces is `/get-started/checks-and-workspaces/set-up/`, and their shared security model is at `/get-started/checks-and-workspaces/how-it-works/`.
 2. **Products** (`/chainguard/`) - One subsection per product, plus the weekly changelog at `/chainguard/changelog/`:
    - **Chainguard Agent Skills** (`/chainguard/agent-skills/`) - Agent skills that Chainguard reviews, scopes, and publishes
    - **Chainguard Containers** (`/chainguard/containers/`) - Container images: getting started, building and modifying, Custom Assembly, the registry, security and compliance, and troubleshooting

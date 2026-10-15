@@ -4,7 +4,7 @@ linktitle: "chainctl checks reference"
 description: "Reference for the chainctl checks commands that inspect pull request runs, start and rerun checks, summarize check history, and validate your Chainguard Checks configuration."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T15:17:49+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Reference"]
 images: []
@@ -46,7 +46,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 
 ## Access and organization
 
-Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. It can start runs with `chainctl checks run`, which use your allowance, but can't read any run, so don't use `chainctl checks run` there. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
@@ -413,7 +413,7 @@ With `-o json`, the command prints one object with the `repository`, `revision`,
 
 ### chainctl checks accept-terms
 
-Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
 
 ```
 chainctl checks accept-terms [--parent ORGANIZATION] [--yes]
