@@ -4,7 +4,7 @@ lead: "A CLI chainctl da Chainguard permite gerenciar com mais segurança imagen
 description: "Primeiros passos com o chainctl: autenticação, gerenciamento de organizações e comandos essenciais da plataforma de segurança de contêineres da Chainguard"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-10-01T00:00:00+00:00
+lastmod: 2026-10-08T00:00:00+00:00
 draft: false
 tags: ["chainctl", "Getting Started"]
 images: []
@@ -42,7 +42,7 @@ Para criar um token de pull, use:
 chainctl auth pull-token
 ```
 
-Uma flag importante desse comando é `--repository`, que permite especificar o tipo de repositório para o qual o token de pull será criado. Por exemplo, `--repository=apk` vincula a identidade do token de pull ao papel `apk.pull`, o que permite que a identidade baixe pacotes do repositório APK privado da organização pai.
+Uma flag importante desse comando é `--repository`, que permite especificar o tipo de repositório para o qual o token de pull será criado. Por exemplo, `--repository=apk` vincula a identidade do token de pull ao papel `apk.pull`, o que permite que a identidade baixe pacotes do repositório APK privado da organização-mãe.
 
 Para configurar um auxiliar de credenciais do Docker, que usará um token para baixar imagens quando você usar o Docker, execute:
 
@@ -66,7 +66,7 @@ Para atualizar sua instalação do `chainctl`, use:
 chainctl update
 ```
 
-Como esse comando substitui o binário instalado, você precisa de permissão de gravação no diretório em que o `chainctl` está. No Linux e no macOS, atualizar uma instalação para todo o sistema, como em `/usr/local/bin`, exige privilégios de administrador (por exemplo, com `sudo`). O comando também verifica a assinatura do binário baixado antes de instalá-lo. Para mais detalhes, consulte [Atualizar o chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+Como esse comando substitui o binário instalado, você precisa de permissão de gravação no diretório em que o `chainctl` está. No Linux e no macOS, atualizar uma instalação para todo o sistema, como em `/usr/local/bin`, exige privilégios de administrador (por exemplo, com `sudo`). O comando também verifica a assinatura do binário baixado no próprio processo, antes de instalá-lo. Para mais detalhes, consulte [Atualizar o chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 ## Configurar o chainctl
 
@@ -76,7 +76,7 @@ O `chainctl` vem com uma configuração padrão, mas alguns aspectos dela podem 
 chainctl config edit
 ```
 
-Se você cometer um erro e não lembrar das configurações originais, restaure a configuração padrão com:
+Se você cometer um erro e não se lembrar das configurações originais, restaure a configuração padrão com:
 
 ```shell
 chainctl config reset
