@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-14 02:21:39_
+_Compiled on: 2026-10-15 02:21:23_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -1897,7 +1897,7 @@ A session keeps its provider when it parks and resumes. To switch a running sess
 
 Claude Code that's already running keeps the old provider, so its next request fails with a message that tells you to restart it. If `chainctl` tells you to start a new session to use the new provider, the session is too old to switch, so create a new one.
 
-## Configure Claude Code in a session
+## Configure Claude Code in a session {#configure-claude-code-in-a-session}
 
 From your laptop, a session takes only your Claude credential and the Vertex AI settings described in [Use Claude through Vertex AI](#use-claude-through-vertex-ai). The rest of your Claude Code setup stays on your laptop: `chainctl` doesn't copy `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, your MCP servers, plugins, skills, subagents, slash commands, or model choice.
 
@@ -1906,7 +1906,7 @@ Instead, Claude Code in a session uses the following:
 - The session's managed settings, which include a short brief that describes the session and its tools, including how to run your repository's checks with `run-ci`.
 - Your repository's own `CLAUDE.md`, `.claude/` directory, and `.mcp.json` file, within the limits described in [MCP servers in a session](#mcp-servers-in-a-session).
 
-To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory.
+To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory. This includes skills. For example, to use a hardened skill from [Chainguard Agent Skills](/chainguard/agent-skills/overview/) in every session, run [`chainctl skills install`](/chainguard/agent-skills/public-registry/#install-a-skill) on your laptop from your repository's top-level directory, then commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file.
 
 ### Tell Claude Code how to work in a session {#tell-claude-code-how-to-work-in-a-session}
 
@@ -3670,6 +3670,8 @@ When someone opens or updates a pull request, the following happens:
 
 Each new push to the pull request cancels the run for the previous push and starts a new one. Chainguard Checks can also run checks on each new commit on your default branch, for work that should run after a change merges. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/) for details.
 
+{{< note >}}Attestations for Checks runs are planned. With them, Chainguard Checks will verify an earlier passing run instead of running your checks again. Until then, Chainguard Checks runs your checks on every push to a pull request.{{< /note >}}
+
 Here's a minimal `.chainguard/ci.yaml` file for a Go repository:
 
 ```yaml {title=".chainguard/ci.yaml"}
@@ -5098,7 +5100,7 @@ Each `allow` entry names a kind of run and its branch:
 
 Each ref must be a full ref that starts with `refs/`.
 
-### Chainguard hosts
+### Chainguard hosts {#chainguard-hosts}
 
 Each key under `chainguard` is a Chainguard host, and its value has the following keys, all required:
 
@@ -10419,32 +10421,12 @@ go mod verify
 
 After the build succeeds, inspect `go env GOPROXY` and your build logs to confirm that module requests are going through Chainguard. Keep the generated `go.sum` file with the project if it is part of your existing dependency-management workflow.
 
-## Step 5: Adopt remediated versions explicitly
-
-Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix. Go does not select these versions through `@latest` or `go get -u`, so you must request the version explicitly.
-
-For example:
-
-```bash
-go get example.com/module@v1.2.5-cgr.1
-go mod tidy
-go mod verify
-```
-
-You can also update the `require` directive in `go.mod` directly:
-
-```bash
-require example.com/module v1.2.5-cgr.1
-```
-
-Use the module version listed by Chainguard for the CVE remediation you want to adopt. A remediated version is a distinct source archive; it does not replace the upstream bytes for another version.
-
 ---
 
 ### Chainguard Libraries for Go overview
 _Path: chainguard/libraries/go/overview.md_
 
-Chainguard Libraries for Go provides enhanced security for the Go module ecosystem through an authenticated, secure-by-default Go module proxy. The proxy applies organization-defined policies, malware and greyware protections, cooldown controls, and CVE remediation to Go dependencies before they reach development and build environments.
+Chainguard Libraries for Go provides enhanced security for the Go module ecosystem through an authenticated, secure-by-default Go module proxy. The proxy applies organization-defined policies, malware and greyware protections, and cooldown controls to Go dependencies before they reach development and build environments.
 
 Go modules support cloud-native infrastructure, high-volume services, fintech, networking, and security applications. Chainguard Libraries for Go helps reduce the risks of consuming modules from public sources, including malicious modules, typosquats, and vulnerabilities in versions your applications still need to use.
 
@@ -10467,42 +10449,6 @@ When a Go command requests a module, Chainguard resolves the request through the
 
 The `/go` endpoint is the endpoint you configure in `GOPROXY`. It uses the standard Go module proxy paths for version lists, metadata, `go.mod` files, and module source archives.
 Go builds from source on the customer side. Unlike ecosystems that distribute prebuilt language artifacts, Chainguard Libraries for Go distributes module source archives. A CVE-remediated module is published as a distinct Go version rather than replacing the upstream bytes for the same version.
-
-## CVE remediation
-
-Chainguard Libraries for Go can provide backported fixes for high and critical CVEs in older module versions when upgrading to a newer upstream release is not practical.
-
-Remediated Go versions use the `-cgr.N` prerelease suffix. For example, a remediated build of upstream `v1.2.5` is `v1.2.5-cgr.1`.
-
-The incremented patch number ensures that vulnerability scanners recognize the remediated version as newer than upstream `v1.2.5`, while the `-cgr1` suffix identifies it as  a Chainguard prerelease. A remediated version is a distinct module source archive; it does not replace the upsream bytes for another version.
-
-The suffix identifies a Chainguard-remediated source archive. Because `-cgr.N` versions are prereleases, Go’s minimal version selection and `@latest` do not select them automatically. Use a [`replace` directive](https://go.dev/ref/mod#go-mod-file-replace) in `go.mod` to pin a dependency to its remediated version:
-
-```bash
-require example.com/module v1.2.5
-replace example.com/module v1.2.5 => example.com/module v1.2.6-cgr1
-```
-
-This version-specific form replaces upstream v1.2.5 wherever it is selected, including as a transitive dependency. To force the remediated version regardless of the selected upstream version, omit the old version from the directive:
-
-```bash
-replace example.com/module => example.com/module v1.2.6-cgr1
-```
-
-Replace the module path and versions with the remediated version available for your dependency. After adding or updating a replace directive, run:
-
-```bash
-go mod tidy
-go mod verify
-```
-
-You can also select the remediated version directly with `go get`, but use `replace` when you need a stable project-level pin:
-
-```bash
-go get example.com/module@v1.2.6-cgr1
-go mod tidy
-go mod verify
-```
 
 ## Go checksum verification
 
@@ -10539,7 +10485,7 @@ _Path: chainguard/libraries/go/build-configuration.md_
 
 Chainguard Libraries for Go implements the standard [GOPROXY protocol](https://go.dev/ref/mod#goproxy-protocol). To use it, configure Go to retrieve modules through the Chainguard Go module proxy.
 
-This page is a reference for configuring Go projects and CI/CD environments. It covers authentication, proxy configuration, cache clearing, verification, and using Chainguard-remediated module versions. Apply these changes on every workstation and build server that downloads Go modules, including CI/CD systems such as GitHub Actions, Jenkins, and TeamCity.
+This page is a reference for configuring Go projects and CI/CD environments. It covers authentication, proxy configuration, cache clearing, and verification.. Apply these changes on every workstation and build server that downloads Go modules, including CI/CD systems such as GitHub Actions, Jenkins, and TeamCity.
 
 The Chainguard Go module proxy endpoint, `https://libraries.cgr.dev/go`, is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Go. It serves requested versions from upstream [under Chainguard security controls](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
@@ -10616,14 +10562,6 @@ Check the effective configuration:
 go env GOPROXY GONOSUMDB GOSUMDB
 ```
 
-### Checksum database settings
-
-Chainguard-remediated versions are not available from public upstream origins, so they cannot be verified by the public Go checksum database. `GONOSUMDB=*` tells Go not to use the public checksum database for modules retrieved through the configured proxy. The authenticated HTTPS proxy and the project’s `go.sum` file continue to protect module retrieval.
-
-Do not use `GOPRIVATE` for modules that should be retrieved through Chainguard. `GOPRIVATE` also sets `GONOPROXY` and can cause Go to bypass Chainguard.
-
-Do not use `GONOSUMCHECK`; it is not a current Go configuration variable.
-
 ## Verify the configuration
 
 Use a clean module cache when testing the configuration for the first time. This prevents previously cached modules from hiding proxy or authentication problems:
@@ -10650,26 +10588,6 @@ go mod verify
 ```
 
 A successful `go mod verify` confirms that the downloaded module content matches the checksums recorded in `go.sum`.
-
-## Use remediated Go versions
-
-Chainguard-remediated Go versions use the `-cgr.N` prerelease suffix. For example: `v1.2.5-cgr.1`.
-
-A remediated version is a distinct module source archive. It does not replace the upstream bytes for another version.
-
-Go does not select `-cgr.N` versions automatically through `@latest`, minimal version selection, or `go get -u`. Adopt a remediated version explicitly:
-
-```bash
-go get example.com/module@v1.2.5-cgr.1
-go mod tidy
-go mod verify
-```
-
-Replace the module path and version with the remediated version available for your dependency. You can also update the require directive in `go.mod` directly:
-
-```bash
-require example.com/module v1.2.5-cgr.1
-```
 
 ---
 
@@ -13107,6 +13025,8 @@ workstation, which creates more overhead as you scale across teams and projects.
 
 Both approaches require pull tokens for authentication; refer to [Pull token
 characteristics and use](#pull-token-characteristics-and-use) for more information.
+
+A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
 
 {{< note >}}
 For Python users, the [Chainguard keyring
@@ -20231,6 +20151,8 @@ export INSTALLED_SKILL='<install-name-from-describe>'
 
 By default, `install` writes one shared copy to `.agents/skills/` and symlinks each agent's skills directory to it, so every agent reads the same files. Add `--copy` to give each agent its own copy, `--global` to install under your home directory instead of the current project, or `--agent` to target specific agents instead of every detected one.
 
+To use the skill in [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, run `install` from your repository's top-level directory and commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file. Refer to [Configure Claude Code in a session](/chainguard/workspaces/coding-agents/#configure-claude-code-in-a-session).
+
 To check the signature as part of the install, add `--verify`. `install` then verifies the exact digest it fetches and installs nothing unless the skill is `verified`:
 
 ```shell
@@ -20736,7 +20658,7 @@ chainctl skills pull --verify skills.cgr.dev/public/github.com/github/awesome-co
 
 For what `verify` checks, its other results, and how to verify a skill with Cosign, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
 
-## Install a skill
+## Install a skill {#install-a-skill}
 
 Download and install the skill to make it available to agents on your machine with the `install` subcommand:
 
@@ -20752,6 +20674,8 @@ Installing github.com/github/awesome-copilot/game-engine
 -------------|--------------------------------------------------------------------|------------------------------------------------------------------------------------
  Claude Code | .claude/skills/public-github.com-github-awesome-copilot-game-engine | symlink → ../../.agents/skills/public-github.com-github-awesome-copilot-game-engine
 ```
+
+The `install` command writes to project-local directories unless you add `--global`. To use the skill in [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, run it from your repository's top-level directory and commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file, as described in [Configure Claude Code in a session](/chainguard/workspaces/coding-agents/#configure-claude-code-in-a-session).
 
 ## Run the skill from an agent
 
@@ -56347,7 +56271,7 @@ This page walks the whole path in order so you can see how the pieces relate bef
 
 You don't have to adopt every stage, and you don't have to adopt them in order. Most organizations start at [Pull trusted inputs](#4-pull-trusted-inputs), because swapping a base image is the smallest change with the largest effect, then work outward from there.
 
-![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
+![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Checks, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
 
 ## 0. Set up access
 
