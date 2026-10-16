@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-15T16:23:41+00:00
+lastmod: 2026-10-16T11:36:21+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -77,8 +77,6 @@ Whatever a check or session allows, it never reaches cloud metadata endpoints, l
 The `egress` list doesn't apply to a session's credential hostnames, such as `http://github/` and `http://claude/`, so a session with a narrow list can still push to GitHub and use Claude Code. Google Cloud is different, because its requests go to Google's own hosts: a check that uses a Google Cloud workload identity, and a session that uses your Google Cloud credentials with an `egress` list, must list `sts.googleapis.com` and the Google APIs they call.
 
 To see which hosts a check tried to reach, and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link on GitHub. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
-
-{{< alert context="warning" >}}**Draft gap (DOCS-261):** which certificate authority the VM trusts for the proxy's TLS, and how `egress` matches hosts, are waiting on Engineering.{{< /alert >}}
 
 ## Trust {#trust}
 
