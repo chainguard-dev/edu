@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T17:41:48+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -505,12 +505,14 @@ index URL using your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`.
 
-The recommended approach for CI/CD and shared configurations is to use
-uv's native index-scoped environment variables. For a named index, uv reads
-credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`,
-where `<NAME>` is the index name uppercased with hyphens replaced by underscores.
-This avoids storing credentials in config files while keeping the index
-configuration shareable.
+The recommended approach for CI/CD and shared configurations (including jobs
+that run `uv sync --frozen`) is to use uv's native index-scoped environment
+variables. Frozen sync can still query configured indexes, so CI must provide
+credentials even when the lockfile is not being re-resolved. For a named index,
+uv reads credentials from `UV_INDEX_<NAME>_USERNAME` and
+`UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name uppercased with
+hyphens replaced by underscores. This avoids storing credentials in config files
+while keeping the index configuration shareable.
 
 For example, with an index named `chainguard`:
 
@@ -609,6 +611,10 @@ index-strategy = "unsafe-best-match"
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
+
+#### CI and `uv sync frozen`
+
+`uv sync --frozen` verifies and installs from the existing lockfile without re-resolving it, but it is not an offline mode. The command can still query configured indexes when it needs a build backend or another package required to build a source distribution. A CI job that runs a frozen sync therefore still needs valid credentials for the configured indexes.
 
 ## Minimal example projects
 

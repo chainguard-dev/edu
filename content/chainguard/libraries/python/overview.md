@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-10-09T17:42:18+00:00
+lastmod: 2026-10-16T17:41:48+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -405,7 +405,8 @@ Note that `pip-compile` embeds your Chainguard index URL, including credentials,
 
 When the configured index changes, `uv sync` automatically re-resolves dependencies and updates `uv.lock` with hashes from the new index. No explicit `uv lock` step is required; running `uv sync` after configuring Chainguard as your index is sufficient. However, running `uv lock` explicitly after switching indexes is recommended to ensure your lock file accurately reflects what is being installed before you run `uv sync`.
 
-Note that `uv sync --frozen` bypasses index configuration entirely and downloads packages using the URLs embedded directly in `uv.lock`. If your lock file was generated against PyPI, `uv sync --frozen` will continue to download from PyPI regardless of your configured index. Run `uv lock` first to update the lock file before using `--frozen`.
+Note that `uv sync --frozen` does not re-resolve dependencies or update `uv.lock`, but it can still query indexes configured in the project or CI environment. For example, `uv` may need to fetch a build backend or another package required to build a source distribution. CI jobs that run `uv sync --frozen` must therefore still provide credentials for every configured index that the job may query.
+A frozen sync uses the sources and hashes recorded in `uv.lock` for locked packages. If your lock file was generated against PyPI, it can still download locked artifacts from PyPI regardless of your configured index. Run `uv lock` to update the lock file after changing indexes, then commit the updated lockfile before using `--frozen` in CI. For CI, use a pull token or repository manager credential exposed through the index configuration, preferably with `uv`'s index-scoped environment variables.
 
 The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
 
