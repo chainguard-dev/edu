@@ -103,7 +103,6 @@ notAlternative = true
   filename = "sitemap.xml"
   priority = 0.5
 [taxonomies]
-  contributor = "contributors"
   tags = "tags"
 [related]
   # Only include matches with rank >= threshold
