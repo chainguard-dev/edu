@@ -1,5 +1,5 @@
 ---
-date: 2026-10-14T15:11:33Z
+date: 2026-10-15T09:15:02Z
 title: "chainctl auth configure nuget"
 slug: chainctl_auth_configure_nuget
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_nuget/
