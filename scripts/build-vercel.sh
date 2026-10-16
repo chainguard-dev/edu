@@ -14,7 +14,6 @@ cd "$(dirname "$0")/.."
 PATH="$PWD/node_modules/.bin:$PATH"
 
 # Refresh the dfc package mappings the way the production workflow does.
-# Netlify builds from the committed copy instead.
 curl -sfL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/builtin-mappings.yaml \
   -o data/package-mappings.yaml
 
