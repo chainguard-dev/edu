@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-16T18:30:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -570,7 +570,7 @@ A summary works as follows:
 
 A check runs without credentials by default. Its `/work` directory holds your repository's tracked files and history at the commit it tests, so most checks need none. Submodule directories are empty, and files that Git LFS tracks hold their pointer files instead of their content. During the beta, a check gets no GitHub credential, so it can't fetch from private GitHub repositories, such as private Go modules or submodules, or private Git LFS content. To add files from a public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
 
-A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well. During the beta, contact your Chainguard account team to set them up, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
+A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well, as described in [Set up the provider](/chainguard/checks/identity-and-trust/#set-up-the-provider).
 
 Unless `identities.yaml` on your default branch has a `trust` section, any open pull request can get an identity, including one from a fork. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) for the file's format, which pull requests get an identity, and how to limit them.
 
