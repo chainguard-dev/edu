@@ -1,12 +1,15 @@
+{{/* Menus are per language. A language without its own menus file uses the default language's. */}}
+{{ $menus := .Site.Menus }}
+{{ if not $menus.footer }}{{ $menus = hugo.Sites.Default.Menus }}{{ end }}
 <footer class="footer-new">
   <div class="footer-wrapper">
     <!-- Top Section: Title + Button and Navigation -->
     <div class="footer-top-section">
       <!-- Left: Title and CTA Button -->
       <div class="footer-brand-area">
-        <h2 class="footer-main-title">The trusted source for open source</h2>
+        <h2 class="footer-main-title">{{ T "footer_title" }}</h2>
         <a href="https://www.chainguard.dev/contact?utm_source=cg-academy" class="footer-expert-btn" target="_blank">
-          Talk to an expert
+          {{ T "footer_expert" }}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.8 6.4L12.8 3.2L9.6 3.2L9.6 6.4L12.8 6.4Z" fill="#FFFFFF"/>
             <path d="M12.8 12.8L12.8 9.6L9.6 9.6L9.6 12.8L12.8 12.8Z" fill="#FFFFFF"/>
@@ -21,10 +24,12 @@
 
       <!-- Right: Navigation Columns -->
       <div class="footer-nav-columns">
-        {{ range .Site.Menus.footer }}
+        {{ range $menus.footer }}
         <div class="footer-nav-column">
           {{ if .HasChildren }}
-          <div class="footer-column-title">{{ .Name }}</div>
+          {{ $title := .Name }}
+          {{ if ne site.Language.Lang hugo.Sites.Default.Language.Lang }}{{ with T .Identifier }}{{ $title = . }}{{ end }}{{ end }}
+          <div class="footer-column-title">{{ $title }}</div>
           {{ range .Children }}
           <a href="{{ .URL }}" class="footer-nav-link">{{ .Name }}</a>
           {{ end }}
@@ -42,15 +47,15 @@
           <img src="/logos/chainguard-white.svg" alt="Chainguard" class="footer-logo-dark">
         </a>
         <div class="footer-bottom-copyright">
-          <span>{{ time.Now.Year }} Chainguard. All Rights Reserved.</span>
-          <a href="https://www.chainguard.dev/legal/privacy-notice?utm_source=cg-academy">Privacy</a>
-          <a href="https://www.chainguard.dev/legal/terms-of-use?utm_source=cg-academy">Terms</a>
+          <span>{{ time.Now.Year }} {{ T "footer_rights" }}</span>
+          <a href="https://www.chainguard.dev/legal/privacy-notice?utm_source=cg-academy">{{ T "footer_privacy" }}</a>
+          <a href="https://www.chainguard.dev/legal/terms-of-use?utm_source=cg-academy">{{ T "footer_terms" }}</a>
         </div>
       </div>
 
       <div class="footer-bottom-socials">
-        {{ range .Site.Menus.social }}
-        <a target="_blank" href="{{ .URL }}" title="Follow Chainguard on {{ .Name }}" class="footer-social-icon">
+        {{ range $menus.social }}
+        <a target="_blank" href="{{ .URL }}" title="{{ T "footer_follow" }} {{ .Name }}" class="footer-social-icon">
           {{ if eq .Params.icon "x.svg" }}
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>

@@ -4,3 +4,84 @@
   weight = 10
   [en.params]
     languageISO = "EN"
+
+# Pilot translation. Pages exist only where a translation does; every other
+# link from a Portuguese page falls back to the English page at the site root.
+# See docs/translations.md.
+[pt-br]
+  label = "Português (Brasil)"
+  locale = "pt-BR"
+  contentDir = "content-pt-br"
+  weight = 20
+  # Tag pages would list only the few translated pages, so link to the English ones.
+  disableKinds = ["taxonomy", "term"]
+  [pt-br.params]
+    languageISO = "PT"
+    titleAddition = "Base de conhecimento sobre segurança da cadeia de suprimentos de software"
+    description = "Aprenda a tornar sua cadeia de suprimentos de software segura por padrão"
+    ogLocale = "pt_BR"
+    schemaLocale = "pt-BR"
+    # Language code for the Ask AI widget's built-in text (Kapa's data-language).
+    # English pages omit it, so the widget uses its default, "en".
+    kapaLanguage = "pt"
+    # "Pergunte à IA" doesn't fit the floating Ask AI button's default 4.5rem width.
+    kapaButtonWidth = "7.5rem"
+    # Shown in the sidebar language menu when a page has no Portuguese translation.
+    untranslatedHint = "(não traduzida)"
+    untranslatedNotice = "Esta página ainda não foi traduzida para o português, então você está vendo a versão em inglês."
+
+[de]
+  label = "Deutsch"
+  locale = "de-DE"
+  contentDir = "content-de"
+  weight = 30
+  disableKinds = ["taxonomy", "term"]
+  [de.params]
+    languageISO = "DE"
+    titleAddition = "Wissensdatenbank zur Sicherheit der Software-Lieferkette"
+    description = "Lernen Sie, wie Sie Ihre Software-Lieferkette standardmäßig sicher machen"
+    ogLocale = "de_DE"
+    schemaLocale = "de-DE"
+    kapaLanguage = "de"
+    # "KI fragen" doesn't fit the floating Ask AI button's default 4.5rem width.
+    kapaButtonWidth = "5.5rem"
+    untranslatedHint = "(nicht übersetzt)"
+    untranslatedNotice = "Diese Seite wurde noch nicht ins Deutsche übersetzt, daher sehen Sie die englische Version."
+
+[fr]
+  label = "Français"
+  locale = "fr-FR"
+  contentDir = "content-fr"
+  weight = 40
+  disableKinds = ["taxonomy", "term"]
+  [fr.params]
+    languageISO = "FR"
+    titleAddition = "Base de connaissances sur la sécurité de la chaîne d'approvisionnement logicielle"
+    description = "Apprenez à sécuriser par défaut votre chaîne d'approvisionnement logicielle"
+    ogLocale = "fr_FR"
+    schemaLocale = "fr-FR"
+    kapaLanguage = "fr"
+    # "Demander à l'IA" doesn't fit the floating Ask AI button's default 4.5rem width.
+    kapaButtonWidth = "9rem"
+    untranslatedHint = "(non traduite)"
+    untranslatedNotice = "Cette page n'a pas encore été traduite en français : vous consultez la version anglaise."
+
+# Neutral international Spanish, pending confirmation of the target variant.
+# og:locale requires a territory, so es_LA stands in until the variant is chosen.
+[es]
+  label = "Español"
+  locale = "es"
+  contentDir = "content-es"
+  weight = 50
+  disableKinds = ["taxonomy", "term"]
+  [es.params]
+    languageISO = "ES"
+    titleAddition = "Base de conocimientos sobre la seguridad de la cadena de suministro de software"
+    description = "Aprenda a proteger su cadena de suministro de software de forma predeterminada"
+    ogLocale = "es_LA"
+    schemaLocale = "es"
+    kapaLanguage = "es"
+    # "Preguntar a la IA" doesn't fit the floating Ask AI button's default 4.5rem width.
+    kapaButtonWidth = "9.5rem"
+    untranslatedHint = "(sin traducir)"
+    untranslatedNotice = "Esta página aún no se ha traducido al español, por lo que está viendo la versión en inglés."

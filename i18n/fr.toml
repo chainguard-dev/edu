@@ -1,0 +1,102 @@
+# French interface strings. Keep the keys in step with i18n/en.toml; a
+# missing key falls back to the English string.
+# Machine translated for the pilot. Needs review by a native speaker.
+
+# Header and sidebar
+search = "Rechercher"
+ask_ai = "Demander à l'IA"
+ai_modal_title = "Assistant IA de Chainguard"
+ai_examples_title = "Essayez de demander..."
+ai_disclaimer = "Cet assistant IA vous aide à utiliser les produits Chainguard à partir de notre [documentation publique](https://edu.chainguard.dev/) et de notre [contenu d'assistance](https://support.chainguard.dev/), tous deux en anglais. Les réponses sont générées par l'IA et peuvent ne pas être tout à fait exactes. Vérifiez toujours les sources indiquées et faites preuve de discernement."
+# A comma-separated list; the questions themselves can't contain commas.
+ai_examples = "Comment les SBOM des images sont-ils générés ?,Comment garantissez-vous la provenance des images ?,Comment prenez-vous en charge la conformité FIPS ?,Quelles options de durcissement du compilateur sont utilisées ?"
+ai_docs_bundle = "Documentation pour l'IA"
+community_slack = "Slack de la communauté"
+contact = "Contact"
+home = "Accueil"
+on_this_page = "Sur cette page"
+llms_index = "Pour l'index complet de la documentation, consultez"
+
+# Page body
+min_read = "min de lecture"
+related_articles = "Articles connexes"
+last_updated = "Dernière mise à jour :"
+prev = "Précédent"
+next = "Suivant"
+recent_tutorials = "Tutoriels récents"
+featured_tutorials = "Tutoriels à la une"
+preview_notice = "Ceci est un aperçu d'une fonctionnalité qui n'est pas encore disponible. Cette documentation peut changer."
+
+# Copy page button
+copy_page_title = "Copier la page en Markdown pour les LLM"
+copy_page_button = "Copier le Markdown pour les LLM"
+copy_page_tooltip = "Page copiée !"
+copy_page_done = "Copié dans le presse-papiers !"
+
+# Feedback widget
+feedback_title = "Cette page vous a-t-elle été utile ?"
+feedback_yes = "Oui"
+feedback_no = "Non"
+feedback_yes_label = "Oui, cette page m'a été utile"
+feedback_no_label = "Non, cette page ne m'a pas été utile"
+feedback_thanks = "Merci pour vos commentaires !"
+feedback_improve = "Dites-nous ce que nous pouvons améliorer :"
+feedback_placeholder = "Vos commentaires (1000 caractères maximum)..."
+feedback_textarea_label = "Champ de commentaires"
+feedback_submit = "Envoyer"
+feedback_submitting = "Envoi en cours..."
+feedback_cancel = "Annuler"
+
+# Footer
+footer_title = "La source de confiance pour l'open source"
+footer_expert = "Parler à un expert"
+footer_rights = "Chainguard. Tous droits réservés."
+footer_privacy = "Confidentialité"
+footer_terms = "Conditions"
+footer_follow = "Suivez Chainguard sur"
+
+# Footer menu column titles, keyed by menu identifier
+products = "Produit"
+solutions = "Solutions"
+customers = "Clients"
+company = "Entreprise"
+resources = "Ressources"
+
+# 404 page
+not_found = "Oups, cette page n'existe pas !"
+
+# Translations
+language = "Langue"
+translation_notice = "Cette page a été traduite de l'anglais et peut contenir des erreurs."
+translation_notice_reviewed = "Cette page a été traduite de l'anglais."
+translation_outdated = "La version anglaise de cette page a changé depuis cette traduction."
+translation_read_original = "Lire l'original en anglais"
+
+# Home page
+home_hero_title = "Maîtrisez la source de confiance pour"
+home_hero_highlight = "des logiciels sécurisés"
+home_hero_subtitle = "Apprenez à créer des conteneurs sans CVE, à renforcer votre chaîne d'approvisionnement et à livrer des logiciels sécurisés en toute confiance"
+home_containers_caption = "Images de conteneur distroless avec une surface d'attaque minimale et zéro CVE"
+home_libraries_caption = "Paquets de langage renforcés, conçus pour les exigences de sécurité des entreprises"
+home_courses_title = "Cours"
+home_courses_caption = "Développez vos compétences en sécurité grâce à des labs pratiques et des formations animées par des experts"
+home_foundation_title = "Bâtir sur des bases sécurisées"
+home_foundation_description = "Guides essentiels et bonnes pratiques pour sécuriser votre chaîne d'approvisionnement logicielle"
+home_migration_title = "Guide de migration"
+home_migration_caption = "Un guide pas à pas pour migrer vers des conteneurs renforcés sans perturber la production"
+home_cve_title = "Réduire le risque lié aux CVE"
+home_cve_caption = "Des stratégies éprouvées pour éliminer les vulnérabilités avant qu'elles ne deviennent des incidents"
+home_java_title = "Bibliothèques Java"
+home_java_caption = "Paquets Java de niveau entreprise avec conformité FIPS et attestation SBOM"
+home_ai_title = "Conteneurs IA/ML"
+home_ai_caption = "Images PyTorch et TensorFlow optimisées pour les GPU, conçues pour les pipelines de ML en production"
+home_debug_title = "Déboguer des images distroless"
+home_debug_caption = "Des techniques spécialisées pour dépanner des conteneurs minimaux en production"
+home_fips_title = "Conteneurs FIPS"
+home_fips_caption = "Images prêtes pour la conformité fédérale américaine, avec des modules cryptographiques validés"
+home_changelog_eyebrow = "Mis à jour chaque semaine"
+home_changelog_title = "Journal des modifications des produits Chainguard"
+home_changelog_text = "Annonces de produits et changements incompatibles dans l'ensemble du portefeuille Chainguard, ainsi que les avis de fin de vie et les nouvelles images de conteneur"
+home_changelog_cta = "Lire le journal des modifications"
+home_cta_title = "Envie d'en savoir plus sur Chainguard ?"
+home_cta_button = "Nous contacter"

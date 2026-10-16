@@ -82,6 +82,11 @@ class FeedbackWidget {
     };
   }
 
+  // Interface text for the page's language, from the feedback-data script.
+  string(key, fallback) {
+    return this.data.strings?.[key] || fallback;
+  }
+
   bindEvents() {
     // Feedback button clicks
     this.elements.yesBtn?.addEventListener("click", () => this.handlePositiveFeedback());
@@ -253,14 +258,14 @@ class FeedbackWidget {
   showLoadingState() {
     if (this.elements.submitBtn) {
       this.elements.submitBtn.disabled = true;
-      this.elements.submitBtn.textContent = "Submitting...";
+      this.elements.submitBtn.textContent = this.string("submitting", "Submitting...");
     }
   }
 
   hideLoadingState() {
     if (this.elements.submitBtn) {
       this.elements.submitBtn.disabled = false;
-      this.elements.submitBtn.textContent = "Submit";
+      this.elements.submitBtn.textContent = this.string("submit", "Submit");
     }
   }
 
@@ -346,8 +351,8 @@ class FeedbackWidget {
     // Reset button text
     const yesText = this.elements.yesBtn?.querySelector(".feedback-btn-text");
     const noText = this.elements.noBtn?.querySelector(".feedback-btn-text");
-    if (yesText) yesText.textContent = "Yes";
-    if (noText) noText.textContent = "No";
+    if (yesText) yesText.textContent = this.string("yes", "Yes");
+    if (noText) noText.textContent = this.string("no", "No");
 
     // Return to initial state
     this.setState("initial");

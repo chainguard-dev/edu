@@ -1,0 +1,88 @@
+// Sidebar language menu and translation notice (layouts/partials/i18n/).
+
+// The menu sits just after the sidebar's .search-container (which clips
+// overflow), so it reuses that container's 12px gutter and tucks up under the
+// Ask AI button.
+#sidebar-default .language-menu,
+.leftnav .language-menu {
+  padding: 0 12px;
+  margin: calc(-1rem - 4px) 0 1rem;
+}
+
+// Matches the sidebar's Ask AI button (#ask-ai).
+.language-menu-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: var(--body-color);
+  border-color: var(--leftnav-border);
+  background: var(--search-background);
+  border-radius: 4px;
+
+  .bi {
+    font-size: 18px;
+    color: #3443f4;
+  }
+
+  &::after {
+    margin-left: auto;
+  }
+
+  &:hover {
+    background: var(--watch-btn-hover-background);
+  }
+}
+
+// Colors come from the sidebar's theme variables, so they follow dark mode.
+// The item selector outranks both the [data-dark-mode] dropdown rules in
+// common/_dark.scss and the site-wide a[href][href][href] { color: inherit }.
+.language-menu .dropdown-menu {
+  background: var(--search-background);
+  border-color: var(--leftnav-border);
+}
+
+.language-menu .dropdown-menu a.dropdown-item[href] {
+  display: block;
+  font-size: 14px;
+  white-space: normal;
+  color: var(--body-color);
+  background: transparent;
+
+  &:hover,
+  &:focus {
+    color: var(--body-color);
+    background: var(--watch-btn-hover-background);
+  }
+
+  &.active {
+    font-weight: 600;
+    color: var(--body-color);
+    background: transparent;
+  }
+
+  .bi-check2 {
+    float: right;
+  }
+}
+
+.language-menu-hint {
+  display: block;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.language-menu .language-fallback-note {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.translation-notice {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+  // .alert sets a monospace font, which reads as code in a one-line banner.
+  font-family: inherit;
+}

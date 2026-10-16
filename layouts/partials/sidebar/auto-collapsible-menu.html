@@ -14,23 +14,32 @@
       <a class="navbar-title" href="https://www.chainguard.dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement" target="_blank" rel="noopener" style="text-decoration: none;">
         <img style="margin-bottom:.25em;height:1.5em;display:block" src="/logos/linky-flat.svg" alt="Chainguard Linky">
       </a>
-      <a class="navbar-title" href="/" style="text-decoration: none;">
+      <a class="navbar-title" href="{{ site.Home.RelPermalink }}" style="text-decoration: none;">
         <span class="block">Chainguard Academy</span>
       </a>
     </div>
     <div class="doks-search position-relative flex-grow-1">
-      <button class="search form-control is-search text-left" aria-label="Search">Search</button>
+      <button class="search form-control is-search text-left" aria-label="{{ T "search" }}">{{ T "search" }}</button>
     </div>
 
     <button id="ask-ai" class="btn mt-2 w-100 text-left ask-ai-trigger">
-        <i class="bi bi-stars" aria-hidden="true"></i> Ask AI
+        <i class="bi bi-stars" aria-hidden="true"></i> {{ T "ask_ai" }}
     </button>
   </div>
 
+  {{/* Outside .search-container, whose overflow: hidden would clip the open menu. */}}
+  {{ partial "i18n/language-menu.html" . }}
 
-  {{ range sort .Site.Sections "Weight" }}
+
+  {{/* A translated page gets the default language's full navigation. Each entry
+       links to its translation where one exists, and to the English page otherwise. */}}
+  {{ $sections := .Site.Sections }}
+  {{ if ne .Language.Lang hugo.Sites.Default.Language.Lang }}
+  {{ $sections = hugo.Sites.Default.Sections }}
+  {{ end }}
+  {{ range sort $sections "Weight" }}
   <div class="sidebar-category text-uppercase">
-    {{ .LinkTitle }}
+    {{ (partial "i18n/translation-of.html" (dict "page" . "lang" $currentPage.Language.Lang)).LinkTitle }}
   </div>
   <div class="show" id="section-{{ md5 .RelPermalink }}">
     <ul class="btn-toggle-nav list-unstyled fw-normal small">
