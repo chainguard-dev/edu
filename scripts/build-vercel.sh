@@ -31,8 +31,18 @@ if [ "${VERCEL_ENV:-}" = "production" ]; then
 else
   host="${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}"
 fi
+base="https://$host/"
 
-hugo --gc --minify --buildFuture -b "https://$host"
+# Staging for the move to www.chainguard.dev/docs (DOCS-220). A reverse proxy
+# serves this branch's deployment at /docs/, so build for that address. Pages
+# link with host-relative paths, so the same build works through any host that
+# proxies it at /docs/: localhost, a www preview, or www itself. Only canonical
+# and other absolute URLs name www.chainguard.dev.
+if [ "${VERCEL_GIT_COMMIT_REF:-}" = "reverse-proxy-staging" ]; then
+  base="https://www.chainguard.dev/docs/"
+fi
+
+hugo --gc --minify --buildFuture -b "$base"
 
 # Publish through Vercel's Build Output API, whose config.json carries the
 # routing table Hugo generated from the same redirect rules production nginx
