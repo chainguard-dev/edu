@@ -42,7 +42,19 @@ if [ "${VERCEL_GIT_COMMIT_REF:-}" = "reverse-proxy-staging" ]; then
   base="https://www.chainguard.dev/docs/"
 fi
 
+# Spike (this branch only): the same staging build, with page URLs that have
+# no trailing slash, so the slash-free option can be compared side by side.
+noslash=false
+if [ "${VERCEL_GIT_COMMIT_REF:-}" = "reverse-proxy-staging-noslash" ]; then
+  base="https://www.chainguard.dev/docs/"
+  noslash=true
+fi
+
 hugo --gc --minify --buildFuture -b "$base"
+
+if [ "$noslash" = true ]; then
+  node scripts/strip-trailing-slashes.mjs public "$base"
+fi
 
 # Publish through Vercel's Build Output API, whose config.json carries the
 # routing table Hugo generated from the same redirect rules production nginx
