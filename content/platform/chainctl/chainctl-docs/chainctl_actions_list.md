@@ -1,5 +1,5 @@
 ---
-date: 2026-10-14T15:11:33Z
+date: 2026-10-15T09:15:02Z
 title: "chainctl actions list"
 slug: chainctl_actions_list
 url: /platform/chainctl/chainctl-docs/chainctl_actions_list/

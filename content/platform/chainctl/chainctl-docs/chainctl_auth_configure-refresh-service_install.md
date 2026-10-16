@@ -1,5 +1,5 @@
 ---
-date: 2026-10-14T15:11:33Z
+date: 2026-10-15T09:15:02Z
 title: "chainctl auth configure-refresh-service install"
 slug: chainctl_auth_configure-refresh-service_install
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/
