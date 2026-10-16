@@ -22,7 +22,7 @@
         {{ $parentLink := .Parent.Permalink }}
         {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
           {{ $parentTitle = "Home" }}
-          {{ $parentLink = "/" }}
+          {{ $parentLink = site.Home.RelPermalink }}
         {{ end }}
 
         <a class="pills-link" href="{{ $parentLink }}">
@@ -41,13 +41,13 @@
           <h1 class="landing-title text-capitalize">{{ if eq .CurrentSection .FirstSection }}{{ .Section | humanize }}{{ else }}{{ .Title }}{{ end }}</h1>
           <p>{{ .Description }}</p>
           <div class="install-container">
-            <a href="{{ .Params.banner.link }}" class="card-background install-card col-lg">
-              <img src="{{ .Params.banner.image }}" alt="Video Icon">
+            <a href="{{ partial "site-path.html" .Params.banner.link }}" class="card-background install-card col-lg">
+              <img src="{{ partial "site-path.html" .Params.banner.image }}" alt="Video Icon">
             </a>
             <div class="install-text-container d-flex flex-column col-lg">
               <h3 class="banner-title">{{ .Params.banner.title }}</h3>
               <p>{{ .Params.banner.subtitle }}</p>
-              <a href="{{ .Params.banner.link }}" class="watch-btn">{{ .Params.banner.cta }}</a>
+              <a href="{{ partial "site-path.html" .Params.banner.link }}" class="watch-btn">{{ .Params.banner.cta }}</a>
             </div>
           </div>
           <div class="row section-container">
@@ -55,7 +55,7 @@
             <div class="card-container">
               {{ range $index, $tutorial := .Params.Tutorials }}
                   <div>
-                    <a href="{{ $tutorial.url }}">
+                    <a href="{{ partial "site-path.html" $tutorial.url }}">
                       <div class="basics-card">
                         <div class="d-flex flex-column">
                           <div class="caption-title">

@@ -22,7 +22,7 @@
 {{- end }}
 ## API Reference
 
-- [Chainguard API (Combined)](https://edu.chainguard.dev/api.json): OpenAPI spec for all Chainguard API versions (JSON)
-- [Chainguard API v1](https://edu.chainguard.dev/api-v1.json): OpenAPI spec for Chainguard API v1 (JSON)
-- [Chainguard API v2 Alpha](https://edu.chainguard.dev/api-v2alpha1.json): OpenAPI spec for Chainguard API v2 alpha (JSON)
-- [Chainguard API v2 Beta](https://edu.chainguard.dev/api-v2beta1.json): OpenAPI spec for Chainguard API v2 beta (JSON)
+- [Chainguard API (Combined)]({{ "api.json" | absURL }}): OpenAPI spec for all Chainguard API versions (JSON)
+- [Chainguard API v1]({{ "api-v1.json" | absURL }}): OpenAPI spec for Chainguard API v1 (JSON)
+- [Chainguard API v2 Alpha]({{ "api-v2alpha1.json" | absURL }}): OpenAPI spec for Chainguard API v2 alpha (JSON)
+- [Chainguard API v2 Beta]({{ "api-v2beta1.json" | absURL }}): OpenAPI spec for Chainguard API v2 beta (JSON)
