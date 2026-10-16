@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Go project to pull dependencies from Chainguard Libraries"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-10-14T15:52:37+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
@@ -31,20 +31,16 @@ Before you begin, you need:
 - An existing Go project with a `go.mod file`. A `go.sum` file is recommended.
 - A supported Go toolchain. Go 1.21 or later is recommended for the current Go Libraries beta.
 - [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/).
-- An [entitlement to Chainguard Libraries for Go](#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for Go](#entitlement)
 - A [pull token for Chainguard Libraries for Go](#create-a-pull-token)
 
-### Create an entitlement
+### Entitlement
 
-To create an entitlement to Chainguard Libraries for Go, run:
-
-```bash
-chainctl libraries entitlements create --ecosystems=GO
-```
+To use Chainguard Libraries for Go, your organization must be entitled to the Go ecosystem. To add an entitlement, contact your Chainguard account team.
 
 You do not need to manually enable upstream fallback for Go; the entitlement for Go automatically includes Chainguard protections for upstream artifacts.
 
-You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You can configure a cooldown policy once your organization is entitled to Go. For example, to create and enforce a policy for a 14-day cooldown:
 
 ```bash
 chainctl libraries policy create --name=go-cooldown-14d --cooldown-days=14

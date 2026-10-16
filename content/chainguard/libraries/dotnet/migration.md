@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-29T16:31:26+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
@@ -29,20 +29,16 @@ Before getting started, you need:
 - The .NET SDK
     - If you are using macOS, install the .NET SDK with Homebrew: `brew install --cask dotnet-sdk`
 - `chainctl` installed and authenticated
-- An [entitlement to Chainguard Libraries for .NET](#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for .NET](#entitlement)
 - A [pull token for Chainguard Libraries for .NET](#create-a-pull-token)
 
-### Create an entitlement
+### Entitlement
 
-To create an entitlement to Chainguard Libraries for .NET, run:
-
-```bash
-chainctl libraries entitlements create --ecosystems=DOTNET
-```
+To use Chainguard Libraries for .NET, your organization must be entitled to the .NET ecosystem. To add an entitlement, contact your Chainguard account team.
 
 You do not need to manually enable upstream fallback for .NET; the entitlement for .NET automatically includes Chainguard protections for upstream artifacts.
 
-You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You can configure a cooldown policy once your organization is entitled to .NET. For example, to create and enforce a policy for a 14-day cooldown:
 
 ```bash
 chainctl libraries policy create --name=dotnet-cooldown-14d --cooldown-days=14

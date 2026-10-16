@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Go in your organization"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-09-29T19:14:43+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 images: []
@@ -30,7 +30,7 @@ If an existing Artifactory remote repository points directly to a public Go modu
 
 Before you begin, you need:
 
-- An [entitlement to Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for Go](/chainguard/libraries/go/migration/#entitlement)
 - Administrator access to your repository manager instance
 - A [pull token for Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-a-pull-token)
 

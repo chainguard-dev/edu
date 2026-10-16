@@ -4,7 +4,7 @@ linktitle: "Error messages"
 description: "Understand the errors Chainguard Libraries returns when a package or version is blocked, and how they appear across language ecosystems and package managers."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 images: []
 weight: 20
@@ -53,7 +53,7 @@ The following errors indicate problems with authentication, entitlements, or a n
 | Error | Meaning | Next steps |
 | -- | -- | -- |
 | Not authenticated (`401`) | Your pull token is missing or expired. | Reconfigure access. See [Access Chainguard Libraries](/chainguard/libraries/introduction/access/). |
-| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/introduction/access/#manage-library-entitlements). |
+| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | Confirm your [entitlements](/chainguard/libraries/introduction/access/#manage-library-entitlements), or contact your Chainguard account team to add the ecosystem. |
 | Package does not exist (`404`) | The requested package or version does not exist. | Confirm that the package name and version exist on the public upstream registry. |
 
 ## Learn more

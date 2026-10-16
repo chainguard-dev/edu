@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-14T15:22:57+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -25,8 +25,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 ### Prerequisites
 
 - Ensure you have access to Chainguard Libraries.
-    - If you are not a Chainguard user yet, a new Chainguard account must be
-created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    - If you are not a Chainguard user yet, create a Chainguard account. To add
+an entitlement to Chainguard Libraries for your organization, contact your
+Chainguard account team.
 - If you have access to more than one Chainguard organization, confirm the name
 of the one you want to use. You can then pass it to `chainctl` commands with the
 `--parent` parameter.
@@ -484,31 +485,24 @@ chainctl iam ids rm --expired
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+An entitlement grants your organization access to a Chainguard Libraries
+ecosystem. To add or remove an entitlement, contact your Chainguard account
+team.
 
-### Create entitlements
+Once your organization is entitled to an ecosystem, you can enable upstream
+fallback and list your entitlements yourself with [`chainctl libraries
+entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
-As administrator you can use [`chainctl libraries entitlements create`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
+### Enable upstream fallback
 
-```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON
-```
-
-To enable upstream fallback for JavaScript, use the `--policy` flag:
+To enable upstream fallback for an entitled ecosystem, use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
-
-### Remove entitlements
-
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
-
-```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT
-```
+To update the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value.
 
 ### List entitlements
 

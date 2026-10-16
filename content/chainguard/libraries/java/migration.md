@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-10-13T14:42:18+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -32,19 +32,17 @@ Before you begin, you need:
 - An existing Java project
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 
-### Create an entitlement
+### Entitlement and upstream fallback
 
-You must have an [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled.
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To add an entitlement for your organization, contact your Chainguard account team.
 
-To create an entitlement to Chainguard Libraries for Java and enable upstream fallback, which includes a default 7-day cooldown, run the following command:
+Once your organization is entitled to Java, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-Alternatively, you can create an entitlement in the Chainguard Console: while viewing the Java ecosystem page, follow the prompts to create an access token.
-
-You can also configure cooldown policies after you create the entitlement. For example, to create and enforce a policy that disables the cooldown:
+You can also configure cooldown policies after you enable upstream fallback. For example, to create and enforce a policy that disables the cooldown:
 
 ```shell
 chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
