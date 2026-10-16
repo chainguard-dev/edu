@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-13T14:42:18+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -41,21 +41,21 @@ Before you begin, you'll need:
 - An existing JavaScript project with a `package.json` and a lockfile
   (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`)
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-- An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
+- An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement)
   for JavaScript
 
-### Create an entitlement
+### Entitlement and upstream fallback
 
-To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, including a default 7-day cooldown, run:
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
+
+Once your organization is entitled to JavaScript, enable upstream fallback, which includes a default 7-day cooldown, by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
-
 You can also configure [cooldown policies](#packages-not-available-in-chainguard-libraries)
-after you create the entitlement. For example, to create and enforce a
+after you enable upstream fallback. For example, to create and enforce a
 policy for a 14-day cooldown:
 
 ```shell

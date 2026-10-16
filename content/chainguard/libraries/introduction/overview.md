@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-09T17:42:18+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -179,8 +179,8 @@ To enable or change upstream fallback configuration, use the [`chainctl
 libraries entitlements`
 command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
 
-For example, the following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
+For example, the following command adds the npm upstream fallback policy to your
+JavaScript entitlement. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM

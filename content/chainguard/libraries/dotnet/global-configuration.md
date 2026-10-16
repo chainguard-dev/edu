@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for .NET in your organization"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-09-30T18:36:45+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 images: []
@@ -28,7 +28,7 @@ Chainguard Repository handles upstream fallback and policy enforcement. Artifact
 
 Before you begin, you need:
 
-- An [entitlement to Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#entitlement)
 - Administrator access to your repository manager instance
 - A [pull token for Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-a-pull-token)
 
