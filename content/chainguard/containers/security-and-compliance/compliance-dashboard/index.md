@@ -26,7 +26,7 @@ You can use the Compliance Dashboard to review a container image's compliance po
 To use the Compliance Dashboard, you need the following:
 
 * A Chainguard account with access to an organization that includes at least one FIPS container image. The dashboard covers only images in your organization's catalog. It isn't available in the **Chainguard catalog** tab or in the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/).
-* A role in that organization that can download image content, such as `owner`, `editor`, or `viewer`. The `console_viewer` and `registry.pull` roles can't open the dashboard. For details on each role, refer to [Roles and role bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+* A role in that organization that can download image content, such as `owner`, `editor`, or `viewer`. The `console_viewer` role can't open the dashboard. For details on each role, refer to [Roles and role bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 ## Open the Compliance tab
 
@@ -131,7 +131,13 @@ To confirm that the file is intact, compare its SHA-256 checksum with the **XCCD
 sha256sum DOWNLOADED_FILE.xml
 ```
 
-To reproduce the scan yourself with OpenSCAP, refer to [Getting started](/chainguard/containers/security-and-compliance/stigs/#getting-started) in the STIGs guide.
+To read the results in a browser, generate an HTML report from the downloaded file with the OpenSCAP command-line tool:
+
+```sh
+oscap xccdf generate report DOWNLOADED_FILE.xml > report.html
+```
+
+To run the full scan yourself with OpenSCAP, refer to [Getting started](/chainguard/containers/security-and-compliance/stigs/#getting-started) in the STIGs guide.
 
 ## View FIPS certificate information
 
