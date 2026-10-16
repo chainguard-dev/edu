@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-07T18:02:47+00:00
+lastmod: 2026-10-09T17:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -117,6 +117,8 @@ Chainguard Libraries, check out the [Java migration
 guide](/chainguard/libraries/java/migration/).
 
 ## CVE remediation
+
+{{% blurb/athena %}}
 
 Chainguard Libraries for Java includes the [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature, available in beta for Spring Boot. Remediated
