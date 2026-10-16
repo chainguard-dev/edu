@@ -136,6 +136,7 @@ Each host accepts the following roles:
 | `apk.cgr.dev` | `apk.pull` | Download packages. |
 | `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
+| `libraries.cgr.dev` | `libraries.java.pull` | Download Java libraries from Chainguard Libraries. |
 | `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
 
 A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
