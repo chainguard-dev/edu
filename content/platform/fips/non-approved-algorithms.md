@@ -6,7 +6,7 @@ linktitle: "FIPS and non-approved algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
@@ -97,7 +97,7 @@ And many others.
 
 If you are compiling grpc or pycryptography from source; or installing it from PyPI; it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
 
-If you install grpc and pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/), it will be dynamically linked with Chainguard OpenSSL and will use the above guidance.
+If you install grpc and pycryptography through [Custom Assembly](/chainguard/containers/custom-assembly/overview/), it will be dynamically linked with Chainguard OpenSSL and will use the above guidance.
 
 ### Go-fips / Go-openssl-fips
 

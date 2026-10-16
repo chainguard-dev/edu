@@ -7,7 +7,7 @@ linktitle: "Migration checklist"
 type: "article"
 description: "Recommended practices when migrating to Chainguard Containers"
 date: 2025-02-03T10:42:57+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -39,6 +39,6 @@ Chainguard container images are designed to be minimal and to include special fe
 - [ ] When copying application files to the image, make sure proper permissions are set.
 - [ ] Switch back to a non-root user so that the image does not run as root by default.
 - [ ] Build and test your image to validate your setup.
-- [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](https://edu.chainguard.dev/chainguard/containers/concepts/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
+- [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](/chainguard/containers/concepts/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
 
-For detailed migration guidance, please refer to our [Migration docs](https://edu.chainguard.dev/chainguard/containers/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](https://edu.chainguard.dev/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.
+For detailed migration guidance, please refer to our [Migration docs](/chainguard/containers/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.

@@ -4,7 +4,7 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -23,8 +23,8 @@ This page documents workflows for installing APK packages in [distroless variant
 
 The distroless variants of Chainguard Containers do not contain shells or package managers by design. This reduces attack surface and exploitability for these images. In cases where additional packages are required, we typically recommend the following:
 
-- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](https://edu.chainguard.dev/chainguard/containers/getting-started/languages-and-runtimes/python/), [Node](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/node/), [PHP](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/php/)).
-- Use Chainguard's [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/) tool to create an image with additional packages added.
+- If packages for the language runtime (such as those installed with Python’s pip or Node’s npm) are required and no additional system-level (APK) dependencies are needed, we recommend following one of our language-specific multi-stage build tutorials ([Python](/chainguard/containers/getting-started/languages-and-runtimes/python/), [Node](/chainguard/containers/migration/migration-guides/node/), [PHP](/chainguard/containers/migration/migration-guides/php/)).
+- Use Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/) tool to create an image with additional packages added.
 - For some use cases, consider running our variant tagged `:latest-dev` in production. These images are also low-to-zero CVE and are considered production-ready.
 - Consider requesting a custom image from Chainguard.
 
