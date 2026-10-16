@@ -11,7 +11,7 @@
 {{ $slice := slice $app -}}
 
 {{ if .Site.Params.add_ons.docSearch -}}
-  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build -}}
+  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build (dict "params" (dict "basePath" site.Home.RelPermalink)) -}}
   {{ $slice = $slice | append $docsearch -}}
 {{ end -}}
 
