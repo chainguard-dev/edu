@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T15:08:26+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -62,6 +62,8 @@ Claude Code can keep working after you close your terminal, for as long as its c
 A session reaches the open internet by default, the same as a laptop, so package managers, `git`, and build tools work without configuration. Chainguard always blocks cloud metadata endpoints, loopback addresses, and private IP ranges.
 
 To restrict a session, open it on a check in your `.chainguard/ci.yaml` file that has a `network.egress` allowlist. A session honors the allowlist the same way a check does, and refuses connections to hosts outside it while it keeps running. Unlike Chainguard Checks, though, a session whose environment has no `network` key reaches the open internet. That includes every session that uses a `.chainguard/develop.yaml` file, which can't have a `network` key. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access) for details.
+
+For the security model of Chainguard Workspaces and Chainguard Checks side by side, including the session lifecycle, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 ## Use with Chainguard Checks
 
