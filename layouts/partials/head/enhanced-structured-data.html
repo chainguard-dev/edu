@@ -30,10 +30,10 @@
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": {{ .Title | jsonify }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "name": {{ .Title }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
   "totalTime": "PT{{ $readingTime }}M",
-  "image": {{ with .Params.images }}{{ index . 0 | absURL | jsonify }}{{ else }}{{ .Site.Params.schemaImage | absURL | jsonify }}{{ end }},
+  "image": {{ with .Params.images }}{{ index . 0 | absURL }}{{ else }}{{ .Site.Params.schemaImage | absURL }}{{ end }},
   "author": {
     "@type": "Organization",
     "name": "Chainguard",
@@ -50,8 +50,8 @@
     {{ if and (not (in $text "See also")) (not (in $text "Next steps")) (not (in $text "References")) (not (in $text "Related")) }}
     {
       "@type": "HowToStep",
-      "name": {{ $text | jsonify }},
-      "url": {{ printf "%s#%s" $.Permalink (anchorize $text) | jsonify }}
+      "name": {{ $text }},
+      "url": {{ printf "%s#%s" $.Permalink (anchorize $text) }}
     }{{ if lt $index (sub (len $headings) 1) }},{{ end }}
     {{ end }}
     {{ end }}
@@ -63,15 +63,15 @@
   "relatedLink": [
     {{ range $index, $page := . }}
     {
-      "@type": "WebPage", 
-      "name": {{ $page.Title | jsonify }},
-      "url": {{ $page.Permalink | jsonify }}
+      "@type": "WebPage",
+      "name": {{ $page.Title }},
+      "url": {{ $page.Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],
   {{ end }}
-  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}
 }
 </script>
 {{ end }}
@@ -82,13 +82,13 @@
 {
   "@context": "https://schema.org",
   "@type": "TechArticle",
-  "headline": {{ .Title | jsonify }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
-  "keywords": {{ with .Params.tags }}{{ delimit . ", " | jsonify }}{{ else }}""{{ end }},
+  "headline": {{ .Title }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "keywords": {{ with .Params.tags }}{{ delimit . ", " }}{{ else }}""{{ end }},
   "wordCount": {{ .WordCount }},
   "timeRequired": "PT{{ $readingTime }}M",
   "proficiencyLevel": "Intermediate",
-  "image": {{ with .Params.images }}{{ index . 0 | absURL | jsonify }}{{ else }}{{ .Site.Params.schemaImage | absURL | jsonify }}{{ end }},
+  "image": {{ with .Params.images }}{{ index . 0 | absURL }}{{ else }}{{ .Site.Params.schemaImage | absURL }}{{ end }},
   "author": {
     "@type": "Organization",
     "name": "Chainguard",
@@ -99,11 +99,11 @@
     "name": "Chainguard",
     "logo": {
       "@type": "ImageObject",
-      "url": {{ .Site.Params.schemaLogo | absURL | jsonify }}
+      "url": {{ .Site.Params.schemaLogo | absURL }}
     }
   },
-  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }},
   {{/* Detect code languages from code blocks */}}
   {{ $languages := slice }}
   {{ $codeBlocks := findRE `<code[^>]*class="language-([^"]+)"` .Content }}
@@ -112,7 +112,7 @@
     {{ $languages = $languages | append $lang | uniq }}
   {{ end }}
   {{ if gt (len $languages) 0 }}
-  "programmingLanguage": {{ delimit $languages ", " | jsonify }},
+  "programmingLanguage": {{ delimit $languages ", " }},
   {{ end }}
   {{/* Add related content for LLMs */}}
   {{ $related := .Site.RegularPages.Related . | first 5 }}
@@ -120,16 +120,16 @@
   "relatedLink": [
     {{ range $index, $page := . }}
     {
-      "@type": "WebPage", 
-      "name": {{ $page.Title | jsonify }},
-      "url": {{ $page.Permalink | jsonify }}
+      "@type": "WebPage",
+      "name": {{ $page.Title }},
+      "url": {{ $page.Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],
   {{ end }}
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": {{ .Permalink | jsonify }}
+    "@id": {{ .Permalink }}
   }
 }
 </script>
@@ -143,8 +143,8 @@
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "name": {{ .Title | jsonify }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "name": {{ .Title }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
   "mainEntity": [
     {{ range $index, $qa := $questions }}
     {{ $parts := split $qa "</h" }}
@@ -153,17 +153,17 @@
     {{ $a := replaceRE `.*<p>([^<]+)</p>.*` "$1" (index $parts 1) | replaceRE `^\s+|\s+$` "" }}
     {
       "@type": "Question",
-      "name": {{ $q | jsonify }},
+      "name": {{ $q }},
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": {{ $a | jsonify }}
+        "text": {{ $a }}
       }
     }{{ if lt $index (sub (len $questions) 1) }},{{ end }}
     {{ end }}
     {{ end }}
   ],
-  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}
 }
 </script>
 {{ end }}
@@ -184,8 +184,8 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": {{ $toolName | jsonify }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "name": {{ $toolName }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Linux, macOS, Windows",
   "offers": {
@@ -209,8 +209,8 @@
 {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "name": {{ .Title | jsonify }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 | jsonify }},
+  "name": {{ .Title }},
+  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
   "learningResourceType": "Tutorial",
   "educationalLevel": "Professional",
   "timeRequired": "PT{{ $readingTime }}M",
@@ -226,8 +226,8 @@
     "name": "Chainguard Academy",
     "url": "https://edu.chainguard.dev"
   },
-  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
-  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
+  "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
+  "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}
 }
 </script>
 {{ end }}
