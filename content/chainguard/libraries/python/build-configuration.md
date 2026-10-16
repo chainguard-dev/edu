@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-16T17:41:48+00:00
+lastmod: 2026-10-16T18:07:01+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -511,7 +511,7 @@ variables. Frozen sync can still query configured indexes, so CI must provide
 credentials even when the lockfile is not being re-resolved. For a named index,
 uv reads credentials from `UV_INDEX_<NAME>_USERNAME` and
 `UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name uppercased with
-hyphens replaced by underscores. This avoids storing credentials in config files
+hyphens replaced by underscores. This avoids storing credentials in configuration files
 while keeping the index configuration shareable.
 
 For example, with an index named `chainguard`:

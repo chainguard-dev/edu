@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-16T17:41:48+00:00
+lastmod: 2026-10-16T18:07:01+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -119,7 +119,7 @@ If CI runs `uv sync --frozen`, configure registry authentication even though the
 For CI, prefer a pull token or repository-manager credential in the CI secret store, mapped to uv's index-scoped environment variables. For an index named chainguard, for example:
 
 ```bash
-UV_INDEX_CHAINGUARD_USERNAME="$CHAINGUARD_PYTHON_IDENTITY_ID"
+export UV_INDEX_CHAINGUARD_USERNAME="$CHAINGUARD_PYTHON_IDENTITY_ID"
 export UV_INDEX_CHAINGUARD_PASSWORD="$CHAINGUARD_PYTHON_TOKEN"
 ```
 
