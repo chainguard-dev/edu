@@ -4,13 +4,13 @@ This document provides instructions for AI systems interacting with the Chaingua
 
 ## Site Overview
 
-Chainguard Education (edu.chainguard.dev) is a comprehensive documentation and learning platform focused on cloud-native security, container security, and software supply chain security. The site contains tutorials, conceptual guides, reference documentation, and best practices for security professionals and developers.
+Chainguard Education (www.chainguard.dev/docs) is a comprehensive documentation and learning platform focused on cloud-native security, container security, and software supply chain security. The site contains tutorials, conceptual guides, reference documentation, and best practices for security professionals and developers.
 
 ## Content Organization
 
 ### Main Sections
 
-The site has six top-level sections. Paths are relative to `https://edu.chainguard.dev`.
+The site has six top-level sections. Paths are relative to `https://www.chainguard.dev/docs`.
 
 1. **Get started** (`/get-started/`) - What Chainguard is, self-serve sign-up, setting up `chainctl`, onboarding teams, Containers and Libraries examples, and migration guides. The shared setup page for Chainguard Checks and Chainguard Workspaces is `/get-started/checks-and-workspaces/set-up/`, and their shared security model is at `/get-started/checks-and-workspaces/how-it-works/`.
 2. **Products** (`/chainguard/`) - One subsection per product, plus the weekly changelog at `/chainguard/changelog/`:
@@ -40,13 +40,13 @@ The site has six top-level sections. Paths are relative to `https://edu.chaingua
 
 ### For AI Consumption
 
-1. **Markdown copy of every page** - Replace the trailing `/` of a page's URL with `.md`, for example `https://edu.chainguard.dev/chainguard/checks/overview.md`. The copy keeps the page's code blocks and tables.
+1. **Markdown copy of every page** - Add `.md` to the end of a page's URL, for example `https://www.chainguard.dev/docs/chainguard/checks/overview.md`. The copy keeps the page's code blocks and tables.
 2. **`/llms.txt`** - An index of every page, with one heading for each product or section
 3. **`/llms-full.txt`** - The full text of every page in one file
 4. **`/ai-sitemap.json`** - The top-level sections, with page counts and featured pages
 5. **`/concepts.json`** - Tag-based concept map with relationships
 6. **`/ai-metadata.json`** - Site metadata and statistics
-7. **AI Docs MCP server** - `https://mcp.edu.chainguard.dev/mcp` searches this documentation. For setup, refer to https://edu.chainguard.dev/platform/mcp-servers/ai-docs/
+7. **AI Docs MCP server** - `https://mcp.edu.chainguard.dev/mcp` searches this documentation. For setup, refer to https://www.chainguard.dev/docs/platform/mcp-servers/ai-docs
 
 ## Best Practices for AI Systems
 

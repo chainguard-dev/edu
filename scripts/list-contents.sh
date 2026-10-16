@@ -46,4 +46,4 @@ echo "  - All files have SHA-256 checksums"
 echo "  - Built on Chainguard wolfi-base image"
 echo "  - Runs as non-root user"
 echo
-echo "Documentation: https://edu.chainguard.dev/platform/mcp-servers/ai-docs/"
+echo "Documentation: https://www.chainguard.dev/docs/platform/mcp-servers/ai-docs"
