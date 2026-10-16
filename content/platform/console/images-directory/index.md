@@ -98,6 +98,12 @@ The **Overview** tab contains the container image's README. READMEs typically ex
 
 The **Comparison** tab compares the CVE count of a Chainguard Container with a non-Chainguard alternative, with charts that visualize the comparison. For more information, refer to [CVE visualizations](/chainguard/containers/security-and-compliance/vulnerability-management/cve-visualizations/).
 
+### Compliance
+
+Container images in your organization also have a **Compliance** tab. It shows the image's Security Technical Implementation Guide (STIG) scan results, lets you download the scan report as an XCCDF XML file, and lists the NIST certificates for any FIPS-validated modules in the image. Results are available only for FIPS container images. You can choose which tag and architecture to review.
+
+For more about the **Compliance** tab, refer to [Using the Compliance Dashboard in the Chainguard Console](/chainguard/containers/security-and-compliance/compliance-dashboard/).
+
 ### Provenance
 
 All of Chainguard's container images contain verifiable signatures and high-quality [software bills of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) (SBOMs). Signatures let you confirm each image's origin, and SBOMs list everything the image contains.

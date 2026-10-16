@@ -6,7 +6,7 @@ linktitle: "FIPS verification"
 description: "Learn how to verify that Chainguard FIPS containers are properly configured to use various FIPS modules."
 type: "article"
 date: 2025-11-23T08:04:00+00:00
-lastmod: 2026-09-28T18:03:13+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["FIPS", "Chainguard Containers", "Reference"]
 menu:
@@ -19,6 +19,8 @@ toc: true
 Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider, Bouncy Castle FIPS, and BoringCrypto. Refer to Chainguard's [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) for a full list of the modules used in Chainguard FIPS Images, as well as their respective CMVP certificates and SBOM indicators.
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
+
+To list the validated modules in a specific container image without running it, open the image's **Compliance** tab in the Chainguard Console. The [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) shows each module with a link to its NIST certificate.
 
 ## Why verify FIPS configuration?
 
@@ -360,5 +362,6 @@ For additional support, contact Chainguard support or consult the FIPS documenta
 ## Related resources
 
 - [Chainguard FIPS Images](https://images.chainguard.dev/directory?fips=true) - Browse all available FIPS-validated container images
+- [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) - Review the FIPS certificates and STIG results for your organization's FIPS container images in the Chainguard Console
 - [NIST CMVP Certificate Search](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search) - Verify cryptographic module certifications
 - [OpenSSL FIPS Test Tool](https://github.com/chainguard-dev/openssl-fips-test) - Source code and documentation for the verification tool

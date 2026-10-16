@@ -14,7 +14,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's FIPS-validated container images for federal compliance, featuring kernel-independent design and simplified deployment for FedRAMP and government requirements"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -51,7 +51,7 @@ For technical details, refer to [Kernel-Independent FIPS Containers](https://www
 
 FIPS images are available for language runtimes (Go, Java, Node.js, Python, .NET, PHP), databases (PostgreSQL, Elasticsearch, Redis), web servers (nginx, HAProxy), Kubernetes components, and monitoring tools. View the complete catalog at [images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
+All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. To review a container image's STIG results and FIPS certificates, use the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) in the Chainguard Console. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
 
 ## Additional resources
 

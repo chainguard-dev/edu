@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "A conceptual overview of Security Technical Implementation Guides, which are available for Chainguard Containers."
 date: 2024-06-13T15:56:52-07:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -30,6 +30,8 @@ The Chainguard GPOS SRG profile applies to all Chainguard Containers — includi
 ## Getting started
 
 The instructions below use OpenSCAP. For an InSpec-based alternative using cinc-auditor, Chainguard also maintains [chainguard-inspec](https://github.com/chainguard-dev/chainguard-inspec), which is a good fit for teams already using InSpec for compliance automation or working with distroless and short-lived containers.
+
+Chainguard also scans its FIPS container images against this profile. To review the results for your organization's FIPS images and download the reports without running a scan yourself, use the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) in the Chainguard Console.
 
 The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-image-stigs) Container. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Container, and makes the `openscap` tool — which can be difficult to set up — more portable.
 
