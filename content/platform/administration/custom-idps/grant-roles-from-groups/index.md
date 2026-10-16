@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-10-02T18:50:45+00:00
+lastmod: 2026-10-15T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -13,6 +13,8 @@ weight: 30
 ---
 
 Chainguard can grant roles based on a user's groups in your identity provider (IdP). You map an IdP group to a Chainguard role once, and from then on any user who logs in with that group in their token receives the role for that session. Access follows group membership, so you manage who gets what in your IdP instead of assigning roles to each user in Chainguard.
+
+The mappings in this guide come from the groups claim in a login token. If you provision users from Okta with SCIM, Okta can push groups instead. Chainguard applies the same mappings to pushed groups, but grants the roles as persistent role bindings that appear in `chainctl iam role-bindings list`, not per session. For that setup, refer to [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles).
 
 This guide covers Okta and Microsoft Entra ID. The Chainguard-side steps (2 through 4) are the same for both providers; only how you emit group membership in Step 1 differs.
 

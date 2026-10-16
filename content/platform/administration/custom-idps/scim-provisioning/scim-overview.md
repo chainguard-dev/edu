@@ -5,7 +5,7 @@ lead: ""
 description: "How SCIM provisioning to the Chainguard platform behaves, and how to manage the provisioning connection over its lifetime."
 type: "article"
 date: 2026-08-14T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-15T00:00:00+00:00
 draft: false
 tags: ["Conceptual", "Procedural"]
 images: []
@@ -14,7 +14,9 @@ weight: 10
 
 System for Cross-domain Identity Management (SCIM) is an open standard for automating the exchange of user identity information between systems. Chainguard uses SCIM to create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them removes their Chainguard access. Accounts follow your IdP, so you manage access in one place.
 
-Chainguard's SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both. Chainguard's SCIM endpoint accepts user provisioning only: group provisioning over SCIM is not yet available, so leave your IdP's SCIM group push turned off.
+Chainguard's SCIM provisioning manages accounts, and with Okta it can also grant roles. Okta can push groups over SCIM, and Chainguard grants the roles you've mapped to each group as role bindings for its members. To set this up, refer to [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles) in the Okta guide. Group provisioning over SCIM isn't yet available for Microsoft Entra ID, so leave its SCIM group push turned off.
+
+You can also grant roles from the groups claim in your IdP's login token, using [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/). Group mappings work with or without SCIM.
 
 This page explains how provisioning behaves and how to manage the connection over its lifetime. To connect a specific identity provider, follow its guide:
 
@@ -27,8 +29,8 @@ Provisioning behaves the same way for every provider:
 
 * **Provisioning creates records, logins create accounts.** When your IdP provisions a user, Chainguard stores a provisioning record. Chainguard creates the user's account the first time they log in, exactly as it would without SCIM, and connects it to their provisioning record automatically. Users who have logged in before are connected at their next login, with no re-registration; their existing access is unaffected.
 * **Matching is by `externalId`, never by email.** A provisioned user connects to a login by matching the SCIM `externalId` your IdP sends against the subject of the login token. Each provider guide covers how to make the two align. Chainguard never uses email addresses for matching.
-* **Deactivation takes effect at the user's next login or token refresh.** When your IdP deactivates or unassigns a provisioned user, their current access token runs out on its own schedule (up to an hour), and Chainguard refuses every attempt to log in or refresh after the deactivation. Reactivating the user in your IdP restores their ability to log in; it does not restore any role bindings that were removed while they were deactivated.
-* **Provisioning does not assign roles.** A provisioned user who logs in gets the identity provider's default role, plus any group-mapped roles and role bindings they hold, same as any other user.
+* **Deactivation takes effect at the user's next login or token refresh.** When your IdP deactivates or unassigns a provisioned user, their current access token runs out on its own schedule (up to an hour), and Chainguard refuses every attempt to log in or refresh after the deactivation. Reactivating the user in your IdP restores their ability to log in; it does not restore any role bindings that were removed while they were deactivated. Bindings from Okta group push are the exception: Chainguard re-creates them from the user's group memberships.
+* **Provisioning assigns roles only through pushed groups.** A provisioned user who logs in gets any group-mapped roles and role bindings they hold, same as any other user. With Okta, they also get role bindings from the groups Okta pushes, as described in [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles). Enabling SCIM clears the identity provider's default role.
 * **Enabling SCIM does not restrict other logins.** Users who aren't provisioned log in exactly as before; provisioning adds lifecycle control only for the users your IdP sends.
 
 ## Prerequisites
