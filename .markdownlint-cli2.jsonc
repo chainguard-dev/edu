@@ -10,6 +10,9 @@
     // Nested list items use 4-space indentation in this repo's docs.
     "MD007": { "indent": 4 },
     "MD040": false,
+    // Doc Detective inline tests use `[comment]: # (...)` lines, which are
+    // link reference definitions that Hugo renders as nothing.
+    "MD053": { "ignored_definitions": ["//", "comment"] },
     // Descriptive-link-text: editorial and subjective; also flags deliberate
     // compact table-cell links. Left to author judgment rather than enforced.
     "MD059": false,

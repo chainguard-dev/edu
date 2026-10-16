@@ -64,3 +64,10 @@ scripts/manual-upload-*.sh
 
 # Vercel Build Output API directory, written by scripts/build-vercel.sh
 .vercel/
+
+# Doc Detective test results and screenshots
+.doc-detective/
+
+# Screenshots Doc Detective writes next to specs outside content/
+tests/doc-detective/*.png
+tests/doc-detective/__pycache__/

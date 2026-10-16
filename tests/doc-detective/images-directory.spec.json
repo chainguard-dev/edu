@@ -1,0 +1,1064 @@
+{
+  "specId": "images-directory",
+  "description": "Tests for content/platform/console/images-directory/index.md. Console tests need a session: run with tests/doc-detective/console-cookie.sh --input tests/doc-detective/images-directory.spec.json",
+  "tests": [
+    {
+      "testId": "console-opens-on-overview",
+      "description": "Signing in opens the Overview page",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "The Overview item in the navigation menu is selected",
+          "find": {
+            "selector": "nav a.Mui-selected[aria-label='Overview']",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-images-organization-tab",
+      "description": "Images opens on the Organization tab, with its columns, search box, and Filter by menu",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Organization tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Organization",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Name column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Name",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Latest tag column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Latest tag"
+          }
+        },
+        {
+          "description": "The table has a Status column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Status"
+          }
+        },
+        {
+          "description": "The table has a Pull URL column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Pull URL"
+          }
+        },
+        {
+          "description": "The table has a Updated column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Updated"
+          }
+        },
+        {
+          "description": "The search box is above the table",
+          "find": {
+            "selector": "input[placeholder='Search organization images...']"
+          }
+        },
+        {
+          "description": "Wait for the first row of images. Filter by stays disabled until the table loads",
+          "find": {
+            "selector": "[role='row'][data-rowindex='0']",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Filter by menu is present. Its text also holds a hidden filter count, so match the end",
+          "find": {
+            "selector": "button[aria-haspopup='true']",
+            "elementText": "/Filter by$/"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-images-catalog-tab",
+      "description": "The Chainguard catalog tab has its four columns, the Add to org button, and the search and filter controls",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the Chainguard catalog tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Chainguard catalog",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Chainguard catalog tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Chainguard catalog",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Name column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Name",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Latest tag column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Latest tag"
+          }
+        },
+        {
+          "description": "The table has a Description column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Description"
+          }
+        },
+        {
+          "description": "The table has a Updated column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Updated"
+          }
+        },
+        {
+          "description": "Images have an Add to org button",
+          "find": {
+            "selector": "button[aria-label='Add to org']",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The search box is above the table",
+          "find": {
+            "selector": "input[placeholder='Search catalog...']"
+          }
+        },
+        {
+          "description": "Wait for the first row of images. Filter by stays disabled until the table loads",
+          "find": {
+            "selector": "[role='row'][data-rowindex='0']",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Filter by menu is present. Its text also holds a hidden filter count, so match the end",
+          "find": {
+            "selector": "button[aria-haspopup='true']",
+            "elementText": "/Filter by$/"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-image-tags-tab",
+      "description": "An organization image opens on the Tags tab, with its columns, Variant menu, and the other tabs",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Organization tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Organization",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Search for an image in your organization",
+          "find": {
+            "selector": "input[placeholder='Search organization images...']",
+            "click": true,
+            "type": [
+              "python",
+              "$ENTER$"
+            ],
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the image from the results",
+          "find": {
+            "elementText": "python",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Tags tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Tags",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Tag column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Tag",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Pull URL column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Pull URL"
+          }
+        },
+        {
+          "description": "The table has a Digest column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Digest"
+          }
+        },
+        {
+          "description": "The table has a Compressed size column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Compressed size"
+          }
+        },
+        {
+          "description": "The table has a Last changed column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Last changed"
+          }
+        },
+        {
+          "description": "The Variant drop-down is present",
+          "find": {
+            "selector": "[aria-label='Select a variant']"
+          }
+        },
+        {
+          "description": "The page has a Overview tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Overview",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Comparison tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Comparison",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Provenance tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Provenance",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Specifications tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Specifications",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a SBOM tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "SBOM",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Vulnerabilities tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Vulnerabilities",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Advisories tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Advisories",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The page has a Builds tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Builds",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-image-specifications-tab",
+      "description": "The Specifications tab shows the raw configuration. Uses the Chainguard catalog image, because python:latest in some organizations has no specifications",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the Chainguard catalog tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Chainguard catalog",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Wait until the Chainguard catalog tab is selected, so its search box is ready",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Chainguard catalog",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Search for an image",
+          "find": {
+            "selector": "input[placeholder='Search catalog...']",
+            "click": true,
+            "type": [
+              "python",
+              "$ENTER$"
+            ],
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the image from the results",
+          "find": {
+            "elementText": "python",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Tags tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Tags",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the Specifications tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Specifications",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Specifications tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Specifications",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Raw configuration heading is present",
+          "find": {
+            "selector": ".MuiTypography-title2",
+            "elementText": "Raw configuration",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-image-sbom-tab",
+      "description": "The SBOM tab has six columns and a Download button",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Organization tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Organization",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Search for an image in your organization",
+          "find": {
+            "selector": "input[placeholder='Search organization images...']",
+            "click": true,
+            "type": [
+              "python",
+              "$ENTER$"
+            ],
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the image from the results",
+          "find": {
+            "elementText": "python",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Tags tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Tags",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the SBOM tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "SBOM",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The SBOM tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "SBOM",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Type column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Type",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Namespace column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Namespace"
+          }
+        },
+        {
+          "description": "The table has a Name column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Name"
+          }
+        },
+        {
+          "description": "The table has a Version column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Version"
+          }
+        },
+        {
+          "description": "The table has a Subpath column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Subpath"
+          }
+        },
+        {
+          "description": "The table has a License column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "License"
+          }
+        },
+        {
+          "description": "The Download button is present",
+          "find": {
+            "selector": "button",
+            "elementText": "Download",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-image-vulnerabilities-tab",
+      "description": "The Vulnerabilities tab has five columns",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Images from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Images",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Organization tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Organization",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Search for an image in your organization",
+          "find": {
+            "selector": "input[placeholder='Search organization images...']",
+            "click": true,
+            "type": [
+              "python",
+              "$ENTER$"
+            ],
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the image from the results",
+          "find": {
+            "elementText": "python",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Tags tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Tags",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the Vulnerabilities tab",
+          "find": {
+            "selector": "[role='tab']",
+            "elementText": "Vulnerabilities",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Vulnerabilities tab is selected",
+          "find": {
+            "selector": "[role='tab'][aria-selected='true']",
+            "elementText": "Vulnerabilities",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a CVE ID column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "CVE ID",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The table has a Severity column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Severity"
+          }
+        },
+        {
+          "description": "The table has a Package column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Package"
+          }
+        },
+        {
+          "description": "The table has a Version column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Version"
+          }
+        },
+        {
+          "description": "The table has a Last detected column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Last detected"
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-helm-charts",
+      "description": "Helm charts in the navigation menu lists charts, some labeled iamguarded",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Helm charts from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Helm charts",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Some charts have an iamguarded label",
+          "find": {
+            "selector": ".MuiChip-label",
+            "elementText": "iamguarded",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "console-packages",
+      "description": "Packages in the navigation menu lists your organization's packages, with a search box and an Architecture drop-down, and a package opens its details",
+      "steps": [
+        {
+          "description": "Get onto chainguard.dev so the session cookie can be set. The favicon skips the login redirect",
+          "goTo": {
+            "url": "https://console.chainguard.dev/favicon.ico",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": null
+            }
+          }
+        },
+        {
+          "description": "Sign in with the token in CHAINGUARD_SESSION_COOKIE. Run with tests/doc-detective/console-cookie.sh",
+          "loadCookie": {
+            "name": "chainguard-session",
+            "variable": "CHAINGUARD_SESSION_COOKIE"
+          }
+        },
+        {
+          "description": "Mark the cookie banner as answered. It appears only sometimes, so a click step would be flaky",
+          "loadCookie": {
+            "name": "OptanonAlertBoxClosed",
+            "variable": "CHAINGUARD_CONSENT_COOKIE"
+          }
+        },
+        {
+          "description": "Open the Console",
+          "goTo": {
+            "url": "https://console.chainguard.dev/",
+            "waitUntil": {
+              "networkIdleTime": null,
+              "domIdleTime": 0
+            }
+          }
+        },
+        {
+          "description": "Open Packages from the navigation menu",
+          "find": {
+            "selector": "nav a",
+            "elementText": "Packages",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The package list has a Name column",
+          "find": {
+            "selector": "[role='columnheader']",
+            "elementText": "Name",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The package list has a search box",
+          "find": {
+            "selector": "input[placeholder]",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The Architecture drop-down is on the package list",
+          "find": {
+            "selector": "[role='combobox']",
+            "elementText": "/^Architecture:/",
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "Open the first package's details",
+          "find": {
+            "selector": "[role='row'][data-rowindex='0'] [role='gridcell']",
+            "click": true,
+            "timeout": 30000
+          }
+        },
+        {
+          "description": "The details panel opens, with a Version drop-down",
+          "find": {
+            "selector": "[role='combobox']",
+            "elementText": "/^Version:/",
+            "timeout": 30000
+          }
+        }
+      ]
+    },
+    {
+      "testId": "directory-sign-in",
+      "description": "The Directory's Sign in button opens the Console",
+      "steps": [
+        {
+          "description": "Open the Directory. Its DOM never settles, so wait for the cookie banner instead",
+          "goTo": {
+            "url": "https://images.chainguard.dev/",
+            "waitUntil": {
+              "domIdleTime": 0,
+              "find": {
+                "elementText": "Reject All"
+              }
+            }
+          }
+        },
+        {
+          "description": "Dismiss the cookie banner so it doesn't cover the page",
+          "click": "Reject All"
+        },
+        {
+          "description": "The Sign in button points to the Console",
+          "find": {
+            "selector": "a[href^='https://console.chainguard.dev']",
+            "elementText": "Sign in",
+            "timeout": 30000
+          }
+        }
+      ]
+    }
+  ]
+}
