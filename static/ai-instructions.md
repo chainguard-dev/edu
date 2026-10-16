@@ -4,13 +4,13 @@ This document provides instructions for AI systems interacting with the Chaingua
 
 ## Site Overview
 
-Chainguard Education (edu.chainguard.dev) is a comprehensive documentation and learning platform focused on cloud-native security, container security, and software supply chain security. The site contains tutorials, conceptual guides, reference documentation, and best practices for security professionals and developers.
+Chainguard Education (www.chainguard.dev/docs) is a comprehensive documentation and learning platform focused on cloud-native security, container security, and software supply chain security. The site contains tutorials, conceptual guides, reference documentation, and best practices for security professionals and developers.
 
 ## Content Organization
 
 ### Main Sections
 
-The site has six top-level sections. Paths are relative to `https://edu.chainguard.dev`.
+The site has six top-level sections. Paths are relative to `https://www.chainguard.dev/docs`.
 
 1. **Get started** (`/get-started/`) - What Chainguard is, self-serve sign-up, setting up `chainctl`, onboarding teams, Containers and Libraries examples, and migration guides. The shared setup page for Chainguard Checks and Chainguard Workspaces is `/get-started/checks-and-workspaces/set-up/`, and their shared security model is at `/get-started/checks-and-workspaces/how-it-works/`.
 2. **Products** (`/chainguard/`) - One subsection per product, plus the weekly changelog at `/chainguard/changelog/`:
