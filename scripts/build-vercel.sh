@@ -44,7 +44,17 @@ else
   else
     host="${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}"
   fi
-  hugo --gc --minify --buildFuture -b "https://$host"
+  base="https://$host"
+
+  # Staging for the move to www.chainguard.dev/docs (this branch only, never
+  # for main). A www preview proxies this branch's deployment at /docs/, so
+  # build for that address. Unlike the production project, it keeps future
+  # pages and noindex.
+  if [ "${VERCEL_GIT_COMMIT_REF:-}" = "reverse-proxy-staging" ]; then
+    base="https://www.chainguard.dev/docs/"
+  fi
+
+  hugo --gc --minify --buildFuture -b "$base"
 fi
 
 # Publish through Vercel's Build Output API, whose config.json carries the
