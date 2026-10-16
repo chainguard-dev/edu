@@ -1,6 +1,5 @@
 ---
 aliases:
-- /chainguard/administration/policies/
 - /chainguard/chainguard-images/staying-secure/policies/
 - /chainguard/containers/staying-secure/policies/
 title: "Chainguard container image pull policies"
@@ -8,7 +7,7 @@ linktitle: "Container pull policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:27:44+00:00
 draft: false
 tags: ["Overview"]
 images: []
