@@ -131,7 +131,7 @@
       {{ partial "footer/main/docs-navigation.html" . }}
 
     </main>
-    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | css.Sass (dict "transpiler" "dartsass") }}
+    {{ $snippetsStyle := resources.Get "scss/snippets.scss" | css.Sass (dict "transpiler" "dartsass" "vars" (dict "basePath" site.Home.RelPermalink)) }}
     {{ $snippetsStyle := $snippetsStyle | minify }}
     <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
     {{- $snippets := resources.Get "js/snippets.js" -}}

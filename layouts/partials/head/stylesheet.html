@@ -3,7 +3,8 @@
   "targetPath" "main.css"
   "includePaths" (slice "node_modules")
   "transpiler" "dartsass"
-  "enableSourceMap" $dev -}}
+  "enableSourceMap" $dev
+  "vars" (dict "basePath" site.Home.RelPermalink) -}}
 {{ if not $dev -}}
   {{ $options = merge $options (dict "outputStyle" "compressed") -}}
 {{ end -}}

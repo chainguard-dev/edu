@@ -1,3 +1,5 @@
+// $basePath is the site's base path ("/" or "/docs/"), from layouts/partials/head/stylesheet.html.
+@use "hugo:vars" as hugo;
 @import "resets";
 @import "fontfamilies";
 @import "breakpoints";
@@ -9,7 +11,7 @@
     font-family: Gellix;
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/Gellix-Regular.woff2") format("woff2");
+    src: url("#{hugo.$basePath}fonts/Gellix-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -17,7 +19,7 @@
     font-family: Gellix;
     font-style: normal;
     font-weight: 700;
-    src: url("/fonts/Gellix-Bold.woff2") format("woff2");
+    src: url("#{hugo.$basePath}fonts/Gellix-Bold.woff2") format("woff2");
 }
 
 // Logo base styles
