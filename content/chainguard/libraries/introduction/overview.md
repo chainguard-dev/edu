@@ -175,16 +175,30 @@ subject to additional security controls before being served.
 
 ### Enable the upstream repository
 
-To enable or change upstream fallback configuration, use the [`chainctl
-libraries entitlements`
-command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+Upstream fallback and the cooldown period are separate settings, and you can change each one without changing the other:
+
+* Your **entitlement** controls whether the repository serves upstream packages. Use the [`chainctl
+  libraries entitlements`
+  command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) to change it.
+* A **library policy** controls the cooldown period. Use the `chainctl libraries policy` command to change it.
+
+When you enable upstream fallback, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
 
 For example, the following command adds the npm upstream fallback policy to your
-JavaScript entitlement. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
+JavaScript entitlement:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
+
+To change the cooldown, create a library policy and enable it for the ecosystem. You can set the cooldown from 1 to 30 days, or set it to 0 to disable it. For example, the following commands disable the cooldown for JavaScript:
+
+```bash
+chainctl libraries policy create --name=no-cooldown --cooldown-days=0
+chainctl libraries policy enable no-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+```
+
+Malware and greyware scanning still applies when the cooldown is disabled. For more options, see [Cooldown policies](/chainguard/chainguard-repository/library-policies/#cooldown-policies).
 
 For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console; you must use `chainctl` to enable fallback for Java and Python.
 
@@ -193,7 +207,7 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 The following options are available:
 
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **Upstream fallback enabled**: Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
@@ -273,6 +287,8 @@ curl -s \
 ### Cooldown period
 
 When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
+
+A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. You can set it from 1 to 30 days, or set it to 0 to disable it.
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
