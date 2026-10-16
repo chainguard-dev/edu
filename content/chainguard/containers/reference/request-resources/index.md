@@ -4,7 +4,7 @@ linktitle: "Requesting resources"
 type: "article"
 description: "How to submit requests for Chainguard to build new resources in the Console."
 date: 2026-02-26T11:07:52+02:00
-lastmod: 2026-10-05T02:44:11+00:00
+lastmod: 2026-10-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Console"]
 images: []
@@ -85,7 +85,6 @@ These notifications work as follows:
 
 * They appear in the **Activity Center** on the Overview page of the Chainguard Console.
 * They are delivered to the organization, not to individual users. Every member of a requesting or upvoting organization sees the same notification.
-* Your organization will not be notified about an artifact that is already in its catalog.
 
 A notification means the requested artifact is now available in the Chainguard catalog. It does not automatically add the artifact to your organization's catalog; as with any newly built resource, you can add it yourself if your organization has [Catalog pricing](/chainguard/containers/reference/pricing/) enabled, or reach out to our sales team to add it to your organization.
 
