@@ -6,7 +6,7 @@
     "name": "{{ .Site.Title }}",
     "domain": "edu.chainguard.dev",
     "description": "{{ .Site.Params.description }}",
-    "last_updated": "{{ now.Format "2025-01-02T15:04:05Z07:00" }}",
+    "last_updated": "{{ now.Format "2006-01-02T15:04:05Z07:00" }}",
     "language": "{{ .Site.Language.Lang }}",
     "base_url": "{{ .Site.BaseURL }}"
   },
@@ -54,7 +54,7 @@
     "total_pages": {{ len .Site.Pages }},
     "sections": {{ len .Site.Sections }},
     "tags": {{ len .Site.Taxonomies.tags }},
-    "build_time": "{{ now.Format "2025-01-02T15:04:05Z07:00" }}"
+    "build_time": "{{ now.Format "2006-01-02T15:04:05Z07:00" }}"
   },
   "update_frequency": {
     "products": "daily",
