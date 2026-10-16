@@ -35,7 +35,7 @@ We also test drafts by previewing rendered content before it's published. Draft 
 
 - **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
 - **Pre-commit checks** — A required `pre-commit` check validates tags, lints, and scans changed files; a git hook stamps content dates; spell-check runs locally. See [Pre-commit](#pre-commit) below for setup.
-- **Deploy previews** — Every pull request builds a Netlify deploy preview with a staging URL. Reviewers open this link to see your changes rendered as they'll appear in production.
+- **Deploy previews** — Every pull request builds a Vercel deploy preview with its own URL. Reviewers open this link to see your changes rendered as they'll appear in production. For a pull request from a fork, a Docs team member must authorize each push before its preview builds.
 
 When you open a pull request, describe how you tested the change so reviewers know what to verify. Recent PRs often list the steps taken, such as previewing pages in the Hugo dev server, confirming links resolve, and running any commands the doc relies on.
 
