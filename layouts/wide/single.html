@@ -14,7 +14,7 @@
     <main class="docs-content">
        <div class="back-button">
         {{ $parentTitle := .Parent.Title }}
-        {{ $parentLink := .Parent.Permalink }}
+        {{ $parentLink := .Parent.RelPermalink }}
         {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
           {{ $parentTitle = "Home" }}
           {{ $parentLink = "/" }}
@@ -64,7 +64,7 @@
       {{ if .Params.tags -}}
       <div class="tag-container">
         {{ range $index, $tag := .Params.tags -}}
-          <a class="tag" href="{{ "/tags/" | absURL }}{{ . | urlize }}/">{{ . }}</a>
+          <a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a>
         {{end}}
         </div>
       {{end}}
@@ -104,14 +104,14 @@
 
     </main>
     {{ $snippetsStyle := resources.Get "scss/snippets.scss" | css.Sass (dict "transpiler" "dartsass") }}
-    <link rel="stylesheet" href="{{ $snippetsStyle.Permalink }}" />
+    <link rel="stylesheet" href="{{ $snippetsStyle.RelPermalink }}" />
     {{- $snippets := resources.Get "js/snippets.js" -}}
-    <script src="{{ $snippets.Permalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
+    <script src="{{ $snippets.RelPermalink }}" integrity="{{ $snippets.Data.Integrity }}"></script>
     {{- $titles := resources.Get "js/titles.js" -}}
-    <script src="{{ $titles.Permalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
+    <script src="{{ $titles.RelPermalink }}" integrity="{{ $titles.Data.Integrity }}"></script>
     {{- $feedbackWidget := resources.Get "js/feedback-widget.js" -}}
     {{ $feedbackWidget := $feedbackWidget | minify }}
-    <script src="{{ $feedbackWidget.Permalink }}" integrity="{{ $feedbackWidget.Data.Integrity }}"></script>
+    <script src="{{ $feedbackWidget.RelPermalink }}" integrity="{{ $feedbackWidget.Data.Integrity }}"></script>
     <!-- {{ if ne .Params.toc false -}}
     <nav class="docs-toc{{ if ne .Site.Params.options.navbarSticky true }} docs-toc-top{{ end }}" aria-label="Secondary navigation">
       {{ partial "sidebar/docs-toc.html" . }}

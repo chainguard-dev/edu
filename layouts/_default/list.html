@@ -19,7 +19,7 @@
       <main class="docs-content">
       <div class="back-button">
         {{ $parentTitle := .Parent.Title }}
-        {{ $parentLink := .Parent.Permalink }}
+        {{ $parentLink := .Parent.RelPermalink }}
         {{ if or (eq $parentTitle "Product Docs") (eq $parentTitle "Open Source") (eq $parentTitle "Education") }}
           {{ $parentTitle = "Home" }}
           {{ $parentLink = site.Home.RelPermalink }}

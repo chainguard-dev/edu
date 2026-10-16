@@ -10,9 +10,9 @@
 {{ end -}}
 {{ $css := resources.Get "scss/app.scss" | css.Sass $options -}}
 {{ if $dev -}}
-  <link rel="stylesheet" href="{{ $css.Permalink | relURL }}">
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}">
 {{ else -}}
   {{ $css = $css | postCSS (dict "config" "config/postcss.config.js") | resources.Fingerprint "sha512" -}}
-  <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 {{ end -}}
 <noscript><style>img.lazyload { display: none; }</style></noscript>
