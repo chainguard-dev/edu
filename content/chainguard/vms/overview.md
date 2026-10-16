@@ -4,7 +4,7 @@ linktitle: "VMs overview"
 description: "Chainguard's virtual-machine images are designed for minimalism, security, and operational clarity."
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard VMs", "Overview"]
 menu:
@@ -14,7 +14,7 @@ weight: 10
 toc: true
 ---
 
-Chainguard VMs offers a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](https://edu.chainguard.dev/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard's virtual-machine images are purpose-built to service the target workload and include only the packages that are essential for its operation.
+Chainguard VMs offers a minimal and verifiable foundation for running ephemeral workloads in cloud and on-prem hypervisor deployments, designed to complement and extend the same secure-by-default philosophy found in [Chainguard Containers](/chainguard/containers/overview/). With a strong focus on rapid CVE remediation and a small attack surface, Chainguard's virtual-machine images are purpose-built to service the target workload and include only the packages that are essential for its operation.
 
 Built in the Chainguard Factory, Chainguard's virtual-machine images benefit from a highly automated, secure-by-design build pipeline that ensures consistent, reproducible artifacts. This streamlined process enables the delivery of VM images that are continuously updated to eliminate known vulnerabilities.
 
@@ -63,7 +63,7 @@ Offering broad compatibility, Chainguard VMs allows for deployment in any enviro
 
 ## Compliance and SLAs
 
-Chainguard's virtual-machine images (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
+Chainguard's virtual-machine images (running Chainguard OS) are intentionally designed to minimize risk, maximize transparency, and satisfy security standards such as [CIS Benchmarks](https://www.chainguard.dev/supply-chain-security-101/what-are-cis-benchmarks), [FedRAMP](/chainguard/containers/security-and-compliance/fedramp-considerations/), SOC 2, and others.
 
 * CVE remediation backed by an [industry-leading SLA](https://www.chainguard.dev/legal/cve-policy): 7 days for critical, 14 days for all others
 * Consistent, reproducible builds

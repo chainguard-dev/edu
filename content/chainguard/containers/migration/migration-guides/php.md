@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate PHP applications to Chainguard Containers for enhanced security, reduced CVEs, and support for both FPM and CLI workloads"
 date: 2024-04-04T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -301,6 +301,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](https://edu.chainguard.dev/chainguard/containers/getting-started/web-and-data-services/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](/chainguard/containers/getting-started/web-and-data-services/mariadb/).
 
 The [Debugging distroless](/chainguard/containers/troubleshooting/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

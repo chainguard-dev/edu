@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -159,7 +159,7 @@ Customers that require older package versions should mirror or store copies inte
 
 Chainguard commits to build packages in the Chainguard Factory with complete SBOMs and our standard enterprise-grade, zero-CVE process. Packages that are used in Chainguard Container images are also covered by our [CVE remediation SLA](https://www.chainguard.dev/legal/cve-policy?utm_source=docs). That commitment continues to apply to these packages when they are included in private APK repositories, but not to images you build yourself using those packages. We cannot extend our SLA to the images because we do not have control of your build.
 
-Similar to the [Chainguard shared responsibility model](https://edu.chainguard.dev/chainguard/containers/concepts/shared-responsibility-model/) for container images, you are responsible for your authored image builds, the build tooling, validation, and compatibility, but now you can do all this using packages that are scanned daily for CVEs. We recommend you always update your builds to new package versions as we release them so are still benefiting from the SLA even if your custom-built images are not covered by it.
+Similar to the [Chainguard shared responsibility model](/chainguard/containers/concepts/shared-responsibility-model/) for container images, you are responsible for your authored image builds, the build tooling, validation, and compatibility, but now you can do all this using packages that are scanned daily for CVEs. We recommend you always update your builds to new package versions as we release them so are still benefiting from the SLA even if your custom-built images are not covered by it.
 
 ## Learn more
 
