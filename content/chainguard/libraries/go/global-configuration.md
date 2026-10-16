@@ -22,7 +22,7 @@ Configure Artifactory with a single remote repository pointed at `https://librar
 
 ## JFrog Artifactory
 
-JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-repositories) for more information.
+JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-modules) for more information.
 
 If an existing Artifactory remote repository points directly to a public Go module proxy, disable or remove it from the virtual repository that your builds use. Artifactory resolves virtual repositories according to their configured order, so a misconfiguration can cause an unprotected module to be served without an obvious build failure.
 
