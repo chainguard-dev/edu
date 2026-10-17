@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under.\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_LIMITS_GET: Cross-organization sandbox limit snapshots, held by the public API's\ninternal reader at the sandbox tenancy group.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under.\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.\n - CAP_ENTITLEMENTS_GET: Reading an organization's plan and effective product limits.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -57,6 +57,7 @@
           "CAP_IAM_IDENTITY_PROVIDERS_DELETE",
           "CAP_IAM_SCIM_MANAGE",
           "CAP_IAM_SCIM_USERS_LIST",
+          "CAP_IAM_SCIM_GROUPS_LIST",
           "CAP_EVENTS_SUBSCRIPTION_CREATE",
           "CAP_EVENTS_SUBSCRIPTION_UPDATE",
           "CAP_EVENTS_SUBSCRIPTION_LIST",
@@ -237,6 +238,7 @@
           "CAP_ACTIONS_LIST",
           "CAP_ACTIONS_DEPENDENCIES_UPDATE",
           "CAP_ACTIONS_DEPENDENCIES_LIST",
+          "CAP_SANDBOX_LIMITS_GET",
           "CAP_SANDBOX_RUN_CREATE",
           "CAP_SANDBOX_RUN_LIST",
           "CAP_SANDBOX_RUN_CANCEL",
@@ -251,7 +253,8 @@
           "CAP_TELEMETRY_CONTAINERS_LIST",
           "CAP_BILLING_MANAGE",
           "CAP_HARNESS_HUNTS_CREATE",
-          "CAP_HARNESS_HUNTS_LIST"
+          "CAP_HARNESS_HUNTS_LIST",
+          "CAP_ENTITLEMENTS_GET"
         ],
         "type": "string"
       },
@@ -880,6 +883,226 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.entitlements.v2beta1.Limit": {
+        "description": "\nLimit is an enforced allowance and its current usage, where measurable.",
+        "properties": {
+          "asOf": {
+            "description": "When usage was read. Unset when usage is unset.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "displayName": {
+            "description": "Customer-facing label.",
+            "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Limit.Kind"
+              }
+            ],
+            "description": "The quantity's accounting kind."
+          },
+          "max": {
+            "description": "Maximum quantity: -1 is unlimited and 0 is not included. Omitted for\nSTATUS_ONLY limits.",
+            "format": "int64",
+            "type": "string"
+          },
+          "name": {
+            "description": "Stable snake_case name shared with plan-refusal ErrorInfo metadata.",
+            "type": "string"
+          },
+          "periodStart": {
+            "description": "Beginning of the accounting period, for PERIOD limits.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "refillTime": {
+            "description": "Earliest time consumed capacity returns in the rolling window.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Limit.Status"
+              }
+            ],
+            "description": "Quota status. REACHED takes precedence over NEAR."
+          },
+          "used": {
+            "description": "Current usage. Unset when unmeasured, unavailable or STATUS_ONLY.",
+            "format": "int64",
+            "type": "string"
+          },
+          "visibility": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Limit.Visibility"
+              }
+            ],
+            "description": "Whether numeric allowance and usage may be disclosed."
+          },
+          "window": {
+            "description": "Duration of a rolling window, for WINDOW limits.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.entitlements.v2beta1.Limit.Kind": {
+        "default": "KIND_UNSPECIFIED",
+        "description": "Kind determines the unit and accounting period.\n\n - KIND_UNSPECIFIED: Unspecified kind.\n - KIND_COUNT: Point-in-time count.\n - KIND_WINDOW: Events in a rolling window.\n - KIND_BYTES: Stored bytes.\n - KIND_PERIOD: Consumption within an accounting period.",
+        "enum": [
+          "KIND_UNSPECIFIED",
+          "KIND_COUNT",
+          "KIND_WINDOW",
+          "KIND_BYTES",
+          "KIND_PERIOD"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.entitlements.v2beta1.Limit.Status": {
+        "default": "STATUS_UNSPECIFIED",
+        "description": "Status distinguishes unmeasured usage from failed usage reads.\n\n - STATUS_UNSPECIFIED: Unspecified status.\n - STATUS_OK: Below the warning threshold, or unlimited.\n - STATUS_NEAR: At or above 80 percent of the allowance.\n - STATUS_REACHED: Usage has reached or exceeded the allowance.\n - STATUS_NOT_INCLUDED: The allowance is zero.\n - STATUS_NOT_MEASURED: Usage is not measured at organization scope.\n - STATUS_UNKNOWN: The usage read failed or timed out.",
+        "enum": [
+          "STATUS_UNSPECIFIED",
+          "STATUS_OK",
+          "STATUS_NEAR",
+          "STATUS_REACHED",
+          "STATUS_NOT_INCLUDED",
+          "STATUS_NOT_MEASURED",
+          "STATUS_UNKNOWN"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.entitlements.v2beta1.Limit.Visibility": {
+        "default": "VISIBILITY_UNSPECIFIED",
+        "description": "Visibility controls whether allowance and usage figures may be exposed.\n\n - VISIBILITY_UNSPECIFIED: Unspecified visibility.\n - VISIBILITY_FULL: Numeric allowance and measurable usage are visible.\n - VISIBILITY_STATUS_ONLY: Only status is visible.",
+        "enum": [
+          "VISIBILITY_UNSPECIFIED",
+          "VISIBILITY_FULL",
+          "VISIBILITY_STATUS_ONLY"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.entitlements.v2beta1.OrganizationEntitlements": {
+        "description": "OrganizationEntitlements is an organization's plan and effective limits.",
+        "properties": {
+          "plan": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Plan"
+              }
+            ],
+            "description": "The plan derived from the root organization's kind."
+          },
+          "products": {
+            "description": "Entitlement state and limits for each requested product.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.ProductEntitlement"
+            },
+            "type": "array"
+          },
+          "unavailableProducts": {
+            "description": "Products with a failed or timed-out usage read.\nTheir affected usage is unset.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Product"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.entitlements.v2beta1.Plan": {
+        "description": "Plan identifies the organization's commercial plan, independently of grants.",
+        "properties": {
+          "displayName": {
+            "description": "Customer-facing plan name.",
+            "type": "string"
+          },
+          "id": {
+            "description": "Stable plan identifier, such as starter, team-v1 or enterprise.",
+            "type": "string"
+          },
+          "upgradeUrl": {
+            "description": "Where to compare upgrades. Empty when no upgrade is offered.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.entitlements.v2beta1.Product": {
+        "default": "PRODUCT_UNSPECIFIED",
+        "description": "Product identifies a product whose entitlements can be reported.\n\n - PRODUCT_UNSPECIFIED: No product selected.\n - PRODUCT_IMAGES: Container images.\n - PRODUCT_HELM_CHARTS: Helm charts.\n - PRODUCT_LIBRARIES: Language libraries.\n - PRODUCT_PACKAGES: OS packages.\n - PRODUCT_SKILLS: Agent skills.\n - PRODUCT_ACTIONS: Actions.\n - PRODUCT_SANDBOX_CHECKS: Checks compute.\n - PRODUCT_SANDBOX_WORKSPACES: Workspaces compute.\n - PRODUCT_PLATFORM: Organization-wide platform capabilities.",
+        "enum": [
+          "PRODUCT_UNSPECIFIED",
+          "PRODUCT_IMAGES",
+          "PRODUCT_HELM_CHARTS",
+          "PRODUCT_LIBRARIES",
+          "PRODUCT_PACKAGES",
+          "PRODUCT_SKILLS",
+          "PRODUCT_ACTIONS",
+          "PRODUCT_SANDBOX_CHECKS",
+          "PRODUCT_SANDBOX_WORKSPACES",
+          "PRODUCT_PLATFORM"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.entitlements.v2beta1.ProductEntitlement": {
+        "description": "ProductEntitlement describes access and enforced limits for one product.",
+        "properties": {
+          "expireTime": {
+            "description": "When the product's access expires, if applicable.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "grants": {
+            "description": "Included capabilities or whole-catalog image tiers.\nNo grant sources or IDs.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "limits": {
+            "description": "Limits enforced for the organization.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Limit"
+            },
+            "type": "array"
+          },
+          "product": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.Product"
+              }
+            ],
+            "description": "The product."
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.ProductEntitlement.State"
+              }
+            ],
+            "description": "Effective entitlement state.",
+            "readOnly": true
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.entitlements.v2beta1.ProductEntitlement.State": {
+        "default": "STATE_UNSPECIFIED",
+        "description": "State describes whether the organization has access to a product.\n\n - STATE_UNSPECIFIED: Unspecified state.\n - STATE_ACTIVE: Access is active.\n - STATE_TRIAL: Access is a trial.\n - STATE_GRACE: The trial is in its grace period.\n - STATE_NOT_INCLUDED: No live grant includes the product.",
+        "enum": [
+          "STATE_UNSPECIFIED",
+          "STATE_ACTIVE",
+          "STATE_TRIAL",
+          "STATE_GRACE",
+          "STATE_NOT_INCLUDED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.events.v2beta1.ListSubscriptionsResponse": {
         "description": "ListSubscriptionsResponse is the response message for ListSubscriptions.",
@@ -2272,6 +2495,33 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.ListScimGroupsResponse": {
+        "description": "ListScimGroupsResponse is the response message for ListScimGroups.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "scimGroups": {
+            "description": "SCIM groups matching the filter criteria.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ScimGroup"
+            },
+            "type": "array"
+          },
+          "skipped": {
+            "description": "Number of results that were skipped.\nAccumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of results matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.ListScimUsersResponse": {
         "description": "ListScimUsersResponse is the response message for ListScimUsers.",
         "properties": {
@@ -2629,6 +2879,60 @@
           "uid": {
             "description": "Unique identifier for the role.",
             "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.ScimGroup": {
+        "description": "ScimGroup is a SCIM-provisioned group of an identity provider. Every field\nis server-owned: SCIM groups are written by the IdP's SCIM connector, not\nthrough this API, which is read-only. Membership is summarized by\nmember_count; the member list is not exposed.",
+        "properties": {
+          "createTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "title": "When the SCIM group record was created.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "string"
+          },
+          "displayName": {
+            "description": "The SCIM displayName attribute: the group's current name.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "externalId": {
+            "description": "The group's correlation key: the value an ExternalGroupRoleMapping\nmatches on, byte for byte and case-sensitively. When the identity\nprovider sends no externalId (Okta does not), the key is the group's\ndisplay name at the time it was first pushed and external_id_derived is\ntrue; a later rename changes display_name but never this key.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "externalIdDerived": {
+            "description": "True when external_id was taken from display_name because the identity\nprovider supplied no externalId.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "identityProviderUid": {
+            "description": "UID of the identity provider that provisioned this group.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "memberCount": {
+            "description": "Number of members the identity provider has pushed to the group. It counts\nprovisioned users, including users who have not yet signed in.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "needsFullSync": {
+            "description": "True while role changes for this group are still being applied: a mapping\nwas added or removed, or the group's membership changed more than a single\nrequest could apply. A background process clears it, normally within about\nfive minutes. While it is true, members may not yet hold the roles mapped\nto the group.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "uid": {
+            "description": "Unique identifier for the SCIM group record (UIDP). Generated by server.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "title": "When the SCIM group record was last updated.\nprotolint:disable:next MAX_LINE_LENGTH",
             "type": "string"
           }
         },
@@ -3176,6 +3480,17 @@
         },
         "type": "object"
       },
+      "chainguard.platform.libraries.v2beta1.FixTargetCheck": {
+        "default": "FIX_TARGET_CHECK_UNSPECIFIED",
+        "description": "FixTargetCheck is the malware gate's verdict on one upgrade target, read when\nthe response is built rather than when the CVE was recorded: a release can\nland on the block list after its fix was named, and the verdict follows it.\n\nA target the gate did not clear is still reported, next to this verdict.\nLeaving the version out would read as \"no fix exists\", which is the one\nanswer that stops a customer looking further.\n\n - FIX_TARGET_CHECK_UNSPECIFIED: No target to check: the version field beside this one is empty.\n - FIX_TARGET_CHECK_CLEARED: The gate cleared the release. It may be recommended as an upgrade.\n - FIX_TARGET_CHECK_BLOCKED: The release is on the malware block list or was found to carry malware.\nA fix exists at this version, and it must not be installed.\n - FIX_TARGET_CHECK_UNVERIFIED: The gate could not clear the release: it has not been scanned yet, the\ngate could not be reached in time, or the ecosystem is outside its\ncoverage. Not a finding against the release, and not a clearance.",
+        "enum": [
+          "FIX_TARGET_CHECK_UNSPECIFIED",
+          "FIX_TARGET_CHECK_CLEARED",
+          "FIX_TARGET_CHECK_BLOCKED",
+          "FIX_TARGET_CHECK_UNVERIFIED"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.libraries.v2beta1.GetArtifactCountResponse": {
         "description": "GetArtifactCountResponse is the response message for GetArtifactCount.",
         "properties": {
@@ -3614,7 +3929,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVERemediation"
               }
             ],
-            "description": "CVE-remediation status of this version. Populated only when the group is\nopted in.",
+            "description": "CVE-remediation status of this version. Populated only when the group is\nopted in and the item is buildable. An item whose availability is\nWONT_BUILD or NOT_FOUND_UPSTREAM is never remediated, because Chainguard\nremediates by shipping a build, so it carries no value here even in an\nopted-in group. Read availability for the reason.",
             "readOnly": true
           },
           "ecosystem": {
@@ -3867,7 +4182,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.RequestedLibraryCVEStatus"
               }
             ],
-            "description": "CVE-remediation status for this library, aggregated across the versions\nwhose request groups opted into CVE remediation.\n\nThat scope is narrower than the library's requested versions, and the\ndifference matters. Opt-in is a property of a request group, so an\norganization with one opted-in group and one that is not has versions of\nthe same library inside and outside this answer. A version nobody asked us\nto scan is not reported here, and does not hold the status back: every\nrung below is a claim about the versions in scope, not about every version\nthe organization pins.\n\nUNSPECIFIED where no contributing group opted in, which reads as \"not\ncomputed\" -- there is no scan to report, and any rung would claim one.",
+            "description": "CVE-remediation status for this library, aggregated across the buildable\nversions whose request groups opted into CVE remediation.\n\nThat scope is narrower than the library's requested versions, and the\ndifference matters. Opt-in is a property of a request group, so an\norganization with one opted-in group and one that is not has versions of\nthe same library inside and outside this answer. A version nobody asked us\nto scan is not reported here, and does not hold the status back: every\nrung below is a claim about the versions in scope, not about every version\nthe organization pins.\n\nA version that build_status counts as not buildable is outside the scope\ntoo. Chainguard remediates by shipping a build, so a version it will not\nbuild is never remediated, and it does not hold the status at REVIEWING.\n\nUNSPECIFIED where no version is in scope, which reads as \"not computed\" --\nthere is no scan to report, and any rung would claim one. That is the case\nwhere no contributing group opted in, and also where every opted-in\nversion is not buildable. Tell the two apart by build_status: WONT_BUILD\nmeans the second.",
             "readOnly": true
           },
           "ecosystem": {
@@ -3970,7 +4285,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVERemediation"
               }
             ],
-            "description": "CVE-remediation status of this version.",
+            "description": "CVE-remediation status of this version. Absent when no contributing group\nopted in, and when availability is WONT_BUILD or NOT_FOUND_UPSTREAM:\nChainguard remediates by shipping a build, so a version it will not build\nis never remediated.",
             "readOnly": true
           },
           "lastRequestTime": {
@@ -4001,7 +4316,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.Upgrade"
               }
             ],
-            "description": "A newer built version to move to, when one exists.",
+            "description": "A newer built version to move to, when one exists and this version is\nrequestable.",
             "readOnly": true
           },
           "version": {
@@ -4015,6 +4330,20 @@
       "chainguard.platform.libraries.v2beta1.RequestedLibraryVersionCVE": {
         "description": "RequestedLibraryVersionCVE is one CVE recorded against one version.\n\nOne row per (version, CVE). Rows are shared across request groups: if\nseveral groups pin the same version, there is one record and a triage\ndecision applies to all of them.",
         "properties": {
+          "advisoryFixCheck": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.FixTargetCheck"
+              }
+            ],
+            "description": "What the malware gate says about advisory_fix_version, checked when this\nresponse was built. UNSPECIFIED exactly when advisory_fix_version is empty.",
+            "readOnly": true
+          },
+          "advisoryFixVersion": {
+            "description": "The version Chainguard's advisory names as fixing this CVE for the version\nasked about, e.g. \"3.9.2\" or \"3.9.0+cgr.1\": the lowest one at or above it,\na cut of the pinned version first.\n\nChainguard's determination, where upstream_fix_version is upstream's. The\ntwo can disagree, and both are reported as recorded rather than reconciled.\nThis one is the answer on a CVE upstream has no fix for, or has not looked\nat.\n\nNot a claim that Chainguard built it: it may name an upstream release.\nremediated_version is the only field that names a Chainguard remediation.\n\nReported whatever the malware gate says about it. Read advisory_fix_check\nbefore recommending it as an upgrade.\n\nEmpty where no Chainguard advisory governs the CVE, or where it names no\nfix at or above the version asked about. It never means no fix exists:\nupstream_fix_version may still name one.",
+            "readOnly": true,
+            "type": "string"
+          },
           "cveId": {
             "description": "The CVE identifier, e.g. \"CVE-2024-12345\". For a vulnerability with no CVE\nassigned, an internal synthetic identifier.",
             "readOnly": true,
@@ -4071,8 +4400,17 @@
             "description": "Remediation state of this CVE on this version.",
             "readOnly": true
           },
+          "upstreamFixCheck": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.FixTargetCheck"
+              }
+            ],
+            "description": "What the malware gate says about upstream_fix_version, checked when this\nresponse was built. UNSPECIFIED exactly when upstream_fix_version is empty.",
+            "readOnly": true
+          },
           "upstreamFixVersion": {
-            "description": "The version the upstream advisory names as fixed, e.g. \"3.9.2\". Upstream's\nclaim, recorded as received and not verified by Chainguard.\n\nNever a remediation Chainguard performed: remediated_version is the only\nfield that names one. Presenting this value as a Chainguard fix credits us\nwith upstream's work, and the two populations differ by an order of\nmagnitude -- upstream has fixed far more CVEs than we have cut a build for.\n\nRead both to answer \"how do I resolve this CVE\": this field says which\nupstream release resolves it, remediated_version says whether Chainguard\nalready remediated the version the caller pinned.\n\nEmpty where upstream recorded no fix, which covers a CVE upstream has not\nfixed and one whose advisory names no version.",
+            "description": "The version the upstream advisory names as fixed, e.g. \"3.9.2\". Upstream's\nclaim, recorded as received and not verified by Chainguard.\n\nNever a remediation Chainguard performed: remediated_version is the only\nfield that names one. Presenting this value as a Chainguard fix credits us\nwith upstream's work, and the two populations differ by an order of\nmagnitude -- upstream has fixed far more CVEs than we have cut a build for.\n\nRead both to answer \"how do I resolve this CVE\": this field says which\nupstream release resolves it, remediated_version says whether Chainguard\nalready remediated the version the caller pinned.\n\nEmpty where upstream recorded no fix, which covers a CVE upstream has not\nfixed and one whose advisory names no version.\n\nReported whatever the malware gate says about it. Read upstream_fix_check\nbefore recommending it as an upgrade.",
             "readOnly": true,
             "type": "string"
           }
@@ -4131,15 +4469,15 @@
         "type": "string"
       },
       "chainguard.platform.libraries.v2beta1.Upgrade": {
-        "description": "Upgrade names newer built versions of the same package.\n\nOrdering is ecosystem-aware — PEP 440 for Python, Maven's own ordering for Java\n— because lexical ordering places 2.10 below 2.9 and would suggest a downgrade.\nNeither ecosystem guarantees semver, so no claim is made that an upgrade is\ncompatible; only that it is newer and built.",
+        "description": "Upgrade names newer built versions of the same package.\n\nOrdering is ecosystem-aware — PEP 440 for Python, Maven's own ordering for Java\n— because lexical ordering places 2.10 below 2.9 and would suggest a downgrade.\nNeither ecosystem guarantees semver, so no claim is made that an upgrade is\ncompatible; only that it is newer and built.\n\nOnly final releases are offered: never a pre-release, and never a\nChainguard remediated release, which is offered as the exact version\nrequested rather than as a version to move to. A Java version keeps the\nvariant the request names, such as \"-jre\" or \".jre8\". For a Python request\nthat names a platform, only versions with a wheel for it are offered.",
         "properties": {
           "closestVersion": {
-            "description": "The smallest built version above the requested one: the minimal move.",
+            "description": "The lowest version that qualifies: the minimal move.",
             "readOnly": true,
             "type": "string"
           },
           "latestVersion": {
-            "description": "The highest built version. Equal to closest_version when only one newer\nversion is built.",
+            "description": "The highest qualifying version found. Equal to closest_version when only\none version qualifies; for a Python request that names a platform, also\nwhen none of the newest versions checked has a matching wheel.",
             "readOnly": true,
             "type": "string"
           }
@@ -6114,6 +6452,72 @@
         "summary": "Create Portal Session",
         "tags": [
           "BillingService"
+        ]
+      }
+    },
+    "/entitlements/v2beta1/organizationEntitlements": {
+      "get": {
+        "description": "GetOrganizationEntitlements reports the organization's plan and supported\nproducts' limits. It does not report prices or billed usage.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "EntitlementsService_GetOrganizationEntitlements",
+        "parameters": [
+          {
+            "description": "A root organization UIDP. Folders are not accepted.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Products to report. Empty selects all supported products: IMAGES and\nPLATFORM. Other products return UNIMPLEMENTED until their reads are served.\n\n - PRODUCT_UNSPECIFIED: No product selected.\n - PRODUCT_IMAGES: Container images.\n - PRODUCT_HELM_CHARTS: Helm charts.\n - PRODUCT_LIBRARIES: Language libraries.\n - PRODUCT_PACKAGES: OS packages.\n - PRODUCT_SKILLS: Agent skills.\n - PRODUCT_ACTIONS: Actions.\n - PRODUCT_SANDBOX_CHECKS: Checks compute.\n - PRODUCT_SANDBOX_WORKSPACES: Workspaces compute.\n - PRODUCT_PLATFORM: Organization-wide platform capabilities.",
+            "in": "query",
+            "name": "products",
+            "schema": {
+              "items": {
+                "enum": [
+                  "PRODUCT_UNSPECIFIED",
+                  "PRODUCT_IMAGES",
+                  "PRODUCT_HELM_CHARTS",
+                  "PRODUCT_LIBRARIES",
+                  "PRODUCT_PACKAGES",
+                  "PRODUCT_SKILLS",
+                  "PRODUCT_ACTIONS",
+                  "PRODUCT_SANDBOX_CHECKS",
+                  "PRODUCT_SANDBOX_WORKSPACES",
+                  "PRODUCT_PLATFORM"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.entitlements.v2beta1.OrganizationEntitlements"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Organization Entitlements",
+        "tags": [
+          "EntitlementsService"
         ]
       }
     },
@@ -8695,6 +9099,100 @@
         "summary": "Set Scim Enabled",
         "tags": [
           "IdentityProvidersService"
+        ]
+      }
+    },
+    "/iam/v2beta1/identityProviders/{parent}/scimGroups": {
+      "get": {
+        "description": "ListScimGroups returns the SCIM-provisioned groups of an identity\nprovider, with pagination. Each group carries its member count and whether\nrole changes for it are still being applied.",
+        "operationId": "ScimGroupsService_ListScimGroups",
+        "parameters": [
+          {
+            "description": "parent is the UID of the identity provider whose SCIM groups to list.\nSCIM groups are a sub-resource of an identity provider and scope to a\nsingle one rather than the group hierarchy, so the parent is required and\nis the authorization scope (AIP-132 parent).",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exact match on the group's external_id (byte for byte).",
+            "in": "query",
+            "name": "externalId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Exact match on the group's current display name.",
+            "in": "query",
+            "name": "displayName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.\nOpaque token with 3-day expiration.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"uid asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of results to skip before returning.\nUsed for random-access pagination (jumping to arbitrary pages).\nCan be combined with page_token to skip from cursor position.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListScimGroupsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Scim Groups",
+        "tags": [
+          "ScimGroupsService"
         ]
       }
     },
@@ -13982,6 +14480,10 @@
       "name": "BillingService"
     },
     {
+      "description": "EntitlementsService reports organization plans, grants and enforced limits.",
+      "name": "EntitlementsService"
+    },
+    {
       "description": "SubscriptionsService manages event subscriptions (webhooks).",
       "name": "SubscriptionsService"
     },
@@ -14020,6 +14522,10 @@
     {
       "description": "TermsService manages legal document acceptance for organizations.",
       "name": "TermsService"
+    },
+    {
+      "description": "ScimGroupsService reads the SCIM-provisioned groups of an identity provider.\nA group's external_id is the key an ExternalGroupRoleMapping matches on, so\na caller assigning a role to a listed group passes that field as the\nmapping's external_group_id.",
+      "name": "ScimGroupsService"
     },
     {
       "description": "ScimUsersService reads the SCIM-provisioned users of an identity provider.",
