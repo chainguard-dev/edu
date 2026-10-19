@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-09T17:42:18+00:00
+lastmod: 2026-10-19T16:06:50+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -115,6 +115,8 @@ Unlike Python and Java, JavaScript remediation does not rely on version preceden
 Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and updates each eligible package to the corresponding `-cgr.N` version. The change depends on where the package sits in your dependency tree: for a direct dependency, the command sets the exact `-cgr.N` version in `package.json`; for a transitive dependency, it adds an override or resolution rule that your package manager supports. In both cases, it also updates the lockfile. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
 
 Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
+
+To see this end to end, the [CVE remediation demo](https://github.com/chainguard-demo/chainguard-libraries-javascript/tree/main/pnpm/cve-remediation) installs a vulnerable and a remediated version of the same package with pnpm and scans both with Grype.
 
 ## Provenance and attestations
 
