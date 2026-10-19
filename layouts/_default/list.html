@@ -1,7 +1,13 @@
 {{ define "main" }}
   {{ if .Params.landingpage }}
   {{ with .Site.GetPage .Params.landingpage }}
-    {{ partial "single-body.html" . }}
+    {{- /* An image in a page bundle can use its bare file name, such as
+         <img src="diagram.png">, because the browser resolves it against the
+         page's URL. Here that page is displayed at this section's URL instead,
+         so resolve those names against the page's own URL. */ -}}
+    {{- $body := partial "single-body.html" . -}}
+    {{- $pageURL := .RelPermalink -}}
+    {{ replaceRE `(<img\s[^>]*?src=")([^"/:#?][^":]*")` (printf "${1}%s${2}" $pageURL) $body | safeHTML }}
   {{ else }}
     {{ warnf "landingpage %q on %q did not resolve to a page" $.Params.landingpage $.Path }}
   {{ end }}
