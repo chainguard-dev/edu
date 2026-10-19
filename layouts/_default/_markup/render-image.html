@@ -1,6 +1,10 @@
 {{ $image := "" -}}
 {{ if (urls.Parse .Destination).IsAbs }}
   {{ $image = resources.GetRemote .Destination -}}
+{{ else if strings.HasPrefix .Destination "/" -}}
+  {{/* A site-absolute path names a shared file in assets/, so pages
+       outside the file's bundle can use it too. */ -}}
+  {{ $image = resources.Get (strings.TrimPrefix "/" .Destination) -}}
 {{ else -}}
   {{ $image = .Page.Resources.GetMatch .Destination -}}
 {{ end -}}
