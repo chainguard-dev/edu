@@ -4,7 +4,7 @@ linktitle: "Overlays overview"
 type: "article"
 description: "How Custom Assembly Overlays use overlays and bindings to apply customizations to a subset of a repository's tags, or to every repository in an organization or folder."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-10-09T00:00:00+00:00
+lastmod: 2026-10-19T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Conceptual", "Custom Assembly"]
 images: []
@@ -45,7 +45,7 @@ When you create, update, or delete a binding, or update an overlay, Chainguard r
 
 ## Tag selectors
 
-Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all`, `--variant`, or `--tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
+Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all-tags`, `--tag-variant`, or `--exact-tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
 
 | Selector | Matches | Example use |
 | --- | --- | --- |

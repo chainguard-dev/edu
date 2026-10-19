@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint overview"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-09T00:00:00+00:00
+lastmod: 2026-10-19T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -196,7 +196,7 @@ chainctl images overlays attach \
   --overlay startup \
   --repo $TAG_REPO \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
 For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
