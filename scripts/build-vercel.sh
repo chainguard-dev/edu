@@ -54,7 +54,19 @@ else
     base="https://www.chainguard.dev/docs/"
   fi
 
+  # The same staging build, with page URLs that have no trailing slash, as the
+  # production project builds them (this branch only, never for main).
+  noslash=false
+  if [ "${VERCEL_GIT_COMMIT_REF:-}" = "reverse-proxy-staging-noslash" ]; then
+    base="https://www.chainguard.dev/docs/"
+    noslash=true
+  fi
+
   hugo --gc --minify --buildFuture -b "$base"
+
+  if [ "$noslash" = true ]; then
+    node scripts/strip-trailing-slashes.mjs public "$base"
+  fi
 fi
 
 # Publish through Vercel's Build Output API, whose config.json carries the
