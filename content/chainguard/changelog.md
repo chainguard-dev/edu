@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-19T18:16:22+00:00
+lastmod: 2026-10-19T18:20:21+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -40,13 +40,13 @@ Chainguard Containers customers who don't use unique tags can start today, begin
 
 _Launched October 14, 2026._
 
-Chainguard Libraries for .NET extends Chainguard Libraries into the .NET ecosystem, covering C#, F#, and Visual Basic. It replaces public NuGet feeds with a secure-by-default Chainguard endpoint that filters dependencies through automated malware and greyware scanning and customizable organization policies, reducing exposure to supply chain attacks.
+[Chainguard Libraries for .NET](/chainguard/libraries/dotnet/) extends Chainguard Libraries into the .NET ecosystem, covering C#, F#, and Visual Basic. It replaces public NuGet feeds with a secure-by-default Chainguard endpoint that filters dependencies through automated malware and greyware scanning and customizable organization policies, reducing exposure to supply chain attacks.
 
 ### Chainguard Libraries for Go is now available in Beta
 
 _Launched October 14, 2026._
 
-Chainguard Libraries for Go extends Chainguard Libraries into the Go ecosystem. It provides a secure endpoint for pulling Go packages, reducing exposure to malicious modules and the operational burden of CVE remediation. The release includes organization policies, malware and greyware scanning, CVE remediation, and private package uploads (in beta).
+[Chainguard Libraries for Go](/chainguard/libraries/go/) extends Chainguard Libraries into the Go ecosystem. It provides a secure endpoint for pulling Go packages, reducing exposure to malicious modules and the operational burden of CVE remediation. The release includes organization policies, malware and greyware scanning, CVE remediation, and private package uploads (in beta).
 
 ### Chainguard Harness is now available in Beta
 
