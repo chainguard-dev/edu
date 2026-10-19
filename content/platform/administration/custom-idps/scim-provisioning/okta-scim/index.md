@@ -21,7 +21,7 @@ This guide covers the Okta-specific setup. For provisioning behavior, token life
 To complete this guide, you need the following:
 
 * Okta already configured for login to Chainguard through an OIDC app integration. If you haven't set that up yet, refer to our guide on [How to integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/).
-* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites): an IAM role that can manage identity providers, two owners with directly assigned role bindings, and an authenticated `chainctl`.
+* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites): an IAM role that can manage identity providers, at least one owner who can sign in and holds the owner role directly, and an authenticated `chainctl`.
 
 The rest of this guide refers to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable:
 
@@ -47,7 +47,7 @@ Next, enable SCIM for your identity provider:
 chainctl iam identity-providers scim enable $IDENTITY_PROVIDER
 ```
 
-Generate the token first: `scim enable` fails with `etag: etag is required` if the identity provider has no token issued yet. If it instead fails with a message about owner-tier identities, your organization doesn't yet have two directly assigned owners; refer to the [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites).
+Generate the token first: `scim enable` fails with `etag: etag is required` if the identity provider has no token issued yet. If it instead fails with a message about owner-tier identities, your organization has no owner who can sign in and holds the owner role directly; refer to the [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites).
 
 Enabling SCIM clears the identity provider's default role. If you set one with `--default-role`, the **DEFAULT ROLE** column in `chainctl iam identity-providers list` is empty afterward.
 
@@ -123,8 +123,10 @@ chainctl iam external-group-role-mappings create \
   --idp $IDENTITY_PROVIDER
 ```
 
+You can map only a role you hold yourself. Chainguard never grants `owner` or `support` through SCIM: it accepts a mapping to either role, but the mapping grants no access.
+
 {{< note >}}
-Okta doesn't send a stable identifier for groups, so Chainguard matches a pushed group by its name. If you rename the group in Okta, the mapping stops matching, and Chainguard reports no error. After a rename, create a mapping for the new name.
+Okta doesn't send a stable identifier for groups, so Chainguard identifies a group by its name the first time it is pushed, matched exactly including case. If you rename the group in Okta, the mapping keeps working under the original name, so keep using the original name in mappings. You can't reuse the original name for a new group until you unlink the original with **Delete the group in the target app**.
 {{< /note >}}
 
 ### Push the group from Okta
@@ -140,7 +142,13 @@ The group's **Push Status** changes to **Active** once Okta has pushed it.
 
 ### Verify the role bindings
 
-Chainguard creates a member's role binding only after that member has logged in to Chainguard at least once. After that first login, membership changes in Okta take effect without another login.
+To confirm that the group reached Chainguard, list the groups Okta has pushed. The output shows each group's name and member count, so you can check it before anyone logs in:
+
+```sh
+chainctl iam identity-providers scim groups list $IDENTITY_PROVIDER
+```
+
+Chainguard creates a member's role binding only after that member has logged in to Chainguard at least once, and that first login applies it immediately. After that first login, new mappings and membership changes in Okta take effect within about five minutes, without another login.
 
 To confirm that Okta provisioned the group's members, list the users it has pushed. Members who haven't logged in yet show `no` in the **LOGGED IN** column:
 
@@ -163,9 +171,18 @@ chainctl iam identity-providers scim users list $IDENTITY_PROVIDER -o json \
 
 The binding's **IDENTITY** column matches this value. If the command prints `null`, the member hasn't logged in to Chainguard yet.
 
-To confirm that removal works, remove the member from the group in Okta, then list the role bindings again. Chainguard deletes the binding shortly after Okta sends the change.
+To confirm that removal works, remove the member from the group in Okta, then list the role bindings again. Chainguard deletes the binding within about five minutes.
 
-If you assigned the member to the provisioning app only through the group, removing them from the group also deactivates their Chainguard user. Okta doesn't remove a deactivated user from the group it pushed, so the user can get the group's role back if they're reactivated. If that happens, open the **Push Groups** tab and select **Push now** from the group's **Push Status** menu. Okta then sends the group's current membership, and Chainguard removes the role.
+If you assigned the member to the provisioning app only through the group, removing them from the group also deactivates their Chainguard user. Okta deactivates the user without sending a membership removal, so Chainguard keeps their group membership, and the user can get the group's role back a few minutes after they're reactivated. To prevent this, open the **Push Groups** tab and select **Push now** from the group's **Push Status** menu before you reactivate the user. Okta then sends the group's current membership, and Chainguard removes the user from the group.
+
+### Retire a group
+
+To stop granting roles from a group, open the **Push Groups** tab and select **Unlink pushed group** from the group's **Push Status** menu. Okta offers two options:
+
+* **Delete the group in the target app**: Chainguard deletes the group and removes the roles that only this group granted.
+* **Leave the group in the target app**: Okta sends nothing, so the group and its roles stay as they were. Members you later remove from the group in Okta keep their roles.
+
+Deleting a group doesn't deprovision its members. To remove a member's Chainguard access, unassign them from the provisioning app.
 
 ## Troubleshooting
 
