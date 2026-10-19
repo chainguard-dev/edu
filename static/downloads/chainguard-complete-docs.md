@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-16 02:20:57_
+_Compiled on: 2026-10-19 02:24:18_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -1310,7 +1310,7 @@ chainctl develop --env generate --parent $ORGANIZATION
 
 To generate the environment, `chainctl` uploads your directory to an AI agent that Chainguard hosts. The generated environment starts from the default environment's packages, adds the toolchains your directory needs, such as `go-1.24` for a Go module, and reaches the open internet. If your repository already has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, `--env generate` ignores it and says so. The option works only with a local directory, not with a repository URL.
 
-In a git checkout, the upload includes tracked files and untracked files that `.gitignore` doesn't exclude, so files that `.gitignore` excludes, such as a `.env` file, stay on your laptop. In a directory that isn't a git checkout, the upload includes every file, so move secrets out of the directory before you pass `--env generate`. Either way, the upload leaves out symbolic links and every directory with one of the following names, at any depth: `.git`, `node_modules`, `vendor`, `target`, `dist`, `build`, `.venv`, `venv`, `__pycache__`, `.tox`, `.mypy_cache`, `.pytest_cache`, `.gradle`, `.idea`, and `.vscode`. `chainctl` releases older than the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) also upload files that `.gitignore` excludes, so update `chainctl` before you pass `--env generate` in a checkout that holds secrets.
+In a git checkout, the upload includes tracked files and untracked files that `.gitignore` doesn't exclude, so files that `.gitignore` excludes, such as a `.env` file, stay on your laptop. In a directory that isn't a git checkout, the upload includes every file, so move secrets out of the directory before you pass `--env generate`. Either way, the upload leaves out symbolic links and every directory with one of the following names, at any depth: `.git`, `node_modules`, `vendor`, `target`, `dist`, `build`, `.venv`, `venv`, `__pycache__`, `.tox`, `.mypy_cache`, `.pytest_cache`, `.gradle`, `.idea`, and `.vscode`. `chainctl` releases older than the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) also upload files that `.gitignore` excludes, so update `chainctl` before you pass `--env generate` in a checkout that holds secrets.
 
 The upload can be at most 32 MiB and 50,000 files. If it's over either limit, `chainctl develop` fails before it creates a session. Open the session with `--env default` or an `--env` file instead.
 
@@ -1428,7 +1428,7 @@ For more about links, refer to [Managing Chainguard App connections](/chainguard
 
 ## You don't have permission {#you-dont-have-permission}
 
-If a `chainctl develop` command fails with a `PermissionDenied` error that says only `permission denied`, the account you're logged in with doesn't have a role in the organization that allows the command, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles). Membership alone isn't enough, because the `viewer` and `editor` roles don't include Workspaces. Ask an organization owner to give you access, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access). If you have more than one Chainguard account, run `chainctl auth status` to check which one you're logged in with.
+If a `chainctl develop` command fails with a `PermissionDenied` error that says only `permission denied`, the account you're logged in with doesn't have a role in the organization that allows the command, as described in [Roles](/chainguard/workspaces/chainctl-develop-reference/#roles). Membership alone isn't enough, because the `viewer` and `editor` roles don't include Workspaces. Ask an organization owner to give you access, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access). If you have more than one Chainguard account, run `chainctl auth status` to check which one you're logged in with.
 
 The `chainctl develop list --all` and `chainctl develop policy set` commands need the `owner` role. Without it, `chainctl develop policy set` fails with the same error, and `chainctl develop list --all` fails with an error that says `listing another owner's sessions requires the list capability on the instance`.
 
@@ -1503,7 +1503,7 @@ The following sections describe the most common causes.
 
 ### No credential has arrived {#no-credential-has-arrived}
 
-If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
+If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
 
 ### The session's host is too old {#the-sessions-host-is-too-old}
 
@@ -1841,7 +1841,7 @@ Claude Code is the only coding agent that sessions supply a model credential for
 
 Claude Code in a session uses the Claude credential from your laptop, so set it up there first:
 
-1. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl) or later, as described in [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl). Earlier versions don't send Claude's credential to a session.
+1. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) or later, as described in [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl). Earlier versions don't send Claude's credential to a session.
 2. Install Claude Code on your laptop, as described in the [Claude Code documentation](https://code.claude.com/docs/en/overview).
 3. Run `claude` on your laptop and log in.
 
@@ -2122,7 +2122,7 @@ This guide walks you through signing up for Chainguard Workspaces, opening a ses
 
 <span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-checks-and-workspaces"></span>
 
-Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Workspaces and Chainguard Checks together. You also need a local clone of a repository on github.com that you can push to. Optionally, install and log in to [Claude Code](https://code.claude.com/docs/en/overview) on your laptop, so you can use it in the session.
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Workspaces and Chainguard Checks together. You also need a local clone of a repository on github.com that you can push to. Optionally, install and log in to [Claude Code](https://code.claude.com/docs/en/overview) on your laptop, so you can use it in the session.
 
 ## Step 2: Open a session
 
@@ -2192,7 +2192,7 @@ The `delete` command asks you to confirm, then destroys the session's VM and its
 
 <span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
 
-Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 ## Next steps
 
@@ -2252,6 +2252,8 @@ Claude Code can keep working after you close your terminal, for as long as its c
 A session reaches the open internet by default, the same as a laptop, so package managers, `git`, and build tools work without configuration. Chainguard always blocks cloud metadata endpoints, loopback addresses, and private IP ranges.
 
 To restrict a session, open it on a check in your `.chainguard/ci.yaml` file that has a `network.egress` allowlist. A session honors the allowlist the same way a check does, and refuses connections to hosts outside it while it keeps running. Unlike Chainguard Checks, though, a session whose environment has no `network` key reaches the open internet. That includes every session that uses a `.chainguard/develop.yaml` file, which can't have a `network` key. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access) for details.
+
+For the security model of Chainguard Workspaces and Chainguard Checks side by side, including the session lifecycle, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 ## Use with Chainguard Checks
 
@@ -2698,7 +2700,7 @@ chainctl develop init [--parent ORGANIZATION] [--github-org ACCOUNT] [--name NAM
 
 Without `--parent`, the command creates a Starter organization if you don't belong to any organization, and uses your organization on the Starter or Team plan if you have exactly one. Otherwise, it fails and asks you to pass `--parent`. Unlike the other commands, it doesn't fall back to the `default.group` value in your `chainctl` configuration.
 
-For what the command asks as it runs, refer to [Sign up with chainctl develop init](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+For what the command asks as it runs, refer to [Sign up with chainctl develop init](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
 
 ## chainctl develop accept-terms {#chainctl-develop-accept-terms}
 
@@ -2756,7 +2758,7 @@ What you can do with `chainctl develop` depends on your role in the session's or
 | `accept-terms` | `owner` or `limited_owner` |
 | `list --all` and `policy set` | `owner` |
 
-The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. A teammate with `sandbox.user` also needs the `viewer` role, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access). To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. A teammate with `sandbox.user` also needs the `viewer` role, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access). To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
@@ -3159,7 +3161,7 @@ To inspect a pull request's latest run, pass the pull request instead. Replace `
 chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 ```
 
-If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
+If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
 For a run after merging, pass the run's ID instead of a commit. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
 
@@ -3171,7 +3173,7 @@ The **Details** link on a check opens the run on a page that Chainguard hosts, w
 
 To pass your organization's name to `--parent`, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, `chainctl` can't find your organization by its name, so pass the organization's ID instead.
 
-To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
 
@@ -3560,7 +3562,7 @@ This guide walks you through signing up for Chainguard Checks, adding checks to 
 
 <span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-chainguard-checks"></span>
 
-Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
 
 ## Step 2: Add a configuration file to your repository
 
@@ -3635,7 +3637,7 @@ Require only the summary check, not the per-check results. A check that a condit
 
 <span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
 
-Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization only to open the run page, to use `chainctl checks` commands such as `status` and `rerun`, or to run checks in a Workspaces session. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 ## Next steps
 
@@ -3703,6 +3705,8 @@ Every check starts from the same minimal base and gets only what you declare:
 | Caches | None unless the check declares one. During the beta, a Go check can reuse build output from earlier runs through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
 
 By default, Chainguard Checks refuses a connection to a host the check doesn't list, and the check keeps running. With `policy: destroy`, Chainguard Checks stops the check's VM instead, and the check fails.
+
+For the security model of Chainguard Checks and Chainguard Workspaces side by side, including trust rings and the run lifecycle, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 ## Use with Chainguard Workspaces
 
@@ -4304,7 +4308,7 @@ A summary works as follows:
 
 A check runs without credentials by default. Its `/work` directory holds your repository's tracked files and history at the commit it tests, so most checks need none. Submodule directories are empty, and files that Git LFS tracks hold their pointer files instead of their content. During the beta, a check gets no GitHub credential, so it can't fetch from private GitHub repositories, such as private Go modules or submodules, or private Git LFS content. To add files from a public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
 
-A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well. During the beta, contact your Chainguard account team to set them up, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
+A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well, as described in [Set up the provider](/chainguard/checks/identity-and-trust/#set-up-the-provider).
 
 Unless `identities.yaml` on your default branch has a `trust` section, any open pull request can get an identity, including one from a fork. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) for the file's format, which pull requests get an identity, and how to limit them.
 
@@ -4409,7 +4413,7 @@ To run your checks in fresh VMs without opening a pull request, push your commit
 chainctl checks run . --watch --parent $ORGANIZATION
 ```
 
-The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
 
 The command prints the run's name, followed by its checks. With `--watch`, it waits until the run finishes, and exits with `1` if a blocking check doesn't pass. To run only one check and the checks it `needs`, add `--check` with its name. To include a check that runs only on request, name it with `--check`, or add `--request` with its name, as a `ci/run:` label does on a pull request. For every flag, refer to the [`chainctl checks run` reference](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run).
 
@@ -4499,7 +4503,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 
 ## Access and organization
 
-Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/#give-teammates-access).
+Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. It can start runs with `chainctl checks run`, which use your allowance, but can't read any run, so don't use `chainctl checks run` there. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
@@ -4866,7 +4870,7 @@ With `-o json`, the command prints one object with the `repository`, `revision`,
 
 ### chainctl checks accept-terms
 
-Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/#sign-up-with-chainctl-develop-init).
+Accepts the terms that Chainguard Checks is offered under for your organization: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms) and the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). An owner of the organization runs it once. The `chainctl develop init` command also asks you to accept these terms, as described in [Get started with Chainguard Checks](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
 
 ```
 chainctl checks accept-terms [--parent ORGANIZATION] [--yes]
@@ -5120,6 +5124,7 @@ Each host accepts the following roles:
 | `apk.cgr.dev` | `apk.pull` | Download packages. |
 | `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
+| `libraries.cgr.dev` | `libraries.java.pull` | Download Java libraries from Chainguard Libraries. |
 | `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
 
 A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
@@ -5140,7 +5145,13 @@ Every Chainguard Checks customer's tokens come from the same issuer, and any rep
 - For Google Cloud, add an OIDC provider to a workload identity pool, with the issuer `https://issuer.enforce.dev` and the attribute mapping `google.subject=assertion.sub`. Grant IAM roles to the principal `principal://iam.googleapis.com/projects/<project-number>/locations/global/workloadIdentityPools/<pool>/subject/chainguard:<repository-id>:<identity>`, never to the whole pool. To refuse other repositories' tokens outright, also give the provider an attribute condition such as `assertion.sub.startsWith('chainguard:<repository-id>:')`.
 - For Chainguard, create an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) in your organization that matches the issuer, the exact subject, and the `exchange_audience`, and bind it to a role that grants the access the check needs.
 
-`chainctl` doesn't show your repository's ID. During the beta, contact your Chainguard account team to set up workload identities and get the ID, or [contact Chainguard](https://www.chainguard.dev/contact?utm=docs) if you signed up yourself.
+To find your repository's ID, run `chainctl checks status` in a checkout of the repository. The ID is on the `Repo ID:` line, and in the `repository_id` field of the JSON output:
+
+```sh
+chainctl checks status . -o json | jq -r .repository_id
+```
+
+Chainguard Checks assigns the ID when it first runs checks on the repository, so open a pull request or push to your default branch before you set up the provider. The ID doesn't change when you rename or transfer the repository. A repository you delete and create again gets a new ID.
 
 ## Which runs get an identity
 
@@ -7918,21 +7929,21 @@ Before you begin, you'll need:
 - An existing JavaScript project with a `package.json` and a lockfile
   (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`)
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-- An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
+- An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement)
   for JavaScript
 
-### Create an entitlement
+### Entitlement and upstream fallback
 
-To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, including a default 7-day cooldown, run:
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
+
+Once your organization is entitled to JavaScript, enable upstream fallback, which includes a default 7-day cooldown, by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
-
 You can also configure [cooldown policies](#packages-not-available-in-chainguard-libraries)
-after you create the entitlement. For example, to create and enforce a
+after you enable upstream fallback. For example, to create and enforce a
 policy for a 14-day cooldown:
 
 ```shell
@@ -8754,6 +8765,10 @@ We recommend configuring the Chainguard Repository (or a repository manager that
 You can continue to use additional registries alongside Chainguard for needs outside this scope, such as your own private or scoped packages from npm or another internal registry.
 
 Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, refer to the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
+
+## CVE remediation
+
+{{% blurb/athena %}}
 
 ## Updating lockfile hashes
 
@@ -10149,7 +10164,7 @@ Configure Artifactory with a single remote repository pointed at `https://librar
 
 ## JFrog Artifactory
 
-JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-repositories) for more information.
+JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-modules) for more information.
 
 If an existing Artifactory remote repository points directly to a public Go module proxy, disable or remove it from the virtual repository that your builds use. Artifactory resolves virtual repositories according to their configured order, so a misconfiguration can cause an unprotected module to be served without an obvious build failure.
 
@@ -10157,7 +10172,7 @@ If an existing Artifactory remote repository points directly to a public Go modu
 
 Before you begin, you need:
 
-- An [entitlement to Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for Go](/chainguard/libraries/go/migration/#entitlement)
 - Administrator access to your repository manager instance
 - A [pull token for Chainguard Libraries for Go](/chainguard/libraries/go/migration/#create-a-pull-token)
 
@@ -10207,37 +10222,37 @@ Use a module and version that are available through your organization's Chaingua
 Fetch the module archive directly from Chainguard and compute its checksum:
 
 ```bash
- curl -fsS -L \\
-   -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \\
-   "https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \
+  "https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 Fetch the same archive through the Artifactory remote repository and compute its checksum:
 
 ```bash
- curl -fsS -L \\
-   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
-   "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
+  "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 Replace `artifactory-host` with your Artifactory hostname. Replace `ARTIFACTORY_USERNAME` and `ARTIFACTORY_TOKEN` with credentials that can read from Artifactory.
 
-Fetch the archive through the virtual repository that developers and CI systems will use:
+Fetch the archive through the virtual repository that developers and CI systems use:
 
 ```bash
- curl -fsS -L \\
-   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
-   "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
+  "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 The three checksums must match. Do not proceed to production rollout if the Artifactory checksum differs from the direct Chainguard checksum or if either Artifactory request fails.
 
 If validation fails, review the following settings:
 
-- URL: confirm that the remote repository URL is exactly https://libraries.cgr.dev/go/.
+- URL: confirm that the remote repository URL is exactly `https://libraries.cgr.dev/go/`.
 - Credentials: regenerate the pull token with `chainctl auth pull-token create --repository=go` and update the Artifactory remote repository credentials. Expired tokens can fail without a clear error in the Artifactory user interface.
 - Advanced configuration: confirm that the redirect and request settings from the initial configuration are applied.
 - Cached files: if the remote repository was previously configured with incorrect settings, delete the affected cached module files from the `go-chainguard` cache and repeat the validation.
@@ -10270,20 +10285,16 @@ Before you begin, you need:
 - An existing Go project with a `go.mod file`. A `go.sum` file is recommended.
 - A supported Go toolchain. Go 1.21 or later is recommended for the current Go Libraries beta.
 - [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/).
-- An [entitlement to Chainguard Libraries for Go](#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for Go](#entitlement)
 - A [pull token for Chainguard Libraries for Go](#create-a-pull-token)
 
-### Create an entitlement
+### Entitlement
 
-To create an entitlement to Chainguard Libraries for Go, run:
-
-```bash
-chainctl libraries entitlements create --ecosystems=GO
-```
+To use Chainguard Libraries for Go, your organization must be entitled to the Go ecosystem. To add an entitlement, contact your Chainguard account team.
 
 You do not need to manually enable upstream fallback for Go; the entitlement for Go automatically includes Chainguard protections for upstream artifacts.
 
-You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You can configure a cooldown policy once your organization is entitled to Go. For example, to create and enforce a policy for a 14-day cooldown:
 
 ```bash
 chainctl libraries policy create --name=go-cooldown-14d --cooldown-days=14
@@ -10634,7 +10645,7 @@ The following errors indicate problems with authentication, entitlements, or a n
 | Error | Meaning | Next steps |
 | -- | -- | -- |
 | Not authenticated (`401`) | Your pull token is missing or expired. | Reconfigure access. See [Access Chainguard Libraries](/chainguard/libraries/introduction/access/). |
-| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | See [Manage library entitlements](/chainguard/libraries/introduction/access/#manage-library-entitlements). |
+| Missing entitlement (`403`) | Your organization is not entitled to the specific ecosystem. | Confirm your [entitlements](/chainguard/libraries/introduction/access/#manage-library-entitlements), or contact your Chainguard account team to add the ecosystem. |
 | Package does not exist (`404`) | The requested package or version does not exist. | Confirm that the package name and version exist on the public upstream registry. |
 
 ## Learn more
@@ -12319,37 +12330,8 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* Entitle access for yourself to Chainguard Libraries:
-
-{{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
-
-{{< tab title="Console" >}}
-
-To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
-
-{{< /tab >}}
-
-{{< tab title="chainctl" >}}
-
-[Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
-
-```bash
-chainctl auth login
-```
-
-{{< blurb/chainctl-auth >}}
-
-Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
-
-```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT
-```
-
-The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
-
-{{< /tab >}}
-
-{{< /tabs >}}
+* Ensure your organization is entitled to Chainguard Libraries. To add an
+  entitlement for an ecosystem, contact your Chainguard account team.
 
 Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
 
@@ -12667,6 +12649,10 @@ To move an existing project over, follow the migration guide for
 [JavaScript](/chainguard/libraries/javascript/migration/), or
 [Python](/chainguard/libraries/python/migration/).
 
+## CVE remediation
+
+{{% blurb/athena %}}
+
 ## Chainguard criteria for building a library
 
 Chainguard Libraries includes thousands of Java, JavaScript, and Python libraries, and coverage is continuously growing as we add more packages and versions over time. Chainguard aims to build libraries that are relevant to our customers and that support broader software supply chain security goals. However, it is not always feasible or safe to rebuild and redistribute every package from public registries such as Maven Central, npm, or PyPI.
@@ -12721,8 +12707,8 @@ To enable or change upstream fallback configuration, use the [`chainctl
 libraries entitlements`
 command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
 
-For example, the following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
+For example, the following command adds the npm upstream fallback policy to your
+JavaScript entitlement. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
@@ -12999,8 +12985,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 ### Prerequisites
 
 - Ensure you have access to Chainguard Libraries.
-    - If you are not a Chainguard user yet, a new Chainguard account must be
-created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    - If you are not a Chainguard user yet, create a Chainguard account. To add
+an entitlement to Chainguard Libraries for your organization, contact your
+Chainguard account team.
 - If you have access to more than one Chainguard organization, confirm the name
 of the one you want to use. You can then pass it to `chainctl` commands with the
 `--parent` parameter.
@@ -13458,31 +13445,24 @@ chainctl iam ids rm --expired
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+An entitlement grants your organization access to a Chainguard Libraries
+ecosystem. To add or remove an entitlement, contact your Chainguard account
+team.
 
-### Create entitlements
+Once your organization is entitled to an ecosystem, you can enable upstream
+fallback and list your entitlements yourself with [`chainctl libraries
+entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
-As administrator you can use [`chainctl libraries entitlements create`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
+### Enable upstream fallback
 
-```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON
-```
-
-To enable upstream fallback for JavaScript, use the `--policy` flag:
+To enable upstream fallback for an entitled ecosystem, use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
-
-### Remove entitlements
-
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
-
-```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT
-```
+To update the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value.
 
 ### List entitlements
 
@@ -14041,9 +14021,11 @@ Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
 * [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-* An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python.
+* An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Python.
 
-If you do not have an entitlement to Chainguard Libraries for Python yet, run the following command to create an entitlement and enable upstream fallback:
+If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
+
+Once your organization is entitled to Python, enable upstream fallback by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -14094,6 +14076,19 @@ Remove or correct any stale entry before proceeding.
 {{< /tabs >}}
 
 > **Note: Do not commit credentials to version control.** Store tokens as environment variables or CI secrets, not as literal values in `pip.conf`, `.netrc`, or any file that might be checked into a repository.
+
+### CI and frozen uv installs
+
+If CI runs `uv sync --frozen`, configure registry authentication even though the command does not re-resolve dependencies. A frozen install can still query configured indexes - for example, to fetch a build backend or another package needed while building a source distribution. Configure credentials before the sync step, and provide access to every index the job may use.
+
+For CI, prefer a pull token or repository-manager credential in the CI secret store, mapped to uv's index-scoped environment variables. For an index named chainguard, for example:
+
+```bash
+export UV_INDEX_CHAINGUARD_USERNAME="$CHAINGUARD_PYTHON_IDENTITY_ID"
+export UV_INDEX_CHAINGUARD_PASSWORD="$CHAINGUARD_PYTHON_TOKEN"
+```
+
+Keep the index name and `UV_INDEX_*` variable names aligned, and set `authenticate = "always"` on the index. If the lockfile contains direct artifact URLs for `libraries.cgr.dev`, a pull-token-backed `.netrc` entry for that host is also suitable. Do not rely on an unauthenticated or reduced-permission path merely because the install is frozen.
 
 ## Step 1: Configure authentication and registry
 
@@ -14511,7 +14506,7 @@ For full details on verification options and output, check out [Verification: An
 
 ## Step 6: Commit and roll out
 
-Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies.
+Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, authentication strategy, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies. Test the exact CI command, including `uv sync --frozen`, with the permissions available to the real pipeline.
 
 For organization-wide rollout using a repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 
@@ -14645,6 +14640,8 @@ and find available packages, package versions, source distribution (sdist), and
 Python wheel files for standard and remediated package version.
 
 ## CVE remediation
+
+{{% blurb/athena %}}
 
 Chainguard Libraries for Python includes the [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated
@@ -14960,7 +14957,8 @@ Note that `pip-compile` embeds your Chainguard index URL, including credentials,
 
 When the configured index changes, `uv sync` automatically re-resolves dependencies and updates `uv.lock` with hashes from the new index. No explicit `uv lock` step is required; running `uv sync` after configuring Chainguard as your index is sufficient. However, running `uv lock` explicitly after switching indexes is recommended to ensure your lock file accurately reflects what is being installed before you run `uv sync`.
 
-Note that `uv sync --frozen` bypasses index configuration entirely and downloads packages using the URLs embedded directly in `uv.lock`. If your lock file was generated against PyPI, `uv sync --frozen` will continue to download from PyPI regardless of your configured index. Run `uv lock` first to update the lock file before using `--frozen`.
+Note that `uv sync --frozen` does not re-resolve dependencies or update `uv.lock`, but it can still query indexes configured in the project or CI environment. For example, `uv` may need to fetch a build backend or another package required to build a source distribution. CI jobs that run `uv sync --frozen` must therefore still provide credentials for every configured index that the job may query.
+A frozen sync uses the sources and hashes recorded in `uv.lock` for locked packages. If your lock file was generated against PyPI, it can still download locked artifacts from PyPI regardless of your configured index. Run `uv lock` to update the lock file after changing indexes, then commit the updated lockfile before using `--frozen` in CI. For CI, use a pull token or repository manager credential exposed through the index configuration, preferably with `uv`'s index-scoped environment variables.
 
 The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
 
@@ -15604,12 +15602,14 @@ index URL using your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`.
 
-The recommended approach for CI/CD and shared configurations is to use
-uv's native index-scoped environment variables. For a named index, uv reads
-credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`,
-where `<NAME>` is the index name uppercased with hyphens replaced by underscores.
-This avoids storing credentials in config files while keeping the index
-configuration shareable.
+The recommended approach for CI/CD and shared configurations (including jobs
+that run `uv sync --frozen`) is to use uv's native index-scoped environment
+variables. Frozen sync can still query configured indexes, so CI must provide
+credentials even when the lockfile is not being re-resolved. For a named index,
+uv reads credentials from `UV_INDEX_<NAME>_USERNAME` and
+`UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name uppercased with
+hyphens replaced by underscores. This avoids storing credentials in configuration files
+while keeping the index configuration shareable.
 
 For example, with an index named `chainguard`:
 
@@ -15708,6 +15708,10 @@ index-strategy = "unsafe-best-match"
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
+
+#### CI and `uv sync frozen`
+
+`uv sync --frozen` verifies and installs from the existing lockfile without re-resolving it, but it is not an offline mode. The command can still query configured indexes when it needs a build backend or another package required to build a source distribution. A CI job that runs a frozen sync therefore still needs valid credentials for the configured indexes.
 
 ## Minimal example projects
 
@@ -16052,7 +16056,7 @@ Chainguard Repository handles upstream fallback and policy enforcement. Artifact
 
 Before you begin, you need:
 
-- An [entitlement to Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#entitlement)
 - Administrator access to your repository manager instance
 - A [pull token for Chainguard Libraries for .NET](/chainguard/libraries/dotnet/migration/#create-a-pull-token)
 
@@ -16219,20 +16223,16 @@ Before getting started, you need:
 - The .NET SDK
     - If you are using macOS, install the .NET SDK with Homebrew: `brew install --cask dotnet-sdk`
 - `chainctl` installed and authenticated
-- An [entitlement to Chainguard Libraries for .NET](#create-an-entitlement)
+- An [entitlement to Chainguard Libraries for .NET](#entitlement)
 - A [pull token for Chainguard Libraries for .NET](#create-a-pull-token)
 
-### Create an entitlement
+### Entitlement
 
-To create an entitlement to Chainguard Libraries for .NET, run:
-
-```bash
-chainctl libraries entitlements create --ecosystems=DOTNET
-```
+To use Chainguard Libraries for .NET, your organization must be entitled to the .NET ecosystem. To add an entitlement, contact your Chainguard account team.
 
 You do not need to manually enable upstream fallback for .NET; the entitlement for .NET automatically includes Chainguard protections for upstream artifacts.
 
-You can also configure a cooldown policy after you create the entitlement. For example, to create and enforce a policy for a 14-day cooldown:
+You can configure a cooldown policy once your organization is entitled to .NET. For example, to create and enforce a policy for a 14-day cooldown:
 
 ```bash
 chainctl libraries policy create --name=dotnet-cooldown-14d --cooldown-days=14
@@ -17102,19 +17102,17 @@ Before you begin, you need:
 - An existing Java project
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 
-### Create an entitlement
+### Entitlement and upstream fallback
 
-You must have an [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled.
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To add an entitlement for your organization, contact your Chainguard account team.
 
-To create an entitlement to Chainguard Libraries for Java and enable upstream fallback, which includes a default 7-day cooldown, run the following command:
+Once your organization is entitled to Java, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-Alternatively, you can create an entitlement in the Chainguard Console: while viewing the Java ecosystem page, follow the prompts to create an access token.
-
-You can also configure cooldown policies after you create the entitlement. For example, to create and enforce a policy that disables the cooldown:
+You can also configure cooldown policies after you enable upstream fallback. For example, to create and enforce a policy that disables the cooldown:
 
 ```shell
 chainctl libraries policy create --name=java-disable-cooldown --cooldown-days=0
@@ -17785,6 +17783,8 @@ Chainguard Libraries, check out the [Java migration
 guide](/chainguard/libraries/java/migration/).
 
 ## CVE remediation
+
+{{% blurb/athena %}}
 
 Chainguard Libraries for Java includes the [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature, available in beta for Spring Boot. Remediated
@@ -22786,7 +22786,7 @@ _Path: chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/index.m
 
 Typically, specific versions of software receive updates on a schedule for a set amount of time. Eventually, though, every version of software will stop receiving support. When project maintainers stop providing updates, it's known as the *End-of-Life* (EOL) stage.
 
-It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
+It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
 
 To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status.
 
@@ -22940,115 +22940,7 @@ Of course, you won't use `curl` to interact with the Chainguard API in most scen
 
 Chainguard's EOL grace period gives customers the opportunity to continue to receive best-effort CVE remediated updates on EOL images, while they work on transitioning to a newer upstream version.
 
-For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our conceptual article on [How end-of-life software accumulates vulnerabilities](/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/) is helpful for understanding the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
-
----
-
-### How end-of-life software accumulates vulnerabilities
-_Path: chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/index.md_
-
-Typically, specific versions of software receive updates on a schedule for a set amount of time. Eventually, though, every version of software will stop receiving support. When project maintainers stop providing updates, it's known as the *End-of-Life* (EOL) stage.
-
-Because it's no longer being actively maintained, software begins to collect vulnerabilities when it reaches EOL. This problem can become compounded when using container images, as they often come with extra components from underlying base images which are all prone to accruing vulnerabilities. This can lead to images with hundreds of components, each collecting vulnerabilities and forming part of the attack surface.
-
-This conceptual article highlights the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
-
-## Findings
-
-Chainguard's internal research team came to the following conclusions after scanning a set of official Docker images that had reached EOL:
-
-- **Takeaway 1**: The longer a project has been EOL, the more vulnerabilities that image will have. On average, an EOL image will accumulate 218 vulnerabilities every six months.
-- **Takeaway 2**: 98.4% of these vulnerabilities accumulate within a given image's components, 1.4% in the application dependencies, and only 0.2% of vulnerability accumulation every six months are directly within the application.
-
-With these takeaways in mind, it's clear that images with EOL software can quickly develop serious security risks. Not only does the target application accumulate vulnerabilities, but so do the dependencies and additional image components, and at a much faster pace.
-
-When a vulnerability appears directly in the source code of the application, that application isn’t going to receive a patch from upstream. This means you'll be forced to update the software or even move on from EOL projects or risk compromising your application's security.
-
-## Vulnerability accumulation in EOL images
-
-To perform this analysis, Chainguard's researchers reviewed a set of software projects listed on [endoflife.date](https://endoflife.date/), a website that keeps track of when products are no longer supported. We matched these projects directly with their official Docker Hub images, finding 38 projects across 237 EOL version releases from 2020–2024. This included popular images such as Traefik, nginx, Rust, and Python. Each version is the last within the project lifecycle right before the EOL date, representing the final updates to the project before it goes EOL. We then used [Grype](https://github.com/anchore/grype) to scan each release to determine where vulnerabilities are appearing in the projects.
-
-When scanning an image for vulnerabilities, our researchers would classify a vulnerability as being in one of three locations:
-
-- **Application:** The core software intended for execution, fulfilling the container's primary purpose. Think of images such as Traefik, Consul, or nginx.
-- **Application dependencies:** Software or libraries the application requires to function and are dependent on the core application source code. For example, Traefik [depends on a TOML parser for Golang](https://github.com/traefik/traefik/blob/master/go.mod#L6C2-L6C28).
-- **Image components:** Additional packages or libraries included within the image, often influenced by the base image. For example, Traefik uses the base Alpine image and thus includes many of its packages.
-
-Within this dataset, the support lifespan for these projects was almost two years, with the median support duration being one year. By aggregating vulnerability counts in six-month intervals based on the EOL date, we calculated the average number of vulnerabilities per project. We noted these versions as the last version prior to the EOL date, representing the final updates for that project lifecycle.
-
-The number of vulnerabilities between older EOL versions and recent EOL versions drastically differ, as shown in the following diagram. For example, the average number of vulnerabilities of an image that went EOL in early 2020 contained 2,065 by 2024, compared to images that reached EOL in 2024 containing 323 vulnerabilities. On average, this equates to an accumulation rate of 218 vulnerabilities every six months in EOL images.
-
-<center><img src="EOL_1.png" alt="Chart aggregating vulnerabilities every six months to depict the accumulation of vulnerabilities based on the application EOL date. As the chart moves right along the x-axis (meaning newer versions) the number of vulnerabilities decreases." style="width:950px;"></center>
-<br />
-
-## Where are the vulnerabilities?
-
-| Time since EOL | Application Vulns | Application Dependency Vulns | Image Component Vulns |
-| :---------- | ---------: | ----------: | ----------: |
-| 0-6 months | <1 CVE | 3 CVEs | 351 CVEs |
-| 6-12 months | 1 CVE | 11 CVEs | 542 CVEs |
-| 12+ months | 3 CVEs | 33 CVEs | 1,601 CVEs |
-
-### Application vulnerabilities
-
-Less than 1% of vulnerability accumulation occurs directly in an image's application, and we found that only 14% of versions that contained a vulnerability included a vulnerability directly within the application in the first six months post-EOL.
-
-Project maintainers won't patch these CVEs, and updating to a newer version or patching it yourself in the source code are the only options for addressing these vulnerabilities.
-
-### Dependency vulnerabilities
-
-In the first six months after an image reaches the EOL stage, 40% of versions contain a vulnerability in the application dependencies. The following table outlines how many vulnerabilities, on average, a dependency will accumulate over time:
-
-| Time span | Number of CVEs |
-| ---------- | ---------- |
-| 0-6 months | 3 |
-| 6-12 months | 11 |
-| 12+ months | 32 |
-
-Fixing these would involve upgrading dependencies and rebuilding the target application, a difficult and labor-intensive task.
-
-### Image component vulnerabilities
-
-As mentioned previously, more than 98% of vulnerability accumulation occurs within the components of the image:
-
-| Time span | Number of CVEs |
-| ---------- | ---------- |
-| 0-6 months | 340 |
-| 6-12 months | 501 |
-| 12+ months | 1,552 |
-
-Ninety-seven percent of these vulnerabilities are within Debian packages. Per [this blog post](https://www.chainguard.dev/unchained/the-zero-cve-challenge-can-official-docker-hub-images-pass-the-test?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) many of these vulnerabilities are found in the latest stable versions of these Debian packages, meaning that you can't make them go away with just an `apt upgrade`.
-
-## A deeper look at Traefik
-
-<center><img src="EOL_3.png" alt="Chart highlighting vulnerability counts across the latest cycle release version of Traefik and the associated EOL date for each cycle. The chart shows older versions have significantly more vulnerabilities than newer ones." style="width:950px;"></center>
-<br />
-
-When scanning the official [Alpine-based image for Traefik](https://github.com/traefik/traefik-library-image/tree/master/tmpl/alpine) with Grype, Chainguard's researchers found that the image versions generally accumulated fewer vulnerabilities than typical, with an average of 25 vulnerabilities identified every six months, as shown in the previous table.
-
-Take version 2.9 of Traefik as an example. It was released on October 3, 2022, with security support provided until April 24, 2023, which is roughly six months. The final update for this version, 2.9.10, was made available on April 6, 2023, just three weeks before the end of its support lifecycle.
-
-Following the release of version 2.9.10, 55 vulnerabilities were reported: four within Traefik itself, 31 associated with its application dependencies, and 20 related to the Docker image components. Below are example CVEs within the various locations of 2.9.10 of the official Traefik Docker image.
-
-### Example CVE within Traefik
-
-- ‍[CVE-2023-47633](https://github.com/advisories/GHSA-6fwg-jrfw-ff7p): Traefik docker container using 100% CPU. This issue was addressed in versions 2.10.6 and 3.0.0-beta5. There are no known workarounds for this vulnerability; your only option is to upgrade.
-
-### Example CVE within a dependency (Docker) of Traefik
-
-- ‍[CVE-2023-28840](https://github.com/advisories/GHSA-232p-vwff-86mp): Docker Swarm encrypted overlay network may be unauthenticated. The affected project is `github.com/docker/docker`, a [dependency](https://github.com/traefik/traefik/blob/v2.10/go.mod#L18) of Traefik. We [fixed this vulnerability](https://github.com/wolfi-dev/os/pull/1779/commits/024b165f14ddad03290ef504c3c46730e596668c) in the Chainguard Container of the Traefik 2.10 cycle.
-
-### Example CVE within an image component of Traefik
-
-- ‍[CVE-2023-5363](https://nvd.nist.gov/vuln/detail/CVE-2023-5363): An out-of-bounds write within OpenSSL, a dependency of the base image [Alpine 3.17](https://github.com/traefik/traefik-library-image/blob/v2.9.10/alpine/Dockerfile#L1) used by Traefik (impacts `libcrypto3` and `libssl3`). The Chainguard Container of Trafeik uses the [wolfi-base image](https://github.com/chainguard-images/images/tree/main/images/wolfi-base), which runs the updated versions of libcrypto3 and libssl3.
-
-## Learn more
-
-End-of-life software represents a significant security risk. This issue becomes particularly critical when vulnerabilities are found directly in the target application of the image.
-
-The only option when that occurs is to update. However, the vast majority of vulnerabilities that appear in an EOL image will come from its additional components, meaning that updating just the application software may not significantly reduce the overall number of vulnerabilities. Thus the best option is to have a plan to keep your software updated to the latest versions promptly.
-
-To learn more about keeping container images up to date, we encourage you to check out our article on [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) as well as our overview of [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/).
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our blog post [Why end-of-life software means 400+ CVEs per year](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year) explains how end-of-life software accumulates vulnerabilities.
 
 ---
 
@@ -31047,6 +30939,21 @@ After filling out the form, click **Request image** to submit your request. Your
 
 The Chainguard team will then review the request and prioritize it based on demand, as determined by the number of upvotes the request has received from users.
 
+## Notifications when a requested artifact is ready
+
+{{< beta feature="The request notifications feature" >}}
+
+If your organization submitted or upvoted a request, Chainguard notifies your organization in the Console when the requested artifact is ready — that is, when Chainguard has finished building it and the request is marked **Delivered**.
+
+These notifications work as follows:
+
+* They appear in the **Activity Center** on the Overview page of the Chainguard Console.
+* They are delivered to the organization, not to individual users. Every member of a requesting or upvoting organization sees the same notification.
+
+A notification means the requested artifact is now available in the Chainguard catalog. It does not automatically add the artifact to your organization's catalog; as with any newly built resource, you can add it yourself if your organization has [Catalog pricing](/chainguard/containers/reference/pricing/) enabled, or reach out to our sales team to add it to your organization.
+
+Request notifications are rolling out gradually and may not yet be enabled for your organization.
+
 ## Limitations
 
 There are a few limitations you should consider before submitting a new request:
@@ -31074,6 +30981,8 @@ The Chainguard GPOS SRG profile applies to all Chainguard Containers — includi
 ## Getting started
 
 The instructions below use OpenSCAP. For an InSpec-based alternative using cinc-auditor, Chainguard also maintains [chainguard-inspec](https://github.com/chainguard-dev/chainguard-inspec), which is a good fit for teams already using InSpec for compliance automation or working with distroless and short-lived containers.
+
+Chainguard also scans its FIPS container images against this profile. To review the results for your organization's FIPS images and download the reports without running a scan yourself, use the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) in the Chainguard Console.
 
 The recommended way to get started with Chainguard's STIG for the GPOS SRG is to use the Chainguard [`openscap`](https://images.chainguard.dev/directory/image/openscap/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-image-stigs) Container. This includes the `openscap` tool itself, the `oscap-docker` libraries, and the Chainguard GPOS STIG profile. This image is built with the same capabilities and low-to-zero CVEs as every other Chainguard Container, and makes the `openscap` tool — which can be difficult to set up — more portable.
 
@@ -31229,6 +31138,161 @@ These containers can be validated against the General Purpose Operating System S
 ## Learn more
 
 You can use OpenSCAP to validate hardening checks against any Chainguard Container, including both FIPS and non-FIPS images, using the process described in [Getting started](#getting-started). Chainguard's STIG hardened FIPS Containers are also generally available. You can check out our [STIG repo](https://github.com/chainguard-dev/stigs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) or [contact us](https://get.chainguard.dev/simplify-fedramp-compliance-5?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information. If you'd like to learn more about how Chainguard Containers can help you meet FedRAMP compliance, we encourage you to refer to our overview of [Chainguard's FIPS-ready container images](/platform/fips/fips-images/).
+
+---
+
+### Using the Compliance Dashboard in the Chainguard Console
+_Path: chainguard/containers/security-and-compliance/compliance-dashboard/index.md_
+
+The Compliance Dashboard in the [Chainguard Console](/platform/console/images-directory/) shows two kinds of compliance evidence for your organization's container images:
+
+* **Security Technical Implementation Guide (STIG) results.** Chainguard scans its container images against a hardening profile based on the Defense Information Systems Agency (DISA) General Purpose Operating System (GPOS) Security Requirements Guide (SRG). The dashboard shows the result of every rule and lets you download the full report.
+* **Federal Information Processing Standards (FIPS) certificates.** The dashboard lists the validated cryptographic modules in each container image and links to their National Institute of Standards and Technology (NIST) certificates.
+
+The dashboard has results only for Chainguard's [FIPS container images](/chainguard/containers/concepts/container-categories/#fips-containers), which are images whose names include `-fips`, such as `go-fips` or `python-fips`. Other container images in your organization still have a **Compliance** tab, but it shows a message that no compliance report is available.
+
+You can use the Compliance Dashboard to review a container image's compliance posture or to collect evidence for an auditor without scanning it yourself. To learn what STIGs are and how Chainguard applies the GPOS SRG to containers, refer to [STIGs for Chainguard Containers](/chainguard/containers/security-and-compliance/stigs/).
+
+## Prerequisites
+
+To use the Compliance Dashboard, you need the following:
+
+* A Chainguard account with access to an organization that includes at least one FIPS container image. The dashboard covers only images in your organization's catalog. It isn't available in the **Chainguard catalog** tab or in the public [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/).
+* A role in that organization that can download image content, such as `owner`, `editor`, or `viewer`. The `console_viewer` role can't open the dashboard. For details on each role, refer to [Roles and role bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+
+## Open the Compliance tab
+
+You can reach the Compliance Dashboard from a container image's details page or from the details panel for a single tag.
+
+To open the full dashboard for a container image, follow these steps:
+
+1. Sign in to the [Chainguard Console](https://console.chainguard.dev/).
+2. In the left-hand navigation, click **Images**. The **Images** page opens to the **Organization** tab.
+3. Click the name of a container image.
+4. On the image's details page, click the **Compliance** tab.
+
+To view compliance results for one tag, follow these steps:
+
+1. On the image's details page, click the **Tags** tab.
+2. Click a tag. A panel with the tag's details opens.
+3. In the panel, click the **Compliance** tab.
+
+The tag panel shows a condensed version of the dashboard. To open the full dashboard from the panel, click **View OSCAP report**.
+
+## Choose a tag and architecture
+
+The full dashboard opens on the image's most recent version. At the top of the dashboard, you can change what it shows:
+
+* **Tag:** Select the tag to review. Results apply to the image index that the tag points to.
+* **Architecture:** Select the CPU architecture, `x86_64` or `arm64`. This choice scopes both the STIG results and the FIPS certificates.
+
+Next to these menus, the dashboard shows the **Index digest** of the selected tag, with a button that copies the digest, and the date the tag last changed.
+
+In the tag panel, the dashboard uses the architecture selected for that tag.
+
+## Review STIG results
+
+The STIG section is titled **STIG validated: DISA General Purpose Operating System SRG**. It shows reference results for the baseline container image in the Chainguard Catalog.
+
+Your results can differ depending on your environment and on any customizations made to the image, such as packages added with [Custom Assembly](/chainguard/containers/custom-assembly/overview/). If a tag has no STIG report, as with any non-FIPS container image, the dashboard shows the message **No compliance report available for**, followed by the image name and tag, in place of both the STIG and FIPS sections.
+
+### Summary
+
+The summary row contains the following fields:
+
+* **Checklist:** The datastream checklist and version used for the scan.
+* **Rule results:** A bar that shows the share of evaluated rules that passed or failed. Rules that resulted in **Not applicable** aren't part of the bar.
+* A count of rules for each result, such as **Pass**, **Fail**, and **Not applicable**.
+* **Scanned:** The date and time the scan finished.
+
+For more information on how the scan ran, hold the pointer over **Scan details**. The panel that appears lists these values:
+
+| Field | Description |
+| ----- | ----------- |
+| **Profile ID** | The XCCDF profile used for the scan. |
+| **Datastream version** | The version of the STIG datastream. |
+| **Scanner image** | The container image that ran the scan. |
+| **Architecture** | The architecture that was scanned. |
+| **Started at** and **Finished at** | When the scan started and finished. |
+| **Scanned digest** | The digest of the image that was scanned. |
+| **XCCDF SHA-256** | The SHA-256 checksum of the XCCDF report. Use this to confirm that a downloaded report matches the one the dashboard displays. |
+
+The **Scanned digest** can differ from the **Index digest** at the top of the page. For current reports, the scanned digest is the image within the index that matches the selected architecture. For a container image built with Custom Assembly that has no report of its own, the dashboard can show the report for the image it's based on. In that case, the scanned digest identifies the base image.
+
+### Rule results
+
+After the summary, a table lists each rule in the checklist, organized into groups. Each row shows the rule's **Title**, **Severity**, and **Result**.
+
+To find specific rules, use these controls:
+
+* Enter text in the **Filter XCCDF rules** box to search the rules.
+* Use the **Result** menu to show only rules with one result, such as **Pass** or **Fail**.
+* Click **Expand all groups** or **Collapse all groups** to show or hide every rule at once.
+
+To open a rule's details, click the rule. The details include the **Rule ID**, **Result**, **Time**, **Severity**, and **Description**.
+
+A rule can have any of the following results:
+
+| Result | Meaning |
+| ------ | ------- |
+| **Pass** | The image meets the rule. |
+| **Fail** | The image doesn't meet the rule. |
+| **Error** | The scanner couldn't evaluate the rule. |
+| **Not applicable** | The rule doesn't apply to the image. |
+| **Not checked** | The scanner didn't evaluate the rule because the rule has no check defined or its checks are turned off. |
+| **Not selected** | The rule isn't part of the selected profile. |
+| **Fixed** | The rule failed and was remediated. |
+| **Informational** | The rule reports information and has no pass or fail outcome. |
+| **Unknown** | The scanner couldn't determine the result. |
+
+Many GPOS SRG requirements cover the container host rather than the container image, so expect some failures when you scan a container. For an explanation of common cases, refer to [False positives and the General Purpose OS STIG](/chainguard/containers/security-and-compliance/stigs/#false-positives-and-the-general-purpose-os-stig).
+
+### Historical reports
+
+Chainguard previously attached each STIG report to the image index instead of to a specific architecture. When the dashboard shows one of these older reports, it displays an **Architecture unknown** notice. These reports don't record the scanned architecture, so the results don't confirm coverage for the architecture you selected.
+
+## Download the XCCDF report
+
+The dashboard lets you download the complete scan results as an XCCDF XML file. This file is the canonical report, and you can open it in any SCAP-compatible tool or share it with an auditor.
+
+To download the report, select a tag and architecture, then click **Download XCCDF**. For a historical report, the button reads **Download historical index XCCDF** and downloads the report attached to the image index. The file name includes the architecture, so you can tell reports for different architectures apart.
+
+To confirm that the file is intact, compare its SHA-256 checksum with the **XCCDF SHA-256** value in **Scan details**:
+
+```sh
+sha256sum DOWNLOADED_FILE.xml
+```
+
+To read the results in a browser, generate an HTML report from the downloaded file with the OpenSCAP command-line tool:
+
+```sh
+oscap xccdf generate report DOWNLOADED_FILE.xml > report.html
+```
+
+To run the full scan yourself with OpenSCAP, refer to [Getting started](/chainguard/containers/security-and-compliance/stigs/#getting-started) in the STIGs guide.
+
+## View FIPS certificate information
+
+The FIPS section is titled **FIPS validated**, followed by the FIPS standard the modules are validated against, such as FIPS 140-3. It lists the validated cryptographic modules in the container image for the selected architecture.
+
+The FIPS table has the following columns:
+
+| Column | Description |
+| ------ | ----------- |
+| **Certification** | The type of certificate: **NIST CMVP Certificate** for a validated cryptographic module, or **NIST Entropy Certificate** for a validated entropy source. |
+| **Description** | A description of the validated module. |
+| **Depends on** | The component in the image that the certificate covers. |
+| **Certificate** | The certificate number. Click it to open the certificate record on the NIST website. |
+
+If the image has no FIPS certificates for the selected architecture, the section shows **No FIPS certificates for this architecture**. In the tag panel, the FIPS section appears only when the image has certificates.
+
+For more about Chainguard's FIPS container images, refer to [FIPS-ready container images](/platform/fips/fips-images/).
+
+## Learn more
+
+* [STIGs for Chainguard Containers](/chainguard/containers/security-and-compliance/stigs/) explains the GPOS SRG profile and how to run the scan locally with OpenSCAP.
+* [FedRAMP technical considerations and risk factors](/chainguard/containers/security-and-compliance/fedramp-considerations/) covers how Chainguard Containers fit into a FedRAMP authorization.
+* [Using the Chainguard Console](/platform/console/images-directory/) walks through the rest of the image details page.
 
 ---
 
@@ -33631,129 +33695,8 @@ If the job log shows a successful run but no pull requests, check the following:
 ## Learn more
 
 * [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) covers the equivalent setup for teams outside GitHub, or teams that want short-lived credentials through an assumable identity.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.
-
----
-
-### Strategies and tooling for updating containers
-_Path: chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/index.md_
-
-When it comes to keeping a system secure, one of the most important measures you can take is to regularly apply updates. In modern, containerized infrastructures, this normally means updating containers to use only the latest container images that are still maintained. A casual observer might expect such a standard and important task to have agreed-on best practices and standardized tooling, but they might be surprised by the wide variety of different solutions and opinions on this problem.
-
-This conceptual article will delve into some of the options and offer guidance on which might work best for readers. This article assumes that you are familiar with [semantic versioning](https://semver.org/) (SemVer) and image tagging. If you aren't acquainted with these concepts, check out this guide on [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/).
-
-## Updating means risk
-
-The core issue with applying updates is that it's a fundamentally risky endeavor; any update to software risks a change to behavior and system breakages. It's a common practice to avoid major updates for weeks or even months in order to ensure bugs have been worked out before upgrading.
-
-Larger software projects (like PostgreSQL, Java, and Node.js) often have multiple versions of their project in support at the same time. This means that users can stay on an older version and avoid the more risky updates while still getting security patches. Although this approach is helpful to operations teams, it is only practical on large projects with paid maintainers that can spend time backporting fixes. Smaller projects will often struggle with just keeping the main version up to date.
-
-## Not updating means more risk
-
-End of Life (EOL) software [presents a host of security risks](/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/). Upgrading may require a great deal of work and proper testing, but it's a small price to pay to keep your systems from being at risk and accruing technical debt.
-
-If your application has an automated test suite with good coverage, you can be confident that any breakages caused by upgrades will be caught before deployment to production. Of course, whenever a test failure occurs, there will be work required to address it. Putting off that work by delaying upgrades will only mean that more work is required in the future as further changes pile up.
-
-Another way organizations test and reduce the risk of breaking changes introduced by updates is through the use of staging environments where changes are tried out before being pushed to production. An alternative approach to this is [testing in production](https://increment.com/testing/i-test-in-production/), which usually involves using techniques like [feature flags](https://www.honeycomb.io/blog/what-is-a-feature-flag-best-practices-and-use-cases) and staged updates to verify the effects of changes before they impact the majority of users.
-
-## Knowing when updates are available
-
-The primary way of knowing when a new image is available is through the registry itself. Many registries will offer a webhook callback service ([Docker Hub](https://docs.docker.com/docker-hub/webhooks/), for example), but this is typically only for your own repositories. If you want to get notified when a public repository is updated, you'll generally have to use a third-party service like [NewReleases](https://newreleases.io/).
-
-If you're trying to find out how outdated the images in your Kubernetes cluster are, you might find the [version-checker](https://github.com/jetstack/version-checker) project to be useful. This is a Kubernetes utility that will create an inventory of your current images and produce a chart showing how out of date they are. The dashboard can form part of a full solution with notifications for outdated software being sent to cluster administrators for mitigation.
-
-## Updating solutions
-
-This section outlines some commonly employed solutions for keeping images up to date. We'll only consider solutions that involve automation — you could argue that `kubectl set image` is an updating solution, but it would only be scalable as part of an automated pipeline.
-
-### Using `latest` or major version tags
-
-One common strategy is to only use the `latest` tag or major version tags. This means having something like the following in your Dockerfile:
-
-``` Dockerfile
-FROM cgr.dev/chainguard/redis:3
-```
-
-Or, if you're using a  Kubernetes manifest, you might have a line like this:
-
-``` Kubernetes
-image: cgr.dev/chainguard/redis:latest
-```
-
-The tag used will determine the jump in the updated version; `latest` will jump major versions so typically a major or minor tag is chosen to limit the size of changes.
-
-The goal for this strategy is to update the image whenever it is rebuilt or redeployed. However, the reality is that this approach is still dependent on caching and configuration (especially the [image pull policy](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)) and it may involve a considerable time to redeployment.
-
-One major issue with this approach is that you lack control and reproducibility over the images that will be deployed. In Kubernetes you can end up with different pods in the same deployment running different versions of the application because nodes pulled the image at slightly different times. Debugging can become difficult, as you can't easily recreate the system. You can't even say for sure what is running in the cluster, which will be a big problem when you need to respond to a security situation.
-
-The advantage of this approach is that it is relatively simple, requires little maintenance, and will keep up to date with changes over time, meaning it's often appropriate for simple projects, or example code. However, it's recommended that you don't deploy the `latest` tag  to production, as doing so can present its own risks.
-
-### Keel
-
-[Keel](https://keel.sh/) is a Kubernetes Operator that will automatically update Kubernetes manifests and Helm charts. It has multiple options for finding updates — typically using webhooks from registries and falling back to polling for new versions. Updates are controlled through [policies](https://keel.sh/docs/#policies) which cover the normal cases.
-
-### GitOps: Flux and ArgoCD
-
-[GitOps](https://medium.com/weaveworks/what-is-gitops-really-e77329f23416) is a set of practices that leverage Git as a single source of truth for infrastructure automation. The two leading GitOps solutions for updating images are Flux and ArgoCD (though there are also newer solutions gaining traction including [fleet](https://github.com/rancher/fleet) and [kluctl](https://kluctl.io/)).
-
-#### Flux
-
-[Flux](https://fluxcd.io/flux/guides/image-update/) uses an [`ImageRepository` custom
-resource](https://fluxcd.io/flux/components/image/imagerepositories/) that polls repositories for updates. There is also support for webhooks via the [Notification Controller](https://fluxcd.io/flux/components/notification/). An [`ImagePolicy` custom
-resource](https://fluxcd.io/flux/components/image/imagepolicies/) defines what tags we're interested in — typically you will use a SemVer policy, such as `range: 5.0.x`, to get minor updates.
-
-An [`ImageUpdateAutomation` resource](https://fluxcd.io/flux/components/image/imageupdateautomations/) then defines how to handle updates, such as by checking an update commit directly or committing to a new branch and opening a GitHub pull request for manual approval. There is also support for reverting updates and suspending automation to support incident response.
-
-#### ArgoCD
-
-ArgoCD has a separate [Image Updater](https://github.com/argoproj-labs/argocd-image-updater) project that can be used to automate updates. Rather than creating new resources, ArgoCD relies on annotations being added to existing manifests. Update strategies are similar to Flux, with support for SemVer and regular expressions to filter tags. Unlike Flux, there is currently no support for webhooks, but this could change in the future.
-
-### ImageStreams
-
-OpenShift has the concept of [ImageStreams](https://docs.openshift.com/container-platform/4.15/openshift_images/image-streams-manage.html) for handling updates. ImageStreams are a "virtual view" on top of images. Deployments and builds can listen for ImageStream notifications to automatically update for new versions.
-
-The underlying data for an ImageStream comes from registries, but decoupling this data means it is possible to have different versions in the ImageStream and on the registry. This in turn allows for processes such as rolling back a deployment without retagging images on the registry. The ImageStream itself is represented as a custom resource which contains a history of previous digests, ensuring that rollbacks are possible even when tags are overwritten (assuming the image isn't deleted).
-
-### Frizbee and digestabot
-
-A best practice in supply chain security is to specify GitHub actions and container images by their *digest*. The digest is a content-based SHA of the image that is guaranteed to always refer to exactly the same version of the action or code, and it is also guaranteed to not have changed. In other words, digests are *immutable*, meaning that they can't be changed to point to something else. The disadvantages are that digests aren't human-readable and you need to keep updating them to stay up to date.
-
-However, It is possible to get something human-readable as well as immutable. The following are valid image references which specify both a meaningful tag and an immutable digest:
-
-```
-cgr.dev/chainguard/wolfi-base:latest@sha256:3eff851ab805966c768d2a8107545a96218426cee1e5cc805865505edbe6ce92
-```
-
-```
-redis:7@sha256:01afb31d6d633451d84475ff3eb95f8c48bf0ee59ec9c948b161adb4da882053
-```
-
-[Frizbee](https://github.com/stacklok/frizbee), a tool from Stacklok, will update image references to the most up-to-date digest. For the above example, it will ask the registry for the digest of the `cgr.dev/chainguard/wolfi-base:latest` image and update it if it doesn't match.
-
-At Chainguard, we take a similar approach with [Digestabot](https://github.com/chainguard-dev/digestabot), a GitHub Action that looks up digests in this format and opens a pull request to update them.
-
-Digestabot authenticates to your private `cgr.dev` registry with an assumable identity. Refer to [Using Digestabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/digestabot/) for configuration details.
-
-### Dependabot
-
-Dependabot is GitHub's tool for monitoring dependencies. It can be used with GitHub, but [can also be self-hosted](https://github.com/dependabot/dependabot-core?tab=readme-ov-file#how-to-run-dependabot).
-
-Dependabot is designed to work with a variety of different package ecosystems, as well as container images referenced in Dockerfiles and Kubernetes manifests. Dependabot runs on a schedule and will open pull requests to update dependencies when it finds outdated versions.
-
-Dependabot authenticates to your private `cgr.dev` registry with a pull token. Refer to [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) for configuration details.
-
-### Renovate
-
-[Renovate](https://github.com/renovatebot/renovate) is a similar solution to Dependabot and opens pull requests to update out-of-date dependencies. The major difference is that Renovate is a self-hosted application that supports multiple repositories, like GitLab, Azure, and Bitbucket, instead of just GitHub.
-
-Refer to [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) for configuration details.
-
-## Conclusion
-
-Something as important as keeping packages up to date has more approaches and tooling than one might expect. This article has shied away from offering any clear recommendations, but this is a matter where every organization will need to choose a solution that suits its own needs.
-
-We encourage you to check out each of the solutions listed in this article and judge them on their own merits. We also suggest you read our other articles on handling EOL software, including [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/).
 
 ---
 
@@ -34408,7 +34351,7 @@ These can be safely ignored. They are caused by Renovate using the `org.opencont
 
 * [Using Digestabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/digestabot/) covers Chainguard's own GitHub Action for keeping digest-pinned references current.
 * [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) covers the equivalent setup for teams already using Dependabot.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.
 * [Renovate's APK datasource documentation](https://docs.renovatebot.com/modules/datasource/apk/) covers every `registryUrl` query parameter Renovate supports.
@@ -34711,7 +34654,7 @@ So please try it out and let me know if you have any questions.
 
 * [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) covers the tool to pair with Digestabot for moving between version streams.
 * [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) covers the equivalent setup for teams outside GitHub.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) explains what a digest is and why pinning to one matters.
 
@@ -34802,7 +34745,7 @@ To learn how to choose the right scanner method for your application, check out 
 
 False positive vulnerabilities are [red herrings](https://en.wikipedia.org/wiki/Red_herring): They look important, but take you away from the vulnerabilities which truly matter. Identifying what vulnerabilities are true and false positives can be difficult, as your false positive results are mixed in with other true positive finds. When dealing with hundreds of vulnerabilities, the [costs of extensive triage and remediation [PDF]](https://media.bitpipe.com/io_15x/io_152272/item_2184126/ponemon-state-of-vulnerability-response-.pdf) can add up fast.
 
-False negative vulnerabilities can have major impacts on a system if they are not discovered. They are a goldmine for attackers if they find them before you do. The successful exploitation of a false negative vulnerability can result in a *zero-day attack*. A [zero-day attack](https://usa.kaspersky.com/resource-center/definitions/zero-day-exploit) occurs when an adversary exploits a vulnerability in software which the maintainer is unaware of. This can cause the attack to go unnoticed or unresolved until the vulnerability is discovered. Many [infamous CVEs](/software-security/cves/infamous-cves/), such as Log4Shell, are examples of incredibly impactful zero-day vulnerabilities.
+False negative vulnerabilities can have major impacts on a system if they are not discovered. They are a goldmine for attackers if they find them before you do. The successful exploitation of a false negative vulnerability can result in a *zero-day attack*. A [zero-day attack](https://usa.kaspersky.com/resource-center/definitions/zero-day-exploit) occurs when an adversary exploits a vulnerability in software which the maintainer is unaware of. This can cause the attack to go unnoticed or unresolved until the vulnerability is discovered. Many [infamous CVEs](https://www.chainguard.dev/supply-chain-security-101/5-real-cve-examples-and-how-to-prevent-them), such as Log4Shell, are examples of incredibly impactful zero-day vulnerabilities.
 
 The presence of false positive and negative vulnerabilities in your scans add another unnecessary layer of complexity to the remediation process. Having an unreliable scanner can increase the amount of time you spend filtering out false positive results, giving you less time to focus on the true positives affecting you. Additionally, an inconsistent scanner reduces your confidence in the completeness and accuracy of your scans, making it difficult to determine if false negatives are lurking among your containers.
 
@@ -55849,7 +55792,7 @@ Swap your existing dependencies for Chainguard Libraries — rebuilt from verifi
 
 ## Build with Checks and Workspaces
 
-Run your pull request checks in isolated microVMs with Chainguard Checks, and your coding agents in remote sessions that hold none of your long-lived credentials with Chainguard Workspaces. [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/) explains how the two work together and signs you up for both.
+Run your pull request checks in isolated microVMs with Chainguard Checks, and your coding agents in remote sessions that hold none of your long-lived credentials with Chainguard Workspaces. [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/) explains how the two work together and signs you up for both. [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/) describes their security model.
 
 ## Evaluate trust
 
@@ -55953,194 +55896,6 @@ A support engineer can start on a problem instead of asking you for more informa
 - What you expected to happen instead.
 
 - Anything else you think might help: logs, screenshots, or a short screen recording.
-
----
-
-### Set up Chainguard Checks and Chainguard Workspaces
-_Path: get-started/checks-and-workspaces.md_
-
-[Chainguard Checks](/chainguard/checks/overview/) runs your repository's CI on every GitHub pull request, with each check in its own microVM. [Chainguard Workspaces](/chainguard/workspaces/overview/) runs your development work, and the coding agents that do it, in a remote microVM session that holds none of your long-lived credentials. You can use either product on its own, but they're built to work together, and you set them up together: one command, `chainctl develop init`, turns on both. This page explains what the products share, then walks you through signing up and giving teammates access.
-
-{{< beta feature="Each product" >}}
-
-## What the products share {#what-the-products-share}
-
-| Shared piece | What it means |
-| ------------ | ------------- |
-| One sign-up | `chainctl develop init` turns on both products, each with its own free monthly allowance. Refer to [Sign up with chainctl develop init](#sign-up-with-chainctl-develop-init). |
-| One GitHub App | The Chainguard App delivers pull request events to Chainguard Checks and, by default, fetches and pushes your repository for Workspaces sessions. A GitHub account can be linked to only one Chainguard organization. |
-| One configuration file | Chainguard Checks runs the checks in your repository's `.chainguard/ci.yaml` file on every pull request. In a Workspaces session, `run-ci` runs the same checks against your working tree, and a session can use the file's environment. |
-| One role | The `sandbox.user` role lets a member use both products. Refer to [Give teammates access](#give-teammates-access). |
-
-## How they work together {#how-they-work-together}
-
-A typical loop uses both products:
-
-1. Open a Workspaces session on your repository, and let Claude Code make a change.
-2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
-3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
-4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
-
-## Prerequisites {#prerequisites}
-
-Before you begin, make sure you have the following:
-
-- A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
-- A local clone of a repository on github.com that you can push to.
-- A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
-
-## Install or update chainctl {#install-or-update-chainctl}
-
-You sign up with `chainctl`, and you use it with both products: `chainctl checks` for Chainguard Checks and `chainctl develop` for Chainguard Workspaces. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
-
-Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
-
-```shell
-sudo chainctl update
-```
-
-If you installed `chainctl` with Homebrew, run `brew upgrade chainctl` instead. Refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
-
-## Install the Chainguard App {#install-the-chainguard-app}
-
-The Chainguard App is a GitHub App that connects your repositories to Chainguard. Chainguard Checks receives pull request events and reports results through it, and by default, Workspaces sessions fetch and push your repository through it. [Guardener](/chainguard/guardener/) uses the same app.
-
-1. Go to the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new).
-2. Choose the personal account or organization that owns your repository.
-3. Choose **All repositories**, or select the repositories you want to use with Chainguard Checks or Chainguard Workspaces.
-4. Review the requested permissions and select **Install**.
-
-Installing the app doesn't change your repositories. Chainguard Checks runs only on repositories that have a `.chainguard/ci.yaml` file, after you link the account in the next step.
-
-## Sign up with chainctl develop init {#sign-up-with-chainctl-develop-init}
-
-The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
-
-Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
-
-```shell
-chainctl develop init
-```
-
-To create an organization, sign in with a work email address, using a password or a Google account. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub or GitLab.
-
-The command does the following:
-
-1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
-2. Picks the Chainguard organization to use:
-    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
-    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
-    - Otherwise, it stops and asks you to choose an organization with `--parent`.
-3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
-4. If your organization isn't linked to a GitHub account yet, asks which one to link. Link the account that owns your repository: press `Enter` to link your own GitHub user, or enter the name of a GitHub organization where you have the owner role, such as `acme`, not a URL. The command opens your browser so you can authorize the link. If the Chainguard App isn't installed on the account, the command offers to open the installation page, then authorizes and links the account again.
-5. Turns on Chainguard Checks and Chainguard Workspaces with their monthly allowances, and prints each product's limits. If Chainguard already granted your organization an allowance, the command keeps it.
-6. Offers to connect your GitHub account, if you haven't yet and your organization allows it, so that the Workspaces sessions you create act on GitHub as you. The connection uses Chainguard Develop, a GitHub App separate from the Chainguard App. If you run the command in your repository's directory, it also offers to install Chainguard Develop on the GitHub accounts your repository needs. Chainguard Checks doesn't need this connection, so you can decline and connect later with `chainctl develop github login`, as described in [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
-
-When you authorize the link, GitHub might ask you to authorize single sign-on for your GitHub organizations. If you're linking your own GitHub user, select **Continue**. To link an organization that uses SAML single sign-on, authorize single sign-on for that organization.
-
-A GitHub account can be linked to only one Chainguard organization at a time. If the account you choose is already linked to another Chainguard organization, `chainctl develop init` names the account and, in an interactive terminal, asks for a different one to link. To move the account to your organization instead, press `Ctrl+C` to stop the command, and then refer to [Moving a GitHub organization to a different Chainguard organization](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
-
-If `chainctl develop init` stops with an error, refer to [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
-
-### Answer questions ahead of time {#answer-questions-ahead-of-time}
-
-You can answer some of the command's questions with flags:
-
-| Flag | What it does |
-| ---- | ------------ |
-| `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
-| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
-
-For example, to link the `acme` GitHub organization:
-
-```shell
-chainctl develop init --github-org acme
-```
-
-For every flag, refer to the [`chainctl develop init` reference](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-init).
-
-### Use an organization your company already has {#use-an-organization-your-company-already-has}
-
-If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). An owner can then turn on both products in it, replacing `$ORGANIZATION` with the organization's name:
-
-```shell
-chainctl develop init --parent $ORGANIZATION
-```
-
-If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
-
-An organization that has a product through the account team must also accept that product's terms, which takes the `owner` role. Until an owner accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
-
-```shell
-chainctl checks accept-terms --parent $ORGANIZATION
-chainctl develop accept-terms --parent $ORGANIZATION
-```
-
-If your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.
-
-## Give teammates access {#give-teammates-access}
-
-Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization to open the Chainguard Checks run page, to use `chainctl checks` commands such as `status` and `rerun`, or to open Workspaces sessions. Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits).
-
-| Role | In Chainguard Checks | In Chainguard Workspaces |
-| ---- | -------------------- | ------------------------ |
-| `viewer` | Lets `chainctl` find your organization by name, which `--parent $ORGANIZATION` needs. | Lets `chainctl develop` find your organization by name. |
-| `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. |
-| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. |
-
-A teammate who uses `sandbox.user` also needs `viewer`. For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
-
-### Add a teammate {#add-a-teammate}
-
-In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate and grant them the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
-
-1. Create an invite for your teammate with the `viewer` role. Your teammate needs it as well as `sandbox.user`, because `sandbox.user` alone doesn't let `chainctl` find your organization. Replace `$EMAIL` with your teammate's email address:
-
-    ```shell
-    chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
-    ```
-
-2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `$INVITE_CODE` with the code:
-
-    ```shell
-    chainctl auth login --invite-code $INVITE_CODE
-    ```
-
-3. After your teammate accepts, list your organization's role-bindings. The output shows each member's identity ID next to their email address:
-
-    ```shell
-    chainctl iam role-bindings list --parent $ORGANIZATION
-    ```
-
-4. Grant your teammate the `sandbox.user` role, replacing `$IDENTITY_ID` with their identity ID:
-
-    ```shell
-    chainctl iam role-bindings create --identity $IDENTITY_ID --role sandbox.user --parent $ORGANIZATION
-    ```
-
-Your teammate can then install `chainctl`, as described in [Install or update chainctl](#install-or-update-chainctl), and open a session, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session).
-
-### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
-
-If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
-
-To invite a teammate, run steps 1 and 2 of [Add a teammate](#add-a-teammate). To let your teammate open sessions, use `--role limited_owner` instead of `--role viewer` in step 1:
-
-```shell
-chainctl iam invite create $ORGANIZATION --role limited_owner --email $EMAIL
-```
-
-The `limited_owner` role also lets its holder manage your organization's billing and invite or remove members.
-
-Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
-
-A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request. For details, refer to [Request access with chainctl](/chainguard/containers/reference/catalog-starter/#request-access-with-chainctl).
-
-## Next steps {#next-steps}
-
-- [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
-- [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
-- [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.
 
 ---
 
@@ -56565,6 +56320,364 @@ If your organization uses per-image pricing, or a chart requires images outside 
 ## Use your charts
 
 After provisioning completes, authenticate and deploy your charts by following [How to Use Chainguard Helm Charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/).
+
+---
+
+### How Chainguard Checks and Chainguard Workspaces isolate your code
+_Path: get-started/checks-and-workspaces/how-it-works.md_
+
+Chainguard Checks runs your pull request checks, and Chainguard Workspaces runs your development sessions and coding agents, in microVMs that hold none of your long-lived credentials. This page collects the security model of both products in one place, for security reviewers who need to decide whether to allow them and for coding agents that need the rules. It describes how each product isolates code, where credentials come from, what code can reach on the network, who decides what a pull request gets, and how runs and sessions move through their lifecycles. A [glossary](#glossary) at the end defines the terms both products use.
+
+For sign-up and roles, refer to [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/).
+
+{{< beta feature="Each product" >}}
+
+## Isolation {#isolation}
+
+Each check, and each session, runs in its own microVM built on Chainguard OS:
+
+| | Chainguard Checks | Chainguard Workspaces |
+| -- | -- | -- |
+| What gets a VM | Each check on each run. A check that runs once for each of several [variations](#glossary) gets one VM for each variation. | Each session. You can open several sessions on one repository, and each is its own VM. |
+| How long the VM lasts | One check. The next run, and every retry, starts a fresh VM. | The life of the session. The VM stops when the session parks, and resumes from a snapshot. |
+| What starts in the VM | BusyBox, GNU tar, and the packages the configuration declares. Your repository's code is already in the VM. | Your synced directory at `/work`, the packages the configuration declares, and by default `git`, `gh`, Claude Code, and `chainctl`. By default, you work as `root`. |
+
+Chainguard treats the code in every VM as hostile, so the VM is the boundary that holds it:
+
+- Chainguard puts no credential in the VM in a form its code could spend elsewhere. Credentials are added outside the VM, as described in [Credentials](#credentials).
+- No host directory is mounted in the VM. Chainguard streams your repository, or the directory you sync to a session, into it.
+- A session's snapshot is sealed and bound to its owner, so a copy of it can't restore anyone else's session.
+
+A check starts with nothing from earlier runs unless it declares a cache. Even then, a run gets a cache only from a cache pool that your default branch defines for the run's [ring](#rings).
+
+In a session, `run-ci` runs your checks inside the session's own VM, not in fresh VMs, so its environment can differ from a pull request run. Only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
+
+## Credentials {#credentials}
+
+Neither product puts a long-lived credential in the VM. Where a check or session needs access, the credential is added to its requests outside the VM.
+
+| | Chainguard Checks | Chainguard Workspaces |
+| -- | -- | -- |
+| How code authenticates | A check can request a [workload identity](/chainguard/checks/identity-and-trust/). Chainguard Checks issues the check an OpenID Connect (OIDC) token that lasts five minutes, and renews it while the check runs. | The session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. `chainctl` on your laptop, or Chainguard, adds the credential to each request. |
+| What the VM holds | For Google Cloud, a credential configuration and sealed stand-in tokens. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains. For Chainguard, nothing. | A placeholder at most. For `github` and `cgr.dev` from your laptop, the credential never leaves your machine. For `claude` and `gcp`, `chainctl` sends it to the session's host, outside the VM, and the host discards it when the session parks. |
+| Who decides | `identities.yaml` on the pull request's base branch, and the `trust` section on your default branch. | Your organization's policy and the session's credential settings. A request beyond the defaults needs your approval on your terminal. |
+
+Code in the VM can't read the real credentials, but it can use them. Each request it sends carries the credential's access, and anything it creates with that access, such as a Google Cloud service account key, outlives the check or session. Grant each workload identity only the access its checks need, and review a session's credentials before you let an agent work in it unattended. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
+
+For a check's workload identity, and for your Google Cloud credential in a session, a proxy outside the VM swaps in the real credential only on requests that it has verified over TLS as going to an allowed host. For a check's Chainguard identity, the proxy also refuses opaque TLS tunnels to Chainguard hosts, and sends each request only to the host whose TLS name it verified.
+
+Sessions can't use workload identities, so `run-ci` skips checks that use one.
+
+Two credentials sit outside these controls:
+
+- A credential that you paste into a session, or that a tool there stores, such as with `aws configure` or `npm login`, stays on the session's disk or in its memory, and in its snapshot when it parks. Any program in the session can read it. Do that work on your laptop instead.
+- If you connected your GitHub account, sessions you create afterward act on GitHub as you, through the Chainguard Develop GitHub App. They can push, approve pull requests, and merge as you, and neither an `egress` list nor `chainctl develop creds` limits them. Refer to [Protect your branches](/chainguard/workspaces/github-as-you/#protect-your-branches).
+
+## Network {#network}
+
+Both products use the same `network.egress` allowlist, but they read a missing `network` key in opposite ways:
+
+| The check's configuration | In a check | In a session |
+| -- | -- | -- |
+| No `network` key | No network access | The open internet |
+| `network.egress` lists hosts | Only those hosts | Only those hosts, when you open the session on that check |
+| `network.egress: ["*"]` | Any public host | Any public host |
+| `policy: destroy` | A connection to an unlisted host stops the VM, and the check fails | Treated as `deny`: the connection is refused, and the session keeps running |
+
+A session that uses the default environment, a `.chainguard/develop.yaml` file, or a file's top-level `environment` reaches the open internet, because none of these can set `network`. To restrict a session, open it on a check that has an `egress` list. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access).
+
+Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+The `egress` list doesn't apply to a session's credential hostnames, such as `http://github/` and `http://claude/`, so a session with a narrow list can still push to GitHub and use Claude Code. Google Cloud is different, because its requests go to Google's own hosts: a check that uses a Google Cloud workload identity, and a session that uses your Google Cloud credentials with an `egress` list, must list `sts.googleapis.com` and the Google APIs they call.
+
+To see which hosts a check tried to reach, and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link on GitHub. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+
+## Trust {#trust}
+
+Chainguard Checks reads the rules that limit a pull request, such as which checks gate it, which identities it can get, and how far it's trusted, from branches the pull request can't change. The pull request controls only what its checks run:
+
+| What a run gets | Where Chainguard Checks reads it |
+| -- | -- |
+| Which checks must run, and which of them block | The pull request's base branch |
+| An identity's definition: which checks, branches, and audiences get it | `identities.yaml` on the pull request's base branch |
+| The `trust` section: groups, subrings, rings, and cache pools | Your default branch's latest commit |
+| Each check's commands, its `identity` key, and its `network.egress` | The commit being tested, which includes the pull request's changes |
+
+A pull request can add checks and change what they run, but it can't weaken its own gate:
+
+- A change that makes a check advisory, or makes it run only on request, takes effect after the pull request merges. Until then, the check keeps blocking.
+- A change that removes a check, or stops it from running for this pull request, fails the summary check with **Run creation failed**.
+- A change that leaves no presubmit checks fails the same way when the base branch has any.
+
+Refer to [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request).
+
+### Rings {#rings}
+
+Chainguard Checks places each run in a *ring*, based on the `trust` section on your default branch:
+
+| Ring | Runs in the ring |
+| -- | -- |
+| `2` | Runs after merging, on your default branch |
+| `1.<subring>` | Pull requests opened by an account in one of the subring's `authors` groups |
+| `0` | Every other pull request, including pull requests from forks by anyone outside your subrings |
+
+An identity's `ring` is the lowest ring that gets the identity. Only the account that opened the pull request counts: who pushed its commits, who reviewed it, and whether it comes from a fork don't change the ring. Without a `trust` section, every open pull request whose base branch an identity allows gets that identity, including pull requests from forks, which run without approval. Refer to [Limit which pull requests get an identity](/chainguard/checks/identity-and-trust/#limit-which-pull-requests-get-an-identity).
+
+## Run lifecycle {#run-lifecycle}
+
+A *run* is one pass of a repository's checks for one commit. The following table follows a pull request run from start to finish:
+
+| Stage | What happens | What can end the run here |
+| -- | -- | -- |
+| 1. Event | GitHub tells Chainguard Checks, through the Chainguard App, that a pull request was opened, reopened, or updated. | Pushes to other branches, tags, and closed pull requests start no run. |
+| 2. Test merge | Chainguard Checks uses the commit GitHub would create by merging the pull request into its base branch. | Merge conflicts: the summary check fails with **Merge conflict with the base branch**. |
+| 3. Plan | Chainguard Checks reads the configuration from the merge commit, applies the base branch's rules, and selects the checks that this change runs. | An invalid configuration fails with **Invalid config**. A change that weakens its own gate, or that changes 3,000 or more files, fails with **Run creation failed**. |
+| 4. Admission | Chainguard Checks admits the run only if Chainguard Checks is turned on for the organization and the organization is within its limits. | Chainguard Checks isn't turned on for the organization, or the organization is at its run limit, such as 10 runs queued or running with the Starter allowance. Either way, no summary check appears. The summary check fails with **Run creation failed** when the organization has used up its monthly compute allowance or hasn't accepted the terms. |
+| 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. Before a check gets a workload identity, Chainguard Checks verifies again, against GitHub, that the pull request is still open at the head and base this run tests, and that the base branch allows the identity for this check. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, is stopped by `policy: destroy`, or doesn't get the workload identity it requests. |
+| 6. Summary | Each check reports a GitHub check named `presubmit / <file> / <check>` as it finishes. The summary check, **Chainguard Checks (presubmit)**, passes only when every blocking check passes. | |
+
+A new push to the pull request cancels the current run and starts a new one at stage 1. After a change merges, each new commit on your default branch gets its own run in ring `2`, which reports **Chainguard Checks (postsubmit)**. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/).
+
+## Session lifecycle {#session-lifecycle}
+
+A session moves through the following states:
+
+| State | What it means | What moves it on |
+| -- | -- | -- |
+| Creating | `chainctl develop` creates the VM, syncs your directory into `/work`, and installs the session's packages. | When it's ready, your terminal attaches. |
+| Attached | Your terminal is connected to the session's shell. `chainctl` answers the requests that use your laptop's credentials, and sends your Claude and Google Cloud credentials to the session's host. | When you detach, the session keeps running. **Park now** in the session menu parks it right away. |
+| Running, detached | The session keeps running, and an agent in it can keep working. It still uses compute. | After about 10 minutes, or after the time you chose with **Detach — keep running** or `--keep`, up to 24 hours, the session parks. A `--keep always` session parks 7 days after you last detach. Attaching again returns it to attached. |
+| Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. Five days after parking, it expires. |
+| Expired | Chainguard discards the VM and the snapshot. The session can't be resumed, but it stays in `chainctl develop list --expired`, and its name stays in use. | `chainctl develop delete` removes it. |
+
+However a session is used, its VM runs for at most 6 days at a stretch. Then Chainguard parks the session and resumes it right away, the same way the session menu's **Restart the host** option does, so a session in long use isn't cut off.
+
+You can delete a session in any state. Anything you didn't push is lost. A parked session counts toward your session limit until it expires or you delete it. Refer to [Manage Chainguard Workspaces sessions](/chainguard/workspaces/manage-sessions/).
+
+## Glossary {#glossary}
+
+**Chainguard App**
+: The GitHub App that you install on your GitHub organization or personal account. It delivers pull request events to Chainguard Checks, and by default it fetches and pushes a session's repository.
+
+**Chainguard Develop**
+: A separate GitHub App, `chainguard-develop`. After you connect your GitHub account with `chainctl develop github login`, the sessions you create act on GitHub as you through this app instead of through the Chainguard App.
+
+**Check**
+: One named entry under `checks` in your `.chainguard/ci.yaml` file or a file in `.chainguard/ci/`. On GitHub, each check reports as `presubmit / <file> / <check>`.
+
+**Park**
+: To save a session's memory and disk to a snapshot and stop its VM. A parked session resumes where it left off.
+
+**Ring**
+: The trust level of a run: `2` for runs after merging, `1.<subring>` for pull requests from accounts you trust, and `0` for every other pull request. Rings decide which runs get workload identities and caches.
+
+**Run**
+: One pass of a repository's checks for one commit: a pull request's test merge commit, or a new commit on your default branch. Each run reports one summary check. The word also appears in messages such as **Run creation failed** and in capability names such as `sandbox.run.list`.
+
+**Session**
+: A Linux microVM in Chainguard's cloud that `chainctl develop` opens, with your repository at `/work`.
+
+**Variation**
+: One entry in a check's `foreach` list. Each variation runs in its own VM, and all of a check's variations report as one GitHub check.
+
+**Workload identity**
+: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud or Chainguard. Sessions don't get them.
+
+Several names in `chainctl` and in the configuration don't match the product names:
+
+| Name | What it is |
+| -- | -- |
+| `sandbox.user` | The IAM role that lets a member use both Chainguard Checks and Chainguard Workspaces. |
+| `CHAINCTL_SANDBOX_GROUP` | An environment variable that sets the default organization or folder for `chainctl develop --parent`. |
+| `::sandbox-summary::` | A line that a check prints to start a Markdown summary on its GitHub check. `::end-sandbox-summary::` ends it. |
+
+---
+
+### Set up Chainguard Checks and Chainguard Workspaces
+_Path: get-started/checks-and-workspaces/set-up.md_
+
+[Chainguard Checks](/chainguard/checks/overview/) runs your repository's CI on every GitHub pull request, with each check in its own microVM. [Chainguard Workspaces](/chainguard/workspaces/overview/) runs your development work, and the coding agents that do it, in a remote microVM session that holds none of your long-lived credentials. You can use either product on its own, but they're built to work together, and you set them up together: one command, `chainctl develop init`, turns on both. This page explains what the products share, then walks you through signing up and giving teammates access. For how the two products isolate your code, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
+
+{{< beta feature="Each product" >}}
+
+## What the products share {#what-the-products-share}
+
+| Shared piece | What it means |
+| ------------ | ------------- |
+| One sign-up | `chainctl develop init` turns on both products, each with its own free monthly allowance. Refer to [Sign up with chainctl develop init](#sign-up-with-chainctl-develop-init). |
+| One GitHub App | The Chainguard App delivers pull request events to Chainguard Checks and, by default, fetches and pushes your repository for Workspaces sessions. A GitHub account can be linked to only one Chainguard organization. |
+| One configuration file | Chainguard Checks runs the checks in your repository's `.chainguard/ci.yaml` file on every pull request. In a Workspaces session, `run-ci` runs the same checks against your working tree, and a session can use the file's environment. |
+| One role | The `sandbox.user` role lets a member use both products. Refer to [Give teammates access](#give-teammates-access). |
+
+## How they work together {#how-they-work-together}
+
+A typical loop uses both products:
+
+1. Open a Workspaces session on your repository, and let Claude Code make a change.
+2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
+3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
+4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+## Prerequisites {#prerequisites}
+
+Before you begin, make sure you have the following:
+
+- A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
+- A local clone of a repository on github.com that you can push to.
+- A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
+
+## Install or update chainctl {#install-or-update-chainctl}
+
+You sign up with `chainctl`, and you use it with both products: `chainctl checks` for Chainguard Checks and `chainctl develop` for Chainguard Workspaces. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
+
+Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
+
+```shell
+sudo chainctl update
+```
+
+If you installed `chainctl` with Homebrew, run `brew upgrade chainctl` instead. Refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
+
+## Install the Chainguard App {#install-the-chainguard-app}
+
+The Chainguard App is a GitHub App that connects your repositories to Chainguard. Chainguard Checks receives pull request events and reports results through it, and by default, Workspaces sessions fetch and push your repository through it. [Guardener](/chainguard/guardener/) uses the same app.
+
+1. Go to the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new).
+2. Choose the personal account or organization that owns your repository.
+3. Choose **All repositories**, or select the repositories you want to use with Chainguard Checks or Chainguard Workspaces.
+4. Review the requested permissions and select **Install**.
+
+Installing the app doesn't change your repositories. Chainguard Checks runs only on repositories that have a `.chainguard/ci.yaml` file, after you link the account in the next step.
+
+## Sign up with chainctl develop init {#sign-up-with-chainctl-develop-init}
+
+The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
+
+Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
+
+```shell
+chainctl develop init
+```
+
+To create an organization, sign in with a work email address, using a password or a Google account. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub or GitLab.
+
+The command does the following:
+
+1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
+2. Picks the Chainguard organization to use:
+    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
+    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
+    - Otherwise, it stops and asks you to choose an organization with `--parent`.
+3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
+4. If your organization isn't linked to a GitHub account yet, asks which one to link. Link the account that owns your repository: press `Enter` to link your own GitHub user, or enter the name of a GitHub organization where you have the owner role, such as `acme`, not a URL. The command opens your browser so you can authorize the link. If the Chainguard App isn't installed on the account, the command offers to open the installation page, then authorizes and links the account again.
+5. Turns on Chainguard Checks and Chainguard Workspaces with their monthly allowances, and prints each product's limits. If Chainguard already granted your organization an allowance, the command keeps it.
+6. Offers to connect your GitHub account, if you haven't yet and your organization allows it, so that the Workspaces sessions you create act on GitHub as you. The connection uses Chainguard Develop, a GitHub App separate from the Chainguard App. If you run the command in your repository's directory, it also offers to install Chainguard Develop on the GitHub accounts your repository needs. Chainguard Checks doesn't need this connection, so you can decline and connect later with `chainctl develop github login`, as described in [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
+
+When you authorize the link, GitHub might ask you to authorize single sign-on for your GitHub organizations. If you're linking your own GitHub user, select **Continue**. To link an organization that uses SAML single sign-on, authorize single sign-on for that organization.
+
+A GitHub account can be linked to only one Chainguard organization at a time. If the account you choose is already linked to another Chainguard organization, `chainctl develop init` names the account and, in an interactive terminal, asks for a different one to link. To move the account to your organization instead, press `Ctrl+C` to stop the command, and then refer to [Moving a GitHub organization to a different Chainguard organization](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
+
+If `chainctl develop init` stops with an error, refer to [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
+
+### Answer questions ahead of time {#answer-questions-ahead-of-time}
+
+You can answer some of the command's questions with flags:
+
+| Flag | What it does |
+| ---- | ------------ |
+| `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
+| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
+
+For example, to link the `acme` GitHub organization:
+
+```shell
+chainctl develop init --github-org acme
+```
+
+For every flag, refer to the [`chainctl develop init` reference](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-init).
+
+### Use an organization your company already has {#use-an-organization-your-company-already-has}
+
+If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). An owner can then turn on both products in it, replacing `$ORGANIZATION` with the organization's name:
+
+```shell
+chainctl develop init --parent $ORGANIZATION
+```
+
+If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
+
+An organization that has a product through the account team must also accept that product's terms, which takes the `owner` role. Until an owner accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
+
+```shell
+chainctl checks accept-terms --parent $ORGANIZATION
+chainctl develop accept-terms --parent $ORGANIZATION
+```
+
+If your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.
+
+## Give teammates access {#give-teammates-access}
+
+Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization to open the Chainguard Checks run page, to use `chainctl checks` commands such as `status` and `rerun`, or to open Workspaces sessions. Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits).
+
+| Role | In Chainguard Checks | In Chainguard Workspaces |
+| ---- | -------------------- | ------------------------ |
+| `viewer` | Lets `chainctl` find your organization by name, which `--parent $ORGANIZATION` needs. | Lets `chainctl develop` find your organization by name. |
+| `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. |
+| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. |
+
+A teammate who uses `sandbox.user` also needs `viewer`. For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+
+### Add a teammate {#add-a-teammate}
+
+In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate and grant them the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+
+1. Create an invite for your teammate with the `viewer` role. Your teammate needs it as well as `sandbox.user`, because `sandbox.user` alone doesn't let `chainctl` find your organization. Replace `$EMAIL` with your teammate's email address:
+
+    ```shell
+    chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
+    ```
+
+2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `$INVITE_CODE` with the code:
+
+    ```shell
+    chainctl auth login --invite-code $INVITE_CODE
+    ```
+
+3. After your teammate accepts, list your organization's role-bindings. The output shows each member's identity ID next to their email address:
+
+    ```shell
+    chainctl iam role-bindings list --parent $ORGANIZATION
+    ```
+
+4. Grant your teammate the `sandbox.user` role, replacing `$IDENTITY_ID` with their identity ID:
+
+    ```shell
+    chainctl iam role-bindings create --identity $IDENTITY_ID --role sandbox.user --parent $ORGANIZATION
+    ```
+
+Your teammate can then install `chainctl`, as described in [Install or update chainctl](#install-or-update-chainctl), and open a session, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session).
+
+### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
+
+If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+
+To invite a teammate, run steps 1 and 2 of [Add a teammate](#add-a-teammate). To let your teammate open sessions, use `--role limited_owner` instead of `--role viewer` in step 1:
+
+```shell
+chainctl iam invite create $ORGANIZATION --role limited_owner --email $EMAIL
+```
+
+The `limited_owner` role also lets its holder manage your organization's billing and invite or remove members.
+
+Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
+
+A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request. For details, refer to [Request access with chainctl](/chainguard/containers/reference/catalog-starter/#request-access-with-chainctl).
+
+## Next steps {#next-steps}
+
+- [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
+- [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
+- [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.
 
 ---
 
@@ -57042,6 +57155,12 @@ The **Overview** tab contains the container image's README. READMEs typically ex
 ### Comparison
 
 The **Comparison** tab compares the CVE count of a Chainguard Container with a non-Chainguard alternative, with charts that visualize the comparison. For more information, refer to [CVE visualizations](/chainguard/containers/security-and-compliance/vulnerability-management/cve-visualizations/).
+
+### Compliance
+
+Container images in your organization also have a **Compliance** tab. It shows the image's Security Technical Implementation Guide (STIG) scan results, lets you download the scan report as an XCCDF XML file, and lists the NIST certificates for any FIPS-validated modules in the image. Results are available only for FIPS container images. You can choose which tag and architecture to review.
+
+For more about the **Compliance** tab, refer to [Using the Compliance Dashboard in the Chainguard Console](/chainguard/containers/security-and-compliance/compliance-dashboard/).
 
 ### Provenance
 
@@ -63039,9 +63158,9 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-14T15:11:42.07365405Z
+Ce-Time: 2026-10-15T09:15:08.777503713Z
 Ce-Type: dev.chainguard.registry.pull.v1
-Content-Length: 777
+Content-Length: 789
 Content-Type: application/json
 User-Agent: Chainguard Enforce
 
@@ -63066,10 +63185,11 @@ User-Agent: Chainguard Enforce
     "remote_address": "",
     "repo_id": "The identifier of the repository being pulled from",
     "repository": "The identifier of the repository being pulled from",
+    "size": 1024,
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-14T15:11:42.069017"
+    "when": "2026-10-15T09:15:08.775540"
   }
 }
 
@@ -63092,7 +63212,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-14T15:11:42.069680488Z
+Ce-Time: 2026-10-15T09:15:08.775802559Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -63121,7 +63241,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-14T15:11:42.068991"
+    "when": "2026-10-15T09:15:08.775512"
   }
 }
 
@@ -63144,7 +63264,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-14T15:11:42.078228428Z
+Ce-Time: 2026-10-15T09:15:08.783544421Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -63184,7 +63304,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-14T15:11:42.094075471Z
+Ce-Time: 2026-10-15T09:15:08.792656264Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -63222,7 +63342,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-14T15:11:42.094206246Z
+Ce-Time: 2026-10-15T09:15:08.792844557Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -63261,7 +63381,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-14T15:11:42.075835842Z
+Ce-Time: 2026-10-15T09:15:08.785951864Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -63302,7 +63422,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-14T15:11:42.075976033Z
+Ce-Time: 2026-10-15T09:15:08.7861829Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -63339,7 +63459,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.076089393Z
+Ce-Time: 2026-10-15T09:15:08.786344395Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -63387,7 +63507,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-14T15:11:42.090801999Z
+Ce-Time: 2026-10-15T09:15:08.79374754Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -63433,7 +63553,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-14T15:11:42.090996018Z
+Ce-Time: 2026-10-15T09:15:08.793872549Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -63479,7 +63599,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-14T15:11:42.091169911Z
+Ce-Time: 2026-10-15T09:15:08.793975319Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -63518,7 +63638,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-14T15:11:42.091778279Z
+Ce-Time: 2026-10-15T09:15:08.796135064Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -63558,7 +63678,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.09197537Z
+Ce-Time: 2026-10-15T09:15:08.796324598Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -63597,7 +63717,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-14T15:11:42.077547305Z
+Ce-Time: 2026-10-15T09:15:08.797331742Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -63636,7 +63756,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-14T15:11:42.077767547Z
+Ce-Time: 2026-10-15T09:15:08.797474694Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -63675,7 +63795,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.077956422Z
+Ce-Time: 2026-10-15T09:15:08.797614159Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -63714,7 +63834,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-14T15:11:42.089494797Z
+Ce-Time: 2026-10-15T09:15:08.779621165Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -63757,7 +63877,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-14T15:11:42.089660514Z
+Ce-Time: 2026-10-15T09:15:08.779796739Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -63797,7 +63917,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.08979037Z
+Ce-Time: 2026-10-15T09:15:08.779919308Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -63836,7 +63956,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-14T15:11:42.092190651Z
+Ce-Time: 2026-10-15T09:15:08.786602085Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -63879,7 +63999,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-14T15:11:42.092381135Z
+Ce-Time: 2026-10-15T09:15:08.786842711Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -63919,7 +64039,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-14T15:11:42.092560107Z
+Ce-Time: 2026-10-15T09:15:08.787040205Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -63956,7 +64076,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.09275395Z
+Ce-Time: 2026-10-15T09:15:08.787194924Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -63996,7 +64116,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.092942426Z
+Ce-Time: 2026-10-15T09:15:08.787323389Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -64040,7 +64160,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.093145508Z
+Ce-Time: 2026-10-15T09:15:08.787471741Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -64079,7 +64199,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.093319977Z
+Ce-Time: 2026-10-15T09:15:08.787592422Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -64120,7 +64240,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-14T15:11:42.088327962Z
+Ce-Time: 2026-10-15T09:15:08.787978497Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -64162,7 +64282,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-14T15:11:42.088509974Z
+Ce-Time: 2026-10-15T09:15:08.788437832Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -64205,7 +64325,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-14T15:11:42.088809674Z
+Ce-Time: 2026-10-15T09:15:08.788567184Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -64244,7 +64364,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-14T15:11:42.08914518Z
+Ce-Time: 2026-10-15T09:15:08.788664811Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -64283,7 +64403,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-14T15:11:42.076845487Z
+Ce-Time: 2026-10-15T09:15:08.778938658Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -64322,7 +64442,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-14T15:11:42.077073304Z
+Ce-Time: 2026-10-15T09:15:08.779186572Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -64361,7 +64481,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-14T15:11:42.077280155Z
+Ce-Time: 2026-10-15T09:15:08.779299062Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -64400,7 +64520,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-14T15:11:42.089300634Z
+Ce-Time: 2026-10-15T09:15:08.797796005Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -64443,7 +64563,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-14T15:11:42.093518644Z
+Ce-Time: 2026-10-15T09:15:08.794128071Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -64488,7 +64608,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.086727916Z
+Ce-Time: 2026-10-15T09:15:08.78031539Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -64530,7 +64650,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.086884793Z
+Ce-Time: 2026-10-15T09:15:08.78071372Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -64572,7 +64692,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.087006529Z
+Ce-Time: 2026-10-15T09:15:08.780923701Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -64609,7 +64729,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-14T15:11:42.087107163Z
+Ce-Time: 2026-10-15T09:15:08.781164872Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -64648,7 +64768,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-14T15:11:42.087222491Z
+Ce-Time: 2026-10-15T09:15:08.781430153Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -64687,7 +64807,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-14T15:11:42.087318477Z
+Ce-Time: 2026-10-15T09:15:08.781643069Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -64726,7 +64846,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-14T15:11:42.079348386Z
+Ce-Time: 2026-10-15T09:15:08.789365029Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -64770,7 +64890,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-14T15:11:42.079598242Z
+Ce-Time: 2026-10-15T09:15:08.789532203Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -64814,7 +64934,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-14T15:11:42.079750824Z
+Ce-Time: 2026-10-15T09:15:08.789639869Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -64853,7 +64973,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-14T15:11:42.079916717Z
+Ce-Time: 2026-10-15T09:15:08.789754183Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -64895,7 +65015,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-14T15:11:42.080149437Z
+Ce-Time: 2026-10-15T09:15:08.789915334Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -64934,7 +65054,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-14T15:11:42.078532608Z
+Ce-Time: 2026-10-15T09:15:08.788885703Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -64978,7 +65098,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-14T15:11:42.078794519Z
+Ce-Time: 2026-10-15T09:15:08.789110875Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -65022,7 +65142,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-14T15:11:42.079017728Z
+Ce-Time: 2026-10-15T09:15:08.789248843Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -65061,7 +65181,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-14T15:11:42.089938224Z
+Ce-Time: 2026-10-15T09:15:08.78427714Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -65107,7 +65227,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-14T15:11:42.090095046Z
+Ce-Time: 2026-10-15T09:15:08.785532631Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -65144,7 +65264,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-14T15:11:42.090205398Z
+Ce-Time: 2026-10-15T09:15:08.785726357Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -65192,7 +65312,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-14T15:11:42.087740865Z
+Ce-Time: 2026-10-15T09:15:08.794352994Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -65233,7 +65353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-14T15:11:42.087952347Z
+Ce-Time: 2026-10-15T09:15:08.79447338Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -65270,7 +65390,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.088111528Z
+Ce-Time: 2026-10-15T09:15:08.794583278Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -65318,7 +65438,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-14T15:11:42.076280325Z
+Ce-Time: 2026-10-15T09:15:08.790125747Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -65358,7 +65478,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.076419723Z
+Ce-Time: 2026-10-15T09:15:08.790526597Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -65397,7 +65517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.090341405Z
+Ce-Time: 2026-10-15T09:15:08.7781845Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -65434,7 +65554,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-14T15:11:42.090438023Z
+Ce-Time: 2026-10-15T09:15:08.77842811Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -65473,7 +65593,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-14T15:11:42.090536432Z
+Ce-Time: 2026-10-15T09:15:08.778672825Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -65514,7 +65634,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-14T15:11:42.08586686Z
+Ce-Time: 2026-10-15T09:15:08.796561361Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -65557,7 +65677,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-14T15:11:42.086068687Z
+Ce-Time: 2026-10-15T09:15:08.796773525Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -65594,7 +65714,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-14T15:11:42.086201142Z
+Ce-Time: 2026-10-15T09:15:08.796938028Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -65634,7 +65754,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-14T15:11:42.08630532Z
+Ce-Time: 2026-10-15T09:15:08.797112682Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -65674,7 +65794,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-14T15:11:42.074892024Z
+Ce-Time: 2026-10-15T09:15:08.781979371Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -65717,7 +65837,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-14T15:11:42.07507522Z
+Ce-Time: 2026-10-15T09:15:08.782270115Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -65757,7 +65877,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-14T15:11:42.075175398Z
+Ce-Time: 2026-10-15T09:15:08.78247404Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -65794,7 +65914,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.07529475Z
+Ce-Time: 2026-10-15T09:15:08.782674533Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -65834,7 +65954,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.075418198Z
+Ce-Time: 2026-10-15T09:15:08.782916015Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -65878,7 +65998,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.075548525Z
+Ce-Time: 2026-10-15T09:15:08.78315161Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -65917,7 +66037,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-14T15:11:42.075692283Z
+Ce-Time: 2026-10-15T09:15:08.78333192Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -65958,7 +66078,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-14T15:11:42.081175722Z
+Ce-Time: 2026-10-15T09:15:08.790800758Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -66013,7 +66133,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-14T15:11:42.081453296Z
+Ce-Time: 2026-10-15T09:15:08.791103125Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -66068,7 +66188,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-14T15:11:42.081687272Z
+Ce-Time: 2026-10-15T09:15:08.791298514Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -66107,7 +66227,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-14T15:11:42.081974485Z
+Ce-Time: 2026-10-15T09:15:08.793187626Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -66152,7 +66272,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-14T15:11:42.082160025Z
+Ce-Time: 2026-10-15T09:15:08.793378056Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -66197,7 +66317,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-14T15:11:42.082317574Z
+Ce-Time: 2026-10-15T09:15:08.793544495Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -66236,7 +66356,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.083289206Z
+Ce-Time: 2026-10-15T09:15:08.795413424Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -66278,7 +66398,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.084164117Z
+Ce-Time: 2026-10-15T09:15:08.795602533Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -66320,7 +66440,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.084547755Z
+Ce-Time: 2026-10-15T09:15:08.795769116Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -66357,7 +66477,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-14T15:11:42.085186097Z
+Ce-Time: 2026-10-15T09:15:08.795900221Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -66401,7 +66521,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-14T15:11:42.080401861Z
+Ce-Time: 2026-10-15T09:15:08.791519014Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -66443,7 +66563,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-14T15:11:42.080608119Z
+Ce-Time: 2026-10-15T09:15:08.791705652Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -66480,7 +66600,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-14T15:11:42.080790163Z
+Ce-Time: 2026-10-15T09:15:08.791834525Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -66523,7 +66643,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-14T15:11:42.080964192Z
+Ce-Time: 2026-10-15T09:15:08.792075087Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -66564,7 +66684,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-14T15:11:42.074229724Z
+Ce-Time: 2026-10-15T09:15:08.794861686Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -66603,7 +66723,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-14T15:11:42.074494482Z
+Ce-Time: 2026-10-15T09:15:08.794982936Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -66642,7 +66762,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-14T15:11:42.074645304Z
+Ce-Time: 2026-10-15T09:15:08.795165205Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -66681,7 +66801,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-14T15:11:42.093822232Z
+Ce-Time: 2026-10-15T09:15:08.792306907Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -66720,7 +66840,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-14T15:11:42.093948511Z
+Ce-Time: 2026-10-15T09:15:08.792486769Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -66759,7 +66879,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-14T15:11:42.091496353Z
+Ce-Time: 2026-10-15T09:15:08.787755037Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67230,7 +67350,7 @@ Before you begin, you'll need:
 * [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
     * [Chainguard Containers](/chainguard/containers/overview/) for container image migration
-    * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to get access in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
 
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.
@@ -72966,7 +73086,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby_athena|java|python|dotnet|go|ruby|javascript|java_athena|python_athena|javascript_athena|dotnet_athena|go_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|javascript_athena|dotnet|go|go_athena|javascript|java_athena|dotnet_athena|ruby|ruby_athena|java|python|python_athena}] [flags]
 ```
 
 ### Examples
@@ -72994,7 +73114,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, java, python, dotnet, go, ruby, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, javascript_athena, dotnet, go, go_athena, javascript, java_athena, dotnet_athena, ruby, ruby_athena, java, python, python_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -75456,7 +75576,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby_athena|java|python|dotnet|go|ruby|javascript|java_athena|python_athena|javascript_athena|dotnet_athena|go_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|javascript_athena|dotnet|go|go_athena|javascript|java_athena|dotnet_athena|ruby|ruby_athena|java|python|python_athena}] [flags]
 ```
 
 ### Examples
@@ -75483,7 +75603,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby_athena, java, python, dotnet, go, ruby, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, javascript_athena, dotnet, go, go_athena, javascript, java_athena, dotnet_athena, ruby, ruby_athena, java, python, python_athena
 ```
 
 ### Options inherited from parent commands
@@ -79959,7 +80079,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, java, python, dotnet, go, ruby, javascript, java_athena, python_athena, javascript_athena, dotnet_athena, go_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, javascript_athena, dotnet, go, go_athena, javascript, java_athena, dotnet_athena, ruby, ruby_athena, java, python, python_athena. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -85998,6 +86118,8 @@ Chainguard offers hundreds of FIPS container image variants covering language ru
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
 
+To list the validated modules in a specific container image without running it, open the image's **Compliance** tab in the Chainguard Console. The [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) shows each module with a link to its NIST certificate.
+
 ## Why verify FIPS configuration?
 
 FIPS (Federal Information Processing Standards) 140 is a U.S. government standard that specifies security requirements for cryptographic modules. Organizations in regulated industries—including federal agencies, defense contractors, healthcare organizations, and financial services—must verify that their containers are correctly using FIPS-validated modules to maintain compliance.
@@ -86338,6 +86460,7 @@ For additional support, contact Chainguard support or consult the FIPS documenta
 ## Related resources
 
 - [Chainguard FIPS Images](https://images.chainguard.dev/directory?fips=true) - Browse all available FIPS-validated container images
+- [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) - Review the FIPS certificates and STIG results for your organization's FIPS container images in the Chainguard Console
 - [NIST CMVP Certificate Search](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search) - Verify cryptographic module certifications
 - [OpenSSL FIPS Test Tool](https://github.com/chainguard-dev/openssl-fips-test) - Source code and documentation for the verification tool
 
@@ -86677,6 +86800,7 @@ Now that you've deployed your first FIPS container:
 
 - **Kernel-independent architecture**: Understand [how it works](/platform/fips/kernel-independent-architecture/) under the hood
 - **FAQs**: Check [common questions](/platform/fips/faqs/) about FIPS implementation
+- **Compliance evidence**: Review your FIPS container images' certificates and STIG results in the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/)
 - **Chainguard support**: [Contact us](https://www.chainguard.dev/contact) for questions or custom requirements
 
 ---
@@ -87164,7 +87288,7 @@ For technical details, refer to [Kernel-Independent FIPS Containers](https://www
 
 FIPS images are available for language runtimes (Go, Java, Node.js, Python, .NET, PHP), databases (PostgreSQL, Elasticsearch, Redis), web servers (nginx, HAProxy), Kubernetes components, and monitoring tools. View the complete catalog at [images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
+All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. To review a container image's STIG results and FIPS certificates, use the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) in the Chainguard Console. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
 
 ## Additional resources
 
@@ -87399,25 +87523,6 @@ Review the list for an explanation of each option.
 * `-deststoretype JKS` specify destination trust store type
 * `-srcstorepass changeit` specify source trust store password, the default password like this is FIPS compliant for public certificates
 * `-deststorepass changeit` specify destination trust store password, the default password like this is FIPS compliant for public certificates
-
----
-
-### What is software supply chain security
-_Path: software-security/what-is-software-supply-chain-security.md_
-
-_An earlier version of this material was published in the [first chapter](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/block-v1:LinuxFoundationX+LFS182x+2T2022+type@sequential+block@1623557b9fc849d5a1e38177502b1499/block-v1:LinuxFoundationX+LFS182x+2T2022+type@vertical+block@825d4b442d1346ba8e9d7c3b4f765e76) of the Linux Foundation [Sigstore course](https://learning.edx.org/course/course-v1:LinuxFoundationX+LFS182x+2T2022/home)._
-
-Software producers have a supply chain just like manufacturing businesses have a supply chain. And just like manufacturers require physical inputs and then perform a manufacturing process to build a finished product, so do software producers, whether the producer is a company or individual. In other words, a software producer uses components, developed by third parties and themselves, and technologies to write, build, and distribute software. A compromise introduced anywhere in this chain is an example of a software supply chain security issue. Tools and practices like those implemented in Chainguard's containers help organizations protect against these risks through built-in SBOMs, provenance attestations, and SLSA compliance.
-
-Some observers might think that all software security issues are software supply chain issues. How else would vulnerabilities end up in the finished software if not through the software supply chain?  A generic example can help illustrate the difference. Imagine ACME company unintentionally creates a SQL injection vulnerability in a piece of software that ACME company distributes. This is not a software supply chain security issue. Code from ACME’s own developers is responsible for this security issue. But should ACME company use an open source software component that has been maliciously tampered with to send sensitive secrets to an attacker when the code was built, then ACME would be the victim of a software supply chain attack. In that case, the supply chain of ACME’s developers is the origin of the security issue.
-
-Software supply chain compromises can involve both malicious and unintentional vulnerabilities. The insertion of malicious code anywhere along the supply chain poses a severe risk to downstream users, but unintentional vulnerabilities in the software supply chain can also lead to risks should some party choose to exploit these vulnerabilities. For instance, the [log4j (PDF)](https://www.cisa.gov/sites/default/files/publications/CSRB-Report-on-Log4-July-11-2022_508.pdf) open source software vulnerability in late 2021 exemplifies the danger of vulnerabilities in the supply chain, including the open source software supply chain. In this case, log4j, a popular open source Java logging library, had a severe and relatively easily exploitable security bug. Many of the companies and individuals using software built with log4j found themselves vulnerable because of this bug.
-
-Malicious attacks, or what often amounts to code tampering, deserve special recognition though. In these attacks, an attacker controls the functionality inserted into the software supply chain and can often target attacks on specific victims. These attacks often prey on the lack of integrity in the software supply chain, taking advantage of the trust that software developers place in the components and tools they use to build software. Notable attack vectors include compromises of source code systems, such as GitHub or GitLab; build systems, like Jenkins; and publishing infrastructure attacks on either corporate software publishing servers, update servers, or on community package infrastructure. Another important attack vector is when an attacker steals the credentials of an individual open source software developer and adds malicious code to a source code management system or published package.
-
-Fortunately, a number of promising counters to software supply chain attacks have emerged. For instance, projects like Sigstore offer a chance to restore integrity to the software supply chain and initiatives like the Open Source Security Foundation provide a forum for concerted action. Further information on software supply chain security compromises and counters can be found in [this reading list](https://github.com/chainguard-dev/ssc-reading-list).
-
-One further term merits a definition and explanation. Cloud-native software supply chain security refers to software supply chain security efforts that are related to container technology. The process of selecting, building, and operating containers has a number of important implications for software supply chain security. For instance, signing containers with a digital signature (via a tool like [Cosign](https://github.com/sigstore/cosign)) is one way to ensure that an attacker that tampers with a container is detected. Container technology both epitomizes the potential software supply chain security perils that modern organizations must confront while also enabling approaches that can make a software supply chain secure by default.
 
 ---
 
@@ -88488,58 +88593,6 @@ The demo showcases how Chainguard's hardened PyTorch image provides the same fun
 - [Getting started with the PyTorch Chainguard Container](https://edu.chainguard.dev/chainguard/containers/getting-started/ai-and-data/pytorch/)
 - [PyTorch container overview](https://images.chainguard.dev/directory/image/pytorch/overview)
 - [Beyond Zero: Eliminating Vulnerabilities in PyTorch Container Images (PyTorch 2024)](https://www.youtube.com/watch?v=1klynk1dxYA)
-
----
-
-### Infamous software vulnerabilities
-_Path: software-security/cves/infamous-cves.md_
-
-[Software vulnerabilities](https://www.chainguard.dev/supply-chain-security-101/what-is-a-cve) vary in their severity – some are difficult to exploit and have minimal implications, while others can be exploited easily, giving an attacker significant leverage over a computer system. In cases where widely-implemented software contains high-severity vulnerabilities, the damage caused by their exploitation can affect millions of developers and services worldwide.
-
-In this article, you will learn how the KEV Catalog tracks known exploited software vulnerabilities, and how it serves as a tool for developers and federal agencies. In addition, you will explore Log4Shell, Heartbleed, and Shellshock, three infamous software vulnerabilities which have had major impacts on software security worldwide.
-
-## CISA KEV Catalog
-
-The U.S. Cybersecurity and Infrastructure Security Agency (CISA) operates the Known Exploited Vulnerabilities (KEV) Catalog, which is populated with CVEs that have existing exploits “in the wild”. The KEV Catalog serves as a tool for developers as it identifies CVEs that need to be prioritized for remediation because of their exploitability status. Federal civilian executive branch agencies [must remediate vulnerabilities](https://www.cisa.gov/news-events/directives/binding-operational-directive-22-01) present in the KEV Catalog by a due date specified by the CISA. Focusing on patching out these vulnerabilities limits the ability of attackers to find a potential known route into a system.
-
-Some of the vulnerabilities in the KEV Catalog are infamous for the impacts of their exploitation. When a vulnerability affects a piece of software present in an array of systems, its exploitation can reach far and wide, and efforts to remediate it can be difficult to fully implement. The following vulnerabilities are present in the KEV Catalog and serve as examples of how damaging ubiquitous software vulnerabilities can be.
-
-### Log4Shell (CVE-2021-44228)
-
-[Log4Shell](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) is a vulnerability impacting the Apache Log4j Java logging utility, a popular library used on millions of devices worldwide. The vulnerability allows an attacker to perform a remote code execution (RCE) attack by logging code that runs a Java Naming and Directory Interface (JNDI) endpoint lookup. An attacker can exploit this behavior by performing a JNDI lookup to a server under their control containing malicious code. This vulnerability has affected Log4j since version 2.0-beta9 (released in 2013), and was patched out in version 2.16.0 in 2021.
-
-Due to the popularity of Log4j, Log4Shell was extremely pervasive, impacting a variety of services such as those offered by [Amazon Web Services](https://aws.amazon.com/security/security-bulletins/AWS-2021-006/) and [IBM](https://www.ibm.com/support/pages/apache-log4j2-cve-2021-44228-security-vulnerability), among others. Its widespread use makes this vulnerability difficult to completely remediate as it may be unknown if a vulnerable version of Log4j is present on a system, such as in the case of [a federal network being affected](https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-320a) months after the vulnerability was first documented.
-
-To learn more about Log4Shell, check out its listing on the [Apache Log4j Security Vulnerabilities](https://logging.apache.org/log4j/2.x/security.html#fixed-in-log4j-2-15-0-java-8) page.
-
-### Heartbleed (CVE-2014-0160)
-
-[Heartbleed](https://nvd.nist.gov/vuln/detail/CVE-2014-0160) is a buffer over-read vulnerability in OpenSSL, a popular cryptographic library commonly used for encrypting SSL/TLS communications on the internet. The vulnerability allows an attacker to read the memory of a system without detection. As a result, cryptographic keys, credentials, and other content can be silently extracted from a server’s memory.
-
-Heartbleed affected OpenSSL versions 1.0.1-1.0.1f (inclusive) and was discovered in 2014, about two years after the vulnerability was first introduced to OpenSSL. Due to its undetectable nature, determining if it was exploited against a particular server is difficult. It was estimated at the time of discovery that around [half a million websites](https://www.netcraft.com/blog/half-a-million-widely-trusted-websites-vulnerable-to-heartbleed-bug/) may have been vulnerable to the bug.
-
-To learn more about the Heartbleed vulnerability, check out the [Heartbleed website](https://heartbleed.com/).
-
-### Shellshock (CVE-2014-6271)
-
-[Shellshock](https://nvd.nist.gov/vuln/detail/CVE-2014-6271) is an arbitrary code execution vulnerability which went unnoticed for 25 years, existing in Bash since 1989 and first being reported in version 4.3 in 2014. Through this vulnerability, commands that should be inaccessible can instead be executed through Bash’s function export feature. In affected versions, Bash processes function definitions stored in environment variables, causing the unintended behavior that enables malicious code to be run. Following the initial CVE report, further CVEs were soon filed addressing additional related vulnerabilities.
-
-As Shellshock was not discovered for over two decades after its inception, the scope of its influence is significant, with it still being leveraged against systems today. Soon after the vulnerability was uncovered, large-scale [attacks using botnets](https://www.itnews.com.au/news/first-shellshock-botnet-attacks-akamai-us-dod-networks-396197) were deployed against high-profile entities like the U.S. Department of Defense.
-
-To learn more about Shellshock and its related vulnerabilities, check out [the CISA’s Shellshock alert](https://www.cisa.gov/news-events/alerts/2014/09/25/gnu-bourne-again-shell-bash-shellshock-vulnerability-cve-2014-6271).
-
-## Learn more
-
-In this article, you learned how the CISA’s KEV Catalog tracks exploited vulnerabilities, and how the catalog is used by developers and federal agencies to prioritize vulnerability remediation. You also explored three infamous software vulnerabilities: Log4Shell, Heartbleed, and Shellshock, and learned how they have impacted systems across the world.
-
-To learn more about these vulnerabilities and other exploited vulnerabilities, dive further into [the KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities), or check out [the full CVE database](https://cve.mitre.org/cve/search_cve_list.html).
-
----
-
-### CVEs
-_Path: software-security/cves/_index.md_
-
-CVEs, or Common Vulnerabilities and Exposures, are entries of publicly disclosed software vulnerabilities which, if not addressed, may be used by attackers to access, manipulate, or compromise a computer system.
 
 ---
 
