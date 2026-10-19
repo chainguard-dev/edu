@@ -5,7 +5,7 @@ lead: "A high-level introduction to Chainguard: the problem it solves, the produ
 description: "An overview of Chainguard: its mission to be the secure source for open source, its products (Containers, Libraries, and OS), and the Factory that builds them."
 type: "article"
 date: 2026-07-23T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-19T12:59:21+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -34,6 +34,10 @@ Containers and Libraries are where most teams start, but Chainguard secures more
 - **[Chainguard Agent Skills](/chainguard/agent-skills/overview/)**, security-reviewed skills for AI agents.
 - **[Chainguard Checks](/chainguard/checks/overview/)**, CI for GitHub pull requests that runs each check in its own isolated microVM.
 - **[Chainguard Workspaces](/chainguard/workspaces/overview/)**, remote microVM sessions for development and coding agents that keep your credentials out of the session.
+
+The following diagram shows where most of these products fit in a CI/CD pipeline, from setting up access to keeping images current. For what each stage involves, see [Chainguard in your CI/CD pipeline](/get-started/cicd-pipeline/).
+
+![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Checks, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](/diagrams/cicd-lifecycle.svg)
 
 ## The Chainguard Factory
 
