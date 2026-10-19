@@ -9,7 +9,8 @@ Each rule is a dict:
   regex          an anchored PCRE pattern for the request path, query removed
   caseSensitive  false only for exact paths, which nginx matches ignoring case
   path           the literal path for an exact rule, otherwise ""
-  target         where to redirect; "$1" is the pattern's first group
+  target         where to redirect; "$1" is the pattern's first group. Root
+                 paths include the site's base path, such as /docs/
 
 The order:
 
@@ -53,16 +54,19 @@ The order:
   "regex" (printf "^%s$" (replaceRE $escapeRegex `\$1` $rule.path))
   "caseSensitive" false
   "path" $rule.path
-  "target" $rule.to) -}}
+  "target" (partial "site-path.html" $rule.to)) -}}
 {{- end -}}
 {{- end -}}
 
 {{- $aliasRules := slice -}}
+{{- $basePath := strings.TrimSuffix "/" site.Home.RelPermalink -}}
 {{- range $p := site.Pages -}}
 {{- $target := strings.TrimSuffix "/" $p.RelPermalink -}}
 {{- range $p.Aliases -}}
 {{- $alias := strings.TrimSuffix "/" . -}}
-{{- if ne $alias $target -}}
+{{- /* An alias naming the page's own path must not redirect. Aliases never
+       carry the base path, so compare against the target without it. */ -}}
+{{- if ne $alias (strings.TrimPrefix $basePath $target) -}}
 {{- $aliasRules = $aliasRules | append (dict
   "regex" (printf "^%s(/.*)?$" (replaceRE $escapeRegex `\$1` $alias))
   "caseSensitive" true
@@ -82,7 +86,7 @@ The order:
   "regex" $rule.regex
   "caseSensitive" true
   "path" ""
-  "target" $rule.to) -}}
+  "target" (partial "site-path.html" $rule.to)) -}}
 {{- end -}}
 {{- end -}}
 

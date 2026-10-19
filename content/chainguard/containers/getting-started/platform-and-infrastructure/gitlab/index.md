@@ -4,7 +4,7 @@ type: "article"
 linktitle: "GitLab"
 description: "Learn how to deploy GitLab using Chainguard's security-hardened container images with reduced vulnerabilities, verifiable provenance, and daily security updates"
 date: 2026-06-24T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -40,7 +40,7 @@ This guide requires the following tools installed on your local machine:
 - [k3d](https://k3d.io/stable/#installation) — a CLI tool for running K3s clusters in Docker
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
-- [chainctl](https://edu.chainguard.dev/platform/chainctl/) — the Chainguard CLI
+- [chainctl](/platform/chainctl/) — the Chainguard CLI
 
 Your machine should have at least 8 GB of RAM available for Docker to allocate to the cluster. GitLab deploys several services simultaneously, and insufficient memory is the most common cause of failed or stuck deployments.
 
