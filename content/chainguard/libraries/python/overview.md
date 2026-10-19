@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-10-16T17:41:48+00:00
+lastmod: 2026-10-19T18:40:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -453,8 +453,9 @@ infrastructure with  the [Supply-chain Levels for Software Artifacts
 
 To save the available signature bundle, verified PEP 740 provenance, and
 embedded SPDX SBOM while verifying a wheel, use `chainctl libraries verify
---output-attestations` with `--output-dir`. Refer to [Download Python SBOMs and
-attestations](/chainguard/libraries/policies-and-security/verification/#download-python-sboms-and-attestations)
+--output-attestations`. Files are saved to `attestations` by default, or use
+`--output-dir` to choose another destination. Refer to [Download Python SBOMs
+and attestations](/chainguard/libraries/policies-and-security/verification/#download-python-sboms-and-attestations)
 for examples and output paths.
 
 ### Embedded SBOMs
