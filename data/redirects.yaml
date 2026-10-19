@@ -241,8 +241,8 @@ rules:
   # Open source project overviews, FAQs, and introductions that moved to
   # Supply Chain Security 101 (DOCS-228). Each section's index page now
   # introduces the project and links there. Old aliases of these pages need
-  # no rule: the section aliases (/open-source/apko, /open-source/melange,
-  # /chainguard/fips) still send them here.
+  # no rule: the section aliases (/open-source/apko, /open-source/melange)
+  # still send them here, at the cost of one extra hop.
   - regex: '^/open-source/wolfi/overview(\.md|/.*)?$'
     to: 'https://www.chainguard.dev/supply-chain-security-101/wolfi-overview'
   - regex: '^/open-source/wolfi/faq(\.md|/.*)?$'
@@ -264,7 +264,15 @@ rules:
   - regex: '^/open-source/sigstore/rekor/an-introduction-to-rekor(\.md|/.*)?$'
     to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-sigstore-rekor'
   - regex: '^/platform/fips/understanding-fips(\.md|/.*)?$'
-    to: 'https://www.chainguard.dev/supply-chain-security-101/understanding-fips'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-fips'
+  # The page's old path. Without these, the /chainguard/fips section alias
+  # sends it to the rule above, adding a hop (DOCS-276). Exact rules are
+  # checked before every alias, so each is listed with and without its
+  # trailing slash.
+  - path: '/chainguard/fips/understanding-fips'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-fips'
+  - path: '/chainguard/fips/understanding-fips/'
+    to: 'https://www.chainguard.dev/supply-chain-security-101/what-is-fips'
 
   # Pages from the migration sheet's Redirect Only tab that duplicated
   # chainguard.dev content (DOCS-269). "(\.md|/.*)?" also matches each
