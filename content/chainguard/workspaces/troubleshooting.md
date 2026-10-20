@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T12:09:53+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -125,17 +125,17 @@ The following sections describe the most common causes.
 
 ### No credential has arrived {#no-credential-has-arrived}
 
-If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) or later, run `claude` on your laptop and log in, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
+If the error says that `none has arrived`, the session has no Claude credential. Claude Code might show only a `503` error. Update `chainctl` to the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl) or later, log in to Claude with `chainctl develop claude login` or with `claude` on your laptop, and then attach to the session with `chainctl develop`. If you use Claude through Vertex AI, run `gcloud auth application-default login` on your laptop instead of logging in to Claude.
 
 ### The session's host is too old {#the-sessions-host-is-too-old}
 
-If the error says that the session's host `predates laptop credential push`, or `chainctl` says that the session's host was started before it could send model credentials, the host can't take a credential. Attach to the session with a current `chainctl`, press `Ctrl+]`, and choose **Restart the host**. You can also detach, let the session park, and attach again.
+If the error says that the session's host `predates laptop credential push`, or `chainctl` says that the session's host was started before it could send model credentials, the host can't take a credential. Attach to the session with a current `chainctl`, press `Ctrl+]`, and choose **Restart the host**. You can also choose **Park now** in the session menu, and then attach again.
 
 ### The credential sent to the session expired {#the-credential-sent-to-the-session-expired}
 
-If the error says that `the owner's Claude login token sent to this session expired`, the short-lived access token from your stored Claude login ran out. `chainctl` renews it while you're attached, and while a terminal that you detached from with a **Detach — keep running** option stays open. Attach again to send a fresh one.
+If the error says that `the owner's Claude login token sent to this session expired`, the short-lived access token from your stored Claude login ran out. `chainctl` renews it while you're attached. It also renews it while the terminal you detached from stays open, if you detached with **Detach — keep running 4h**, **Detach — keep running for…**, or a `--keep` duration, or from a session you're already keeping running. Attach again to send a fresh one.
 
-To keep a long unattended task from stopping, use a token from `claude setup-token`, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
+To keep a long unattended task from stopping, run `chainctl develop claude login`, as described in [Let Chainguard hold your Claude login](/chainguard/workspaces/coding-agents/#let-chainguard-hold-your-claude-login).
 
 If you use Claude through Vertex AI, the error says instead that your Google credential or access token sent to the session for Vertex AI no longer works or expired. Attach again to send a fresh one.
 
@@ -157,7 +157,25 @@ If `chainctl` says that `your Claude login on this laptop` expires soon or has e
 
 ### You aren't logged in to Claude {#you-arent-logged-in-to-claude}
 
-If `chainctl` says `claude: nothing to send` when you attach, it found no Claude login or Google credentials on your laptop. Run `claude` on your laptop and log in, or run `gcloud auth application-default login` if you use Claude through Vertex AI. `chainctl` tries again while you're attached.
+If `chainctl` says `claude: nothing to send` when you attach, it found no Claude login or Google credentials on your laptop. Run `claude` on your laptop and log in, or run `gcloud auth application-default login` if you use Claude through Vertex AI. `chainctl` tries again while you're attached. With the Anthropic API, you can also run `chainctl develop claude login`, and then attach again.
+
+### Your Claude login held by Chainguard doesn't work {#your-claude-login-held-by-chainguard-doesnt-work}
+
+If Claude Code in the session reports that `claude in this session uses its owner's Claude login held by Chainguard, and none is usable now`, or `chainctl` says when you attach that `your Claude login held by Chainguard no longer works`, the login that Chainguard held for you ended, or you ran `chainctl develop claude logout`. Run `chainctl develop claude login`, and then attach to the session again.
+
+To use your laptop's credential in the session instead, switch its source to `laptop`. Replace `$SESSION` with the session's short ID, which the error includes:
+
+```shell
+chainctl develop creds $SESSION --source claude=laptop
+```
+
+### chainctl develop claude login fails {#chainctl-develop-claude-login-fails}
+
+If `chainctl develop claude login` fails, find its message in the following list:
+
+- `the pasted code is not the code#state Anthropic's page shows`, or `the pasted code is from another login`: you pasted something other than the code that the page from this login shows. Run `chainctl develop claude login` again, and paste the whole code that the new page shows.
+- `the Claude login was not finished in time`: the login must finish within 5 minutes. Run the command again.
+- `Anthropic refused the authorization code (expired or already used)`: run `chainctl develop claude login` again, and paste the new code right away.
 
 ### Claude Code isn't installed in the session {#claude-code-isnt-installed-in-the-session}
 
@@ -226,6 +244,15 @@ On your laptop, `chainctl develop github status` shows which accounts the checko
 
 The `/tmp` directory in a session is held in memory and limited to a quarter of the session's memory, which is 4 GB with the default 16 GB. Writing large files there uses memory that your processes need. Put large files under `/var/tmp` or `/work`, which are on the session's disk, 50 GB by default. To change a session's memory or disk, refer to [Resources](/chainguard/workspaces/session-environment/#resources).
 
+## A session parked while an agent was working {#a-session-parked-while-an-agent-was-working}
+
+When you return to a parked session, `chainctl` says why it parked. A session that keeps running while it's busy parks for one of the following reasons:
+
+- `parked after 10m quiet; last busy 13:40 UTC (agent-turn)`, or `parked after 10m detached`: the session wasn't busy for 10 minutes. Claude Code that waits at a permission prompt or for your input isn't busy. To keep a session running while an agent waits, choose **Detach — keep running 4h** or **Detach — keep running for…** when you detach, or let the agent work without asking, as described in [Choose a permission mode](/chainguard/workspaces/coding-agents/#choose-a-permission-mode).
+- `parked: 24h since you last attached; the guest still reported busy`: the session reached its limit of 24 hours after you last detached. For a task that runs longer, create a session with `--keep always`.
+
+While your organization's monthly compute allowance is used up, being busy doesn't keep a session running, as described in [Your organization's monthly compute allowance is used up](#your-organizations-monthly-compute-allowance-is-used-up). For what counts as busy, refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
+
 ## A session started fresh instead of resuming {#a-session-started-fresh-instead-of-resuming}
 
 Rarely, Chainguard can't restore a parked session's snapshot. The session then starts fresh, and `chainctl` says that the parked snapshot couldn't be restored and that uncommitted work was lost. Push your work regularly so that a lost snapshot doesn't cost you much.
@@ -236,7 +263,7 @@ A parked session expires 5 days after it parks, and an expired session can't be 
 
 ## Your organization's monthly compute allowance is used up {#your-organizations-monthly-compute-allowance-is-used-up}
 
-If `chainctl develop` fails with a `FailedPrecondition` error that says `this month's compute allowance is used up`, your organization has used its monthly vCPU-hours of Workspaces. Until the allowance resets on the first day of the month (UTC), you can't create a session or resume a parked one, and a session created with `--keep always` parks after you detach instead of staying up. Sessions that are already running aren't stopped.
+If `chainctl develop` fails with a `FailedPrecondition` error that says `this month's compute allowance is used up`, your organization has used its monthly vCPU-hours of Workspaces. Until the allowance resets on the first day of the month (UTC), you can't create a session or resume a parked one. Being busy no longer keeps a detached session running, so it parks about 10 minutes after you detach, and a session created with `--keep always` parks after you detach instead of staying up. Sessions you're attached to keep running until you detach.
 
 A parked session still expires 5 days after it parks, even if the allowance hasn't reset yet, so push your work regularly. To learn how sessions use the allowance, refer to [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits). To continue before the allowance resets, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 

@@ -24,7 +24,7 @@ This guide walks you through signing up for Chainguard Workspaces, opening a ses
 
 <span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-checks-and-workspaces"></span>
 
-Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Workspaces and Chainguard Checks together. You also need a local clone of a repository on github.com that you can push to. Optionally, install and log in to [Claude Code](https://code.claude.com/docs/en/overview) on your laptop, so you can use it in the session.
+Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Workspaces and Chainguard Checks together. You also need a local clone of a repository on github.com that you can push to. Optionally, install and log in to [Claude Code](https://code.claude.com/docs/en/overview) on your laptop, so you can use it in the session. Alternatively, run `chainctl develop claude login` to let Chainguard hold a Claude login for your sessions, so that Claude Code keeps working while you're detached, as described in [Let Chainguard hold your Claude login](/chainguard/workspaces/coding-agents/#let-chainguard-hold-your-claude-login).
 
 ## Step 2: Open a session
 
@@ -54,7 +54,7 @@ The `git status` output matches your laptop's checkout at the moment you opened 
 
 From here, you can work as you would on your laptop. For example:
 
-- Run `claude` to start Claude Code. It uses your laptop's Claude Code login. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/).
+- Run `claude` to start Claude Code. It uses your laptop's Claude Code login, or the Claude login Chainguard holds for you if you ran `chainctl develop claude login`. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/).
 - Run `run-ci` to run your repository's checks against the working tree, if your `.chainguard/ci.yaml` defines checks.
 - Commit and run `git push`. Your laptop's git `user.name` and `user.email` are already set in the session, and the Chainguard App, or Chainguard Develop if you connected your GitHub account, adds the credential for the push.
 
@@ -62,7 +62,7 @@ Commits you make in a session aren't signed, because the session gets your git `
 
 ## Step 4: Detach and return to the session
 
-To detach, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to choose **Detach — let it park**. Your terminal returns to your laptop's shell. The session keeps running for about 10 minutes, then parks to a snapshot and stops using compute.
+To detach, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to choose **Detach — keep running while busy**. Your terminal returns to your laptop's shell. The session keeps running while it's busy, such as during a build or a Claude Code turn. After it's been idle for 10 minutes, and no later than 24 hours after you last detach, it parks to a snapshot and stops using compute.
 
 To return, run `chainctl develop` again from the same directory:
 

@@ -4,7 +4,7 @@ linktitle: "Manage sessions"
 description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, and keep a session running while you're away."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Procedural"]
 images: []
@@ -62,8 +62,8 @@ While you're attached to a session, press `Ctrl+]` to open the session menu. You
 
 | Option | Key | What it does |
 | ------ | --- | ------------ |
-| **Detach — let it park** | `d` or `Enter` | Returns you to your laptop's shell. The session keeps running for about 10 minutes, then parks. |
-| **Detach — keep running 4h** | | Returns you to your laptop's shell and keeps the session running for 4 hours. |
+| **Detach — keep running while busy** | `d` or `Enter` | Returns you to your laptop's shell. The session keeps running while it's busy and parks after it's been idle for 10 minutes, as described in [Keep a session running while you're away](#keep-a-session-running-while-youre-away). The option's hint shows the latest time it can keep running, such as `parks after 10m quiet, at most until 17:30`. |
+| **Detach — keep running 4h** | | Returns you to your laptop's shell and keeps the session running for 4 hours, busy or not. |
 | **Detach — keep running for…** | | Asks for a duration, such as `90m`, or a time, such as `17:30`, up to 24 hours from now. |
 | **Park now** | | Returns you to your laptop's shell and parks the session right away, even one you're keeping running. To resume it, run `chainctl develop`, which waits for the park to finish. |
 | **Restart the host** | | Parks the session and resumes it on a new host while you stay attached. Running processes continue unless the snapshot can't be restored. |
@@ -76,11 +76,11 @@ While you're attached to a session, press `Ctrl+]` to open the session menu. You
 
 The menu ignores what you type for a moment after it opens, so pause before you press a key.
 
-The first option is what `d` or `Enter` does, and the detach options depend on the session. For a session you're already keeping running, the first option is **Detach — keeps running until** followed by a time. A session created with `--keep always` has one detach option, which shows how long it keeps running. The `--keep` flag also changes the first option, as described in [Keep a session running while you're away](#keep-a-session-running-while-youre-away).
+The first option is what `d` or `Enter` does, and the detach options depend on the session. For a session you're already keeping running, the first option is **Detach — keeps running until** followed by a time, with `then while busy` after it when the session can keep running while it's busy after that time. A session created with `--keep always` has one detach option, which shows how long it keeps running. A session created with `--keep park`, or with `chainctl` 0.2.382 or earlier, has **Detach — let it park** instead of **Detach — keep running while busy**, and parks about 10 minutes after you detach, busy or not. The `--keep` flag also changes the first option, as described in [Keep a session running while you're away](#keep-a-session-running-while-youre-away).
 
 To send `Ctrl+]` to a program in the session, press it twice. To see every key, choose **Help**, or type `~?` wherever `~.` works.
 
-If you exit the session's shell, for example with `exit`, any other terminals you opened in the session close too. If the session isn't already being kept running, `chainctl` asks whether to keep it running while you're away. Press `Esc` to let it park.
+If you exit the session's shell, for example with `exit`, any other terminals you opened in the session close too. If the session isn't already being kept running, `chainctl` asks whether to keep it running while you're away. Press `Esc` to keep it running only while it's busy, as **Detach — keep running while busy** does. In a session that has **Detach — let it park** instead, `Esc` lets it park.
 
 ## Return to a session {#return-to-a-session}
 
@@ -100,7 +100,16 @@ Only one `chainctl` can be attached to a session at a time. If you attach from a
 
 A session that keeps running uses compute while you're away, but an agent in it can keep working. It counts against your organization's monthly allowance the whole time it runs, as described in [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits).
 
-To keep a session running, choose one of the **Detach — keep running** options in the session menu.
+When you detach, a session keeps running while it's busy, and parks after it's been idle for 10 minutes. A session is busy while any of the following is true:
+
+- Its CPU use averages more than a tenth of a vCPU over 5 minutes, or its network traffic, sent and received together, exceeds 256 KiB in that time.
+- Claude Code in the session is working on a turn.
+- A `run-ci` run that started in the session is running, as described in [Run checks in a Workspaces session](/chainguard/checks/run-checks/#run-checks-in-a-workspaces-session).
+- The `busy` command holds the session, as described in [Mark a session busy](#mark-a-session-busy).
+
+Claude Code that waits at a permission prompt or for your input isn't busy, so a session can park while an agent waits for you. Even while it's busy, a session parks no later than 24 hours after you last detach. A `chainctl develop check` from your laptop counts as attaching. While your organization's monthly compute allowance is used up, being busy doesn't keep a detached session running.
+
+To keep a session running whether or not it's busy, choose **Detach — keep running 4h** or **Detach — keep running for…** in the session menu. The session keeps running until the time you choose, and then, unless you created it with `--keep park` or `chainctl` 0.2.382 or earlier, while it's busy.
 
 To decide ahead of time that a session keeps running when you detach, pass `--keep` with a duration of up to 24 hours when you open or return to it:
 
@@ -110,7 +119,7 @@ chainctl develop --keep 8h --parent $ORGANIZATION
 
 With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**, and exiting the shell keeps the session running without asking.
 
-For a long-running task, create a new session with `--keep always`. That session keeps running instead of parking when you detach, until 7 days after you last detach from it:
+For a long-running task, create a new session with `--keep always`. That session keeps running instead of parking when you detach, busy or not, until 7 days after you last detach from it:
 
 ```shell
 chainctl develop --keep always --name migration --parent $ORGANIZATION
@@ -118,9 +127,33 @@ chainctl develop --keep always --name migration --parent $ORGANIZATION
 
 Because it doesn't park, a `--keep always` session can use up the monthly allowance in a few days. To stop it sooner, choose **Park now** in the session menu, or delete the session.
 
-Claude Code can keep working after you close the terminal, for as long as its credential lasts. Refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
+To create a new session that parks about 10 minutes after you detach, busy or not, pass `--keep park`:
 
-For a credential that your laptop serves, such as a `cgr.dev` login you switched to your laptop, the terminal you detached from keeps serving the session until you press `Ctrl+C` or close the terminal. After that, requests that need your laptop fail until you return to the session. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
+```shell
+chainctl develop --keep park --parent $ORGANIZATION
+```
+
+Claude Code can keep working after you close the terminal. With a Claude login that Chainguard holds for you, it keeps working for as long as the session runs. Refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
+
+If you detach with **Detach — keep running 4h**, **Detach — keep running for…**, or a `--keep` duration, or from a session you're already keeping running, the terminal you detached from keeps serving the credentials that come from your laptop, such as a `cgr.dev` login you switched to your laptop, until you press `Ctrl+C` or close the terminal. Once nothing serves the session, requests that need your laptop fail until you return to it. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
+
+### Mark a session busy {#mark-a-session-busy}
+
+Work that waits without using the CPU or network, such as a script that waits on a remote job, doesn't make a session busy. To keep a detached session running while such work runs, use the `busy` command, which every session has at `/usr/local/bin/busy`:
+
+| Command | What it does |
+| ------- | ------------ |
+| `busy -- CMD [ARG...]` | Runs `CMD` and keeps the session busy until it exits. `busy` exits with `CMD`'s exit status. |
+| `busy --for DURATION [LABEL]` | Keeps the session busy for a duration, such as `90s`, `30m`, `2h`, or `1d`. |
+| `busy --clear [LABEL]` | Ends the `busy --for` hold with that label. |
+
+A label names a hold, so you can end one without the others. It has 1 to 32 lowercase letters, digits, and hyphens, and defaults to `busy`. For example, the following command keeps the session running until a release build finishes:
+
+```shell
+busy -- make release
+```
+
+Whatever `busy` holds, a session parks no later than 24 hours after you last detach.
 
 ## Use several terminals in a session {#use-several-terminals-in-a-session}
 
@@ -155,7 +188,7 @@ chainctl develop --new --name scratch --parent $ORGANIZATION
 
 This command creates a session named `app/scratch`. Without `--name`, `chainctl` generates a name. Once a directory has several sessions, return to one by its name or short ID.
 
-The `--name`, `--env`, `--check`, `--cache`, and `--keep always` flags each open a new session, so you don't need `--new` with them.
+The `--name`, `--env`, `--check`, `--cache`, `--keep always`, and `--keep park` flags each open a new session, so you don't need `--new` with them.
 
 ## List sessions {#list-sessions}
 
@@ -170,11 +203,11 @@ The output shows each session's name, the branch checked out in it, its state, a
 ```
          NAME          |  BRANCH   |         STATE          | LAST USED
 -----------------------|-----------|------------------------|-----------
- acme/app/quiet-harbor | main      | running, parks in 6m   | 4m ago
+ acme/app/quiet-harbor | main      | idle (parks in 6m)     | 4m ago
  acme/app/scratch      | fix-tests | parked, expires Oct 13 | 2d ago
 ```
 
-The `STATE` column tells you whether a session is running, when it parks or stops running, and when a parked session expires. To add each session's commit, environment, and directory, pass `-o wide`. To include expired sessions, pass `--expired`.
+The `STATE` column tells you whether a session is running, when it parks or stops running, and when a parked session expires. For a detached session, it also says whether the session is busy, such as `running (busy: agent turn, as of 13:40; at most until Oct 21 13:35)`, or how long a hold you placed lasts, such as `running, until 17:30, then while busy`. A session shown as `idle`, such as `idle (parks in 6m)`, is running but not busy, and the column shows when it parks. To add each session's commit, environment, and directory, pass `-o wide`. To include expired sessions, pass `--expired`.
 
 To list every user's sessions in the organization, with an `OWNER` column, pass `--all`. Only organization owners can use `--all`, and you can return to, rename, or delete only your own sessions.
 

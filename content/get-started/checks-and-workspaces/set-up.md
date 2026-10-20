@@ -46,13 +46,15 @@ Before you begin, make sure you have the following:
 
 You sign up with `chainctl`, and you use it with both products: `chainctl checks` for Chainguard Checks and `chainctl develop` for Chainguard Workspaces. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
-Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
+Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.386 or later. Releases before 0.2.383 can't keep a detached session running while it's busy or use a Claude login that Chainguard holds, and releases before 0.2.382 can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
 
 ```shell
 sudo chainctl update
 ```
 
 If you installed `chainctl` with Homebrew, run `brew upgrade chainctl` instead. Refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
+
+Updating doesn't change the sessions you already have. A session created with `chainctl` 0.2.382 or earlier doesn't keep running while it's busy. Unless you keep it running, it parks about 10 minutes after you detach, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
 
 ## Install the Chainguard App {#install-the-chainguard-app}
 
