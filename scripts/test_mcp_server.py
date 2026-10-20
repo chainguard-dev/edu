@@ -452,6 +452,13 @@ def test_instructions_give_the_pullable_reference_form():
     assert "cgr.dev/<your-organization>/<image>" in mcp_server.server.instructions
 
 
+def test_instructions_cover_products_beyond_images():
+    """Without this, the instructions read as if the docs cover only images."""
+    instructions = mcp_server.server.instructions
+    assert "Chainguard Checks" in instructions
+    assert "Chainguard Workspaces" in instructions
+
+
 # --- Image mappings --------------------------------------------------------
 #
 # Ground truth is data/package-mappings.yaml, parsed here with PyYAML. The
