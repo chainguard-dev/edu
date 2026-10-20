@@ -1,5 +1,5 @@
 ---
-date: 2026-10-16T17:58:45Z
+date: 2026-10-19T18:35:33Z
 title: "chainctl iam invites delete"
 slug: chainctl_iam_invites_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_invites_delete/
