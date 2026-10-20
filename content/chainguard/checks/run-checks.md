@@ -4,7 +4,7 @@ linktitle: "Run checks before you push"
 description: "Run your repository's checks against uncommitted changes in a Chainguard Workspaces session, and validate your Chainguard Checks configuration offline before you push."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T15:06:33+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -17,9 +17,9 @@ weight: 50
 
 Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-## Run checks in a Workspaces session
+## Run checks in a Workspaces session {#run-checks-in-a-workspaces-session}
 
-Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. To run every check, run `run-ci` with no arguments in the session:
+Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. It checks only `/work`, so it can't check a git worktree elsewhere in the session. To run every check, run `run-ci` with no arguments in the session:
 
 ```shell
 run-ci
@@ -55,18 +55,26 @@ The `run-ci` command exits with one of the following codes, so scripts and agent
 
 ### How run-ci differs from a pull request run {#how-run-ci-differs-from-a-pull-request-run}
 
-The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. It differs from a pull request run in the following ways:
+The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. The following table shows how it differs from a pull request run:
 
-- It runs the checks that have commands, in the order they appear in your configuration, and stops at the first check that fails, including an advisory check.
-- It skips checks that need something only a pull request run provides: a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs`. It prints a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. Those checks run only on the pull request, so a pass from `run-ci` doesn't cover them. If you name a skipped check, as in `run-ci deploy`, or if it skips every check, `run-ci` exits with `2`.
-- It runs checks as the session's user, not as each check's `user`. Sessions run as `root` unless their environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`. In a `root` session, every check runs as `root`. A session that runs as another user runs only the checks with that `user`, and skips the rest the same way.
-- It ignores `needs`, `when` conditions, `trigger`, and `timeout`, so it also runs checks that a pull request would skip. A check with `foreach` runs once for each variation, and each one appears in the output as `<check>/<variation>`, such as `test/api`.
-- It runs each check in the session as it is, not in a fresh VM per check. Packages you installed in the session are available, and a check's own package list and network access don't apply.
-- It uses the session's size and CPU architecture, not each check's `resources`. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). On pull requests, a class without a suffix usually runs on arm64.
+| What differs | `run-ci` in a session | A pull request run |
+| --- | --- | --- |
+| Configuration | The session's working tree, including uncommitted edits. | The pull request's test merge commit, with the base branch's rules applied. |
+| Which checks run | Every check that has commands, in the order your configuration lists them. It stops at the first check that fails, including an advisory check. | The checks that the run's plan selects, each after the checks it `needs`. An [advisory check](/chainguard/checks/configuration/#advisory-checks) never blocks merging. |
+| `needs`, `when`, `trigger`, and `timeout` | Ignored, so `run-ci` also runs checks that a pull request would skip. | Applied. |
+| `foreach` | Runs the check once for each variation, shown in the output as `<check>/<variation>`, such as `test/api`. | Runs each variation in its own VM, and reports all of them as one GitHub check. |
+| Checks that need a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs` | Skipped, with a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. A pass from `run-ci` doesn't cover them. | Run. |
+| User | The session's user, which is `root` unless the session's environment comes from a check with a different `user`. | Each check's `user`, which defaults to `root`. |
+| Environment | The session as it is. Packages you installed in the session are available, and the check's own package list and network access don't apply. | A fresh VM for each check, with the check's packages and network access. |
+| Size and CPU architecture | The session's. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). | Each check's `resources`. A class without a suffix usually runs on arm64. |
+
+If you name a skipped check, as in `run-ci deploy`, or if `run-ci` skips every check, it exits with `2`. A session whose environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`, runs as that user. It runs only the checks with that `user`, and skips the rest the same way. In a `root` session, every check runs as `root`.
 
 Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
 
 The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+
+Only one `run-ci` or `chainctl develop check` can run in a session at a time. One that starts while another runs fails and tells you to wait for the first to finish.
 
 ## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
 

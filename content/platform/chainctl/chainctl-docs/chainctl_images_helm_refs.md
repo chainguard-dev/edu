@@ -1,5 +1,5 @@
 ---
-date: 2026-10-15T09:15:02Z
+date: 2026-10-19T18:35:33Z
 title: "chainctl images helm refs"
 slug: chainctl_images_helm_refs
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_refs/

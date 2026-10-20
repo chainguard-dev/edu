@@ -1,10 +1,12 @@
 #!/bin/sh
-# Build the site for the chainguard-docs-preview Vercel project (DOCS-133).
+# Build the site for the two Vercel projects that deploy this repository:
+# chainguard-docs-preview, which builds every branch for review (DOCS-133), and
+# chainguard-docs, which builds main for www.chainguard.dev/docs.
 #
-# Mirrors the production build in .github/workflows/cloud-run.yaml, then points
-# Hugo at the host this deployment is actually served from. Hugo writes the main
-# stylesheet as an absolute URL, so the wrong base URL gives an unstyled site
-# rather than an obviously broken one.
+# Mirrors the production build in .github/workflows/cloud-run.yaml, then sets
+# the base URL each project serves the site from. Canonical links, sitemaps,
+# and redirects are built from it, so the wrong base URL sends readers and
+# search engines to the wrong host.
 set -eu
 
 # Anchor to the repo root so the paths below hold wherever this is invoked
@@ -25,13 +27,25 @@ curl -sfL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/buil
 # Both variables require "Enable access to System Environment Variables" in the
 # project settings. Fail loudly if it is off: the alternative is a silent build
 # whose every canonical link and alias reads "https://".
-if [ "${VERCEL_ENV:-}" = "production" ]; then
-  host="${VERCEL_PROJECT_PRODUCTION_URL:?not set - enable System Environment Variables in the Vercel project}"
+#
+# The chainguard-docs production project sets DOCS_PRODUCTION_BASE_URL to
+# https://www.chainguard.dev/docs/, the address www.chainguard.dev serves these
+# files at through a rewrite. Only that build:
+#   - leaves out future-dated pages, as the edu.chainguard.dev build does
+#   - lets search engines index it (HUGO_PARAMS_INDEXABLE, read by
+#     layouts/index.vercelconfig.json; every other build sends noindex)
+#   - removes the trailing slash from page URLs, matching the rest of www
+if [ -n "${DOCS_PRODUCTION_BASE_URL:-}" ]; then
+  HUGO_PARAMS_INDEXABLE=true hugo --gc --minify -b "$DOCS_PRODUCTION_BASE_URL"
+  node scripts/strip-trailing-slashes.mjs public "$DOCS_PRODUCTION_BASE_URL"
 else
-  host="${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}"
+  if [ "${VERCEL_ENV:-}" = "production" ]; then
+    host="${VERCEL_PROJECT_PRODUCTION_URL:?not set - enable System Environment Variables in the Vercel project}"
+  else
+    host="${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}"
+  fi
+  hugo --gc --minify --buildFuture -b "https://$host"
 fi
-
-hugo --gc --minify --buildFuture -b "https://$host"
 
 # Publish through Vercel's Build Output API, whose config.json carries the
 # routing table Hugo generated from the same redirect rules production nginx

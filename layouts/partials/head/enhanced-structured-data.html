@@ -224,7 +224,7 @@
   "provider": {
     "@type": "Organization",
     "name": "Chainguard Academy",
-    "url": "https://edu.chainguard.dev"
+    "url": {{ printf "%q" (strings.TrimSuffix "/" site.Home.Permalink) | safeJS }}
   },
   "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},
   "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}

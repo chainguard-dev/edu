@@ -654,10 +654,11 @@
   }
 }
 
-// Changelog callout (landing page, below the "foundation of security" cards).
-// A single full-width link band rather than a seventh guide card: the changelog
-// is a weekly feed, not an evergreen guide, so it gets its own affordance.
-.changelog-callout {
+// Landing page callout: a full-width link band for a destination that doesn't
+// fit the card grids. The page uses two, separated so they don't stack: the CI/CD
+// pipeline map below the top cards, and the changelog below the "foundation of
+// security" cards, which is a weekly feed rather than an evergreen guide.
+.landing-callout {
   position: relative;
   display: flex;
   align-items: center;
@@ -692,7 +693,7 @@
     box-shadow: 0 8px 24px rgba(98, 38, 240, 0.12);
     text-decoration: none;
 
-    .changelog-callout-cta svg {
+    .landing-callout-cta svg {
       transform: translateX(4px);
     }
   }
@@ -705,7 +706,7 @@
   }
 }
 
-.changelog-callout-eyebrow {
+.landing-callout-eyebrow {
   display: block;
   margin-bottom: 8px;
   font-size: 12px;
@@ -715,7 +716,7 @@
   color: var(--primary-1);
 }
 
-.changelog-callout-title {
+.landing-callout-title {
   font-family: $titleFont;
   font-size: 24px;
   font-weight: 700;
@@ -723,14 +724,14 @@
   color: var(--center-title-color);
 }
 
-.changelog-callout-text {
+.landing-callout-text {
   margin: 8px 0 0;
   font-size: 16px;
   line-height: 1.6;
   color: var(--caption-color);
 }
 
-.changelog-callout-cta {
+.landing-callout-cta {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -745,7 +746,7 @@
 }
 
 :root[data-dark-mode] {
-  .changelog-callout {
+  .landing-callout {
     background: linear-gradient(
       90deg,
       rgba(98, 38, 240, 0.18),
@@ -759,8 +760,8 @@
   }
 
   // Blurple is too dark to read on the dark background; use the lighter tint.
-  .changelog-callout-eyebrow,
-  .changelog-callout-cta {
+  .landing-callout-eyebrow,
+  .landing-callout-cta {
     color: var(--primary-2);
   }
 }

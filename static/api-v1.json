@@ -2999,6 +2999,72 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.ScimGroup": {
+        "description": "ScimGroup is a SCIM-provisioned group of an identity provider. Every field is\nserver-owned. Membership is summarized by member_count; the member list is\nnot exposed.",
+        "properties": {
+          "activeMemberCount": {
+            "description": "active_member_count is the number of active members the identity provider\nhas pushed to the group. It includes people who have not signed in yet and\nexcludes users the identity provider has deactivated.",
+            "format": "int64",
+            "type": "string"
+          },
+          "createdAt": {
+            "description": "created_at is when the SCIM group record was created.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "displayName": {
+            "description": "display_name is the SCIM displayName attribute: the group's current name.",
+            "type": "string"
+          },
+          "externalId": {
+            "description": "external_id is the group's correlation key. It is the value an\nExternalGroupRoleMapping matches on, byte for byte and case-sensitively.\nWhen the identity provider sends no externalId (Okta does not), the key is\nthe group's display name at the time it was first pushed, and\nexternal_id_derived is true; a later rename changes display_name but never\nthis key.",
+            "type": "string"
+          },
+          "externalIdDerived": {
+            "description": "external_id_derived is true when external_id was taken from display_name\nbecause the identity provider supplied no externalId.",
+            "type": "boolean"
+          },
+          "id": {
+            "description": "id is the UIDP of the SCIM group record.",
+            "type": "string"
+          },
+          "identityProviderUidp": {
+            "description": "identity_provider_uidp is the UIDP of the identity provider that\nprovisioned this group.",
+            "type": "string"
+          },
+          "memberCount": {
+            "description": "member_count is the number of members the identity provider has pushed to\nthe group. It counts provisioned users, including users who have not yet\nsigned in and users the identity provider has since deactivated, so it can\nexceed the number of people who currently hold the roles mapped to the\ngroup.",
+            "format": "int64",
+            "type": "string"
+          },
+          "needsFullSync": {
+            "description": "needs_full_sync is true while role changes for this group are still being\napplied: a mapping was added or removed, or the group's membership changed\nmore than a single request could apply. A background process clears it,\nnormally within about five minutes. While it is true, members may not yet\nhold the roles mapped to the group.",
+            "type": "boolean"
+          },
+          "updatedAt": {
+            "description": "updated_at is when the SCIM group record was last updated.",
+            "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.ScimGroupList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.ScimGroup"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "total_count is the number of groups matching the filter. It may exceed\nlen(items) when the result was clamped to the v1 cap (1000); treat\ntotal_count \u003e len(items) as \"narrow the filter\".",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.ScimUser": {
         "description": "ScimUser is a SCIM-provisioned user of an identity provider. Every field is\nserver-owned.",
         "properties": {
@@ -3433,11 +3499,6 @@
       "chainguard.platform.libraries.Entitlement": {
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
-          "cooldownDays": {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
-            "format": "int32",
-            "type": "integer"
-          },
           "ecosystem": {
             "allOf": [
               {
@@ -12323,7 +12384,7 @@
     },
     "/iam/v1/identityProviders/{identityProviderId}:setScimEnabled": {
       "post": {
-        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling fails\nwith FAILED_PRECONDITION for an organization with fewer than two manually\nassigned owner-tier role bindings, so SCIM can never take over an\norganization's only owner. Enabling does not require a live token. Token\ngeneration, regeneration, and revocation never change this switch.",
+        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling\nfails with FAILED_PRECONDITION for an organization that has no owner who\ncan sign in and whose owner role binding is assigned directly (not managed\nby SCIM), so SCIM can never take over an organization's only owner.\nEnabling does not require a live token. Token generation, regeneration,\nand revocation never change this switch.",
         "operationId": "IdentityProviders_SetScimEnabled",
         "parameters": [
           {
@@ -13058,6 +13119,64 @@
         "summary": "Update",
         "tags": [
           "Roles"
+        ]
+      }
+    },
+    "/iam/v1/scimGroups": {
+      "get": {
+        "description": "List returns the SCIM-provisioned groups of an identity provider. This v1\nsurface is unpaginated: it returns at most 1000 groups in a single\nresponse. `total_count` reports the full number matching the filter, so a\ncaller can tell the result was clamped (total_count \u003e len(items)) and\nshould narrow the request with external_id or display_name.",
+        "operationId": "ScimGroups_List",
+        "parameters": [
+          {
+            "description": "identity_provider_uidp restricts results to a single identity provider. It\nis required and carries the authorization scope: the caller must hold\nCAP_IAM_SCIM_GROUPS_LIST at this identity provider (or an ancestor).",
+            "in": "query",
+            "name": "identityProviderUidp",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "external_id matches the group's correlation key exactly (byte for byte).",
+            "in": "query",
+            "name": "externalId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "display_name matches the group's current display name, ignoring case and\naccents (the database collation). Use external_id for a byte-exact match.",
+            "in": "query",
+            "name": "displayName",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.ScimGroupList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "ScimGroups"
         ]
       }
     },
@@ -13884,7 +14003,7 @@
             }
           },
           {
-            "description": "Match against the PURL name component (exact, case-insensitive).",
+            "description": "Match against the full package name, including any namespace or scope\n(exact, case-insensitive): \"@nx/web\" for npm, \"group/artifact\" or\n\"group:artifact\" for Maven.",
             "in": "query",
             "name": "packageName",
             "schema": {
@@ -14110,15 +14229,6 @@
                 "SOURCE_INTERNAL"
               ],
               "type": "string"
-            }
-          },
-          {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
-            "in": "query",
-            "name": "cooldownDays",
-            "schema": {
-              "format": "int32",
-              "type": "integer"
             }
           }
         ],
@@ -20810,6 +20920,10 @@
     },
     {
       "name": "RoleBindings"
+    },
+    {
+      "description": "ScimGroups reads the SCIM-provisioned groups of an identity provider. The\nrecords are written by the IdP's SCIM connector, so this surface is\nread-only. A group's external_id is the key an ExternalGroupRoleMapping\nmatches on, so a caller assigning a role to a listed group passes that field\nas the mapping's external_group_id.",
+      "name": "ScimGroups"
     },
     {
       "description": "ScimUsers reads the SCIM-provisioned users of an identity provider. The\nrecords are written by the IdP's SCIM connector, so this surface is\nread-only. Name and email attributes are deliberately not exposed here (data\nminimization); use the SCIM protocol endpoint for the full user resource.",

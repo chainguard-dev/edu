@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-09T17:42:18+00:00
+lastmod: 2026-10-19T18:40:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -116,6 +116,8 @@ Preview available remediations by running `chainctl libraries remediate`, then a
 
 Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
 
+To see this end to end, the [CVE remediation demo](https://github.com/chainguard-demo/chainguard-libraries-javascript/tree/main/pnpm/cve-remediation) installs a vulnerable and a remediated version of the same package with pnpm and scans both with Grype.
+
 ## Provenance and attestations
 
 Chainguard Libraries for JavaScript include SLSA provenance with signed attestations.
@@ -191,8 +193,9 @@ the attestation was signed by Chainguard.
 ### Retrieve SBOMs
 
 To save the available SPDX SBOM and verified SLSA provenance bundle during
-verification, use `chainctl libraries verify --output-attestations` with
-`--output-dir`. Refer to [Download JavaScript SBOMs and
+verification, use `chainctl libraries verify --output-attestations`. Files are
+saved to `attestations` by default, or use `--output-dir` to choose another
+destination. Refer to [Download JavaScript SBOMs and
 attestations](/chainguard/libraries/policies-and-security/verification/#download-javascript-sboms-and-attestations)
 for examples, output paths, and the trust status of each file.
 

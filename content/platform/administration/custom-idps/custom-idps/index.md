@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-10-01T17:08:58+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -92,7 +92,7 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 - To use a third-party identity provider, click the corresponding option from the list.
 - To use your email and a password, enter your email and click **Continue**.
 
-<center><img src="/platform/administration/custom-idps/custom-idps/cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
+<center><img src="cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
 In each of these cases, the Chainguard Console redirects you to an external identity provider to authenticate and then returns you to the Console. If you use your email and a password, [Auth0](https://auth0.com/) handles authentication and stores your credentials.
 

@@ -22,7 +22,7 @@ Configure Artifactory with a single remote repository pointed at `https://librar
 
 ## JFrog Artifactory
 
-JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-repositories) for more information.
+JFrog Artifactory supports Go repositories for proxying and hosting Go modules, and virtual repositories for combining sources into one endpoint. Refer to the [Go repositories documentation for Artifactory](https://docs.jfrog.com/artifactory/docs/go-modules) for more information.
 
 If an existing Artifactory remote repository points directly to a public Go module proxy, disable or remove it from the virtual repository that your builds use. Artifactory resolves virtual repositories according to their configured order, so a misconfiguration can cause an unprotected module to be served without an obvious build failure.
 
@@ -80,37 +80,37 @@ Use a module and version that are available through your organization's Chaingua
 Fetch the module archive directly from Chainguard and compute its checksum:
 
 ```bash
- curl -fsS -L \\
-   -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \\
-   "https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${CHAINGUARD_GO_IDENTITY_ID}:${CHAINGUARD_GO_TOKEN}" \
+  "https://libraries.cgr.dev/go/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 Fetch the same archive through the Artifactory remote repository and compute its checksum:
 
 ```bash
- curl -fsS -L \\
-   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
-   "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
+  "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 Replace `artifactory-host` with your Artifactory hostname. Replace `ARTIFACTORY_USERNAME` and `ARTIFACTORY_TOKEN` with credentials that can read from Artifactory.
 
-Fetch the archive through the virtual repository that developers and CI systems will use:
+Fetch the archive through the virtual repository that developers and CI systems use:
 
 ```bash
- curl -fsS -L \\
-   -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \\
-   "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \\
-   | sha256sum
+curl -fsS -L \
+  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
+  "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \
+  | sha256sum
 ```
 
 The three checksums must match. Do not proceed to production rollout if the Artifactory checksum differs from the direct Chainguard checksum or if either Artifactory request fails.
 
 If validation fails, review the following settings:
 
-- URL: confirm that the remote repository URL is exactly https://libraries.cgr.dev/go/.
+- URL: confirm that the remote repository URL is exactly `https://libraries.cgr.dev/go/`.
 - Credentials: regenerate the pull token with `chainctl auth pull-token create --repository=go` and update the Artifactory remote repository credentials. Expired tokens can fail without a clear error in the Artifactory user interface.
 - Advanced configuration: confirm that the redirect and request settings from the initial configuration are applied.
 - Cached files: if the remote repository was previously configured with incorrect settings, delete the affected cached module files from the `go-chainguard` cache and repeat the validation.

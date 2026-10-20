@@ -58,7 +58,9 @@ CATALOG_PATH = os.getenv("CATALOG_PATH", "/docs/package-mappings.json")
 # as "no image data at all": a headless Claude Code test found that wording
 # made the model skip this server's dfc image mappings and guess instead. The
 # second exists because the same test found most answers printing
-# cgr.dev/chainguard/<image> for images that namespace does not serve.
+# cgr.dev/chainguard/<image> for images that namespace does not serve. The
+# third keeps the image wording from suggesting that the documentation covers
+# only images and build tools.
 SERVER_INSTRUCTIONS = """\
 This server searches Chainguard documentation and maps Debian and Fedora
 packages to their Wolfi equivalents. Its documentation includes the Dockerfile
@@ -73,6 +75,13 @@ Most Chainguard images are available only to organizations entitled to them,
 in the organization's own namespace. The public cgr.dev/chainguard namespace
 serves a free subset, with latest-style tags only, so do not present
 cgr.dev/chainguard/<image> as pullable unless you have confirmed it.
+
+The documentation covers every Chainguard product, including Chainguard
+Containers, Chainguard Libraries, Chainguard Actions, Guardener, Chainguard
+Checks, and Chainguard Workspaces, as well as chainctl, Wolfi, apko, and
+melange. Use search_docs for how-to and reference questions about any of them,
+such as writing a Chainguard Checks .chainguard/ci.yaml file or working in a
+Chainguard Workspaces session.
 
 For live image and package facts, use Chainguard's product MCP servers, which
 require a Chainguard account:

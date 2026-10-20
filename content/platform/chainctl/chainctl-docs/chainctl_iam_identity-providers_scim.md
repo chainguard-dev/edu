@@ -1,5 +1,5 @@
 ---
-date: 2026-10-15T09:15:02Z
+date: 2026-10-19T18:35:33Z
 title: "chainctl iam identity-providers scim"
 slug: chainctl_iam_identity-providers_scim
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim/
@@ -33,6 +33,7 @@ Manage SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/)	 - customer managed identity provider management
 * [chainctl iam identity-providers scim disable](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_disable/)	 - Disable SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers scim enable](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_enable/)	 - Enable SCIM provisioning for an identity provider.
+* [chainctl iam identity-providers scim groups](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_groups/)	 - Inspect the SCIM-provisioned groups of an identity provider.
 * [chainctl iam identity-providers scim token](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_token/)	 - Manage the SCIM provisioning bearer token for an identity provider.
 * [chainctl iam identity-providers scim users](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_users/)	 - Inspect the SCIM-provisioned users of an identity provider.
 

@@ -28,7 +28,7 @@
 <li class="{{ if $top }}my-0 {{ end }}sidebar-item-list-item {{ if $selected }} sidebar-item-list-item-selected {{ end }}">
   <div class="{{ if $top }}sidebar-item-top {{ end }}d-flex gap-1 justify-content-between align-items-center sidebar-item {{ if $active }} sidebar-item-active {{ end }}">
     <button class="{{ if $active }} sidebar-item-active {{ end }} {{ if $top }}mx-0 {{ end }}border-0 bg-transparent d-flex align-items-center justify-content-between rounded sidebar-subcategory w-100 {{ if not $top }}sidebar-item {{ end }}{{ if not $active }} collapsed {{ end }}" data-bs-toggle="collapse" data-bs-target="#section-{{ md5 $page.RelPermalink }}" aria-expanded="{{ if $active }}true{{ else }}false{{ end }}">
-      <a href="{{ if $selected }}#{{ else }}{{ $page.Permalink }}{{ end }}" class="{{ if $top }}sidebar-item-top {{ end }}sidebar-item mx-0 p-0">
+      <a href="{{ if $selected }}#{{ else }}{{ $page.RelPermalink }}{{ end }}" class="{{ if $top }}sidebar-item-top {{ end }}sidebar-item mx-0 p-0">
         <span>{{ $page.LinkTitle }}</span>
       </a>
       <div class="chevron-rotator">
@@ -44,9 +44,9 @@
 
       {{/* Cross-links defined on this node's _index.md. */}}
       {{ range $page.Params.crosslinks }}
-      {{ $xactive := eq $currentPage.RelPermalink (.url | relURL) }}
+      {{ $xactive := eq $currentPage.RelPermalink (partial "site-path.html" .url) }}
       <li class="sidebar-item-list-item {{ if $xactive }} sidebar-item-list-item-selected {{ end }}">
-        <a class="sidebar-subcategory docs-link rounded {{ if $xactive }} sidebar-item-active active {{ end }} sidebar-item" href="{{ .url | relURL }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
+        <a class="sidebar-subcategory docs-link rounded {{ if $xactive }} sidebar-item-active active {{ end }} sidebar-item" href="{{ partial "site-path.html" .url }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
       </li>
       {{ end }}
     </ul>
@@ -55,10 +55,10 @@
 {{ end }}
 {{ else }}
 {{ if $top }}
-<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></li>
+<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a></li>
 {{ else }}
 <li class="sidebar-item-list-item {{ if $active }} sidebar-item-list-item-selected {{ end }}">
-  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a>
+  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a>
 </li>
 {{ end }}
 {{ end }}

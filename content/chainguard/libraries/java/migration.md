@@ -105,7 +105,7 @@ This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAV
 
 Learn more about command options in the [chainctl documentation](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
-When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/introduction/access/).
+When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](/chainguard/libraries/introduction/access/).
 
 ### Do not commit credentials to version control
 
