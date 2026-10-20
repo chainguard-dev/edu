@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -17,7 +17,7 @@ weight: 40
 
 Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, and how to use them to protect your branches.
 
-## When Checks runs
+## When Checks runs {#when-checks-runs}
 
 Chainguard Checks runs on a repository when the Chainguard App is installed on the repository, its GitHub account is linked to a Chainguard organization with access to Chainguard Checks, and the repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory. For a pull request, Chainguard Checks looks for the configuration on the pull request's branch and on its base branch.
 
@@ -30,7 +30,7 @@ Pushes to other branches, tags, and closed pull requests don't start runs.
 
 For a pull request, Chainguard Checks runs against the commit GitHub would create by merging the pull request into its base branch, and reads the configuration from that commit. The result reflects the latest base branch as well as the change. If the pull request has merge conflicts, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**.
 
-When you push a new commit to a pull request, Chainguard Checks cancels the run for the previous commit and starts a new one.
+When you push a new commit to a pull request, Chainguard Checks cancels the run for the previous commit and starts a new one. Closing or merging a pull request doesn't cancel its run. The run finishes, reports its results on the pull request, and uses your organization's [Checks allowance](/chainguard/checks/overview/#availability-and-limits) until it ends. To stop the run, use [`chainctl checks cancel --force`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-cancel).
 
 Pull requests from forks run without approval, the same way as pull requests from branches. To skip a check on pull requests from forks, give it a condition on `context.github.pull_request.head_repository`, as described in [Conditions](/chainguard/checks/configuration/#conditions). The condition also skips pull requests that your own team opens from forks.
 
@@ -38,11 +38,11 @@ Without a `trust` section in `.chainguard/ci/identities.yaml` on your default br
 
 ## How results appear {#how-results-appear}
 
-Each run reports a summary check and one GitHub check for each of your checks.
+Each run reports a summary check, plus a GitHub check for each of your checks that doesn't pass or that [reports errors, warnings, notices, or a summary](/chainguard/checks/configuration/#report-errors-and-annotations).
 
 For a pull request, the summary check is named **Chainguard Checks (presubmit)**. It's pending while the run is in progress, and passes only when every blocking check passes. When the run finishes, its output lists each check's result, as described in [Read the summary check](#read-the-summary-check).
 
-Each of your checks gets a GitHub check named `presubmit / <file> / <check>`, where `<file>` is `ci` in the single-file layout, or the file's name in the directory layout. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that runs once for each of several variations, with `foreach`, appears as one GitHub check that counts how many variations passed.
+Each of these GitHub checks is named `presubmit / <file> / <check>`, where `<file>` is the name of the file that defines the check, without `.yaml`. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that passes without reporting anything gets no GitHub check of its own, unless an earlier run for the same commit left one under its name. The summary check's output still lists it. When a check that runs once for each of several variations, with `foreach`, gets a GitHub check, it appears as one GitHub check that counts how many variations passed.
 
 If a pull request changes `.chainguard/develop.yaml`, or a file it takes its environment from, Chainguard Checks also reports a check named **Chainguard Checks / develop-environment**. This check reads the file the way a [Chainguard Workspaces](/chainguard/workspaces/session-environment/) session would, without starting a session or installing packages, and marks each problem on its file and line. It isn't part of the run: the summary check doesn't count it, and **Re-run** on it does nothing. If it finds a problem, it fails, but it doesn't block merging. To clear a problem, push a commit that fixes it.
 
@@ -83,7 +83,7 @@ For each check that couldn't be executed, the reason appears under **Errors:** a
 
 To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset for your default branch.
 
-Don't require the per-check results, such as **presubmit / ci / test**, or **Chainguard Checks / develop-environment**. A check that a condition skips, or that runs only on request, never reports a result for that pull request, and the develop-environment check appears only on pull requests that change its files, so GitHub would wait for them indefinitely. The summary check already accounts for every check that should block the pull request.
+Don't require the per-check results, such as **presubmit / ci / test**, or **Chainguard Checks / develop-environment**. A check that passes without reporting anything, that a condition skips, or that runs only on request never reports a result of its own for that pull request, and the develop-environment check appears only on pull requests that change its files, so GitHub would wait for them indefinitely. The summary check already accounts for every check that should block the pull request.
 
 During the beta, Chainguard Checks doesn't run on GitHub merge queues. If a branch uses a merge queue and requires **Chainguard Checks (presubmit)**, the queue waits for a result that never arrives, and removes the pull request when its timeout expires. Don't require the summary check on a branch that uses a merge queue.
 
@@ -93,7 +93,7 @@ The summary check doesn't fail because of an [advisory check](/chainguard/checks
 
 A pull request can add checks and change what they run. It can't weaken its own checks:
 
-- If a pull request makes an existing check advisory, or changes it to run only on request, the change takes effect after the pull request merges. Until then, the check keeps blocking the pull request, and the summary check's output says so.
+- If a pull request makes an existing check advisory, or changes it to run only on request, the change takes effect after the pull request merges. Until then, the check keeps the base branch's setting, so a blocking check keeps blocking the pull request, and the summary check's output says so. A change that makes a check stricter, such as making an advisory check blocking, takes effect on the same pull request.
 - If a pull request removes a check, or changes its conditions or trigger so that it no longer runs for that pull request, the summary check fails with **Run creation failed**. The base branch's configuration would have run that check, and a change can't remove itself from its own checks. The exception is a check limited by `when.changed` to files that no longer exist.
 - If a pull request leaves no presubmit checks, such as by changing every check to `trigger: postsubmit`, it fails the same way when the base branch's configuration has any presubmit check, even one that wouldn't have run for this pull request. A check limited by `when.changed` to files that no longer exist doesn't count. The pull request also fails this way if the base branch's configuration is invalid. Otherwise, it gets no Chainguard Checks run or summary check at all.
 
@@ -109,7 +109,7 @@ You can also rerun a pull request's checks with `chainctl` after its latest run 
 chainctl checks rerun "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 ```
 
-The command reruns the pull request's latest run the same way as **Re-run** on GitHub. Nothing reruns if the pull request is closed, or if it has new commits since that run started. The summary check shows **Re-run requested** until the new run starts, and until then, `chainctl checks status` shows the previous run. After the summary check shows the new run's progress, follow the rerun:
+The command reruns the pull request's latest run the same way as **Re-run** on GitHub. Nothing reruns if the pull request is closed, or if it has new commits since that run started. Until the new run starts, `chainctl checks status` shows the previous run, and the summary check shows **Re-run requested by *IDENTITY_ID* via chainctl**, where *IDENTITY_ID* is your Chainguard identity ID. After the summary check shows the new run's progress, follow the rerun:
 
 ```shell
 chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION --watch
@@ -132,13 +132,13 @@ The summary check goes back to pending with **Pull request changed; running agai
 
 If a check can't finish for a reason outside the check, such as a VM that doesn't start or loses its connection, Chainguard Checks runs the check again in a new VM, up to three attempts in all. It doesn't retry a check that fails, times out, or is stopped by `policy: destroy`, or one with a problem that a retry can't fix, such as packages that can't be installed together, or a workload identity that the pull request doesn't get.
 
-A retry runs every step again from the first, so make steps with side effects, such as an upload, safe to repeat. The check's `timeout` keeps counting across attempts, except for the time spent starting each VM, and every attempt counts toward the run's [50-minute limit](/chainguard/checks/configuration/#timeouts).
+A retry runs every step again from the first, so make steps with side effects, such as an upload, safe to repeat. The check's `timeout` keeps counting across attempts, except for the time spent starting each VM, and every attempt counts toward the run's [two-hour limit](/chainguard/checks/configuration/#timeouts).
 
 ## Run a check on request {#run-a-check-on-request}
 
 A check with `when: {requested: true}` runs only when someone asks for it. Until then, it reports no result and doesn't block the pull request. When a run finishes, the summary check's output lists each check that can run on request, with the label that runs it.
 
-To run a check on request, add the label `ci/run:<check>` to the pull request. For example, `ci/run:e2e-full` runs the `e2e-full` check. If two files in the directory layout have a check with the same name, include the file's name, such as `ci/run:go/e2e-full`. Labels match check names regardless of case, so `ci/run:E2E-Full` also runs `e2e-full`. Adding labels requires the triage or write role on the repository.
+To run a check on request, add the label `ci/run:<check>` to the pull request. For example, `ci/run:e2e-full` runs the `e2e-full` check. If two files have a check with the same name, include the file's name, such as `ci/run:go/e2e-full`. Labels match check names regardless of case, so `ci/run:E2E-Full` also runs `e2e-full`. Adding labels requires the triage or write role on the repository.
 
 A check that runs on request has limits on its name and its other conditions, as described in [Run on request](/chainguard/checks/configuration/#run-on-request). To run a check when its files change and also on request, use `when.changed` alone, because a label also forces a check that `when.changed` would skip to run. A label doesn't override a `when.expr` condition.
 
@@ -208,7 +208,7 @@ Before you turn on the agent, review the terms that Chainguard Checks is offered
 
 ## Run checks after merging {#run-checks-after-merging}
 
-Checks with `trigger: postsubmit` run on each new commit on your default branch. Each new commit in the default branch's first-parent history gets its own run, so a merge commit gets one run, and a rebase merge of five commits gets five. The results appear on the commit as **Chainguard Checks (postsubmit)** and one GitHub check for each postsubmit check.
+Checks with `trigger: postsubmit` run on each new commit on your default branch. Each new commit in the default branch's first-parent history gets its own run, so a merge commit gets one run, and a rebase merge of five commits gets five. The results appear on the commit as **Chainguard Checks (postsubmit)**, with per-check results named `postsubmit / <file> / <check>`, as described in [How results appear](#how-results-appear).
 
 For a run after merging, `when.changed` compares the new commit with its first parent. A merge commit or a squash merge selects checks by the whole pull request's changes, and each commit of a rebase merge selects them by its own changes only. A commit has no labels, so a check with `when: {requested: true}` never runs after merging, and one that also has only `trigger: postsubmit` never runs at all. To run that work on merged code, define a separate postsubmit check without `requested`.
 

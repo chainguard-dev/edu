@@ -41,6 +41,7 @@ Before you begin, make sure you have the following:
 - A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
 - A local clone of a repository on github.com that you can push to.
 - A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
+- If you already belong to a Chainguard organization, the `owner` or `limited_owner` role in the organization where you turn on Chainguard Checks and Chainguard Workspaces.
 
 ## Install or update chainctl {#install-or-update-chainctl}
 
@@ -84,7 +85,7 @@ The command does the following:
 1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
 2. Picks the Chainguard organization to use:
     - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
-    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
+    - If you belong to exactly one organization on the Starter or Team plan, it uses that one, even if your role there, such as `viewer` or `sandbox.user`, can't turn on Chainguard Checks and Chainguard Workspaces. The command then stops with an error that says `missing: terms.accept`, as described in [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
     - Otherwise, it stops and asks you to choose an organization with `--parent`.
 3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
 4. If your organization isn't linked to a GitHub account yet, asks which one to link. Link the account that owns your repository: press `Enter` to link your own GitHub user, or enter the name of a GitHub organization where you have the owner role, such as `acme`, not a URL. The command opens your browser so you can authorize the link. If the Chainguard App isn't installed on the account, the command offers to open the installation page, then authorizes and links the account again.
@@ -104,7 +105,7 @@ You can answer some of the command's questions with flags:
 | Flag | What it does |
 | ---- | ------------ |
 | `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
-| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
+| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You need the `owner` or `limited_owner` role in it. |
 
 For example, to link the `acme` GitHub organization:
 
@@ -116,7 +117,7 @@ For every flag, refer to the [`chainctl develop init` reference](/chainguard/wor
 
 ### Use an organization your company already has {#use-an-organization-your-company-already-has}
 
-If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). An owner can then turn on both products in it, replacing `$ORGANIZATION` with the organization's name:
+If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). Someone with the `owner` or `limited_owner` role in the organization can then turn on both products, replacing `$ORGANIZATION` with the organization's name:
 
 ```shell
 chainctl develop init --parent $ORGANIZATION
@@ -124,7 +125,7 @@ chainctl develop init --parent $ORGANIZATION
 
 If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
 
-An organization that has a product through the account team must also accept that product's terms, which takes the `owner` role. Until an owner accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
+An organization that has a product through the account team must also accept that product's terms, which takes the `owner` or `limited_owner` role. Until someone accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
 
 ```shell
 chainctl checks accept-terms --parent $ORGANIZATION

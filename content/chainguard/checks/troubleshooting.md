@@ -54,7 +54,7 @@ The following table lists the most common causes, grouped by the key or file the
 | A check's name has a character that isn't allowed, or doesn't start and end with a letter or digit. | Rename the check. Unless the character is `.` or `/`, the error for a character that isn't allowed says only that the name must fit the 128-character limit, even when the name is short. Refer to [Check names](/chainguard/checks/configuration/#check-names). |
 | Two checks in the same file have names that differ only in case, such as `Test` and `test`. | Rename one of them. |
 | A check's full name, such as `ci/test`, is longer than 128 characters. | Shorten the check's name, or the file's. |
-| A check's environment names a cache under `caches`, but the check doesn't set `user: build`. | Set `user: build` on the check, or give it an environment without the cache. Refer to [Build caches](/chainguard/checks/variations-services-caches/#build-caches). |
+| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Build caches](/chainguard/checks/variations-services-caches/#build-caches). |
 | A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
 | A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
 | `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
@@ -71,14 +71,14 @@ If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run
 | ----- | ---------- |
 | The pull request removes a check, changes a check's conditions or trigger so that it no longer runs for this pull request, or leaves no presubmit checks while the base branch's configuration still has one, even one that wouldn't have run for this pull request. The exception is a check limited by `when.changed` to files that no longer exist. | A change can't remove itself from its own checks. Refer to [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). |
 | The pull request changes 3,000 or more files, and the output says so. | Split the change into smaller pull requests, because **Re-run** fails the same way. A commit on your default branch that changes 3,000 or more files also fails in **Chainguard Checks (postsubmit)**. Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits). |
-| A check `needs` another check that doesn't run under the same trigger, such as a presubmit check that needs a check with only `trigger: postsubmit`. | Give both checks the same `trigger`. |
+| A check needs another check, either with `needs` or by taking an input from it with `from`, and the other check doesn't run on every trigger that the first check runs on, such as a presubmit check that needs a check with only `trigger: postsubmit`. The output includes `does not support trigger`. | Add the missing trigger to the other check, such as `trigger: [presubmit, postsubmit]`. The other check can run on more triggers than the first. If the missing trigger is `postsubmit`, the pull request's checks pass, and **Chainguard Checks (postsubmit)** fails after the change merges. To find the problem before you merge, run `chainctl checks validate`. Refer to [Triggers](/chainguard/checks/configuration/#triggers). |
 | A check's `git` input names a private repository, or a `ref` that doesn't exist in the repository. | Chainguard Checks resolves each `git` input to a commit when it creates the run, without credentials, so it can check out only public GitHub repositories. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
 | A check's `user` is the name of an account that the VM already has, such as `daemon`, `mail`, or `nobody`, and the output says that the user collides with an existing account. | `chainctl checks validate` accepts these names, but the run fails. Choose another name, such as `build`, as described in [Run as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
 | A check binds `context.github.pull_request.body` to `CHAINGUARD_BASE_REVISION`, `GOOGLE_APPLICATION_CREDENTIALS`, `GITHUB_TOKEN`, or `GOFLAGS`. | Bind the description to a variable with another name. Refer to [Environment variables](/chainguard/checks/configuration/#environment-variables). |
 | A check binds the pull request's description, and the description is over 65,536 bytes or contains a NUL character. The output says how many bytes the description is, or that it contains NUL. | Shorten the description, then use **Re-run** on the summary check, or push a new commit. Characters outside ASCII take more than one byte each. |
 | A check asks for a larger resource class than your organization allows. The output says that a job asks for more CPUs and memory, or more scratch disk, than your organization's largest resource class. | Choose a smaller class with `resources`, or lower your class's `cpus`, `memory`, or `disk`. With the Starter allowance, the largest class is `medium`, which has 4 vCPUs and 16 GB of memory. Unless your organization's allowance sets a different limit, a check's VM can have at most 16 vCPUs, 64 GB of memory, and 100 GB of disk. The built-in classes are within these limits, but a class you [define in `resources.yaml`](/chainguard/checks/configuration/#define-your-own-resource-classes) can exceed them. |
 | Your organization used up this month's compute allowance. The output says that your organization can't start work until the allowance resets on the first day of the month (UTC), and that work already running finishes. | After the reset, use **Re-run** on the summary check, or push a new commit. To continue sooner, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs). Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits) for how checks use the allowance. |
-| Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have an organization owner run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
+| Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have someone with the `owner` or `limited_owner` role run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
 
 ## The summary check says checks could not be executed {#the-summary-check-says-checks-could-not-be-executed}
 
@@ -87,7 +87,7 @@ If **Chainguard Checks (presubmit)** says that checks could not be executed, or 
 | Reason | What to do |
 | ------ | ---------- |
 | `task timed out after`, followed by the check's `timeout` | The check ran longer than its own [timeout](/chainguard/checks/configuration/#timeouts). Raise `timeout`, or split the check into smaller ones. |
-| `workflow run exceeded the 50-minute limit` | The run reached its time limit before the check finished. Refer to [A check stops after 50 minutes](#a-check-stops-after-50-minutes). |
+| Includes `workflow run exceeded its execution deadline` | The run reached its time limit before the check finished. Refer to [A check stops after two hours](#a-check-stops-after-two-hours). |
 | Includes `workflow identity rejected` | The check didn't get its workload identity, for example because the pull request doesn't reach the identity's ring. Refer to [When a pull request doesn't get an identity](/chainguard/checks/identity-and-trust/#when-a-pull-request-doesnt-get-an-identity). |
 | `the package set does not resolve`, or `two packages in the set install the same file` | Chainguard Checks couldn't install the check's packages. Fix the names and version constraints in `environment.packages`, or remove one of the two packages that install the same file. |
 | Any other reason | The check's VM kept failing for a reason outside the check, even after [automatic retries](/chainguard/checks/github/#automatic-retries). Use **Re-run** on the summary check, or push a new commit. |
@@ -115,6 +115,23 @@ Some hosts redirect to others. For example, a package registry might serve files
 
 The table has a row for each hostname the check looked up and each address it connected to. A connection's row shows the IP address and port, followed by the hostnames the check looked up for that address. With `policy: destroy`, the page also names the host that stopped the check. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
+## A check fails with a certificate error {#a-check-fails-with-a-certificate-error}
+
+If a check lists a host in `network.egress` but its HTTPS requests to the host fail with a certificate error, such as `self-signed certificate in certificate chain` or `PKIX path building failed`, the tool that made the request doesn't trust the certificate authority that Chainguard Checks uses for the check's HTTPS connections. Refer to [Network access](/chainguard/checks/configuration/#network-access). This happens in the following cases:
+
+- The tool keeps its own list of trusted certificates and ignores `SSL_CERT_FILE` and the other variables that Chainguard Checks sets. Examples include a binary with root certificates built in, and a Java runtime that the check downloads, rather than one that you list in `environment.packages`.
+- The check sets `SSL_CERT_FILE`, or another variable that names a certificate bundle, in `vars`. Your value replaces the one that Chainguard Checks sets, so the file it names must include the certificate authority.
+- The tool pins the host's certificate. Chainguard Checks has no setting that exempts a host, so the tool can't connect to that host from a check.
+
+To fix a tool that keeps its own list, point it at the system bundle, `/etc/ssl/certs/ca-certificates.crt`, which includes the certificate authority. A Java runtime that you list in `environment.packages` already trusts the certificate authority. For a Java runtime that the check installs itself, run that runtime's `keytool` in a `script` before the command that connects, to import the certificate authority's file. The file is in `/usr/local/share/ca-certificates/`, and its name is `microvm-guest-ca-` followed by the certificate's fingerprint, so the pattern in the following example matches only that file. In the example, `JAVA_HOME` is the runtime's directory:
+
+```shell
+"$JAVA_HOME/bin/keytool" -importcert -noprompt -cacerts -storepass changeit \
+  -alias chainguard-checks -file /usr/local/share/ca-certificates/microvm-guest-ca-*.crt
+```
+
+For Java 8, replace `-cacerts` with `-keystore` followed by the path to the runtime's `cacerts` file, such as `"$JAVA_HOME/jre/lib/security/cacerts"`.
+
 ## A check can't find submodules, Git LFS files, or private repositories {#a-check-cant-find-submodules-git-lfs-files-or-private-repositories}
 
 A check's `/work` directory holds your repository's tracked files and history, but not submodules or Git LFS content. Submodule directories are empty, and files that Git LFS tracks hold their pointer files. During the beta, a check also has no GitHub credential, so commands that fetch from a private GitHub repository, such as a download of a private Go module, fail to authenticate. Refer to [Credentials](/chainguard/checks/configuration/#credentials).
@@ -138,9 +155,9 @@ chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --errors -C 3 --parent 
 
 For other ways to read part of a long log, and the role these commands need, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
 
-## A check stops after 50 minutes {#a-check-stops-after-50-minutes}
+## A check stops after two hours {#a-check-stops-after-two-hours}
 
-A whole run can take up to 50 minutes from when it starts, and checks still running or waiting to start at that point fail. Split long checks into smaller ones, which run in parallel, up to four at a time with the Starter allowance. You can also move slow work to a [postsubmit check](/chainguard/checks/github/#run-checks-after-merging).
+A whole run can take up to two hours from when it starts, and checks still running or waiting to start at that point fail. Split long checks into smaller ones, which run in parallel, up to four at a time with the Starter allowance. You can also move slow work to a [postsubmit check](/chainguard/checks/github/#run-checks-after-merging).
 
 ## A check runs out of space in /tmp {#a-check-runs-out-of-space-in-tmp}
 
@@ -163,7 +180,7 @@ To see what each check gets, run `chainctl checks explain` and read its `cache s
 
 ## A required check never reports {#a-required-check-never-reports}
 
-If GitHub waits indefinitely for a required check, you probably required a per-check result, such as **presubmit / ci / test**, instead of the summary check. A check that a condition skips, or that runs only on request, never reports a result. Require only **Chainguard Checks (presubmit)**, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
+If GitHub waits indefinitely for a required check, you probably required a per-check result, such as **presubmit / ci / test**, instead of the summary check. A check that passes without reporting anything, that a condition skips, or that runs only on request never reports a result of its own. Require only **Chainguard Checks (presubmit)**, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 
 A GitHub merge queue that requires **Chainguard Checks (presubmit)** never gets a result either, because Chainguard Checks doesn't run on merge queues during the beta. The queue waits until its timeout expires, then removes the pull request. Don't require the summary check on a branch that uses a merge queue.
 

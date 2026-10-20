@@ -24,14 +24,16 @@ A coding agent that runs on your laptop can read your SSH keys, cloud credential
 
 ## How a session works
 
-When you run `chainctl develop` in a git checkout, `chainctl` creates a microVM and syncs your directory into it at `/work`. The sync includes tracked files, untracked files that `.gitignore` doesn't exclude, and the repository's history, so the session starts on exactly the tree you have, pushed or not. It leaves out your `.git/config` file and your `.git/hooks` directory. Submodules arrive as empty directories, and they're also empty in a session that you open from a repository URL. By default, you get a `bash` shell in the session as `root`.
+When you run `chainctl develop` in a git checkout, `chainctl` creates a microVM and syncs your directory into it at `/work`. The sync includes tracked files, untracked files that `.gitignore` doesn't exclude, and the repository's history, so the session starts on exactly the tree you have, pushed or not. Symbolic links arrive as links, not as the files that they point to, and `chainctl` skips sockets, devices, and named pipes. Submodules arrive as empty directories, and they're also empty in a session that you open from a repository URL. By default, you get a `bash` shell in the session as `root`.
 
 When your checkout has a github.com remote, the session is on one GitHub repository, as described in [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). Other directories sync differently:
 
 - A checkout with no github.com remote syncs with its history, but it has no remotes in the session, and the session gets no GitHub credential.
 - A directory that isn't a git checkout syncs every file in it, including dotfiles such as `.env`, and the session gets no GitHub credential.
 
-The session's packages come from Chainguard OS. If your repository has a `.chainguard/develop.yaml` file, the session installs the packages that file declares. Otherwise, it installs the packages your `.chainguard/ci.yaml` file declares. If the repository has neither file, the session opens a default environment with a shell, `git`, `gh`, Claude Code, `chainctl`, and other everyday tools. Refer to [Configure a session's environment](/chainguard/workspaces/session-environment/) for details.
+How much of your `.git` directory the sync sends depends on whether the session can start from a commit that its GitHub repository already has. If it can, `chainctl` sends only the commits that your current branch has beyond that commit, and the files that differ from it. Otherwise, it sends your whole `.git` directory except your `.git/config` file and your `.git/hooks` directory. That includes stashes, reflogs, your other branches and tags, and objects that git hasn't pruned yet from commits that you rewrote or deleted. `chainctl` also sends the whole `.git` directory when it can't send only the differences, such as when the checkout has submodules or unresolved merge conflicts. If a secret was ever committed or stashed in the checkout, or in a repository nested in it, assume that it can reach the session.
+
+The session's packages come from [Chainguard's package repositories](/chainguard/containers/building-and-modifying/packages/package-model/). If your repository has a `.chainguard/develop.yaml` file, the session installs the packages that file declares. Otherwise, it installs the packages your `.chainguard/ci.yaml` file declares. If the repository has neither file, the session opens a default environment with a shell, `git`, `gh`, Claude Code, `chainctl`, and other everyday tools. Refer to [Configure a session's environment](/chainguard/workspaces/session-environment/) for details.
 
 Sessions keep running after you detach, then park:
 
@@ -56,6 +58,8 @@ By default, a session can reach the following:
 When the session asks for anything else, such as fetching another private repository, `chainctl` asks you on your terminal. You can approve requests ahead of time, or take access back, at any point. Refer to [Manage session credentials](/chainguard/workspaces/credentials/) for details.
 
 Claude Code can keep working after you close your terminal, for as long as its credential lasts. With your Claude login held by Chainguard, it works whether or not you're attached, for as long as the session runs, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away). A service that you set to use a credential from your laptop, such as `github` or `cgr.dev`, works only while you're attached or while the terminal you detached from keeps serving it.
+
+A session can't read your laptop's clipboard. While you're attached, text that you copy in the session goes to your laptop's clipboard, as described in [Copy text from a session](/chainguard/workspaces/manage-sessions/#copy-text-from-a-session).
 
 ## Network access
 

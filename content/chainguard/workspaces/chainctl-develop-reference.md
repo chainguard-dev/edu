@@ -290,6 +290,21 @@ Each command accepts only the following output formats:
 
 A session in JSON output includes its `name`, such as `app/quiet-harbor`; its `label`, the name with the repository's GitHub owner in front; its `id` and `short_id`; its `state`, `repository`, `branch`, `head`, and `directory`; how it keeps running after you detach, in `idle` (`auto_hold` or `keep_running`), `keep_running_until`, `held_until`, and `last_busy`; and timestamps such as `create_time` and `expire_time`. Fields without a value are left out.
 
+## Session states {#session-states}
+
+In JSON output, a session's `state` is one of the values in the following table, which also shows what the `STATE` column of `chainctl develop list` says for each one, as explained in [List sessions](/chainguard/workspaces/manage-sessions/#list-sessions). For how a session moves from one state to the next, refer to [Session lifecycle](/get-started/checks-and-workspaces/how-it-works/#session-lifecycle).
+
+| `state` | What it means | `STATE` column |
+| ------- | ------------- | -------------- |
+| `creating` | Chainguard is starting the session. | `creating` |
+| `attached` | The session is running, and either `chainctl` is attached to it or you're [keeping it running](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away) after you detach, such as for a time that you chose or with `--keep always`. | `running`, or `running` with how long the session keeps running, such as `running, until 17:30` |
+| `idle` | The session is running with no `chainctl` attached, and it's due to park. | `idle (parks in 6m)`, or `running, parks in 6m` if the session parks whether or not it's busy, as one created with `--keep park` does |
+| `parked` | The session is saved to a snapshot and uses no compute. | `parked, expires Oct 13`, or `expired` once that date passes |
+| `reaped` | The session has ended, usually because it expired, and its VM and snapshot are gone. | `expired` |
+| `deleting` | You deleted the session, and Chainguard is removing it. | `deleting` |
+
+A detached session that Chainguard keeps running because it's busy can be `attached` or `idle`, and the `STATE` column shows it as `running (busy: …)`. A session that's parking keeps its `attached` or `idle` state until the park finishes. `chainctl develop list` shows `reaped` and `deleting` sessions only with `--expired`.
+
 ## Exit codes
 
 | Command | Exit code |

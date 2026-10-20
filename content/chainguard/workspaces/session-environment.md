@@ -15,9 +15,9 @@ toc: true
 weight: 40
 ---
 
-A Chainguard Workspaces session's *environment* is the set of packages installed in its VM and the network access it has. Packages come from Chainguard OS, the same packages behind Chainguard Containers. This page explains where a session's environment comes from and how to change it.
+A Chainguard Workspaces session's *environment* is the set of packages installed in its VM and the network access it has. Packages come from [Chainguard's package repositories](/chainguard/containers/building-and-modifying/packages/package-model/): your organization's Private APK Repository and the public Wolfi and Extra Packages repositories. This page explains where a session's environment comes from and how to change it.
 
-A session's environment is fixed when the session is created. If your repository's `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file changes afterward, existing sessions keep the environment they started with, and `chainctl` reminds you when you return to them. To use the new environment, open a new session with `chainctl develop --new`.
+A session's environment is fixed when the session is created. If your repository's `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file changes afterward, existing sessions keep the environment they started with. When you return to a session that you opened from a local directory, `chainctl` reminds you of the change. To use the new environment, open a new session with `chainctl develop --new`.
 
 ## How a session chooses its environment {#how-a-session-chooses-its-environment}
 
@@ -91,8 +91,8 @@ The file accepts only the following keys:
 | Key | Required | Description |
 | --- | -------- | ----------- |
 | `version` | Yes | The format version. Must be `1`. |
-| `from` | No | A check file, such as `.chainguard/ci/go.yaml`, or an environment file, such as `.chainguard/ci/env/go.yaml`. Sessions take only the file's top-level `environment`, or the environment file that it names. |
-| `environment` | Unless you set `from` | Without `from`, the session's environment, in the [same format](/chainguard/checks/configuration/#environment) as a Chainguard Checks file, except that it can't name `caches`. With `from`, only `packages` to add and `vars` to set, which replace any variables with the same name. |
+| `from` | No | A check file directly in `.chainguard/ci/`, such as `.chainguard/ci/go.yaml`, or an environment file in `.chainguard/ci/env/`, such as `.chainguard/ci/env/go.yaml`. It can't name `.chainguard/ci.yaml`, `.chainguard/ci/resources.yaml`, or `.chainguard/ci/identities.yaml`. Sessions take only the file's top-level `environment`, or the environment file that it names. They don't start that environment's `services` or mount its caches other than `gobuild`, as described in [Start with a warm Go build cache](#start-with-a-warm-go-build-cache). |
+| `environment` | Unless you set `from` | Without `from`, the session's environment, in the [same format](/chainguard/checks/configuration/#environment) as a Chainguard Checks file, except that it can't name `services` or any cache other than `gobuild`. With `from`, only `packages` to add and `vars` to set, which replace any variables with the same name. |
 | `resources` | No | The session's size: `cpus`, `memory`, and `disk` together, or a resource class. Refer to [Resources](#resources). |
 | `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. `chainctl` 0.2.382 or earlier refuses this key in a session opened from a local directory. |
 
@@ -181,7 +181,7 @@ The generated environment applies to the new session only, and `chainctl` doesn'
 If your checks keep a Go build cache, a session can start with it, so `go build` and `go test` reuse what your checks already built on your default branch. To ask for the cache, open a session from a repository URL with `--cache`:
 
 ```shell
-chainctl develop github.com/acme/app --check test --cache --parent $ORGANIZATION
+chainctl develop github.com/acme/app --cache --parent $ORGANIZATION
 ```
 
 The session mounts the Go build cache that your checks write after merging, as it was when the session started, and sets `GOCACHE` to it. Go can add to the cache in the session, but nothing the session builds goes back to your repository's cache. The session also adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests instead of reporting cached results.
@@ -189,7 +189,7 @@ The session mounts the Go build cache that your checks write after merging, as i
 The cache mounts only when all of the following are true:
 
 - You open the session from a repository URL. A session opened from a local directory gets no cache, even with `--cache`.
-- The session's environment names a `gobuild` cache, as described in [Build caches](/chainguard/checks/variations-services-caches/#build-caches). Pass `--check` with a check whose environment names one, or, in the single-file layout, name it in your `.chainguard/ci.yaml` file's `environment`. A `.chainguard/develop.yaml` file can't give a session a cache, so in a repository that has one, pass `--check`. Sessions don't mount other cache types.
+- The session's environment names a `gobuild` cache, as described in [Build caches](/chainguard/checks/variations-services-caches/#build-caches). Name the cache in the environment that the session uses, as described in [How a session chooses its environment](#how-a-session-chooses-its-environment). If your `.chainguard/develop.yaml` file sets `from`, name it in the environment of the file that `from` names. Sessions don't mount other cache types.
 - On your default branch, the `trust` section of `.chainguard/ci/identities.yaml` has a cache pool whose `rings` is exactly `[2]`, the ring of checks that run after merging. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 
 The cache holds what passing checks built after merging, so it's empty until a check that names `gobuild` passes on your default branch. If any of these conditions isn't met, the session starts without a cache. `chainctl` doesn't report whether the cache mounted. To check, run `echo $GOCACHE` in the session, which prints nothing when no cache mounted.
@@ -223,7 +223,7 @@ By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk, and run
 | Environment | Where the size comes from |
 | ----------- | ------------------------- |
 | A `.chainguard/develop.yaml` file | The file's `resources` key, not the one in the file that `from` names |
-| A check, selected with `--check` or named `develop` | The check's `resources` key, or, if the check has none, its file's top-level `resources` key |
+| A check, selected with `--check` or named `develop` | The first of these that sets `resources`: the check, the check's file, and, in the directory layout, `.chainguard/ci/env/default.yaml`. If none does, the default size, unless your repository has a `.chainguard/ci/resources.yaml` file, which gives the session its `default` class |
 | A file's top-level `environment`, with no check selected | The file's top-level `resources` key |
 | The default environment or a generated one | Always the default size |
 
@@ -245,6 +245,6 @@ checks:
 
 Unless Chainguard has raised your organization's limit, a session can have at most 4 vCPUs, 16 GB of memory, and a 100 GB disk, which rules out the `large` and `xlarge` classes. A session that asks for more doesn't start, and its error says that it's `larger than this organization's largest resource class`.
 
-A session whose class ends in `-arm64`, such as `medium-arm64`, runs on arm64. Every other session runs on x86-64, including one whose class has no suffix. On pull requests, by contrast, a class without a suffix usually runs on arm64.
+A session runs on arm64 only if its resource class pins arm64: a built-in class whose name ends in `-arm64`, such as `medium-arm64`, or one of [your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes) whose `platform` sets `architecture: arm64`. Only a session that you open with `--check` from a repository URL can use your own classes. Every other session runs on x86-64, including one whose class doesn't pin an architecture. On pull requests, by contrast, such a class usually runs on arm64.
 
 The `/tmp` directory is an in-memory file system limited to a quarter of the session's memory, which is 4 GB by default. Put large files, such as model weights, build caches, or virtual environments, under `/var/tmp` or `/work`, which are on disk.
