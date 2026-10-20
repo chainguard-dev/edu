@@ -266,13 +266,40 @@ for details.
 ## Upstream fallback policy and controls
 
 Chainguard Libraries for Java supports an optional built-in fallback to
-the upstream Maven Central repository, managed through the [Chainguard
+a set of upstream public Maven repositories, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from an upstream repository stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+
+### Upstream repositories used for fallback
+
+When the upstream fallback is enabled, the Chainguard Repository can serve
+packages from the following public repositories. The same list applies to all
+organizations. If the same artifact version exists in more than one repository,
+the repository listed first takes precedence.
+
+| Repository | URL | Scope |
+|---|---|---|
+| Maven Central | `https://repo1.maven.org/maven2` | All artifacts |
+| Google Maven | `https://dl.google.com/dl/android/maven2` | Only artifacts published by Google, such as AndroidX, Firebase, and the Android Gradle plugin |
+| Gradle Plugin Portal | `https://plugins.gradle.org/m2` | All artifacts. Artifact downloads are redirected to `plugins-artifacts.gradle.org` |
+| Confluent | `https://packages.confluent.io/maven` | Only the `io.confluent`, `com.github.jcustenborder`, and `com.linkedin.camus` group IDs. Apache Kafka artifacts (`org.apache.kafka`) are served from Maven Central, not Confluent |
+| JBoss releases | `https://repository.jboss.org/nexus/repository/releases` | Only JBoss project group IDs such as `org.jboss`, `org.wildfly`, `org.hibernate`, `org.infinispan`, `io.undertow`, and `org.keycloak`, and only for versions that are not available on Maven Central |
+
+Chainguard retrieves packages from these repositories on your behalf. Your
+build tools and repository manager only need to reach
+`https://libraries.cgr.dev/java/`; they do not need network access to the
+repositories listed above.
+
+You cannot select individual upstream repositories. The upstream fallback is
+enabled or disabled for all of the listed repositories together.
+
+> **Note:** This list covers the repositories used for upstream fallback. It is
+> separate from the repositories Chainguard uses as sources when building
+> libraries from source, which are described at the start of this page.
 
 Learn more in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
