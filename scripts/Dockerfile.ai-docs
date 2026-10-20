@@ -3,7 +3,7 @@
 
 # Use wolfi-base which includes a shell but is still minimal and secure.
 # Pinned by digest for reproducible builds; digestabot keeps it current.
-FROM cgr.dev/chainguard/wolfi-base:latest@sha256:c2a4815b6ca49b9bbafd451b4bde690d567a86b2b6b54877faac8082a7bc4296 AS final
+FROM cgr.dev/chainguard/wolfi-base:latest@sha256:d68b2b10db0ddb2c6d9cb3a7720ecab5ca19b4b430fd592cd07c23d7da971b56 AS final
 
 # Add metadata labels
 LABEL org.opencontainers.image.source="https://github.com/chainguard-dev/edu"
