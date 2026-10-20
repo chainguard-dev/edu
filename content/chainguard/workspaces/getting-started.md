@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T15:35:02+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -94,7 +94,7 @@ The `delete` command asks you to confirm, then destroys the session's VM and its
 
 <span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
 
-Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
+Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 ## Next steps
 

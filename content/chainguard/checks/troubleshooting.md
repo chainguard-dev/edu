@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T15:35:02+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -206,8 +206,6 @@ For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-c
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
 The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
-
-To pass your organization's name to `--parent`, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, `chainctl` can't find your organization by its name, so pass the organization's ID instead.
 
 To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 

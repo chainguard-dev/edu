@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T15:35:02+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -285,11 +285,11 @@ What you can do with `chainctl develop` depends on your role in the session's or
 
 | Commands | Roles |
 | -------- | ----- |
-| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` together with a role that includes `groups.list`, such as `viewer` |
+| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
 | `accept-terms` | `owner` or `limited_owner` |
 | `list --all` and `policy set` | `owner` |
 
-The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. A teammate with `sandbox.user` also needs the `viewer` role, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access). To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with an invite, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 

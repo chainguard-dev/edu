@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T15:35:02+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 55
 
 The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
 
-These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
+These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
 ## Inspect pull request runs {#inspect-pull-request-runs}
 
