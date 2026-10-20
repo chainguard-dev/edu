@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-20T15:15:42+00:00
+lastmod: 2026-10-20T16:02:37+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -417,7 +417,7 @@ For CI/CD, prefer an assumable identity when using this command. Expand the foll
 
 {{< details "Configure npm in CI and headless environments" >}}
 
-Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, prefer an assumable identity. Authenticate the workload first, then run a job similar to the following:
+Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. Authenticate the workload first, then run a job similar to the following:
 
 ```yaml
 permissions:
