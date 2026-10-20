@@ -3002,6 +3002,11 @@
       "chainguard.platform.iam.ScimGroup": {
         "description": "ScimGroup is a SCIM-provisioned group of an identity provider. Every field is\nserver-owned. Membership is summarized by member_count; the member list is\nnot exposed.",
         "properties": {
+          "activeMemberCount": {
+            "description": "active_member_count is the number of active members the identity provider\nhas pushed to the group. It includes people who have not signed in yet and\nexcludes users the identity provider has deactivated.",
+            "format": "int64",
+            "type": "string"
+          },
           "createdAt": {
             "description": "created_at is when the SCIM group record was created.",
             "format": "date-time",
@@ -3494,11 +3499,6 @@
       "chainguard.platform.libraries.Entitlement": {
         "description": "Entitlement maps an org to an library ecosystem they are entitled to pull.",
         "properties": {
-          "cooldownDays": {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
-            "format": "int32",
-            "type": "integer"
-          },
           "ecosystem": {
             "allOf": [
               {
@@ -12384,7 +12384,7 @@
     },
     "/iam/v1/identityProviders/{identityProviderId}:setScimEnabled": {
       "post": {
-        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling fails\nwith FAILED_PRECONDITION for an organization with fewer than two manually\nassigned owner-tier role bindings, so SCIM can never take over an\norganization's only owner. Enabling does not require a live token. Token\ngeneration, regeneration, and revocation never change this switch.",
+        "description": "SetScimEnabled explicitly starts or pauses SCIM provisioning. Enabling\nfails with FAILED_PRECONDITION for an organization that has no owner who\ncan sign in and whose owner role binding is assigned directly (not managed\nby SCIM), so SCIM can never take over an organization's only owner.\nEnabling does not require a live token. Token generation, regeneration,\nand revocation never change this switch.",
         "operationId": "IdentityProviders_SetScimEnabled",
         "parameters": [
           {
@@ -14003,7 +14003,7 @@
             }
           },
           {
-            "description": "Match against the PURL name component (exact, case-insensitive).",
+            "description": "Match against the full package name, including any namespace or scope\n(exact, case-insensitive): \"@nx/web\" for npm, \"group/artifact\" or\n\"group:artifact\" for Maven.",
             "in": "query",
             "name": "packageName",
             "schema": {
@@ -14229,15 +14229,6 @@
                 "SOURCE_INTERNAL"
               ],
               "type": "string"
-            }
-          },
-          {
-            "description": "cooldown_days is the number of days an upstream package version must have\nbeen published before it is served. 0 means no cooldown is enforced; a\npositive value sets the cooldown to that many days. Negative values are\nrejected. Must be \u003c= 3650. The system default (when no entitlement\nspecifies a value) is 7 days.",
-            "in": "query",
-            "name": "cooldownDays",
-            "schema": {
-              "format": "int32",
-              "type": "integer"
             }
           }
         ],
