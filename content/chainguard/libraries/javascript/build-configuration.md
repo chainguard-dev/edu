@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-20T15:07:20+00:00
+lastmod: 2026-10-20T15:15:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -437,6 +437,8 @@ If the environment has neither an assumable identity nor a reusable libraries-sc
 ```bash
 chainctl auth configure-npm --pull-token
 ```
+
+`--pull-token` produces credentials suitable for non-interactive CI, but token creation is not an unauthenticated CI bootstrap step. Pre-create the token and store its credentials securely.
 
 {{< /details >}}
 
