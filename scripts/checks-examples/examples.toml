@@ -1,0 +1,123 @@
+# Hand-written input for validate.py, which checks the Chainguard Checks and
+# Workspaces YAML examples in the docs with `chainctl checks validate`.
+#
+# A block this file doesn't mention is validated alone, and must pass. List a
+# block here only when it can't pass alone: either it needs other files beside
+# it ([[group]]), or it's an excerpt that isn't a whole file ([[skip]]). See
+# scripts/README.md.
+#
+# A block reference names its page, relative to content/, and its title. Leave
+# out `title` for an untitled ```yaml block. When the page has more than one
+# block with that title, add `contains`: a string from the block that no other
+# such block on the page holds. The script stops if a reference matches no
+# block, or more than one.
+
+# The directories, under content/, whose pages are searched for examples.
+directories = [
+    "chainguard/checks",
+    "chainguard/workspaces",
+    "get-started/checks-and-workspaces",
+]
+
+# Companion files that no page shows in full. A group names the ones it needs.
+
+[stubs.env-default]
+path = ".chainguard/ci/env/default.yaml"
+text = """
+version: 1
+environment: {}
+"""
+
+[stubs.check-file]
+path = ".chainguard/ci/test.yaml"
+text = """
+version: 1
+checks:
+  test:
+    cmd: go test ./...
+"""
+
+[stubs.e2e-full-docs]
+path = ".chainguard/ci/e2e-full.md"
+text = """
+# e2e-full
+
+The full end-to-end suite.
+"""
+
+# Blocks that are validated together, in one scratch repository.
+
+[[group]]
+reason = "e2e.yaml is a directory-layout check file, and its `docs` key names e2e-full.md."
+stubs = ["env-default", "e2e-full-docs"]
+blocks = [
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/e2e.yaml" },
+]
+
+[[group]]
+reason = "resources.yaml configures the directory layout, so it needs a check file to apply to."
+stubs = ["env-default", "check-file"]
+blocks = [
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/resources.yaml" },
+]
+
+[[group]]
+reason = "identities.yaml declares gcs-read for the integration check in the ci.yaml after it."
+blocks = [
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/identities.yaml", contains = "description: Read test fixtures" },
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci.yaml" },
+]
+
+[[group]]
+reason = "db.yaml uses the postgres service that the page defines just before it."
+stubs = ["env-default"]
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/postgres/postgres.yaml" },
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/db.yaml" },
+]
+
+# The page says services/ needs the directory layout, so this environment
+# fragment goes in env/default.yaml rather than in a ci.yaml.
+[[group]]
+reason = "This environment fragment uses the postgres service that the page defines earlier."
+stubs = ["check-file"]
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/postgres/postgres.yaml" },
+    { page = "chainguard/checks/variations-services-caches.md", contains = "uses: postgres", path = ".chainguard/ci/env/default.yaml" },
+]
+
+[[group]]
+reason = "identities.yaml defines the cache pools for the gobuild cache in the ci.yaml before it."
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci.yaml", contains = "gobuild: {}" },
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/identities.yaml" },
+]
+
+# Blocks that can't be validated: excerpts, and files the validator doesn't read.
+
+[[skip]]
+page = "chainguard/checks/github.md"
+title = ".chainguard/ci.yaml"
+reason = "Excerpt: `checks:` holds only a `# ...` comment."
+
+[[skip]]
+page = "chainguard/checks/identity-and-trust.md"
+title = ".chainguard/ci/identities.yaml"
+contains = "# ...the rest of the identity's definition"
+reason = "Excerpt: the identity's definition is elided with `# ...`."
+
+# `chainctl checks validate` ignores .chainguard/develop.yaml, even when given
+# its path, so a broken develop.yaml would still pass. Checked with chainctl
+# 0.2.388. Alone, each block fails only because no checks file is beside it.
+
+[[skip]]
+page = "chainguard/workspaces/session-environment.md"
+title = ".chainguard/develop.yaml"
+contains = "from: .chainguard/ci/go.yaml"
+reason = "chainctl checks validate doesn't read develop.yaml."
+
+[[skip]]
+page = "chainguard/workspaces/session-environment.md"
+title = ".chainguard/develop.yaml"
+contains = "disk: 100Gi"
+reason = "chainctl checks validate doesn't read develop.yaml."
