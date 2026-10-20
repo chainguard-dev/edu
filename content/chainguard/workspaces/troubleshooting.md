@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-21T17:40:03+00:00
+lastmod: 2026-10-21T21:49:18+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -30,7 +30,7 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 If `chainctl develop init` stops with an error, find its message in the following list. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
-- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password or Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password, Google, or GitHub. If you sign in with GitHub, your work email address must be your GitHub account's verified primary email address. Other sign-in methods, such as GitLab, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access`, which emails your request to everyone with the `owner` or `limited_owner` role in it. The link in that email invites you with the `viewer` role, which can't open sessions, so to use Chainguard Workspaces, ask for an invite with a role that can, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 - `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
 - `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
