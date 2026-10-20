@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T14:20:52+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -186,7 +186,7 @@ cd /root/fix-cache
 claude
 ```
 
-The `run-ci` command checks only `/work`, so an agent in another worktree can't check its work with it before it pushes. Only one `run-ci` or `chainctl develop check` can run in a session at a time, so one started while another runs fails and tells you to wait for the first to finish.
+The `run-ci` command checks only `/work`, so an agent in another worktree can't check its work with it before it pushes. Only one `run-ci` can run in a session at a time, as described in [Run checks in a Workspaces session](/chainguard/checks/run-checks/#run-checks-in-a-workspaces-session).
 
 ### Run agents in separate sessions
 
@@ -203,16 +203,8 @@ Run each command in its own terminal. Each agent works on its own branch in its 
 
 ## Check the agent's work before it pushes
 
-If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes. The `run-ci` command exits with `0` when every check passes, `1` when a check fails, and `2` when the checks couldn't run.
+If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
 
-To run the same checks from your laptop without attaching, use `chainctl develop check`:
-
-```shell
-chainctl develop check app/fix-auth --parent $ORGANIZATION
-```
-
-If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
-
-Both commands run the checks in the session's own environment, against its working tree as it is now. They skip checks that only a pull request can run, and print a line for each, as described in [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run). A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
+Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 
 A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.

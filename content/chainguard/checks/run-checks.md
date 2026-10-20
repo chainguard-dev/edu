@@ -4,7 +4,7 @@ linktitle: "Run checks before you push"
 description: "Run your repository's checks against uncommitted changes in a Chainguard Workspaces session, and validate your Chainguard Checks configuration offline before you push."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:20:52+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -17,9 +17,9 @@ weight: 50
 
 Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-## Run checks in a Workspaces session
+## Run checks in a Workspaces session {#run-checks-in-a-workspaces-session}
 
-Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. To run every check, run `run-ci` with no arguments in the session:
+Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. It checks only `/work`, so it can't check a git worktree elsewhere in the session. To run every check, run `run-ci` with no arguments in the session:
 
 ```shell
 run-ci
@@ -67,6 +67,8 @@ The `run-ci` command reads your checks from the session's working tree, so it us
 Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
 
 The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+
+Only one `run-ci` or `chainctl develop check` can run in a session at a time. One that starts while another runs fails and tells you to wait for the first to finish.
 
 ## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
 
