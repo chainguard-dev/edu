@@ -15,7 +15,7 @@ toc: true
 weight: 40
 ---
 
-Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, and how to use them to protect your branches.
+Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, how to read them with the GitHub API, and how to use them to protect your branches.
 
 ## When Checks runs {#when-checks-runs}
 
@@ -78,6 +78,46 @@ Then a table lists each check with its outcome, a class for a check that failed 
 | `NOT_INSTANTIATED` | | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
 
 For each check that couldn't be executed, the reason appears under **Errors:** after the table, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
+
+## Read results with the GitHub API {#read-results-with-the-github-api}
+
+A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs, so it also works if you have the `limited_owner` role in a Starter organization. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
+
+Results appear on the pull request's head commit, not on the merge commit that Chainguard Checks tests. List the head commit's check runs by name. Filtering by app alone isn't enough, because the Chainguard App also reports checks for other Chainguard products, such as Guardener. These commands use the GitHub CLI. Replace `$OWNER/$REPO` with your repository and `$NUMBER` with the pull request's number:
+
+```shell
+SHA=$(gh api "repos/$OWNER/$REPO/pulls/$NUMBER" --jq .head.sha)
+gh api --method GET "repos/$OWNER/$REPO/commits/$SHA/check-runs" \
+  -f check_name="Chainguard Checks (presubmit)" \
+  --jq '.check_runs[0] | {status, conclusion, title: .output.title}'
+```
+
+By default, the API returns only the newest check run with that name. The summary check is finished when its `status` is `completed`. Its `conclusion` is then `success` only if every blocking check passed or didn't need to run, so treat any other conclusion as not passing. Act on `conclusion`, not on the title, which is written for people. If every field stays `null`, the commit has no summary check, so refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks). For a commit on your default branch, use the commit's SHA and set `check_name` to `Chainguard Checks (postsubmit)`.
+
+A result can go out of date, so get the head commit's SHA and read the summary check again just before you act on it:
+
+- A rerun, a `ci/run:` label, or a [change to the pull request](#reruns-when-a-pull-request-changes) can start a new run on the same commit, and the summary check goes back to `queued` or `in_progress`.
+- A push moves the pull request to a new head commit. Chainguard Checks cancels the earlier commit's run, and that commit's summary check can stay `queued` or `in_progress` indefinitely.
+
+To see which of your checks failed, read their own check runs. Each check gets one when it finishes:
+
+| Outcome | Check run's conclusion |
+| ------- | ---------------------- |
+| `PASSED` | `success` |
+| `FAILED` | `failure` |
+| `ERRORED` | `failure` |
+| `DEPENDENCY_FAILED` | `skipped` |
+| `NOT_INSTANTIATED` | No check run |
+
+An advisory check gets the same conclusion as a blocking check with the same outcome. A check with `foreach` gets one check run, with the conclusion `failure` if any variation failed or couldn't be executed. Each planner, described in [Compute variations during a run](/chainguard/checks/variations-services-caches/#compute-variations-during-a-run), also gets a check run when it finishes. A check run can also end `cancelled` or `neutral`, so treat any conclusion other than `success` as not passing.
+
+Decide whether a pull request passes from the summary check alone, not from the per-check results:
+
+- Some checks have no check run: checks that weren't instantiated, checks that haven't finished, and checks that never will because the run ended early, such as when the summary check fails with **Run failed**. A run that can't start, such as when the summary check fails with **Run creation failed**, reports no per-check results at all.
+- A failed advisory check shows `failure` while the summary check passes.
+- A check run from an earlier run on the same commit can remain. The API returns it until the new run reports that check, and keeps returning it if the new run never does, such as when the check isn't instantiated this time or the new run can't start.
+
+Only the summary check always reflects the latest run, but its table shows up to 50 rows. With a role in your Chainguard organization, `chainctl checks status` shows every check's result, as described in [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). For the API's parameters and fields, refer to GitHub's [REST API endpoints for check runs](https://docs.github.com/en/rest/checks/runs).
 
 ## Require checks before merging {#require-checks-before-merging}
 
