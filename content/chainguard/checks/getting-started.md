@@ -1,10 +1,10 @@
 ---
 title: "Get started with Chainguard Checks"
 linktitle: "Getting started"
-description: "Sign up for Chainguard Checks, add a .chainguard/ci.yaml file to a repository, and see your first checks run on a GitHub pull request."
+description: "Sign up for Chainguard Checks, add checks to one of your GitHub repositories, and see them run on a pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-10-21T21:48:34+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -16,17 +16,54 @@ toc: true
 weight: 20
 ---
 
-This guide walks you through signing up for Chainguard Checks, adding checks to one of your GitHub repositories, and seeing them run on a pull request. It uses a Go repository as the example and takes about 15 minutes.
+This guide shows you how to run Chainguard Checks on pull requests in one of your GitHub repositories. If the repository already runs GitHub Actions workflows on pull requests, use the [quick start](#quick-start) to draft checks from those workflows. To learn how each part of the setup works, follow the [step-by-step guide](#step-by-step-guide), which uses a Go repository and a configuration file you write yourself, and takes about 15 minutes.
 
 {{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
 
-## Step 1: Sign up {#step-1-sign-up}
+{{% quickstart %}}
+
+## Quick start {#quick-start}
+
+You need `chainctl` 0.2.382 or later and a local clone of a GitHub repository that runs GitHub Actions workflows on pull requests. To install or update `chainctl`, refer to [Install or update chainctl](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl).
+
+1. **Sign up**
+
+    ```shell
+    chainctl develop init
+    ```
+
+    The command creates your Chainguard organization, if you don't have one, and turns on Chainguard Checks. When it asks which GitHub account to link, choose the one that owns your repository: press `Enter` for your own user, or enter the organization's name.
+
+1. **Install the Chainguard App**
+
+    If the app isn't on that account yet, `chainctl develop init` offers to open its installation page, and finishes linking the account after you install it. You can also [install the app](https://github.com/apps/chainguard/installations/new) before you sign up.
+
+1. **Draft checks from your workflows**
+
+    In the root of your local clone, run the following commands. The second one needs [jq](https://jqlang.org/download/).
+
+    ```shell
+    mkdir -p .chainguard/ci
+    chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
+    ```
+
+    The draft gives checks no network access. Add the hosts and packages each check needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl), then open a pull request with the file.
+
+Chainguard Checks runs your checks on the pull request. To read the results and require checks before merging, go to [Step 4: Review the results](#step-4-review-the-results).
+{.quick-start-done}
+{{% /quickstart %}}
+
+## Step-by-step guide {#step-by-step-guide}
+
+The following steps set up Chainguard Checks with a `.chainguard/ci.yaml` file you write yourself, instead of a draft from your workflows. Follow them if your repository doesn't run GitHub Actions workflows, or to see how a configuration file works before you add one. A repository can't have both `.chainguard/ci.yaml` and `.chainguard/ci/migrated.yaml`, so if you followed the quick start, skip to Step 4.
+
+### Step 1: Sign up {#step-1-sign-up}
 
 <span id="step-1-install-or-update-chainctl"></span><span id="step-2-install-the-chainguard-app"></span><span id="step-3-sign-up-and-turn-on-chainguard-checks"></span>
 
 Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/). You install or update `chainctl`, install the Chainguard App on the account that owns your repository, and run `chainctl develop init`, which turns on Chainguard Checks and Chainguard Workspaces together. You also need a local clone of a repository on github.com that you can push to.
 
-## Step 2: Add a configuration file to your repository
+### Step 2: Add a configuration file to your repository
 
 In your local clone, create a branch for the change. Replace `$REPO_DIR` with the path to your local clone:
 
@@ -65,7 +102,7 @@ chainctl checks validate .
 
 The command reads the file the same way Chainguard Checks does, without running anything. For this file, it prints `workflow ci (.chainguard/ci.yaml)` followed by `ok: the document lowers`. For a file with problems, it prints each problem with its line number.
 
-## Step 3: Open a pull request
+### Step 3: Open a pull request
 
 Commit the file, push the branch, and open a pull request. This example uses the GitHub CLI to open the pull request, but you can also open it on github.com:
 
@@ -78,7 +115,7 @@ gh pr create --fill
 
 Chainguard Checks reads the configuration file from the pull request itself, so the pull request that adds `.chainguard/ci.yaml` runs its checks.
 
-## Step 4: Review the results
+### Step 4: Review the results
 
 Open the pull request on GitHub and scroll to its checks. After a few seconds, you'll see the following:
 
@@ -89,7 +126,7 @@ To read a check's output, select the check. On GitHub, its output shows each ste
 
 If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
 
-## Step 5: Require checks before merging
+### Step 5: Require checks before merging
 
 To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch.
 
