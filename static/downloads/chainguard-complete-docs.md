@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-20 02:20:20_
+_Compiled on: 2026-10-21 02:21:44_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -3120,6 +3120,8 @@ _Path: platform/administration/custom-idps/grant-roles-from-groups/index.md_
 
 Chainguard can grant roles based on a user's groups in your identity provider (IdP). You map an IdP group to a Chainguard role once, and from then on any user who logs in with that group in their token receives the role for that session. Access follows group membership, so you manage who gets what in your IdP instead of assigning roles to each user in Chainguard.
 
+The mappings in this guide come from the groups claim in a login token. If you provision users from Okta with SCIM, Okta can push groups instead. Chainguard applies the same mappings to pushed groups, but grants the roles as persistent role bindings that appear in `chainctl iam role-bindings list`, not per session. For that setup, refer to [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles).
+
 This guide covers Okta and Microsoft Entra ID. The Chainguard-side steps (2 through 4) are the same for both providers; only how you emit group membership in Step 1 differs.
 
 ## Prerequisites
@@ -4327,7 +4329,9 @@ _Path: platform/administration/custom-idps/scim-provisioning/scim-overview.md_
 
 System for Cross-domain Identity Management (SCIM) is an open standard for automating the exchange of user identity information between systems. Chainguard uses SCIM to create and deactivate user accounts based on your identity provider (IdP). Connect your IdP's SCIM provisioning once; from then on, assigning a user to the application provisions them, and deactivating or unassigning them removes their Chainguard access. Accounts follow your IdP, so you manage access in one place.
 
-Chainguard's SCIM provisioning manages accounts, not roles. To grant roles from IdP group membership, use [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/); the two are independent, and you can use either or both. Chainguard's SCIM endpoint accepts user provisioning only: group provisioning over SCIM is not yet available, so leave your IdP's SCIM group push turned off.
+Chainguard's SCIM provisioning manages accounts, and with Okta it can also grant roles. Okta can push groups over SCIM, and Chainguard grants the roles you've mapped to each group as role bindings for its members. To set this up, refer to [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles) in the Okta guide. Group provisioning over SCIM isn't yet available for Microsoft Entra ID, so leave its SCIM group push turned off.
+
+You can also grant roles from the groups claim in your IdP's login token, using [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/). Group mappings work with or without SCIM.
 
 This page explains how provisioning behaves and how to manage the connection over its lifetime. To connect a specific identity provider, follow its guide:
 
@@ -4340,8 +4344,8 @@ Provisioning behaves the same way for every provider:
 
 * **Provisioning creates records, logins create accounts.** When your IdP provisions a user, Chainguard stores a provisioning record. Chainguard creates the user's account the first time they log in, exactly as it would without SCIM, and connects it to their provisioning record automatically. Users who have logged in before are connected at their next login, with no re-registration; their existing access is unaffected.
 * **Matching is by `externalId`, never by email.** A provisioned user connects to a login by matching the SCIM `externalId` your IdP sends against the subject of the login token. Each provider guide covers how to make the two align. Chainguard never uses email addresses for matching.
-* **Deactivation takes effect at the user's next login or token refresh.** When your IdP deactivates or unassigns a provisioned user, their current access token runs out on its own schedule (up to an hour), and Chainguard refuses every attempt to log in or refresh after the deactivation. Reactivating the user in your IdP restores their ability to log in; it does not restore any role bindings that were removed while they were deactivated.
-* **Provisioning does not assign roles.** A provisioned user who logs in gets the identity provider's default role, plus any group-mapped roles and role bindings they hold, same as any other user.
+* **Deactivation takes effect at the user's next login or token refresh.** When your IdP deactivates or unassigns a provisioned user, their current access token runs out on its own schedule (up to an hour), and Chainguard refuses every attempt to log in or refresh after the deactivation. Reactivating the user in your IdP restores their ability to log in; it does not restore any role bindings that were removed while they were deactivated. Bindings from Okta group push are the exception: Chainguard re-creates them from the user's group memberships within a few minutes.
+* **Provisioning assigns roles only through pushed groups.** A provisioned user who logs in gets any group-mapped roles and role bindings they hold, same as any other user. With Okta, they also get role bindings from the groups Okta pushes, as described in [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles). Enabling SCIM clears the identity provider's default role.
 * **Enabling SCIM does not restrict other logins.** Users who aren't provisioned log in exactly as before; provisioning adds lifecycle control only for the users your IdP sends.
 
 ## Prerequisites
@@ -4350,7 +4354,7 @@ The provider guides share the following prerequisites:
 
 * A custom identity provider already configured for login to Chainguard. If you haven't set one up yet, refer to our guide on [using custom identity providers](/platform/administration/custom-idps/custom-idps/).
 * An IAM role that can manage identity providers in your organization, such as the owner role.
-* Two owners with directly assigned role bindings in your organization. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Roles held through group mappings don't count toward the two: Chainguard grants them per session at login, which an IdP outage would interrupt. Organizations that manage access through groups often have only their creator as a directly assigned owner, so check this first.
+* At least one owner in your organization who can sign in and whose owner role is assigned directly, not through SCIM or a group mapping. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Group mappings don't count: Chainguard grants their roles per session at login, which an IdP outage would interrupt. Organizations that manage access through groups often have only their creator as a directly assigned owner, so consider assigning a second owner directly before you enable SCIM.
 * `chainctl` installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed. You must also authenticate with `chainctl auth login`.
 
 The commands on this page refer to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable. Retrieve and set it with the following command:
@@ -4381,7 +4385,7 @@ Generating a token does not start provisioning. Enable it with the following com
 chainctl iam identity-providers scim enable $IDENTITY_PROVIDER
 ```
 
-Chainguard now accepts provisioning requests from your IdP. If the command fails with a message about owner-tier identities, your organization doesn't yet have two directly assigned owners; refer to [Prerequisites](#prerequisites).
+Chainguard now accepts provisioning requests from your IdP. If the command fails with a message about owner-tier identities, your organization has no owner who can sign in and holds the owner role directly; refer to [Prerequisites](#prerequisites).
 
 Disabling stops Chainguard from accepting provisioning requests. It doesn't invalidate the token, and already provisioned users are unaffected:
 
@@ -4436,7 +4440,7 @@ This guide covers the Okta-specific setup. For provisioning behavior, token life
 To complete this guide, you need the following:
 
 * Okta already configured for login to Chainguard through an OIDC app integration. If you haven't set that up yet, refer to our guide on [How to integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/).
-* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites): an IAM role that can manage identity providers, two owners with directly assigned role bindings, and an authenticated `chainctl`.
+* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites): an IAM role that can manage identity providers, at least one owner who can sign in and holds the owner role directly, and an authenticated `chainctl`.
 
 The rest of this guide refers to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable:
 
@@ -4462,19 +4466,21 @@ Next, enable SCIM for your identity provider:
 chainctl iam identity-providers scim enable $IDENTITY_PROVIDER
 ```
 
-Generate the token first: `scim enable` fails with `etag: etag is required` if the identity provider has no token issued yet. If it instead fails with a message about owner-tier identities, your organization doesn't yet have two directly assigned owners; refer to the [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites).
+Generate the token first: `scim enable` fails with `etag: etag is required` if the identity provider has no token issued yet. If it instead fails with a message about owner-tier identities, your organization has no owner who can sign in and holds the owner role directly; refer to the [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites).
+
+Enabling SCIM clears the identity provider's default role. If you set one with `--default-role`, the **DEFAULT ROLE** column in `chainctl iam identity-providers list` is empty afterward.
 
 ## Step 2: Create the Okta provisioning app
 
 Okta hosts SCIM provisioning on an app integration, but you cannot add SCIM to the OIDC app integration you use for login. This means you must create a second app integration that exists only to carry provisioning.
 
-In the Okta Admin Console, navigate to **Applications and Resources** > **Applications**, click **Create App Integration**, and choose **SAML 2.0**. Complete the wizard with placeholder values; Chainguard does not consume the SAML assertion, and sign-in stays on your existing OIDC app. On the new app's **General** tab, set **Provisioning** to **SCIM**.
+In the Okta Admin Console, navigate to the **Applications** landing page, click **Create App Integration**, and choose **SAML 2.0**. Chainguard doesn't use the SAML assertion, and sign-in stays on your existing OIDC app, so the wizard's SAML settings need only well-formed URLs. Enter placeholder values like `https://example.com/sso` for **Single sign-on URL** and `https://example.com/saml` for **Audience URI (SP Entity ID)**, and leave the other settings at their defaults. On the new app's **General** tab, under **App Settings**, set **Provisioning** to **SCIM**.
 
 Then open the app's **Provisioning** tab, select **Integration**, and click **Edit** to configure the SCIM connection:
 
 * **SCIM connector base URL**: the endpoint printed in Step 1.
 * **Unique identifier field for users**: `userName`.
-* **Supported provisioning actions**: check **Push New Users** and **Push Profile Updates**. Leave **Push Groups** unchecked; Chainguard's SCIM endpoint accepts user provisioning only.
+* **Supported provisioning actions**: select **Push New Users**, **Push Profile Updates**, and **Push Groups**. You need **Push Groups** only if you plan to grant roles from Okta groups, as described in [Step 5](#step-5-push-groups-to-grant-roles).
 * **Authentication Mode**: select **HTTP Header**, then paste the bare `cgscim_...` token into the **Bearer** field. Do not add a `Bearer` prefix — Okta supplies the scheme itself, and a prefixed value fails authentication.
 
 Use **Test API Credentials** to confirm the URL and token, then save.
@@ -4509,6 +4515,93 @@ With the integration saved, select **To App** in the **Provisioning** tab, click
 In Okta, assign a user to the provisioning app integration you created in Step 2. Okta provisions them immediately. Have that user log in to Chainguard through Okta and confirm they have access. A provisioned user connects to their login by matching the SCIM `externalId` against the login token's subject; with Okta, both default to the Okta user ID, so they align without configuration.
 
 To confirm the rest of the lifecycle, deactivate that user in Okta or remove their assignment, and confirm that Chainguard refuses their next login. Then reactivate them and confirm that they can log in again.
+
+## Step 5: Push groups to grant roles
+
+Okta can also push groups to Chainguard. Chainguard matches each pushed group against your group-to-role mappings and grants the mapped roles to the group's members as role bindings. These bindings persist between logins, unlike the session-scoped roles that [claim-based group mappings](/platform/administration/custom-idps/grant-roles-from-groups/) grant, and they appear in `chainctl iam role-bindings list`.
+
+You manage these bindings from Okta. To change who holds a role, change the group's membership in Okta; Chainguard rejects manual edits to a binding that SCIM manages.
+
+### Map the group to a role
+
+Store your organization's UIDP in the `ORGANIZATION` variable:
+
+```sh
+export ORGANIZATION=$(chainctl iam organizations list -o json | jq -r '.items[0].id')
+```
+
+This command stores the first organization in the list. If you belong to more than one organization, run `echo $ORGANIZATION` and confirm that it's the organization you're configuring.
+
+Then map the Okta group to a Chainguard role. Replace `<okta_group_name>` with the group's name exactly as it appears in Okta, and `<role_name>` with the role to grant, such as `viewer` or `editor`:
+
+```sh
+chainctl iam external-group-role-mappings create \
+  --external-group-id "<okta_group_name>" \
+  --role <role_name> \
+  --scope $ORGANIZATION \
+  --idp $IDENTITY_PROVIDER
+```
+
+You can map only a role you hold yourself. Chainguard never grants `owner` or `support` through SCIM: it accepts a mapping to either role, but the mapping grants no access.
+
+{{< note >}}
+Okta doesn't send a stable identifier for groups, so Chainguard identifies a group by its name the first time it is pushed, matched exactly including case. If you rename the group in Okta, the mapping keeps working under the original name, so keep using the original name in mappings. You can't reuse the original name for a new group until you unlink the original with **Delete the group in the target app**.
+{{< /note >}}
+
+### Push the group from Okta
+
+To push the group from Okta, follow these steps:
+
+1. If you set up the provisioning app before group push was available, open its **Provisioning** tab, select **Integration**, click **Edit**, and select **Push Groups** under **Supported provisioning actions**.
+2. On the provisioning app's **Assignments** tab, click **Assign** > **Assign to Groups**, and assign the group. Okta pushes group membership only for users assigned to the app, and assigning the group also provisions its members as Chainguard users.
+3. On the **Push Groups** tab, click **Push Groups** > **Find groups by name**, and enter the group's name.
+4. Leave **Push group memberships immediately** selected, and click **Save**.
+
+The group's **Push Status** changes to **Active** once Okta has pushed it.
+
+### Verify the role bindings
+
+To confirm that the group reached Chainguard, list the groups Okta has pushed. The output shows each group's name and member count, so you can check it before anyone logs in:
+
+```sh
+chainctl iam identity-providers scim groups list $IDENTITY_PROVIDER
+```
+
+Chainguard creates a member's role binding only after that member has logged in to Chainguard at least once, and that first login applies it immediately. After that first login, new mappings and membership changes in Okta take effect within about five minutes, without another login.
+
+To confirm that Okta provisioned the group's members, list the users it has pushed. Members who haven't logged in yet show `no` in the **LOGGED IN** column:
+
+```sh
+chainctl iam identity-providers scim users list $IDENTITY_PROVIDER
+```
+
+Have a member of the group log in to Chainguard through Okta, then list the role bindings in your organization:
+
+```sh
+chainctl iam role-bindings list --parent $ORGANIZATION
+```
+
+The output includes a binding with the mapped role and `SCIM` in the **MANAGED BY** column. The binding's **NAME / EMAIL** column is empty, so identify the member by their identity ID instead. To look up that ID, replace `<okta_username>` with the member's Okta username:
+
+```sh
+chainctl iam identity-providers scim users list $IDENTITY_PROVIDER -o json \
+  | jq -r '.[] | select(.user_name == "<okta_username>") | .identity_id'
+```
+
+The binding's **IDENTITY** column matches this value. If the command prints `null`, the member hasn't logged in to Chainguard yet.
+
+To confirm that removal works, remove the member from the group in Okta, then list the role bindings again. Chainguard deletes the binding within about five minutes.
+
+If you assigned the member to the provisioning app only through the group, removing them from the group also deactivates their Chainguard user. Okta deactivates the user without sending a membership removal, so Chainguard keeps their group membership, and the user can get the group's role back a few minutes after they're reactivated. To prevent this, open the **Push Groups** tab and select **Push now** from the group's **Push Status** menu before you reactivate the user. Okta then sends the group's current membership, and Chainguard removes the user from the group.
+
+### Retire a group
+
+To stop granting roles from a group, open the **Push Groups** tab and select **Unlink pushed group** from the group's **Push Status** menu. Okta offers two options:
+
+* **Delete the group in the target app**: Chainguard deletes the group and removes the roles that only this group granted.
+* **Leave the group in the target app**: Okta sends nothing, so the group and its roles stay as they were. Members you later remove from the group in Okta keep their roles.
+
+Deleting a group doesn't deprovision its members. To remove a member's Chainguard access, unassign them from the provisioning app.
 
 ## Troubleshooting
 
@@ -4546,7 +4639,7 @@ To complete this guide, you need the following:
 
 * `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * Owner permissions on the Chainguard organization where you want to install the identity provider.
-* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites), including two owners with directly assigned role bindings in your organization.
+* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites), including at least one owner who can sign in and holds the owner role directly.
 * An Entra ID account with Global Administrator or Application Administrator permissions. Without these, you cannot register applications or assign users to them.
 * An Entra ID P1 or P2 license. The **Automatic** provisioning mode this guide uses requires one.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model, and this guide doesn't cover them.
@@ -8019,7 +8112,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-16T17:59:00.320491601Z
+Ce-Time: 2026-10-19T18:35:48.116682687Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 789
 Content-Type: application/json
@@ -8050,7 +8143,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-16T17:59:00.318149"
+    "when": "2026-10-19T18:35:48.115711"
   }
 }
 
@@ -8073,7 +8166,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-16T17:59:00.31881003Z
+Ce-Time: 2026-10-19T18:35:48.115933855Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -8102,7 +8195,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-16T17:59:00.318124"
+    "when": "2026-10-19T18:35:48.115685"
   }
 }
 
@@ -8125,7 +8218,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-16T17:59:00.339912507Z
+Ce-Time: 2026-10-19T18:35:48.119733023Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -8165,7 +8258,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-16T17:59:00.333678204Z
+Ce-Time: 2026-10-19T18:35:48.128816718Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -8203,7 +8296,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-16T17:59:00.333892743Z
+Ce-Time: 2026-10-19T18:35:48.12894073Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -8242,7 +8335,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-16T17:59:00.337153946Z
+Ce-Time: 2026-10-19T18:35:48.125521518Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -8283,7 +8376,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-16T17:59:00.337360477Z
+Ce-Time: 2026-10-19T18:35:48.125736493Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -8320,7 +8413,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.337543642Z
+Ce-Time: 2026-10-19T18:35:48.125870193Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -8368,7 +8461,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-16T17:59:00.341963511Z
+Ce-Time: 2026-10-19T18:35:48.117150414Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -8414,7 +8507,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-16T17:59:00.342078056Z
+Ce-Time: 2026-10-19T18:35:48.117348524Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -8460,7 +8553,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-16T17:59:00.34217889Z
+Ce-Time: 2026-10-19T18:35:48.117510801Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -8499,7 +8592,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-16T17:59:00.338380472Z
+Ce-Time: 2026-10-19T18:35:48.119333227Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -8539,7 +8632,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.338571396Z
+Ce-Time: 2026-10-19T18:35:48.119540025Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -8578,7 +8671,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-16T17:59:00.330558152Z
+Ce-Time: 2026-10-19T18:35:48.129094439Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -8617,7 +8710,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-16T17:59:00.332005625Z
+Ce-Time: 2026-10-19T18:35:48.129245787Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -8656,7 +8749,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.332510138Z
+Ce-Time: 2026-10-19T18:35:48.129350927Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -8695,7 +8788,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-16T17:59:00.322851442Z
+Ce-Time: 2026-10-19T18:35:48.129940329Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -8738,7 +8831,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-16T17:59:00.323148008Z
+Ce-Time: 2026-10-19T18:35:48.130051533Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -8778,7 +8871,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.323350028Z
+Ce-Time: 2026-10-19T18:35:48.130145112Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -8817,7 +8910,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-16T17:59:00.338785567Z
+Ce-Time: 2026-10-19T18:35:48.120504384Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -8860,7 +8953,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-16T17:59:00.338963388Z
+Ce-Time: 2026-10-19T18:35:48.120716526Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -8900,7 +8993,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-16T17:59:00.339121035Z
+Ce-Time: 2026-10-19T18:35:48.120870331Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -8937,7 +9030,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.339274121Z
+Ce-Time: 2026-10-19T18:35:48.121060857Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -8977,7 +9070,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.339403914Z
+Ce-Time: 2026-10-19T18:35:48.121258991Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -9021,7 +9114,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.339555848Z
+Ce-Time: 2026-10-19T18:35:48.12147191Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -9060,7 +9153,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.33969356Z
+Ce-Time: 2026-10-19T18:35:48.121658092Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -9101,7 +9194,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-16T17:59:00.340830979Z
+Ce-Time: 2026-10-19T18:35:48.133227713Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -9143,7 +9236,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-16T17:59:00.340959476Z
+Ce-Time: 2026-10-19T18:35:48.133403703Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -9186,7 +9279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-16T17:59:00.341052374Z
+Ce-Time: 2026-10-19T18:35:48.133550003Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -9225,7 +9318,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-16T17:59:00.341140033Z
+Ce-Time: 2026-10-19T18:35:48.133667591Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -9264,7 +9357,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-16T17:59:00.327070163Z
+Ce-Time: 2026-10-19T18:35:48.129592366Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -9303,7 +9396,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-16T17:59:00.327216586Z
+Ce-Time: 2026-10-19T18:35:48.12970513Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -9342,7 +9435,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-16T17:59:00.327423422Z
+Ce-Time: 2026-10-19T18:35:48.129801269Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -9381,7 +9474,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-16T17:59:00.324027307Z
+Ce-Time: 2026-10-19T18:35:48.117691919Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -9424,7 +9517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-16T17:59:00.32116264Z
+Ce-Time: 2026-10-19T18:35:48.124657195Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -9469,7 +9562,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.325286535Z
+Ce-Time: 2026-10-19T18:35:48.122764495Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -9511,7 +9604,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.325560902Z
+Ce-Time: 2026-10-19T18:35:48.123745166Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -9553,7 +9646,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.325743843Z
+Ce-Time: 2026-10-19T18:35:48.123931284Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -9590,7 +9683,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-16T17:59:00.325925568Z
+Ce-Time: 2026-10-19T18:35:48.124075752Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -9629,7 +9722,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-16T17:59:00.326108253Z
+Ce-Time: 2026-10-19T18:35:48.124244238Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -9668,7 +9761,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-16T17:59:00.326281283Z
+Ce-Time: 2026-10-19T18:35:48.124384674Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -9707,7 +9800,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-16T17:59:00.328343238Z
+Ce-Time: 2026-10-19T18:35:48.130772884Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -9751,7 +9844,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-16T17:59:00.32854353Z
+Ce-Time: 2026-10-19T18:35:48.130892863Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -9795,7 +9888,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-16T17:59:00.328732071Z
+Ce-Time: 2026-10-19T18:35:48.131017379Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -9834,7 +9927,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-16T17:59:00.328917211Z
+Ce-Time: 2026-10-19T18:35:48.131132495Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -9876,7 +9969,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-16T17:59:00.329121775Z
+Ce-Time: 2026-10-19T18:35:48.131255819Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -9915,7 +10008,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-16T17:59:00.32771906Z
+Ce-Time: 2026-10-19T18:35:48.130314869Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -9959,7 +10052,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-16T17:59:00.327991355Z
+Ce-Time: 2026-10-19T18:35:48.130523052Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -10003,7 +10096,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-16T17:59:00.328172456Z
+Ce-Time: 2026-10-19T18:35:48.13064872Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -10042,7 +10135,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-16T17:59:00.34018533Z
+Ce-Time: 2026-10-19T18:35:48.131593861Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -10088,7 +10181,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-16T17:59:00.340394214Z
+Ce-Time: 2026-10-19T18:35:48.131798716Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -10125,7 +10218,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-16T17:59:00.340579427Z
+Ce-Time: 2026-10-19T18:35:48.131937768Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -10173,7 +10266,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-16T17:59:00.341267321Z
+Ce-Time: 2026-10-19T18:35:48.126246941Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -10214,7 +10307,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-16T17:59:00.34141644Z
+Ce-Time: 2026-10-19T18:35:48.126409466Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -10251,7 +10344,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.341519994Z
+Ce-Time: 2026-10-19T18:35:48.126566879Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -10299,7 +10392,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-16T17:59:00.337923203Z
+Ce-Time: 2026-10-19T18:35:48.119954462Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -10339,7 +10432,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.338153053Z
+Ce-Time: 2026-10-19T18:35:48.120126836Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -10378,7 +10471,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.326521572Z
+Ce-Time: 2026-10-19T18:35:48.132210897Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -10415,7 +10508,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-16T17:59:00.326734175Z
+Ce-Time: 2026-10-19T18:35:48.132401775Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -10454,7 +10547,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-16T17:59:00.326910765Z
+Ce-Time: 2026-10-19T18:35:48.1325761Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -10495,7 +10588,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-16T17:59:00.334153671Z
+Ce-Time: 2026-10-19T18:35:48.117918814Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -10538,7 +10631,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-16T17:59:00.334349795Z
+Ce-Time: 2026-10-19T18:35:48.118081267Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -10575,7 +10668,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-16T17:59:00.334482075Z
+Ce-Time: 2026-10-19T18:35:48.118193479Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -10615,7 +10708,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-16T17:59:00.334678823Z
+Ce-Time: 2026-10-19T18:35:48.118296746Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -10655,7 +10748,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-16T17:59:00.335010539Z
+Ce-Time: 2026-10-19T18:35:48.133830412Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -10698,7 +10791,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-16T17:59:00.335301098Z
+Ce-Time: 2026-10-19T18:35:48.133947424Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -10738,7 +10831,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-16T17:59:00.335484078Z
+Ce-Time: 2026-10-19T18:35:48.134048675Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -10775,7 +10868,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.3356557Z
+Ce-Time: 2026-10-19T18:35:48.134134774Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -10815,7 +10908,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.335859656Z
+Ce-Time: 2026-10-19T18:35:48.134218152Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -10859,7 +10952,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.336078803Z
+Ce-Time: 2026-10-19T18:35:48.134325732Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -10898,7 +10991,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-16T17:59:00.336254272Z
+Ce-Time: 2026-10-19T18:35:48.134440103Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -10939,7 +11032,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-16T17:59:00.336498521Z
+Ce-Time: 2026-10-19T18:35:48.126949611Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -10994,7 +11087,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-16T17:59:00.336738315Z
+Ce-Time: 2026-10-19T18:35:48.12723954Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -11049,7 +11142,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-16T17:59:00.336936999Z
+Ce-Time: 2026-10-19T18:35:48.12747694Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -11088,7 +11181,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-16T17:59:00.324353983Z
+Ce-Time: 2026-10-19T18:35:48.128397289Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -11133,7 +11226,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-16T17:59:00.324680483Z
+Ce-Time: 2026-10-19T18:35:48.12857119Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -11178,7 +11271,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-16T17:59:00.324900678Z
+Ce-Time: 2026-10-19T18:35:48.128685994Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -11217,7 +11310,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.332855757Z
+Ce-Time: 2026-10-19T18:35:48.118569971Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -11259,7 +11352,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.33308328Z
+Ce-Time: 2026-10-19T18:35:48.118824803Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -11301,7 +11394,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.333269036Z
+Ce-Time: 2026-10-19T18:35:48.119001024Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -11338,7 +11431,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-16T17:59:00.33344369Z
+Ce-Time: 2026-10-19T18:35:48.119148581Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -11382,7 +11475,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-16T17:59:00.32163182Z
+Ce-Time: 2026-10-19T18:35:48.127862936Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -11424,7 +11517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-16T17:59:00.321995454Z
+Ce-Time: 2026-10-19T18:35:48.128010668Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -11461,7 +11554,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-16T17:59:00.322243383Z
+Ce-Time: 2026-10-19T18:35:48.128135984Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -11504,7 +11597,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-16T17:59:00.322474793Z
+Ce-Time: 2026-10-19T18:35:48.128257396Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -11545,7 +11638,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-16T17:59:00.329368064Z
+Ce-Time: 2026-10-19T18:35:48.124930563Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -11584,7 +11677,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-16T17:59:00.329546709Z
+Ce-Time: 2026-10-19T18:35:48.125123729Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -11623,7 +11716,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-16T17:59:00.329715715Z
+Ce-Time: 2026-10-19T18:35:48.125251757Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -11662,7 +11755,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-16T17:59:00.341668305Z
+Ce-Time: 2026-10-19T18:35:48.132852197Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -11701,7 +11794,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-16T17:59:00.341830463Z
+Ce-Time: 2026-10-19T18:35:48.133021098Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -11740,7 +11833,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-16T17:59:00.323669096Z
+Ce-Time: 2026-10-19T18:35:48.126751541Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -12240,12 +12333,12 @@ The following table maps Chainguard resources to the built-in roles that have pe
 | `account_associations` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
 | `actions` | View the [Chainguard Actions](/chainguard/actions/overview/) catalog | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`actions.viewer` (list)</li></ul> |
 | `advisories` | View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (create, delete, list)</li></ul> |
+| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (create, delete, list)</li><li>`sandbox.user` (list)</li></ul> |
 | `apk.blobs` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`apk.pull` (get)</li><li>`apk.push` (get)</li></ul> |
 | `billing` | Manage the organization's billing and payment method | <ul><li>`owner` (manage)</li><li>`limited_owner` (manage)</li></ul> |
 | `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
 | `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li></ul> |
-| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, rename, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, rename)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, list)</li><li>`registry.editor` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, rename, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, rename)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, list)</li><li>`registry.editor` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li><li>`sandbox.user` (list)</li></ul> |
 | `guardener.actions` | Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
 | `guardener.association` | View and manage the GitHub organizations connected through [the Chainguard App](/chainguard/guardener/github/app-connections/) | <ul><li>`owner` (list, manage)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, manage)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list, manage)</li></ul> |
 | `guardener.dfc` | Convert Dockerfiles to use Chainguard images with [Guardener](/chainguard/guardener/dockerfile-migration/) | <ul><li>`owner` (convert)</li><li>`editor` (convert)</li><li>`viewer` (convert)</li><li>`limited_owner` (convert)</li><li>`guardener.user` (convert)</li><li>`guardener.admin` (convert)</li></ul> |
@@ -14858,7 +14951,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby|java_athena|python_athena|javascript_athena|dotnet|go_athena|ruby_athena|java|python|javascript|dotnet_athena|go}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby_athena|java|python|java_athena|python_athena|javascript_athena|dotnet|javascript|dotnet_athena|go|go_athena|ruby}] [flags]
 ```
 
 ### Examples
@@ -14885,7 +14978,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby, java_athena, python_athena, javascript_athena, dotnet, go_athena, ruby_athena, java, python, javascript, dotnet_athena, go
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby_athena, java, python, java_athena, python_athena, javascript_athena, dotnet, javascript, dotnet_athena, go, go_athena, ruby
 ```
 
 ### Options inherited from parent commands
@@ -17429,7 +17522,7 @@ chainctl iam external-group-role-mappings create --external-group-id GROUP --rol
 ### Options
 
 ```
-      --external-group-id string   IdP group identifier (the claim value from the IdP token)
+      --external-group-id string   Group identifier (case-sensitive): the exact value in the token's groups claim, or the group's EXTERNAL ID as shown by 'chainctl iam identity-providers scim groups list'
       --idp string                 Identity provider (name or UIDP) that owns this mapping
       --role string                Role UIDP or name to grant
       --scope string               Organization or group (name or UIDP) where the role applies
@@ -22269,15 +22362,15 @@ chainctl iam identity-providers scim groups list [IDENTITY_PROVIDER] [--output=j
   # List for a specific identity provider
   chainctl iam identity-providers scim groups list my-idp
   
-  # Find a group by its exact display name
+  # Find a group by its display name
   chainctl iam identity-providers scim groups list --display-name=Engineering
 ```
 
 ### Options
 
 ```
-      --display-name string   Filter by exact display name.
-      --external-id string    Filter by exact external id (the key a role mapping matches on).
+      --display-name string   Filter by display name (case-insensitive).
+      --external-id string    Filter by external id (case-sensitive). This is the value a role mapping uses.
 ```
 
 ### Options inherited from parent commands
@@ -22551,7 +22644,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby|java_athena|python_athena|javascript_athena|dotnet|go_athena|ruby_athena|java|python|javascript|dotnet_athena|go}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby_athena|java|python|java_athena|python_athena|javascript_athena|dotnet|javascript|dotnet_athena|go|go_athena|ruby}] [flags]
 ```
 
 ### Examples
@@ -22579,7 +22672,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, java_athena, python_athena, javascript_athena, dotnet, go_athena, ruby_athena, java, python, javascript, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, java, python, java_athena, python_athena, javascript_athena, dotnet, javascript, dotnet_athena, go, go_athena, ruby. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -23335,7 +23428,7 @@ chainctl iam identity-providers group-mappings create IDENTITY_PROVIDER --extern
 ### Options
 
 ```
-      --external-group-id string   IdP group identifier (the claim value from the IdP token)
+      --external-group-id string   Group identifier (case-sensitive): the exact value in the token's groups claim, or the group's EXTERNAL ID as shown by 'chainctl iam identity-providers scim groups list'
       --role string                Role UIDP or name to grant
       --scope string               Organization or group (name or UIDP) where the role applies
 ```
@@ -26717,7 +26810,7 @@ chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_I
       --ecosystem string   Only show events for this ecosystem (DOTNET, GO, JAVA, JAVASCRIPT, PYTHON).
       --limit int32        The number of blocked packages per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --mode string        Only show events in this mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
-      --package string     Only show events whose package name matches (exact, case-insensitive).
+      --package string     Only show events whose full package name matches, as shown in the PACKAGE column (exact, case-insensitive; e.g. @nx/web, or group/artifact for java).
       --parent string      The name or id of the organization to scope events to.
 ```
 
@@ -26797,7 +26890,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby, java_athena, python_athena, javascript_athena, dotnet, go_athena, ruby_athena, java, python, javascript, dotnet_athena, go. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, java, python, java_athena, python_athena, javascript_athena, dotnet, javascript, dotnet_athena, go, go_athena, ruby. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -77981,16 +78074,30 @@ subject to additional security controls before being served.
 
 ### Enable the upstream repository
 
-To enable or change upstream fallback configuration, use the [`chainctl
-libraries entitlements`
-command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+Upstream fallback and the cooldown period are separate settings, and you can change each one without changing the other:
+
+* Your **entitlement** controls whether the repository serves upstream packages. Use the [`chainctl
+  libraries entitlements`
+  command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) to change it.
+* A **library policy** controls the cooldown period. Use the `chainctl libraries policy` command to change it.
+
+When you enable upstream fallback, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
 
 For example, the following command adds the npm upstream fallback policy to your
-JavaScript entitlement. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
+JavaScript entitlement:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
+
+To change the cooldown, create a library policy and enable it for the ecosystem. You can set the cooldown from 1 to 30 days, or set it to 0 to disable it. For example, the following commands disable the cooldown for JavaScript:
+
+```bash
+chainctl libraries policy create --name=no-cooldown --cooldown-days=0
+chainctl libraries policy enable no-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+```
+
+Malware and greyware scanning still applies when the cooldown is disabled. For more options, see [Cooldown policies](/chainguard/chainguard-repository/library-policies/#cooldown-policies).
 
 For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console; you must use `chainctl` to enable fallback for Java and Python.
 
@@ -77999,7 +78106,7 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 The following options are available:
 
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **Upstream fallback enabled**: Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
@@ -78079,6 +78186,8 @@ curl -s \
 ### Cooldown period
 
 When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
+
+A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. You can set it from 1 to 30 days, or set it to 0 to disable it.
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
@@ -79165,9 +79274,9 @@ _Path: chainguard/checks/run-checks.md_
 
 Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-## Run checks in a Workspaces session
+## Run checks in a Workspaces session {#run-checks-in-a-workspaces-session}
 
-Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. To run every check, run `run-ci` with no arguments in the session:
+Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. It checks only `/work`, so it can't check a git worktree elsewhere in the session. To run every check, run `run-ci` with no arguments in the session:
 
 ```shell
 run-ci
@@ -79203,18 +79312,26 @@ The `run-ci` command exits with one of the following codes, so scripts and agent
 
 ### How run-ci differs from a pull request run {#how-run-ci-differs-from-a-pull-request-run}
 
-The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. It differs from a pull request run in the following ways:
+The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. The following table shows how it differs from a pull request run:
 
-- It runs the checks that have commands, in the order they appear in your configuration, and stops at the first check that fails, including an advisory check.
-- It skips checks that need something only a pull request run provides: a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs`. It prints a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. Those checks run only on the pull request, so a pass from `run-ci` doesn't cover them. If you name a skipped check, as in `run-ci deploy`, or if it skips every check, `run-ci` exits with `2`.
-- It runs checks as the session's user, not as each check's `user`. Sessions run as `root` unless their environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`. In a `root` session, every check runs as `root`. A session that runs as another user runs only the checks with that `user`, and skips the rest the same way.
-- It ignores `needs`, `when` conditions, `trigger`, and `timeout`, so it also runs checks that a pull request would skip. A check with `foreach` runs once for each variation, and each one appears in the output as `<check>/<variation>`, such as `test/api`.
-- It runs each check in the session as it is, not in a fresh VM per check. Packages you installed in the session are available, and a check's own package list and network access don't apply.
-- It uses the session's size and CPU architecture, not each check's `resources`. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). On pull requests, a class without a suffix usually runs on arm64.
+| What differs | `run-ci` in a session | A pull request run |
+| --- | --- | --- |
+| Configuration | The session's working tree, including uncommitted edits. | The pull request's test merge commit, with the base branch's rules applied. |
+| Which checks run | Every check that has commands, in the order your configuration lists them. It stops at the first check that fails, including an advisory check. | The checks that the run's plan selects, each after the checks it `needs`. An [advisory check](/chainguard/checks/configuration/#advisory-checks) never blocks merging. |
+| `needs`, `when`, `trigger`, and `timeout` | Ignored, so `run-ci` also runs checks that a pull request would skip. | Applied. |
+| `foreach` | Runs the check once for each variation, shown in the output as `<check>/<variation>`, such as `test/api`. | Runs each variation in its own VM, and reports all of them as one GitHub check. |
+| Checks that need a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs` | Skipped, with a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. A pass from `run-ci` doesn't cover them. | Run. |
+| User | The session's user, which is `root` unless the session's environment comes from a check with a different `user`. | Each check's `user`, which defaults to `root`. |
+| Environment | The session as it is. Packages you installed in the session are available, and the check's own package list and network access don't apply. | A fresh VM for each check, with the check's packages and network access. |
+| Size and CPU architecture | The session's. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). | Each check's `resources`. A class without a suffix usually runs on arm64. |
+
+If you name a skipped check, as in `run-ci deploy`, or if `run-ci` skips every check, it exits with `2`. A session whose environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`, runs as that user. It runs only the checks with that `user`, and skips the rest the same way. In a `root` session, every check runs as `root`.
 
 Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
 
 The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+
+Only one `run-ci` or `chainctl develop check` can run in a session at a time. One that starts while another runs fails and tells you to wait for the first to finish.
 
 ## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
 
@@ -80172,7 +80289,7 @@ If you created a Starter organization with `chainctl develop init`, you have the
 
 The `validate`, `explain`, and `migrate --dry` commands read only your local checkout, so they don't need a Chainguard account or network access.
 
-The commands that need a role take `--parent` with the name or ID of your Chainguard organization. To use the name, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, pass the organization's ID. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
+The commands that need a role take `--parent` with the name or ID of your Chainguard organization. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
 
 ## Name a run {#name-a-run}
 
@@ -80747,8 +80864,6 @@ For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-c
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
 The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
-
-To pass your organization's name to `--parent`, you also need a role that can see the organization, such as `viewer`. With `sandbox.user` alone, `chainctl` can't find your organization by its name, so pass the organization's ID instead.
 
 To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
@@ -81412,7 +81527,7 @@ _Path: chainguard/checks/inspect-and-run-checks.md_
 
 The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
 
-These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
+These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
 ## Inspect pull request runs {#inspect-pull-request-runs}
 
@@ -83699,7 +83814,7 @@ The `delete` command asks you to confirm, then destroys the session's VM and its
 
 <span id="add-a-teammate"></span><span id="add-a-teammate-to-a-starter-organization"></span>
 
-Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role together with `viewer`. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
+Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits). To open sessions, a teammate needs the `owner` or `limited_owner` role, or the `sandbox.user` role. To give them one, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 ## Next steps
 
@@ -83983,11 +84098,11 @@ What you can do with `chainctl develop` depends on your role in the session's or
 
 | Commands | Roles |
 | -------- | ----- |
-| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` together with a role that includes `groups.list`, such as `viewer` |
+| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
 | `accept-terms` | `owner` or `limited_owner` |
 | `list --all` and `policy set` | `owner` |
 
-The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. A teammate with `sandbox.user` also needs the `viewer` role, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access). To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with an invite, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
@@ -84808,7 +84923,7 @@ cd /root/fix-cache
 claude
 ```
 
-The `run-ci` command checks only `/work`, so an agent in another worktree can't check its work with it before it pushes. Only one `run-ci` or `chainctl develop check` can run in a session at a time, so one started while another runs fails and tells you to wait for the first to finish.
+The `run-ci` command checks only `/work`, so an agent in another worktree can't check its work with it before it pushes. Only one `run-ci` can run in a session at a time, as described in [Run checks in a Workspaces session](/chainguard/checks/run-checks/#run-checks-in-a-workspaces-session).
 
 ### Run agents in separate sessions
 
@@ -84825,17 +84940,9 @@ Run each command in its own terminal. Each agent works on its own branch in its 
 
 ## Check the agent's work before it pushes
 
-If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes. The `run-ci` command exits with `0` when every check passes, `1` when a check fails, and `2` when the checks couldn't run.
+If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
 
-To run the same checks from your laptop without attaching, use `chainctl develop check`:
-
-```shell
-chainctl develop check app/fix-auth --parent $ORGANIZATION
-```
-
-If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
-
-Both commands run the checks in the session's own environment, against its working tree as it is now. They skip checks that only a pull request can run, and print a line for each, as described in [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run). A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
+Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 
 A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.
 
@@ -88261,22 +88368,22 @@ If your GitHub account isn't linked to the organization yet, link it as describe
 
 Your teammates don't need a Chainguard account to get checks on their pull requests or to read the results on GitHub. A teammate needs a role in your Chainguard organization to open the Chainguard Checks run page, to use `chainctl checks` commands such as `status` and `rerun`, or to open Workspaces sessions. Each teammate opens and manages their own sessions, which count toward your organization's [limits](/chainguard/workspaces/overview/#availability-and-limits).
 
-| Role | In Chainguard Checks | In Chainguard Workspaces |
-| ---- | -------------------- | ------------------------ |
-| `viewer` | Lets `chainctl` find your organization by name, which `--parent $ORGANIZATION` needs. | Lets `chainctl develop` find your organization by name. |
-| `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. |
-| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. |
+| Role | In Chainguard Checks | In Chainguard Workspaces | Inside a session |
+| ---- | -------------------- | ------------------------ | ---------------- |
+| `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. | `chainctl checks` commands work as the teammate. The Chainguard MCP servers don't, because the role doesn't include the `mcp.tool.call` capability. |
+| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. | Neither the Chainguard MCP servers nor the `chainctl checks` commands that look up a run, such as `status` and `logs`, work. |
+| `mcp.tool_user` | Nothing. | Nothing. | Adds `mcp.tool.call`, so the Chainguard MCP servers work. |
 
-A teammate who uses `sandbox.user` also needs `viewer`. For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+Inside a session, a teammate's Chainguard identity can't do more than their role allows, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session). For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 ### Add a teammate {#add-a-teammate}
 
-In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate and grant them the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate with the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
 
-1. Create an invite for your teammate with the `viewer` role. Your teammate needs it as well as `sandbox.user`, because `sandbox.user` alone doesn't let `chainctl` find your organization. Replace `$EMAIL` with your teammate's email address:
+1. Create an invite for your teammate with the `sandbox.user` role. Replace `$EMAIL` with your teammate's email address:
 
     ```shell
-    chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
+    chainctl iam invite create $ORGANIZATION --role sandbox.user --email $EMAIL
     ```
 
 2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `$INVITE_CODE` with the code:
@@ -88285,17 +88392,7 @@ In a Starter organization, the steps differ, as described in [Add a teammate to 
     chainctl auth login --invite-code $INVITE_CODE
     ```
 
-3. After your teammate accepts, list your organization's role-bindings. The output shows each member's identity ID next to their email address:
-
-    ```shell
-    chainctl iam role-bindings list --parent $ORGANIZATION
-    ```
-
-4. Grant your teammate the `sandbox.user` role, replacing `$IDENTITY_ID` with their identity ID:
-
-    ```shell
-    chainctl iam role-bindings create --identity $IDENTITY_ID --role sandbox.user --parent $ORGANIZATION
-    ```
+Accepting the invite grants the role. To let a teammate use the Chainguard MCP servers in sessions, also grant them `mcp.tool_user` with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 Your teammate can then install `chainctl`, as described in [Install or update chainctl](#install-or-update-chainctl), and open a session, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session).
 
@@ -88303,7 +88400,7 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 
 If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
 
-To invite a teammate, run steps 1 and 2 of [Add a teammate](#add-a-teammate). To let your teammate open sessions, use `--role limited_owner` instead of `--role viewer` in step 1:
+To invite a teammate who can open sessions, follow [Add a teammate](#add-a-teammate), but use `--role limited_owner` instead of `--role sandbox.user` in step 1:
 
 ```shell
 chainctl iam invite create $ORGANIZATION --role limited_owner --email $EMAIL
