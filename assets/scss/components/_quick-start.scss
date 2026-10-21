@@ -1,0 +1,112 @@
+// Quick-start block, from the quickstart shortcode: a bordered block with a
+// heading, numbered steps, and a closing line marked {.quick-start-done}.
+
+$quick-start-tint: color-mix(in srgb, var(--primary-1) 5%, transparent);
+$quick-start-line: color-mix(in srgb, var(--primary-1) 35%, transparent);
+
+.quick-start {
+    border: 1px solid $quick-start-line;
+    border-radius: 12px;
+    background: $quick-start-tint;
+    padding: 0.25rem 2rem 1.5rem;
+    margin: 2rem 0 3.5rem;
+
+    > h2 {
+        margin-top: 1.25rem;
+    }
+
+    > ol {
+        list-style: none;
+        counter-reset: quick-start;
+        padding-left: 0;
+        margin: 1.75rem 0 0;
+
+        > li {
+            counter-increment: quick-start;
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0;
+
+            // Step number
+            &::before {
+                content: counter(quick-start);
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+                background: var(--primary-1);
+                color: #fff;
+                font-weight: 600;
+                line-height: 2rem;
+                text-align: center;
+            }
+
+            // Line from each step's number to the next one
+            &:not(:last-child)::after {
+                content: "";
+                position: absolute;
+                left: calc(1rem - 1px);
+                top: 2.5rem;
+                bottom: 0.5rem;
+                border-left: 2px solid $quick-start-line;
+            }
+
+            // Step title: the item's first paragraph, which holds only bold text
+            > p:first-child {
+                font-family: $titleFont;
+                font-size: 1.5rem;
+                line-height: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            > p:last-child {
+                margin-bottom: 0.5rem;
+            }
+
+            // Tighter code blocks than in the rest of the page
+            > pre {
+                margin: 0 0 0.75rem;
+
+                .code {
+                    padding: 14px 20px;
+                }
+            }
+        }
+    }
+
+    > .quick-start-done {
+        position: relative;
+        border-top: 1px solid $quick-start-line;
+        padding: 1.25rem 0 0 3rem;
+        margin: 0.75rem 0 0;
+
+        &::before {
+            content: "\f26a"; // bootstrap-icons check-circle-fill
+            font-family: bootstrap-icons, sans-serif;
+            position: absolute;
+            left: 0.25rem;
+            top: 1.2rem;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: var(--primary-1);
+        }
+    }
+}
+
+@media (max-width: $MobileLayoutWidth) {
+    .quick-start {
+        padding: 0.25rem 1rem 1rem;
+
+        > ol > li,
+        > .quick-start-done {
+            padding-left: 2.5rem;
+        }
+
+        > ol > li > p:first-child {
+            font-size: 1.25rem;
+        }
+    }
+}
