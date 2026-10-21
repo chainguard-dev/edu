@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Go project to pull dependencies from Chainguard Libraries"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-21T17:44:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
@@ -18,6 +18,8 @@ toc: true
 Chainguard Libraries for Go provides an authenticated Go module proxy that applies Chainguard security controls to Go dependencies.
 
 Because Chainguard Libraries uses the standard [GOPROXY protocol](https://go.dev/ref/mod#goproxy-protocol), migrating an existing project does not require application-code changes or a new dependency declaration format. You configure the Go toolchain to use Chainguard, refresh any cached modules, and verify the build.
+
+To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for Go demo repository](https://github.com/chainguard-demo/chainguard-libraries-go). It provides a Go banking application that pulls its module dependencies from Chainguard Libraries and demonstrates remediation of a JSON parser vulnerability, along with a `tools` directory of configuration and `chainctl` examples for direct access and repository managers.
 
 This guide covers two common setups:
 
@@ -130,6 +132,8 @@ go env -w GOPROXY=https://<your-repository-manager>/go
 Use repository-manager credentials in the developer and CI environments. Do not distribute the Chainguard pull token to every developer when your repository manager can centralize access.
 
 Configure Chainguard as the primary upstream for Go modules and avoid adding a separate public Go proxy as a fallback. This preserves Chainguard’s policy, cooldown, and malware controls for requests that are not yet available as Chainguard-built modules.
+
+For example configuration files and `chainctl` commands covering both setups, see the [`tools` directory in the Go demo repository](https://github.com/chainguard-demo/chainguard-libraries-go/tree/main/tools).
 
 {{% /tab %}}
 
