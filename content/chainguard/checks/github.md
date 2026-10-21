@@ -117,7 +117,7 @@ chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION --watch
 
 For more ways to inspect a pull request's run from your terminal, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). To find the checks that fail most often across runs, refer to [See check history](/chainguard/checks/inspect-and-run-checks/#see-check-history).
 
-During the beta, you can't rerun checks that run after merging. Selecting **Re-run** on **Chainguard Checks (postsubmit)** or on one of its per-check results doesn't start a new run. To run those checks again, push or merge a new commit to your default branch.
+During the beta, you can't rerun checks that run after merging. If you select **Re-run** on **Chainguard Checks (postsubmit)**, GitHub shows the check as queued, but Chainguard Checks doesn't start a new run, and the check stays queued. The `chainctl checks rerun` command fails with an error for runs after merging. To run the checks again, push or merge a new commit to your default branch.
 
 ### Reruns when a pull request changes {#reruns-when-a-pull-request-changes}
 
