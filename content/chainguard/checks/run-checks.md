@@ -72,7 +72,7 @@ If you name a skipped check, as in `run-ci deploy`, or if `run-ci` skips every c
 
 Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
 
-The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, if you keep the session running with a **Detach — keep running** option or `--keep`, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). Running checks doesn't keep a session from parking, so if the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, while the session keeps running, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). A run keeps the session busy, so the session doesn't park while the run is in progress, up to 24 hours after you last detach. While it runs, `chainctl develop list` shows `busy: check run` in the session's state. In a session created with `--keep park` or with `chainctl` 0.2.382 or earlier, or while your organization's monthly compute allowance is used up, running checks doesn't keep the session from parking. If the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
 
 Only one `run-ci` or `chainctl develop check` can run in a session at a time. One that starts while another runs fails and tells you to wait for the first to finish.
 
@@ -92,7 +92,7 @@ chainctl develop check $SESSION --check test --parent $ORGANIZATION
 
 The command uses the same runner as `run-ci` and streams each step's output. It skips the same checks as `run-ci`, and prints a line for each, such as `Skipped deploy: declares identity gcp-prod, which only CI provides`. It exits with `0` when the checks pass, or `1` when a check fails or the checks can't run, including when you name a skipped check with `--check`. To print the result as JSON, add `--output json`. The JSON lists the checks it skipped under `skipped`.
 
-If you detached from the session and kept it running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
+If you detached from the session and it's still running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
 
 ## Validate your configuration offline {#validate-your-configuration-offline}
 

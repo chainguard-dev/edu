@@ -4,7 +4,7 @@ linktitle: "Session credentials"
 description: "Learn how a Chainguard Workspaces session reaches GitHub, Claude, and Chainguard without holding credentials, and how to approve, review, and revoke what it can reach."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Configuration"]
 images: []
@@ -29,12 +29,13 @@ When a request reaches one of these hostnames, `chainctl` on your laptop or Chai
 | ------ | ------------------------------- |
 | `laptop` | Your laptop. For `claude` and `gcp`, `chainctl` sends the credential to the session's host, outside the VM, when you attach. For `github` and `cgr.dev`, `chainctl` answers each request from your laptop, so the credential never leaves your machine. |
 | `org` | Your Chainguard organization, such as the Chainguard App's access to your GitHub repositories. |
+| `owner` | A login of yours that Chainguard holds. Only the `claude` service uses this source, after you run `chainctl develop claude login`, and only with the Anthropic API. Chainguard sends the session's host short-lived access tokens from the login, whether or not you're attached. Refer to [Let Chainguard hold your Claude login](/chainguard/workspaces/coding-agents/#let-chainguard-hold-your-claude-login). |
 | `seat` | Your Chainguard identity, which your laptop delegates to the session when you attach. Only the `chainguard` service uses this source. |
 | `off` | Nothing. The session can't use the service. |
 
-A credential that `chainctl` sends to the session's host stays there until the session parks or the credential expires, so it keeps working after you close your terminal. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/) for how long Claude's credential lasts, and to [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session) for Google Cloud's.
+A credential that `chainctl` sends to the session's host stays there until the session parks or the credential expires, so it keeps working after you close your terminal. With the `owner` source, Chainguard keeps the credential fresh and sends it again after the session resumes. Refer to [Use Claude Code in a session](/chainguard/workspaces/coding-agents/) for how long Claude's credential lasts, and to [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session) for Google Cloud's.
 
-Requests that `chainctl` answers from your laptop work only while your laptop serves the session, which it does while you're attached. If your terminal served one of them while you were attached, it keeps serving after you detach and keep the session running, until you press `Ctrl+C`. If nothing serves a session, these requests fail with an error that says no laptop is attached.
+Requests that `chainctl` answers from your laptop work only while your laptop serves the session, which it does while you're attached. If your terminal served one of them while you were attached, it keeps serving after you detach with **Detach — keep running 4h**, **Detach — keep running for…**, or a `--keep` duration, or from a session you're already keeping running, until you press `Ctrl+C`. If nothing serves a session, these requests fail with an error that says no laptop is attached.
 
 ## What a session can reach by default {#what-a-session-can-reach-by-default}
 
@@ -42,7 +43,7 @@ A new session can reach the following services without asking you:
 
 | Service | Default source | What it covers |
 | ------- | -------------- | -------------- |
-| `claude` | `laptop` | The credential Claude Code on your laptop uses, for the Claude API's messages and models endpoints. |
+| `claude` | `laptop`, or `owner` after you run `chainctl develop claude login` | The credential Claude Code on your laptop uses, or your Claude login held by Chainguard, for the Claude API's messages and models endpoints. Refer to [Let Chainguard hold your Claude login](/chainguard/workspaces/coding-agents/#let-chainguard-hold-your-claude-login) for which sessions use `owner`. |
 | `github` | `org` | `git` fetch and push for the session's repository, and for the repositories of your checkout's other github.com remotes where the Chainguard App is installed. To use the others, add them as remotes in the session, as described in [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). |
 | `cgr.dev` | `org` | Pulls images and lists tags from `cgr.dev` as the Chainguard platform, not as you, so it can't pull or list your organization's private images. |
 | `chainguard` | `seat` | `chainctl` and the Chainguard Model Context Protocol (MCP) servers in the session act as you, limited to read, Chainguard Checks, and MCP capabilities in the session's organization, within the permissions you hold. Refer to [Your Chainguard identity in a session](#your-chainguard-identity-in-a-session). |
@@ -102,9 +103,9 @@ chainctl develop app/quiet-harbor --with gcp --parent $ORGANIZATION
 
 While you're attached, you can also turn `gcp` on or off from the session menu: press `Ctrl+]`, choose **Credentials**, choose `gcp`, and then choose **Set the source**. The change can take up to 30 seconds to reach the session. If `chainctl` says that the session's guest `was booted without the wiring that lets it use your Google credentials`, or the **Credentials** screen has no `gcp`, the session was created before it could use your Google credentials, so it can't use them. Delete it and create a new one with `chainctl develop --new --with gcp`.
 
-The session's VM holds only a placeholder credential. Each time you attach, `chainctl` sends your Google Cloud credential to Chainguard, which keeps it outside the VM, adds it to the session's requests to Google APIs, and discards it when the session parks. Usually, `chainctl` sends a short-lived access token and renews it while you're attached. If you attach to a session you're already keeping running, however little of that time is left, `chainctl` sends your refresh token instead, and access lasts until the session parks. A session created with `--keep always` always gets the refresh token. If your application default credentials have no refresh token, such as a service account's, `chainctl` sends an access token either way. `chainctl` tells you which one it sent.
+The session's VM holds only a placeholder credential. Each time you attach, `chainctl` sends your Google Cloud credential to Chainguard, which keeps it outside the VM, adds it to the session's requests to Google APIs, and discards it when the session parks. Usually, `chainctl` sends your refresh token, and access lasts until the session parks. A session created with `--keep park`, or with `chainctl` 0.2.382 or earlier, gets your refresh token only if you attach while you're keeping it running, however little of that time is left, or attach with a `--keep` duration such as `--keep 8h`. Otherwise, it gets a short-lived access token, which `chainctl` renews while you're attached. If your application default credentials have no refresh token, such as a service account's, `chainctl` sends an access token either way. `chainctl` tells you which one it sent.
 
-If you detach with one of the session menu's **Detach — keep running** options, whatever duration you choose, `chainctl` sends your refresh token before it detaches, so access lasts until the session parks. If you exit the shell instead, `chainctl` can't send the refresh token, and access ends within an hour. The message `chainctl` prints when you detach says which applies.
+In a session that got an access token, if you detach with one of the session menu's **Detach — keep running** options, whatever duration you choose, `chainctl` sends your refresh token before it detaches, so access lasts until the session parks. If you exit the shell instead, `chainctl` can't send the refresh token, and access ends within an hour. The message `chainctl` prints when you detach says which applies.
 
 While the session has your credential, code in it can use your Google Cloud access, and anything it creates with that access, such as a service account key, outlives the session. If the session's environment has an `egress` list, include `sts.googleapis.com` and the Google APIs the session calls.
 
@@ -136,7 +137,7 @@ To change a session's credentials, pass one or more of the following flags to `c
 | Flag | What it does |
 | ---- | ------------ |
 | `--revoke <entry>` | Takes access back from the session and from your laptop's remembered approvals. `<entry>` is `claude`, `cgr.dev`, `chainguard`, `github:<owner>/<repo>`, or `github:<owner>/<repo>+push`, which takes back only the push. |
-| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, or `off`. The `claude` and `gcp` services take only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
+| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, `owner`, or `off`. The `claude` service takes `laptop`, `owner`, or `off`, and takes `owner` only after you run `chainctl develop claude login` and only on a session that uses the Anthropic API. The `gcp` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
 Changes to `github` have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
@@ -159,7 +160,7 @@ While you're attached, you can change a session's credentials without leaving it
 | ------ | ------------ |
 | **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:<owner>/<repo>+push` or `cgr.dev`. |
 | **Revoke…** | Takes access back from the session and from your laptop's remembered approvals, as `chainctl develop creds --revoke` does. For `github`, you choose a repository, or only its push. |
-| **Set the source** | Changes where the credential comes from. For `claude` and `gcp`, you choose your laptop or no credential. For `github` and `cgr.dev`, you choose your laptop, your organization, or no credential. For `chainguard`, you choose your delegated Chainguard identity, which you then approve with `y`, or no credential. |
+| **Set the source** | Changes where the credential comes from. For `claude` on the Anthropic API, you choose your laptop, your login held by Chainguard, or no credential. For `claude` on Vertex AI and for `gcp`, you choose your laptop or no credential. For `github` and `cgr.dev`, you choose your laptop, your organization, or no credential. For `chainguard`, you choose your delegated Chainguard identity, which you then approve with `y`, or no credential. |
 | **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `CAP[,CAP...] [in GROUP[,GROUP...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
 
 The `claude` screen also offers **Use Vertex AI…** or **Use Anthropic…**, as described in [Switch a session to another provider](/chainguard/workspaces/coding-agents/#switch-a-session-to-another-provider). For a session that acts on GitHub as you, the `github` screen shows your GitHub account and offers no actions. If the list has no `gcp`, the session can't use your Google Cloud credentials, as described in [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session).

@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T12:09:53+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -33,7 +33,7 @@ The order is the same for a session opened from a local directory and one opened
 
 If your repository has neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file and you don't pass `--env`, `chainctl` opens the session on the default environment and tells you so. When you run `chainctl develop` with `--non-interactive`, it refuses instead, so pass `--env default` explicitly in scripts.
 
-Whatever its environment, every session also gets `git`, `gh`, `chainctl`, `curl`, `bash`, `bash-completion`, `busybox`, and `gnutar`. Nothing else is installed unless the environment lists it, including Claude Code (`claude`). By default, the session's shell and each terminal you open from the session menu run `bash`, with completion and a history file at `~/.bash_history`. `bash` reads `~/.bashrc` last, if you create one in the session, so your own settings take precedence.
+Whatever its environment, every session also gets `git`, `gh`, `chainctl`, `curl`, `bash`, `bash-completion`, `busybox`, and `gnutar`. Every session also has the `busy` command at `/usr/local/bin/busy`, which keeps a detached session running while it holds the session, as described in [Mark a session busy](/chainguard/workspaces/manage-sessions/#mark-a-session-busy). Nothing else is installed unless the environment lists it, including Claude Code (`claude`). By default, the session's shell and each terminal you open from the session menu run `bash`, with completion and a history file at `~/.bash_history`. `bash` reads `~/.bashrc` last, if you create one in the session, so your own settings take precedence.
 
 `chainctl` never writes to your directory. To find out which environment a session uses, read `/etc/chainguard/session.yaml` in the session. To see each session's environment from your laptop, run `chainctl develop list -o wide`.
 

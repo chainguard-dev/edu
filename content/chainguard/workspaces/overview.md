@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T12:09:53+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -35,7 +35,7 @@ The session's packages come from Chainguard OS. If your repository has a `.chain
 
 Sessions keep running after you detach, then park:
 
-- When you detach, the session keeps running for about 10 minutes. You can also ask it to keep running for longer, up to 24 hours at a time.
+- When you detach, the session keeps running while it's busy, such as during a build or a Claude Code turn, and until it's been idle for 10 minutes, up to 24 hours after you last detach. You can also keep it running for a time you choose, up to 24 hours, or create it with `--keep always`.
 - After that, the session *parks*: Chainguard saves its memory and disk to a snapshot and stops the VM, so it uses no compute.
 - When you return, the session resumes from the snapshot in seconds, with your processes, files, and shell as you left them.
 - A parked session expires 5 days after it parks.
@@ -44,18 +44,18 @@ Each session is its own VM. You can open several sessions on the same repository
 
 ## How sessions get credentials
 
-No long-lived credential enters a session. Instead, the session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. Outside the VM, Chainguard or `chainctl` on your laptop adds the credential to each request. Depending on the service, the credential comes from your laptop, such as your Claude Code login, or from your Chainguard organization, such as the Chainguard App's access to your repositories.
+No long-lived credential enters a session. Instead, the session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. Outside the VM, Chainguard or `chainctl` on your laptop adds the credential to each request. Depending on the service, the credential comes from one of three places: your laptop (such as your Claude Code login), your Chainguard organization (such as the Chainguard App's access to your repositories), or a login that Chainguard holds for you (such as your Claude login after you run `chainctl develop claude login`).
 
 By default, a session can reach the following:
 
-- Claude, with the same credential Claude Code uses on your laptop.
+- Claude, with the same credential Claude Code uses on your laptop, or with your Claude login held by Chainguard.
 - The session's own GitHub repository, for fetch and push, and the other github.com repositories that your checkout's remotes point to, where the Chainguard App is installed. To use those, add them as remotes in the session.
 - `cgr.dev`, as the Chainguard platform rather than as you.
 - Your Chainguard identity, limited to the read, Chainguard Checks, and Model Context Protocol (MCP) capabilities you hold in the session's organization, while you're attached and for up to an hour after you detach.
 
 When the session asks for anything else, such as fetching another private repository, `chainctl` asks you on your terminal. You can approve requests ahead of time, or take access back, at any point. Refer to [Manage session credentials](/chainguard/workspaces/credentials/) for details.
 
-Claude Code can keep working after you close your terminal, for as long as its credential lasts, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away). A service that you set to use a credential from your laptop, such as `github` or `cgr.dev`, works only while you're attached or while the terminal you detached from keeps serving it.
+Claude Code can keep working after you close your terminal, for as long as its credential lasts. With your Claude login held by Chainguard, it works whether or not you're attached, for as long as the session runs, as described in [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away). A service that you set to use a credential from your laptop, such as `github` or `cgr.dev`, works only while you're attached or while the terminal you detached from keeps serving it.
 
 ## Network access
 
@@ -82,9 +82,9 @@ During the beta, Chainguard Workspaces has the following limits:
 - A session can't forward ports to your laptop.
 - `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. An allowance arranged with your Chainguard account team can differ.
 
-A session counts its vCPUs against the allowance for every hour its VM runs, whether it's busy or idle. A session with the default 4 vCPUs uses 4 vCPU-hours an hour, including the roughly 10 minutes it keeps running after you detach, and a parked session uses none. A 4-vCPU session created with `--keep always` and left running uses the month's allowance in about 5 days. Chainguard doesn't show your usage during the beta.
+A session counts its vCPUs against the allowance for every hour its VM runs, whether it's busy or idle. A session with the default 4 vCPUs uses 4 vCPU-hours an hour, including the time it keeps running while it's busy after you detach and the 10 idle minutes before it parks, and a parked session uses none. A 4-vCPU session created with `--keep always` and left running uses the month's allowance in about 5 days. Chainguard doesn't show your usage during the beta.
 
-When the allowance is used up, you can't create a session or resume a parked one until the allowance resets, but sessions that are already running aren't stopped. Refer to [Your organization's monthly compute allowance is used up](/chainguard/workspaces/troubleshooting/#your-organizations-monthly-compute-allowance-is-used-up) for details.
+When the allowance is used up, you can't create a session or resume a parked one until the allowance resets, and being busy no longer keeps a detached session running, so it parks about 10 minutes after you detach. Sessions you're attached to keep running until you detach. Refer to [Your organization's monthly compute allowance is used up](/chainguard/workspaces/troubleshooting/#your-organizations-monthly-compute-allowance-is-used-up) for details.
 
 ## Get help
 

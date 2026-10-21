@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-16T11:36:21+00:00
+lastmod: 2026-10-20T11:36:21+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -45,7 +45,7 @@ Neither product puts a long-lived credential in the VM. Where a check or session
 | | Chainguard Checks | Chainguard Workspaces |
 | -- | -- | -- |
 | How code authenticates | A check can request a [workload identity](/chainguard/checks/identity-and-trust/). Chainguard Checks issues the check an OpenID Connect (OIDC) token that lasts five minutes, and renews it while the check runs. | The session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. `chainctl` on your laptop, or Chainguard, adds the credential to each request. |
-| What the VM holds | For Google Cloud, a credential configuration and sealed stand-in tokens. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains. For Chainguard, nothing. | A placeholder at most. For `github` and `cgr.dev` from your laptop, the credential never leaves your machine. For `claude` and `gcp`, `chainctl` sends it to the session's host, outside the VM, and the host discards it when the session parks. |
+| What the VM holds | For Google Cloud, a credential configuration and sealed stand-in tokens. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains. For Chainguard, nothing. | A placeholder at most. For `github` and `cgr.dev` from your laptop, the credential never leaves your machine. For `claude` and `gcp`, `chainctl` sends it to the session's host, outside the VM, and the host discards it when the session parks. For a session that uses a Claude login Chainguard holds for you, Chainguard sends the host short-lived access tokens from it instead, attached or not, and sends them again when the session resumes. |
 | Who decides | `identities.yaml` on the pull request's base branch, and the `trust` section on your default branch. | Your organization's policy and the session's credential settings. A request beyond the defaults needs your approval on your terminal. |
 
 Code in the VM can't read the real credentials, but it can use them. Each request it sends carries the credential's access, and anything it creates with that access, such as a Google Cloud service account key, outlives the check or session. Grant each workload identity only the access its checks need, and review a session's credentials before you let an agent work in it unattended. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
@@ -131,9 +131,9 @@ A session moves through the following states:
 | State | What it means | What moves it on |
 | -- | -- | -- |
 | Creating | `chainctl develop` creates the VM, syncs your directory into `/work`, and installs the session's packages. | When it's ready, your terminal attaches. |
-| Attached | Your terminal is connected to the session's shell. `chainctl` answers the requests that use your laptop's credentials, and sends your Claude and Google Cloud credentials to the session's host. | When you detach, the session keeps running. **Park now** in the session menu parks it right away. |
-| Running, detached | The session keeps running, and an agent in it can keep working. It still uses compute. | After about 10 minutes, or after the time you chose with **Detach — keep running** or `--keep`, up to 24 hours, the session parks. A `--keep always` session parks 7 days after you last detach. Attaching again returns it to attached. |
-| Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. Five days after parking, it expires. |
+| Attached | Your terminal is connected to the session's shell. `chainctl` answers the requests that use your laptop's credentials, and sends your Claude and Google Cloud credentials to the session's host. For a session that uses a Claude login Chainguard holds for you, `chainctl` sends nothing for Claude. | When you detach, the session keeps running. **Park now** in the session menu parks it right away. |
+| Running, detached | The session keeps running, and an agent in it can keep working. It still uses compute. | The session keeps running while it's busy, such as during a build, a Claude Code turn, a `run-ci` run, or a `busy` command, and parks after it's been idle for 10 minutes, no later than 24 hours after you last detach. A time you chose with **Detach — keep running** or `--keep` keeps it running until then, and then while it's busy. A `--keep park` session parks about 10 minutes after you detach, busy or not, and a `--keep always` session parks 7 days after you last detach. Attaching again returns it to attached. |
+| Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. When the session resumes, Chainguard sends the host fresh access tokens from a Claude login it holds for you, without waiting for you to attach. Five days after parking, it expires. |
 | Expired | Chainguard discards the VM and the snapshot. The session can't be resumed, but it stays in `chainctl develop list --expired`, and its name stays in use. | `chainctl develop delete` removes it. |
 
 However a session is used, its VM runs for at most 6 days at a stretch. Then Chainguard parks the session and resumes it right away, the same way the session menu's **Restart the host** option does, so a session in long use isn't cut off.
