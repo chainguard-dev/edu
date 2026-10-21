@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Go on your workstation"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-10-14T14:52:48+00:00
+lastmod: 2026-10-21T17:44:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go"]
 menu:
@@ -120,3 +120,5 @@ go mod verify
 ```
 
 A successful `go mod verify` confirms that the downloaded module content matches the checksums recorded in `go.sum`.
+
+For a larger, ready-made example, the [Chainguard Libraries for Go demo repository](https://github.com/chainguard-demo/chainguard-libraries-go) provides a Go banking application configured to pull its module dependencies from Chainguard Libraries.
