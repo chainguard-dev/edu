@@ -23,6 +23,8 @@ This page explains how provisioning behaves and how to manage the connection ove
 * [Okta SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/okta-scim/)
 * [Microsoft Entra ID SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/)
 
+The commands on this page use `chainctl`. You can also generate, rotate, and revoke the token, and turn provisioning on and off, in the Chainguard Console. Refer to the "Set up SCIM provisioning" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#set-up-scim-provisioning).
+
 ## How SCIM provisioning works
 
 Provisioning behaves the same way for every provider:

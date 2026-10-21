@@ -33,6 +33,8 @@ Organizations generally have one identity provider, so the list usually holds a 
 
 ## Step 1: Enable provisioning and generate the SCIM token
 
+You can also complete this step in the Chainguard Console, as described in the "Turn on SCIM syncing" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#turn-on-scim-syncing).
+
 First, generate the bearer token Okta authenticates with:
 
 ```sh
