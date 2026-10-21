@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, the Java truststore, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:42:36+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -135,7 +135,7 @@ A repo that sets `fail_mode: open` has `GUARDED_FAIL_MODE=open` in its image env
 
 ## Java truststore
 
-A Java application trusts the certificate authorities (CAs) in its image. A CA that exists only at run time isn't in the image. Two examples are an OpenShift service CA that rotates, and a private CA on Red Hat OpenShift Service on AWS (ROSA). You mount such a CA into the container as a file.
+A Java application trusts the certificate authorities (CAs) in its image. A CA that exists only at run time isn't in the image. Two examples are an OpenShift service CA that rotates, and a private CA in your cluster. You mount such a CA into the container as a file.
 
 The truststore setting covers this case. Before your application starts, the wrapper writes a Java truststore that holds the image's CAs and the mounted CAs, and points the JVM at it. The wrapper writes the store on every start, so a rotated CA takes effect the next time the container starts.
 
@@ -153,9 +153,9 @@ In a Custom Assembly manifest, add a `truststore` entry. It requires `guarded_en
 | `password_env` | The name of the environment variable that holds the store's password. | The JDK's default password |
 | `format` | The store format. `jks` is the only value. | `jks` |
 
-Keep the following in mind:
+Notes:
 
-* A directory in `sources` works with a Kubernetes ConfigMap or Secret volume. The wrapper adds every certificate in each file, so a bundle of several certificates needs no splitting.
+* A directory in `sources` works with a Kubernetes ConfigMap or Secret volume, and the wrapper reads each certificate once. The wrapper adds every certificate in each file, so a bundle of several certificates needs no splitting.
 * The directory of `output` must exist, and the container's user must be able to write to it. With a read-only root filesystem, mount an `emptyDir` volume there. The path can't contain spaces or quotes.
 * The JVM doesn't need a password to read the store. Set `password_env` only if other tools open the store. The variable can hold a `cg+` secret reference.
 
@@ -163,9 +163,9 @@ For an example, refer to [Trust a mounted CA in a Java service](/chainguard/cont
 
 ### Set a truststore at deploy time
 
-You can also set the truststore on the deployment, on any wrapped image. Set `GUARDED_TRUSTSTORE_0` to comma-separated `key=value` pairs. The keys are the same as in the manifest, with `source` in place of `sources`. Repeat `source` for more than one path:
+You can also set the truststore on the deployment. The image must have been rebuilt with wrapper 0.2.385 or later. Check the `version` field on the wrapper's `ready` log line. Set `GUARDED_TRUSTSTORE_0` to comma-separated `key=value` pairs. The keys are the same as in the manifest, with `source` in place of `sources`. Repeat `source` for more than one path:
 
-```shell
+```text
 GUARDED_TRUSTSTORE_0=source=/etc/service-ca,source=/etc/corp-ca/ca.pem,output=/truststore/cacerts
 ```
 
@@ -189,7 +189,7 @@ Mount the following volumes:
 * **A writable directory for the store.** Mount an `emptyDir` volume at the directory of `output`. The container can run as an arbitrary user ID, such as one that OpenShift assigns.
 * **A writable `/tmp` on FIPS images.** A FIPS Java image with a read-only root filesystem needs a writable `/tmp` that allows executables, with or without a truststore. A Kubernetes `emptyDir` volume works. With Docker, `--tmpfs` blocks executables by default, so add the `exec` option.
 
-Keycloak's FIPS start script ignores `JAVA_TOOL_OPTIONS`, so the truststore setting doesn't reach Keycloak on those images. Give Keycloak the mounted PEM files through its own `truststore-paths` option instead.
+On the JDK 21 and earlier FIPS images, Keycloak's start script drops `JAVA_TOOL_OPTIONS`, so the truststore setting doesn't reach Keycloak there. Give Keycloak the mounted PEM files through its own `truststore-paths` option instead.
 
 ### Temurin compatibility
 
@@ -199,7 +199,7 @@ A truststore setting wins over `USE_SYSTEM_CA_CERTS`. The wrapper logs a `USE_SY
 
 ### Truststore errors
 
-A malformed setting stops the container with exit code `120`. A failure to read your sources or write the store stops it with exit code `128`, in every fail mode. Examples are a missing source, a file with no PEM certificate, and an `output` directory that doesn't exist. For how to read these errors, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#exit-codes-before-the-application-starts).
+A malformed setting stops the container with exit code `120`. A failure to read your sources or write the store stops it with exit code `128`. Examples are a missing source, a file with no PEM certificate, and an `output` directory that doesn't exist. For how to read these errors, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#exit-codes-before-the-application-starts).
 
 ## Preflight checks
 

@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:42:36+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -75,7 +75,9 @@ The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a pref
 
 Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this.
 
-The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. A `GUARDED_TRUSTSTORE_0` on a deployment replaces the image's truststore setting, and can add CAs that your image doesn't trust. The wrapper trusts every certificate in a source, so control who can write to the volumes that you mount. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
+The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
+
+A `GUARDED_TRUSTSTORE_0` on a deployment replaces the image's truststore setting, and can add CAs that your image doesn't trust. The wrapper trusts every certificate in a source, so control who can write to the volumes that you mount.
 
 For how to use the escape hatch, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 

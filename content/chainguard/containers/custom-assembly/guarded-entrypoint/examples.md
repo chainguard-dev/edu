@@ -4,7 +4,7 @@ linktitle: "Examples"
 type: "article"
 description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, fail open, and trust a mounted CA in a Java service."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:25:41+00:00
+lastmod: 2026-10-21T19:08:50+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural", "Configuration"]
 images: []
@@ -134,7 +134,7 @@ Use `open` only for variables that aren't credentials. An unresolved variable ho
 
 ## Trust a mounted CA in a Java service
 
-A Java service calls another service in its cluster. The called service's certificate comes from a CA that the cluster mounts into your container as a file, such as an OpenShift service CA that rotates. The image doesn't contain this CA, so the TLS handshake fails with a `PKIX path building failed` error.
+A Java service calls another service in its cluster. The called service's certificate comes from a CA that the cluster mounts into your container as a file, such as an OpenShift service CA that rotates. The image doesn't contain this CA, so the TLS handshake fails with a certificate path error, such as `PKIX path building failed`.
 
 The following manifest writes a truststore at start. It holds the image's CAs and every certificate in `/etc/service-ca`:
 
@@ -183,14 +183,7 @@ spec:
           emptyDir: {}
 ```
 
-When the container starts, the wrapper does the following:
-
-1. Reads every certificate under `/etc/service-ca`. A ConfigMap volume links its keys through `..data`, and the wrapper reads each certificate once.
-1. Adds them to the image's CAs and writes `/truststore/cacerts`.
-1. Appends `-Djavax.net.ssl.trustStore=/truststore/cacerts` to `JAVA_TOOL_OPTIONS`, keeps what the variable already holds, and sets `JRE_CACERTS_PATH` to the same path.
-1. Starts the Java service.
-
-To check the result, read the wrapper's `truststore written` line. The `certs` field is the number of certificates in the store, and `added` is the number that your sources added to the image's. Both depend on your image and your CA:
+To check the result, read the wrapper's `truststore written` line, which counts the certificates in the store (`certs`) and the ones your sources added (`added`):
 
 ```shell
 kubectl logs deployment/orders | grep '"msg":"truststore written"'
@@ -206,7 +199,7 @@ On a FIPS image with a read-only root filesystem, also mount an `emptyDir` volum
 
 ## Set the truststore at deploy time
 
-You can set the truststore on the deployment instead of in the manifest. This works on any wrapped image. Turn on `guarded_entrypoint` for the repo, and set `GUARDED_TRUSTSTORE_0` in the container's environment. The following container settings read the CA from `/certificates` and write the store to `/tmp/cacerts`. The container keeps a read-only root filesystem and mounts an `emptyDir` volume at `/tmp`:
+Set `GUARDED_TRUSTSTORE_0` in the container's environment on an image that Chainguard rebuilt with wrapper 0.2.385 or later. Check the `version` field on the wrapper's `ready` log line. The following settings read the CA from `/certificates` and write the store to `/tmp/cacerts`, on a container with a read-only root filesystem and an `emptyDir` volume at `/tmp`:
 
 ```yaml
 env:
@@ -222,9 +215,9 @@ volumeMounts:
     mountPath: /tmp
 ```
 
-If the image already sets `JAVA_TOOL_OPTIONS`, for example `-XX:MaxRAMPercentage=75`, the wrapper keeps it and appends the trust store setting.
+For the rules, refer to [Set a truststore at deploy time](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#set-a-truststore-at-deploy-time).
 
-If you come from Eclipse Temurin images, you can keep `USE_SYSTEM_CA_CERTS` instead. Set it to any non-empty value, and mount your CA files at `/certificates` with names that end in `crt`:
+To keep the `USE_SYSTEM_CA_CERTS` setting from an Eclipse Temurin image, set it to a non-empty value and mount your CA files at `/certificates`:
 
 ```yaml
 env:
@@ -232,7 +225,7 @@ env:
     value: "1"
 ```
 
-The wrapper writes the store to a new directory under `/tmp`, so `/tmp` must be writable. When you set both `USE_SYSTEM_CA_CERTS` and `GUARDED_TRUSTSTORE_0`, `GUARDED_TRUSTSTORE_0` wins. Refer to [Temurin compatibility](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#temurin-compatibility).
+For the rules, refer to [Temurin compatibility](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#temurin-compatibility).
 
 ## Learn more
 

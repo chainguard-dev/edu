@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint overview"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, write a Java truststore, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:42:36+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -172,7 +172,7 @@ The request merges into the repo's stored overlay. The API builds an update mask
 * A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
 * The request replaces `environment`, `preflight`, and `truststores` as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
 
-To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
+To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the five fields.
 
 The following request adds a truststore. Each entry has `sources`, `output`, and, optionally, `system`, `passwordEnv`, and `format`:
 
@@ -337,7 +337,7 @@ The same check runs when you update an overlay, against every repo the overlay i
 
 ## API errors
 
-The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. In a message, `[i]` is the index of the entry in the list, starting at 0.
+The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. The truststore messages also begin with `Invalid argument:` on both paths, which the table leaves out. In a message, `[i]` is the index of the entry in the list, starting at 0.
 
 | Trigger | Code | Message |
 | --- | --- | --- |
@@ -356,6 +356,18 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 | `command` entry has a `${` with no closing `}` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
 | `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
 | `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "99"` |
+| `truststore` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.truststores: requires guarded_entrypoint` |
+| Truststore entry has no `sources` | `InvalidArgument` | `<prefix>.truststores[i]: at least one source is required` |
+| A source isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: sources must be absolute paths` |
+| A source contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: sources must not contain ',' or '='` |
+| Truststore entry has no `output` | `InvalidArgument` | `<prefix>.truststores[i]: output is required` |
+| `output` isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: output must be an absolute path` |
+| `output` ends in `/` | `InvalidArgument` | `<prefix>.truststores[i]: output must name a file, not a directory` |
+| `output` contains whitespace or a quote | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain whitespace or quotes` |
+| `output` contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain ',' or '='` |
+| `password_env` isn't a variable name | `InvalidArgument` | `<prefix>.truststores[i]: password_env must be an environment variable name` |
+| `format` isn't `FORMAT_JKS` | `InvalidArgument` | `<prefix>.truststores[i]: format must be "jks"` |
+| More than one truststore entry uses the `jks` format | `InvalidArgument` | `<prefix>.truststores: at most one entry may use format "jks", since the JVM reads one trust store` |
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
@@ -371,25 +383,6 @@ The binding and overlay conflict errors also carry the violation type `OVERLAY_B
 The enum fields take enum names in JSON. A request with an enum name that doesn't exist fails when the API parses it, before the checks in the table run. A preflight `onFailure` value that isn't declared is treated as `fail`.
 
 The `custom_overlay` and `config` prefixes show up in the message text only. In JSON requests, the fields are `customOverlay` and `config`.
-
-### Truststore errors
-
-The truststore messages start with `Invalid argument:` on both paths. On the overlay path, the API adds `Invalid argument: config:` and a space before that. All of them have the code `InvalidArgument`. `chainctl` checks the same rules before it sends a request, so a manifest with one of these errors fails in `chainctl` first. The `chainctl` message for an invalid `format` also includes the value.
-
-| Trigger | Message |
-| --- | --- |
-| A `truststore` set without `guarded_entrypoint` | `Invalid argument: <prefix>.truststores: requires guarded_entrypoint` |
-| Entry has no `sources` | `Invalid argument: <prefix>.truststores[i]: at least one source is required` |
-| A source isn't an absolute path | `Invalid argument: <prefix>.truststores[i]: sources must be absolute paths` |
-| A source contains `,` or `=` | `Invalid argument: <prefix>.truststores[i]: sources must not contain ',' or '='` |
-| Entry has no `output` | `Invalid argument: <prefix>.truststores[i]: output is required` |
-| `output` isn't an absolute path | `Invalid argument: <prefix>.truststores[i]: output must be an absolute path` |
-| `output` ends in `/` | `Invalid argument: <prefix>.truststores[i]: output must name a file, not a directory` |
-| `output` contains whitespace or a quote | `Invalid argument: <prefix>.truststores[i]: output must not contain whitespace or quotes` |
-| `output` contains `,` or `=` | `Invalid argument: <prefix>.truststores[i]: output must not contain ',' or '='` |
-| `password_env` isn't a variable name | `Invalid argument: <prefix>.truststores[i]: password_env must be an environment variable name` |
-| `format` is a number that isn't a declared format | `Invalid argument: <prefix>.truststores[i]: format must be "jks"` |
-| More than one entry uses the `jks` format | `Invalid argument: <prefix>.truststores: at most one entry may use format "jks", since the JVM reads one trust store` |
 
 ## Learn more
 

@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:42:36+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -89,11 +89,11 @@ The wrapper uses the following exit codes when it stops the container before you
 
 Your own application can also exit with any code from `120` to `128`. To tell the two apart, look in the logs for a wrapper error line just before the container exited. Exit code `128` is the wrapper's own code. An application that a signal kills exits with `128` plus the signal number, such as `143` for `SIGTERM`.
 
-With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`. Exit code `128` is the same in every fail mode.
+With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
 
 ### A container that doesn't trust a mounted CA
 
-A Java application that fails a TLS handshake with `PKIX path building failed` doesn't trust the CA that signed the server's certificate. If you configured a truststore, check the following:
+A Java application that fails a TLS handshake with a certificate path error doesn't trust the CA that signed the server's certificate. On a JDK image, the error reads `PKIX path building failed`. On a FIPS image, it reads `No issuer certificate for certificate in certification path found`. If you configured a truststore, check the following:
 
 1. Look in the logs for a `truststore written` line. If it's missing, check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
 1. Check that the CA files are mounted at the paths in `sources`.
@@ -108,7 +108,7 @@ If the wrapper stops the container with exit code `128`, the log has a `file sta
 Two cases need a different fix:
 
 * **FIPS images with a read-only root filesystem.** TLS fails when `/tmp` isn't writable and doesn't allow executables. Mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
-* **Keycloak.** The truststore setting doesn't reach Keycloak on FIPS images. Use Keycloak's own `truststore-paths` option.
+* **Keycloak.** On the JDK 21 and earlier FIPS images, Keycloak's start script drops `JAVA_TOOL_OPTIONS`, so the truststore setting doesn't reach Keycloak there. Use Keycloak's own `truststore-paths` option.
 
 ### A container whose entrypoint is an init system
 
