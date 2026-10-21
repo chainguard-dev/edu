@@ -23,7 +23,7 @@ Folders do two things:
 * They **group repositories**. A repository in a folder has the folder's name in its path.
 * They **scope access**. A role granted on a folder applies only to that folder and the folders inside it.
 
-> **Note:** Earlier versions of Chainguard called organizations "groups" and folders "subgroups". The [Chainguard Terraform provider](/platform/administration/terraform-provider/) still uses the term "groups".
+> **Note:** Earlier versions of Chainguard called organizations "groups" and folders "subgroups." The [Chainguard Terraform provider](/platform/administration/terraform-provider/) still uses the term "groups."
 
 ## Create and manage folders
 
@@ -51,7 +51,7 @@ chainctl iam folders delete test
 
 Run any of these commands without a folder name to select one interactively.
 
-## How repositories in a folder are addressed
+## Repository paths in folders
 
 A repository's path is your organization's name, followed by each folder above the repository, followed by the repository name:
 
@@ -71,7 +71,7 @@ example.com
     └── python        (repository)
 ```
 
-the two repositories are pulled as:
+you pull the two repositories with:
 
 ```sh
 docker pull cgr.dev/example.com/python:latest        # repository at the organization root
@@ -129,9 +129,9 @@ For more about roles, refer to [Overview of roles and role-bindings](/platform/a
 
 ## Custom Assembly in folders
 
-[Custom Assembly](/chainguard/containers/custom-assembly/) works on repositories in folders, and [overlays](/chainguard/containers/custom-assembly/overlays/overview/) can be bound to every repository in a folder.
+You can use [Custom Assembly](/chainguard/containers/custom-assembly/) on repositories in folders, and you can bind [overlays](/chainguard/containers/custom-assembly/overlays/overview/) to every repository in a folder.
 
-Currently, a Custom Assembly build for a repository in a folder can only use packages from images that have been added to that same folder, not every package your organization is entitled to. If a build in a folder fails to resolve a package that's available to your organization, build the customized image at the organization root instead, or contact Chainguard support.
+A Custom Assembly build for a repository in a folder can currently use only the packages from images in that same folder, not every package your organization is entitled to. If a build in a folder fails to resolve a package that's available to your organization, build the customized image at the organization root instead, or contact Chainguard support.
 
 ## Troubleshooting
 
