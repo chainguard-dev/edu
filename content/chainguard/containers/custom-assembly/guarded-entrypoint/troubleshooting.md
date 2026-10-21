@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-21T18:25:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -42,6 +42,7 @@ When `GUARDED_DISABLE` is set, the wrapper does the following:
 * It doesn't resolve secret references. Your application sees the literal `cg+...` values.
 * It doesn't run preflight checks.
 * It doesn't apply `command_override`. The image's original ENTRYPOINT and CMD run.
+* It doesn't write the Java truststore. Your application trusts only the image's own CAs.
 * It makes no network connections.
 
 If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
@@ -84,10 +85,33 @@ The wrapper uses the following exit codes when it stops the container before you
 | `125` | The wrapper itself failed, for example when it couldn't fork a process. | Check the container's resource limits. |
 | `126` | The command exists but can't be run. | Check the execute permission, that the command is not a directory, and that a script's `#!` interpreter exists. |
 | `127` | The command wasn't found. | Check that the first element of `command` is on the container's `PATH`, or use an absolute path. |
+| `128` | The wrapper couldn't write a file that it stages, such as the Java truststore. This stops the container in every fail mode. | Read the log message, which names the setting and the path. Common causes are a source that is missing or unreadable, a file that holds no PEM certificate or holds a private key, an `output` directory that doesn't exist or isn't writable, and a `password_env` variable that is unset or empty. |
 
-Your own application can also exit with any code from `120` to `127`. To tell the two apart, look in the logs for a wrapper error line just before the container exited.
+Your own application can also exit with any code from `120` to `128`. To tell the two apart, look in the logs for a wrapper error line just before the container exited. Exit code `128` is the wrapper's own code. An application that a signal kills exits with `128` plus the signal number, such as `143` for `SIGTERM`.
 
-With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
+With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`. Exit code `128` is the same in every fail mode.
+
+### A container that doesn't trust a mounted CA
+
+A Java application that fails a TLS handshake with `PKIX path building failed` doesn't trust the CA that signed the server's certificate. If you configured a truststore, check the following:
+
+1. Read the wrapper's logs for a `truststore written` line. It has the `setting`, the `path` of the store, `certs`, the number of certificates in the store, and `added`, the number that your sources added to the image's. No line means the wrapper didn't write a store. Check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
+1. Check that the application picked up the store. The JVM prints a `Picked up JAVA_TOOL_OPTIONS:` line to standard error. The line must include `-Djavax.net.ssl.trustStore=` and your `output` path.
+1. Check that `added` isn't `0`. A value of `0` means every certificate in your sources was already in the image's truststore, so the sources don't add a CA that the image lacks.
+1. Restart the container after the CA rotates. The wrapper writes the store on every start, not while the container runs.
+
+If the wrapper stops the container with exit code `128`, the log has a `file staging failed` line. The `error` text names the setting and the path, and it can change between releases. Match on the `msg` field:
+
+```json
+{"time":"...","level":"ERROR","msg":"file staging failed","src":"guarded-entrypoint","error":"GUARDED_TRUSTSTORE_0: source: stat /certs: no such file or directory"}
+```
+
+If you set both `USE_SYSTEM_CA_CERTS` and a truststore, the wrapper logs a `USE_SYSTEM_CA_CERTS ignored` warning. It names the truststore setting that applies instead.
+
+Two cases need a different fix:
+
+* **FIPS images with a read-only root filesystem.** TLS fails with `JENT RNG failed` when `/tmp` isn't writable and executable. Mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
+* **Keycloak.** The truststore setting doesn't reach Keycloak on FIPS images. Use Keycloak's own `truststore-paths` option.
 
 ### A container whose entrypoint is an init system
 
@@ -122,7 +146,7 @@ The text after the digest is the reason. It is one of the following:
 | Reason | Meaning |
 | --- | --- |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
-| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
+| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 

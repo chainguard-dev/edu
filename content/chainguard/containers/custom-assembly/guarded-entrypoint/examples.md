@@ -2,9 +2,9 @@
 title: "Guarded Entrypoint examples"
 linktitle: "Examples"
 type: "article"
-description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, and fail open."
+description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, fail open, and trust a mounted CA in a Java service."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-21T18:25:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural", "Configuration"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page has four example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/). Each one is a complete manifest for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
+This page has five example manifests for [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/), and the deployment settings that go with the truststore examples. Each manifest is complete for `chainctl images repos build edit` or `chainctl images repos build apply`. None of them contains a literal secret. Each secret is a reference that the wrapper resolves when the container starts.
 
 Applying a manifest replaces the repo's stored configuration. If your repo already has other customizations, such as packages, add the Guarded Entrypoint keys to your existing manifest instead of replacing it.
 
@@ -131,6 +131,108 @@ environment:
 If Consul can't serve the key, the application starts anyway. `FEATURE_FLAGS_URL` keeps the literal value `cg+consul://apps/web/feature-flags-url`, and the wrapper logs a warning for it. The application must handle that value, for example by falling back to its default when the value starts with `cg+`.
 
 Use `open` only for variables that aren't credentials. An unresolved variable holds a value that anyone with access to the image configuration can read. For a password or a token, keep the default of `closed`. Refer to [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode).
+
+## Trust a mounted CA in a Java service
+
+A Java service calls another service in its cluster. The called service's certificate comes from a CA that the cluster mounts into your container as a file, such as an OpenShift service CA that rotates. The image doesn't contain this CA, so the TLS handshake fails with a `PKIX path building failed` error.
+
+The following manifest writes a truststore at start. It holds the image's CAs and every certificate in `/etc/service-ca`:
+
+```yaml
+guarded_entrypoint: true
+truststore:
+  - sources:
+      - /etc/service-ca
+    output: /truststore/cacerts
+```
+
+The deployment mounts the CA and a writable directory for the store. It runs with a read-only root filesystem, so the store goes in an `emptyDir` volume:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orders
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: orders
+  template:
+    metadata:
+      labels:
+        app: orders
+    spec:
+      containers:
+        - name: orders
+          image: cgr.dev/example.com/my-custom-jre:latest
+          args: ["-jar", "/app/orders.jar"]
+          securityContext:
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - name: service-ca
+              mountPath: /etc/service-ca
+              readOnly: true
+            - name: truststore
+              mountPath: /truststore
+      volumes:
+        - name: service-ca
+          configMap:
+            name: service-ca-bundle
+        - name: truststore
+          emptyDir: {}
+```
+
+When the container starts, the wrapper does the following:
+
+1. Reads every certificate under `/etc/service-ca`. A ConfigMap volume links its keys through `..data`, and the wrapper reads each certificate once.
+1. Adds them to the image's CAs and writes `/truststore/cacerts`.
+1. Appends `-Djavax.net.ssl.trustStore=/truststore/cacerts` to `JAVA_TOOL_OPTIONS`, keeps what the variable already holds, and sets `JRE_CACERTS_PATH` to the same path.
+1. Starts the Java service.
+
+To check the result, read the wrapper's `truststore written` line. The `certs` field is the number of certificates in the store, and `added` is the number that your sources added to the image's. Both depend on your image and your CA:
+
+```shell
+kubectl logs deployment/orders | grep '"msg":"truststore written"'
+```
+
+```output
+{"time":"...","level":"INFO","msg":"truststore written","src":"guarded-entrypoint","setting":"GUARDED_TRUSTSTORE_0","path":"/truststore/cacerts","certs":119,"added":1}
+```
+
+The wrapper writes the store on every start. When the CA rotates, restart the pods so that the new CA takes effect.
+
+On a FIPS image with a read-only root filesystem, also mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
+
+## Set the truststore at deploy time
+
+You can set the truststore on the deployment instead of in the manifest. This works on any wrapped image. Turn on `guarded_entrypoint` for the repo, and set `GUARDED_TRUSTSTORE_0` in the container's environment. The following container settings read the CA from `/certificates` and write the store to `/tmp/cacerts`. The container keeps a read-only root filesystem and mounts an `emptyDir` volume at `/tmp`:
+
+```yaml
+env:
+  - name: GUARDED_TRUSTSTORE_0
+    value: source=/certificates,output=/tmp/cacerts
+securityContext:
+  readOnlyRootFilesystem: true
+volumeMounts:
+  - name: ca
+    mountPath: /certificates
+    readOnly: true
+  - name: tmp
+    mountPath: /tmp
+```
+
+If the image already sets `JAVA_TOOL_OPTIONS`, for example `-XX:MaxRAMPercentage=75`, the wrapper keeps it and appends the trust store setting.
+
+If you come from Eclipse Temurin images, you can keep `USE_SYSTEM_CA_CERTS` instead. Set it to any non-empty value, and mount your CA files at `/certificates` with names that end in `crt`:
+
+```yaml
+env:
+  - name: USE_SYSTEM_CA_CERTS
+    value: "1"
+```
+
+The wrapper writes the store to a new directory under `/tmp`, so `/tmp` must be writable. When you set both `USE_SYSTEM_CA_CERTS` and `GUARDED_TRUSTSTORE_0`, `GUARDED_TRUSTSTORE_0` wins. Refer to [Temurin compatibility](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#temurin-compatibility).
 
 ## Learn more
 
