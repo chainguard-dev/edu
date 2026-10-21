@@ -157,10 +157,10 @@ Every Chainguard Checks customer's tokens come from the same issuer, and any rep
 - For Google Cloud, add an OIDC provider to a workload identity pool, with the issuer `https://issuer.enforce.dev` and the attribute mapping `google.subject=assertion.sub`. Grant IAM roles to the principal `principal://iam.googleapis.com/projects/<project-number>/locations/global/workloadIdentityPools/<pool>/subject/chainguard:<repository-id>:<identity>`, never to the whole pool. To refuse other repositories' tokens outright, also give the provider an attribute condition such as `assertion.sub.startsWith('chainguard:<repository-id>:')`.
 - For Chainguard, create an [assumable identity](/platform/administration/assumable-ids/assumable-ids/) in your organization that matches the issuer, the exact subject, and the `exchange_audience`, and bind it to a role that grants the access the check needs.
 
-To find your repository's ID, run `chainctl checks status` in a checkout of the repository. The ID is on the `Repo ID:` line, and in the `repository_id` field of the JSON output:
+To find your repository's ID, run `chainctl checks status` with one of its pull requests, such as `acme/app#123`, or with the full SHA of a commit that ran checks after merging. The ID is on the `Repo ID:` line, and in the `repository_id` field of the JSON output. Replace `$ORGANIZATION` with the name of your Chainguard organization:
 
 ```sh
-chainctl checks status . -o json | jq -r .repository_id
+chainctl checks status acme/app#123 -o json --parent $ORGANIZATION | jq -r .repository_id
 ```
 
 Chainguard Checks assigns the ID when it first runs checks on the repository, so open a pull request or push to your default branch before you set up the provider. The ID doesn't change when you rename or transfer the repository. A repository you delete and create again gets a new ID.

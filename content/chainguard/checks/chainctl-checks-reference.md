@@ -34,7 +34,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 | [`chainctl checks attempts`](#chainctl-checks-attempts) | Lists each attempt at a check. |
 | [`chainctl checks events`](#chainctl-checks-events) | Prints the events that one attempt at a check recorded. |
 | [`chainctl checks describe`](#chainctl-checks-describe) | Shows where a run came from, its status, and each of its checks. |
-| [`chainctl checks list`](#chainctl-checks-list) | Lists the runs you started with `chainctl checks run`. |
+| [`chainctl checks list`](#chainctl-checks-list) | Lists your organization's runs, newest first. |
 | [`chainctl checks run`](#chainctl-checks-run) | Runs a pushed commit's checks without a pull request. |
 | [`chainctl checks rerun`](#chainctl-checks-rerun) | Reruns a pull request's latest run. |
 | [`chainctl checks cancel`](#chainctl-checks-cancel) | Cancels a run that hasn't finished. |
@@ -58,16 +58,20 @@ The commands that need a role take `--parent` with the name or ID of your Chaing
 
 ## Name a run {#name-a-run}
 
-Most commands that read runs take a `REF` argument that names the run. During the beta, use one of the following forms:
+Most commands that read runs take a `REF` argument that names the run. Use one of the following forms:
 
 | `REF` | Example | What it names |
 | ----- | ------- | ------------- |
 | A pull request | `acme/app#123`, or `https://github.com/acme/app/pull/123` | The pull request's newest run. Capitalize the owner and repository the same way GitHub does. |
-| A run ID | `$RUN_ID` | One run. For a run after merging, use the whole ID after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. For a run you started with `chainctl checks run`, you can use the start of its ID. |
+| A run ID | `$RUN_ID` | One run. Its ID is the part after `/runs/` in the run's name, or in the **Details** link of the run's summary check on GitHub. |
+| A directory | `.` | The newest run for the commit checked out there. Without a `REF`, the commands use the current directory. |
+| A commit SHA | `$COMMIT_SHA` | The newest run for the commit. Use the full 40-character SHA. |
+
+Instead of a whole run ID, you can pass the start of it, if the run is among your organization's 500 newest runs and no other run among them starts the same way. The IDs of runs after merging begin with `post-`, so pass at least a few characters after `post-`. If a pull request run or a run after merging is from October 16, 2026, or earlier, pass its whole ID. Only the commands that read runs accept that ID. To rerun one of these pull request runs, pass the pull request instead, and follow the rerun on GitHub, because `--watch` can't follow it.
+
+To find a pull request's runs by commit, pass the commit at the head of its branch, even though each run tests that commit merged into the base branch. To find a run after merging, pass its commit on your default branch. If Chainguard Checks has no run for a directory's commit or a commit SHA, the commands report no platform verdict. Refer to [chainctl checks status reports no platform verdict](/chainguard/checks/troubleshooting/#chainctl-checks-status-reports-no-platform-verdict).
 
 The `chainctl checks status -o json` command prints the run's full name in its `run` field. Pass that name to the other commands to keep reading the same run after someone pushes to the pull request.
-
-The commands also accept a directory, which stands for the commit checked out there, or a full commit SHA. During the beta, these never find your repositories' runs, so the commands report that the platform created no run, even when checks ran. Without a `REF`, the commands use the current directory, so pass a pull request or a run ID instead. Refer to [chainctl checks status reports no platform verdict](/chainguard/checks/troubleshooting/#chainctl-checks-status-reports-no-platform-verdict).
 
 ## Output and exit codes {#output-and-exit-codes}
 
@@ -259,25 +263,29 @@ With `-o json`, the command prints one object with the `run`, its `workflow_runs
 
 ### chainctl checks list {#chainctl-checks-list}
 
-Lists the runs you started with `chainctl checks run`, newest first. During the beta, it doesn't list pull request runs or runs after merging.
+Lists your organization's runs, newest first: pull request runs, runs after merging, and runs that anyone started with `chainctl checks run`. It doesn't list pull request runs or runs after merging from October 16, 2026, or earlier.
 
 ```
-chainctl checks list [--repo REPO] [--outcome OUTCOME] [--limit N]
+chainctl checks list [--repo REPO] [--ref REF] [--trigger presubmit|postsubmit] [--outcome OUTCOME] [--limit N]
 ```
 
 | Flag | Description |
 | ---- | ----------- |
 | `--repo` | Lists only runs of this repository, such as `acme/app`. |
-| `--outcome` | Lists only finished runs with this outcome: `passed`, `failed`, `errored`, `dependency_failed`, or `cancelled`. It searches the 500 newest runs. |
+| `--ref` | Lists only runs of this Git ref, such as `refs/heads/main`. A branch name, such as `main`, means `refs/heads/main`. Only runs after merging have a ref, so the flag leaves out the runs of pull requests that target the branch. |
+| `--trigger` | Lists only pull request runs, with `presubmit`, or only runs after merging, with `postsubmit`. Neither value lists runs started with `chainctl checks run`. |
+| `--outcome` | Lists only finished runs with this outcome: `passed`, `failed`, `errored`, `dependency_failed`, or `cancelled`. It searches the 500 newest runs that match the other filters. |
 | `--limit` | Lists at most this many runs, 20 by default. |
 
-For example:
+For example, to list the failed runs after merging on `main`:
 
 ```shell
-chainctl checks list --repo acme/app --outcome failed --parent $ORGANIZATION
+chainctl checks list --repo acme/app --ref main --outcome failed --parent $ORGANIZATION
 ```
 
-With `-o json`, the command prints a list with one object for each run, with its `run`, `create_time`, `repository`, `revision`, `phase`, and `outcome`.
+The output has one row for each run, with the columns `RUN`, `CREATED`, `REPOSITORY`, `REF`, `COMMIT`, `PR`, `TRIGGER`, and `STATUS`. The `RUN` column is the run's ID. For a pull request run, `COMMIT` is the head of the pull request, and `PR` is the pull request's URL. `COMMIT` shows the start of the commit's SHA, so to name the commit in another command, use the full SHA in the `revision` field of the `-o json` output. A run started with `chainctl checks run` has `-` under both `REF` and `PR`. The `STATUS` column shows `queued`, `running`, or `cancelling` until the run finishes, then its outcome, such as `passed`.
+
+With `-o json`, the command prints a list with one object for each run, with its `run`, `create_time`, `repository`, `ref`, `revision`, `pull_request`, `trigger`, `phase`, `outcome`, and `cancel_requested`. The command leaves out fields that have no value, such as `outcome` for a run that hasn't finished.
 
 ## Start and stop runs {#start-and-stop-runs}
 
@@ -315,10 +323,16 @@ The command prints the run's name, followed by its checks. The run's ID is the p
 Reruns a pull request's latest run after it finishes, the same way as **Re-run** on GitHub. Refer to [Rerun checks](/chainguard/checks/github/#rerun-checks) for what reruns and how to follow the new run.
 
 ```
-chainctl checks rerun REF
+chainctl checks rerun REF [--watch]
 ```
 
-During the beta, `REF` must be a pull request. The command can't rerun runs after merging or runs you started with `chainctl checks run`. To run checks after merging again, push or merge a new commit to your default branch. To repeat a run you started with `chainctl checks run`, run that command again.
+`REF` is a pull request, a directory, a commit SHA, or a run ID, as described in [Name a run](#name-a-run), and it must name a pull request's run. When you name the run by a directory, a commit SHA, or a run ID, the run must be for the same commit as the pull request's newest run.
+
+During the beta, the command can't rerun checks that run after merging. If `REF` names a run after merging, such as a run whose ID starts with `post-`, the command fails with `cannot rerun: ... is neither a postsubmit Run nor a pull request's`. To run the checks again, push or merge a new commit to your default branch. The command also can't rerun runs you started with `chainctl checks run`. To repeat one of those, run that command again.
+
+| Flag | Description |
+| ---- | ----------- |
+| `--watch` | Waits until the new run finishes, and prints its checks again each time they change. If the new run doesn't start, such as when the pull request gets a new commit first or no longer merges cleanly, the command stops and says why. It waits at most five minutes for the new run to start. |
 
 For example:
 
@@ -326,7 +340,7 @@ For example:
 chainctl checks rerun acme/app#123 --parent $ORGANIZATION
 ```
 
-With `-o json`, the command prints the run whose checks it reruns, as the API returns it.
+With `--watch`, the command exits with `1` when a blocking check doesn't pass. With `-o json`, it prints the run whose checks it reruns, as the API returns it. With `--watch` and `-o json`, it prints the new run's final status instead, in the same form as `chainctl checks status -o json`.
 
 ### chainctl checks cancel {#chainctl-checks-cancel}
 
@@ -351,7 +365,7 @@ RUN=$(chainctl checks status acme/app#123 -o json --parent $ORGANIZATION | jq -r
 chainctl checks cancel "$RUN" --force --parent $ORGANIZATION
 ```
 
-When you cancel a run that GitHub started, its summary check on GitHub ends with **Run cancelled** and doesn't pass. To run the checks again, push a new commit, or rerun them as described in [Rerun checks](/chainguard/checks/github/#rerun-checks). Adding a `ci/run:` label or editing the pull request doesn't start a new run.
+When you cancel a run that GitHub started, its summary check on GitHub ends with **Run cancelled** and doesn't pass. To run a pull request's checks again, push a new commit, or rerun them as described in [Rerun checks](/chainguard/checks/github/#rerun-checks). Adding a `ci/run:` label or editing the pull request doesn't start a new run. To run checks after merging again, push or merge a new commit to your default branch.
 
 To find out when Chainguard Checks cancels a pull request's run on its own, refer to [When Checks runs](/chainguard/checks/github/#when-checks-runs).
 

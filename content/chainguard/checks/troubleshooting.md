@@ -206,7 +206,13 @@ If `chainctl checks validate .` reports that validating a directory isn't suppor
 
 ## chainctl checks status reports no platform verdict {#chainctl-checks-status-reports-no-platform-verdict}
 
-During the beta, `chainctl checks status`, `chainctl checks logs`, and the other commands that inspect runs can't find a run by its commit. When you pass a commit SHA or a directory, or run one of these commands with no argument, which uses the commit checked out in the current directory, they report that the platform created no run for it, even when its checks ran. The `chainctl checks list` command doesn't list pull request runs or runs after merging either.
+When you pass a commit SHA or a directory to `chainctl checks status`, `chainctl checks logs`, or another command that inspects runs, it looks for the commit's newest run. With no argument, these commands use the current directory, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run). They report no platform verdict when Chainguard Checks has no run for the commit, such as in the following cases:
+
+- The commit was never the head of a pull request, and it isn't in your default branch's first-parent history. For example, a merge commit brings a pull request's earlier commits onto your default branch, but only the merge commit gets a run after merging.
+- The commit is on your default branch, and your configuration has no `trigger: postsubmit` checks, so nothing ran on it after merging. A merge commit, a squashed commit, or a rebased commit isn't the pull request's head, so the pull request's runs don't count for it either.
+- The commit's run is from October 16, 2026, or earlier. Name that run by its pull request, or, for commands that only read runs, by its whole ID.
+
+To see which commits have runs, run [`chainctl checks list`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-list).
 
 To inspect a pull request's latest run, pass the pull request instead. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of the Chainguard organization linked to the repository's GitHub account:
 
@@ -216,9 +222,9 @@ chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
 
 If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
-For a run after merging, pass the run's ID instead of a commit. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
+For a run after merging, pass the run's ID. The ID is the part after `/runs/` in the **Details** link of **Chainguard Checks (postsubmit)**. You can also read the results on GitHub, as described in [Run checks after merging](/chainguard/checks/github/#run-checks-after-merging).
 
-For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run), pass the ID that the command printed, or the start of it, instead of `.` or a commit. To find the ID later, run `chainctl checks list`. These runs never appear on GitHub.
+For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-run), pass the ID that the command printed, or the start of it, instead of `.` or a commit. To find the ID later, run [`chainctl checks list`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-list), which also lists your teammates' runs. These runs never appear on GitHub.
 
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
