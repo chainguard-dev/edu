@@ -69,18 +69,40 @@ Details worth knowing:
 
 ## Pulling from Kubernetes
 
-Because pulls are anonymous, a cluster needs no `imagePullSecrets`:
+Because pulls are anonymous, a cluster needs no `imagePullSecrets` and no registry configuration. You can verify the whole flow in a couple of minutes with [kind](https://kind.sigs.k8s.io/):
 
-```yaml
+```sh
+# Push something to a random repository name
+IMAGE="tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
+crane copy cgr.dev/chainguard/busybox:latest "$IMAGE"
+
+# A fresh local cluster, no registry configuration anywhere
+kind create cluster --name tmp-demo
+
+# A pod that pulls it; note: no imagePullSecrets
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
   name: tmp-registry-demo
 spec:
+  restartPolicy: Never
   containers:
-    - name: demo
-      image: tmp.cgruser.dev/<your-random-name>/demo:1h
+    - name: hello
+      image: ${IMAGE}
+EOF
 ```
+
+The kubelet pulls the image anonymously and the pod runs:
+
+```
+$ kubectl describe pod tmp-registry-demo | grep Pulled
+  Normal  Pulled  1s  kubelet  Successfully pulled image "tmp.cgruser.dev/.../hello:1h" in 1.722s
+
+$ kubectl delete pod tmp-registry-demo && kind delete cluster --name tmp-demo
+```
+
+The same applies to any cluster that can reach the internet: hand it the image reference and it pulls, no secrets required.
 
 ## Ground rules
 
