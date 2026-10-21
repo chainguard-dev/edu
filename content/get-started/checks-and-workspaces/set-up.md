@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-10-21T17:37:41+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -70,7 +70,7 @@ Installing the app doesn't change your repositories. Chainguard Checks runs only
 
 ## Sign up with chainctl develop init {#sign-up-with-chainctl-develop-init}
 
-The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
+The `chainctl develop init` command signs you in, creates a free [Starter organization](#what-a-starter-organization-includes) if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
 
 Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
 
@@ -97,6 +97,18 @@ When you authorize the link, GitHub might ask you to authorize single sign-on fo
 A GitHub account can be linked to only one Chainguard organization at a time. If the account you choose is already linked to another Chainguard organization, `chainctl develop init` names the account and, in an interactive terminal, asks for a different one to link. To move the account to your organization instead, press `Ctrl+C` to stop the command, and then refer to [Moving a GitHub organization to a different Chainguard organization](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
 
 If `chainctl develop init` stops with an error, refer to [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
+
+### What a Starter organization includes {#what-a-starter-organization-includes}
+
+An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images through Chainguard Catalog Starter.
+
+The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
+
+```shell
+chainctl starter add-images $IMAGE
+```
+
+You can't remove or swap an image after you add it.
 
 ### Answer questions ahead of time {#answer-questions-ahead-of-time}
 
@@ -180,7 +192,9 @@ The `limited_owner` role also lets its holder manage your organization's billing
 
 Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
 
-A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request. For details, refer to [Request access with chainctl](/chainguard/containers/reference/catalog-starter/#request-access-with-chainctl).
+A coworker can also ask to join by running [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/). They must first sign in to Chainguard, such as with `chainctl auth login`, with an email address in your organization's domain or one of its subdomains. The command emails the request to everyone with the `owner` or `limited_owner` role in your organization. If no organization matches, the command reports the same result and sends nothing.
+
+The link in that email invites the coworker with the `viewer` role, which can't open sessions. To let them open sessions, create an invite with `--role limited_owner` instead, as described earlier in this section.
 
 ## Next steps {#next-steps}
 
