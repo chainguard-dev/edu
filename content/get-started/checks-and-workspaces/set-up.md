@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-21T17:37:41+00:00
+lastmod: 2026-10-21T21:49:18+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -78,7 +78,7 @@ Run the command in an interactive terminal, because it opens your browser and as
 chainctl develop init
 ```
 
-To create an organization, sign in with a work email address, using a password or a Google account. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub or GitLab.
+To create an organization, sign in with a work email address, using a password, a Google account, or a GitHub account. If you sign in with GitHub, your work email address must be your GitHub account's verified primary email address. Other email addresses on the account don't count. A personal email address, such as a Gmail address, can't create an organization, and neither can other sign-in methods, such as GitLab.
 
 The command does the following:
 
