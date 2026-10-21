@@ -66,7 +66,7 @@ The `run-ci` command reads your checks from the session's working tree, so it us
 | Checks that need a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs` | Skipped, with a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. A pass from `run-ci` doesn't cover them. | Run. |
 | User | The session's user, which is `root` unless the session's environment comes from a check with a different `user`. | Each check's `user`, which defaults to `root`. |
 | Environment | The session as it is. Packages you installed in the session are available, and the check's own package list and network access don't apply. | A fresh VM for each check, with the check's packages and network access. |
-| Size and CPU architecture | The session's. A session runs on x86-64 unless its resource class ends in `-arm64`, as described in [Resources](/chainguard/workspaces/session-environment/#resources). | Each check's `resources`. A class without a suffix usually runs on arm64. |
+| Size and CPU architecture | The session's. A session runs on x86-64 unless its resource class pins arm64, as described in [Resources](/chainguard/workspaces/session-environment/#resources). | Each check's `resources`. A class that doesn't pin an architecture usually runs on arm64. |
 
 If you name a skipped check, as in `run-ci deploy`, or if `run-ci` skips every check, it exits with `2`. A session whose environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`, runs as that user. It runs only the checks with that `user`, and skips the rest the same way. In a `root` session, every check runs as `root`.
 
@@ -92,7 +92,7 @@ chainctl develop check $SESSION --check test --parent $ORGANIZATION
 
 The command uses the same runner as `run-ci` and streams each step's output. It skips the same checks as `run-ci`, and prints a line for each, such as `Skipped deploy: declares identity gcp-prod, which only CI provides`. It exits with `0` when the checks pass, or `1` when a check fails or the checks can't run, including when you name a skipped check with `--check`. To print the result as JSON, add `--output json`. The JSON lists the checks it skipped under `skipped`.
 
-If you detached from the session and it's still running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Run the command again, or attach to the session and run `run-ci` in it.
+If you detached from the session and it's still running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Attach to the session and run `run-ci` in it, or run the command again after the session parks.
 
 ## Validate your configuration offline {#validate-your-configuration-offline}
 

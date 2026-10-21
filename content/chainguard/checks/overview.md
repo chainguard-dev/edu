@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T12:09:53+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -31,7 +31,7 @@ When someone opens or updates a pull request, the following happens:
 1. Chainguard Checks plans a run against the commit GitHub would create by merging the pull request into its base branch, so each run tests the change together with the latest base branch.
 2. It reads the configuration from that merged commit, so a pull request can add checks or change them.
 3. Each check runs in its own microVM with the packages your configuration file declares.
-4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus one GitHub check for each of your checks.
+4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus a GitHub check for each check that doesn't pass or that reports something, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
 
 Each new push to the pull request cancels the run for the previous push and starts a new one. Chainguard Checks can also run checks on each new commit on your default branch, for work that should run after a change merges. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/) for details.
 
@@ -69,6 +69,8 @@ Every check starts from the same minimal base and gets only what you declare:
 
 By default, Chainguard Checks refuses a connection to a host the check doesn't list, and the check keeps running. With `policy: destroy`, Chainguard Checks stops the check's VM instead, and the check fails.
 
+Chainguard Checks intercepts most HTTPS connections from a check, using a certificate authority that the VM trusts, so a tool with its own list of trusted certificates can reject them. Refer to [Network access](/chainguard/checks/configuration/#network-access) and [A check fails with a certificate error](/chainguard/checks/troubleshooting/#a-check-fails-with-a-certificate-error).
+
 For the security model of Chainguard Checks and Chainguard Workspaces side by side, including trust rings and the run lifecycle, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 ## Use with Chainguard Workspaces
@@ -88,7 +90,7 @@ During the beta, Chainguard Checks has the following limits:
 - It works with repositories on github.com only.
 - It doesn't run on GitHub merge queues, so don't require **Chainguard Checks (presubmit)** on a branch that uses one. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 - It doesn't run checks on a pull request, or on a commit to your default branch, that changes 3,000 or more files. The summary check fails with **Run creation failed** instead, so split a change that large into smaller pull requests. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed).
-- A run can take up to 50 minutes from when it starts. Checks still running or waiting to start at that point fail.
+- A run can take up to two hours from when it starts. Checks still running or waiting to start at that point fail.
 
 `chainctl develop init` turns on the *Starter allowance*: 500 vCPU-hours of Checks each month, separate from the Workspaces allowance. The allowance resets on the first day of each month (UTC) and comes with the following limits:
 

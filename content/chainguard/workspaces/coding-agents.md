@@ -17,7 +17,7 @@ weight: 60
 
 A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session.
 
-Claude Code is the only coding agent that sessions supply a model credential for. You can install other coding agents in a session, but sessions don't send them a credential.
+Claude Code is the only coding agent that sessions supply a model credential for. You can install other coding agents in a session, but sessions don't send them a credential. Every session writes a guide that any agent can read, as described in [The session's guide for agents](#the-sessions-guide-for-agents).
 
 ## Before you begin
 
@@ -83,18 +83,33 @@ Claude Code that's already running keeps the old provider, so its next request f
 
 ## Configure Claude Code in a session {#configure-claude-code-in-a-session}
 
-From your laptop, a session takes only your Claude credential and the Vertex AI settings described in [Use Claude through Vertex AI](#use-claude-through-vertex-ai). The rest of your Claude Code setup stays on your laptop: `chainctl` doesn't copy `~/.claude/settings.json`, `~/.claude/CLAUDE.md`, your MCP servers, plugins, skills, subagents, slash commands, or model choice.
+From your laptop, a session takes your Claude credential, the Vertex AI settings described in [Use Claude through Vertex AI](#use-claude-through-vertex-ai), and any skills and Claude Code instructions that you share with it. The rest of your Claude Code setup stays on your laptop: `chainctl` doesn't copy `~/.claude/settings.json`, your MCP servers, plugins, subagents, slash commands, or model choice.
 
 Instead, Claude Code in a session uses the following:
 
-- The session's managed settings, which include a short brief that describes the session and its tools, including how to run your repository's checks with `run-ci`.
+- The session's managed settings, which include the [session's guide for agents](#the-sessions-guide-for-agents).
 - Your repository's own `CLAUDE.md`, `.claude/` directory, and `.mcp.json` file, within the limits described in [MCP servers in a session](#mcp-servers-in-a-session).
+- The skills and instructions that you share from your laptop, as described in [Share skills and instructions from your laptop](#share-skills-and-instructions-from-your-laptop).
 
 To give every session the same setup, commit it to your repository's `CLAUDE.md` and `.claude/` directory. This includes skills. For example, to use a hardened skill from [Chainguard Agent Skills](/chainguard/agent-skills/overview/) in every session, run [`chainctl skills install`](/chainguard/agent-skills/public-registry/#install-a-skill) on your laptop from your repository's top-level directory, then commit what it writes: the `.agents/skills/` and `.claude/skills/` entries and the `skills-lock.json` file.
 
+### Share skills and instructions from your laptop {#share-skills-and-instructions-from-your-laptop}
+
+To use your laptop's skills or Claude Code instructions in a session you're attached to, press `Ctrl+]` to open the session menu, and choose **Share from laptop**. The screen lists the skills in your laptop's global skills directories, such as `~/.claude/skills` and `~/.agents/skills`, and your instructions: `~/.claude/CLAUDE.md`, the files under `~/.claude` that it imports with `@`, and the Markdown files in `~/.claude/rules/`. Press `Space` to select items, then press `Enter`. `chainctl` lists every file it sends and asks you to confirm.
+
+In the session, skills land in `/root/.agents/skills`, linked from `/root/.claude/skills`, and instructions land at the same paths under `/root/.claude`. Shared items stay in the session when it parks and resumes. Claude Code reads its instructions when it starts, so restart it after you share them. To remove an item from the session, move to it on the same screen, press `x`, and confirm. `chainctl` shares nothing on its own, and an agent in the session can't share or remove anything.
+
+### The session's guide for agents {#the-sessions-guide-for-agents}
+
+When a session starts, it writes a guide for agents to `/root/WORKSPACES-FOR-AGENTS.md`, and it rewrites the guide each time the session resumes. The guide describes the session and its tools, including how to run your repository's checks with `run-ci`, and tells agents that the session's host, not the VM, holds the credentials the session uses. The file `/etc/agents/BRIEF.md` points to the guide.
+
+When the session starts, it also writes the guide into Claude Code's managed settings and into `/root/.codex/AGENTS.md`, the global instructions file for Codex, so both agents have it before their first turn. For Codex, the session also lists the `cg-apk` and `cg-versions` MCP servers, described in [MCP servers in a session](#mcp-servers-in-a-session), in `/root/.codex/config.toml`. The default environment doesn't install Codex, and sessions don't send it a model credential. To give another agent the guide, tell it to read `/root/WORKSPACES-FOR-AGENTS.md`.
+
+The session writes none of these files to `/work`, so they don't show up in `git status`, and your repository's own `AGENTS.md`, `CLAUDE.md`, and `.claude/` directory stay as they are. Don't edit the guide, because the session replaces it when it resumes.
+
 ### Tell Claude Code how to work in a session {#tell-claude-code-how-to-work-in-a-session}
 
-The session's brief explains `run-ci`, but rules you commit to your repository's `CLAUDE.md` apply in every session. To add rules for sessions, copy the following section into `CLAUDE.md`, or into `AGENTS.md` for other coding agents. Replace `$ORGANIZATION` with the name of your Chainguard organization. Claude Code also reads `CLAUDE.md` on your laptop, so the section starts by saying when its rules apply.
+The session's guide for agents explains `run-ci`, but rules you commit to your repository's `CLAUDE.md` apply in every session. To add rules for sessions, copy the following section into `CLAUDE.md`, or into `AGENTS.md` for other coding agents. Replace `$ORGANIZATION` with the name of your Chainguard organization. Claude Code also reads `CLAUDE.md` on your laptop, so the section starts by saying when its rules apply.
 
 ```markdown {title="CLAUDE.md"}
 ## Chainguard Workspaces sessions
@@ -137,7 +152,7 @@ Because the session is a separate VM that holds no long-lived credentials, you m
 claude --dangerously-skip-permissions
 ```
 
-Before you let an agent work unattended, consider what the session can still reach. By default, it can reach the open internet and push to its own repository. To narrow that, give the session an `egress` list, as described in [Network access](/chainguard/workspaces/session-environment/#network-access), and review its credentials, as described in [Manage session credentials](/chainguard/workspaces/credentials/). Requests beyond the session's defaults still need your approval on your terminal.
+Before you let an agent work unattended, consider what the session can still reach. By default, it can reach the open internet and push to its own repository. It can also push to the repositories of your checkout's other github.com remotes, such as `upstream`, where the Chainguard App is installed, as described in [What a session can reach by default](/chainguard/workspaces/credentials/#what-a-session-can-reach-by-default). To narrow its internet access, give the session an `egress` list, as described in [Network access](/chainguard/workspaces/session-environment/#network-access). To keep it from pushing to one of those repositories, revoke the push, as described in [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials). Requests beyond the session's defaults still need your approval on your terminal.
 
 If you connected your GitHub account before you created the session, and your organization allows it, the session acts on GitHub as you, without asking you first. It can push, approve other people's pull requests, and merge as you, and neither an `egress` list nor `chainctl develop creds` limits it. Before you let an agent work unattended in such a session, protect your branches, as described in [Protect your branches](/chainguard/workspaces/github-as-you/#protect-your-branches).
 
@@ -231,7 +246,7 @@ Run each command in its own terminal. Each agent works on its own branch in its 
 
 ## Check the agent's work before it pushes
 
-If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the session's brief tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
+If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the [session's guide for agents](#the-sessions-guide-for-agents) tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
 
 Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 

@@ -33,7 +33,7 @@ If `chainctl develop init` stops with an error, find its message in the followin
 - `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password or Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access` to send its owners a request.
 - `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
-- `missing: terms.accept`: only the `owner` and `limited_owner` roles can turn on Checks and Workspaces. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
+- `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
 - `creating a Starter organization asks a few questions about you`, or `accepting the required legal agreements needs an interactive terminal`: run the command in an interactive terminal, without `--non-interactive`.
 - `This organization can't use self-serve Checks and Workspaces`, or `Checks and Workspaces were turned off for this organization`: [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `you must own the GitHub account (organization or user)`: link your own GitHub user, or a GitHub organization where you're an owner.
@@ -252,6 +252,12 @@ When you return to a parked session, `chainctl` says why it parked. A session th
 - `parked: 24h since you last attached; the guest still reported busy`: the session reached its limit of 24 hours after you last detached. For a task that runs longer, create a session with `--keep always`.
 
 While your organization's monthly compute allowance is used up, being busy doesn't keep a session running, as described in [Your organization's monthly compute allowance is used up](#your-organizations-monthly-compute-allowance-is-used-up). For what counts as busy, refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
+
+## Returning to a session takes several minutes {#returning-to-a-session-takes-several-minutes}
+
+If you return to a session while it's parking, such as right after you choose **Park now** in the session menu, `chainctl` can't attach until the park finishes, and a park can take several minutes. While it waits, `chainctl` shows a message that says the session `is parking at its owner's request` or that `the guest is held by another controller`, followed by `retrying for up to 15m`. Wait for `chainctl` to attach. If 15 minutes pass first, it stops with an error, so run the command again.
+
+If `chainctl develop check` shows `the guest is held by another controller` for a session that you detached from and kept running, refer to [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
 
 ## A session started fresh instead of resuming {#a-session-started-fresh-instead-of-resuming}
 

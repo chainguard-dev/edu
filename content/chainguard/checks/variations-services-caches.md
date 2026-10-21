@@ -1,10 +1,10 @@
 ---
 title: "Variations, inputs, services, and caches in Chainguard Checks"
 linktitle: "Variations, services, and caches"
-description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database, run checks as another user, and reuse Go build output with caches."
+description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database or Docker, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:50:35+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -15,7 +15,7 @@ toc: true
 weight: 32
 ---
 
-Most checks need only the keys that the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) describes. This page describes the keys for checks that need more: running a check once for each of several variations, passing files between checks, starting services such as a database, running as an unprivileged account, and reusing build output from earlier runs.
+Most checks need only the keys that the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) describes. This page describes the keys for checks that need more: running a check once for each of several variations, passing files between checks, starting services such as a database or Docker, running as an unprivileged account, and reusing build output from earlier runs.
 
 ## Run a check once per variation {#run-a-check-once-per-variation}
 
@@ -122,7 +122,7 @@ In this example, `build` writes its binaries to `out/`, and `smoke` runs one of 
 
 - An output's `path` is a directory relative to the repository's root. It starts empty, and your repository must not have files at that path, or the run fails.
 - After the producing check passes, the consuming check gets a read-only copy of the output at its input's `path`.
-- `from` works like `needs`: the producing check must be in the same file and run on the same triggers, and the consuming check waits for it and doesn't run if it fails. The same limits as for `needs` apply, as described in [Advisory checks](/chainguard/checks/configuration/#advisory-checks).
+- `from` works like `needs`: the producing check must be in the same file and run on every trigger that the consuming check runs on, and the consuming check waits for it and doesn't run if it fails. The same limits as for `needs` apply, as described in [Advisory checks](/chainguard/checks/configuration/#advisory-checks) and [Triggers](/chainguard/checks/configuration/#triggers).
 - If the producing check has `foreach` variations, the input holds one subdirectory for each variation, named after the variation, with `/` written as `%2F`.
 - A check that [runs as another user](#run-as-another-user) can't declare outputs.
 - A check can declare up to 32 outputs and read up to 32 outputs of other checks. Each output can hold up to 10,000 files and directories and 64 MiB. Output names can't contain `.` or `/`, and inputs and outputs can't overlap each other or `.git`.
@@ -150,7 +150,7 @@ If the repository is private or the ref doesn't exist, the summary check shows *
 
 ## Services {#services}
 
-A service is a process, such as a database, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/<name>/<name>.yaml`, with the script that starts it in the same directory:
+A service is a process, such as a database or the Docker daemon, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/<name>/<name>.yaml`, with the script that starts it in the same directory:
 
 ```yaml {title=".chainguard/ci/services/postgres/postgres.yaml"}
 version: 1
@@ -229,12 +229,16 @@ To run a service under another name, or to pass it inputs, use a mapping with `u
 ```yaml
 environment:
   packages: [go]
+  vars:
+    PGPORT: "5433"
   services:
     - uses: postgres
       name: db
       with:
         port: "5433"
 ```
+
+The `port` input sets `PGPORT` only for the service's command, so the environment's `vars` also sets `PGPORT` for the check's commands. Without that entry, the check's commands connect to the default port, 5432.
 
 Services in `services/` need the directory layout. In the single-file layout, define a service inline, with the same keys as a definition file. Its command runs from the `.chainguard/` directory, which can hold only `.yaml` files, so keep its script elsewhere in your repository:
 
@@ -255,6 +259,62 @@ checks:
     network:
       egress: [proxy.golang.org, sum.golang.org]
 ```
+
+### Run Docker {#run-docker}
+
+To build images or run containers in a check, such as the service containers of a GitHub Actions job, run the Docker daemon as a service. In the directory layout, define it in `.chainguard/ci/services/docker/`:
+
+```yaml {title=".chainguard/ci/services/docker/docker.yaml"}
+version: 1
+name: docker
+packages: [busybox, docker, iptables]
+cmd: [sh, ./docker.sh]
+timeout: 5m
+exports:
+  DOCKER_HOST: unix:///var/run/docker.sock
+```
+
+The script starts the daemon, waits until it answers, and prints `::service-ready::`. It keeps Docker's data under `/var/lib/chainguard-microvm`, because Docker can't start containers from data that it keeps on the VM's root file system:
+
+```shell {title=".chainguard/ci/services/docker/docker.sh"}
+#!/bin/sh
+set -eu
+if [ "$(id -u)" != 0 ]; then
+  echo "the docker service needs a check that runs as root" >&2
+  exit 1
+fi
+dockerd --host=unix:///var/run/docker.sock \
+  --data-root=/var/lib/chainguard-microvm/docker --storage-driver=overlay2 &
+daemon=$!
+trap 'kill "$daemon" 2>/dev/null || true' EXIT
+trap 'exit 1' HUP INT TERM
+until docker info >/dev/null 2>&1; do
+  kill -0 "$daemon" 2>/dev/null || exit 1
+  sleep 0.1
+done
+printf '\n::service-ready::\n'
+wait "$daemon"
+exit 1
+```
+
+A check that uses the service needs network access to each registry that it pulls images from. For images on `cgr.dev`, list `cgr.dev` and the host that serves its image data, as described in [Chainguard Containers third-party hosts](/chainguard/containers/registry/network-requirements/#chainguard-containers-third-party-hosts):
+
+```yaml {title=".chainguard/ci/docker.yaml"}
+version: 1
+environment:
+  services: [docker]
+checks:
+  containers:
+    cmd: docker run --rm cgr.dev/chainguard/wolfi-base:latest echo hello
+    network:
+      egress:
+        - cgr.dev
+        - 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com
+```
+
+For images from another registry, such as Docker Hub, add its hosts, as described in [Find the hosts a check needs](/chainguard/checks/migrate-from-github-actions/#find-the-hosts-a-check-needs).
+
+The Docker daemon needs root, so a check that uses the service must run as `root`, the default, and not as [another user](#run-as-another-user). A check that runs as `root` can still use the Go build cache, as described in [Build caches](#build-caches).
 
 ## Run as another user {#run-as-another-user}
 
@@ -284,7 +344,7 @@ checks:
       GIT_CONFIG_VALUE_0: "*"
 ```
 
-A check that runs as another user can't declare `outputs`. A check that uses a [cache](#caches) must run as `build`.
+A check that runs as another user can't declare `outputs`, and can use a [cache](#caches) only if the account is `build`.
 
 ## Caches {#caches}
 
@@ -292,7 +352,7 @@ By default, each check starts with nothing from earlier runs, so a Go check comp
 
 ### Build caches {#build-caches}
 
-To reuse Go build output, name `gobuild` in the environment, and set `user: build` on each check that uses the environment:
+To reuse Go build output, name `gobuild` in the environment's `caches`:
 
 ```yaml {title=".chainguard/ci.yaml"}
 version: 1
@@ -312,7 +372,7 @@ checks:
 The cache does nothing until your default branch defines cache pools, as described in [Set up cache pools](#set-up-cache-pools). A Go build cache works as follows:
 
 - `gobuild: {}` takes no settings, and the environment's packages must include `go` or a `go-<version>` package.
-- Every check in an environment that names a cache must set `user: build`, so its commands run as an unprivileged account, as described in [Run as another user](#run-as-another-user). A command that needs root fails. In the directory layout, give the checks that use a cache an environment of their own.
+- Every check in an environment that names a cache must run as `root` or `build`. A check that runs as `root`, the default, needs an environment whose only cache is `gobuild`, and can still use services that need root, such as [Docker](#run-docker). A check with `user: build`, as in the example, runs its commands as an unprivileged account, as described in [Run as another user](#run-as-another-user), and can use any cache. In the directory layout, give checks that run as any other account an environment without caches.
 - Chainguard Checks sets `GOCACHE` to the cache's directory, so don't set `GOCACHE` in `vars`.
 - Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
@@ -355,7 +415,7 @@ A `trust` section that you add for caches also applies to workload identities, s
 
 To see what each check would mount in each pool, run `chainctl checks explain`.
 
-### Who can read and write a cache
+### Who can read and write a cache {#who-can-read-and-write-a-cache}
 
 Cache pools keep a pull request from changing the build output that other runs use:
 

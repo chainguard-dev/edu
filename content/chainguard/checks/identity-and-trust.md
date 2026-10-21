@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-16T18:30:00+00:00
+lastmod: 2026-10-20T18:30:00+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -105,7 +105,7 @@ Each identity has the following keys:
 
 An identity needs `gcp`, `chainguard`, or both to give a check any credentials. Identity names are 1 to 48 lowercase letters, digits, and `-`, and start with a letter.
 
-Each `checks` entry has the form `<file>.checks.<check>`. `<file>` is a check file's name without `.yaml`, such as `go` for `.chainguard/ci/go.yaml`, or `ci` in the single-file layout. `<check>` is a check's name in that file. Either part can be `*` to match any file or any check, but only as the whole part, so `go.checks.test-*` is an error. Quote a selector that starts with `*`, such as `"*.checks.lint"`, because YAML reads a leading `*` as an alias.
+Each `checks` entry has the form `<file>.checks.<check>`. `<file>` is a check file's name without `.yaml`, such as `go` for `.chainguard/ci/go.yaml` or `ci` for `.chainguard/ci.yaml`. `<check>` is a check's name in that file. Either part can be `*` to match any file or any check, but only as the whole part, so `go.checks.test-*` is an error. Quote a selector that starts with `*`, such as `"*.checks.lint"`, because YAML reads a leading `*` as an alias.
 
 Each `allow` entry names a kind of run and its branch:
 
@@ -165,7 +165,7 @@ chainctl checks status . -o json | jq -r .repository_id
 
 Chainguard Checks assigns the ID when it first runs checks on the repository, so open a pull request or push to your default branch before you set up the provider. The ID doesn't change when you rename or transfer the repository. A repository you delete and create again gets a new ID.
 
-## Which runs get an identity
+## Which runs get an identity {#which-runs-get-an-identity}
 
 Chainguard Checks reads each part of an identity's use from a different place:
 
@@ -174,6 +174,7 @@ Chainguard Checks reads each part of an identity's use from a different place:
 | The identity's definition in `identities.yaml` | For a pull request, its base branch, at the commit GitHub merges the pull request into. For a run after merging, your default branch's latest commit. |
 | The `trust` section and each identity's `ring` | Your default branch's latest commit, for every pull request. |
 | The check's `identity` key, its commands, and its `network.egress` | The commit Chainguard Checks runs, which for a pull request includes the pull request's changes. |
+| The check's `when` conditions and its `foreach` entries | The commit Chainguard Checks runs, within the limits in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). If the base branch's version of the check uses an identity and has a [`when.expr` condition](/chainguard/checks/configuration/#run-when-an-expression-is-true), on the check or on one of its `foreach` entries, Chainguard Checks reads the check's conditions from the base branch until the pull request merges, and `foreach` entries that the pull request adds don't run. |
 
 A pull request can't add an identity, or widen which checks, branches, or people get one, until it merges. It can change what a check that already gets an identity runs, and which hosts that check can reach. If `identities.yaml` is invalid on the base branch or on your default branch, no check gets an identity until you fix it.
 
@@ -234,7 +235,7 @@ A ring only narrows an identity's `allow` rules, so a run still needs a matching
 
 Only the account that opened the pull request counts. Who pushed its commits, who reviewed it, and whether its branch is in a fork don't change the result.
 
-Because Chainguard Checks reads the `trust` section and every `ring` from your default branch, a pull request can't change its own trust, even a pull request into another branch. An identity that your default branch's file doesn't define gets ring `2`, so a pull request into another branch never gets an identity that only that branch defines.
+Because Chainguard Checks reads the `trust` section and every `ring` from your default branch, a pull request can't change its own trust, even a pull request into another branch. When your default branch has a `trust` section, an identity that its `identities.yaml` doesn't define gets ring `2`, so a pull request into another branch never gets an identity that only that branch defines. Without a `trust` section on your default branch, a pull request into another branch can get an identity that only that branch defines.
 
 When the file has a `trust` section, every identity in it needs a `ring`, and every group must be in at least one subring's `authors`. Without a `trust` section, `ring` is an error. Group and subring names follow the same rules as identity names.
 
@@ -275,7 +276,7 @@ trust policy places gcs-read at ring 1.trusted, which this pull request does not
 
 If the check is blocking, the summary check fails too, with a title such as **1 check(s) could not be executed**.
 
-To keep these failures from blocking pull requests opened by people outside your `trust` section, make the check [advisory](/chainguard/checks/configuration/#advisory-checks), or skip it on those pull requests with a [condition](/chainguard/checks/configuration/#run-when-an-expression-is-true). A condition only decides whether the check runs. A pull request can remove a condition that would skip a check, so a condition doesn't keep an identity from a pull request. The `trust` section does. A condition on `context.github.pull_request.head_repository` also skips pull requests that people you trust open from their own forks.
+To keep these failures from blocking pull requests opened by people outside your `trust` section, make the check [advisory](/chainguard/checks/configuration/#advisory-checks), or skip it on those pull requests with a [condition](/chainguard/checks/configuration/#run-when-an-expression-is-true). Once that condition is on the base branch, a pull request's edits to it apply only after the pull request merges, as described in [Which runs get an identity](#which-runs-get-an-identity). A condition still doesn't replace the `trust` section, because a pull request can add a check that an identity's `checks` selectors match, or set `identity` on a check whose base branch version doesn't use one, and give that check conditions of its own. A condition on `context.github.pull_request.head_repository` also skips pull requests that people you trust open from their own forks.
 
 ## Revoke access
 
@@ -283,8 +284,10 @@ To take access back, change the place that grants it:
 
 | To stop | Change | When it takes effect |
 | ------- | ------ | -------------------- |
-| A check from getting an identity | Remove the identity, the check's selector, or the `allow` rule from `identities.yaml` on the base branch, or on your default branch for runs after merging. | New runs, once the change merges. A running check loses the identity at its next renewal, within about five minutes. |
-| Pull requests from some people from getting identities | In the `trust` section on your default branch, remove them from a group, or move identities to a higher ring. | New runs, once the change merges. A running check loses the identity at a later renewal, within about 10 minutes. Chainguard Checks can take up to three minutes to see a change to an organization's or team's members on GitHub. |
-| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a check already has can keep working until it expires, for up to an hour. |
+| A check from getting an identity | Remove the identity, the check's selector, or the `allow` rule from `identities.yaml` on the base branch, or on your default branch for runs after merging. | New runs, once the change merges. A running check loses the identity within about 10 minutes. |
+| Pull requests from some people from getting identities | In the `trust` section on your default branch, remove them from a group, or move identities to a higher ring. | New runs, once the change merges. A running check loses the identity within about 18 minutes. That includes up to three minutes for Chainguard Checks to see a change to an organization's or team's members on GitHub. |
+| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a running check already has can keep working inside that check until it expires, for up to an hour. |
+
+When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. A Google Cloud access token that the check already has works only inside the check, so it stops working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
 
 Chainguard Workspaces sessions don't use workload identities. To revoke what a session can reach, refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).

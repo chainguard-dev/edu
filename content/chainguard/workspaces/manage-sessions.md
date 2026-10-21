@@ -1,7 +1,7 @@
 ---
 title: "Manage Chainguard Workspaces sessions"
 linktitle: "Manage sessions"
-description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, and keep a session running while you're away."
+description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, copy text out of one, and keep a session running while you're away."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
 lastmod: 2026-10-20T14:50:35+00:00
@@ -15,7 +15,7 @@ toc: true
 weight: 30
 ---
 
-A Chainguard Workspaces session lasts beyond a single terminal. You can detach from it and return later, keep it running while an agent works, run more than one terminal in it, or open several sessions on the same repository. This page explains how to do each of these with `chainctl develop`.
+A Chainguard Workspaces session lasts beyond a single terminal. You can detach from it and return later, keep it running while an agent works, run more than one terminal in it, copy text out of it, or open several sessions on the same repository. This page explains how to do each of these with `chainctl develop`.
 
 The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
 
@@ -69,7 +69,8 @@ While you're attached to a session, press `Ctrl+]` to open the session menu. You
 | **Restart the host** | | Parks the session and resumes it on a new host while you stay attached. Running processes continue unless the snapshot can't be restored. |
 | **Rename…** | `n` | Changes the session's name. |
 | **Credentials** | | Shows and changes what the session can reach. Refer to [Manage session credentials](/chainguard/workspaces/credentials/). |
-| **Status** | | Shows the session's name and state, its repository and commit or its directory, its branch, its credential endpoints, what serves its laptop credentials, and the last clipboard copy. |
+| **Share from laptop** | | Shares skills and Claude Code instructions from your laptop with the session, or removes ones you shared. Refer to [Share skills and instructions from your laptop](/chainguard/workspaces/coding-agents/#share-skills-and-instructions-from-your-laptop). |
+| **Status** | | Shows the session's name and state, its repository and commit or its directory, its branch, its credential endpoints, what serves its laptop credentials, and what happened to the last clipboard copy. Refer to [Copy text from a session](#copy-text-from-a-session). |
 | **Logs** | `l` | Shows every message `chainctl` has shown since you attached, newest last. |
 | **Help** | `h` or `?` | Lists every key. |
 | **Back** | `Esc` | Closes the menu and returns to the session. |
@@ -82,6 +83,8 @@ To send `Ctrl+]` to a program in the session, press it twice. To see every key, 
 
 If you exit the session's shell, for example with `exit`, any other terminals you opened in the session close too. If the session isn't already being kept running, `chainctl` asks whether to keep it running while you're away. Press `Esc` to keep it running only while it's busy, as **Detach — keep running while busy** does. In a session that has **Detach — let it park** instead, `Esc` lets it park.
 
+If your laptop sleeps or loses its network connection while you're attached, the session doesn't detach right away. It counts as attached until Chainguard detects that the connection is gone, which can take several minutes. Then it keeps running or parks as described in [Keep a session running while you're away](#keep-a-session-running-while-youre-away). After a brief network drop, or when your laptop wakes, `chainctl` reconnects on its own, resumes the session first if it parked, and brings your terminal up to date. If it can't reconnect after a few tries, it exits with an error, and you can return to the session with `chainctl develop`.
+
 ## Return to a session {#return-to-a-session}
 
 To return to a session, run `chainctl develop` from the directory you opened it on, or pass the session's name or short ID from anywhere:
@@ -90,7 +93,9 @@ To return to a session, run `chainctl develop` from the directory you opened it 
 chainctl develop app/quiet-harbor --parent $ORGANIZATION
 ```
 
-If the session is parked, `chainctl` resumes it first, which usually takes a few seconds. The session's memory is restored along with its disk, so running processes, such as a build or an agent, continue where they stopped.
+If the session is parked, `chainctl` resumes it first, which usually takes a few seconds. If the session is still parking, such as right after you choose **Park now**, `chainctl` waits for the park to finish, as described in [Returning to a session takes several minutes](/chainguard/workspaces/troubleshooting/#returning-to-a-session-takes-several-minutes). The session's memory is restored along with its disk, so running processes, such as a build or an agent, continue where they stopped, and files in `/tmp`, which is held in memory, are still there.
+
+Network connections to hosts outside the session don't survive a park. Programs that had one open, such as `ssh`, a database client, or a long download, find it broken after the session resumes and have to connect again. A park also discards the Claude and Google Cloud credentials that `chainctl` sent from your laptop, and `chainctl` sends them again when you return. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
 
 Returning to a session doesn't sync your directory again. Your directory syncs only the first time you attach, so move later changes between your laptop and the session with git.
 
@@ -117,7 +122,7 @@ To decide ahead of time that a session keeps running when you detach, pass `--ke
 chainctl develop --keep 8h --parent $ORGANIZATION
 ```
 
-With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**, and exiting the shell keeps the session running without asking.
+With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**, and exiting the shell keeps the session running without asking. `chainctl` places the 8-hour hold when you attach as well as when you detach, so the hold applies while your laptop sleeps or is offline, counted from when you attached. If `chainctl` then exits without a detach, such as when it can't reconnect or another client takes over the session, it takes the hold back, and the session keeps running or parks as it would without `--keep`.
 
 For a long-running task, create a new session with `--keep always`. That session keeps running instead of parking when you detach, busy or not, until 7 days after you last detach from it:
 
@@ -126,6 +131,8 @@ chainctl develop --keep always --name migration --parent $ORGANIZATION
 ```
 
 Because it doesn't park, a `--keep always` session can use up the monthly allowance in a few days. To stop it sooner, choose **Park now** in the session menu, or delete the session.
+
+A session that you keep running still parks and resumes after 6 days, as described in [Session lifecycle](/get-started/checks-and-workspaces/how-it-works/#session-lifecycle). A `--keep always` session that you leave for its full 7 days always reaches this point. Running processes continue, but their connections to hosts outside the session break, as at any park. Refer to [Return to a session](#return-to-a-session).
 
 To create a new session that parks about 10 minutes after you detach, busy or not, pass `--keep park`:
 
@@ -136,6 +143,8 @@ chainctl develop --keep park --parent $ORGANIZATION
 Claude Code can keep working after you close the terminal. With a Claude login that Chainguard holds for you, it keeps working for as long as the session runs. Refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
 
 If you detach with **Detach — keep running 4h**, **Detach — keep running for…**, or a `--keep` duration, or from a session you're already keeping running, the terminal you detached from keeps serving the credentials that come from your laptop, such as a `cgr.dev` login you switched to your laptop, until you press `Ctrl+C` or close the terminal. Once nothing serves the session, requests that need your laptop fail until you return to it. Refer to [How credentials reach a session](/chainguard/workspaces/credentials/#how-credentials-reach-a-session).
+
+When a session parks and resumes after 6 days, its host discards the Claude and Google Cloud credentials that `chainctl` sent from your laptop, as at any park. A Claude login that Chainguard holds for you keeps working. If the terminal you detached from still serves the session, and serves only Claude's credential, it sends that credential again. If it also serves other credentials from your laptop, it stops serving the session, and Claude Code's requests fail until you return. `chainctl` sends your Google Cloud credential again only when you return.
 
 ### Mark a session busy {#mark-a-session-busy}
 
@@ -176,6 +185,28 @@ All the terminals share the session's `/work` directory. To run several coding a
 
 If the session menu doesn't list the session's terminals, the session was created before Workspaces supported more than one, and it has only its shell.
 
+## Copy text from a session {#copy-text-from-a-session}
+
+While you're attached to a session, text you copy in it goes to your laptop's clipboard. This works for Claude Code, for other programs that copy with an OSC 52 terminal escape sequence, and for the `pbcopy`, `xclip`, and `wl-copy` commands, which every session has. For example, this command copies the hash of the session's current commit:
+
+```shell
+git rev-parse HEAD | pbcopy
+```
+
+How a copy reaches your laptop's clipboard depends on where you run `chainctl`:
+
+| Where you run `chainctl` | How the copy reaches your clipboard |
+| ------------------------ | ----------------------------------- |
+| macOS | `chainctl` writes it with `pbcopy`. |
+| Linux, in a graphical desktop session | `chainctl` writes it with `wl-copy`, `xclip`, or `xsel`, whichever is installed. |
+| Anywhere `chainctl` can't use these commands, such as a Linux machine over SSH | `chainctl` passes it to your terminal without reporting it, and the terminal applies it only if it supports OSC 52 and allows it. |
+
+A copy can be up to 1 MiB, and `chainctl` drops a larger one. When `chainctl` writes your clipboard itself, it takes a burst of up to four copies and then one a second, and drops any copy beyond that. The status row reports each copy that `chainctl` writes or drops, and the session menu's **Status** option shows what happened to the last one.
+
+The session can't read your laptop's clipboard. In the session, the `pbpaste`, `wl-paste`, and `xclip -o` commands fail, and when a program in the session asks your terminal for the clipboard's contents, `chainctl` removes the request. To get text into the session, paste it into your terminal.
+
+While you're attached, any program in the session, including a coding agent, can replace what's on your laptop's clipboard, and `chainctl` doesn't ask you first. Before you paste copied text into a shell on your laptop, check it.
+
 ## Open more than one session
 
 With the free monthly allowance, each user can have one session at a time, including a parked one. To open another, delete the one you have first. To work on more than one thing at a time in a single session, open more terminals in it, as described in [Use several terminals in a session](#use-several-terminals-in-a-session).
@@ -207,7 +238,7 @@ The output shows each session's name, the branch checked out in it, its state, a
  acme/app/scratch      | fix-tests | parked, expires Oct 13 | 2d ago
 ```
 
-The `STATE` column tells you whether a session is running, when it parks or stops running, and when a parked session expires. For a detached session, it also says whether the session is busy, such as `running (busy: agent turn, as of 13:40; at most until Oct 21 13:35)`, or how long a hold you placed lasts, such as `running, until 17:30, then while busy`. A session shown as `idle`, such as `idle (parks in 6m)`, is running but not busy, and the column shows when it parks. To add each session's commit, environment, and directory, pass `-o wide`. To include expired sessions, pass `--expired`.
+The `STATE` column tells you whether a session is running, when it parks or stops running, and when a parked session expires. For a detached session, it also says whether the session is busy, such as `running (busy: agent turn, as of 13:40; at most until Oct 21 13:35)`, or how long a hold you placed lasts, such as `running, until 17:30, then while busy`. A session shown as `idle`, such as `idle (parks in 6m)`, is running but not busy, and the column shows when it parks. To add each session's commit, environment, and directory, pass `-o wide`. To include expired sessions and sessions that you're deleting, pass `--expired`. For what each state means, and the `state` value that `-o json` prints for it, refer to [Session states](/chainguard/workspaces/chainctl-develop-reference/#session-states).
 
 To list every user's sessions in the organization, with an `OWNER` column, pass `--all`. Only organization owners can use `--all`, and you can return to, rename, or delete only your own sessions.
 
