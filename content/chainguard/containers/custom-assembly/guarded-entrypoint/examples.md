@@ -4,7 +4,7 @@ linktitle: "Examples"
 type: "article"
 description: "Example Custom Assembly manifests that use Guarded Entrypoint to inject secrets, wait for a dependency, override a command, fail open, and trust a mounted CA in a Java service."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T19:08:50+00:00
+lastmod: 2026-10-21T19:24:54+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Procedural", "Configuration"]
 images: []
@@ -199,7 +199,7 @@ On a FIPS image with a read-only root filesystem, also mount an `emptyDir` volum
 
 ## Set the truststore at deploy time
 
-Set `GUARDED_TRUSTSTORE_0` in the container's environment on an image that Chainguard rebuilt with wrapper 0.2.385 or later. Check the `version` field on the wrapper's `ready` log line. The following settings read the CA from `/certificates` and write the store to `/tmp/cacerts`, on a container with a read-only root filesystem and an `emptyDir` volume at `/tmp`:
+Set `GUARDED_TRUSTSTORE_0` in the container's environment on a wrapped image that Chainguard rebuilt with wrapper 0.2.385 or later. Check the `version` field on the wrapper's `ready` log line. The following settings read the CA from `/certificates` and write the store to `/tmp/cacerts`, on a container with a read-only root filesystem and an `emptyDir` volume at `/tmp`:
 
 ```yaml
 env:

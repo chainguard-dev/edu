@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T19:07:22+00:00
+lastmod: 2026-10-21T19:24:54+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -93,7 +93,7 @@ With `fail_mode: open`, only the configuration errors described in [Fail mode](/
 
 ### A container that doesn't trust a mounted CA
 
-A Java application that fails a TLS handshake with a certificate path error doesn't trust the CA that signed the server's certificate. On a JDK image, the error reads `PKIX path building failed`. On a FIPS image, it reads `No issuer certificate for certificate in certification path found`. If you configured a truststore, check the following:
+A Java application that fails a TLS handshake with a certificate path error doesn't trust the CA that signed the server's certificate. On the standard Java images, the error reads `PKIX path building failed`. On the FIPS Java images, it reads `No issuer certificate for certificate in certification path found`. If you configured a truststore, check the following:
 
 1. Look in the logs for a `truststore written` line. If it's missing, check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
 1. Check that the CA files are mounted at the paths in `sources`.
