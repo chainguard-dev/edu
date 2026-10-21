@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint overview"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, write a Java truststore, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T19:24:54+00:00
+lastmod: 2026-10-21T19:28:47+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -125,7 +125,7 @@ If you set `truststore`, the image configuration also holds the setting in a `GU
 crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq -r '.config.Env[] | select(startswith("GUARDED_TRUSTSTORE"))'
 ```
 
-The value uses the same `key=value` form as the deploy-time setting, and holds only the keys you set.
+The value uses the same `key=value` form as the deploy-time setting, and holds only the keys you set. For the manifest in [Trust a mounted CA in a Java service](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/#trust-a-mounted-ca-in-a-java-service), the command prints:
 
 ```output
 GUARDED_TRUSTSTORE_0=source=/etc/service-ca,output=/truststore/cacerts
