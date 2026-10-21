@@ -62,9 +62,9 @@ A tag whose name is a duration sets how long the tag is served, up to a maximum 
 
 Details worth knowing:
 
-- Every push restarts the clock, including re-pushing identical bytes to the same tag.
-- When a duration tag's time is up, pulling it by tag stops working and it disappears from tag listings. Pulling by digest keeps working until the content itself is removed.
-- A duration must be a whole number with one unit (`s`, `m`, `h`, or `d`). Compound forms like `1h30m` are treated as ordinary tag names.
+- A duration is a whole number with one unit: `s`, `m`, `h`, or `d`.
+- Every push restarts the clock.
+- When a duration tag's time is up, pulling it by tag stops working. Pulling by digest may keep working for a while longer.
 - Expiry is a ceiling, not a guarantee of availability: any content may be removed at any time.
 
 ## Pulling from Kubernetes
@@ -97,4 +97,4 @@ spec:
 
 ## What this registry is not
 
-The temporary registry is completely separate from [Chainguard's main registry](/chainguard/containers/registry/overview/) at `cgr.dev`: different infrastructure, different storage, and no connection to Chainguard accounts, entitlements, or the guarded images catalog. If you need secure, minimal, signed images with real support, that is what [Chainguard Containers](/chainguard/containers/overview/) are for.
+The temporary registry is entirely separate from [Chainguard's main registry](/chainguard/containers/registry/overview/) at `cgr.dev`, and has no connection to Chainguard accounts or images. If you need secure, minimal, signed images with real support, that is what [Chainguard Containers](/chainguard/containers/overview/) are for.
