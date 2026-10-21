@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:25:41+00:00
+lastmod: 2026-10-21T18:42:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -95,22 +95,19 @@ With `fail_mode: open`, only the configuration errors described in [Fail mode](/
 
 A Java application that fails a TLS handshake with `PKIX path building failed` doesn't trust the CA that signed the server's certificate. If you configured a truststore, check the following:
 
-1. Read the wrapper's logs for a `truststore written` line. It has the `setting`, the `path` of the store, `certs`, the number of certificates in the store, and `added`, the number that your sources added to the image's. No line means the wrapper didn't write a store. Check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
-1. Check that the application picked up the store. The JVM prints a `Picked up JAVA_TOOL_OPTIONS:` line to standard error. The line must include `-Djavax.net.ssl.trustStore=` and your `output` path.
-1. Check that `added` isn't `0`. A value of `0` means every certificate in your sources was already in the image's truststore, so the sources don't add a CA that the image lacks.
+1. Look in the logs for a `truststore written` line. If it's missing, check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
+1. Check that the CA files are mounted at the paths in `sources`.
 1. Restart the container after the CA rotates. The wrapper writes the store on every start, not while the container runs.
 
-If the wrapper stops the container with exit code `128`, the log has a `file staging failed` line. The `error` text names the setting and the path, and it can change between releases. Match on the `msg` field:
+If the wrapper stops the container with exit code `128`, the log has a `file staging failed` line. Its `error` text names the setting and the path. The text can change between releases, so match on the `msg` field:
 
 ```json
 {"time":"...","level":"ERROR","msg":"file staging failed","src":"guarded-entrypoint","error":"GUARDED_TRUSTSTORE_0: source: stat /certs: no such file or directory"}
 ```
 
-If you set both `USE_SYSTEM_CA_CERTS` and a truststore, the wrapper logs a `USE_SYSTEM_CA_CERTS ignored` warning. It names the truststore setting that applies instead.
-
 Two cases need a different fix:
 
-* **FIPS images with a read-only root filesystem.** TLS fails with `JENT RNG failed` when `/tmp` isn't writable and executable. Mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
+* **FIPS images with a read-only root filesystem.** TLS fails when `/tmp` isn't writable and doesn't allow executables. Mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
 * **Keycloak.** The truststore setting doesn't reach Keycloak on FIPS images. Use Keycloak's own `truststore-paths` option.
 
 ### A container whose entrypoint is an init system

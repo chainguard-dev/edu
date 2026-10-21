@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:25:41+00:00
+lastmod: 2026-10-21T18:42:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -38,8 +38,8 @@ The wrapper makes no connection to Chainguard.
 
 * It doesn't run code that you upload. The wrapper starts your application and, if you set `command_override`, the command you list.
 * It doesn't send telemetry. It sends no data to Chainguard of any kind.
-* It doesn't put a truststore password on a command line or in `JAVA_TOOL_OPTIONS`, and it doesn't write the password to its logs. It treats a `password_env` value like any other resolved secret and replaces it with `***` in its log lines.
-* It doesn't write a private key into a truststore. The wrapper rejects a private key, and any other PEM block that isn't a certificate, so the store holds certificates only.
+* It doesn't put a truststore password on a command line, and it doesn't write the password to its logs. It treats a `password_env` value like any other secret and replaces it with `***` in its log lines.
+* It doesn't write a private key into a truststore. The wrapper rejects a private key, so the store holds certificates only.
 * It doesn't write a resolved secret value to its logs. It replaces a value that it resolved or expanded with `***` in every log line.
 * It doesn't send a Vault or Consul credential anywhere except the address you configure, and it doesn't follow redirects when it reads from either. A Secret Manager credential goes to Google's token endpoints and to Secret Manager.
 
@@ -55,7 +55,7 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
 | Truststore settings | Yes | The image configuration holds the sources, the output path, and the name of the `password_env` variable. It never holds the password. |
-| The truststore file | No | The wrapper writes it in the running container, at `output`. It holds certificates only, and its mode is `0644`. |
+| The truststore file | No | The wrapper writes it in the running container, at `output`. It holds certificates only. |
 
 Chainguard stores the settings in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 

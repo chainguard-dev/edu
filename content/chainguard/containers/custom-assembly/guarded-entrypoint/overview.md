@@ -4,7 +4,7 @@ linktitle: "Guarded Entrypoint overview"
 type: "article"
 description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, write a Java truststore, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T18:25:41+00:00
+lastmod: 2026-10-21T18:42:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -341,7 +341,7 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 
 | Trigger | Code | Message |
 | --- | --- | --- |
-| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed: this organization is not enrolled in guarded entrypoint. Contact your Chainguard account team to enroll.` |
+| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed: this organization is not enrolled in guarded entrypoint. Contact Chainguard customer support to get access.` |
 | `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.preflight requires guarded_entrypoint` |
 | `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.command_override requires guarded_entrypoint` |
 | `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.fail_mode requires guarded_entrypoint` |
