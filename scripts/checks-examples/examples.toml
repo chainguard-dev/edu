@@ -87,6 +87,13 @@ blocks = [
 ]
 
 [[group]]
+reason = "docker.yaml uses the docker service that the page defines just before it."
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/docker/docker.yaml" },
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/docker.yaml" },
+]
+
+[[group]]
 reason = "identities.yaml defines the cache pools for the gobuild cache in the ci.yaml before it."
 blocks = [
     { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci.yaml", contains = "gobuild: {}" },
