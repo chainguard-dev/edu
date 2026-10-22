@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-22T13:04:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -280,7 +280,7 @@ assume-and-explore:
     apk add wget
 
     # Install chainctl.
-    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"
+    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m | sed 's/aarch64/arm64/')"
     chmod +x chainctl
     mv chainctl /usr/bin
 
