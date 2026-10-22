@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add checks to one of your GitHub repositories, and see them run on a pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T12:41:37+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -143,6 +143,6 @@ Your teammates don't need a Chainguard account to get checks on their pull reque
 - [Chainguard Checks configuration reference](/chainguard/checks/configuration/) covers packages, network access, conditions, and more.
 - [Use Chainguard Checks on GitHub](/chainguard/checks/github/) explains reruns, checks that run on request, and checks that run after merging.
 - [Run checks before you push](/chainguard/checks/run-checks/) shows how to run the same checks in a Chainguard Workspaces session.
-- [Workload identities and trust](/chainguard/checks/identity-and-trust/) explains how to give a check short-lived Google Cloud or Chainguard credentials.
+- [Workload identities and trust](/chainguard/checks/identity-and-trust/) explains how to give a check short-lived Google Cloud, AWS, Azure, or Chainguard credentials.
 - [chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/) lists every `chainctl checks` command and flag.
 - Ask questions in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
