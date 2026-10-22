@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-10-22T14:40:18+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -58,8 +58,10 @@ The following table lists the most common causes, grouped by the key or file the
 | A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
 | A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
 | `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
-| `resources.yaml` gives a `memory` or `disk` size in a unit other than `Mi` or `Gi`, such as `16GB`. | Write the size in `Mi` or `Gi`, such as `16Gi`. |
-| A check names a resource class that `resources.yaml` doesn't define. | The file replaces the built-in classes, so a check can't name `medium` or `large-amd64` unless the file defines it. Define the class, or name one that the file defines. |
+| A resource class gives a `memory` or `disk` size in a unit other than `Mi` or `Gi`, such as `16GB`. | Write the size in `Mi` or `Gi`, such as `16Gi`. |
+| A file in `.chainguard/ci/resources/` is named after a built-in class, such as `medium.yaml`, or is named `default.yaml` or `auto.yaml`. | Rename the file, which renames the class, and update the checks that name it. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
+| The repository has both `.chainguard/ci/resources.yaml` and a `.chainguard/ci/resources/` directory. | Move each class in `resources.yaml` to its own file in `resources/`, and delete `resources.yaml`. Refer to [Replace the built-in classes with resources.yaml](/chainguard/checks/configuration/#replace-the-built-in-classes-with-resources-yaml). |
+| A check names a resource class that isn't built in and that no file in `.chainguard/ci/resources/` defines. | Add the class file, or name a built-in class. With `resources.yaml`, which replaces the built-in classes, a check can't name `medium` or `large-amd64` unless the file defines it. |
 | `.chainguard/` or `.chainguard/ci/` holds a file that the repository's layout doesn't allow, such as a `.yml` file. | Remove or rename the file. Refer to [File layouts](/chainguard/checks/configuration/#file-layouts) for the files each layout allows. |
 | The repository has a `.chainguard/ci.yaml` file and also has files in `.chainguard/ci/` other than `identities.yaml`. | A repository can't use both layouts. Move the checks from `.chainguard/ci.yaml` into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`. |
 
