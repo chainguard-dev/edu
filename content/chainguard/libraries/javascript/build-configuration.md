@@ -488,7 +488,7 @@ npm notice PING https://libraries.cgr.dev/javascript/
 npm notice PONG 1065ms
 ```
 
-The PONG response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the `.npmrc` file exists in the current directory and that your token has not expired.
+The `PONG` response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the `.npmrc` file exists in the current directory and that your token has not expired.
 
 A session that worked earlier in the day can later fail with an error like this:
 
