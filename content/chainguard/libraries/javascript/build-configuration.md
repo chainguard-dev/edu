@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-22T18:58:48+00:00
+lastmod: 2026-10-22T19:00:38+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -170,7 +170,7 @@ chainctl auth configure-npm
 
 This writes a project-level `.npmrc` with the registry URL and credentials. Do
 not commit these credentials to version control; supply them through environment
-variables or CI secrets at build time. Yarn and pnpm authenticate differently;
+variables or CI secrets at build time. If you belong to multiple organizations, specify the organization using the `--parent` flag. Yarn and pnpm authenticate differently;
 see [Yarn](#yarn) and [pnpm](#pnpm) for their setup steps.
 
 Then adopt them:
