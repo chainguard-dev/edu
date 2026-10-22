@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud, AWS, Azure, or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-22T14:48:42+00:00
+lastmod: 2026-10-22T14:52:04+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -17,7 +17,7 @@ weight: 35
 
 A check that must authenticate to Google Cloud, AWS, Azure, or Chainguard, such as to read a Cloud Storage bucket or to pull private images from `cgr.dev`, can use a *workload identity*: short-lived credentials that Chainguard Checks gives the check while it runs. This page explains how workload identities work, how to declare and set one up, how to limit which pull requests get one, and how to revoke access.
 
-## How workload identities work
+## How workload identities work {#how-workload-identities-work}
 
 A check's VM holds no long-lived credentials. When a check uses a workload identity, Chainguard Checks issues the check an OpenID Connect (OIDC) token that lasts five minutes, renews the token while the check runs, and keeps the real credentials outside the VM:
 
