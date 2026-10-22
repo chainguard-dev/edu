@@ -18,6 +18,8 @@ The mappings in this guide come from the groups claim in a login token. If you p
 
 This guide covers Okta and Microsoft Entra ID. The Chainguard-side steps (2 through 4) are the same for both providers; only how you emit group membership in Step 1 differs.
 
+Steps 2 and 3 outline how to use `chainctl` to point Chainguard at a groups claim and map a group to a role. You can also perform these steps in the Chainguard Console, as described in the "Map IdP groups to roles" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#map-idp-groups-to-roles).
+
 ## Prerequisites
 
 To complete this guide, you need the following:
@@ -57,7 +59,7 @@ Before you configure any mappings, it helps to understand how group-derived role
 
 ## Step 1: Emit group membership from your IdP
 
-Configure your identity provider to include the user's group memberships in the OIDC token it issues to Chainguard. The exact Console steps differ by provider and change over time, so follow your provider's own documentation. This guide relies only on the result:
+Configure your identity provider to include the user's group memberships in the OIDC token it issues to Chainguard. The exact steps differ by provider and change over time, so follow your provider's own documentation. This guide relies only on the result:
 
 - The token carries a claim listing the user's groups, named whatever you set in Step 2. That value format is what you supply as `--external-group-id` in Step 3. This guide uses `groups`.
 - The token carries only the groups you map, not every group a user belongs to. The IdP drops oversized group sets from the token, as described in [Limits](#limits).
