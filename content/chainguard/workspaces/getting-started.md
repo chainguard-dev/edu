@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-21T21:48:34+00:00
+lastmod: 2026-10-22T12:41:37+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -24,7 +24,7 @@ This guide shows you how to open a Chainguard Workspaces session for one of your
 
 ## Quick start {#quick-start}
 
-You need `chainctl` 0.2.382 or later and a local clone of a GitHub repository. To install or update `chainctl`, refer to [Install or update chainctl](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl). To use Claude Code in a session, also [log in to Claude Code on your laptop](/chainguard/workspaces/coding-agents/#before-you-begin).
+You need `chainctl` 0.2.386 or later and a local clone of a GitHub repository. To install or update `chainctl`, refer to [Install or update chainctl](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl). To use Claude Code in a session, also [log in to Claude Code on your laptop](/chainguard/workspaces/coding-agents/#before-you-begin).
 
 1. **Sign up**
 
