@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:32:42+00:00
+lastmod: 2026-10-22T14:35:40+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -54,7 +54,7 @@ The following table lists the most common causes, grouped by the key or file the
 | A check's name has a character that isn't allowed, or doesn't start and end with a letter or digit. | Rename the check. Unless the character is `.` or `/`, the error for a character that isn't allowed says only that the name must fit the 128-character limit, even when the name is short. Refer to [Check names](/chainguard/checks/configuration/#check-names). |
 | Two checks in the same file have names that differ only in case, such as `Test` and `test`. | Rename one of them. |
 | A check's full name, such as `ci/test`, is longer than 128 characters. | Shorten the check's name, or the file's. |
-| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Build caches](/chainguard/checks/variations-services-caches/#build-caches). |
+| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types). |
 | A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
 | A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
 | `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
@@ -191,12 +191,12 @@ A check whose environment names a cache under `caches` runs without one, and wit
 
 - Your default branch doesn't define cache pools yet. This includes the pull request that adds them, because Chainguard Checks reads pools only from your default branch. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 - No pool lists the run's ring, such as ring `0` for a pull request opened by someone outside your subrings.
-- The cache isn't `gobuild`. During the beta, the other cache types cache nothing.
+- The cache is `node` or `directory`, which store nothing during the beta.
 - The run is a rerun from **Re-run** on GitHub or from `chainctl checks rerun`.
 - The check uses a workload identity, and a ring in its pool can't get the same identity.
 - The pool is still filling, as described in [How caches fill](/chainguard/checks/variations-services-caches/#how-caches-fill).
 
-To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists the cache types other than `gobuild` as `read-write`, though they cache nothing during the beta.
+To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists `node` and `directory` caches as `read-write`, though they store nothing during the beta.
 
 ## A required check never reports {#a-required-check-never-reports}
 
