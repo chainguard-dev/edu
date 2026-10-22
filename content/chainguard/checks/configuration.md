@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:48:15+00:00
+lastmod: 2026-10-22T14:51:44+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -569,7 +569,7 @@ For a pull request, the base commit is the base branch commit that the run merge
 
 In a pull request's check, `HEAD` is the commit that merges the pull request into its base branch. Chainguard Checks creates that commit for the run, and it's never pushed to GitHub, so a command that looks `HEAD` up on GitHub fails, such as a call to GitHub's API or a `git fetch` of the commit. Use `HEAD^2` for the pull request's own head commit, and `CHAINGUARD_BASE_REVISION`, which is `HEAD^1`, for the base commit.
 
-A check that uses a [cache](/chainguard/checks/variations-services-caches/#cache-types) also gets the variables that its type sets, such as `GOCACHE` for `gobuild`. A check that uses a Google Cloud [workload identity](#credentials) also gets `GOOGLE_APPLICATION_CREDENTIALS`.
+A check that uses a [cache](/chainguard/checks/variations-services-caches/#cache-types) also gets the variables that its type sets, such as `GOCACHE` for `gobuild`. A check that uses a [workload identity](#credentials) also gets the variables that its providers set, such as `GOOGLE_APPLICATION_CREDENTIALS` for Google Cloud, as described in [How workload identities work](/chainguard/checks/identity-and-trust/#how-workload-identities-work).
 
 A variable that you set in `vars` replaces the value in the table, except `CHAINGUARD_BASE_REVISION`, which Chainguard Checks discards if you set it, and `CG_CPUS`, `CG_MEMORY_MIB`, and `CG_DISK_MIB`, which Chainguard Checks always sets. If you set one of the certificate variables, point it at a bundle that includes the certificates in `/etc/ssl/certs/ca-certificates.crt`, or HTTPS connections from the tools that read the variable fail.
 
