@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud, AWS, Azure, or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-22T14:48:15+00:00
+lastmod: 2026-10-22T14:48:42+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -384,7 +384,7 @@ To take access back, change the place that grants it:
 | ------- | ------ | -------------------- |
 | A check from getting an identity | Remove the identity, the check's selector, or the `allow` rule from `identities.yaml` on the base branch, or on your default branch for runs after merging. | New runs, once the change merges. A running check loses the identity within about 10 minutes. |
 | Pull requests from some people from getting identities | In the `trust` section on your default branch, remove them from a group, or move identities to a higher ring. | New runs, once the change merges. A running check loses the identity within about 18 minutes. That includes up to three minutes for Chainguard Checks to see a change to an organization's or team's members on GitHub. |
-| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a running check already has can keep working inside that check until it expires, for up to an hour. |
+| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider, removing the AWS role's trust in the IAM OIDC provider, deleting the Microsoft Entra application's federated identity credential, or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a running check already has can keep working inside that check until it expires, for up to an hour. |
 
 When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. A Google Cloud access token that the check already has works only inside the check, so it stops working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
 
