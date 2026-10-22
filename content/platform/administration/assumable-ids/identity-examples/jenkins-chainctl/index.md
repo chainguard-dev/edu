@@ -6,7 +6,7 @@ linktitle: "Jenkins with chainctl"
 description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-22T13:04:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -93,7 +93,7 @@ pipeline {
         sh '''
           mkdir -p .bin
           curl -fsSL -o .bin/chainctl \
-            "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/; s/x86_64/amd64/')"
+            "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
           chmod +x .bin/chainctl
         '''
       }

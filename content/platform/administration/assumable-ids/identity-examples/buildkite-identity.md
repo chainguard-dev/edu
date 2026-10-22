@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Buildkite workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-22T13:04:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -218,7 +218,7 @@ You could add the commands for testing the identity like this:
 
 ```Pipeline
 - command: |
-    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
     chmod +x chainctl
     mv chainctl /usr/bin
     buildkite-agent oidc request-token --audience issuer.enforce.dev > .token.txt
@@ -270,12 +270,12 @@ Be sure to replace `<github-id>` with your GitHub username.
 Plugins can implement a number of [plugin hooks](https://buildkite.com/docs/agent/v3/hooks). Run the following command to create a pre-command hook within the `hooks/` subdirectory:
 
 ```sh
-cat > .buildkite/plugins/cgrauth/hooks/pre-command <<EOF
+cat > .buildkite/plugins/cgrauth/hooks/pre-command <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
 identity="${BUILDKITE_PLUGIN_CGRAUTH_IDENTITY:?missing identity}"
-curl -o chainctl https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr "[:upper:]" "[:lower:]")_$(uname -m)
+curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 chmod +x chainctl
 mv chainctl /usr/bin
 token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
