@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-22T14:26:10+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -167,7 +167,7 @@ You can delete a session in any state. Anything you didn't push is lost. A parke
 : One entry in a check's `foreach` list. Each variation runs in its own VM, and all of a check's variations report as one GitHub check.
 
 **Workload identity**
-: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud or Chainguard. Sessions don't get them.
+: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud, AWS, Azure, or Chainguard. Sessions don't get them.
 
 Several names in `chainctl` and in the configuration don't match the product names:
 

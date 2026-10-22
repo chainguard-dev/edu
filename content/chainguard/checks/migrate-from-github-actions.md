@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:44:23+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -62,7 +62,7 @@ A GitHub Actions job starts on a general-purpose runner image, checks out your c
 | Caches | Jobs save and restore caches with actions, such as `actions/cache`. | A check starts with no cache. If the `trust` section of `.chainguard/ci/identities.yaml` on your default branch defines a cache pool, a Go check can reuse build output from earlier runs. |
 | Run length | A job can run for up to 6 hours. | A whole run can take up to two hours, and checks still running at that point fail. Split long jobs into several checks, which run in parallel. |
 | Background processes | A process that a step starts in the background keeps running in the job's later steps. | When a step ends, Chainguard Checks stops every process that the step left running in the background. To keep a process, such as a database, running for a check's commands, use a [service](/chainguard/checks/variations-services-caches/#services). Refer to [How commands run](/chainguard/checks/configuration/#how-commands-run). |
-| Secrets | Jobs read secrets from the `secrets` context, and get a `GITHUB_TOKEN`. | There's no `secrets` context. During the beta, a check gets no GitHub token, so it can't fetch your private GitHub repositories, such as private Go modules. A check that must authenticate to Google Cloud or Chainguard can use a workload identity, as described in [Credentials](/chainguard/checks/configuration/#credentials). |
+| Secrets | Jobs read secrets from the `secrets` context, and get a `GITHUB_TOKEN`. | There's no `secrets` context. During the beta, a check gets no GitHub token, so it can't fetch your private GitHub repositories, such as private Go modules. A check that must authenticate to Google Cloud, AWS, Azure, or Chainguard can use a workload identity, as described in [Credentials](/chainguard/checks/configuration/#credentials). |
 
 ## Key mapping
 
