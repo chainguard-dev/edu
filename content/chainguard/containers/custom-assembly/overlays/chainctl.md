@@ -26,7 +26,7 @@ For an explanation of overlays, bindings, and tag selectors, refer to [Overview 
 
 Before you start, you need the following:
 
-* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.379 or later. Run `chainctl update` to update it.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.389 or later. Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.
 
@@ -71,7 +71,7 @@ This example adds `py3.13-typer` to the Python 3.13 tags only, so the other Pyth
 
 Every `attach` command takes exactly one tag selector: `--exact-tag` for specific tags, `--tag-variant` for every tag of a variant, or `--all-tags` for every tag. The next sections show the other two selectors.
 
-> **Note**: Earlier `chainctl` versions named these flags `--tag`, `--variant`, and `--all`. The old names still work, but they're deprecated: use the new names.
+> **Note**: Before `chainctl` 0.2.389, these flags were named `--tag`, `--variant`, and `--all`. The old names still work, but they're deprecated: use the new names.
 
 Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
 
