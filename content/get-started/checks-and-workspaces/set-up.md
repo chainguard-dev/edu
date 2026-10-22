@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-21T21:49:18+00:00
+lastmod: 2026-10-22T12:51:41+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -40,7 +40,7 @@ Before you begin, make sure you have the following:
 
 - A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
 - A local clone of a repository on github.com that you can push to.
-- A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
+- An email address to sign in with. To invite teammates later, use a work email address. A personal email address, such as a Gmail address, creates an organization that can't invite anyone, as described in [Sign up with chainctl develop init](#sign-up-with-chainctl-develop-init).
 - If you already belong to a Chainguard organization, the `owner` or `limited_owner` role in the organization where you turn on Chainguard Checks and Chainguard Workspaces.
 
 ## Install or update chainctl {#install-or-update-chainctl}
@@ -72,19 +72,28 @@ Installing the app doesn't change your repositories. Chainguard Checks runs only
 
 The `chainctl develop init` command signs you in, creates a free [Starter organization](#what-a-starter-organization-includes) if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
 
+To create an organization, sign in with a Google account, a GitHub account, or an email address and password. A GitLab sign-in can't create one. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub, that's your GitHub account's verified primary email address, and other addresses on the account don't count.
+
+- With a work email address, the organization is named after your email domain, and you can invite teammates whose addresses are in that domain.
+- With a personal email address, such as a Gmail address, you name the organization yourself, at a prompt or with `--name`, and the name can't contain a dot. The organization's registry and package paths use its ID instead of its name, and it can't invite anyone.
+
+The browser page that `chainctl develop init` opens offers Google, GitHub, and GitLab, but not a password. To sign in with a password, first set `chainctl` to open Chainguard's email sign-in page instead, where you can create an account or log in to one you have. The setting also applies to later `chainctl auth login` sign-ins:
+
+```shell
+chainctl config set default.social-login email
+```
+
 Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
 
 ```shell
 chainctl develop init
 ```
 
-To create an organization, sign in with a work email address, using a password, a Google account, or a GitHub account. If you sign in with GitHub, your work email address must be your GitHub account's verified primary email address. Other email addresses on the account don't count. A personal email address, such as a Gmail address, can't create an organization, and neither can other sign-in methods, such as GitLab.
-
 The command does the following:
 
 1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
 2. Picks the Chainguard organization to use:
-    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
+    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one. With a personal email address, it also asks you to name the organization, unless you used `--name`.
     - If you belong to exactly one organization on the Starter or Team plan, it uses that one, even if your role there, such as `viewer` or `sandbox.user`, can't turn on Chainguard Checks and Chainguard Workspaces. The command then stops with an error that says `missing: terms.accept`, as described in [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
     - Otherwise, it stops and asks you to choose an organization with `--parent`.
 3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
@@ -181,6 +190,8 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 ### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
 
 If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+
+An organization you created with a personal email address can't create invites, so you can't add teammates to it.
 
 To invite a teammate who can open sessions, follow [Add a teammate](#add-a-teammate), but use `--role limited_owner` instead of `--role sandbox.user` in step 1:
 
