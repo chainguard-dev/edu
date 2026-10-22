@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-08-28T16:31:04+00:00
+lastmod: 2026-10-22T14:19:25+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -111,6 +111,8 @@ Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `cha
 ## Cooldown policies
 
 The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default.
+
+> **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
 ### Create and enable a cooldown policy
 

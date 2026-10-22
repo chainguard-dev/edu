@@ -4,7 +4,7 @@ linktitle: "Error messages"
 description: "Understand the errors Chainguard Libraries returns when a package or version is blocked, and how they appear across language ecosystems and package managers."
 type: "article"
 date: 2026-08-11T00:00:00+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-22T14:19:25+00:00
 draft: false
 images: []
 weight: 20
@@ -45,6 +45,14 @@ How a blocked package appears during development will depend on the package mana
 
 * **`npm`** surfaces the block reason directly, reporting a blocked version as a `403` with the reason (for example, `MALWARE_DETECTED`).
 * **Other package managers** (such as `pnpm`, `yarn`, `pip`, `uv`, `poetry`, `Maven`, and `Gradle`) typically report a blocked version as a `not found` or `no matching version found` error. When an entire package (all of its versions) is blocked for malware, a `409` error surfaces across most package managers.
+
+## Withheld versions in package metadata
+
+A withheld version is absent from the package's aggregated metadata, not only from a direct install. It does not appear in version listings, and its publish time is absent. You see the block reason only when you request the exact version.
+
+For example, when a cooldown policy holds back an npm version, `npm view <package> versions` omits that version, and the version's publish time is reported as `null`. Requesting the exact version with `npm view <package>@<version>` returns a `403` with the reason.
+
+Automated tooling that reads version metadata — for example, an agent checking whether an advisory's "fixed in" version is available — can misread a withheld version as nonexistent and conclude that no fix exists. When an expected fix version appears to be missing, request that exact version to confirm whether it is withheld rather than absent upstream.
 
 ## Other errors
 

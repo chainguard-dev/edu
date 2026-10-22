@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-22T14:19:25+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -454,7 +454,7 @@ in `package.json`. If a constraint uses `^` or `~` (the npm default), the
 resolver picks the newest matching version, so you can lose your existing pins
 and pick up unintended upgrades that change your application's behavior.
 - Whether Chainguard has a resolved version available depends on the policies
-you've configured. For example, a version that was published upstream within your configured cooldown period will return an error. Check the cooldown period you've set before you regenerate.
+you've configured. For example, a version published upstream within your configured cooldown period is withheld until the window passes: it does not appear during resolution, and a request for that exact version returns a `403`. Check the cooldown period you've set before you regenerate.
 
 To regenerate — for example, to intentionally refresh your dependency
 versions — use the following commands:
@@ -467,9 +467,11 @@ versions — use the following commands:
 | Yarn Classic | `rm -rf node_modules yarn.lock && yarn` |
 | Bun | `rm -rf node_modules bun.lock && bun install` |
 
-If you hit 404 errors after regenerating, the most likely cause is that the
-resolved version is not yet available in Chainguard Libraries or is still within
-the cooldown window. Refer to [Packages not available in Chainguard
+After regenerating, a `404` usually means the resolved package or version is not
+available in Chainguard Libraries and upstream fallback is not enabled. A version
+within the cooldown window instead returns a `403` when you request that exact
+version, and it does not appear in the version list during resolution. Refer to
+[Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 {{< /tab >}}
@@ -761,13 +763,19 @@ packages already satisfied by the lockfile. Follow
 regenerate the lockfile.
 
 **404 errors during install**  
-The requested package or version may not yet be available in Chainguard
-Libraries, or may still be within the cooldown window. Check the [Chainguard
+A `404` usually means the requested package or version is not available in
+Chainguard Libraries and upstream fallback is not enabled. Check the [Chainguard
 Console](https://console.chainguard.dev/libraries/javascript), try an earlier
 version, or enable upstream fallback. Refer to [Packages not available in Chainguard
-Libraries](#packages-not-available-in-chainguard-libraries). Also note that
-upstream fallback and cooldown policies can take up to 30 minutes to go into
-effect.
+Libraries](#packages-not-available-in-chainguard-libraries). Upstream fallback
+and cooldown policies can take up to 30 minutes to go into effect.
+
+**403 errors during install**  
+A `403` with a reason means a version is blocked by a policy such as a cooldown,
+or by malware or greyware scanning. A version within the cooldown window is also
+withheld from the package's metadata, so it does not appear in the version list
+and its publish time is absent; only a request for the exact version returns the
+`403`. Refer to [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
 **Authentication errors or `npm ping` failure**  
 Confirm your environment variables are set and the token has not expired.
