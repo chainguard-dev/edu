@@ -55,10 +55,11 @@ blocks = [
 ]
 
 [[group]]
-reason = "resources.yaml configures the directory layout, so it needs a check file to apply to."
-stubs = ["env-default", "check-file"]
+reason = "A resource class file and the env/default.yaml that selects it configure the directory layout, so they need a check file to apply to."
+stubs = ["check-file"]
 blocks = [
-    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/resources.yaml" },
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/resources/compute.yaml" },
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/env/default.yaml", contains = "resources: compute" },
 ]
 
 [[group]]

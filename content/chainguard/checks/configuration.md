@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-10-22T14:40:18+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -32,7 +32,7 @@ Chainguard Checks reads its configuration from one of two layouts. A repository 
 In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. The directory layout can also hold the following:
 
 - `env/<name>.yaml` files, each defining a named environment that checks can share, and their `.lock` files. A check that names no environment uses `env/default.yaml`.
-- `resources.yaml`, which replaces the built-in resource classes with your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
+- `resources/`, which holds one file for each resource class of your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
 - `<name>.md` files that explain checks in more detail. Chainguard Checks never reads them as configuration. Refer to [Describe a check](#describe-a-check).
 - `services/<name>/<name>.yaml` files, each defining a service, with any files the service needs beside it. Refer to [Services](/chainguard/checks/variations-services-caches/#services).
 
@@ -484,36 +484,38 @@ A check's VM has no KVM device, so tools that run their own VMs with KVM, such a
 
 ### Define your own resource classes {#define-your-own-resource-classes}
 
-In the directory layout, a `.chainguard/ci/resources.yaml` file replaces the built-in classes with your own:
+In the directory layout, each file in `.chainguard/ci/resources/` defines one resource class, named after the file. For example, the following file defines a class named `compute`:
 
-```yaml {title=".chainguard/ci/resources.yaml"}
+```yaml {title=".chainguard/ci/resources/compute.yaml"}
 version: 1
-resource_classes:
-  default:
-    cpus: 2
-    memory: 8Gi
-    disk: 20Gi
-  big:
-    cpus: 4
-    memory: 16Gi
-    disk: 40Gi
-  big-amd64:
-    cpus: 4
-    memory: 16Gi
-    disk: 40Gi
-    platform:
-      os: linux
-      architecture: amd64
+cpus: 8
+memory: 16Gi
+disk: 40Gi
+platform:
+  os: linux
+  architecture: arm64
 ```
 
-A check selects one of these classes by name, such as `resources: big`. The file follows these rules:
+A check selects the class by name, such as `resources: compute`. Your classes add to the built-in classes, so checks can still name `medium` or `large-amd64`. Each class file follows these rules:
 
-- It must define `default`, which a check gets when nothing sets its `resources`.
-- It replaces the built-in classes, so `medium`, `large`, `xlarge`, and their `-amd64` and `-arm64` variants aren't available unless you define classes with those names.
-- Each class needs `cpus`. `memory` and `disk` are whole numbers of `Mi` or `Gi`, such as `512Mi` or `16Gi`. A class without `memory` gets 4 GiB, and a class without `disk` gets 5 GiB.
+- The file's name, without `.yaml`, is the class's name. It uses lowercase letters, digits, and `-`, starts with a letter, and can be up to 63 characters. It can't be the name of a built-in class, such as `medium`, or the reserved names `default` and `auto`.
+- Each file needs `version: 1` and `cpus`. `memory` and `disk` are whole numbers of `Mi` or `Gi`, such as `512Mi` or `16Gi`. A class without `memory` gets 4 GiB, and a class without `disk` gets 5 GiB.
 - Only `platform` pins a class to an architecture, with `os: linux` and `architecture` set to `amd64` or `arm64`. A class without `platform` can run on either architecture, whatever its name.
-- Class names use lowercase letters, digits, and `-`, start with a letter, and can be up to 63 characters.
-- The single-file layout doesn't support `resources.yaml`. A `.chainguard/ci/resources.yaml` file beside `.chainguard/ci.yaml` makes the configuration invalid.
+- The single-file layout doesn't support your own classes, because a `.chainguard/ci/` directory beside `.chainguard/ci.yaml` makes the configuration invalid.
+
+To give every check one of your classes unless it names another, set `resources` in `.chainguard/ci/env/default.yaml`:
+
+```yaml {title=".chainguard/ci/env/default.yaml"}
+version: 1
+environment: {}
+resources: compute
+```
+
+#### Replace the built-in classes with resources.yaml {#replace-the-built-in-classes-with-resources-yaml}
+
+An older form, a single `.chainguard/ci/resources.yaml` file, lists classes under `resource_classes` and replaces the built-in classes with them. It must define a class named `default`, which a check gets when nothing sets its `resources`, and checks can't name `medium` or any other built-in class unless the file defines a class with that name. Its classes follow the same rules as class files.
+
+A repository can't have both `resources.yaml` and a `resources/` directory. To move to class files, put each class in its own file under `.chainguard/ci/resources/`, delete `resources.yaml`, and set the class that its `default` defined in `env/default.yaml`, as in the earlier example.
 
 Your organization's allowance limits your own classes too. If any check in a run asks for more vCPUs, memory, or disk than the allowance allows, the whole run fails before any check starts.
 
