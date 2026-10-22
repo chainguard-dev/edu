@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-10-22T14:26:10+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -28,7 +28,7 @@ Chainguard Checks reaches your repositories through the Chainguard App, a GitHub
 
 When someone opens or updates a pull request, the following happens:
 
-1. Chainguard Checks plans a run against the commit GitHub would create by merging the pull request into its base branch, so each run tests the change together with the latest base branch.
+1. Chainguard Checks merges the pull request into the latest commit on its base branch and plans a run against that merge, so each run tests the change together with the latest base branch.
 2. It reads the configuration from that merged commit, so a pull request can add checks or change them.
 3. Each check runs in its own microVM with the packages your configuration file declares.
 4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus a GitHub check for each check that doesn't pass or that reports something, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
