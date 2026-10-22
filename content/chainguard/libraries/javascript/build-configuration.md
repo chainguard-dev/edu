@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-22T18:45:02+00:00
+lastmod: 2026-10-22T18:58:48+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -496,7 +496,7 @@ A session that worked earlier in the day can later fail with an error like this:
 E401 Unable to authenticate, need: Basic realm="Chainguard Libraries"
 ```
 
-Despite the `Basic realm` wording, this error usually means the short-lived session token written by `chainctl auth configure-npm` has expired, not that your `.npmrc` is misconfigured. Re-run `chainctl auth configure-npm` to refresh the token, or switch to a longer-lived [pull token](/chainguard/libraries/introduction/access/#pull-token).
+This error usually means the short-lived session token written by `chainctl auth configure-npm` has expired. Re-run `chainctl auth configure-npm` to refresh the token, or switch to a longer-lived [pull token](/chainguard/libraries/introduction/access/#pull-token).
 
 **4. Add dependencies and build the project**
 
