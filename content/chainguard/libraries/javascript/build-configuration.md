@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-20T16:02:37+00:00
+lastmod: 2026-10-22T18:45:02+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -413,6 +413,8 @@ chainctl auth configure-npm
 
 [This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
+By default, this command writes a short-lived, session-backed bearer token. The token expires during a typical work session, and a later `npm install` or `npm ping` then fails with an authentication error even though nothing in your configuration changed. Re-run `chainctl auth configure-npm` to refresh the token, or create longer-lived credentials with `chainctl auth configure-npm --pull-token` (use `--ttl` to set the lifetime).
+
 For CI/CD, prefer an assumable identity when using this command. Expand the following to learn more:
 
 {{< details "Configure npm in CI and headless environments" >}}
@@ -486,7 +488,15 @@ npm notice PING https://libraries.cgr.dev/javascript/
 npm notice PONG 1065ms
 ```
 
-The PONG response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the .npmrc file exists in the current directory and that your token has not expired.
+The PONG response confirms that your credentials are valid and the registry is reachable. If the command fails, check that the `.npmrc` file exists in the current directory and that your token has not expired.
+
+A session that worked earlier in the day can later fail with an error like this:
+
+```
+E401 Unable to authenticate, need: Basic realm="Chainguard Libraries"
+```
+
+Despite the `Basic realm` wording, this error usually means the short-lived session token written by `chainctl auth configure-npm` has expired, not that your `.npmrc` is misconfigured. Re-run `chainctl auth configure-npm` to refresh the token, or switch to a longer-lived [pull token](/chainguard/libraries/introduction/access/#pull-token).
 
 **4. Add dependencies and build the project**
 

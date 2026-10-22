@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-22T18:45:02+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -184,8 +184,11 @@ chainctl auth configure-npm
 
 Because [this
 command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a
-session-backed bearer token, you will need to re-run it when the token expires.
-If the command returns an error, ensure you are using the [latest version of
+short-lived, session-backed bearer token, you must re-run it when the token
+expires; a later install can fail with an `E401` authentication error even
+though your configuration is unchanged. For longer-lived access, use a [pull
+token](#pull-token-authentication). If the command returns an error, ensure you
+are using the [latest version of
 chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 For pnpm and Yarn, [configure the .npmrc
