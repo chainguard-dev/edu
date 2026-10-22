@@ -70,8 +70,6 @@ go env -w GONOPROXY='github.com/example-org/*'
 
 With this configuration, Go fetches modules matching `github.com/example-org/*` directly from the repository using your existing Git credentials, and requests every other module through Chainguard. `GOPRIVATE='github.com/example-org/*'` has the same effect. Keep the pattern as narrow as your private module paths, because matching modules are not subject to Chainguard controls.
 
-To publish private modules into a registry that only your organization can resolve, alongside the shared catalog, use `chainctl libraries go upload`. This feature is in beta; contact your Chainguard account team to enable it.
-
 ## Upstream fallback
 
 [Upstream fallback](/chainguard/libraries/introduction/#upstream-fallback-and-controls) is enabled by default for Chainguard Libraries for Go. The Go endpoint serves eligible versions from the upstream Go module proxy under Chainguard security controls.
