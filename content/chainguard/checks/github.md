@@ -182,7 +182,7 @@ To run a check on request, add the label `ci/run:<check>` to the pull request. F
 
 A check that runs on request has limits on its name and its other conditions, as described in [Run on request](/chainguard/checks/configuration/#run-on-request). To run a check when its files change and also on request, use `when.changed` alone, because a label also forces a check that `when.changed` would skip to run. A label doesn't override a `when.expr` condition.
 
-GitHub only offers labels that already exist in the repository, so create each label once. This example uses the GitHub CLI. Replace `$OWNER/$REPO` with your repository:
+GitHub only offers labels that already exist in the repository, so create each label once. On github.com, open the repository's **Issues** or **Pull requests** tab, select **Labels**, and then select **New label**. Or, if you use the GitHub CLI, run the following command, replacing `$OWNER/$REPO` with your repository:
 
 ```shell
 gh label create ci/run:e2e-full --repo $OWNER/$REPO --description "Run the e2e-full check"

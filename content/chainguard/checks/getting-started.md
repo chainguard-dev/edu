@@ -16,46 +16,95 @@ toc: true
 weight: 20
 ---
 
-This guide shows you how to run Chainguard Checks on pull requests in one of your GitHub repositories. If the repository already runs GitHub Actions workflows on pull requests, use the [quick start](#quick-start) to draft checks from those workflows. To learn how each part of the setup works, follow the [step-by-step guide](#step-by-step-guide), which uses a Go repository and a configuration file you write yourself, and takes about 15 minutes.
-
-{{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
+Get a first check passing with the [quick start](#quick-start), or learn each part in the [step-by-step guide](#step-by-step-guide).
 
 {{% quickstart %}}
 
 ## Quick start {#quick-start}
 
-You need `chainctl` 0.2.386 or later and a local clone of a GitHub repository that runs GitHub Actions workflows on pull requests. To install or update `chainctl`, refer to [Install or update chainctl](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl).
+1. **Install chainctl**
+
+    To install `chainctl` with Homebrew, run the following command:
+
+    ```shell
+    brew install chainguard-dev/tap/chainctl
+    ```
+
+    Or, to install it with curl on macOS or Linux, run the following commands:
+
+    ```shell
+    curl -fL -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+    sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+    ```
+
+    If you already have `chainctl`, you need 0.2.386 or later. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.
 
 1. **Sign up**
+
+    In the root of a local clone of a GitHub repository that you can push to, run the following command:
 
     ```shell
     chainctl develop init
     ```
 
-    The command creates your Chainguard organization, if you don't have one, and turns on Chainguard Checks. When it asks which GitHub account to link, choose the one that owns your repository: press `Enter` for your own user, or enter the organization's name.
+    The command creates your Chainguard organization, if you don't have one, and turns on Chainguard Checks. When it asks which GitHub account to link, choose the one that owns your repository: press `Enter` for your own user, or enter the organization's name. If the Chainguard App isn't installed on that account, the command offers to open its installation page. To sign in with an email address and password, first run `chainctl config set default.social-login email`.
 
-1. **Install the Chainguard App**
+1. **Add a first check**
 
-    If the app isn't on that account yet, `chainctl develop init` offers to open its installation page, and finishes linking the account after you install it. You can also [install the app](https://github.com/apps/chainguard/installations/new) before you sign up.
-
-1. **Draft checks from your workflows**
-
-    In the root of your local clone, run the following commands. The second one needs [jq](https://jqlang.org/download/).
+    Create a branch and a `.chainguard/ci.yaml` file with one check:
 
     ```shell
-    mkdir -p .chainguard/ci
-    chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
+    git checkout -b add-chainguard-checks
+    mkdir -p .chainguard
+    cat > .chainguard/ci.yaml <<'EOF'
+    version: 1
+    environment: {}
+    checks:
+      hello:
+        cmd: ls -la
+    EOF
     ```
 
-    The draft gives checks no network access. Add the hosts and packages each check needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl), then open a pull request with the file.
+    The check lists the files in its working directory and needs no packages or network access, so it passes on any repository.
 
-Chainguard Checks runs your checks on the pull request. To read the results and require checks before merging, go to [Step 4: Review the results](#step-4-review-the-results).
+1. **Open a pull request**
+
+    Commit the file and push the branch:
+
+    ```shell
+    git add .chainguard/ci.yaml
+    git commit -m "Add Chainguard Checks"
+    git push -u origin add-chainguard-checks
+    ```
+
+    Then open a pull request, from the link that `git push` prints or on github.com.
+
+1. **Read the result**
+
+    On the pull request, wait for the **Chainguard Checks (presubmit)** check to pass, and then select it to read the `hello` check's output.
+
+To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To draft checks from your GitHub Actions workflows, refer to [Draft checks from your workflows](#draft-checks-from-your-workflows).
 {.quick-start-done}
 {{% /quickstart %}}
 
+{{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
+
+## Draft checks from your workflows {#draft-checks-from-your-workflows}
+
+If your repository runs GitHub Actions workflows on pull requests, `chainctl checks migrate` can draft checks from them. A repository can't have both `.chainguard/ci.yaml` and `.chainguard/ci/migrated.yaml`, so if you added the quick start's first check, delete `.chainguard/ci.yaml` first.
+
+In the root of your local clone, run the following commands. The second one needs [jq](https://jqlang.org/download/).
+
+```shell
+mkdir -p .chainguard/ci
+chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
+```
+
+The draft gives every check no network access, so most drafted checks fail until you add the hosts and packages that each one needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl). Then open a pull request with the file, as in the quick start.
+
 ## Step-by-step guide {#step-by-step-guide}
 
-The following steps set up Chainguard Checks with a `.chainguard/ci.yaml` file you write yourself, instead of a draft from your workflows. Follow them if your repository doesn't run GitHub Actions workflows, or to see how a configuration file works before you add one. A repository can't have both `.chainguard/ci.yaml` and `.chainguard/ci/migrated.yaml`, so if you followed the quick start, skip to Step 4.
+The following steps add the same first check as the quick start and explain each part. If you followed the quick start, skip to [Step 4](#step-4-review-the-results).
 
 ### Step 1: Sign up {#step-1-sign-up}
 
@@ -72,11 +121,65 @@ cd $REPO_DIR
 git checkout -b add-chainguard-checks
 ```
 
-Next, create a `.chainguard/ci.yaml` configuration file that defines two checks:
+Next, create a `.chainguard/ci.yaml` configuration file that defines one check:
 
 ```shell
 mkdir -p .chainguard
-cat > .chainguard/ci.yaml <<EOF
+cat > .chainguard/ci.yaml <<'EOF'
+version: 1
+environment: {}
+checks:
+  hello:
+    cmd: ls -la
+EOF
+```
+
+This file defines one environment and one check, named `hello`. Every file that has checks needs an `environment` key, and `environment: {}` is the smallest one: a bare root filesystem with no packages added. Each check runs in a fresh VM with no network access unless it asks for some, and `hello` doesn't need any. It runs `ls -la`, which lists the files in its working directory, so it passes on any repository. A string `cmd` runs without a shell, so it can't use pipes, redirects, or variables. To run a command through a shell, write it as a list, such as `cmd: [sh, -c, "ls -la | head"]`. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+
+To find mistakes in the file before you push it, run `chainctl checks validate` with the repository's directory:
+
+```shell
+chainctl checks validate .
+```
+
+The command reads the file the same way Chainguard Checks does, without running anything. For this file, it prints `workflow ci (.chainguard/ci.yaml)` followed by `ok: the document lowers`. For a file with problems, it prints each problem with its line number.
+
+### Step 3: Open a pull request
+
+Commit the file and push the branch:
+
+```shell
+git add .chainguard/ci.yaml
+git commit -m "Add Chainguard Checks"
+git push -u origin add-chainguard-checks
+```
+
+Then open a pull request, from the link that `git push` prints or on github.com. If you use the GitHub CLI, `gh pr create --fill` also opens one.
+
+Chainguard Checks reads the configuration file from the pull request itself, so the pull request that adds `.chainguard/ci.yaml` runs its checks.
+
+### Step 4: Review the results
+
+Open the pull request on GitHub and scroll to its checks. After a few seconds, you'll see the following:
+
+- **Chainguard Checks (presubmit)**, the summary check for the whole run. It's pending while checks run, then passes only if every blocking check passed.
+- **presubmit / ci / hello**, for a check that doesn't pass or that reports errors, warnings, notices, or a summary. A check that passes without reporting anything appears only in the summary check's output.
+
+To read a check's output, select the check. On GitHub, its output shows each step's outcome, exit code, and duration, followed by the end of its log and any errors it reported. The **Details** link opens the check's full log on a run page that Chainguard hosts. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). If you created your organization with `chainctl develop init`, you don't have that role, so read the output on GitHub.
+
+If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
+
+### Step 5: Require checks before merging
+
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch.
+
+Require only the summary check, not the per-check results. A check that passes without reporting anything, or that a condition skips, never reports a result of its own, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
+
+## Replace the first check with your own {#replace-the-first-check-with-your-own}
+
+Once the first check passes, replace it with the checks your repository needs. For example, if your repository is a Go module, with a `go.mod` file at its root, the following `.chainguard/ci.yaml` file runs `go vet` and `go test` as two checks:
+
+```yaml {title=".chainguard/ci.yaml"}
 version: 1
 environment:
   packages: [go]
@@ -89,48 +192,11 @@ checks:
     cmd: go test ./...
     network:
       egress: [proxy.golang.org, sum.golang.org]
-EOF
 ```
 
-This file tells Chainguard Checks to install the `go` package in each check's VM, then run `go vet` in one check and `go test` in another. Each check runs in a fresh VM with no network access unless it asks for some, so both checks list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. If your repository isn't a Go repository, replace the package and the commands with your own. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+This file tells Chainguard Checks to install the `go` package in each check's VM, then run `go vet` in one check and `go test` in another. Both checks list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. In a repository that isn't a Go module, both commands fail, so use your own packages and commands instead.
 
-To find mistakes in the file before you push it, run `chainctl checks validate` with the repository's directory:
-
-```shell
-chainctl checks validate .
-```
-
-The command reads the file the same way Chainguard Checks does, without running anything. For this file, it prints `workflow ci (.chainguard/ci.yaml)` followed by `ok: the document lowers`. For a file with problems, it prints each problem with its line number.
-
-### Step 3: Open a pull request
-
-Commit the file, push the branch, and open a pull request. This example uses the GitHub CLI to open the pull request, but you can also open it on github.com:
-
-```shell
-git add .chainguard/ci.yaml
-git commit -m "Add Chainguard Checks"
-git push -u origin add-chainguard-checks
-gh pr create --fill
-```
-
-Chainguard Checks reads the configuration file from the pull request itself, so the pull request that adds `.chainguard/ci.yaml` runs its checks.
-
-### Step 4: Review the results
-
-Open the pull request on GitHub and scroll to its checks. After a few seconds, you'll see the following:
-
-- **Chainguard Checks (presubmit)**, the summary check for the whole run. It's pending while checks run, then passes only if every blocking check passed.
-- **presubmit / ci / vet** or **presubmit / ci / test**, for a check that doesn't pass or that reports errors, warnings, notices, or a summary. A check that passes without reporting anything appears only in the summary check's output.
-
-To read a check's output, select the check. On GitHub, its output shows each step's outcome, exit code, and duration, followed by the end of its log and any errors it reported. The **Details** link opens the check's full log on a run page that Chainguard hosts. To open the run page, you need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). If you created your organization with `chainctl develop init`, you don't have that role, so read the output on GitHub.
-
-If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
-
-### Step 5: Require checks before merging
-
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch.
-
-Require only the summary check, not the per-check results. A check that passes without reporting anything, or that a condition skips, never reports a result of its own, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
+Run `chainctl checks validate .` again, then commit and push the change. Chainguard Checks runs the new checks on the pull request when it's updated.
 
 ## Give teammates access {#give-teammates-access}
 
