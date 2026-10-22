@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-10-22T12:53:48+00:00
+lastmod: 2026-10-22T13:47:36+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -42,7 +42,7 @@ On Windows, install with [`curl` in PowerShell](#installing-with-curl-in-windows
 
 To check the binary's signature before you run it, [install a pinned version with `curl`](#install-a-pinned-version-with-curl) and then [verify it with Cosign](#verifying-the-chainctl-binary-with-cosign). When you're done, [confirm the installation](#verifying-installation).
 
-## Install `chainctl` with Homebrew
+### Install `chainctl` with Homebrew
 
 The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` formula in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
 
@@ -64,7 +64,7 @@ git config --get-regexp '^url\..*\.insteadof$'
 
 Output such as `url.git@github.com:.insteadof https://github.com/` shows a rewrite. To fix the clone, add an SSH key to your GitHub account or remove the rewrite. Otherwise, [install with `curl`](#install-chainctl) instead.
 
-## Install with `curl`
+### Install with `curl`
 
 The `curl` command in [Install `chainctl`](#install-chainctl) builds the download URL from `uname`, so it fetches the binary for your operating system and architecture. The `sudo install` command copies the binary into `/usr/local/bin`, sets you as its owner, and makes it executable.
 
@@ -108,7 +108,7 @@ Following that you can use `chainctl`. Be aware that Windows PowerShell does not
 
 Also, please note that while [`chainctl` commands](/platform/chainctl/) will generally work, some are not as thoroughly tested on Windows and may not behave as expected.
 
-## Install with Scoop in Windows
+### Install with Scoop in Windows
 
 Scoop is a command-line installer for Windows that has a community-contributed and -maintained way of [installing `chainctl`](https://scoop.sh/#/apps?q=chainctl).
 
