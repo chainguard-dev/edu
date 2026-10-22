@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T18:30:00+00:00
+lastmod: 2026-10-22T14:26:10+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -442,7 +442,7 @@ The `trigger` key sets which events run a check:
 
 | Trigger | When the check runs |
 | ------- | ------------------- |
-| `presubmit` (default) | On each pull request, against the commit GitHub would create by merging it. |
+| `presubmit` (default) | On each pull request, against the pull request merged into its base branch. |
 | `postsubmit` | On each new commit on your default branch, after a change merges. |
 
 To run a check at both times, list both:
@@ -564,6 +564,8 @@ Chainguard Checks sets the following variables for each check's commands:
 | `CG_CPUS`, `CG_MEMORY_MIB`, and `CG_DISK_MIB` | The VM's vCPUs, and its memory and disk in MiB, from the check's [resource class](#resources). |
 
 For a pull request, the base commit is the base branch commit that the run merges the pull request into. For a run after merging, it's the new commit's first parent. Your repository's history is in the VM, so with `git` in your packages, a check can compare against it, such as with `git diff "$CHAINGUARD_BASE_REVISION"`.
+
+In a pull request's check, `HEAD` is the commit that merges the pull request into its base branch. Chainguard Checks creates that commit for the run, and it's never pushed to GitHub, so a command that looks `HEAD` up on GitHub fails, such as a call to GitHub's API or a `git fetch` of the commit. Use `HEAD^2` for the pull request's own head commit, and `CHAINGUARD_BASE_REVISION`, which is `HEAD^1`, for the base commit.
 
 A check that uses a [Go build cache](/chainguard/checks/variations-services-caches/#build-caches) also gets `GOCACHE`, and `-count=1` added to `GOFLAGS`. A check that uses a Google Cloud [workload identity](#credentials) also gets `GOOGLE_APPLICATION_CREDENTIALS`.
 

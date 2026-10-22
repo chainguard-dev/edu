@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-10-22T14:32:42+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -94,7 +94,26 @@ If **Chainguard Checks (presubmit)** says that checks could not be executed, or 
 
 ## The summary check reports a merge conflict {#the-summary-check-reports-a-merge-conflict}
 
-Chainguard Checks runs each pull request against the commit GitHub would create by merging it. If the pull request has merge conflicts with its base branch, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**. Resolve the conflicts and push.
+Chainguard Checks merges each pull request into the latest commit on its base branch itself, rather than using the merge that GitHub computes. If that merge conflicts, the summary check fails with **Merge conflict with the base branch**, and its output lists the kinds of conflict and up to 20 of the conflicting paths.
+
+The merge is stricter than Git's, so the summary check can report a conflict on a pull request that GitHub says it can merge. It reports a conflict in the following cases:
+
+- Both the pull request and the base branch changed the same file, even in different lines. For example, a dependency update that changes `go.mod` conflicts with another change to `go.mod` that merged first.
+- One side deleted a file that the other side changed.
+- A path is a file on one side and a directory on the other.
+- One side added a file in a directory that the other side removed.
+
+It doesn't merge changes within a file, and it doesn't detect renames.
+
+To fix the conflict, rebase the pull request onto the latest commit on its base branch, resolve any conflicts that Git reports, and push. A pull request that contains the latest base branch commit always merges, because only the pull request has changes.
+
+## The summary check says the pull request is too large to merge {#the-summary-check-says-the-pull-request-is-too-large-to-merge}
+
+If merging the pull request goes past the size limits of Chainguard Checks' merge, the summary check fails with **Too large to merge**. Rebase the pull request onto a recent commit on its base branch, or split it into smaller pull requests, and push.
+
+## The summary check says the merge service can't test the pull request {#the-summary-check-says-the-merge-service-cant-test-the-pull-request}
+
+If the summary check fails with **The merge service cannot test this pull request**, Chainguard Checks can't merge any pull request in the repository, such as when the repository is larger than it can serve. Rebasing doesn't help. Ask in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
 
 ## A check can't find a command {#a-check-cant-find-a-command}
 
@@ -143,6 +162,7 @@ To add files from another public repository, use a [`git` input](/chainguard/che
 The `run-ci` command in a Workspaces session runs each check in the session's environment, which can differ from the pull request's:
 
 - The session might have packages or network access that the check's own environment doesn't list.
+- On a pull request, `HEAD` is a merge commit that exists only in the check's VM, so a command that looks it up on GitHub fails there. Use `HEAD^2` for the pull request's head, as described in [Environment variables](/chainguard/checks/configuration/#environment-variables).
 - Sessions run on x86-64 unless their resource class pins arm64, while pull request checks usually run on arm64 unless their resource class pins x86-64. If a check downloads or runs an x86-64 binary, set its resource class to an `-amd64` variant of a built-in class, such as `medium-amd64`. If you [define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes), set `platform` on the check's class instead, because only `platform` pins the architecture.
 
 Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
