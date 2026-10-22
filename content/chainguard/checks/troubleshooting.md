@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:26:10+00:00
+lastmod: 2026-10-22T14:32:42+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -105,7 +105,7 @@ The merge is stricter than Git's, so the summary check can report a conflict on 
 
 It doesn't merge changes within a file, and it doesn't detect renames.
 
-To fix the conflict, rebase the pull request onto the latest commit on its base branch, resolve any conflicts that Git reports, and push. A pull request that contains the latest base branch commit always merges, because only the pull request has changes. Updating the branch with GitHub's **Update branch** button works too.
+To fix the conflict, rebase the pull request onto the latest commit on its base branch, resolve any conflicts that Git reports, and push. A pull request that contains the latest base branch commit always merges, because only the pull request has changes.
 
 ## The summary check says the pull request is too large to merge {#the-summary-check-says-the-pull-request-is-too-large-to-merge}
 
