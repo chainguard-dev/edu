@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T14:50:35+00:00
+lastmod: 2026-10-22T14:35:40+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -84,7 +84,7 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `actions/checkout` with `repository` | `inputs` with `git`, for a public repository on github.com. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
 | `actions/checkout` with `submodules` or `lfs` | No equivalent. Submodule directories are empty, and Git LFS files hold their pointer files. |
 | `actions/upload-artifact` and `actions/download-artifact` | `outputs` on the check that writes the files, and `inputs` with `from` on a check in the same file that reads them. Refer to [Pass files between checks](/chainguard/checks/variations-services-caches/#pass-files-between-checks). A run keeps no files that you can download. |
-| `actions/cache`, or the caching in `actions/setup-go` | For the Go build cache, `environment.caches: {gobuild: {}}`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. The check runs as `root` or as `build`, as described in [Build caches](/chainguard/checks/variations-services-caches/#build-caches). Other cache types have no effect during the beta. |
+| `actions/cache`, or the caching in `actions/setup-go` | For Go build output and downloaded modules, `environment.caches: {gobuild: {}, gomod: {}}`, and for pip or uv, `python: {}`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. A check with only `gobuild` can run as `root`, and a check with any other cache runs as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
 | `jobs.<job_id>.services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). To run a container image instead, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). |
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |
@@ -141,7 +141,7 @@ checks:
 
 The `network` key lets the check download modules. The workflow doesn't list these hosts, because a GitHub Actions job can reach any host. To find the hosts a check needs, refer to [Find the hosts a check needs](#find-the-hosts-a-check-needs).
 
-By default, `actions/setup-go` caches downloaded modules and build output between runs. This file uses no cache, so each run downloads its modules and builds from scratch. To reuse Go build output between runs, add the `gobuild` cache, as described in [Caches](/chainguard/checks/variations-services-caches/#caches). During the beta, Chainguard Checks doesn't cache modules, so keep the `network` hosts. With the cache, `go test` still runs every test instead of reusing earlier results.
+By default, `actions/setup-go` caches downloaded modules and build output between runs. This file uses no cache, so each run downloads its modules and builds from scratch. To reuse Go build output and downloaded modules between runs, add the `gobuild` and `gomod` caches, as described in [Caches](/chainguard/checks/variations-services-caches/#caches). Go still downloads any module that the cache doesn't have, so keep the `network` hosts. With the cache, `go test` still runs every test instead of reusing earlier results.
 
 ## Find the hosts a check needs {#find-the-hosts-a-check-needs}
 
