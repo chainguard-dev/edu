@@ -109,7 +109,13 @@ go env -w GOSUMDB=off
 
 Do not add `direct`, `https://proxy.golang.org`, or another public proxy to `GOPROXY`. A sole Chainguard entry ensures that module requests remain within your organization’s configured controls.
 
-Do not set `GOPRIVATE`. It also sets `GONOPROXY` and can bypass Chainguard. Do not set `GONOSUMCHECK`; it is not a current Go configuration variable.
+If your project depends on private modules, such as internal packages in your own repositories, set `GONOPROXY` to their module path prefixes so that Go fetches them directly. Keep the pattern narrow; a module path that matches `GONOPROXY` (which `GOPRIVATE` also sets) bypasses Chainguard, so never set either variable to `*`. See [Private modules](/chainguard/libraries/go/overview/#private-modules) for details.
+
+```bash
+go env -w GONOPROXY='github.com/example-org/*'
+```
+
+Do not set `GONOSUMCHECK`; it is not a current Go configuration variable.
 
 Check the effective configuration:
 
