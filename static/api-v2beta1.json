@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_LIMITS_GET: Cross-organization sandbox limit snapshots, held by the public API's\ninternal reader at the configured authorization root.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under. The same pair gates the Uploads\nAPI (create for GetOrgPublicKey, CreateUpload and CompleteUpload; list\nfor GetUpload and ListUploads).\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.\n - CAP_ENTITLEMENTS_GET: Reading an organization's plan and effective product limits.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_IAM_AUTH_POLICIES_UPDATE: Auth policies: an organization's sign-in controls (today, sso_only).\nupdate can shut members who do not sign in through the organization's\nidentity provider out of it, so it is owner-only; list (which also\nauthorizes Get) sits with the other IAM read capabilities. Numbered in a\nfresh block, update/list in the 2/3 slots the IAM resources above use;\nthe create/delete slots are reserved below.\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_LIMITS_GET: Cross-organization sandbox limit snapshots, held by the public API's\ninternal reader at the configured authorization root.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under.\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.\n - CAP_HARNESS_UPLOADS_CREATE: Baddie Hunter harness uploads (the Uploads intake API,\nchainguard.platform.harness.v1alpha1): submitting one repository's sealed\nsource bundle and reading the org's uploads. Customer-facing and held by\nOwners. uploads.create also authorizes Uploads.GetOrgPublicKey, the\nharness-keyring key a submitter seals the bundle under. Uploading starts\nno hunt.\n\nNeither reaches the submitted source: the bundle is sealed to a key this\nAPI cannot use, and these grant upload metadata only.\n - CAP_ENTITLEMENTS_GET: Reading an organization's plan and effective product limits.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -58,6 +58,8 @@
           "CAP_IAM_SCIM_MANAGE",
           "CAP_IAM_SCIM_USERS_LIST",
           "CAP_IAM_SCIM_GROUPS_LIST",
+          "CAP_IAM_AUTH_POLICIES_UPDATE",
+          "CAP_IAM_AUTH_POLICIES_LIST",
           "CAP_EVENTS_SUBSCRIPTION_CREATE",
           "CAP_EVENTS_SUBSCRIPTION_UPDATE",
           "CAP_EVENTS_SUBSCRIPTION_LIST",
@@ -254,6 +256,8 @@
           "CAP_BILLING_MANAGE",
           "CAP_HARNESS_HUNTS_CREATE",
           "CAP_HARNESS_HUNTS_LIST",
+          "CAP_HARNESS_UPLOADS_CREATE",
+          "CAP_HARNESS_UPLOADS_LIST",
           "CAP_ENTITLEMENTS_GET"
         ],
         "type": "string"
@@ -1094,12 +1098,10 @@
       },
       "chainguard.platform.entitlements.v2beta1.ProductEntitlement.State": {
         "default": "STATE_UNSPECIFIED",
-        "description": "State describes whether the organization has access to a product.\n\n - STATE_UNSPECIFIED: Unspecified state.\n - STATE_ACTIVE: Access is active.\n - STATE_TRIAL: Access is a trial.\n - STATE_GRACE: The trial is in its grace period.\n - STATE_NOT_INCLUDED: No live grant includes the product.",
+        "description": "State describes whether the organization has access to a product.\n\n - STATE_UNSPECIFIED: Unspecified state.\n - STATE_ACTIVE: Access is active.\n - STATE_NOT_INCLUDED: No live grant includes the product.",
         "enum": [
           "STATE_UNSPECIFIED",
           "STATE_ACTIVE",
-          "STATE_TRIAL",
-          "STATE_GRACE",
           "STATE_NOT_INCLUDED"
         ],
         "type": "string"
@@ -3312,6 +3314,11 @@
       "chainguard.platform.libraries.v2beta1.CVERemediation": {
         "description": "CVERemediation is the remediation state of one requested version, aggregated\nacross the CVEs found against it.",
         "properties": {
+          "blockedFixVersion": {
+            "description": "The target fix_version would have named, when the malware gate blocked it:\nthe release is on the block list or carries malware. A fix exists at that\nversion, and it must not be installed. Reported so that a blocked fix does\nnot read as no fix, and kept out of fix_version so that a client reading\nonly fix_version never recommends it.\n\nAt most one of fix_version and blocked_fix_version is set, and only\nalongside status FIX_AVAILABLE. Both are empty when the gate could not\nanswer (not scanned yet, unreachable, out of time): an unvetted target is\nwithheld on this rung, and the per-CVE detail still names it.",
+            "readOnly": true,
+            "type": "string"
+          },
           "cveCount": {
             "description": "How many High and Critical CVEs were found against this version.\n\nScoped to match the vocabulary around it: cve_status reports\nNO_HIGH_CRITICAL_CVES, so this counts the findings that claim speaks to.\nMedium and low findings are excluded, as are findings for which no CVSS\nscore was recorded. The per-CVE read\n(ListRequestedLibraryVersionCVEs) is NOT scoped and lists every finding,\nso it can return more CVEs than this counts.",
             "format": "int32",
@@ -3328,7 +3335,7 @@
             "readOnly": true
           },
           "fixVersion": {
-            "description": "The upstream release to move this version to in order to clear its\noutstanding CVEs, e.g. \"3.9.2\".\n\nOutstanding means every CVE counted by cve_count except the ones a\nreviewer ruled out of scope. An EXCLUDED CVE is not asking to be cleared\nand commonly records no upstream fix at all, so requiring one would\nwithhold a real target on the strength of a finding we have already said\ndoes not apply. The per-CVE read says which were ruled out.\n\nPopulated only alongside status FIX_AVAILABLE. On any other rung naming a\ntarget would overstate what the upgrade achieves: REVIEWING covers a\nversion with one CVE that has no fix beside another that does, so no\nrelease clears it, and COMPLETE and WONT_REMEDIATE have nothing to move\nto.\n\nThe greatest of the upstream_fix_version values those CVEs record, ordered\nby the ecosystem's own version semantics. Greatest rather than nearest,\nbecause the target has to clear all of them at once -- a release that\ncarries the first CVE's fix but predates the second's leaves the version\nvulnerable while reading as resolved.\n\nAlways strictly newer than the version asked about. A recorded fix is not\nguaranteed to be ahead of it, so one at or below the pinned version names\nnothing here: moving there is not an upgrade, and it would not clear the\nCVEs.\n\nEmpty wherever that cannot be established, which is not rare and never\nmeans \"no fix exists\": an outstanding CVE records no upstream fix, the\ngreatest recorded fix is not above the version asked about, the ecosystem\nhas no implemented version ordering, a recorded version does not parse, or\nthe target did not clear the malware gate below. Read\nupstream_fix_version on the per-CVE detail for what is known per CVE.\n\nChecked against the malware block list at read time, fail-closed. A target\nhere is an upstream release, so it can carry malware or sit on the\nretroactive block list -- unlike remediated_version on the per-CVE detail,\nwhich is always a Chainguard build. A check that errors withholds it too:\na gate that cannot be consulted must not read as clearance to upgrade.",
+            "description": "The upstream release to move this version to in order to clear its\noutstanding CVEs, e.g. \"3.9.2\".\n\nOutstanding means every CVE counted by cve_count except the ones a\nreviewer ruled out of scope. An EXCLUDED CVE is not asking to be cleared\nand commonly records no upstream fix at all, so requiring one would\nwithhold a real target on the strength of a finding we have already said\ndoes not apply. The per-CVE read says which were ruled out.\n\nPopulated only alongside status FIX_AVAILABLE. On any other rung naming a\ntarget would overstate what the upgrade achieves: REVIEWING covers a\nversion with one CVE that has no fix beside another that does, so no\nrelease clears it, and COMPLETE and WONT_REMEDIATE have nothing to move\nto.\n\nThe greatest of the upstream_fix_version values those CVEs record, ordered\nby the ecosystem's own version semantics. Greatest rather than nearest,\nbecause the target has to clear all of them at once -- a release that\ncarries the first CVE's fix but predates the second's leaves the version\nvulnerable while reading as resolved.\n\nAlways strictly newer than the version asked about. A recorded fix is not\nguaranteed to be ahead of it, so one at or below the pinned version names\nnothing here: moving there is not an upgrade, and it would not clear the\nCVEs.\n\nEmpty wherever that cannot be established, which is not rare and never\nmeans \"no fix exists\": an outstanding CVE records no upstream fix, the\ngreatest recorded fix is not above the version asked about, the ecosystem\nhas no implemented version ordering, a recorded version does not parse, or\nthe target did not clear the malware gate below. A target the gate blocked\nis in blocked_fix_version instead. Read upstream_fix_version on the\nper-CVE detail for what is known per CVE.\n\nChecked against the malware block list at read time, fail-closed: a\nnon-empty value has passed the gate and may be recommended. A target here\nis an upstream release, so it can carry malware or sit on the retroactive\nblock list -- unlike remediated_version on the per-CVE detail, which is\nalways a Chainguard build. A check that errors withholds it too: a gate\nthat cannot be consulted must not read as clearance to upgrade.",
             "readOnly": true,
             "type": "string"
           },
@@ -3488,7 +3495,7 @@
       },
       "chainguard.platform.libraries.v2beta1.FixTargetCheck": {
         "default": "FIX_TARGET_CHECK_UNSPECIFIED",
-        "description": "FixTargetCheck is the malware gate's verdict on one upgrade target, read when\nthe response is built rather than when the CVE was recorded: a release can\nland on the block list after its fix was named, and the verdict follows it.\n\nA target the gate did not clear is still reported, next to this verdict.\nLeaving the version out would read as \"no fix exists\", which is the one\nanswer that stops a customer looking further.\n\n - FIX_TARGET_CHECK_UNSPECIFIED: No target to check: the version field beside this one is empty.\n - FIX_TARGET_CHECK_CLEARED: The gate cleared the release. It may be recommended as an upgrade.\n - FIX_TARGET_CHECK_BLOCKED: The release is on the malware block list or was found to carry malware.\nA fix exists at this version, and it must not be installed.\n - FIX_TARGET_CHECK_UNVERIFIED: The gate could not clear the release: it has not been scanned yet, the\ngate could not be reached in time, or the ecosystem is outside its\ncoverage. Not a finding against the release, and not a clearance.",
+        "description": "FixTargetCheck says whether one upgrade target may be recommended, read when\nthe response is built rather than when the CVE was recorded: a release can\nland on the block list after its fix was named, and the verdict follows it.\nIt is the malware gate's answer, except that for a cgr cut on the advisory's\ntarget only a malware or block-list finding counts against it.\n\nA target the gate did not clear is still reported, next to this verdict.\nLeaving the version out would read as \"no fix exists\", which is the one\nanswer that stops a customer looking further.\n\n - FIX_TARGET_CHECK_UNSPECIFIED: No target to check: the version field beside this one is empty.\n - FIX_TARGET_CHECK_CLEARED: The release may be recommended as an upgrade: the gate cleared it, or it is\na cgr cut a Chainguard advisory named and the gate holds no malware or\nblock-list finding against it. Other controls keep malware out of\nChainguard builds, so a cut sentinel has not scanned yet reads CLEARED.\n - FIX_TARGET_CHECK_BLOCKED: The release is on the malware block list or was found to carry malware.\nA fix exists at this version, and it must not be installed.\n - FIX_TARGET_CHECK_UNVERIFIED: The gate could not clear the release: it has not been scanned yet, the\ngate could not be reached in time, or the ecosystem is outside its\ncoverage. Not a finding against the release, and not a clearance.",
         "enum": [
           "FIX_TARGET_CHECK_UNSPECIFIED",
           "FIX_TARGET_CHECK_CLEARED",
@@ -4342,7 +4349,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.FixTargetCheck"
               }
             ],
-            "description": "What the malware gate says about advisory_fix_version, checked when this\nresponse was built. UNSPECIFIED exactly when advisory_fix_version is empty.",
+            "description": "Whether advisory_fix_version may be recommended, checked when this\nresponse was built. For a cgr cut, which a Chainguard advisory named and so\nis a Chainguard build, only a finding counts: BLOCKED on a malware or\nblock-list finding, CLEARED otherwise, including before sentinel has\nscanned it. Any other version gets the malware gate's answer. UNSPECIFIED\nexactly when advisory_fix_version is empty.",
             "readOnly": true
           },
           "advisoryFixVersion": {
@@ -4412,7 +4419,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.FixTargetCheck"
               }
             ],
-            "description": "What the malware gate says about upstream_fix_version, checked when this\nresponse was built. UNSPECIFIED exactly when upstream_fix_version is empty.",
+            "description": "Whether upstream_fix_version may be recommended, from the malware gate,\nchecked when this response was built. Always the gate's answer: the\nversion is upstream's string, so its form is never taken as proof that\nChainguard built it. UNSPECIFIED exactly when upstream_fix_version is\nempty.",
             "readOnly": true
           },
           "upstreamFixVersion": {
@@ -4620,6 +4627,13 @@
             "description": "Part of Guarded Entrypoint, a Beta feature. To get access, contact\nChainguard customer support.\n\nReadiness checks to run before starting the app. Requires\nguarded_entrypoint in the same overlay config, even when a broader\nbinding already sets it. Up to 32 entries per overlay. The syncer\nbakes each entry into the image as one environment variable using a\nflat encoding, e.g.\nGUARDED_PREFLIGHT_0=tcp=redis:6379,timeout=60s,interval=1s,on_failure=fail\n(n starts at 0; values may not contain \",\" or \"=\").\nWhen several overlay bindings apply to one tag, their checks are\ncombined, broader bindings first, and identical entries are dropped.\nThe combined list can exceed 32.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Preflight"
+            },
+            "type": "array"
+          },
+          "truststores": {
+            "description": "Java truststores the wrapper writes before the app starts. The\nsyncer bakes each entry into the image as a GUARDED_TRUSTSTORE_\u003cn\u003e\nvariable, in list order. The most specific binding that sets this\nlist replaces broader ones; an empty list is unset. Requires\nguarded_entrypoint in the same overlay config.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Truststore"
             },
             "type": "array"
           }
@@ -4872,6 +4886,48 @@
           "ON_FAILURE_UNSPECIFIED",
           "ON_FAILURE_FAIL",
           "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Truststore": {
+        "description": "Truststore is one Java truststore the wrapper writes. The JVM reads\none store, so at most one entry may use FORMAT_JKS.",
+        "properties": {
+          "format": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.v2beta1.CustomOverlay.Truststore.Format"
+              }
+            ],
+            "description": "Format of the store file. Defaults to FORMAT_JKS."
+          },
+          "output": {
+            "description": "Absolute path of the store file. Required. Must not contain\nwhitespace, quotes, ',' or '=', because the wrapper puts it in\nJAVA_TOOL_OPTIONS.",
+            "type": "string"
+          },
+          "passwordEnv": {
+            "description": "Name of the environment variable that holds the store's password.\nThe variable can hold a cg+ secret reference. Unset uses the JDK's\ndefault password. The password itself is never written here.",
+            "type": "string"
+          },
+          "sources": {
+            "description": "PEM files, or directories of PEM files, whose certificates the store\ntrusts. At least one is required. Each is an absolute path, without\n',' or '='.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "system": {
+            "description": "Whether the store starts from the image's own certificates. Defaults\nto true.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.v2beta1.CustomOverlay.Truststore.Format": {
+        "default": "FORMAT_UNSPECIFIED",
+        "description": "Format of the store file.\n\n - FORMAT_UNSPECIFIED: Treated as FORMAT_JKS.\n - FORMAT_JKS: Java KeyStore.",
+        "enum": [
+          "FORMAT_UNSPECIFIED",
+          "FORMAT_JKS"
         ],
         "type": "string"
       },
@@ -5273,7 +5329,7 @@
         "type": "object"
       },
       "chainguard.platform.registry.v2beta1.TagSelector": {
-        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. A later\nlayer is more specific. The Guarded Entrypoint fields\n(guarded_entrypoint, preflight, command_override, fail_mode) state how\nthey layer on each field of CustomOverlay. All three layers can stack on\na single tag (e.g. `latest-dev`). Within one layer, co-matching bindings\nmerge commutatively: the bind-time compatibility check (see\nCreateOverlayBindingRequest.tag_selector) guarantees their overlays'\nconfigs never set the same field to different values.\n\nWhen a repo's ancestor groups have all-repos bindings (see\nCreateOverlayBindingRequest.all_repos), each scope's three kind\nlayers apply BELOW the repo's own, ordered by depth: the\norganization's all-repos ALL, VARIANT, EXACT compose first, then each\nenclosing folder's layers shallowest to deepest, then the repo-scoped\nlayers on top — a deeper scope wins scalar conflicts against a\nshallower one and a repo-scoped binding wins against any all-repos\nbinding, so all-repos bindings act as organization- or folder-wide\ndefaults that narrower scopes can override. Packages still accumulate\nacross every layer. Scope layers never co-match each other: the\nbind-time compatibility check runs among the all-repos bindings of\none group and among the repo's own bindings, never across scopes.",
+        "description": "1. The repo's KIND_ALL bindings.\n  2. KIND_VARIANT bindings whose variant_type matches the tag (today\n     only VARIANT_TYPE_DEV, matching the \"-dev\" tag suffix).\n  3. KIND_EXACT bindings whose `tags` include the tag.\n\nLayers merge later-wins for scalar fields; packages accumulate. A later\nlayer is more specific. The Guarded Entrypoint fields\n(guarded_entrypoint, preflight, command_override, fail_mode, truststores)\nstate how they layer on each field of CustomOverlay. All three layers can\nstack on a single tag (e.g. `latest-dev`). Within one layer, co-matching\nbindings merge commutatively: the bind-time compatibility check (see\nCreateOverlayBindingRequest.tag_selector) guarantees their overlays'\nconfigs never set the same field to different values.\n\nWhen a repo's ancestor groups have all-repos bindings (see\nCreateOverlayBindingRequest.all_repos), each scope's three kind\nlayers apply BELOW the repo's own, ordered by depth: the\norganization's all-repos ALL, VARIANT, EXACT compose first, then each\nenclosing folder's layers shallowest to deepest, then the repo-scoped\nlayers on top — a deeper scope wins scalar conflicts against a\nshallower one and a repo-scoped binding wins against any all-repos\nbinding, so all-repos bindings act as organization- or folder-wide\ndefaults that narrower scopes can override. Packages still accumulate\nacross every layer. Scope layers never co-match each other: the\nbind-time compatibility check runs among the all-repos bindings of\none group and among the repo's own bindings, never across scopes.",
         "properties": {
           "kind": {
             "allOf": [
@@ -6557,7 +6613,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -6808,7 +6864,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -7242,7 +7298,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -7545,7 +7601,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -7804,7 +7860,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -8292,7 +8348,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -8799,7 +8855,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -9575,7 +9631,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -10006,7 +10062,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12106,7 +12162,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12451,7 +12507,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12783,7 +12839,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -13386,7 +13442,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -14135,7 +14191,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {

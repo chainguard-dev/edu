@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-10-22T14:40:18+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -54,12 +54,14 @@ The following table lists the most common causes, grouped by the key or file the
 | A check's name has a character that isn't allowed, or doesn't start and end with a letter or digit. | Rename the check. Unless the character is `.` or `/`, the error for a character that isn't allowed says only that the name must fit the 128-character limit, even when the name is short. Refer to [Check names](/chainguard/checks/configuration/#check-names). |
 | Two checks in the same file have names that differ only in case, such as `Test` and `test`. | Rename one of them. |
 | A check's full name, such as `ci/test`, is longer than 128 characters. | Shorten the check's name, or the file's. |
-| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Build caches](/chainguard/checks/variations-services-caches/#build-caches). |
+| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types). |
 | A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
 | A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
 | `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
-| `resources.yaml` gives a `memory` or `disk` size in a unit other than `Mi` or `Gi`, such as `16GB`. | Write the size in `Mi` or `Gi`, such as `16Gi`. |
-| A check names a resource class that `resources.yaml` doesn't define. | The file replaces the built-in classes, so a check can't name `medium` or `large-amd64` unless the file defines it. Define the class, or name one that the file defines. |
+| A resource class gives a `memory` or `disk` size in a unit other than `Mi` or `Gi`, such as `16GB`. | Write the size in `Mi` or `Gi`, such as `16Gi`. |
+| A file in `.chainguard/ci/resources/` is named after a built-in class, such as `medium.yaml`, or is named `default.yaml` or `auto.yaml`. | Rename the file, which renames the class, and update the checks that name it. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
+| The repository has both `.chainguard/ci/resources.yaml` and a `.chainguard/ci/resources/` directory. | Move each class in `resources.yaml` to its own file in `resources/`, and delete `resources.yaml`. Refer to [Replace the built-in classes with resources.yaml](/chainguard/checks/configuration/#replace-the-built-in-classes-with-resources-yaml). |
+| A check names a resource class that isn't built in and that no file in `.chainguard/ci/resources/` defines. | Add the class file, or name a built-in class. With `resources.yaml`, which replaces the built-in classes, a check can't name `medium` or `large-amd64` unless the file defines it. |
 | `.chainguard/` or `.chainguard/ci/` holds a file that the repository's layout doesn't allow, such as a `.yml` file. | Remove or rename the file. Refer to [File layouts](/chainguard/checks/configuration/#file-layouts) for the files each layout allows. |
 | The repository has a `.chainguard/ci.yaml` file and also has files in `.chainguard/ci/` other than `identities.yaml`. | A repository can't use both layouts. Move the checks from `.chainguard/ci.yaml` into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`. |
 
@@ -94,7 +96,26 @@ If **Chainguard Checks (presubmit)** says that checks could not be executed, or 
 
 ## The summary check reports a merge conflict {#the-summary-check-reports-a-merge-conflict}
 
-Chainguard Checks runs each pull request against the commit GitHub would create by merging it. If the pull request has merge conflicts with its base branch, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**. Resolve the conflicts and push.
+Chainguard Checks merges each pull request into the latest commit on its base branch itself, rather than using the merge that GitHub computes. If that merge conflicts, the summary check fails with **Merge conflict with the base branch**, and its output lists the kinds of conflict and up to 20 of the conflicting paths.
+
+The merge is stricter than Git's, so the summary check can report a conflict on a pull request that GitHub says it can merge. It reports a conflict in the following cases:
+
+- Both the pull request and the base branch changed the same file, even in different lines. For example, a dependency update that changes `go.mod` conflicts with another change to `go.mod` that merged first.
+- One side deleted a file that the other side changed.
+- A path is a file on one side and a directory on the other.
+- One side added a file in a directory that the other side removed.
+
+It doesn't merge changes within a file, and it doesn't detect renames.
+
+To fix the conflict, rebase the pull request onto the latest commit on its base branch, resolve any conflicts that Git reports, and push. A pull request that contains the latest base branch commit always merges, because only the pull request has changes.
+
+## The summary check says the pull request is too large to merge {#the-summary-check-says-the-pull-request-is-too-large-to-merge}
+
+If merging the pull request goes past the size limits of Chainguard Checks' merge, the summary check fails with **Too large to merge**. Rebase the pull request onto a recent commit on its base branch, or split it into smaller pull requests, and push.
+
+## The summary check says the merge service can't test the pull request {#the-summary-check-says-the-merge-service-cant-test-the-pull-request}
+
+If the summary check fails with **The merge service cannot test this pull request**, Chainguard Checks can't merge any pull request in the repository, such as when the repository is larger than it can serve. Rebasing doesn't help. Ask in the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw).
 
 ## A check can't find a command {#a-check-cant-find-a-command}
 
@@ -143,6 +164,7 @@ To add files from another public repository, use a [`git` input](/chainguard/che
 The `run-ci` command in a Workspaces session runs each check in the session's environment, which can differ from the pull request's:
 
 - The session might have packages or network access that the check's own environment doesn't list.
+- On a pull request, `HEAD` is a merge commit that exists only in the check's VM, so a command that looks it up on GitHub fails there. Use `HEAD^2` for the pull request's head, as described in [Environment variables](/chainguard/checks/configuration/#environment-variables).
 - Sessions run on x86-64 unless their resource class pins arm64, while pull request checks usually run on arm64 unless their resource class pins x86-64. If a check downloads or runs an x86-64 binary, set its resource class to an `-amd64` variant of a built-in class, such as `medium-amd64`. If you [define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes), set `platform` on the check's class instead, because only `platform` pins the architecture.
 
 Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
@@ -171,12 +193,12 @@ A check whose environment names a cache under `caches` runs without one, and wit
 
 - Your default branch doesn't define cache pools yet. This includes the pull request that adds them, because Chainguard Checks reads pools only from your default branch. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 - No pool lists the run's ring, such as ring `0` for a pull request opened by someone outside your subrings.
-- The cache isn't `gobuild`. During the beta, the other cache types cache nothing.
+- The cache is `node` or `directory`, which store nothing during the beta.
 - The run is a rerun from **Re-run** on GitHub or from `chainctl checks rerun`.
 - The check uses a workload identity, and a ring in its pool can't get the same identity.
 - The pool is still filling, as described in [How caches fill](/chainguard/checks/variations-services-caches/#how-caches-fill).
 
-To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists the cache types other than `gobuild` as `read-write`, though they cache nothing during the beta.
+To see what each check gets, run `chainctl checks explain` and read its `cache selection` section. For each check that names a cache, it shows what the check mounts in each pool, or why it mounts nothing. It can't tell which pool a pull request's author reaches, and it lists `node` and `directory` caches as `read-write`, though they store nothing during the beta.
 
 ## A required check never reports {#a-required-check-never-reports}
 

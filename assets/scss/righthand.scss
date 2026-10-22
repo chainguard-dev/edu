@@ -36,8 +36,8 @@
     padding-bottom: 0;
   }
 
-  .tocLinks li ul li {
-    padding-left: 1rem;
+  .tocLinks ul ul a[href] {
+    padding-left: calc(8px + 1rem);
   }
 
   .tocLinks a[href] {
@@ -64,15 +64,12 @@
       text-decoration: none;
     }
 
-    &.active-link {
+    &[aria-current="true"] {
       color: var(--active-link-color);
+      background-color: var(--active-element-background);
+      box-shadow: -1px 0 0 0 var(--active-element-shadow);
     }
   }
-}
-
-.active-element {
-  background-color: var(--active-element-background);
-  box-shadow: -1px 0 0 0 var(--active-element-shadow);
 }
 
 .docs-toc {

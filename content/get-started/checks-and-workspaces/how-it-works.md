@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-20T11:36:21+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -116,7 +116,7 @@ A *run* is one pass of a repository's checks for one commit. The following table
 | Stage | What happens | What can end the run here |
 | -- | -- | -- |
 | 1. Event | GitHub tells Chainguard Checks, through the Chainguard App, that a pull request was opened, reopened, or updated. | Pushes to other branches, tags, and closed pull requests start no run. |
-| 2. Test merge | Chainguard Checks uses the commit GitHub would create by merging the pull request into its base branch. | Merge conflicts: the summary check fails with **Merge conflict with the base branch**. |
+| 2. Test merge | Chainguard Checks merges the pull request into the latest commit on its base branch. The merge commit exists only in the run, never on GitHub. | Conflicts, which Chainguard Checks can find where GitHub finds none, fail the summary check with **Merge conflict with the base branch**. A pull request past the merge's size limits fails with **Too large to merge**. Refer to [The summary check reports a merge conflict](/chainguard/checks/troubleshooting/#the-summary-check-reports-a-merge-conflict). |
 | 3. Plan | Chainguard Checks reads the configuration from the merge commit, applies the base branch's rules, and selects the checks that this change runs. | An invalid configuration fails with **Invalid config**. A change that weakens its own gate, or that changes 3,000 or more files, fails with **Run creation failed**. |
 | 4. Admission | Chainguard Checks admits the run only if Chainguard Checks is turned on for the organization and the organization is within its limits. | Chainguard Checks isn't turned on for the organization, or the organization is at its run limit, such as 10 runs queued or running with the Starter allowance. Either way, no summary check appears. The summary check fails with **Run creation failed** when the organization has used up its monthly compute allowance or hasn't accepted the terms. |
 | 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. Before a check gets a workload identity, Chainguard Checks verifies again, against GitHub, that the pull request is still open at the head and base this run tests, and that the base branch allows the identity for this check. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, is stopped by `policy: destroy`, or doesn't get the workload identity it requests. |
@@ -167,7 +167,7 @@ You can delete a session in any state. Anything you didn't push is lost. A parke
 : One entry in a check's `foreach` list. Each variation runs in its own VM, and all of a check's variations report as one GitHub check.
 
 **Workload identity**
-: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud or Chainguard. Sessions don't get them.
+: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud, AWS, Azure, or Chainguard. Sessions don't get them.
 
 Several names in `chainctl` and in the configuration don't match the product names:
 

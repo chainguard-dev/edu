@@ -4,7 +4,7 @@ linktitle: "Variations, services, and caches"
 description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database or Docker, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-20T14:50:35+00:00
+lastmod: 2026-10-22T14:35:40+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -348,11 +348,23 @@ A check that runs as another user can't declare `outputs`, and can use a [cache]
 
 ## Caches {#caches}
 
-By default, each check starts with nothing from earlier runs, so a Go check compiles every package on every run. A check can reuse build output from earlier runs through a cache that its environment names under `caches`. During the beta, only the Go build cache, `gobuild`, stores anything. The `gomod`, `python`, `node`, and `directory` caches pass validation but cache nothing, so keep the hosts that your tools download from in `egress`.
+By default, each check starts with nothing from earlier runs, so a Go check compiles every package on every run, and every check downloads its dependencies again. A check can reuse files from earlier runs through caches that its environment names under `caches`.
 
-### Build caches {#build-caches}
+### Cache types {#cache-types}
 
-To reuse Go build output, name `gobuild` in the environment's `caches`:
+<span id="build-caches"></span>
+
+Each key under `caches` is a cache type. During the beta, three types store files from earlier runs:
+
+| Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
+| ---- | -------------- | ----------------- | -------------------------------- |
+| `gobuild` | Go build output | `go` or a `go-<version>` package | `GOCACHE`, and `-count=1` added to `GOFLAGS` |
+| `gomod` | Downloaded Go modules | `go` or a `go-<version>` package | `GOMODCACHE` |
+| `python` | Packages that pip and uv download | `python` or a `python-<version>` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
+
+The `node` and `directory` types pass validation, but they store nothing during the beta.
+
+For example, the following file caches both Go build output and downloaded modules:
 
 ```yaml {title=".chainguard/ci.yaml"}
 version: 1
@@ -360,6 +372,7 @@ environment:
   packages: [go]
   caches:
     gobuild: {}
+    gomod: {}
 checks:
   test:
     cmd: go test ./...
@@ -369,14 +382,44 @@ checks:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-The cache does nothing until your default branch defines cache pools, as described in [Set up cache pools](#set-up-cache-pools). A Go build cache works as follows:
+A cache does nothing until your default branch defines cache pools, as described in [Set up cache pools](#set-up-cache-pools). Caches work as follows:
 
-- `gobuild: {}` takes no settings, and the environment's packages must include `go` or a `go-<version>` package.
+- Each type needs the packages that the table lists in the environment's `packages`.
 - Every check in an environment that names a cache must run as `root` or `build`. A check that runs as `root`, the default, needs an environment whose only cache is `gobuild`, and can still use services that need root, such as [Docker](#run-docker). A check with `user: build`, as in the example, runs its commands as an unprivileged account, as described in [Run as another user](#run-as-another-user), and can use any cache. In the directory layout, give checks that run as any other account an environment without caches.
-- Chainguard Checks sets `GOCACHE` to the cache's directory, so don't set `GOCACHE` in `vars`.
-- Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
+- Chainguard Checks sets the variables that the table lists, so don't set them in `vars`.
+- With `gobuild`, Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
+- With `gomod`, Go reuses downloaded modules but downloads any that the cache doesn't have, and with `python`, pip and uv do the same, so keep the hosts that your tools download from in `egress`.
+- A [planner](#compute-variations-during-a-run) can't name a cache. Name the cache on the checks it plans instead.
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
-- Go modules still download on every run, so keep `proxy.golang.org` and `sum.golang.org` in `egress`.
+
+### Give a check its own cache {#give-a-check-its-own-cache}
+
+All the checks in a pool share one cache of each type, so a check that writes little, or that runs only on pull requests, can find that busier checks pushed its files out before it reuses them. To give a check a cache of its own, set a `key`, and optionally a `size`, on the cache's type:
+
+```yaml {title=".chainguard/ci/e2e.yaml"}
+version: 1
+environment:
+  packages: [go]
+  caches:
+    gobuild: {key: e2e, size: 32Gi}
+checks:
+  e2e:
+    cmd: go test ./e2e/...
+    user: build
+```
+
+A keyed cache works as follows:
+
+- It's a separate cache inside the pool that the run already uses. A key never gives a check another pool's cache, and your default branch's cache pools still decide which runs read and write it.
+- Checks that name the same type and key share the cache, so give the same key to checks that use the same files.
+- A `key` uses 1 to 32 lowercase letters, digits, and inner `-` characters.
+- A `size` needs a `key`, and is a whole number of `Gi` from `1Gi` to `128Gi`. It defaults to `16Gi`. When the cache is full, Chainguard Checks drops the files that runs used least recently. Changing a cache's size starts it empty, and two checks can't give the same type and key different sizes.
+- A run's checks can name up to 8 keyed caches, with sizes that add up to at most `256Gi`.
+- A keyed cache in a pool with a `seed` starts from the seed pool's cache with the same key, or from its unkeyed cache while that one is empty.
+- A keyed cache that no check names is deleted after about 30 days.
+- Workspaces sessions ignore the key and read the unkeyed cache.
+
+To see each check's caches, with their keys and sizes, run `chainctl checks explain`.
 
 ### Set up cache pools {#set-up-cache-pools}
 

@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -28,7 +28,7 @@ Chainguard Checks reaches your repositories through the Chainguard App, a GitHub
 
 When someone opens or updates a pull request, the following happens:
 
-1. Chainguard Checks plans a run against the commit GitHub would create by merging the pull request into its base branch, so each run tests the change together with the latest base branch.
+1. Chainguard Checks merges the pull request into the latest commit on its base branch and plans a run against that merge, so each run tests the change together with the latest base branch.
 2. It reads the configuration from that merged commit, so a pull request can add checks or change them.
 3. Each check runs in its own microVM with the packages your configuration file declares.
 4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus a GitHub check for each check that doesn't pass or that reports something, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
@@ -64,8 +64,8 @@ Every check starts from the same minimal base and gets only what you declare:
 | -------- | ----------------- |
 | Packages | BusyBox, GNU tar, and the packages your configuration file lists. A check has no `git`, package manager, or language toolchain unless you list it. |
 | Network | No network access unless the check lists hosts under `network.egress`. Chainguard Checks always blocks cloud metadata endpoints, loopback addresses, and private IP ranges. |
-| Credentials | No long-lived credentials. Your repository's code is already in the VM, so most checks need none. A check that must authenticate to Google Cloud or to Chainguard can request a [workload identity](/chainguard/checks/identity-and-trust/) for short-lived access. |
-| Caches | None unless the check declares one. During the beta, a Go check can reuse build output from earlier runs through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
+| Credentials | No long-lived credentials. Your repository's code is already in the VM, so most checks need none. A check that must authenticate to Google Cloud, AWS, Azure, or Chainguard can request a [workload identity](/chainguard/checks/identity-and-trust/) for short-lived access. |
+| Caches | None unless the check declares one. During the beta, a check can reuse Go build output, downloaded Go modules, and Python packages from earlier runs, through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
 
 By default, Chainguard Checks refuses a connection to a host the check doesn't list, and the check keeps running. With `policy: destroy`, Chainguard Checks stops the check's VM instead, and the check fails.
 
@@ -111,5 +111,5 @@ If your organization arranged access with its Chainguard account team, its allow
 - [Get started with Chainguard Checks](/chainguard/checks/getting-started/) to sign up and run your first checks on a pull request.
 - [Chainguard Checks configuration reference](/chainguard/checks/configuration/) to learn the `.chainguard/ci.yaml` format.
 - [Use Chainguard Checks on GitHub](/chainguard/checks/github/) to require checks before merging.
-- [Workload identities and trust](/chainguard/checks/identity-and-trust/) to give a check short-lived Google Cloud or Chainguard credentials.
+- [Workload identities and trust](/chainguard/checks/identity-and-trust/) to give a check short-lived Google Cloud, AWS, Azure, or Chainguard credentials.
 - [chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/) for every `chainctl checks` command and flag.

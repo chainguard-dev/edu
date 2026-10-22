@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-10-22T14:35:40+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -189,7 +189,7 @@ The session mounts the Go build cache that your checks write after merging, as i
 The cache mounts only when all of the following are true:
 
 - You open the session from a repository URL. A session opened from a local directory gets no cache, even with `--cache`.
-- The session's environment names a `gobuild` cache, as described in [Build caches](/chainguard/checks/variations-services-caches/#build-caches). Name the cache in the environment that the session uses, as described in [How a session chooses its environment](#how-a-session-chooses-its-environment). If your `.chainguard/develop.yaml` file sets `from`, name it in the environment of the file that `from` names. Sessions don't mount other cache types.
+- The session's environment names a `gobuild` cache, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). Name the cache in the environment that the session uses, as described in [How a session chooses its environment](#how-a-session-chooses-its-environment). If your `.chainguard/develop.yaml` file sets `from`, name it in the environment of the file that `from` names. Sessions don't mount other cache types.
 - On your default branch, the `trust` section of `.chainguard/ci/identities.yaml` has a cache pool whose `rings` is exactly `[2]`, the ring of checks that run after merging. Refer to [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 
 The cache holds what passing checks built after merging, so it's empty until a check that names `gobuild` passes on your default branch. If any of these conditions isn't met, the session starts without a cache. `chainctl` doesn't report whether the cache mounted. To check, run `echo $GOCACHE` in the session, which prints nothing when no cache mounted.

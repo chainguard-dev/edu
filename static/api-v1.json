@@ -857,6 +857,44 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosPartners.DeleteCapabilitiesBody": {
+        "properties": {
+          "capabilities": {
+            "description": "capabilities names method display names to remove.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "interests": {
+            "description": "interests names PURLs to remove.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosPartners.UpdateCapabilitiesBody": {
+        "properties": {
+          "capabilities": {
+            "description": "capabilities is the full set of mitigation method display names the\npartner now requests. Any name that is not a live method is reported\nback as unrecognized.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "interests": {
+            "description": "interests is the full set of PURLs the partner is interested in. Empty\nor unset means the partner is interested in every PURL.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosVulns.BatchGetBody": {
         "properties": {
           "cgpIds": {
@@ -1092,6 +1130,18 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ListMitigationMethodsResponse": {
+        "properties": {
+          "mitigationMethods": {
+            "additionalProperties": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.MitigationMethod"
+            },
+            "description": "mitigation_methods is keyed by display name.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.MinimalOSVRecord": {
         "description": "MinimalOSVRecord is the abbreviated vuln entry returned by QueryBatch,\nmatching the OSV spec's batch response (id + modified only); callers\nfollow up with GetVuln for full detail.",
         "properties": {
@@ -1100,6 +1150,24 @@
           },
           "modified": {
             "format": "date-time",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.MitigationMethod": {
+        "properties": {
+          "cwes": {
+            "description": "cwes are sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "description": {
+            "type": "string"
+          },
+          "title": {
             "type": "string"
           }
         },
@@ -1255,6 +1323,54 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.PartnerCapabilities": {
+        "properties": {
+          "capabilities": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.PartnerCapabilityState"
+          },
+          "interests": {
+            "description": "interests is the partner's current set of PURLs of interest, sorted.\nEmpty means the partner is interested in every PURL.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.PartnerCapabilityState": {
+        "properties": {
+          "approvedCapabilities": {
+            "description": "approved is every approved capability, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "pendingCapabilities": {
+            "description": "pending is every capability awaiting review, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "rejectedCapabilities": {
+            "description": "rejected is every rejected capability, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "rejectionReasons": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "rejection_reasons maps a rejected capability's display name to the\nreason it was rejected, so the partner can see why.",
+            "type": "object"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.PatchStatus": {
         "default": "PATCH_STATUS_UNSPECIFIED",
         "description": "PatchStatus is the patch-generation state of a CGP record. Values are\nidentical to the internal PatchStatus enum; UNSPECIFIED means the record\npredates patch-status tracking or its status has not yet been evaluated.",
@@ -1331,6 +1447,25 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.argos.RequestedCapabilities": {
+        "properties": {
+          "pendingCapabilities": {
+            "description": "pending is every requested capability now awaiting review, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "unrecognizedCapabilities": {
+            "description": "unrecognized is every requested name that is not a live method, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.Severity": {
         "properties": {
           "score": {
@@ -1389,6 +1524,14 @@
               }
             ],
             "description": "patch_status is the patch-generation state of this record."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.UpdatePartnerCapabilitiesResponse": {
+        "properties": {
+          "capabilities": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.RequestedCapabilities"
           }
         },
         "type": "object"
@@ -4492,11 +4635,13 @@
       },
       "chainguard.platform.libraries.Tier": {
         "default": "TIER_UNSPECIFIED",
-        "description": "Tier identifies where an artifact's bytes come from.\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.",
+        "description": "Tier identifies where an artifact's bytes come from.\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.\n - TIER_REMEDIATED: Chainguard-remediated versions of upstream releases.\n - TIER_ARGOS: Artifacts of the Argos ecosystems.",
         "enum": [
           "TIER_UNSPECIFIED",
           "TIER_CHAINGUARD",
-          "TIER_UPSTREAM"
+          "TIER_UPSTREAM",
+          "TIER_REMEDIATED",
+          "TIER_ARGOS"
         ],
         "type": "string"
       },
@@ -5199,11 +5344,10 @@
             "type": "string"
           },
           "parameterSchemas": {
-            "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
+            "description": "The configurable parameter schemas declared by this policy. Customers\nconfigure values on the bindings that activate the policy.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterSchema"
             },
-            "readOnly": true,
             "type": "array"
           },
           "policyType": {
@@ -5261,11 +5405,10 @@
             "type": "string"
           },
           "parameterSchemas": {
-            "description": "The configurable parameter schemas declared by this policy. System\npolicies declare these; customers configure values on the bindings that\nactivate the policy.",
+            "description": "The configurable parameter schemas declared by this policy. Customers\nconfigure values on the bindings that activate the policy.",
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.policies.v1.ParameterSchema"
             },
-            "readOnly": true,
             "type": "array"
           },
           "policyType": {
@@ -6142,6 +6285,13 @@
               "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Preflight"
             },
             "type": "array"
+          },
+          "truststores": {
+            "description": "Java truststores the wrapper writes before the app starts. The\nsyncer bakes each entry into the image as a GUARDED_TRUSTSTORE_\u003cn\u003e\nvariable, in list order. The most specific binding that sets this\nlist replaces broader ones; an empty list is unset. Requires\nguarded_entrypoint in the same overlay config.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Truststore"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -6253,6 +6403,48 @@
           "ON_FAILURE_UNSPECIFIED",
           "ON_FAILURE_FAIL",
           "ON_FAILURE_CONTINUE"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.registry.CustomOverlay.Truststore": {
+        "description": "Truststore is one Java truststore the wrapper writes. The JVM reads\none store, so at most one entry may use FORMAT_JKS.",
+        "properties": {
+          "format": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.CustomOverlay.Truststore.Format"
+              }
+            ],
+            "description": "Format of the store file. Defaults to FORMAT_JKS."
+          },
+          "output": {
+            "description": "Absolute path of the store file. Required. Must not contain\nwhitespace, quotes, ',' or '=', because the wrapper puts it in\nJAVA_TOOL_OPTIONS.",
+            "type": "string"
+          },
+          "passwordEnv": {
+            "description": "Name of the environment variable that holds the store's password.\nThe variable can hold a cg+ secret reference. Unset uses the JDK's\ndefault password. The password itself is never written here.",
+            "type": "string"
+          },
+          "sources": {
+            "description": "PEM files, or directories of PEM files, whose certificates the store\ntrusts. At least one is required. Each is an absolute path, without\n',' or '='.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "system": {
+            "description": "Whether the store starts from the image's own certificates. Defaults\nto true.",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.CustomOverlay.Truststore.Format": {
+        "default": "FORMAT_UNSPECIFIED",
+        "description": "Format of the store file.\n\n - FORMAT_UNSPECIFIED: Treated as FORMAT_JKS.\n - FORMAT_JKS: Java KeyStore.",
+        "enum": [
+          "FORMAT_UNSPECIFIED",
+          "FORMAT_JKS"
         ],
         "type": "string"
       },
@@ -9422,7 +9614,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -9557,7 +9749,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -9815,7 +10007,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -10039,6 +10231,38 @@
         "summary": "Create",
         "tags": [
           "ArgosDocuments"
+        ]
+      }
+    },
+    "/argos/v1/mitigation-methods": {
+      "get": {
+        "description": "ListMitigationMethods returns the live mitigation-method catalogue, keyed\nby display name. There is no per-organisation filtering: every method a\npartner could request is visible so they can build a capabilities.md.",
+        "operationId": "ArgosPartners_ListMitigationMethods",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.ListMitigationMethodsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Mitigation Methods",
+        "tags": [
+          "ArgosPartners"
         ]
       }
     },
@@ -10391,6 +10615,153 @@
         ]
       }
     },
+    "/argos/v1/partners/{partnerId}/capabilities": {
+      "delete": {
+        "description": "DeleteCapabilities removes the named capabilities and interests from the\npartner, ignoring names it does not hold, and returns what remains. No\napproval is required.",
+        "operationId": "ArgosPartners_DeleteCapabilities",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.DeleteCapabilitiesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.PartnerCapabilities"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Capabilities",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "get": {
+        "description": "GetCapabilities returns the partner's capabilities by review state and\nits interests.",
+        "operationId": "ArgosPartners_GetCapabilities",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.PartnerCapabilities"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Capabilities",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "put": {
+        "description": "UpdateCapabilities overwrites the partner's requested capabilities and\ninterests. A requested capability keeps an approved state, moves\nrejected back to pending, and is otherwise pending; one not requested is\nremoved without approval (but audited). Interests are replaced outright.",
+        "operationId": "ArgosPartners_UpdateCapabilities",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.UpdateCapabilitiesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.UpdatePartnerCapabilitiesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Capabilities",
+        "tags": [
+          "ArgosPartners"
+        ]
+      }
+    },
     "/argos/v1/vex/documents/{ecosystem}/{package}": {
       "get": {
         "description": "GetDocument returns the per-package OpenVEX document, verbatim as\npublished to the feed.",
@@ -10638,7 +11009,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -11060,7 +11431,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -11480,7 +11851,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -11831,7 +12202,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12170,7 +12541,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12621,7 +12992,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -12927,7 +13298,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -13677,7 +14048,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -15117,7 +15488,7 @@
             }
           },
           {
-            "description": "tier lists entries recording one tier (UNSPECIFIED = all).\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.",
+            "description": "tier lists entries recording one tier (UNSPECIFIED = all).\n\n - TIER_CHAINGUARD: Chainguard-built artifacts.\n - TIER_UPSTREAM: Upstream artifacts mirrored or proxied from the public registry.\n - TIER_REMEDIATED: Chainguard-remediated versions of upstream releases.\n - TIER_ARGOS: Artifacts of the Argos ecosystems.",
             "in": "query",
             "name": "tier",
             "schema": {
@@ -15125,7 +15496,9 @@
               "enum": [
                 "TIER_UNSPECIFIED",
                 "TIER_CHAINGUARD",
-                "TIER_UPSTREAM"
+                "TIER_UPSTREAM",
+                "TIER_REMEDIATED",
+                "TIER_ARGOS"
               ],
               "type": "string"
             }
@@ -15437,7 +15810,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -15692,7 +16065,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -15909,7 +16282,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -16112,7 +16485,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -16148,7 +16521,7 @@
             }
           },
           {
-            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"id asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "description": "Order results by field. Format: \"field [asc|desc]\"\nDefault: \"name asc\"\nNote: Changing order_by between pages invalidates the page token.",
             "in": "query",
             "name": "orderBy",
             "schema": {
@@ -16339,6 +16712,7 @@
         ]
       },
       "put": {
+        "description": "UpdatePolicy replaces a custom policy. An empty name or expression keeps\nthe stored value. An empty description or parameter_schemas clears it.\nsupported_resource_type cannot be changed; empty keeps the stored value.",
         "operationId": "Policies_UpdatePolicy",
         "parameters": [
           {
@@ -16419,7 +16793,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -16530,7 +16904,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -17314,7 +17688,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -17480,7 +17854,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -18848,7 +19222,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -20014,7 +20388,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -20575,7 +20949,7 @@
             }
           },
           {
-            "description": "in_root resticts responses to root level resources (organizations, user identities)",
+            "description": "in_root restricts responses to root level resources.",
             "in": "query",
             "name": "uidp.inRoot",
             "schema": {
@@ -20876,6 +21250,10 @@
     {
       "description": "ArgosOSV is the customer-facing OSV-spec query surface for the Private OSV\nshared corpus. All members holding CAP_ARGOS_OSV_READ see the same record\nset; there is no per-organisation filtering. Records are customer-blind.",
       "name": "ArgosOSV"
+    },
+    {
+      "description": "ArgosPartners lets a mitigation partner declare the mitigation methods it\ncan apply and the packages it is interested in. Requested capabilities\nawait Chainguard review before they widen what the partner can see;\ninterests need no review. See\ndocs/argos/mitigation-partner-api-capability-mapping.md.",
+      "name": "ArgosPartners"
     },
     {
       "description": "ArgosVEX is the customer-facing surface for the OpenVEX feed derived from\nthe Private OSV shared corpus. Documents are customer-blind: all members\nholding CAP_ARGOS_OSV_READ see the same document set; the feed is a\nre-encoding of data that capability already grants. All RPCs here are\nunscoped: the server implementation MUST reject callers with zero\nauthorized scopes as its first action (see api-impl argos core).",

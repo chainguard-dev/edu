@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T14:50:35+00:00
+lastmod: 2026-10-22T14:26:43+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -28,7 +28,7 @@ Chainguard Checks runs on a repository when the Chainguard App is installed on t
 
 Pushes to other branches, tags, and closed pull requests don't start runs.
 
-For a pull request, Chainguard Checks runs against the commit GitHub would create by merging the pull request into its base branch, and reads the configuration from that commit. The result reflects the latest base branch as well as the change. If the pull request has merge conflicts, GitHub can't create that commit, and the summary check fails with **Merge conflict with the base branch**.
+For a pull request, Chainguard Checks merges the pull request into the latest commit on its base branch, runs against that merge, and reads the configuration from it. The result reflects the latest base branch as well as the change. If the merge conflicts, the summary check fails with **Merge conflict with the base branch**, sometimes on a pull request that GitHub says it can merge, as described in [The summary check reports a merge conflict](/chainguard/checks/troubleshooting/#the-summary-check-reports-a-merge-conflict).
 
 When you push a new commit to a pull request, Chainguard Checks cancels the run for the previous commit and starts a new one. Closing or merging a pull request doesn't cancel its run. The run finishes, reports its results on the pull request, and uses your organization's [Checks allowance](/chainguard/checks/overview/#availability-and-limits) until it ends. To stop the run, use [`chainctl checks cancel --force`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-cancel).
 

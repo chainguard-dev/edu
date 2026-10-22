@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-10-22T12:51:41+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -30,8 +30,8 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 If `chainctl develop init` stops with an error, find its message in the following list. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
-- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with a work email address, using a password or Google. Other sign-in methods, such as GitHub, can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
-- `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access` to send its owners a request.
+- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with Google, GitHub, or an email address and password, using a verified email address. To sign in with a password, first run `chainctl config set default.social-login email`, as described in [Sign up with chainctl develop init](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init). A GitLab sign-in can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access`, which emails your request to everyone with the `owner` or `limited_owner` role in it. The link in that email invites you with the `viewer` role, which can't open sessions, so to use Chainguard Workspaces, ask for an invite with a role that can, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 - `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
 - `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
 - `creating a Starter organization asks a few questions about you`, or `accepting the required legal agreements needs an interactive terminal`: run the command in an interactive terminal, without `--non-interactive`.
