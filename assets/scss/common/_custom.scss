@@ -1308,40 +1308,6 @@ header .search-container {
     margin-top: 16px; // Increased top margin for better breathing room
 }
 
-#notification {
-    position: fixed;
-    bottom: 48px;
-    right: 48px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 24px;
-    gap: 12px;
-    width: 368px;
-    height: 72px;
-    background: var(--notification-background);
-    color: var(--notification-color);
-    border-radius: 8px;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.notification-toast {
-    animation: toast 2s linear;
-}
-
-@keyframes toast {
-    0%,
-    100% {
-        opacity: 0;
-    }
-
-    10%,
-    90% {
-        opacity: 1;
-    }
-}
-
 .step {
     display: inline-block;
     text-align: center;
