@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-10-07T00:00:00+00:00
+lastmod: 2026-10-22T12:53:48+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -23,62 +23,71 @@ Chainguard's `chainctl` command-line interface provides essential tools for mana
 
 The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
 
-Before we begin, let’s move into a temporary directory that we can work in. Be sure you have [curl](https://curl.se/download.html) and [jq](https://jqlang.org/download/) installed. The `curl` installation and the Cosign verification steps use jq to find the latest release version.
+## Install `chainctl`
+
+To install `chainctl` with [Homebrew](https://brew.sh/) on macOS or Linux, run the following command:
 
 ```sh
-mkdir -p ~/tmp && cd $_
+brew install chainguard-dev/tap/chainctl
 ```
 
-There are currently two ways to install `chainctl`, depending on your operating system and preferences.
+To install `chainctl` with [curl](https://curl.se/download.html) on macOS or Linux, download the latest release for your platform and move it into `/usr/local/bin`:
+
+```sh
+curl -fL -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
+```
+
+On Windows, install with [`curl` in PowerShell](#installing-with-curl-in-windows-powershell) or with [Scoop](#install-with-scoop-in-windows).
+
+To check the binary's signature before you run it, [install a pinned version with `curl`](#install-a-pinned-version-with-curl) and then [verify it with Cosign](#verifying-the-chainctl-binary-with-cosign). When you're done, [confirm the installation](#verifying-installation).
 
 ## Install `chainctl` with Homebrew
 
-You can install `chainctl` for macOS and Linux with the package manager [Homebrew](https://brew.sh/).
+The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` formula in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
 
-Note that you will need to have the Xcode Command Line Tools installed prior to installing `chainctl` with Homebrew on macOS. Without these installed, you won't be able to use Homebrew to install `chainctl` on your macOS device.
-
-If you haven't already done so, you can install the Xcode Command Line Tools with the following command.
+On macOS, Homebrew needs the Xcode Command Line Tools to install `chainctl`. The Homebrew installer sets them up, so most Macs already have them. If `brew` reports `No developer tools installed`, install the tools and then run the `brew install` command again:
 
 ```sh
 xcode-select --install
 ```
 
-Before installing `chainctl` with Homebrew, use `brew tap` to bring in Chainguard's repositories and trust them.
+### Troubleshoot a Homebrew installation
+
+If `brew` reports that `trust` is an unknown command, your Homebrew is earlier than version 5.1.15, which added `brew trust`. Older instructions for `chainctl` ran `brew tap` and `brew trust --tap` as separate steps. Skip them and run `brew install chainguard-dev/tap/chainctl`, which needs no separate trust step on any version. To update Homebrew itself, run `brew update`.
+
+If `brew` fails to clone the tap with `Permission denied (publickey)`, your Git configuration probably rewrites GitHub HTTPS URLs to SSH. The tap repository is public and needs no credentials over HTTPS, but the rewrite sends the clone over SSH, which fails unless GitHub accepts one of your SSH keys. To check for a rewrite, run the following command:
 
 ```sh
-brew tap chainguard-dev/tap
-brew trust --tap chainguard-dev/tap
+git config --get-regexp '^url\..*\.insteadof$'
 ```
 
-Next, install `chainctl` with Homebrew.
-
-```sh
-brew install chainctl
-```
-
-You are now ready to use the `chainctl` command. You can verify that it works correctly in the final section of this guide.
+Output such as `url.git@github.com:.insteadof https://github.com/` shows a rewrite. To fix the clone, add an SSH key to your GitHub account or remove the rewrite. Otherwise, [install with `curl`](#install-chainctl) instead.
 
 ## Install with `curl`
 
-A platform-agnostic approach to installing `chainctl` is through using `curl`. We have [specific instructions for Windows users](/platform/chainctl-usage/how-to-install-chainctl/#installing-with-curl-in-windows-powershell) on installing `chainctl` with `curl`, but all others can run the following command:
+The `curl` command in [Install `chainctl`](#install-chainctl) builds the download URL from `uname`, so it fetches the binary for your operating system and architecture. The `sudo install` command copies the binary into `/usr/local/bin`, sets you as its owner, and makes it executable.
 
-```bash
-PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
-VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
-curl -o chainctl "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}"
-```
+### Install a pinned version with `curl`
 
-We resolve the release version once from `metadata.json` and then download the binary from that explicit version path (rather than from `/latest/` directly). This ensures the binary and the signature you verify it against in the next step come from the same release. Downloading individual artifacts from `/latest/` in separate steps can occasionally pull mismatched files if a new release is published in between, causing signature verification to fail.
+To verify the binary with Cosign, download it from an explicit version path instead of `/latest/`. Pinning the version keeps the binary and its signature bundle in the same release. This method needs [jq](https://jqlang.org/download/) to read the release version.
 
-Keep this same terminal session for the verification step below so that the `PLATFORM` and `VERSION` values are reused.
-
-Move `chainctl` into your `/usr/local/bin` directory and elevate its permissions so that it can execute as needed.
+Move into a temporary working directory:
 
 ```sh
+mkdir -p ~/tmp && cd $_
+```
+
+Resolve the platform and the latest release version, and then download and install that version:
+
+```sh
+PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
+VERSION=$(curl -sS "https://dl.enforce.dev/chainctl/latest/metadata.json" | jq -r .version)
+curl -fL -o chainctl "https://dl.enforce.dev/chainctl/${VERSION}/chainctl_${PLATFORM}"
 sudo install -o $UID -g $(id -g) -m 0755 chainctl /usr/local/bin/
 ```
 
-At this point, you'll be able to use the `chainctl` command.
+Keep this terminal session open for [the Cosign verification](#verifying-the-chainctl-binary-with-cosign), so that it reuses the `PLATFORM` and `VERSION` values.
 
 ### Installing with `curl` in Windows PowerShell
 
@@ -119,9 +128,9 @@ scoop install main/chainctl
 
 ## Verifying the `chainctl` binary with Cosign
 
-Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/).
+Before running `chainctl` for the first time, you should verify the integrity of the downloaded binary using Cosign. This ensures the binary has not been tampered with. Ensure that you have the latest version of Cosign installed by following our [How to install Cosign guide](/open-source/sigstore/cosign/how-to-install-cosign/). This step also needs [jq](https://jqlang.org/download/).
 
-If you are continuing in the same terminal session as the previous installation step, `PLATFORM` and `VERSION` are already set. Otherwise, resolve them again first. Then download the release's Sigstore bundle, which holds the binary's signature and certificate, from the same pinned version, and use it to verify the binary:
+The following commands download the release's Sigstore bundle, which holds the binary's signature and certificate, and use it to verify the binary. The first two lines set `PLATFORM` and `VERSION`. If you're in the same terminal session as the [pinned installation](#install-a-pinned-version-with-curl), skip them so that the bundle comes from the version you installed:
 
 ```sh
 PLATFORM="$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
