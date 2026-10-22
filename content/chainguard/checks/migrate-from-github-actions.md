@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-10-22T14:44:23+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -78,7 +78,7 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `workflow_dispatch`, or a job that a label starts | `when: {requested: true}`, run with a `ci/run:<check>` label |
 | `continue-on-error: true`, or a job that isn't required | `advisory: true` |
 | `jobs.<job_id>` | `checks.<name>` |
-| `runs-on` | `resources`. A built-in class without a suffix usually runs on arm64, while `ubuntu-latest` is x86-64, so use an `-amd64` class, such as `medium-amd64`, for a job that needs x86-64. If your repository defines its own classes in `.chainguard/ci/resources.yaml`, the built-in classes aren't available, and only a class with a `platform` pins the architecture. Refer to [Resources](/chainguard/checks/configuration/#resources). |
+| `runs-on` | `resources`. A built-in class without a suffix usually runs on arm64, while `ubuntu-latest` is x86-64, so use an `-amd64` class, such as `medium-amd64`, for a job that needs x86-64. Only a class with a `platform` pins the architecture among your own classes, and if your repository uses the older `.chainguard/ci/resources.yaml` file, the built-in classes aren't available. Refer to [Resources](/chainguard/checks/configuration/#resources). |
 | `steps[*].run` | `steps[*].cmd` or `steps[*].script`. A step takes only `id`, `name`, `cmd`, `script`, and `shell`, so step-level `env`, `if`, and `working-directory` are refused. |
 | `steps[*].uses` | Not supported. List the tool's package and run it. |
 | `actions/checkout` with `repository` | `inputs` with `git`, for a public repository on github.com. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
