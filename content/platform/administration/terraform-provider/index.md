@@ -6,7 +6,7 @@ linktitle: "Terraform provider"
 type: "article"
 description: "An introduction to working with the Chainguard Terraform provider"
 date: 2024-01-28T15:56:52-07:00
-lastmod: 2026-10-19T14:34:54+00:00
+lastmod: 2026-10-23T12:28:00+00:00
 draft: false
 tags: ["Platform", "Procedural"]
 images: []
@@ -68,7 +68,7 @@ provider "chainguard" {
 
 The provider also reads the token from the `TF_CHAINGUARD_IDENTITY_TOKEN` environment variable. Two CI systems need neither setting, because the provider finds their token itself: GitHub Actions jobs that have the `id-token: write` permission, and, starting in provider version 0.5.4, HCP Terraform workspaces. For HCP Terraform, refer to [Create an assumable identity for HCP Terraform](/platform/administration/assumable-ids/identity-examples/hcp-terraform-identity/).
 
-`identity_token` must be an OIDC token that your CI system or another external identity provider issued. A Chainguard token, such as the output of `chainctl auth token`, is already the result of an exchange, so the provider can't exchange it again. The exchange fails with an `unsupported audience(s)` error.
+`identity_token` must be an OIDC token that your CI system or another external identity provider issued. A Chainguard token, such as the output of `chainctl auth token`, is already the result of an exchange, so the provider can't exchange it again. Without `identity_id`, the exchange fails with an `unsupported audience(s)` error. With `identity_id`, the error names the first check the token fails, such as the issuer or a claim the identity requires.
 
 Don't combine `identity_token` with `disabled = true`. The `disabled` setting stops the provider from getting a new Chainguard token by any method, including a token exchange, so the run fails with an `automatic auth disabled` error.
 
