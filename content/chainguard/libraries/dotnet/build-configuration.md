@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for .NET on your workstation"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-10-21T13:29:20+00:00
+lastmod: 2026-10-22T15:52:00+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET"]
 menu:
@@ -180,4 +180,4 @@ Registered Sources:
 
 If the project uses a repository manager, the assets file should instead show the repository manager URL.
 
-For a larger, ready-made example, the [Chainguard Libraries for .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-net) provides an ASP.NET Core banking application configured to pull its NuGet dependencies from Chainguard Libraries.
+For a larger, ready-made example, the [Chainguard Libraries for .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-dotnet) provides an ASP.NET Core banking application configured to pull its NuGet dependencies from Chainguard Libraries.

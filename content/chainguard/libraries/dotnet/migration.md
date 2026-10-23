@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing .NET project to pull dependencies from Chainguard Libraries"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-10-21T13:29:20+00:00
+lastmod: 2026-10-22T15:52:00+00:00
 tags: ["Chainguard Libraries", ".NET"]
 menu:
   docs:
@@ -21,7 +21,7 @@ This guide walks through migrating an existing .NET project to Chainguard Librar
 - **Direct access**: Your build tool connects directly to libraries.cgr.dev. This option is faster for initial evaluation and smaller-scale setups.
 - **Repository manager**: Your build tool connects to a repository manager, which proxies requests to Chainguard Libraries. This option is recommended for teams and organizations.
 
-To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-net). It provides an ASP.NET Core banking application that pulls its NuGet dependencies from Chainguard Libraries, along with a `tools` directory of configuration and `chainctl` examples for direct access and repository managers.
+To follow along with a ready-made project instead of your own, use the [Chainguard Libraries for .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-dotnet). It provides an ASP.NET Core banking application that pulls its NuGet dependencies from Chainguard Libraries, along with a `tools` directory of configuration and `chainctl` examples for direct access and repository managers.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ The command returns a username and password. Use these values to authenticate Nu
 
 Choose the setup that matches your organization. With direct access, your build tool connects to libraries.cgr.dev. With a repository manager, your build tool connects to a proxy that you configure to fetch from Chainguard Libraries.
 
-For example `nuget.config` files and `chainctl` commands covering both setups, see the [`tools` directory in the .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-net/tree/main/tools).
+For example `nuget.config` files and `chainctl` commands covering both setups, see the [`tools` directory in the .NET demo repository](https://github.com/chainguard-demo/chainguard-libraries-dotnet/tree/main/tools).
 
 {{< tabs label="Access method for configuring authentication and registry" >}}
 
