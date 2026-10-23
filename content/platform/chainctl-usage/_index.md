@@ -6,11 +6,12 @@ lead: "Chainguard's chainctl CLI provides command-line access to manage containe
 description: "Learn how to use chainctl, Chainguard's command-line interface for managing container images, identity and access management, and security resources"
 type: "article"
 date: 2025-03-03T08:49:15+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-23T12:45:02+00:00
 draft: false
 tags: ["chainctl", "Overview"]
 images: []
 weight: 40
+hidepageslist: true
 ---
 
 Chainguard's `chainctl` (Chainguard Control) is a command-line interface that provides comprehensive control over your Chainguard resources, including container images, identity management, and security configurations. This CLI tool enables automation and advanced operations beyond what's available in the <ins>[Chainguard Console](https://console.chainguard.dev)</ins>, making it essential for DevOps workflows and CI/CD integration.
@@ -25,12 +26,14 @@ Once installed, these will help you on your path to success:
 
 * <ins>[Get started with chainctl](/get-started/getting-started-with-chainctl/)</ins>
 * <ins>[Authenticate to Chainguard's registry](/chainguard/containers/registry/authenticating/)</ins> - This page includes links to register for a Chainguard account, which is needed to do anything with `chainctl`. You must authenticate to Chainguard to use `chainctl`.
+* <ins>[Authentication options for chainctl](/platform/chainctl-usage/authentication-options/)</ins>
 * <ins>[Manage your chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/)</ins>
 * <ins>[Find and update your chainctl release version](/platform/chainctl-usage/chainctl-version-update/)</ins>
+* <ins>[Compare chainctl usage with the Chainguard Console](/platform/chainctl-usage/comparing-chainctl-to-console/)</ins>
 * <ins>[Compare Chainguard images with chainctl diff](/platform/chainctl-usage/comparing-images/)</ins>
-* <ins>[Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)
+* <ins>[Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/)</ins>
 * <ins>[Automating with chainctl](/platform/chainctl-usage/automating-chainctl/)</ins>
 * <ins>[chainctl events](/platform/chainctl-usage/chainctl-events/)</ins>
 * <ins>[chainctl iam](/platform/chainctl-usage/chainctl-iam/)</ins>
 * <ins>[chainctl images](/platform/chainctl-usage/chainctl-images/)</ins>
-* <ins>[chainctl images](/platform/chainctl-usage/chainctl-images/)</ins>
+* <ins>[Pull token output formats and credential names](/platform/chainctl-usage/pull-token-output/)</ins>
