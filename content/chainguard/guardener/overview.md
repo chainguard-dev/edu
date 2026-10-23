@@ -4,7 +4,7 @@ linktitle: "Guardener overview"
 description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-22T17:35:01+00:00
+lastmod: 2026-10-23T22:57:07+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -17,18 +17,25 @@ toc: true
 
 Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through the Chainguard App, a hardened GitHub App, and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+## Optional Features
 
-Guardener's capabilities fall into two groups:
+Each Guardener capability is an Optional Feature: it stays off until you turn it on. Guardener and its Optional Features are subject to the [Guardener](https://www.chainguard.dev/legal/guardener-terms) and [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Under those terms, the offerings are Technology Previews, including the Optional Features in Early Access.
 
-- **[GitHub App](/chainguard/guardener/github/)** — Capabilities that run through the Chainguard App and are enabled per repository with `.chainguard/` configuration files:
-    - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or migration pull requests that run on a schedule or [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration).
-    - **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Recommends Chainguard container images for the container images a pull request adds or changes, through non-blocking review comments with one-click suggested changes where possible.
-    - **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replaces the container images a repository already uses with Chainguard container images through a migration pull request that Guardener opens on a schedule or on demand.
-    - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
-- **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands.
+| Optional Feature | What it does | How to turn it on | Stage |
+| ---------------- | ------------ | ----------------- | ----- |
+| [Hardened Actions](/chainguard/guardener/github/actions-security/) | Recommends hardened, SHA-pinned replacements from Chainguard Actions for your GitHub Actions in pull request review comments and opens migration pull requests on a schedule or on demand. | Add `.chainguard/actions.yaml` to a repository. | Early Access |
+| [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | Recommends Chainguard container images for the images that a pull request adds or changes, with one-click suggested changes where possible. | Add `.chainguard/images.yaml` to a repository. | Early Access |
+| [Container Image Migration](/chainguard/guardener/github/image-migration/) | Opens a pull request, on a schedule or on demand, that replaces a repository's existing container images with Chainguard container images. | Add a `migrate` block to `.chainguard/images.yaml`. | Early Access |
+| [Commit Verification](/chainguard/guardener/github/commit-verification/) | Checks that an authorized signer signed every commit in a pull request. Supports keyless (Sigstore) signatures and static keys such as GPG. | Add `.chainguard/source.yaml` to a repository. | Beta |
+| [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to iteratively convert your Dockerfiles to use Chainguard Containers. Docker builds run on your machine. | Join the waitlist, then run `chainctl agent dockerfile` commands. | Beta |
+| [Agent skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
+| [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
 
-Additional capabilities will be added over time, each with its own opt-in configuration.
+Chainguard may remove, modify, or add Optional Features over time and will update this table to reflect any such changes.
+
+### Chainguard Harness
+
+Chainguard Harness is an Optional Feature of Guardener in Technology Preview, provided under the Code Analysis Terms, located here: [https://www.chainguard.dev/legal/code-analysis-terms](https://www.chainguard.dev/legal/code-analysis-terms). Chainguard Harness uses a Restricted Third Party Artificial Intelligence Large Language Model that its third-party provider has designated as a model with heightened safeguards. Customers should review and validate all Code Analysis Outputs before you rely on them or deploy them in your production environment. Use of Chainguard Harness does not guarantee your software, systems, or dependencies are free from vulnerabilities.
 
 ## Where to start
 

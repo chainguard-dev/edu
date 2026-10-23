@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Install the Chainguard App and link your Chainguard organization to your GitHub organization to start using Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-15T14:26:56+00:00
+lastmod: 2026-10-23T21:07:45+00:00
 draft: false
 aliases:
 - /chainguard/guardener/getting-started/
@@ -25,7 +25,7 @@ This guide walks you through everything you need to start using Guardener on you
 
 Once the app is installed, Guardener can respond on your public repositories. Linking connects that activity to your Chainguard organization and unlocks the features that require one, such as private repository coverage — there is no separate entitlement step.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Prerequisites
 
