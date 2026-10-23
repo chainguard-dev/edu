@@ -4,7 +4,7 @@ linktitle: "Guardener overview"
 description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-22T17:35:01+00:00
+lastmod: 2026-10-23T04:48:59+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through the Chainguard App, a hardened GitHub App, and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage. Refer to [Optional features](#optional-features).{{< /note >}}
 
 Guardener's capabilities fall into two groups:
 
@@ -28,7 +28,21 @@ Guardener's capabilities fall into two groups:
     - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
 - **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands.
 
-Additional capabilities will be added over time, each with its own opt-in configuration.
+## Optional features
+
+Each Guardener capability is an optional feature: it stays off until you turn it on. Guardener and its optional features are subject to the [Guardener terms](https://www.chainguard.dev/legal/guardener-terms) and the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Under those terms, all of them are Technology Previews, including the features in Early Access.
+
+| Optional feature | What it does | How to turn it on | Stage |
+| ---------------- | ------------ | ----------------- | ----- |
+| [Hardened Actions](/chainguard/guardener/github/actions-security/) | Recommends and migrates your GitHub Actions to their hardened, SHA-pinned equivalents in Chainguard Actions. | Add `.chainguard/actions.yaml` to a repository. | Early Access |
+| [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | Recommends Chainguard container images for the images that a pull request adds or changes. | Add `.chainguard/images.yaml` to a repository. | Early Access |
+| [Container Image Migration](/chainguard/guardener/github/image-migration/) | Opens a pull request that replaces a repository's existing container images with Chainguard container images. | Add a `migrate` block to `.chainguard/images.yaml`. | Early Access |
+| [Commit Verification](/chainguard/guardener/github/commit-verification/) | Checks that an authorized signer signed every commit in a pull request. | Add `.chainguard/source.yaml` to a repository. | Beta |
+| [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to convert your Dockerfiles to use Chainguard Containers. | Join the waitlist, then run `chainctl agent dockerfile` commands. | Beta |
+| [Skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
+| [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
+
+Chainguard adds optional features over time and updates this table when it does.
 
 ## Where to start
 

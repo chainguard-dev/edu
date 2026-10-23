@@ -7,7 +7,7 @@ aliases:
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-23T04:48:59+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -22,7 +22,7 @@ The Dockerfile migration feature converts your Dockerfiles to use Chainguard Con
 
 Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the Chainguard App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
-{{< beta feature="Guardener" >}}
+{{< beta feature="Dockerfile migration" >}}
 
 ## Prerequisites
 
