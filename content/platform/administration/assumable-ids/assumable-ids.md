@@ -11,7 +11,7 @@ lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-19T14:39:23+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -42,9 +42,13 @@ This enables you to create identities that can only be assumed by specific autom
 * [GitLab](/platform/administration/assumable-ids/identity-examples/gitlab-identity/)
 * [AWS](/platform/administration/assumable-ids/identity-examples/aws-identity-oidc/)
 * [AWS (legacy)](/platform/administration/assumable-ids/identity-examples/aws-identity/)
+* [Azure](/platform/administration/assumable-ids/identity-examples/azure-identity/)
+* [Kubernetes](/platform/administration/assumable-ids/identity-examples/kubernetes-identity/)
 * [Jenkins with Terraform](/platform/administration/assumable-ids/identity-examples/jenkins-terraform/) or [Jenkins with chainctl](/platform/administration/assumable-ids/identity-examples/jenkins-chainctl/)
 * [Buildkite](/platform/administration/assumable-ids/identity-examples/buildkite-identity/)
 * [Bitbucket](/platform/administration/assumable-ids/identity-examples/bitbucket-identity/)
+* [HCP Terraform](/platform/administration/assumable-ids/identity-examples/hcp-terraform-identity/)
+* [Keycloak](/platform/administration/assumable-ids/identity-examples/keycloak-identity/)
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
