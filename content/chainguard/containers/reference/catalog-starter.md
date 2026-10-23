@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-10-23T15:00:29+00:00
+lastmod: 2026-10-23T15:11:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -37,7 +37,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Catalog Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify. The sign-up page doesn't offer GitHub or GitLab.
+2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Catalog Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify.
 3. Enter your company name.
 4. Click **Set up an organization**.
 5. Complete the form and click **Submit**.
@@ -119,7 +119,7 @@ This requires selection of a valid authentication option:
     GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub sign-in must use your GitHub account's verified primary email address, and that address must be a business email address. A GitLab sign-in can't create an organization.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub sign-in must use your GitHub account's verified primary email address, and that address must be a business email address.
 
 ### Request access with `chainctl`
 
