@@ -4,7 +4,7 @@ linktitle: "Guardener overview"
 description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-23T21:07:45+00:00
+lastmod: 2026-10-23T22:57:07+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -32,6 +32,10 @@ Each Guardener capability is an Optional Feature: it stays off until you turn it
 | [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
 
 Chainguard may remove, modify, or add Optional Features over time and will update this table to reflect any such changes.
+
+### Chainguard Harness
+
+Chainguard Harness is an Optional Feature of Guardener in Technology Preview, provided under the Code Analysis Terms, located here: [https://www.chainguard.dev/legal/code-analysis-terms](https://www.chainguard.dev/legal/code-analysis-terms). Chainguard Harness uses a Restricted Third Party Artificial Intelligence Large Language Model that its third-party provider has designated as a model with heightened safeguards. Customers should review and validate all Code Analysis Outputs before you rely on them or deploy them in your production environment. Use of Chainguard Harness does not guarantee your software, systems, or dependencies are free from vulnerabilities.
 
 ## Where to start
 
