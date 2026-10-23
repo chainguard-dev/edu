@@ -4,7 +4,7 @@ linktitle: "Guardener overview"
 description: "Guardener is a tool for managing and hardening your source code, with a growing suite of capabilities you opt into independently."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-23T16:30:59+00:00
+lastmod: 2026-10-23T21:07:45+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -17,21 +17,21 @@ toc: true
 
 Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through the Chainguard App, a hardened GitHub App, and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
 
-## Optional features
+## Optional Features
 
-Each Guardener capability is an optional feature: it stays off until you turn it on. Guardener and its optional features are subject to the [Guardener terms](https://www.chainguard.dev/legal/guardener-terms) and the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Under those terms, all of them are Technology Previews, including the features in Early Access.
+Each Guardener capability is an Optional Feature: it stays off until you turn it on. Guardener and its Optional Features are subject to the [Guardener](https://www.chainguard.dev/legal/guardener-terms) and [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Under those terms, the offerings are Technology Previews, including the Optional Features in Early Access.
 
-| Optional feature | What it does | How to turn it on | Stage |
+| Optional Feature | What it does | How to turn it on | Stage |
 | ---------------- | ------------ | ----------------- | ----- |
 | [Hardened Actions](/chainguard/guardener/github/actions-security/) | Recommends hardened, SHA-pinned replacements from Chainguard Actions for your GitHub Actions in pull request review comments and opens migration pull requests on a schedule or on demand. | Add `.chainguard/actions.yaml` to a repository. | Early Access |
 | [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | Recommends Chainguard container images for the images that a pull request adds or changes, with one-click suggested changes where possible. | Add `.chainguard/images.yaml` to a repository. | Early Access |
 | [Container Image Migration](/chainguard/guardener/github/image-migration/) | Opens a pull request, on a schedule or on demand, that replaces a repository's existing container images with Chainguard container images. | Add a `migrate` block to `.chainguard/images.yaml`. | Early Access |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | Checks that an authorized signer signed every commit in a pull request. Supports keyless (Sigstore) signatures and static keys such as GPG. | Add `.chainguard/source.yaml` to a repository. | Beta |
 | [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to iteratively convert your Dockerfiles to use Chainguard Containers. Docker builds run on your machine. | Join the waitlist, then run `chainctl agent dockerfile` commands. | Beta |
-| [Skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
+| [Agent skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
 | [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
 
-Chainguard adds optional features over time and updates this table when it does.
+Chainguard may remove, modify, or add Optional Features over time and will update this table to reflect any such changes.
 
 ## Where to start
 

@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-10-23T04:48:59+00:00
+lastmod: 2026-10-23T21:07:45+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -19,7 +19,7 @@ Guardener acts on your GitHub repositories on behalf of your Chainguard organiza
 
 For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/github/getting-started/). This page is the fuller reference for managing connections over time.
 
-{{< note >}}Each Guardener capability has its own release stage, listed in [Optional features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## How connections work
 
