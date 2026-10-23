@@ -1,5 +1,5 @@
 ---
-date: 2026-10-21T13:05:43Z
+date: 2026-10-22T17:36:19Z
 title: "chainctl skills validate"
 slug: chainctl_skills_validate
 url: /platform/chainctl/chainctl-docs/chainctl_skills_validate/

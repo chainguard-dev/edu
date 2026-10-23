@@ -834,12 +834,34 @@
         },
         "type": "object"
       },
+      "chainguard.platform.billing.v2beta1.CardSession": {
+        "description": "CardSession is a hosted page for saving a card.",
+        "properties": {
+          "expireTime": {
+            "description": "When the page stops accepting a card.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "url": {
+            "description": "The URL of the hosted page. Send the user's browser there.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.billing.v2beta1.CheckoutSession": {
         "description": "CheckoutSession is a hosted checkout page.",
         "properties": {
           "expireTime": {
             "description": "When the page stops accepting payment details.",
             "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "terms": {
+            "description": "What the card will be charged, now and later, as the page states it.\nEmpty for a plan whose terms the page states on its own. An organization\nChainguard approved for monthly billing is told its usage is charged\nmonthly instead of buying a balance.",
             "readOnly": true,
             "type": "string"
           },
@@ -851,11 +873,37 @@
         },
         "type": "object"
       },
+      "chainguard.platform.billing.v2beta1.CreateCardSessionRequest": {
+        "description": "CreateCardSessionRequest is the request message for CreateCardSession.",
+        "properties": {
+          "parent": {
+            "description": "The organization to save a card for.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parent"
+        ],
+        "type": "object"
+      },
       "chainguard.platform.billing.v2beta1.CreateCheckoutSessionRequest": {
         "description": "CreateCheckoutSessionRequest is the request message for\nCreateCheckoutSession.",
         "properties": {
           "parent": {
-            "description": "The organization to upgrade. Must be a Starter organization with no\nsubscription in progress.",
+            "description": "The organization buying. Must have no purchase of the same plan in\nprogress or live.",
+            "type": "string"
+          },
+          "planId": {
+            "description": "What to buy: \"team-v1\", the Team plan (the default when empty), or\n\"secure-compute-v1\", prepaid Workspaces and Checks compute, which starts\npaid usage at once and draws it from a balance charged at checkout.\n\"enterprise\" and \"starter\" are refused: moving to Enterprise or back to\nStarter is not self-serve.",
+            "type": "string"
+          },
+          "stopWhenSpent": {
+            "description": "For compute, stop new work when the prepaid balance is spent, instead of\nthe default: charging the card again whenever the balance falls below\n20% of the amount bought, to refill it. The checkout page states which.\nRefused until stopping work is available.",
+            "type": "boolean"
+          },
+          "topUpAmountCents": {
+            "description": "For compute, the prepaid balance to buy, in US cents: whole dollars from\n$25 to $5,000. Zero buys $100. Tax is added where it applies, and unused\nbalance expires a year after purchase. Ignored for an organization whose\ncompute usage Chainguard bills monthly.",
+            "format": "int64",
             "type": "string"
           }
         },
@@ -882,6 +930,56 @@
         "properties": {
           "url": {
             "description": "The URL of the hosted page. Send the user's browser there.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.TopUpRequest": {
+        "description": "TopUpRequest is the request message for TopUp.",
+        "properties": {
+          "amountCents": {
+            "description": "How much to add, in US cents: whole dollars from $25 to $5,000.",
+            "format": "int64",
+            "type": "string"
+          },
+          "parent": {
+            "description": "The organization whose compute balance to add to.",
+            "type": "string"
+          },
+          "requestId": {
+            "description": "A UUID naming the purchase, so a retry with the same value charges once.\nReusing it with another amount is refused.",
+            "type": "string"
+          },
+          "validateOnly": {
+            "description": "Check that the organization can top up, without charging anything. It\nfails as the call would, for example with FAILED_PRECONDITION\nNO_COMPUTE_BALANCE when the organization has not bought compute yet and\nmust start with CreateCheckoutSession, and reports a request_id whose\ntop-up was already charged as repeated.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "parent",
+          "amountCents",
+          "requestId"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.billing.v2beta1.TopUpResponse": {
+        "description": "TopUpResponse is the response message for TopUp.",
+        "properties": {
+          "amountCents": {
+            "description": "The amount whose charge was started, before tax. The balance grows once\nthe charge succeeds.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "repeated": {
+            "description": "The request_id was used for a top-up of this amount whose charge\nsucceeded already, so nothing more was charged.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "terms": {
+            "description": "What the card will be charged, for the client to show before it asks\nfor confirmation. Set by validate_only.",
             "readOnly": true,
             "type": "string"
           }
@@ -4279,6 +4377,12 @@
             "description": "Build availability of this version.",
             "readOnly": true
           },
+          "availabilityChangeTime": {
+            "description": "When this version's answer last changed. A re-check that reaches the same\nanswer does not move it, and neither does a move to a pending availability.\nIt can move with no visible change: the answer that follows a refresh is\nrecorded even when it repeats the earlier one, and so is a move between two\nanswers that report the same availability.\n\nThis is last_request_time while the version is pending, and where no change\nhas been recorded: every version whose answer has not changed since\nChainguard began recording changes.\n\nbuf format keeps a field and its options on one line, which is longer than\nthe line limit here. Disabled for this line only.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "availabilityReason": {
             "description": "Reason accompanying availability, written by Chainguard. It is never an\ninternal note.",
             "readOnly": true,
@@ -6429,9 +6533,53 @@
         ]
       }
     },
+    "/billing/v2beta1/cardSessions": {
+      "post": {
+        "description": "CreateCardSession opens a hosted page where an owner saves a card for\nthe organization without buying anything. It becomes the card the\norganization's plan and compute are charged to, replacing any earlier\none. Nothing is charged when it is saved. Until self-serve purchases are\nenabled for the organization, it is refused with FAILED_PRECONDITION\nCHECKOUT_NOT_ENABLED.",
+        "operationId": "BillingService_CreateCardSession",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CreateCardSessionRequest"
+              }
+            }
+          },
+          "description": "CreateCardSessionRequest is the request message for CreateCardSession.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.CardSession"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Card Session",
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
     "/billing/v2beta1/checkoutSessions": {
       "post": {
-        "description": "CreateCheckoutSession opens a hosted checkout page where an owner of a\nStarter organization enters a card to upgrade the organization to the\nTeam plan. The organization is upgraded once the first invoice is paid,\nnot when this call returns.",
+        "description": "CreateCheckoutSession opens a hosted checkout page where an owner enters a\ncard to buy the Team plan, for a Starter organization, or Workspaces and\nChecks compute, for a Starter, Team or Enterprise organization that has\nWorkspaces and Checks enabled. The purchase completes once the first\ninvoice is paid, not when this call returns.",
         "operationId": "BillingService_CreateCheckoutSession",
         "requestBody": {
           "content": {
@@ -6475,7 +6623,7 @@
     },
     "/billing/v2beta1/portalSessions": {
       "post": {
-        "description": "CreatePortalSession opens a hosted page where an owner of a Team\norganization updates the card the organization pays with.",
+        "description": "CreatePortalSession opens a hosted page where an owner of an\norganization that bought Team or compute updates the card the\norganization pays with.",
         "operationId": "BillingService_CreatePortalSession",
         "requestBody": {
           "content": {
@@ -6512,6 +6660,50 @@
           }
         },
         "summary": "Create Portal Session",
+        "tags": [
+          "BillingService"
+        ]
+      }
+    },
+    "/billing/v2beta1/topUps": {
+      "post": {
+        "description": "TopUp starts a charge to the card on file for more prepaid Workspaces and\nChecks compute. The balance grows once the charge succeeds; usage that\nran past a spent balance is paid from it first. The first purchase is a\nCreateCheckoutSession for \"secure-compute-v1\" instead.",
+        "operationId": "BillingService_TopUp",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.TopUpRequest"
+              }
+            }
+          },
+          "description": "TopUpRequest is the request message for TopUp.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.billing.v2beta1.TopUpResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Top Up",
         "tags": [
           "BillingService"
         ]
