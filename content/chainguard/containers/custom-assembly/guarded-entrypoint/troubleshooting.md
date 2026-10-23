@@ -144,7 +144,7 @@ The text after the digest is the reason. It is one of the following:
 | --- | --- |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
 | `the listed wrapper version does not read every GUARDED_* setting` | This reason applies only when the repo's `contents.packages` lists a version of `guarded-entrypoint` or `guarded-entrypoint-fips`, and that version is too old for the repo's settings. A version that you list overrides the version that Chainguard installs for that repo. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
-| `the wrapper version Chainguard installs does not read every GUARDED_* setting` | The repo lists no wrapper version, or lists `guarded-entrypoint` or `guarded-entrypoint-fips` without a version, so the version that Chainguard installs applies. That version is older than the repo's settings need. For example, a `truststore` needs wrapper 0.2.385 or later. The detail names the first release that reads them all, and ends with `; contact Chainguard customer support`. You don't need to list a wrapper package. |
+| `the wrapper version Chainguard installs does not read every GUARDED_* setting` | The repo lists no wrapper version, or lists `guarded-entrypoint` or `guarded-entrypoint-fips` without a version, so the version that Chainguard installs applies. That version is older than the repo's settings need. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
