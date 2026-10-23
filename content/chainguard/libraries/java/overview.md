@@ -282,13 +282,13 @@ packages from the following public repositories. The same list applies to all
 organizations. If the same artifact version exists in more than one repository,
 the repository listed first takes precedence.
 
-| Repository | URL | Scope |
+| Repository | Host | Scope |
 |---|---|---|
-| Maven Central | `https://repo1.maven.org/maven2` | All artifacts |
-| Google Maven | `https://dl.google.com/dl/android/maven2` | Only artifacts published by Google, such as AndroidX, Firebase, and the Android Gradle plugin |
-| Gradle Plugin Portal | `https://plugins.gradle.org/m2` | All artifacts. Artifact downloads are redirected to `plugins-artifacts.gradle.org` |
-| Confluent | `https://packages.confluent.io/maven` | Only the `io.confluent`, `com.github.jcustenborder`, and `com.linkedin.camus` group IDs. Apache Kafka artifacts (`org.apache.kafka`) are served from Maven Central, not Confluent |
-| JBoss releases | `https://repository.jboss.org/nexus/repository/releases` | Only JBoss project group IDs such as `org.jboss`, `org.wildfly`, `org.hibernate`, `org.infinispan`, `io.undertow`, and `org.keycloak`, and only for versions that are not available on Maven Central |
+| Maven Central | [repo1.maven.org](https://repo1.maven.org) | All artifacts |
+| Google Maven | [maven.google.com](https://maven.google.com) | Google-published artifacts only |
+| Gradle Plugin Portal | [plugins.gradle.org](https://plugins.gradle.org) | All artifacts |
+| Confluent | [packages.confluent.io](https://packages.confluent.io) | Confluent group IDs only |
+| JBoss | [repository.jboss.org](https://repository.jboss.org) | JBoss project group IDs only |
 
 Chainguard retrieves packages from these repositories on your behalf. Your
 build tools and repository manager only need to reach
