@@ -141,7 +141,7 @@ Each host accepts the following roles:
 | `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.java.pull` | Download Java libraries from Chainguard Libraries. |
-| `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
+| `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. Unlike the other roles in this table, `console.viewer` isn't the name of an IAM role, so bind the assumable identity to one that grants this access, such as `console_viewer`. |
 
 A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
 
