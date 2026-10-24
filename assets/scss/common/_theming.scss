@@ -81,8 +81,6 @@
     --note-cta: var(--secondary-1);
     --note-cta-background: var(--primary-1);
     --note-cta-link: var(--tertiary-1);
-    --notification-background: #0e0e0e;
-    --notification-color: var(--secondary-1);
     --offcanvas-close-color: var(--primary-3);
     --page-link-active-color: var(--desaturated-primary-3);
     --page-link-color: var(--primary-3);
@@ -141,7 +139,6 @@
     --chevron-icon-url: url("#{hugo.$basePath}chevron.svg");
     --search-icon-url: url("#{hugo.$basePath}search.svg");
     --copy-icon-url: url("#{hugo.$basePath}copy.svg");
-    --copy-icon-opposite-url: url("#{hugo.$basePath}copy-dark.svg");
     --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='rgb(28,28,28)' stroke-width='7'></path></svg>");
 }
 
@@ -207,8 +204,6 @@
     --note-deprecated: var(--tertiary-2);
     --note-notice: var(--tertiary-1);
     --note-warning: var(--tertiary-3);
-    --notification-background: var(--secondary-2);
-    --notification-color: #fff;
     --offcanvas-close-color: #fff;
     --page-link-active-color: var(--primary-2);
     --page-link-color: #c5c5c5;
@@ -266,7 +261,6 @@
     --chevron-icon-url: url("#{hugo.$basePath}chevron-dark.svg");
     --search-icon-url: url("#{hugo.$basePath}search-dark.svg");
     --copy-icon-url: url("#{hugo.$basePath}copy-dark.svg");
-    --copy-icon-opposite-url: url("#{hugo.$basePath}copy.svg");
     --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='white' stroke-width='7'></path></svg>");
 }
 
