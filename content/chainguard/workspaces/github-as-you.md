@@ -4,7 +4,7 @@ linktitle: "Act on GitHub as you"
 description: "Connect your GitHub account so that the Chainguard Workspaces sessions you create act on GitHub as you through the Chainguard Develop GitHub App, and learn how to limit what those sessions can do."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-13T14:50:35+00:00
+lastmod: 2026-10-20T14:50:35+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Procedural"]
 images: []
@@ -56,12 +56,17 @@ A session that acts as you can do anything your GitHub account can, within the C
 
 - It can approve other people's pull requests, and its approvals count toward required reviews and code owner reviews as yours would. GitHub doesn't let it approve pull requests you opened.
 - It can merge any pull request you can merge, including with auto-merge or a merge queue.
-- It can push changes to files in `.github/workflows`.
-- It can't create or update check runs or commit statuses, or rerun GitHub Actions workflows, because the app can only read them. To rerun Chainguard Checks from a session, use `chainctl checks rerun`, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+- It can push changes to files in `.github/workflows`. A workflow that the session pushes can run on GitHub Actions with a `GITHUB_TOKEN` whose permissions the workflow file sets, so the workflow can create check runs and commit statuses and rerun workflows. If the repository allows GitHub Actions to create and approve pull requests, the workflow can also approve pull requests as `github-actions[bot]`, including ones you opened, and those approvals count toward required reviews. To limit this, refer to [Protect your branches](#protect-your-branches).
+- It can't directly create or update check runs or commit statuses, or rerun GitHub Actions workflows, because the app can only read them. To rerun Chainguard Checks from a session, use `chainctl checks rerun`, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
 ## Protect your branches {#protect-your-branches}
 
 Because an agent in a session that acts as you can approve and merge as you, protect the branches it shouldn't change on its own with a branch protection rule or ruleset. Require pull request reviews, and turn on **Require approval of the most recent reviewable push**, so that someone other than the account that pushed last must approve each pull request.
+
+Required reviews take effect only when a pull request merges. A session that acts as you can push a workflow to a new branch, and GitHub can run that workflow, with access to the repository's secrets and a `GITHUB_TOKEN`, before anyone reviews it. To keep a session from pushing workflow changes, and to keep workflows from approving pull requests, also do the following:
+
+- Add a [push ruleset](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#creating-a-push-ruleset) with a **Restrict file paths** rule for `.github/workflows/**/*`. It blocks pushes that change workflow files on every branch, except from the actors on the ruleset's bypass list. Push rulesets are available for private and internal repositories on GitHub Team and GitHub Enterprise Cloud plans.
+- In your repository or organization settings, go to **Actions > General**, and under **Workflow permissions**, clear **Allow GitHub Actions to create and approve pull requests**. A workflow then can't use its `GITHUB_TOKEN` to approve a pull request, or to open one.
 
 ## Controls that don't apply to a session that acts as you {#controls-that-dont-apply-to-a-session-that-acts-as-you}
 

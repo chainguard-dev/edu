@@ -1,5 +1,5 @@
 ---
-date: 2026-10-16T17:58:45Z
+date: 2026-10-22T17:36:19Z
 title: "chainctl iam identity-providers scim groups list"
 slug: chainctl_iam_identity-providers_scim_groups_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_groups_list/
@@ -30,15 +30,15 @@ chainctl iam identity-providers scim groups list [IDENTITY_PROVIDER] [--output=j
   # List for a specific identity provider
   chainctl iam identity-providers scim groups list my-idp
   
-  # Find a group by its exact display name
+  # Find a group by its display name
   chainctl iam identity-providers scim groups list --display-name=Engineering
 ```
 
 ### Options
 
 ```
-      --display-name string   Filter by exact display name.
-      --external-id string    Filter by exact external id (the key a role mapping matches on).
+      --display-name string   Filter by display name (case-insensitive).
+      --external-id string    Filter by external id (case-sensitive). This is the value a role mapping uses.
 ```
 
 ### Options inherited from parent commands

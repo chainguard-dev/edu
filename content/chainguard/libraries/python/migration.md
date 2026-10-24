@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-16T18:07:01+00:00
+lastmod: 2026-10-21T14:31:29+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -213,7 +213,22 @@ This method sets both the index and its credentials in one step.
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
-Follow the [instructions to install the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider).
+Install the `keyring` package with the Chainguard backend from PyPI:
+
+```bash
+uv pip install --index https://pypi.org/simple keyring keyrings-chainguard-libraries
+```
+
+Before running `uv sync`, verify that the Chainguard backend is active:
+
+```bash
+uv run --no-project python -m keyring --list-backends \
+  | grep -F 'keyrings.chainctl_auth.ChainctlAuth'
+```
+
+The output should identify `keyrings.chainctl_auth.ChainctlAuth`. If it does not, do not continue to `uv sync`; check that the packages were installed in the environment used by uv.
+
+Learn more about installing the keyring package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 

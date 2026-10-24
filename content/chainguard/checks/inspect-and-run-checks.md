@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-15T12:09:53+00:00
+lastmod: 2026-10-20T15:35:02+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 55
 
 The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
 
-These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). To pass your organization's name to `--parent`, rather than its ID, you also need a role that can see the organization, such as `viewer`.
+These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
 ## Inspect pull request runs {#inspect-pull-request-runs}
 
@@ -51,9 +51,11 @@ To see the programs that each step of a failed check started, and which one most
 chainctl checks trace "$OWNER/$REPO#$NUMBER" --check test --failed --parent $ORGANIZATION
 ```
 
-These commands also work in a Workspaces session, where `chainctl` acts as you. During the beta, they can't find a run by its commit, so pass the pull request, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
+These commands also work in a Workspaces session, where `chainctl` acts as you.
 
-For a run after merging, pass the run's ID instead, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
+Instead of a pull request, you can pass a directory, such as `.`, or a commit SHA to read the commit's newest run, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
+
+For a run after merging, pass the commit's SHA or the run's ID, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
 
 ## Run checks on a pushed commit
 
@@ -85,9 +87,9 @@ To read a run you started, pass its ID, or the start of it, to `chainctl checks 
 chainctl checks status $RUN_ID --watch --parent $ORGANIZATION
 ```
 
-Don't pass `.` or the commit's SHA instead. Because the run never counts as the commit's result, `status` reports that the platform created no run for the commit.
+Don't pass `.` or the commit's SHA instead. They name the newest run that Chainguard Checks has for the commit, which might not be the run you started.
 
-To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
+To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. It lists your organization's runs, newest first, including pull request runs, runs after merging, and your teammates' runs. Runs started with `chainctl checks run` have `-` under both `REF` and `PR`. Find yours by its commit and when you started it. To list only one repository's runs, add `--repo`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
 
 ## See check history {#see-check-history}
 

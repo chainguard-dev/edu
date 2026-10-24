@@ -68,7 +68,9 @@ This completes configuration of the Ping application. You're now ready to config
 
 ## Configure Chainguard to use Ping SSO
 
-Now that your Okta application is ready, you can create the custom identity provider.
+Now that your Ping Identity application is ready, you can create the custom identity provider.
+
+These steps use `chainctl`. To create the identity provider in the Chainguard Console instead, refer to the "Create an identity provider" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#create-an-identity-provider).
 
 First, log in to Chainguard with `chainctl`, using an OIDC provider like Google, GitHub, or GitLab to bootstrap your account.
 

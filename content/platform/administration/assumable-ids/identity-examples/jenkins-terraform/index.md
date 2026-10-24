@@ -13,7 +13,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity with Terraform that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-22T13:04:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -241,7 +241,7 @@ pipeline {
             steps {
                 withCredentials([string(variable: 'token', credentialsId: 'oidc-token')]) {
                     sh '''
-                        wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
+                        wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m | sed 's/aarch64/arm64/')"
                         chmod +x chainctl
                         ./chainctl auth login --identity-token $token --identity <your jenkins identity>
                         ./chainctl auth configure-docker --identity-token $token --identity <your jenkins identity>
@@ -259,7 +259,7 @@ Now you can add the commands for testing the identity using `chainctl images rep
 
 ```
 sh '''
-    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m)"
+    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_\$(uname -m | sed 's/aarch64/arm64/')"
     chmod +x chainctl
     ./chainctl auth login --identity-token $token --identity <your jenkins identity>
     ./chainctl auth configure-docker --identity-token $token --identity <your jenkins identity>

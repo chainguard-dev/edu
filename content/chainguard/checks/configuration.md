@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-16T18:30:00+00:00
+lastmod: 2026-10-22T14:51:44+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -26,15 +26,17 @@ Chainguard Checks reads its configuration from one of two layouts. A repository 
 
 | Layout | Use it when |
 | ------ | ----------- |
-| A single `.chainguard/ci.yaml` file | You're getting started, or all your checks share one set of packages. |
-| A `.chainguard/ci/` directory | You want to split checks into several files, or give checks different environments. |
+| `.chainguard/ci.yaml`, with optional check files beside it | You're getting started, or each file's checks can share one environment. |
+| A `.chainguard/ci/` directory | You want checks to share named environments or pick their own, or you need service definition files, your own resource classes, or Markdown descriptions of checks. |
 
-In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. Checks in the single-file layout appear as `presubmit / ci / <check>`. The directory layout can also hold the following:
+In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. The directory layout can also hold the following:
 
 - `env/<name>.yaml` files, each defining a named environment that checks can share, and their `.lock` files. A check that names no environment uses `env/default.yaml`.
-- `resources.yaml`, which replaces the built-in resource classes with your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
+- `resources/`, which holds one file for each resource class of your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
 - `<name>.md` files that explain checks in more detail. Chainguard Checks never reads them as configuration. Refer to [Describe a check](#describe-a-check).
 - `services/<name>/<name>.yaml` files, each defining a service, with any files the service needs beside it. Refer to [Services](/chainguard/checks/variations-services-caches/#services).
+
+The single-file layout is named for `.chainguard/ci.yaml`, whose checks appear as `presubmit / ci / <check>`, but it can also hold other check files directly in `.chainguard/`, such as `.chainguard/lint.yaml`. Each one needs `version: 1` and its own `environment`, and its checks appear under the file's name, such as `presubmit / lint / test`.
 
 Either layout can declare workload identities and cache pools in `.chainguard/ci/identities.yaml`. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) and [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 
@@ -45,11 +47,12 @@ Chainguard Checks reads configuration only from files with the `.yaml` extension
 | `.chainguard/ci.yaml` | Required | Makes the configuration invalid |
 | `.chainguard/ci/identities.yaml` | Allowed | Allowed |
 | Other files in `.chainguard/ci/` | Make the configuration invalid | Allowed if they're among the files listed earlier. Any other file, such as a `.yml` file, makes the configuration invalid. |
-| `.chainguard/develop.yaml` | Allowed, unless it has a `checks` key | Allowed |
+| `.chainguard/develop.yaml` and `.chainguard/deps.yaml` | Allowed, unless the file has a `checks` or `plans` key | Allowed |
 | `.chainguard/actions.yaml`, `.chainguard/images.yaml`, and `.chainguard/source.yaml` | Ignored | Ignored |
+| Another `.yaml` file directly in `.chainguard/`, such as `.chainguard/lint.yaml` | Read as a check file if it has a top-level `version`, `environment`, `resources`, `checks`, `plans`, or `uses` key. Otherwise ignored. | Makes the configuration invalid if it has any of those keys. Otherwise ignored. |
 | `.chainguard/README.md`, a `.yml` file, or another file that isn't a `.yaml` or `.lock` file, directly in `.chainguard/` | Makes the configuration invalid | Ignored |
 
-In the directory layout, a `.yaml` file directly in `.chainguard/` with single-file layout keys, such as `version` or `checks`, also makes the configuration invalid.
+If another tool keeps its own `.yaml` file in `.chainguard/`, make sure the file has no top-level `version`, `environment`, `resources`, `checks`, `plans`, or `uses` key, or move it out of `.chainguard/`.
 
 A `.chainguard/develop.yaml` file sets up [Chainguard Workspaces](/chainguard/workspaces/session-environment/) sessions. Chainguard Checks runs nothing from it, so changing it doesn't change your checks. Put checks in `.chainguard/ci.yaml` or `.chainguard/ci/` instead. Sessions don't read `.chainguard/ci/env/develop.yaml`, which is an environment like any other that a check can name with `environment: develop`. A pull request that changes `.chainguard/develop.yaml` also gets a **Chainguard Checks / develop-environment** check, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
 
@@ -115,7 +118,7 @@ A configuration file has the following top-level keys:
 | `resources` | No | The default resource class for the file's checks. Refer to [Resources](#resources). |
 | `checks` | Yes | A map from each check's name to its definition. |
 | `plans` | No | Named commands that compute a check's `foreach` variations during the run. Refer to [Compute variations during a run](/chainguard/checks/variations-services-caches/#compute-variations-during-a-run). |
-| `requested_checks_agent` | No | `off` (default), `comment`, or `agent`. Turns on an agent that requests checks for each pull request. Refer to [Let an agent request checks](/chainguard/checks/github/#let-an-agent-request-checks). |
+| `requested_checks_agent` | No | `off` (default), `comment`, or `agent`. Turns on an agent that requests checks for each pull request. Set it only in `.chainguard/ci.yaml`, or in `.chainguard/ci/env/default.yaml` in the directory layout. In any other file, it makes the configuration invalid. Refer to [Let an agent request checks](/chainguard/checks/github/#let-an-agent-request-checks). |
 
 Chainguard Checks refuses any other top-level key with an error that names the key. That includes GitHub Actions keys such as `jobs`, `on`, and `name`.
 
@@ -128,11 +131,13 @@ The `environment` key sets up the VM each check runs in:
 | `packages` | A list of packages to install, such as `go` or `nodejs-22`. |
 | `vars` | A map of environment variables to set for every check. |
 | `services` | Services, such as a database, to start in each check's VM before the check's commands run. Refer to [Services](/chainguard/checks/variations-services-caches/#services). |
-| `caches` | Caches that carry build output from earlier runs into each check's VM. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
+| `caches` | Caches that carry build output and downloaded packages from earlier runs into each check's VM. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
 
-Every check's VM starts from a minimal base with BusyBox, GNU tar, and nothing else. Anything a check needs, including `git`, `bash`, `make`, `curl`, or a language toolchain, must be in `packages`. Package names often include a version, such as `go-1.24`, `nodejs-22`, or `python-3.13`. To pin a more specific version, add a version constraint after a tilde, such as `go-1.24~1.24.3`.
+Every check's VM starts from a minimal base with BusyBox, GNU tar, and nothing else. Anything a check needs, including `git`, `bash`, `make`, `curl`, or a language toolchain, must be in `packages`. Chainguard Checks installs them from Chainguard's public Wolfi and Extra Packages repositories, and from your organization's Private APK Repository, which adds the packages your organization is entitled to. Refer to [Overview of Chainguard's package repositories](/chainguard/containers/building-and-modifying/packages/package-model/).
 
-To find a package's name, use the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages.
+Package names often include a version, such as `go-1.24`, `nodejs-22`, or `python-3.13`. To pin a more specific version, add a version constraint after a tilde, such as `go-1.24~1.24.3`.
+
+To find a package's name, use the [`cg-apk`](/platform/mcp-servers/cg-apk/) MCP server, which looks up APK packages. You can also search Wolfi's packages from a container, as described in [Searching for packages](/chainguard/containers/migration/migrating-to-chainguard-images/#searching-for-packages).
 
 In the directory layout, a check can name a different environment with its own `environment` key, either by name, such as `environment: node` for `env/node.yaml`, or as an inline mapping.
 
@@ -148,7 +153,7 @@ Each entry under `checks` defines one check. The key is the check's name. A chec
 | `steps` | A list of commands to run in order. Refer to [Commands](#commands). |
 | `network` | The hosts the check can reach. Refer to [Network access](#network-access). Defaults to no network access. |
 | `timeout` | How long the check can run, as a duration such as `10m` or `1h30m`. Refer to [Timeouts](#timeouts). |
-| `needs` | A list of checks in the same file that must pass before this one runs. Refer to [Advisory checks](#advisory-checks) and [Run on request](#run-on-request) for limits. |
+| `needs` | A list of checks in the same file that must pass before this one runs. Refer to [Advisory checks](#advisory-checks), [Run on request](#run-on-request), and [Triggers](#triggers) for limits. |
 | `when` | Conditions under which the check runs. Refer to [Conditions](#conditions). |
 | `trigger` | `presubmit`, `postsubmit`, or a list of both. Refer to [Triggers](#triggers). Defaults to `presubmit`. |
 | `advisory` | If `true`, the check reports its result but never blocks merging. Defaults to `false`. |
@@ -250,6 +255,16 @@ checks:
 
 All steps share the check's network access and timeout.
 
+### How commands run {#how-commands-run}
+
+The following applies to a check's `cmd` or `script`, and to each of its steps:
+
+- Standard input is empty, so a command that reads it gets end-of-file. Commands don't run in a terminal, but Chainguard Checks sets `TERM` to `xterm-256color`.
+- When a command or script exits, Chainguard Checks stops every background process that the command or script left running. A process that one step starts isn't running in the next step, so to keep a process, such as a database, running for a check's commands, use a [service](/chainguard/checks/variations-services-caches/#services).
+- A background process that still has the command's standard output or standard error open keeps the step running until that process exits, so a server started with a plain `&` can keep the check running until it times out. To run a server while the rest of a script runs, redirect its output, as in `./server > server.log 2>&1 &`.
+- When a check reaches its `timeout` or the run's [two-hour limit](#timeouts), or its run is canceled, Chainguard Checks stops the check's VM without signaling its processes first. Cleanup that a script sets up, such as a `trap` on `EXIT` or `TERM`, doesn't run.
+- If a signal ends a command, its exit code is 128 plus the signal's number, such as `137` for `SIGKILL`.
+
 ## Network access {#network-access}
 
 A check has no network access unless it has a `network` key. To let a check reach specific hosts, list them under `network.egress`:
@@ -282,6 +297,15 @@ The `policy` key controls what happens when the check tries to reach a host that
 | `destroy` | Chainguard Checks stops the check's VM, and the check fails. |
 
 Whatever a check allows, it can never reach cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+When a check with network access makes an HTTPS request, Chainguard Checks verifies the host's own certificate, then presents the check with a certificate signed by a certificate authority that it creates for that check's VM alone. Chainguard Checks doesn't replace the host's certificate in the following cases:
+
+- The connection goes to a port other than 443, such as 8443.
+- The host requires a client certificate.
+- The host's certificate doesn't verify.
+- The client's TLS handshake offers only protocols other than HTTP.
+
+The VM's system certificate bundle and Java truststore already trust the certificate authority, and Chainguard Checks points the certificate variables listed in [Variables that Chainguard Checks sets](#variables-that-chainguard-checks-sets) at the bundle, so most tools work without changes. A tool that keeps its own list of trusted certificates and doesn't read these variables rejects the connection instead. Refer to [A check fails with a certificate error](/chainguard/checks/troubleshooting/#a-check-fails-with-a-certificate-error).
 
 To see which hosts a check tried to reach and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
 
@@ -376,10 +400,12 @@ A check that runs on request follows these rules:
 
 - It must have a [`description`](#describe-a-check) that says what it covers and when it's worth running.
 - `requested` can only be `true`, and the same `when` can't also set `changed` or `expr`.
-- Its name can be at most 43 characters, so that its label fits GitHub's 50-character limit. When two files in the directory layout have a check with the same name, the label includes the file's name, such as `ci/run:go/e2e-full`, and the limit counts the file's name and the `/` after it too.
+- Its name can be at most 43 characters, so that its label fits GitHub's 50-character limit. When two files have a check with the same name, the label includes the file's name, such as `ci/run:go/e2e-full`, and the limit counts the file's name and the `/` after it too.
 - A check that doesn't run on request can't need one that does, because it would then run only when the other check is requested.
 
 To run the check on a pull request, add the label `ci/run:<check>`, such as `ci/run:e2e-full`. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request) for details. A run after merging never runs a check on request.
+
+A pull request can't make its own checks run only on request. The change takes effect after it merges, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request).
 
 ## Describe a check {#describe-a-check}
 
@@ -408,13 +434,15 @@ A check with `advisory: true` reports its real result on the pull request, with 
 
 A blocking check can't need an advisory check, either with `needs` or by taking an [input](/chainguard/checks/variations-services-caches/#pass-files-between-checks) from it. If the advisory check failed, the blocking check wouldn't run, and the summary check would fail. Make both checks advisory, or both blocking.
 
-## Triggers
+A pull request can't make its own checks advisory. The change takes effect after it merges, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request).
+
+## Triggers {#triggers}
 
 The `trigger` key sets which events run a check:
 
 | Trigger | When the check runs |
 | ------- | ------------------- |
-| `presubmit` (default) | On each pull request, against the commit GitHub would create by merging it. |
+| `presubmit` (default) | On each pull request, against the pull request merged into its base branch. |
 | `postsubmit` | On each new commit on your default branch, after a change merges. |
 
 To run a check at both times, list both:
@@ -428,9 +456,11 @@ checks:
 
 Postsubmit results appear on the commit on your default branch, in a summary check named **Chainguard Checks (postsubmit)**.
 
+A check can need another check, either with `needs` or by taking an [input](/chainguard/checks/variations-services-caches/#pass-files-between-checks) from it, only if the other check runs on every trigger that the first check runs on. The other check can run on more triggers. For example, a check without `trigger` runs on pull requests, so it can need a check with `trigger: [presubmit, postsubmit]`, but not one with only `trigger: postsubmit`. If a check breaks this rule, `chainctl checks validate` reports it, and on GitHub, the summary check for the missing trigger, such as **Chainguard Checks (presubmit)**, fails with **Run creation failed**.
+
 ## Timeouts {#timeouts}
 
-By default, a check has no time limit of its own. A whole run can take up to 50 minutes, and a check still running at that point fails. To fail a check sooner, set `timeout` to a duration, such as `10m` or `1h`.
+By default, a check has no time limit of its own. A whole run can take up to two hours, and a check still running at that point fails. To fail a check sooner, set `timeout` to a duration, such as `10m` or `1h`. A check that times out gets no chance to clean up, as described in [How commands run](#how-commands-run).
 
 ## Resources {#resources}
 
@@ -450,38 +480,42 @@ Your organization's allowance sets the largest class you can use. With the Start
 
 In each check's VM, `/tmp` is held in memory, and can hold up to a quarter of the VM's memory: about 2 GB with the built-in default, and 4 GB with `medium`. Files in `/tmp` use memory that the check's processes would otherwise have. Put large files, such as a virtual environment or build output, under `/var/tmp` or `/work`, which are on the VM's disk.
 
+A check's VM has no KVM device, so tools that run their own VMs with KVM, such as Firecracker or QEMU with hardware acceleration, don't work in a check.
+
 ### Define your own resource classes {#define-your-own-resource-classes}
 
-In the directory layout, a `.chainguard/ci/resources.yaml` file replaces the built-in classes with your own:
+In the directory layout, each file in `.chainguard/ci/resources/` defines one resource class, named after the file. For example, the following file defines a class named `compute`:
 
-```yaml {title=".chainguard/ci/resources.yaml"}
+```yaml {title=".chainguard/ci/resources/compute.yaml"}
 version: 1
-resource_classes:
-  default:
-    cpus: 2
-    memory: 8Gi
-    disk: 20Gi
-  big:
-    cpus: 4
-    memory: 16Gi
-    disk: 40Gi
-  big-amd64:
-    cpus: 4
-    memory: 16Gi
-    disk: 40Gi
-    platform:
-      os: linux
-      architecture: amd64
+cpus: 8
+memory: 16Gi
+disk: 40Gi
+platform:
+  os: linux
+  architecture: arm64
 ```
 
-A check selects one of these classes by name, such as `resources: big`. The file follows these rules:
+A check selects the class by name, such as `resources: compute`. Your classes add to the built-in classes, so checks can still name `medium` or `large-amd64`. Each class file follows these rules:
 
-- It must define `default`, which a check gets when nothing sets its `resources`.
-- It replaces the built-in classes, so `medium`, `large`, `xlarge`, and their `-amd64` and `-arm64` variants aren't available unless you define classes with those names.
-- Each class needs `cpus`. `memory` and `disk` are whole numbers of `Mi` or `Gi`, such as `512Mi` or `16Gi`. A class without `memory` gets 4 GiB, and a class without `disk` gets 5 GiB.
+- The file's name, without `.yaml`, is the class's name. It uses lowercase letters, digits, and `-`, starts with a letter, and can be up to 63 characters. It can't be the name of a built-in class, such as `medium`, or the reserved names `default` and `auto`.
+- Each file needs `version: 1` and `cpus`. `memory` and `disk` are whole numbers of `Mi` or `Gi`, such as `512Mi` or `16Gi`. A class without `memory` gets 4 GiB, and a class without `disk` gets 5 GiB.
 - Only `platform` pins a class to an architecture, with `os: linux` and `architecture` set to `amd64` or `arm64`. A class without `platform` can run on either architecture, whatever its name.
-- Class names use lowercase letters, digits, and `-`, start with a letter, and can be up to 63 characters.
-- The single-file layout doesn't support `resources.yaml`. A `.chainguard/ci/resources.yaml` file beside `.chainguard/ci.yaml` makes the configuration invalid.
+- The single-file layout doesn't support your own classes, because a `.chainguard/ci/` directory beside `.chainguard/ci.yaml` makes the configuration invalid.
+
+To give every check one of your classes unless it names another, set `resources` in `.chainguard/ci/env/default.yaml`:
+
+```yaml {title=".chainguard/ci/env/default.yaml"}
+version: 1
+environment: {}
+resources: compute
+```
+
+#### Replace the built-in classes with resources.yaml {#replace-the-built-in-classes-with-resources-yaml}
+
+An older form, a single `.chainguard/ci/resources.yaml` file, lists classes under `resource_classes` and replaces the built-in classes with them. It must define a class named `default`, which a check gets when nothing sets its `resources`, and checks can't name `medium` or any other built-in class unless the file defines a class with that name. Its classes follow the same rules as class files.
+
+A repository can't have both `resources.yaml` and a `resources/` directory. To move to class files, put each class in its own file under `.chainguard/ci/resources/`, delete `resources.yaml`, and set the class that its `default` defined in `env/default.yaml`, as in the earlier example.
 
 Your organization's allowance limits your own classes too. If any check in a run asks for more vCPUs, memory, or disk than the allowance allows, the whole run fails before any check starts.
 
@@ -517,7 +551,31 @@ A binding to `context.github.pull_request.body` works as follows:
 
 If a binding breaks these rules, the run fails, as described in [The summary check says the run couldn't be created or failed](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed).
 
-Chainguard Checks doesn't set `CI` or any `GITHUB_` variables. When a run has a base commit, Chainguard Checks sets `CHAINGUARD_BASE_REVISION` to that commit's SHA. For a pull request, that's the base branch commit that GitHub merged the pull request into. For a run after merging, it's the new commit's first parent. Your repository's history is in the VM, so with `git` in your packages, a check can compare against it, such as with `git diff "$CHAINGUARD_BASE_REVISION"`.
+### Variables that Chainguard Checks sets {#variables-that-chainguard-checks-sets}
+
+Chainguard Checks sets the following variables for each check's commands:
+
+| Variable | Value |
+| -------- | ----- |
+| `PATH` | `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin` |
+| `HOME` | `/root`, or `/home/<name>` for a check that [runs as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
+| `USER` and `LOGNAME` | `root`, or the account's name for a check that runs as another user. |
+| `TERM` | `xterm-256color` |
+| `SSL_CERT_FILE`, `REQUESTS_CA_BUNDLE`, `PIP_CERT`, `CURL_CA_BUNDLE`, `NODE_EXTRA_CA_CERTS`, and `HEX_CACERTS_PATH` | `/etc/ssl/certs/ca-certificates.crt`, the VM's certificate bundle, which trusts the certificate authority described in [Network access](#network-access). |
+| `CHAINGUARD_BASE_REVISION` | The SHA of the run's base commit, if the run has one. |
+| `CG_CPUS`, `CG_MEMORY_MIB`, and `CG_DISK_MIB` | The VM's vCPUs, and its memory and disk in MiB, from the check's [resource class](#resources). |
+
+For a pull request, the base commit is the base branch commit that the run merges the pull request into. For a run after merging, it's the new commit's first parent. Your repository's history is in the VM, so with `git` in your packages, a check can compare against it, such as with `git diff "$CHAINGUARD_BASE_REVISION"`.
+
+In a pull request's check, `HEAD` is the commit that merges the pull request into its base branch. Chainguard Checks creates that commit for the run, and it's never pushed to GitHub, so a command that looks `HEAD` up on GitHub fails, such as a call to GitHub's API or a `git fetch` of the commit. Use `HEAD^2` for the pull request's own head commit, and `CHAINGUARD_BASE_REVISION`, which is `HEAD^1`, for the base commit.
+
+A check that uses a [cache](/chainguard/checks/variations-services-caches/#cache-types) also gets the variables that its type sets, such as `GOCACHE` for `gobuild`. A check that uses a [workload identity](#credentials) also gets the variables that its providers set, such as `GOOGLE_APPLICATION_CREDENTIALS` for Google Cloud, as described in [How workload identities work](/chainguard/checks/identity-and-trust/#how-workload-identities-work).
+
+A variable that you set in `vars` replaces the value in the table, except `CHAINGUARD_BASE_REVISION`, which Chainguard Checks discards if you set it, and `CG_CPUS`, `CG_MEMORY_MIB`, and `CG_DISK_MIB`, which Chainguard Checks always sets. If you set one of the certificate variables, point it at a bundle that includes the certificates in `/etc/ssl/certs/ca-certificates.crt`, or HTTPS connections from the tools that read the variable fail.
+
+Chainguard Checks doesn't set `CI`, `TMPDIR`, `LANG`, `TZ`, or any `GITHUB_` variables. Without `TMPDIR`, most tools write temporary files to `/tmp`, which is [held in memory](#resources). To use the VM's disk instead, set `TMPDIR` to `/var/tmp` in `vars`.
+
+Variables specific to Chainguard Checks start with `CHAINGUARD_` or `CG_`, such as `CHAINGUARD_BASE_REVISION`, `CG_CPUS`, and the `CG_PLAN` variable that a [planner](/chainguard/checks/variations-services-caches/#compute-variations-during-a-run) gets. Don't start the names of your own variables with these prefixes.
 
 ## Report errors and annotations {#report-errors-and-annotations}
 
@@ -566,11 +624,27 @@ A summary works as follows:
 - An `@` mention in a summary doesn't notify anyone.
 - GitHub limits the size of a check's output, so Chainguard Checks cuts a summary longer than about 53 KiB and links to the full log. In a check with `foreach`, each variation's summary can be up to 8 KiB.
 
+## Git in a check's VM {#git-in-a-checks-vm}
+
+A check's `/work` directory is a Git repository that holds the commit under test and its full history, but it isn't set up like a clone of your repository. Some common Git commands and tools fail in it:
+
+- `HEAD` is detached at the commit under test, and the repository has no branches or tags. Commands that read tags, such as `git describe`, fail, and tools that compute a version from tags, such as GoReleaser and setuptools-scm, fail or report the wrong version.
+- The `origin` remote points to your repository's URL on GitHub, without a credential. Because the repository has no remote branches, a command that compares against a remote branch, such as `git diff origin/main`, fails.
+- Git has no `user.name` or `user.email` set, so `git commit` fails.
+
+To work around these differences:
+
+- To compare against the base branch, use the commit in `CHAINGUARD_BASE_REVISION`, such as `git diff --name-only "$CHAINGUARD_BASE_REVISION" HEAD`. Refer to [Variables that Chainguard Checks sets](#variables-that-chainguard-checks-sets).
+- To read tags from a public repository, add `github.com` to the check's `network.egress`, and run `git fetch --tags origin` before the command that reads them. During the beta, a check can't fetch tags from a private repository, because it gets no GitHub credential. Refer to [Credentials](#credentials).
+- To create a commit, set a Git identity first, such as with `git config user.name ci` and `git config user.email ci@example.com`.
+
+A check that runs as another user doesn't own the `.git` directory, so it can't fetch tags or create commits. Refer to [Run as another user](/chainguard/checks/variations-services-caches/#run-as-another-user).
+
 ## Credentials {#credentials}
 
 A check runs without credentials by default. Its `/work` directory holds your repository's tracked files and history at the commit it tests, so most checks need none. Submodule directories are empty, and files that Git LFS tracks hold their pointer files instead of their content. During the beta, a check gets no GitHub credential, so it can't fetch from private GitHub repositories, such as private Go modules or submodules, or private Git LFS content. To add files from a public repository, use a [`git` input](/chainguard/checks/variations-services-caches/#check-out-another-repository).
 
-A check that must authenticate to Google Cloud or to Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well, as described in [Set up the provider](/chainguard/checks/identity-and-trust/#set-up-the-provider).
+A check that must authenticate to Google Cloud, AWS, Azure, or Chainguard, such as to pull private images from `cgr.dev`, can use a *workload identity*. You declare workload identities in `.chainguard/ci/identities.yaml`, and a check requests one by name with `identity`. Workload identities need setup on the provider's side as well, as described in [Set up the provider](/chainguard/checks/identity-and-trust/#set-up-the-provider).
 
 Unless `identities.yaml` on your default branch has a `trust` section, any open pull request can get an identity, including one from a fork. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) for the file's format, which pull requests get an identity, and how to limit them.
 

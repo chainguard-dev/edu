@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Bitbucket workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-22T13:04:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -215,7 +215,7 @@ pipelines:
         oidc: true
         max-time: 5
         script:
-          - curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+          - curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
           - chmod +x chainctl
 
           # Assume the bitbucket pipeline identity

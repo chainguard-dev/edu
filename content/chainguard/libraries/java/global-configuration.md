@@ -30,7 +30,8 @@ feature of Chainguard Repository, which allows you to configure your repository
 manager with a single upstream pointed at `https://libraries.cgr.dev/java/` without a separate fallback to Maven Central. The
 Chainguard Repository handles fallback and policy enforcement; your repository
 manager handles local caching and access control. Chainguard retrieves
-packages from the public Maven Central repository on your behalf when upstream
+packages from Maven Central and the other supported
+[upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) on your behalf when upstream
 fallback is enabled. This includes protections such as malware scanning and a
 cooldown period for newly published packages.
 

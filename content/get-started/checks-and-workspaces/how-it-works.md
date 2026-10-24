@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-16T11:36:21+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -45,7 +45,7 @@ Neither product puts a long-lived credential in the VM. Where a check or session
 | | Chainguard Checks | Chainguard Workspaces |
 | -- | -- | -- |
 | How code authenticates | A check can request a [workload identity](/chainguard/checks/identity-and-trust/). Chainguard Checks issues the check an OpenID Connect (OIDC) token that lasts five minutes, and renews it while the check runs. | The session reaches each service through a local hostname, such as `http://github/` or `http://claude/`. `chainctl` on your laptop, or Chainguard, adds the credential to each request. |
-| What the VM holds | For Google Cloud, a credential configuration and sealed stand-in tokens. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains. For Chainguard, nothing. | A placeholder at most. For `github` and `cgr.dev` from your laptop, the credential never leaves your machine. For `claude` and `gcp`, `chainctl` sends it to the session's host, outside the VM, and the host discards it when the session parks. |
+| What the VM holds | For Google Cloud, a credential configuration and sealed stand-in tokens. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains. For Chainguard, nothing. | A placeholder at most. For `github` and `cgr.dev` from your laptop, the credential never leaves your machine. For `claude` and `gcp`, `chainctl` sends it to the session's host, outside the VM, and the host discards it when the session parks. For a session that uses a Claude login Chainguard holds for you, Chainguard sends the host short-lived access tokens from it instead, attached or not, and sends them again when the session resumes. |
 | Who decides | `identities.yaml` on the pull request's base branch, and the `trust` section on your default branch. | Your organization's policy and the session's credential settings. A request beyond the defaults needs your approval on your terminal. |
 
 Code in the VM can't read the real credentials, but it can use them. Each request it sends carries the credential's access, and anything it creates with that access, such as a Google Cloud service account key, outlives the check or session. Grant each workload identity only the access its checks need, and review a session's credentials before you let an agent work in it unattended. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
@@ -72,7 +72,7 @@ Both products use the same `network.egress` allowlist, but they read a missing `
 
 A session that uses the default environment, a `.chainguard/develop.yaml` file, or a file's top-level `environment` reaches the open internet, because none of these can set `network`. To restrict a session, open it on a check that has an `egress` list. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access).
 
-Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges.
+Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges. Chainguard Checks also intercepts most HTTPS connections from a check, using a certificate authority that it creates for that check's VM alone, as described in [Network access](/chainguard/checks/configuration/#network-access).
 
 The `egress` list doesn't apply to a session's credential hostnames, such as `http://github/` and `http://claude/`, so a session with a narrow list can still push to GitHub and use Claude Code. Google Cloud is different, because its requests go to Google's own hosts: a check that uses a Google Cloud workload identity, and a session that uses your Google Cloud credentials with an `egress` list, must list `sts.googleapis.com` and the Google APIs they call.
 
@@ -116,11 +116,11 @@ A *run* is one pass of a repository's checks for one commit. The following table
 | Stage | What happens | What can end the run here |
 | -- | -- | -- |
 | 1. Event | GitHub tells Chainguard Checks, through the Chainguard App, that a pull request was opened, reopened, or updated. | Pushes to other branches, tags, and closed pull requests start no run. |
-| 2. Test merge | Chainguard Checks uses the commit GitHub would create by merging the pull request into its base branch. | Merge conflicts: the summary check fails with **Merge conflict with the base branch**. |
+| 2. Test merge | Chainguard Checks merges the pull request into the latest commit on its base branch. The merge commit exists only in the run, never on GitHub. | Conflicts, which Chainguard Checks can find where GitHub finds none, fail the summary check with **Merge conflict with the base branch**. A pull request past the merge's size limits fails with **Too large to merge**. Refer to [The summary check reports a merge conflict](/chainguard/checks/troubleshooting/#the-summary-check-reports-a-merge-conflict). |
 | 3. Plan | Chainguard Checks reads the configuration from the merge commit, applies the base branch's rules, and selects the checks that this change runs. | An invalid configuration fails with **Invalid config**. A change that weakens its own gate, or that changes 3,000 or more files, fails with **Run creation failed**. |
 | 4. Admission | Chainguard Checks admits the run only if Chainguard Checks is turned on for the organization and the organization is within its limits. | Chainguard Checks isn't turned on for the organization, or the organization is at its run limit, such as 10 runs queued or running with the Starter allowance. Either way, no summary check appears. The summary check fails with **Run creation failed** when the organization has used up its monthly compute allowance or hasn't accepted the terms. |
 | 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. Before a check gets a workload identity, Chainguard Checks verifies again, against GitHub, that the pull request is still open at the head and base this run tests, and that the base branch allows the identity for this check. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, is stopped by `policy: destroy`, or doesn't get the workload identity it requests. |
-| 6. Summary | Each check reports a GitHub check named `presubmit / <file> / <check>` as it finishes. The summary check, **Chainguard Checks (presubmit)**, passes only when every blocking check passes. | |
+| 6. Summary | A check that doesn't pass, or that reports errors, warnings, notices, or a summary, gets a GitHub check named `presubmit / <file> / <check>` when it finishes. The summary check, **Chainguard Checks (presubmit)**, lists every check and passes only when every blocking check passes. | |
 
 A new push to the pull request cancels the current run and starts a new one at stage 1. After a change merges, each new commit on your default branch gets its own run in ring `2`, which reports **Chainguard Checks (postsubmit)**. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/).
 
@@ -131,12 +131,12 @@ A session moves through the following states:
 | State | What it means | What moves it on |
 | -- | -- | -- |
 | Creating | `chainctl develop` creates the VM, syncs your directory into `/work`, and installs the session's packages. | When it's ready, your terminal attaches. |
-| Attached | Your terminal is connected to the session's shell. `chainctl` answers the requests that use your laptop's credentials, and sends your Claude and Google Cloud credentials to the session's host. | When you detach, the session keeps running. **Park now** in the session menu parks it right away. |
-| Running, detached | The session keeps running, and an agent in it can keep working. It still uses compute. | After about 10 minutes, or after the time you chose with **Detach — keep running** or `--keep`, up to 24 hours, the session parks. A `--keep always` session parks 7 days after you last detach. Attaching again returns it to attached. |
-| Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. Five days after parking, it expires. |
+| Attached | Your terminal is connected to the session's shell. `chainctl` answers the requests that use your laptop's credentials, and sends your Claude and Google Cloud credentials to the session's host. For a session that uses a Claude login Chainguard holds for you, `chainctl` sends nothing for Claude. | When you detach, the session keeps running. **Park now** in the session menu parks it right away. |
+| Running, detached | The session keeps running, and an agent in it can keep working. It still uses compute. | The session keeps running while it's busy, such as during a build, a Claude Code turn, a `run-ci` run, or a `busy` command, and parks after it's been idle for 10 minutes, no later than 24 hours after you last detach. A time you chose with **Detach — keep running** or `--keep` keeps it running until then, and then while it's busy. A `--keep park` session parks about 10 minutes after you detach, busy or not, and a `--keep always` session parks 7 days after you last detach. Attaching again returns it to attached. |
+| Parked | Chainguard saves the session's memory and disk to a snapshot and stops the VM, so it uses no compute. The host discards the credentials `chainctl` sent it. | Attaching resumes it from the snapshot in seconds, with processes, files, and shell as you left them. When the session resumes, Chainguard sends the host fresh access tokens from a Claude login it holds for you, without waiting for you to attach. Five days after parking, it expires. |
 | Expired | Chainguard discards the VM and the snapshot. The session can't be resumed, but it stays in `chainctl develop list --expired`, and its name stays in use. | `chainctl develop delete` removes it. |
 
-However a session is used, its VM runs for at most 6 days at a stretch. Then Chainguard parks the session and resumes it right away, the same way the session menu's **Restart the host** option does, so a session in long use isn't cut off.
+A session's VM runs for up to 6 days without parking. Then Chainguard parks the session and resumes it on a new host, the same way the session menu's **Restart the host** option does, so a session in long use isn't cut off. If you're attached, the park waits until you detach, and if your organization's monthly allowance is used up, the session stays parked.
 
 You can delete a session in any state. Anything you didn't push is lost. A parked session counts toward your session limit until it expires or you delete it. Refer to [Manage Chainguard Workspaces sessions](/chainguard/workspaces/manage-sessions/).
 
@@ -149,7 +149,7 @@ You can delete a session in any state. Anything you didn't push is lost. A parke
 : A separate GitHub App, `chainguard-develop`. After you connect your GitHub account with `chainctl develop github login`, the sessions you create act on GitHub as you through this app instead of through the Chainguard App.
 
 **Check**
-: One named entry under `checks` in your `.chainguard/ci.yaml` file or a file in `.chainguard/ci/`. On GitHub, each check reports as `presubmit / <file> / <check>`.
+: One named entry under `checks` in a configuration file, such as `.chainguard/ci.yaml` or a file in `.chainguard/ci/`. Refer to [How results appear](/chainguard/checks/github/#how-results-appear) for how it reports on GitHub.
 
 **Park**
 : To save a session's memory and disk to a snapshot and stop its VM. A parked session resumes where it left off.
@@ -167,7 +167,7 @@ You can delete a session in any state. Anything you didn't push is lost. A parke
 : One entry in a check's `foreach` list. Each variation runs in its own VM, and all of a check's variations report as one GitHub check.
 
 **Workload identity**
-: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud or Chainguard. Sessions don't get them.
+: Short-lived credentials that Chainguard Checks gives a check while it runs, for Google Cloud, AWS, Azure, or Chainguard. Sessions don't get them.
 
 Several names in `chainctl` and in the configuration don't match the product names:
 

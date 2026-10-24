@@ -24,7 +24,7 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
@@ -287,7 +287,7 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible artifacts from the supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
 
 If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 

@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-10-02T18:50:45+00:00
+lastmod: 2026-10-15T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -14,7 +14,11 @@ weight: 30
 
 Chainguard can grant roles based on a user's groups in your identity provider (IdP). You map an IdP group to a Chainguard role once, and from then on any user who logs in with that group in their token receives the role for that session. Access follows group membership, so you manage who gets what in your IdP instead of assigning roles to each user in Chainguard.
 
+The mappings in this guide come from the groups claim in a login token. If you provision users from Okta with SCIM, Okta can push groups instead. Chainguard applies the same mappings to pushed groups, but grants the roles as persistent role bindings that appear in `chainctl iam role-bindings list`, not per session. For that setup, refer to [Push groups to grant roles](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles).
+
 This guide covers Okta and Microsoft Entra ID. The Chainguard-side steps (2 through 4) are the same for both providers; only how you emit group membership in Step 1 differs.
+
+Steps 2 and 3 outline how to use `chainctl` to point Chainguard at a groups claim and map a group to a role. You can also perform these steps in the Chainguard Console, as described in the "Map IdP groups to roles" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#map-idp-groups-to-roles).
 
 ## Prerequisites
 
@@ -55,7 +59,7 @@ Before you configure any mappings, it helps to understand how group-derived role
 
 ## Step 1: Emit group membership from your IdP
 
-Configure your identity provider to include the user's group memberships in the OIDC token it issues to Chainguard. The exact Console steps differ by provider and change over time, so follow your provider's own documentation. This guide relies only on the result:
+Configure your identity provider to include the user's group memberships in the OIDC token it issues to Chainguard. The exact steps differ by provider and change over time, so follow your provider's own documentation. This guide relies only on the result:
 
 - The token carries a claim listing the user's groups, named whatever you set in Step 2. That value format is what you supply as `--external-group-id` in Step 3. This guide uses `groups`.
 - The token carries only the groups you map, not every group a user belongs to. The IdP drops oversized group sets from the token, as described in [Limits](#limits).

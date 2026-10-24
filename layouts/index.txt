@@ -3,7 +3,8 @@
 > Documentation, tutorials, and resources for Chainguard products and software supply chain security.
 {{ range .Site.RegularPages.GroupBy "Section" -}}
 {{- $section := .Key -}}
-{{- $heading := cond (eq $section "") "General Resources" ($section | replaceRE "-" " " | title) -}}
+{{- $sectionPage := false -}}
+{{- with $section }}{{ $sectionPage = site.GetPage (printf "/%s" .) }}{{ end -}}
 {{/* Collect only pages the site wants advertised: skip anything marked noindex or excluded from the sitemap. */}}
 {{- $visible := slice -}}
 {{- range .Pages -}}
@@ -12,12 +13,43 @@
 {{- $excluded := or (in $robots "noindex") (eq .Params.sitemap_exclude true) -}}
 {{- if not $excluded }}{{ $visible = $visible | append . }}{{ end -}}
 {{- end -}}
-{{- if $visible }}
-## {{ $heading }}
+{{/* Give each second-level section, such as one product, its own heading, so an agent can read only the part it needs.
+     A page belongs to the second-level section named by the second directory of its path: "checks" for
+     chainguard/checks/overview.md. Pages directly in the top-level section belong to "" and go under its heading.
+     A leaf bundle, such as get-started/cicd-pipeline/index.md, is a page, so its own directory doesn't count. */}}
+{{- $entries := slice -}}
+{{- range $visible -}}
+{{- $dir := strings.TrimSuffix "/" .File.Dir -}}
+{{- if eq .BundleType "leaf" }}{{ $dir = path.Dir $dir }}{{ end -}}
+{{- $dirs := split $dir "/" -}}
+{{- $subsection := cond (ge (len $dirs) 2) (index $dirs 1) "" -}}
+{{- $entries = $entries | append (dict "page" . "subsection" $subsection) -}}
+{{- end -}}
+{{/* The groups, in sidebar order: the top-level section's own pages, then each second-level section. */}}
+{{- $heading := "General Resources" -}}
+{{- with $sectionPage }}{{ $heading = .Title }}{{ end -}}
+{{- $groups := slice (dict "heading" $heading "subsection" "" "crosslinks" slice) -}}
+{{- with $sectionPage -}}
+{{- range .Sections -}}
+{{- $child := . -}}
+{{- with $child.File -}}
+{{- $groups = $groups | append (dict "heading" $child.Title "subsection" .ContentBaseName "crosslinks" ($child.Params.crosslinks | default slice)) -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- range $groups -}}
+{{- $group := . -}}
+{{- $pages := slice -}}
+{{- range $entries }}{{ if eq .subsection $group.subsection }}{{ $pages = $pages | append .page }}{{ end }}{{ end -}}
+{{/* Also list the pages a section links to from its sidebar, such as the setup page that Checks and Workspaces share. */}}
+{{- range $group.crosslinks }}{{ with site.GetPage (strings.TrimSuffix "/" .url) }}{{ $pages = $pages | append . }}{{ end }}{{ end -}}
+{{- if $pages }}
+## {{ $group.heading }}
 
-{{ range $visible -}}
+{{ range $pages -}}
 - [{{ .Title }}]({{ .Permalink | replaceRE "/$" ".md" }}){{ with .Description }}: {{ . }}{{ end }}
-{{ end }}
+{{ end -}}
+{{- end -}}
 {{- end -}}
 {{- end }}
 ## API Reference
