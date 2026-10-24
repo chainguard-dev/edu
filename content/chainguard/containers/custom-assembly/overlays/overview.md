@@ -45,7 +45,7 @@ When you create, update, or delete a binding, or update an overlay, Chainguard r
 
 ## Tag selectors
 
-Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all`, `--variant`, or `--tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
+Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all-tags`, `--tag-variant`, or `--exact-tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
 
 | Selector | Matches | Example use |
 | --- | --- | --- |
