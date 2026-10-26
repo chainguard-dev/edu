@@ -1,13 +1,14 @@
 // Quick-start block, from the quickstart shortcode: a bordered block with a
 // heading, numbered steps, and a closing line marked {.quick-start-done}.
 
-$quick-start-tint: color-mix(in srgb, var(--primary-1) 5%, transparent);
-$quick-start-line: color-mix(in srgb, var(--primary-1) 35%, transparent);
+// The border, step connectors, and "done" divider use the code-block border color,
+// so the card matches the code blocks inside it.
+$quick-start-line: var(--pre-container-border);
 
 .quick-start {
     border: 1px solid $quick-start-line;
     border-radius: 12px;
-    background: $quick-start-tint;
+    background: transparent;
     padding: 0.25rem 2rem 1.5rem;
     margin: 2rem 0 3.5rem;
 
