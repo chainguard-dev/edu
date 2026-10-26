@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-19T18:20:21+00:00
+lastmod: 2026-10-26T17:48:17+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,81 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-26
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `apache-pulsar:4.0` | 2026-10-21 | 2027-04-21 |
+| `rancher:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-agent:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-charts:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-dashboard:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-kontainer-driver-metadata:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-ui:2.11` | 2026-10-24 | 2027-04-24 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 47 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>commercial-gitlab-*</code></strong> — 5 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-geo-logcursor-ee/versions"><code>commercial-gitlab-geo-logcursor-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-sidekiq-ee/versions"><code>commercial-gitlab-sidekiq-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-toolbox-ee/versions"><code>commercial-gitlab-toolbox-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-webservice-ee/versions"><code>commercial-gitlab-webservice-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-workhorse-ee/versions"><code>commercial-gitlab-workhorse-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>sentry-*</code></strong> — 6 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry/versions"><code>sentry</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-launchpad/versions"><code>sentry-launchpad</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-relay/versions"><code>sentry-relay</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-taskbroker/versions"><code>sentry-taskbroker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-uptime-checker/versions"><code>sentry-uptime-checker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-vroom/versions"><code>sentry-vroom</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/automq/versions"><code>automq</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gke-deploy/versions"><code>gke-deploy</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-elasticache-controller/versions"><code>aws-elasticache-controller</code></a></td><td>application +fips</td><td>2026-10-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/node-red/versions"><code>node-red</code></a></td><td>application</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sloth/versions"><code>sloth</code></a></td><td>application +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vllm-omni/versions"><code>vllm-omni</code></a></td><td>ai +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sns-controller/versions"><code>aws-sns-controller</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gitleaks/versions"><code>gitleaks</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubernetes-csi-driver-smb/versions"><code>kubernetes-csi-driver-smb</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mpi-operator/versions"><code>mpi-operator</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-storage-api/versions"><code>supabase-storage-api</code></a></td><td>application</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/snuba/versions"><code>snuba</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-studio/versions"><code>supabase-studio</code></a></td><td>application</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/symbolicator/versions"><code>symbolicator</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-10-19
 
