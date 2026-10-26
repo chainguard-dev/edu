@@ -124,6 +124,11 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 <td>fixed</td>
 </tr>
 <tr>
+<td>Patched</td>
+<td>The affected package was patched with Chainguard libraries and the vulnerability is no longer present.</td>
+<td>fixed</td>
+</tr>
+<tr>
 <td>Fix not planned</td>
 <td>There are no plans to address the vulnerability in the package at this time.</td>
 <td>fix-not-planned</td>
