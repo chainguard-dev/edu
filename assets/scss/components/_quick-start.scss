@@ -1,10 +1,8 @@
 // Quick-start block, from the quickstart shortcode: a bordered block with a
 // heading, numbered steps, and a closing line marked {.quick-start-done}.
 
-// Card chrome (border, step connectors, the "done" divider) uses the neutral Ink
-// grayscale, matching code blocks and the left nav — borders and dividers are grayscale,
-// not Blurple, per the brand guidelines. The numbered-step markers below stay Blurple:
-// a filled background block, which is Blurple's sanctioned use.
+// The border, step connectors, and "done" divider use the code-block border color,
+// so the card matches the code blocks inside it.
 $quick-start-line: var(--pre-container-border);
 
 .quick-start {
