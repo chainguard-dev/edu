@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -331,7 +331,10 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/platform/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/). For GitHub
+Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.python.pull` role.
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.

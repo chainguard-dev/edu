@@ -11,9 +11,9 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 draft: false
-tags: ["Chainguard Containers"]
+tags: ["Chainguard Containers", "Chainguard Libraries"]
 images: []
 weight: 10
 ---
@@ -22,7 +22,8 @@ Chainguard's [*assumable identities*](/platform/administration/assumable-ids/ass
 are identities that can be assumed by external applications or workflows in
 order to perform certain tasks that would otherwise have to be done by a human.
 For instance, an assumable identity can be used to allow a GitHub Actions
-workflow to pull images from `cgr.dev` without a static pull token.
+workflow to pull container images from `cgr.dev` or libraries from
+`libraries.cgr.dev` without a static pull token.
 
 This tutorial outlines how to create an identity, and then create a GitHub Actions workflow that will assume the identity to interact with Chainguard resources.
 
@@ -61,6 +62,25 @@ gh api repos/OWNER/REPO --jq '{owner_id: .owner.id, repo_id: .id}'
 ```
 
 You can also preview the exact subject your repository sends from its OIDC settings in the GitHub web interface. To confirm the subject a running workflow presents, inspect the `sub` claim of the OIDC token in the workflow logs. For background on the format, refer to GitHub's changelog announcing [immutable subject claims for GitHub Actions OIDC tokens](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/).
+
+### Choosing a role
+
+The examples in this guide bind the `registry.pull` role, which lets the
+workflow pull container images. Bind the role that matches what your workflow
+pulls:
+
+| Workflow pulls | Role |
+| --- | --- |
+| Chainguard Containers images from `cgr.dev` | `registry.pull` |
+| Chainguard Libraries for Java | `libraries.java.pull` |
+| Chainguard Libraries for JavaScript | `libraries.javascript.pull` |
+| Chainguard Libraries for Python | `libraries.python.pull` |
+
+To bind more than one role with `chainctl`, pass a comma-separated list, such
+as `--role=libraries.javascript.pull,registry.pull`. With Terraform, add one
+`chainguard_rolebinding` resource for each role. For every built-in role and
+its capabilities, refer to the
+[Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/).
 
 ### Chainctl
 
@@ -194,9 +214,16 @@ jobs:
         docker pull cgr.dev/<org-name>/example-image:latest
 ```
 
-Once its committed, you can trigger the workflow by navigating to
+Once it's committed, you can trigger the workflow by navigating to
 `Actions > Assume And Explore` from the home page of your repository and
 selecting `Run workflow`.
+
+If the identity has a Chainguard Libraries role, add a step after
+`setup-chainctl` that configures your package manager. For npm, that step runs
+`chainctl auth configure-npm`, as the
+[JavaScript migration guide](/chainguard/libraries/javascript/migration/#cicd-and-automated-environments)
+shows. For Python, use the
+[Chainguard keyring provider](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
 ## Learn more
 

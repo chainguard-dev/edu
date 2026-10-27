@@ -94,7 +94,7 @@ Learn more about creating and managing pull tokens in the [Libraries access docu
 
 {{< tab title="Python keyring" >}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. For GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.python.pull` role. The keyring provider requires pip 23.1 or later.
 
 Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
