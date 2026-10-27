@@ -11,9 +11,9 @@ lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
-tags: ["Chainguard Containers"]
+tags: ["Chainguard Containers", "Chainguard Libraries"]
 images: []
 weight: 10
 ---
@@ -45,10 +45,28 @@ This enables you to create identities that can only be assumed by specific autom
 * [Jenkins with Terraform](/platform/administration/assumable-ids/identity-examples/jenkins-terraform/) or [Jenkins with chainctl](/platform/administration/assumable-ids/identity-examples/jenkins-chainctl/)
 * [Buildkite](/platform/administration/assumable-ids/identity-examples/buildkite-identity/)
 * [Bitbucket](/platform/administration/assumable-ids/identity-examples/bitbucket-identity/)
+* [Azure](/platform/administration/assumable-ids/identity-examples/azure-identity/)
+* [Kubernetes](/platform/administration/assumable-ids/identity-examples/kubernetes-identity/)
+* [Keycloak](/platform/administration/assumable-ids/identity-examples/keycloak-identity/)
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
 
 However, an identity won't automatically have access to the other resources associated with that organization. In order for an identity to be able to interact with a organization's resources — including the containers, repositories, and users associated with the organization — it must be granted the permissions it needs to do so. To do this, you must also tie the identity to a role. Chainguard comes with a few built-in roles, including `viewer`, `editor`, and `owner`. You can also create custom role-bindings with `chainctl`. Check out the [`chainctl iam role-bindings` documentation](/platform/chainctl/chainctl-docs/chainctl_iam_role-bindings/) for more details.
+
+### Choosing a role
+
+Bind the role that matches what the identity needs to pull:
+
+| Identity pulls | Role |
+| --- | --- |
+| Chainguard Containers images from `cgr.dev` | `registry.pull` |
+| Chainguard Libraries for Java | `libraries.java.pull` |
+| Chainguard Libraries for JavaScript | `libraries.javascript.pull` |
+| Chainguard Libraries for Python | `libraries.python.pull` |
+
+Of the administrative roles, only `owner` can pull from Chainguard Libraries. An identity bound to `viewer` or `editor` can pull container images but not libraries.
+
+To bind more than one role with `chainctl`, pass a comma-separated list, such as `--role=libraries.javascript.pull,registry.pull`. With Terraform, add one `chainguard_rolebinding` resource for each role. For every built-in role and its capabilities, refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/).
 
 Now that you have a better understanding of what assumable identities are, let's go over how you can set up an assumable identity. There are currently two main ways you can create an identity: with Terraform and with `chainctl`. Let's first go over how to set up an identity with Terraform.
 
@@ -98,7 +116,7 @@ output "<id-ref>-identity" {
 The last two blocks you should include in a Terraform configuration are what apply a role-binding to the new identity. First, you need to include a `data` section to look up the role. In this example it looks up Chainguard's built-in `viewer` role.
 
 ```hcl
-data "chainguard_roles" "viewer" {
+data "chainguard_role" "viewer" {
   name = "viewer"
 }
 ```
@@ -109,7 +127,7 @@ Then you need to include another `resource` block to create the role-binding usi
 resource "chainguard_rolebinding" "view-stuff" {
   identity = chainguard_identity.<id-ref>.id
   group    = chainguard_group.user-group.id
-  role     = data.chainguard_roles.viewer.items[0].id
+  role     = data.chainguard_role.viewer.items[0].id
 }
 ```
 

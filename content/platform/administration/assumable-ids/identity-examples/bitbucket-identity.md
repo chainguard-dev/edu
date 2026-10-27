@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Bitbucket workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2026-10-22T13:04:41+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -121,7 +121,7 @@ output "bitbucket-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role.
+The section after that looks up the `viewer` role. The `viewer` role can pull container images but not Chainguard Libraries. To pull libraries, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 ```hcl
 data "chainguard_role" "viewer" {
@@ -252,7 +252,7 @@ Valid! Id: 3f4ad8a9d5e63be71d631a359ba0a91dcade94ab/d3ed9c70b538a796
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```
