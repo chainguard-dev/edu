@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-22T18:45:02+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -204,6 +204,9 @@ identities](/platform/administration/assumable-ids/assumable-ids/) are the
 recommended approach. Rather than managing a static token, an assumable identity
 lets your CI/CD workload authenticate directly with Chainguard using its own
 platform identity; no long-lived credentials to rotate or accidentally expose.
+To set one up for GitHub Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.javascript.pull` role.
 
 Once configured, authenticate and write the registry configuration in your
 pipeline. For example, in a GitHub Actions workflow using npm:
