@@ -126,7 +126,7 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 <tr>
 <td>Patched</td>
 <td>The affected package was patched with Chainguard libraries and the vulnerability is no longer present.</td>
-<td>fixed</td>
+<td>patched</td>
 </tr>
 <tr>
 <td>Fix not planned</td>
