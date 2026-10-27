@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-16T18:07:01+00:00
+lastmod: 2026-10-27T16:42:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -569,45 +569,45 @@ indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-i
 
 You can use this to configure the remediated Chainguard Libraries for Python
 index as the first choice for any library access, with a fallback to the
-Chainguard Libraries for Python index. In addition, if you are consuming from
-our remediated Python libraries index, we recommend setting the [index-strategy
-setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to
-`unsafe-best-match`. This ensures that index resolution continues to work when
-remediated libraries have dependencies on non-remediated libraries.
+Chainguard Libraries for Python index. Choose the order that matches how your project should consume Python packages:
 
-Example `pyproject.toml` index setup for direct access to remediated and default
-packages with netrc-based authentication. Note that the order of the entries in
-the configuration file is significant and determines the order for resolving
-dependencies:
+- Latest-major first: Put the standard Chainguard index first, then the remediated index. With `uv`'s default `first-index` strategy, a package available from the standard index is resolved there rather than from the remediated index.
+- Remediated first: Put the remediated Chainguard index first, then the standard index. This makes a remediated package the preferred source when it is available.
+
+For either layout, list Chainguard indexes before PyPI. To use PyPI only when a package is absent from both Chainguard indexes, configure PyPI explicitly as the default index:
 
 ```toml
+[tool.uv]
+index-strategy = "first-index"
+
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
-default = true # replaces PyPI as the lowest priority index
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
+default = true
 ```
 
-Setting `default = true` on the Chainguard index is important. Without it, uv
-appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match`
-it can resolve packages from PyPI even when Chainguard serves them. This
-bypasses Chainguard malware blocking and cooldown. If you need packages that
-Chainguard has not built, use the [built-in upstream
+This example is **remediated-first**. For latest-major-first, swap the `cgr-pr`
+and `cgr-p` entries. Keep the PyPI entry last and marked `default = true` in
+either layout. uv's `first-index` strategy uses the first index that contains a
+package; it does not compare versions across all indexes. Also note that
+`default = true` means lowest priority, not highest.
+
+Avoid `index-strategy = "unsafe-best-match"` when PyPI is configured and you
+require strict Chainguard preference: that strategy considers versions across
+indexes instead of stopping at the first index containing the package. If you
+need packages that Chainguard has not yet rebuilt, use the [built-in upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
 instead of adding PyPI to your configuration.
-
-Set the index strategy to allow fallback from the remediated package index to
-the Chainguard index in `pyproject.toml`:
-
-```toml
-[tool.uv]
-index-strategy = "unsafe-best-match"
-```
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
@@ -700,18 +700,21 @@ dependencies = [
 ]
 
 [tool.uv]
-index-strategy = "unsafe-best-match"
-# This allows uv to search across multiple indexes to find remediated versions of Python libraries
+index-strategy = "first-index"
 
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
 default = true
 ```
 
