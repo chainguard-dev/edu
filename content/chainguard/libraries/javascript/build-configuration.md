@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-22T19:00:38+00:00
+lastmod: 2026-10-27T14:15:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -419,7 +419,7 @@ For CI/CD, prefer an assumable identity when using this command. Expand the foll
 
 {{< details "Configure npm in CI and headless environments" >}}
 
-Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. Authenticate the workload first, then run a job similar to the following:
+Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. To set one up for GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.javascript.pull` role. Authenticate the workload first, then run a job similar to the following:
 
 ```yaml
 permissions:
