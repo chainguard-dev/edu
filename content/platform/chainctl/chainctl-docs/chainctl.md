@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-10-26T19:49:34Z
 title: "chainctl"
 slug: chainctl
 url: /platform/chainctl/chainctl-docs/chainctl/
@@ -37,7 +37,9 @@ chainctl [flags]
 * [chainctl actions](/platform/chainctl/chainctl-docs/chainctl_actions/)	 - Interact with the Chainguard Actions product.
 * [chainctl agent](/platform/chainctl/chainctl-docs/chainctl_agent/)	 - Agent-powered commands.
 * [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl checks](/platform/chainctl/chainctl-docs/chainctl_checks/)	 - Inspect and manage a repository's Checks on the Chainguard sandbox plane.
 * [chainctl config](/platform/chainctl/chainctl-docs/chainctl_config/)	 - Local config file commands for chainctl.
+* [chainctl develop](/platform/chainctl/chainctl-docs/chainctl_develop/)	 - Open or resume a cloud development session.
 * [chainctl events](/platform/chainctl/chainctl-docs/chainctl_events/)	 - Events related commands for the Chainguard platform.
 * [chainctl guardener](/platform/chainctl/chainctl-docs/chainctl_guardener/)	 - Manage guardener integrations.
 * [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.

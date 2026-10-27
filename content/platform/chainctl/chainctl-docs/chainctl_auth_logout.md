@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-10-26T19:49:34Z
 title: "chainctl auth logout"
 slug: chainctl_auth_logout
 url: /platform/chainctl/chainctl-docs/chainctl_auth_logout/
