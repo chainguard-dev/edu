@@ -12,20 +12,13 @@
       {{- end }}
     </div>
   </div>
+  {{- $righthand := resources.Get "js/righthand.js" | minify }}
+  <script type="module" src="{{ $righthand.RelPermalink }}" integrity="{{ $righthand.Data.Integrity }}"></script>
 {{ end -}}
 
-{{- $righthand := resources.Get "js/righthand.js" -}}
-  {{ $scrollRighthand := resources.Get "js/scrollRighthand.js" }}
-  {{ $scrollRighthand := $scrollRighthand | minify }}
-
 {{ $scss := resources.Get "scss/righthand.scss" }}
-{{ $righthand_style := $scss | css.Sass (dict "transpiler" "dartsass") }}
+{{ $righthand_style := $scss | css.Sass (dict "transpiler" "dartsass" "vars" (dict "basePath" site.Home.RelPermalink)) }}
 {{ $righthand_style := $righthand_style | minify }}
 
 {{/* Add righthand.css styling */}}
-  <link rel="stylesheet" href="{{ $righthand_style.Permalink }}" />
-
-{{/*  Add righthand.js script   */}}
-<script src="{{ $righthand.Permalink }}" integrity="{{ $righthand.Data.Integrity }}"></script>
-{{/*  Add scrollRighthand.js script   */}}
-<script src="{{ $scrollRighthand.Permalink }}" integrity="{{ $scrollRighthand.Data.Integrity }}"></script>
+  <link rel="stylesheet" href="{{ $righthand_style.RelPermalink }}" />

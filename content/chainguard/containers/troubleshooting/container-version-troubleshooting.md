@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-27T15:57:24+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -111,7 +111,7 @@ That combination explains most missing-version reports. If you need `7.79.2` and
 Two related points follow from how tags float:
 
 * A newer epoch tag supersedes the previous one. Once `1.14.5-r4` exists, `1.14.5-r3` stops being updated. Epoch tags aren't a locking mechanism.
-* To list what's actually maintained for an image, run `chainctl image repo list --repo=$IMAGE -o json | jq -r '.items[].activeTags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
+* To list what's actually maintained for an image, run `chainctl image repo list --repo=$IMAGE -o json | jq -r '.items[].active_tags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
 
 ### Pin to a specific build with a digest
 

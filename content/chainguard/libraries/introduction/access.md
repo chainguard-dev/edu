@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-13T17:08:37+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -25,8 +25,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 ### Prerequisites
 
 - Ensure you have access to Chainguard Libraries.
-    - If you are not a Chainguard user yet, a new Chainguard account must be
-created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    - If you are not a Chainguard user yet, create a Chainguard account. To add
+an entitlement to Chainguard Libraries for your organization, contact your
+Chainguard account team.
 - If you have access to more than one Chainguard organization, confirm the name
 of the one you want to use. You can then pass it to `chainctl` commands with the
 `--parent` parameter.
@@ -51,6 +52,8 @@ workstation, which creates more overhead as you scale across teams and projects.
 
 Both approaches require pull tokens for authentication; refer to [Pull token
 characteristics and use](#pull-token-characteristics-and-use) for more information.
+
+A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
 
 {{< note >}}
 For Python users, the [Chainguard keyring
@@ -328,7 +331,10 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/platform/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/). For GitHub
+Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.python.pull` role.
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.
@@ -482,19 +488,24 @@ chainctl iam ids rm --expired
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+An entitlement grants your organization access to a Chainguard Libraries
+ecosystem. To add or remove an entitlement, contact your Chainguard account
+team.
 
-### Create entitlements
+Once your organization is entitled to an ecosystem, you can enable upstream
+fallback and list your entitlements yourself with [`chainctl libraries
+entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
-For entitlement to Chainguard Libraries, contact your Chainguard support team.
+### Enable upstream fallback
 
-### Enable upstream fallback on an entitlement
-
-To enable upstream fallback, use the `--policy` flag. For example, to enable it for JavaScript:
+To enable upstream fallback for an entitled ecosystem, use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
+
+To update the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value.
 
 ### List entitlements
 

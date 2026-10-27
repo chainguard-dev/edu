@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-15T14:26:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -667,7 +667,7 @@ These can be safely ignored. They are caused by Renovate using the `org.opencont
 
 * [Using Digestabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/digestabot/) covers Chainguard's own GitHub Action for keeping digest-pinned references current.
 * [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) covers the equivalent setup for teams already using Dependabot.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.
 * [Renovate's APK datasource documentation](https://docs.renovatebot.com/modules/datasource/apk/) covers every `registryUrl` query parameter Renovate supports.

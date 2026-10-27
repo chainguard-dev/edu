@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-15T14:26:56+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -108,7 +108,7 @@ To learn how to choose the right scanner method for your application, check out 
 
 False positive vulnerabilities are [red herrings](https://en.wikipedia.org/wiki/Red_herring): They look important, but take you away from the vulnerabilities which truly matter. Identifying what vulnerabilities are true and false positives can be difficult, as your false positive results are mixed in with other true positive finds. When dealing with hundreds of vulnerabilities, the [costs of extensive triage and remediation [PDF]](https://media.bitpipe.com/io_15x/io_152272/item_2184126/ponemon-state-of-vulnerability-response-.pdf) can add up fast.
 
-False negative vulnerabilities can have major impacts on a system if they are not discovered. They are a goldmine for attackers if they find them before you do. The successful exploitation of a false negative vulnerability can result in a *zero-day attack*. A [zero-day attack](https://usa.kaspersky.com/resource-center/definitions/zero-day-exploit) occurs when an adversary exploits a vulnerability in software which the maintainer is unaware of. This can cause the attack to go unnoticed or unresolved until the vulnerability is discovered. Many [infamous CVEs](/software-security/cves/infamous-cves/), such as Log4Shell, are examples of incredibly impactful zero-day vulnerabilities.
+False negative vulnerabilities can have major impacts on a system if they are not discovered. They are a goldmine for attackers if they find them before you do. The successful exploitation of a false negative vulnerability can result in a *zero-day attack*. A [zero-day attack](https://usa.kaspersky.com/resource-center/definitions/zero-day-exploit) occurs when an adversary exploits a vulnerability in software which the maintainer is unaware of. This can cause the attack to go unnoticed or unresolved until the vulnerability is discovered. Many [infamous CVEs](https://www.chainguard.dev/supply-chain-security-101/5-real-cve-examples-and-how-to-prevent-them), such as Log4Shell, are examples of incredibly impactful zero-day vulnerabilities.
 
 The presence of false positive and negative vulnerabilities in your scans add another unnecessary layer of complexity to the remediation process. Having an unreliable scanner can increase the amount of time you spend filtering out false positive results, giving you less time to focus on the true positives affecting you. Additionally, an inconsistent scanner reduces your confidence in the completeness and accuracy of your scans, making it difficult to determine if false negatives are lurking among your containers.
 

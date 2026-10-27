@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-10-08T23:13:51+00:00
+lastmod: 2026-10-19T18:40:28+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -114,9 +114,9 @@ the following examples as necessary.
 To save available Software Bills of Materials (SBOMs) and attestations while
 verifying Java artifacts, JavaScript packages, or Python wheels, add
 `--output-attestations`. Use `--output-dir` to choose the base directory, which
-defaults to the current directory. Only packages verified as Chainguard builds
-produce companion files. The verification report lists the saved files and their
-trust status in text, JSON, YAML, and CSV output.
+defaults to `attestations` in the current directory. Only packages verified as
+Chainguard builds produce companion files. The verification report lists the
+saved files and their trust status in text, JSON, YAML, and CSV output.
 
 > **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
 
@@ -158,11 +158,11 @@ chainctl libraries verify --detailed -o json .venv/ > provenance-report.json
 Save the available companions for a verified wheel:
 
 ```sh
-chainctl libraries verify flask-3.0.1-py3-none-any.whl \
-  --output-attestations --output-dir attestations
+chainctl libraries verify flask-3.0.1-py3-none-any.whl --output-attestations
 ```
 
-Files are saved under the normalized package name and version. For the preceding
+Files are saved under `--output-dir`, which defaults to `attestations`, in a
+directory named for the normalized package name and version. For the preceding
 command, the directory is `attestations/flask/3.0.1/`, with these files when
 available:
 
@@ -313,8 +313,8 @@ Add the `--output-attestations` flag to save these files to disk instead:
 chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations
 ```
 
-Use `--output-dir` to set the base directory, which defaults to the current
-directory. Files are written under each artifact's Maven repository path,
+Use `--output-dir` to set the base directory, which defaults to `attestations`.
+Files are written under each artifact's Maven repository path,
 `group/artifact/version`, matching the layout of a local Maven repository:
 
 ```sh
@@ -449,13 +449,13 @@ This command verifies what the lockfile claims will be installed. It does not ve
 Save the available companions for a verified npm tarball:
 
 ```sh
-chainctl libraries verify lodash-4.17.21.tgz \
-  --output-attestations --output-dir attestations
+chainctl libraries verify lodash-4.17.21.tgz --output-attestations
 ```
 
-Files are saved under `name/version/`, or `@scope/name/version/` for scoped
-packages. For the preceding command, the directory is
-`attestations/lodash/4.17.21/`, with these files when available:
+Files are saved under `--output-dir`, which defaults to `attestations`, in a
+directory named `name/version/`, or `@scope/name/version/` for scoped packages.
+For the preceding command, the directory is `attestations/lodash/4.17.21/`,
+with these files when available:
 
 - `lodash-provenance-4.17.21.sigstore` — The exact signed SLSA provenance bundle
   verified against the package's integrity digest and Chainguard signer identity.
@@ -468,8 +468,7 @@ The flags also work for npm caches, pnpm stores, Yarn Classic caches, installed
 save companions while verifying the dependencies recorded in a lockfile:
 
 ```sh
-chainctl libraries verify package-lock.json \
-  --output-attestations --output-dir attestations
+chainctl libraries verify package-lock.json --output-attestations
 ```
 
 For lockfiles, downloads require verified provenance that identifies the package

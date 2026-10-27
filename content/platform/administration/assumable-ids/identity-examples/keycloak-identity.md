@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Keycloak user."
 type: "article"
 date: 2024-03-26T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -125,7 +125,7 @@ output "keycloak-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role.
+The section after that looks up the `viewer` role. The `viewer` role can pull container images but not Chainguard Libraries. To pull libraries, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 ```hcl
 data "chainguard_role" "viewer" {
@@ -253,7 +253,7 @@ To authenticate with `chainctl` you will need to generate a new token with Keycl
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```hcl
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```

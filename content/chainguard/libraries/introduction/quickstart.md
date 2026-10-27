@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-13T15:55:54+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,15 +47,8 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* An entitlement to Chainguard Libraries for your organization. To enable entitlement, contact your Chainguard support team.
-
-[Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
-
-```bash
-chainctl auth login
-```
-
-{{< blurb/chainctl-auth >}}
+* Ensure your organization is entitled to Chainguard Libraries. To add an
+  entitlement for an ecosystem, contact your Chainguard account team.
 
 Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
 

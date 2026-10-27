@@ -26,9 +26,11 @@ This architectural approach addresses a longstanding limitation in deploying FIP
 
 **Jitterentropy library**: A userspace entropy generator that produces randomness from CPU execution timing variations. This library runs entirely within the container and has its own NIST SP 800-90B Entropy Source Validation (ESV).
 
-**OpenSSL FIPS provider**: The CMVP-validated cryptographic module (Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) that uses the userspace entropy source instead of kernel entropy.
+**OpenSSL FIPS provider**: The CMVP-validated cryptographic module that uses the userspace entropy source instead of kernel entropy.
 
 **Self-contained packaging**: Both the entropy source and cryptographic module are bundled in the container image, making each container self-sufficient for FIPS compliance.
+
+This page uses the OpenSSL FIPS provider as its example because all Chainguard FIPS images ship OpenSSL in FIPS mode. Chainguard FIPS images also use other validated cryptographic modules and entropy sources. The [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment) lists the current modules, entropy sources, and their certificate numbers.
 
 ### How it works
 
@@ -45,9 +47,11 @@ The FIPS cryptographic boundary is entirely within the container. The host kerne
 
 The design relies on two separate NIST certifications:
 
-**CMVP Certificate #4282**: Validates the OpenSSL FIPS provider's cryptographic algorithms. This certificate includes a caveat noting that an approved entropy source is required.
+**CMVP certificate**: Validates the OpenSSL FIPS provider's cryptographic algorithms. This certificate includes a caveat noting that an approved entropy source is required.
 
-**ESV Certificate**: Validates the Jitterentropy library as meeting SP 800-90B entropy requirements, satisfying the CMVP certificate's entropy caveat.
+**ESV certificate**: Validates the Jitterentropy library as meeting SP 800-90B entropy requirements, satisfying the CMVP certificate's entropy caveat.
+
+For the current CMVP and ESV certificate numbers, refer to the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 The entropy source sits outside the cryptographic boundary but is independently validated. This architecture is sound and meets NIST requirements.
 
@@ -143,6 +147,8 @@ cosign download sbom cgr.dev/ORGANIZATION/IMAGE:TAG
 ```
 
 Then search for the required packages and versions.
+
+For other ways to check an image's FIPS configuration, refer to [Verify that Chainguard FIPS containers are configured to use FIPS modules](/platform/fips/verify-fips/).
 
 ## Architecture comparison
 
@@ -259,5 +265,6 @@ The `openssl-config-fipshardened` package implements these configurations. Appli
 
 - [Getting started with FIPS](/platform/fips/getting-started/) - Deploy your first FIPS container
 - [Frequently asked questions](/platform/fips/faqs/) - Common questions about FIPS implementation
+- [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment) - Current validated modules, entropy sources, and certificates
 - [Blog: Kernel-Independent FIPS Images](https://www.chainguard.dev/unchained/kernel-independent-fips-images) - Original announcement with additional details
 - [Blog: Kernel-Independent FIPS for Java](https://www.chainguard.dev/unchained/announcing-kernel-independent-fips-for-java) - Java-specific implementation

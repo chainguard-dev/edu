@@ -4,7 +4,7 @@ linktitle: "Agent Skills overview"
 description: "Learn what Chainguard Agent Skills are, the supply chain risk they address, and how Chainguard hardens skills before you install them."
 type: "article"
 date: 2026-06-05T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T23:38:36+00:00
 draft: false
 tags: ["Agent Skills", "Overview"]
 images: []
@@ -34,7 +34,7 @@ Every skill installed without review is an unaudited dependency with arbitrary p
 
 ## How Chainguard hardens skills
 
-Chainguard applies the same model it brings to container images and language libraries — hardened defaults, continuous updates, and verifiable provenance — to agent skills:
+Chainguard applies the same model it brings to container images and language libraries — hardened defaults, continuous updates, and [verifiable provenance](/chainguard/agent-skills/verifying-skills/) — to agent skills:
 
 - **Ingest and review.** Chainguard pulls popular skills from community registries and reviews each one against a security and quality ruleset.
 - **Target real attack vectors.** The ruleset addresses how attackers exploit the agent-skill trust relationship, including unrestricted shell access, overly broad tool permissions, and vague descriptions that enable mis-invocation.

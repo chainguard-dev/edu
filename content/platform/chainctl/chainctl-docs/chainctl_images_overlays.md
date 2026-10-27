@@ -1,5 +1,5 @@
 ---
-date: 2026-10-12T15:51:44Z
+date: 2026-10-26T19:49:34Z
 title: "chainctl images overlays"
 slug: chainctl_images_overlays
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays/
@@ -24,9 +24,9 @@ every repo under an organization or folder, including repos created
 later — creates a binding that selects which tags the overlay applies
 to:
 
-- --all: every tag.
-- --variant: a tag variant, such as dev.
-- --tag: specific tags.
+- --all-tags: every tag.
+- --tag-variant: a tag variant, such as dev.
+- --exact-tag: specific tags.
 
 When bindings of different kinds match the same tag, they layer in the
 order ALL, then VARIANT, then EXACT, with later layers taking
@@ -36,17 +36,18 @@ a repo's own bindings layer above every all-repos binding. Bindings of
 the same kind may coexist in one scope only when their overlays do not
 conflict.
 
-The Guarded Entrypoint keys layer per key: fail_mode and command_override
-come from the most specific binding that sets them, and a binding that
-leaves one unset uses a broader binding's value (an empty command_override
-counts as set and cancels a broader one); guarded_entrypoint is on when
-any matching binding sets it, but an overlay that sets fail_mode,
-preflight, or command_override must still set guarded_entrypoint: true
-itself; preflight checks from every matching binding are combined,
-broader bindings first. A binding is rejected when
-it is created if its overlay sets a different fail_mode or command_override
-than a binding it co-matches in the same layer: two --all bindings, two
---variant bindings for one variant, or two --tag bindings sharing a tag.
+The Guarded Entrypoint keys layer per key: fail_mode, command_override, and
+truststore come from the most specific binding that sets them, and a binding
+that leaves one unset uses a broader binding's value (an empty
+command_override counts as set and cancels a broader one); guarded_entrypoint
+is on when any matching binding sets it, but an overlay that sets fail_mode,
+preflight, command_override, or truststore must still set guarded_entrypoint:
+true itself; preflight checks from every matching binding are combined,
+broader bindings first. A binding is rejected when it is created if its
+overlay sets a different fail_mode, command_override, or truststore than a
+binding it co-matches in the same layer: two --all-tags bindings, two
+--tag-variant bindings for one variant, or two --exact-tag bindings sharing a
+tag.
 
 Chainguard rebuilds the matching images after an overlay or binding
 changes. These rebuilds run only for organizations enrolled in tag-based
@@ -59,7 +60,7 @@ Custom Assembly. Contact your Chainguard account team to enroll.
   chainctl images overlays create my-overlay --parent my-org --package curl --package jq
 
   # Attach it to every tag of a repo
-  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
+  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all-tags
 
   # List overlays and their bindings
   chainctl images overlays list --parent my-org

@@ -22,7 +22,7 @@ To complete this guide, you need the following:
 
 * `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * Owner permissions on the Chainguard organization where you want to install the identity provider.
-* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites), including two owners with directly assigned role bindings in your organization.
+* The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites), including at least one owner who can sign in and holds the owner role directly.
 * An Entra ID account with Global Administrator or Application Administrator permissions. Without these, you cannot register applications or assign users to them.
 * An Entra ID P1 or P2 license. The **Automatic** provisioning mode this guide uses requires one.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model, and this guide doesn't cover them.
@@ -40,6 +40,8 @@ Click **Register**. From the application's **Overview** tab, note the **Applicat
 Then open **Certificates & secrets**, click **New client secret**, set a description and expiration, and note the secret **Value**. Entra ID shows the Value only once, and SSO stops working when the secret expires. You'll need all three values in the next step.
 
 ## Create the Chainguard identity provider
+
+These steps use `chainctl`. To create the identity provider in the Chainguard Console instead, follow the "Create an identity provider" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#create-an-identity-provider) and choose the **Microsoft Entra ID (oid = externalId)** correlation rule, then return to [Configure the Entra ID enterprise application for SCIM](#configure-the-entra-id-enterprise-application-for-scim). The Console generates the SCIM token when you turn on SCIM syncing, as described in the "Turn on SCIM syncing" section of the same [Console page](/platform/administration/custom-idps/manage-idps-in-console/#turn-on-scim-syncing).
 
 Log in to Chainguard with `chainctl`, using an OIDC provider like Google, GitHub, or GitLab to bootstrap your account.
 

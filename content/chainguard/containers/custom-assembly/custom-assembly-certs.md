@@ -4,7 +4,7 @@ linktitle: "Custom certificates"
 type: "article"
 description: "How to add custom certificates to customized images with Custom Assembly."
 date: 2026-03-12T11:07:52+02:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-21T18:25:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -28,7 +28,7 @@ Before getting started, you'll need the following:
 
 * Access to Chainguard's Custom Assembly tool, which is available to any organization with access to Production Chainguard Containers.
 * Permissions in your Chainguard organization to use Custom Assembly.
-    * Review the [Custom Assembly permissions requirements](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements) for more information
+    * Review the [Custom Assembly permissions requirements](/chainguard/containers/custom-assembly/overview/#custom-assembly-permissions-requirements) for more information
 * [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed and configured.
 * One or more PEM-encoded certificate files that you want to add to your container.
     * Each certificate must be a PEM-encoded string of an x509v3 certificate.
@@ -190,6 +190,8 @@ In addition to the system truststore, Custom Assembly’s custom certificates up
 As outlined previously, when you define `certificates.additional` in a Custom Assembly config, the certificates are appended to the system bundle at `/etc/ssl/certs/ca-certificates.crt`. The same certificates are also added to the Java truststore at `/etc/ssl/certs/java/cacerts`, if that file exists in the image (for example, because the image includes Chainguard’s Java truststore package or a JDK/JRE that exposes it there).
 
 There is no extra configuration flag for Java: the build looks for a Java truststore in that location and, if found, appends the custom certificates to it in the same way it does for the OS store. This works even if you add Java to a non-Java base image with Custom Assembly; once the Java truststore file is present, it gets updated.
+
+To trust a CA that exists only at run time, such as an OpenShift service CA that rotates, refer to the [Java truststore](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#java-truststore) section of How Guarded Entrypoint works.
 
 ## Troubleshooting
 

@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 > **Note**: Guarded Entrypoint is in beta. To use it, contact Chainguard customer support to enable it for your organization.
 
-This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
+This page states what the [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) wrapper connects to, what it never does, and what anyone who can pull your image can read.
 
 ## What the wrapper connects to
 
@@ -27,6 +27,7 @@ The wrapper connects only to the endpoints that your configuration names:
 * **Consul:** the address in `CONSUL_HTTP_ADDR`. When it isn't set, the default is `127.0.0.1:8500`.
 * **Google Secret Manager:** `secretmanager.googleapis.com` and Google's token endpoints. The wrapper authenticates with Application Default Credentials, so it also contacts the GCE or GKE metadata server, which it always reaches directly. Credentials of an external account type add their own source URL.
 * **Preflight targets:** the TCP targets that your `preflight` checks name.
+* **Truststore:** none. The wrapper reads the files in `sources` and writes the store to `output`. It makes no network connection for this step.
 * **Proxies:** if you set `HTTPS_PROXY`, the wrapper sends Secret Manager requests and requests to an `https://` Vault address through it. The wrapper never uses a proxy for Consul.
 
 If you build an egress allowlist from this list, include the Google endpoints when you use Secret Manager.
@@ -37,6 +38,8 @@ The wrapper makes no connection to Chainguard.
 
 * It doesn't run code that you upload. The wrapper starts your application and, if you set `command_override`, the command you list.
 * It doesn't send telemetry. It sends no data to Chainguard of any kind.
+* It doesn't put a truststore password on a command line, and it doesn't write the password to its logs. It treats a `password_env` value like any other secret and replaces it with `***` in its log lines.
+* It doesn't write a private key into a truststore. The wrapper rejects a private key, so the store holds certificates only.
 * It doesn't write a resolved secret value to its logs. It replaces a value that it resolved or expanded with `***` in every log line.
 * It doesn't send a Vault or Consul credential anywhere except the address you configure, and it doesn't follow redirects when it reads from either. A Secret Manager credential goes to Google's token endpoints and to Secret Manager.
 
@@ -48,21 +51,23 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | --- | --- | --- |
 | Secret references, such as `cg+vault://secret/data/orders#db_password` | Yes | A reference names where a secret lives. It isn't the secret. Treat the paths as metadata that your organization is willing to share with anyone who can pull the image. |
 | Resolved secret values | No | The wrapper resolves them when the container starts, in the container's memory. They are never written to the image. |
-| `command_override` text | Yes | See the next section. |
+| `command_override` text | Yes | Described in the next section. |
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
+| Truststore settings | Yes | The image configuration holds the sources, the output path, and the name of the `password_env` variable. It never holds the password. |
+| The truststore file | No | The wrapper writes it in the running container, at `output`. It holds certificates only. |
 
-The settings are stored in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
+Chainguard stores the settings in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 
-A running container is a different case. The resolved values are in the application's environment, so anyone who can read the process's environment can read them.
+A running container is a different case. The resolved values are in the application's environment, so anyone with access to the process's environment can read them.
 
 ## Keep secrets out of command_override
 
-The text of `command_override` is stored in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
+Chainguard stores the text of `command_override` in the image configuration. Anyone who can pull the image can read it. Don't write a secret into `command` as a literal.
 
 Put a `${VAR}` reference in `command` instead, and supply the value in the environment. For example, use `${DB_PASSWORD}`, and set `DB_PASSWORD` to a `cg+vault://` reference. The image then holds the reference and not the secret.
 
-An expanded value is visible in the application's command line while the container runs. Anything that can read `/proc/PID/cmdline` can see it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
+An expanded value is visible in the application's command line while the container runs. Anything with access to `/proc/PID/cmdline` can read it, and the wrapper can't prevent that. Prefer to have your application read a secret from its environment.
 
 ## The escape hatch
 
@@ -72,9 +77,11 @@ Anyone who can set environment variables on a container can set `GUARDED_DISABLE
 
 The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
 
-For how to use the escape hatch, see [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
+A `GUARDED_TRUSTSTORE_0` on a deployment replaces the image's truststore setting, and can add CAs that your image doesn't trust. The wrapper trusts every certificate in a source, so control who can write to the volumes that you mount.
+
+For how to use the escape hatch, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
 ## Learn more
 
-* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/)
+* [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/)
 * [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/)

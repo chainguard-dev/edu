@@ -4,8 +4,10 @@ linktitle: "Getting started"
 description: "Install the Chainguard App and link your Chainguard organization to your GitHub organization to start using Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-08T02:59:03+00:00
+lastmod: 2026-10-27T18:06:32+00:00
 draft: false
+aliases:
+- /chainguard/guardener/getting-started/
 tags: ["GitHub", "Getting Started"]
 images: []
 menu:
@@ -23,13 +25,13 @@ This guide walks you through everything you need to start using Guardener on you
 
 Once the app is installed, Guardener can respond on your public repositories. Linking connects that activity to your Chainguard organization and unlocks the features that require one, such as private repository coverage — there is no separate entitlement step.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Prerequisites
 
 Before you begin, make sure you have the following:
 
-- **`chainctl` installed and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`.
+- **`chainctl` installed, up to date, and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`. If you already have `chainctl`, [update it to the latest version](/platform/chainctl-usage/chainctl-version-update/) — older versions might not include the `chainctl guardener` commands.
 - **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - **Owner (admin) access to the GitHub organization** you want to link. Installing the app and authorizing the link both require GitHub organization ownership.
 

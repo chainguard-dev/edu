@@ -81,13 +81,25 @@ def client():
         yield test_client
 
 
+# The Accept cases matter because the SDK checks Accept before the method: a
+# GET with Accept: application/json, or with no Accept header, gets 406
+# instead of 405. Clients that probe with those headers, such as the MCP
+# TypeScript SDK, treat only 405 as "no stream, use POST" and abort the
+# handshake on 406. Our route must answer before that check runs.
 @pytest.mark.parametrize(
     "headers",
     [
         {"Accept": "text/event-stream", "MCP-Protocol-Version": PROTOCOL_VERSION},
         {"Accept": "text/event-stream"},
+        {"Accept": "*/*", "MCP-Protocol-Version": PROTOCOL_VERSION},
+        {"Accept": "application/json", "MCP-Protocol-Version": PROTOCOL_VERSION},
     ],
-    ids=["with-protocol-version", "without-protocol-version"],
+    ids=[
+        "with-protocol-version",
+        "without-protocol-version",
+        "accept-any",
+        "accept-json",
+    ],
 )
 # If the 405 route regresses, the GET opens a stream that never ends and
 # TestClient waits forever for its body. The timeout (pytest-timeout) turns
@@ -96,6 +108,19 @@ def client():
 def test_get_is_refused_with_405(client, headers):
     """GET /mcp must not open an SSE stream (EXP-577)."""
     response = client.get("/mcp", headers=headers)
+    assert response.status_code == 405
+    assert response.headers["allow"] == "POST"
+
+
+@pytest.mark.timeout(10)
+def test_get_without_accept_is_refused_with_405(client):
+    """A GET with no Accept header gets our 405, not the SDK's 406."""
+    request = client.build_request(
+        "GET", "/mcp", headers={"MCP-Protocol-Version": PROTOCOL_VERSION}
+    )
+    # TestClient adds "Accept: */*" to every request, so remove it by hand.
+    del request.headers["accept"]
+    response = client.send(request)
     assert response.status_code == 405
     assert response.headers["allow"] == "POST"
 

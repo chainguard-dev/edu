@@ -12,9 +12,9 @@
   <div class="search-container">
     <div class="navbar-title-padding">
       <a class="navbar-title" href="https://www.chainguard.dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement" target="_blank" rel="noopener" style="text-decoration: none;">
-        <img style="margin-bottom:.25em;height:1.5em;display:block" src="/logos/linky-flat.svg" alt="Chainguard Linky">
+        <img style="margin-bottom:.25em;height:1.5em;display:block" src="{{ "logos/linky-flat.svg" | relURL }}" alt="Chainguard Linky">
       </a>
-      <a class="navbar-title" href="/" style="text-decoration: none;">
+      <a class="navbar-title" href="{{ site.Home.RelPermalink }}" style="text-decoration: none;">
         <span class="block">Chainguard Academy</span>
       </a>
     </div>
@@ -41,8 +41,8 @@
       {{/* Section cross-links: extra top-level nav entries pointing at a canonical page in another section. */}}
       {{/* Defined in this section's _index.md as a `crosslinks` list of {title, url} pairs. */}}
       {{ range .Params.crosslinks }}
-      {{ $active := eq $currentPage.RelPermalink (.url | relURL) }}
-      <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ .url | relURL }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a></li>
+      {{ $active := eq $currentPage.RelPermalink (partial "site-path.html" .url) }}
+      <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ partial "site-path.html" .url }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a></li>
       {{ end }}
     </ul>
   </div>

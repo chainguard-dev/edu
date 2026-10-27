@@ -93,3 +93,44 @@ To refresh the table:
 To see whether the table is current without changing it, add `--check`.
 The script exits with status 1 if the page is out of date. Python 3.11 or
 later is required, for `tomllib`. No CI job runs this script.
+
+## Checks and Workspaces YAML examples
+
+`checks-examples/validate.py` checks the `.chainguard/` YAML examples on the
+Chainguard Checks and Chainguard Workspaces pages with
+`chainctl checks validate`. That command runs offline and needs no
+Chainguard account, only `chainctl` on your `PATH`.
+
+Run it from the repository root before you review or merge a change to
+those pages:
+
+```bash
+python3 scripts/checks-examples/validate.py
+```
+
+The script prints the `chainctl` version it used, then a PASS, FAIL, or
+SKIPPED line per example, with the validator's message under each failure.
+It exits with status 1 if any example fails.
+
+Each example is validated alone, in a scratch repository of its own.
+`checks-examples/examples.toml` lists the exceptions: examples that only
+validate together with another file, and excerpts that the script skips.
+Every entry gives its reason. If an example that the file doesn't mention
+fails, the script says so. Fix the example, or add an entry for it, then
+run the script again. If an entry no longer matches an example on its
+page, the script stops with status 2 and names the entry.
+
+The script reads `.chainguard/` titled blocks and untitled `yaml` blocks.
+It writes an untitled block as a `.chainguard/ci.yaml` fragment, adding
+`version: 1` and `environment: {}` if they're missing. It skips the
+`.chainguard/develop.yaml` examples, because `chainctl checks validate`
+doesn't read that file.
+
+The configuration schema changes with `chainctl` releases, so a failure
+can mean that the docs are out of date or that your `chainctl` is. No CI
+job runs this script. Python 3.11 or later is required, for `tomllib`. To
+run the script's tests, which don't need `chainctl`:
+
+```bash
+python3 -m unittest discover -s scripts/checks-examples -v
+```

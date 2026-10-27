@@ -10,7 +10,7 @@ aliases:
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -318,7 +318,7 @@ The Terraform configuration used in this guide is meant to serve as a starting p
 For example, rather than applying the `viewer` role to your team's role-bindings, you can apply one of the other built-in roles, or any custom roles created within your Chainguard organization. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
 
 ```hcl
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 
@@ -326,7 +326,7 @@ resource "chainguard_rolebinding" "cg-binding" {
   for_each = toset(data.chainguard_identity.team_ids)
   identity = each.value.id
   group = "$CHAINGUARD_ORG"
-  role     = data.chainguard_roles.editor.items[0].id
+  role     = data.chainguard_role.editor.items[0].id
 }
 ```
 

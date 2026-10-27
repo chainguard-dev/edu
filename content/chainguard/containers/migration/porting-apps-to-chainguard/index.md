@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Containers. As we'll see, this is relatively straightforward, but it is important to be aware of some of the differences to other common images."
 date: 2024-04-10T12:56:52-00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -559,7 +559,7 @@ python-3.13  3.13.1-r5            apk   CVE-2025-0938  Unknown
 
 The result of all these changes is that the production image is only 122 MB (down from 1.51GB, so an enormous saving of over a GB) and has 1 CVE (down from hundreds). This is a huge improvement!
 
-Further information on using Chainguard Containers with Python can be found in our [Getting started guide](https://edu.chainguard.dev/chainguard/containers/getting-started/languages-and-runtimes/python/).
+Further information on using Chainguard Containers with Python can be found in our [Getting started guide](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
 ## Replacing the Redis container and updating the Docker Compose file
 

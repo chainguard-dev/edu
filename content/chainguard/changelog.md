@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-05T19:28:18+00:00
+lastmod: 2026-10-26T17:48:17+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,301 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-26
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `apache-pulsar:4.0` | 2026-10-21 | 2027-04-21 |
+| `rancher:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-agent:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-charts:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-dashboard:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-kontainer-driver-metadata:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-ui:2.11` | 2026-10-24 | 2027-04-24 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 47 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>commercial-gitlab-*</code></strong> — 5 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-geo-logcursor-ee/versions"><code>commercial-gitlab-geo-logcursor-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-sidekiq-ee/versions"><code>commercial-gitlab-sidekiq-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-toolbox-ee/versions"><code>commercial-gitlab-toolbox-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-webservice-ee/versions"><code>commercial-gitlab-webservice-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-workhorse-ee/versions"><code>commercial-gitlab-workhorse-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>sentry-*</code></strong> — 6 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry/versions"><code>sentry</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-launchpad/versions"><code>sentry-launchpad</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-relay/versions"><code>sentry-relay</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-taskbroker/versions"><code>sentry-taskbroker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-uptime-checker/versions"><code>sentry-uptime-checker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-vroom/versions"><code>sentry-vroom</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/automq/versions"><code>automq</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gke-deploy/versions"><code>gke-deploy</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-elasticache-controller/versions"><code>aws-elasticache-controller</code></a></td><td>application +fips</td><td>2026-10-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/node-red/versions"><code>node-red</code></a></td><td>application</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sloth/versions"><code>sloth</code></a></td><td>application +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vllm-omni/versions"><code>vllm-omni</code></a></td><td>ai +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sns-controller/versions"><code>aws-sns-controller</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gitleaks/versions"><code>gitleaks</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubernetes-csi-driver-smb/versions"><code>kubernetes-csi-driver-smb</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mpi-operator/versions"><code>mpi-operator</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-storage-api/versions"><code>supabase-storage-api</code></a></td><td>application</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/snuba/versions"><code>snuba</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-studio/versions"><code>supabase-studio</code></a></td><td>application</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/symbolicator/versions"><code>symbolicator</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
+
+## Week of 2026-10-19
+
+{{< changelog-label "Product Announcements" >}}
+
+### Custom Assembly Overlays is now available in Early Access
+
+_Launched October 13, 2026._
+
+Custom Assembly Overlays applies custom packages and configurations to specific image tags within a multi-version repository, rather than across every tag. Per-image Custom Assembly applies changes to all tags in a repository, which can break builds when a package requires a specific runtime — for example, adding a Python 3.13 package to a Python 3.11 image. Overlays limit customizations to compatible tags, so unrelated versions keep building while one repository still serves every team.
+
+Key capabilities:
+
+- **Targeted bindings:** apply overlays to exact tags (such as `3.13`), variants (such as `-dev` images), all tags in a repository, or every repository in an organization, including repositories created later.
+- **Reusable overlays:** define packages, environment variables, annotations, certificates, and user accounts once, then reuse them across bindings with `chainctl` or Terraform.
+- **Version templates:** add `py{{major}}.{{minor}}-cryptography` once, and each tag resolves it to its own version — `3.12` tags get `py3.12-cryptography`, `3.14` tags get `py3.14-cryptography`.
+- **Terraform resource:** manage overlays and bindings with the new [`image_overlay`](https://registry.terraform.io/providers/chainguard-dev/chainguard/latest/docs/resources/image_overlay) resource.
+
+Chainguard Containers customers who don't use unique tags can start today, beginning with repositories that have no existing per-image customizations. See the [Custom Assembly Overlays documentation](/chainguard/containers/custom-assembly/overlays/).
+
+### Chainguard Libraries for .NET is now available in Beta
+
+_Launched October 14, 2026._
+
+[Chainguard Libraries for .NET](/chainguard/libraries/dotnet/) extends Chainguard Libraries into the .NET ecosystem, covering C#, F#, and Visual Basic. It replaces public NuGet feeds with a secure-by-default Chainguard endpoint that filters dependencies through automated malware and greyware scanning and customizable organization policies, reducing exposure to supply chain attacks.
+
+### Chainguard Libraries for Go is now available in Beta
+
+_Launched October 14, 2026._
+
+[Chainguard Libraries for Go](/chainguard/libraries/go/) extends Chainguard Libraries into the Go ecosystem. It provides a secure endpoint for pulling Go packages, reducing exposure to malicious modules and the operational burden of CVE remediation. The release includes organization policies, malware and greyware scanning, CVE remediation, and private package uploads (in beta).
+
+### Chainguard Harness is now available in Beta
+
+_Launched October 14, 2026._
+
+Chainguard Harness uses a frontier AI model to find real, exploitable vulnerabilities in application code, surfaces only findings that reproduce in a running application, and returns fixes reviewed by a Chainguard engineer. It catches what static scanners miss — logic flaws, injection, and resource exhaustion that appear only at runtime — without requiring your own access to frontier models. The beta waitlist is open at [chainguard.dev/harness](https://www.chainguard.dev/harness).
+
+### Chainguard Checks is now available in Beta
+
+_Launched October 14, 2026._
+
+Chainguard Checks replaces slow, vulnerable CI runners with fast, hardened microVMs that handle credentials securely and enforce egress policies by default. Where Chainguard Actions secures the actions that define build and test steps, Chainguard Checks secures where those steps run. Engineers and agents can run CI tests before submitting code, so pull requests pass the first time. A free 30-day trial is available at [chainguard.dev/checks](https://chainguard.dev/checks).
+
+### Chainguard Workspaces is now available in Beta
+
+_Launched October 14, 2026._
+
+Chainguard Workspaces gives each AI coding agent an isolated, hardened microVM with no access to developer credentials and fast start, revert, and resume. Running agents directly on developer machines exposes SSH keys, cloud credentials, and internal networks to prompt injection and rogue dependencies, and concurrent agents collide over ports, processes, and shared local state. Workspaces contains each agent workflow instead. A free 30-day trial is available at [chainguard.dev/workspaces](https://chainguard.dev/workspaces).
+
+{{< changelog-label "Breaking Changes" >}}
+
+### Artifact signatures moving to Sigstore v3 — upgrade to Cosign v3.1.1
+
+_Effective December 15, 2026._
+
+Chainguard is moving the signature and attestation format for the container images and Helm charts it signs from Sigstore v2 to Sigstore v3. Chainguard dual-signs every artifact with both formats from November 16, 2026 to December 15, 2026, then signs new artifacts with the v3 format only. Verifying the v3 format requires Cosign v3.1.1 or later. Cosign v3 verifies both formats, so you can upgrade today; it is already the default in Homebrew and most install paths. Already-published artifacts keep verifying, because Cosign v3 still reads v2 signatures.
+
+- **Affected:** anyone using Cosign to verify Chainguard container images or Helm charts. Staying on Cosign v2 (or v3.1.0 and earlier) past December 15, 2026 leaves you unable to verify artifacts Chainguard publishes after that date. Two cases need more than a version bump: custom verification tooling built against the Cosign libraries, because the library API changed in v3; and mirroring Chainguard artifacts into a registry that doesn't support the OCI 1.1 Referrers API, because signatures may not copy alongside the mirrored artifacts.
+- **Action:** upgrade to Cosign v3.1.1 or later before December 15, 2026 — see the [Cosign install guide](/open-source/sigstore/cosign/how-to-install-cosign/). Run `cosign version` to check your current version. If you built custom verification tooling against the Cosign libraries, review it against the v3 libraries. If you mirror artifacts, confirm your registry supports the OCI 1.1 Referrers API. For either case, contact your account team for help.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `camunda-zeebe:8.7` | 2026-10-13 | 2027-04-13 |
+| `envoy:1.36` | 2026-10-14 | 2027-04-14 |
+| `kuma:2.7` | 2026-10-19 | 2027-04-19 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 45 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>crossplane-*</code></strong> — 9 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-kcl/versions"><code>crossplane-function-kcl</code></a></td><td>application +fips</td><td>2026-10-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-bigquery/versions"><code>crossplane-gcp-bigquery</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-cloudfunctions/versions"><code>crossplane-gcp-cloudfunctions</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-cloudrun/versions"><code>crossplane-gcp-cloudrun</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-cloudscheduler/versions"><code>crossplane-gcp-cloudscheduler</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-datastream/versions"><code>crossplane-gcp-datastream</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-gcp-secretmanager/versions"><code>crossplane-gcp-secretmanager</code></a></td><td>application +fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azuread/versions"><code>crossplane-azuread</code></a></td><td>application</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-provider-nop/versions"><code>crossplane-provider-nop</code></a></td><td>application</td><td>2026-10-16</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>openstack-*</code></strong> — 6 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-designate-oshelm/versions"><code>openstack-designate-oshelm</code></a></td><td>application +fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-heat-oshelm/versions"><code>openstack-heat-oshelm</code></a></td><td>application +fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-ironic-oshelm/versions"><code>openstack-ironic-oshelm</code></a></td><td>application</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-ceph-config-helper-fips/versions"><code>openstack-ceph-config-helper-fips</code></a></td><td>fips</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-glance-oshelm-fips/versions"><code>openstack-glance-oshelm-fips</code></a></td><td>fips</td><td>2026-10-15</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-horizon-oshelm/versions"><code>openstack-horizon-oshelm</code></a></td><td>application</td><td>2026-10-15</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubevirt-cdi-importer/versions"><code>kubevirt-cdi-importer</code></a></td><td>application +fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/logstash-fips/versions"><code>logstash-fips</code></a></td><td>fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mountpoint-s3-csi-driver-fips/versions"><code>mountpoint-s3-csi-driver-fips</code></a></td><td>fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openspec/versions"><code>openspec</code></a></td><td>application +fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/tekton-entrypoint-geomys-fips/versions"><code>tekton-entrypoint-geomys-fips</code></a></td><td>fips</td><td>2026-10-13</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/agent-sandbox/versions"><code>agent-sandbox</code></a></td><td>application +fips</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-nginx-ingress-plus-fips/versions"><code>commercial-nginx-ingress-plus-fips</code></a></td><td>commercial</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/eclipse-mosquitto-fips/versions"><code>eclipse-mosquitto-fips</code></a></td><td>fips</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/opentelemetry-dotnet-instrumentation/versions"><code>opentelemetry-dotnet-instrumentation</code></a></td><td>application +fips</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vouch-proxy/versions"><code>vouch-proxy</code></a></td><td>application</td><td>2026-10-14</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/goose/versions"><code>goose</code></a></td><td>application</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/graphql-exporter/versions"><code>graphql-exporter</code></a></td><td>application</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nemo-gym/versions"><code>nemo-gym</code></a></td><td>ai</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nemo-skills/versions"><code>nemo-skills</code></a></td><td>ai</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openscap-fips/versions"><code>openscap-fips</code></a></td><td>fips</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pgroll/versions"><code>pgroll</code></a></td><td>application</td><td>2026-10-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/siderolabs-util-linux-tools/versions"><code>siderolabs-util-linux-tools</code></a></td><td>application</td><td>2026-10-16</td></tr>
+</tbody>
+</table>
+
+## Week of 2026-10-12
+
+{{< changelog-label "Product Announcements" >}}
+
+### Chainguard Actions is now generally available
+
+_Launched October 6, 2026._
+
+Chainguard Actions provides more than 1,000 continuously hardened, drop-in
+replacements for GitHub Actions. This release adds:
+
+- Hardening and pinning of transitive action dependencies.
+- A hardening report (`Hardening.md`) for every action that lists the
+  vulnerabilities removed.
+- Self-serve action requests, with a one-business-day SLA so coverage stays
+  gapless.
+- Automated migration through the Chainguard App or the migration skill.
+
+### The Chainguard Compliance Dashboard is now generally available
+
+_Launched October 7, 2026._
+
+The Chainguard Compliance Dashboard gives security and compliance teams a
+centralized view of container compliance, vulnerability posture, and
+audit-ready reporting in the Chainguard Console. It continuously logs image
+attestations and real-time CVE status, so you don't have to scrape SBOMs or
+stitch together periodic scanner reports between audit cycles.
+
+In the Chainguard Console, every FIPS image now shows:
+
+- OpenSCAP scan results against the DISA General Purpose Operating System
+  (GPOS) SRG.
+- FIPS 140-3 validation details.
+
+Each architecture has a downloadable XCCDF report you can include as
+supporting evidence in FedRAMP and other audit packages.
+
+### Guardener is available in Early Access
+
+_Launched October 8, 2026._
+
+Guardener, Chainguard's AI-native adoption agent, automates container
+discovery and migration across your organization. In Early Access, Guardener
+provides:
+
+- Continuous repository scanning across Dockerfiles, Helm charts, and
+  Kubernetes manifests.
+- Automated pull requests, configured in YAML, that run image swaps.
+- Non-blocking pull request guardrails that guide engineers toward hardened
+  images in daily workflows.
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that are no longer available
+
+The following container images reached the end of their grace period and are no longer available:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `spark:3.5` | 2026-04-12 | 2026-10-12 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 17 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sqs-controller/versions"><code>aws-sqs-controller</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zeek/versions"><code>zeek</code></a></td><td>application +fips</td><td>2026-10-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/istioctl/versions"><code>istioctl</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-coordinator/versions"><code>llm-d-router-coordinator</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-disagg-sidecar/versions"><code>llm-d-router-disagg-sidecar</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/llm-d-router-endpoint-picker/versions"><code>llm-d-router-endpoint-picker</code></a></td><td>application +fips</td><td>2026-10-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-keystone-oshelm-fips/versions"><code>openstack-keystone-oshelm-fips</code></a></td><td>fips</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/verdaccio/versions"><code>verdaccio</code></a></td><td>application</td><td>2026-10-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/whereabouts-fips/versions"><code>whereabouts-fips</code></a></td><td>fips</td><td>2026-10-08</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-barbican-oshelm/versions"><code>openstack-barbican-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-manila-oshelm/versions"><code>openstack-manila-oshelm</code></a></td><td>application</td><td>2026-10-09</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-10-05
 

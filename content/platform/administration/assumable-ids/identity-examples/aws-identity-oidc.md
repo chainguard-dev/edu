@@ -7,7 +7,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role using outbound identity federation."
 type: "article"
 date: 2026-01-05T09:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -68,7 +68,7 @@ Firstly, attach a policy to your AWS role or user that allows it to call `sts:Ge
 }
 ```
 
-Then, run this command which uses `chainctl` to create a Chainguard identity and assign it the `registry.pull` role. Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>` with the name you want to give the identity, the issuer URL you just retrieved and the ARN of the AWS user or role you want to assume the identity with, respectively.
+Then, run this command which uses `chainctl` to create a Chainguard identity and assign it the `registry.pull` role. To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role). Substitute `<identity-name>`, `<issuer-url>` and `<aws-arn>` with the name you want to give the identity, the issuer URL you just retrieved and the ARN of the AWS user or role you want to assume the identity with, respectively.
 
 ```shell
 chainctl iam id create <identity-name> --identity-issuer=<issuer-url> --subject=<aws-arn> --role=registry.pull

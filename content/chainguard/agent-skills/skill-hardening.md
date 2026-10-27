@@ -4,7 +4,7 @@ linktitle: "Skill hardening"
 description: "Upload an agent skill for hardening, track the job, browse results in user folders, and review the report before installing the skill."
 type: "article"
 date: 2026-09-22
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T23:38:36+00:00
 draft: false
 tags: ["Agent Skills", "Getting Started", "chainctl"]
 images: []
@@ -245,13 +245,16 @@ Copy the full hardened reference printed by `harden` or `status`:
 ```shell
 export HARDENED_REF='<full-hardened-reference-including-@sha256:digest>'
 chainctl skills describe "$HARDENED_REF"
-chainctl skills install "$HARDENED_REF"
+chainctl skills verify "$HARDENED_REF"
+chainctl skills install --verify "$HARDENED_REF"
 ```
+
+`verify` checks that Chainguard signed the hardened result for your organization. With `--verify`, `install` checks the signature again on the exact digest it fetches and installs nothing unless the skill is `verified`. For details, refer to [Verifying Chainguard Agent Skills signatures](/chainguard/agent-skills/verifying-skills/).
 
 `install` detects your local agents and reports where it placed the skill. Use the installed name and location shown by the command to load it in your agent, then ask it to prepare a release checklist for a test project.
 
 If `./hardened/harden-demo/` already contains a previous download, `--wait` will not overwrite it. Check `status` without `--wait`, then pull the returned reference into a new directory:
 
 ```shell
-chainctl skills pull "$HARDENED_REF" ./harden-demo-reviewed
+chainctl skills pull --verify "$HARDENED_REF" ./harden-demo-reviewed
 ```

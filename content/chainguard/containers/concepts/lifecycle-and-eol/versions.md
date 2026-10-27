@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-10-27T15:57:24+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -343,7 +343,7 @@ For instance, the following command lists the tags that are currently active for
 `python`:
 
 ```sh
-chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
+chainctl image repo list --repo=python -o json | jq -r '.items[].active_tags'
 ```
 
 ```output

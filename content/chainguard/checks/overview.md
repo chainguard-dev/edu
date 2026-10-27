@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-13T00:00:00+00:00
+lastmod: 2026-10-22T14:48:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -28,12 +28,14 @@ Chainguard Checks reaches your repositories through the Chainguard App, a GitHub
 
 When someone opens or updates a pull request, the following happens:
 
-1. Chainguard Checks plans a run against the commit GitHub would create by merging the pull request into its base branch, so each run tests the change together with the latest base branch.
+1. Chainguard Checks merges the pull request into the latest commit on its base branch and plans a run against that merge, so each run tests the change together with the latest base branch.
 2. It reads the configuration from that merged commit, so a pull request can add checks or change them.
 3. Each check runs in its own microVM with the packages your configuration file declares.
-4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus one GitHub check for each of your checks.
+4. It reports a summary check named **Chainguard Checks (presubmit)** on the pull request, plus a GitHub check for each check that doesn't pass or that reports something, as described in [How results appear](/chainguard/checks/github/#how-results-appear).
 
 Each new push to the pull request cancels the run for the previous push and starts a new one. Chainguard Checks can also run checks on each new commit on your default branch, for work that should run after a change merges. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/) for details.
+
+{{< note >}}Attestations for Checks runs are planned. With them, Chainguard Checks will verify an earlier passing run instead of running your checks again. Until then, Chainguard Checks runs your checks on every push to a pull request.{{< /note >}}
 
 Here's a minimal `.chainguard/ci.yaml` file for a Go repository:
 
@@ -62,10 +64,14 @@ Every check starts from the same minimal base and gets only what you declare:
 | -------- | ----------------- |
 | Packages | BusyBox, GNU tar, and the packages your configuration file lists. A check has no `git`, package manager, or language toolchain unless you list it. |
 | Network | No network access unless the check lists hosts under `network.egress`. Chainguard Checks always blocks cloud metadata endpoints, loopback addresses, and private IP ranges. |
-| Credentials | No long-lived credentials. Your repository's code is already in the VM, so most checks need none. A check that must authenticate to Google Cloud or to Chainguard can request a [workload identity](/chainguard/checks/identity-and-trust/) for short-lived access. |
-| Caches | None unless the check declares one. During the beta, a Go check can reuse build output from earlier runs through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
+| Credentials | No long-lived credentials. Your repository's code is already in the VM, so most checks need none. A check that must authenticate to Google Cloud, AWS, Azure, or Chainguard can request a [workload identity](/chainguard/checks/identity-and-trust/) for short-lived access. |
+| Caches | None unless the check declares one. During the beta, a check can reuse Go build output, downloaded Go modules, and Python packages from earlier runs, through cache pools that your default branch defines. Refer to [Caches](/chainguard/checks/variations-services-caches/#caches). |
 
 By default, Chainguard Checks refuses a connection to a host the check doesn't list, and the check keeps running. With `policy: destroy`, Chainguard Checks stops the check's VM instead, and the check fails.
+
+Chainguard Checks intercepts most HTTPS connections from a check, using a certificate authority that the VM trusts, so a tool with its own list of trusted certificates can reject them. Refer to [Network access](/chainguard/checks/configuration/#network-access) and [A check fails with a certificate error](/chainguard/checks/troubleshooting/#a-check-fails-with-a-certificate-error).
+
+For the security model of Chainguard Checks and Chainguard Workspaces side by side, including trust rings and the run lifecycle, refer to [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 ## Use with Chainguard Workspaces
 
@@ -73,16 +79,18 @@ By default, Chainguard Checks refuses a connection to a host the check doesn't l
 
 The `run-ci` command runs each check in the session's own environment, which can have different packages and network access than the check declares. Its result predicts the pull request's result, but only Chainguard Checks, which runs each check in a fresh VM, decides what GitHub shows. You can use Chainguard Checks without Chainguard Workspaces, and the other way around. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
 
-## Availability and limits
+## Availability and limits {#availability-and-limits}
 
-Chainguard Checks is offered as a Technology Preview, as described in the [Chainguard Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement). Technology Previews aren't recommended for production use. Don't use a Technology Preview to process personal data, or any data subject to legal or regulatory compliance requirements, unless Chainguard specifically authorizes it. If you turn on the [requested checks agent](/chainguard/checks/github/#what-the-agent-reads), Chainguard Checks sends pull request content to a model, so don't turn it on for a repository whose pull requests contain such data.
+{{% blurb/technology-preview product="Chainguard Checks" %}}
+
+If you turn on the [requested checks agent](/chainguard/checks/github/#what-the-agent-reads), Chainguard Checks sends pull request content to a model, so don't turn it on for a repository whose pull requests contain such data.
 
 During the beta, Chainguard Checks has the following limits:
 
 - It works with repositories on github.com only.
 - It doesn't run on GitHub merge queues, so don't require **Chainguard Checks (presubmit)** on a branch that uses one. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 - It doesn't run checks on a pull request, or on a commit to your default branch, that changes 3,000 or more files. The summary check fails with **Run creation failed** instead, so split a change that large into smaller pull requests. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed).
-- A run can take up to 50 minutes from when it starts. Checks still running or waiting to start at that point fail.
+- A run can take up to two hours from when it starts. Checks still running or waiting to start at that point fail.
 
 `chainctl develop init` turns on the *Starter allowance*: 500 vCPU-hours of Checks each month, separate from the Workspaces allowance. The allowance resets on the first day of each month (UTC) and comes with the following limits:
 
@@ -96,12 +104,12 @@ If your organization arranged access with its Chainguard account team, its allow
 
 ## Get help
 
-To ask questions or get support, use the #checks-questions channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw). If you aren't a member yet, the link invites you to join.
+{{% blurb/checks-workspaces-help channel="checks-questions" %}}
 
 ## Next steps
 
 - [Get started with Chainguard Checks](/chainguard/checks/getting-started/) to sign up and run your first checks on a pull request.
 - [Chainguard Checks configuration reference](/chainguard/checks/configuration/) to learn the `.chainguard/ci.yaml` format.
 - [Use Chainguard Checks on GitHub](/chainguard/checks/github/) to require checks before merging.
-- [Workload identities and trust](/chainguard/checks/identity-and-trust/) to give a check short-lived Google Cloud or Chainguard credentials.
+- [Workload identities and trust](/chainguard/checks/identity-and-trust/) to give a check short-lived Google Cloud, AWS, Azure, or Chainguard credentials.
 - [chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/) for every `chainctl checks` command and flag.

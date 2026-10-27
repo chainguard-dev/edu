@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-10-13T15:55:54+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -32,11 +32,11 @@ Before you begin, you need:
 - An existing Java project
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
 
-### Enable upstream fallback
+### Entitlement and upstream fallback
 
-You must have an [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To enable entitlement for your organization, contact your Chainguard support team.
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To add an entitlement for your organization, contact your Chainguard account team.
 
-Once your entitlement is in place, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
+Once your organization is entitled to Java, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
@@ -105,7 +105,7 @@ This results in values for the `CHAINGUARD_JAVA_IDENTITY_ID` and `CHAINGUARD_JAV
 
 Learn more about command options in the [chainctl documentation](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
-When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](https://edu.chainguard.dev/chainguard/libraries/introduction/access/).
+When configuring direct access, note that environment variables do not persist between terminal sessions. You must re-export them each time you open a new terminal, or add them to your shell profile. Learn more about pull tokens in the [Access documentation](/chainguard/libraries/introduction/access/).
 
 ### Do not commit credentials to version control
 
@@ -126,7 +126,7 @@ The command returns an HTML page listing repository directories. If credentials 
 
 ## Step 3: Configure repository access
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 ### Direct access
 
@@ -601,7 +601,7 @@ Verification Coverage: 100.00%
 
 Chainguard Libraries covers a large and growing collection of Java packages, but not every package or version is available. If a package is missing, your install will fail with a 404 unless you have configured [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
-With upstream fallback enabled, packages not yet available from Chainguard are proxied from Maven Central, subject to Chainguard's security controls. Confirm your current policy with:
+With upstream fallback enabled, packages not yet available from Chainguard are proxied from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback), subject to Chainguard's security controls. Confirm your current policy with:
 
 ```shell
 chainctl libraries entitlements list
@@ -611,4 +611,4 @@ For repository manager setups, Chainguard recommends using the configurable fall
 
 Learn more about upstream fallback configurations in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from an upstream repository stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.

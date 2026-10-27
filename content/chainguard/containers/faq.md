@@ -4,7 +4,7 @@ linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-10-26T12:10:55+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
@@ -103,7 +103,7 @@ Chainguard is not responsible for CVEs in software you add on top of base images
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
 
-Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
+Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of breaking changes and critical security updates.
 
 To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/containers/registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
 

@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-10-13T13:36:45+00:00
+lastmod: 2026-10-23T15:11:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -37,7 +37,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Sign in with a business email address and create a new account. Catalog Starter requires a corporate email domain — personal email addresses and social media sign-ins are not supported.
+2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Catalog Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify.
 3. Enter your company name.
 4. Click **Set up an organization**.
 5. Complete the form and click **Submit**.
@@ -115,9 +115,11 @@ This requires selection of a valid authentication option:
 
   > Email and password
     Google
+    GitHub
+    GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub sign-in must use your GitHub account's verified primary email address, and that address must be a business email address.
 
 ### Request access with `chainctl`
 
@@ -159,10 +161,10 @@ Catalog Starter allows users to try out Chainguard Containers, but it comes with
     * Images that fall under the [EOL grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
 * Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
-    * Catalog Starter users will still have access to Chainguard resources like our [documentation](https://edu.chainguard.dev/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
+    * Catalog Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
-* The free plan does not support user management or role-based access control (RBAC). If a colleague from the same company signs up for Catalog Starter, your organization's administrator receives an email with instructions for adding them. You cannot add users directly. Any additional users in your organization have access to the five images selected by the first user and cannot change them.
-* Users in a Catalog Starter organization are assigned the `limited_owner` role, which allows them to browse the Console, pull images, create pull tokens, and invite colleagues whose email address is in your organization's domain. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* User management is limited. You can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
+* The user who creates a Catalog Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 * Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
@@ -189,9 +191,17 @@ No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) act
 
 ### Can my colleagues and I use the same Catalog Starter images?
 
-Yes. If a Catalog Starter organization already exists for your email domain, the administrator of that organization receives an email with instructions for adding you to it. Once added, you'll have access to the five images the first user selected, and neither of you will be able to change them.
+Yes. Everyone in a Catalog Starter organization uses the same five images, and no one can swap them.
 
-Catalog Starter does not include user management or RBAC, so users can't add others to their Chainguard organization themselves.
+Anyone with the `limited_owner` role can invite a colleague whose email address is in the organization's domain or one of its subdomains. The `viewer` role is enough to pull images. Replace `$ORGANIZATION` with your organization's name and `$EMAIL` with your colleague's email address:
+
+```shell
+chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
+```
+
+To let your colleague invite others too, use `--role limited_owner` instead. That role also manages your organization's billing.
+
+If a Catalog Starter organization already exists for your email domain, you can also ask to join it. In the Console, click **Request access**, or run `chainctl starter request-access`. The request goes by email to everyone with the `owner` or `limited_owner` role in the organization. The link in that email invites you with the `viewer` role.
 
 ### I’m already a Chainguard Containers customer. Can I add Catalog Starter to my account?
 
@@ -205,9 +215,11 @@ No. Catalog Starter is not a discount instrument for larger deployments. You can
 
 If you know you’ll need more than five images, it’s usually better to start with Catalog Pricing or per-image licensing so you can scale cleanly.
 
-### Can I sign up using a social media account?
+### Can I sign up with Google or GitHub?
 
-No. Catalog Starter requires a business email address. If you sign in using a social login (such as GitHub or Google), you'll be prompted to create a new account with a business email instead.
+You can sign up with a Google account on your company's domain, such as a Google Workspace account. A personal Google account, such as a Gmail address, doesn't qualify, because Catalog Starter requires a business email address.
+
+The Console's sign-up page doesn't offer GitHub. To sign up with GitHub, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). Your GitHub account's verified primary email address must be a business email address.
 
 ### What happens if I decide to upgrade to a paid plan?
 

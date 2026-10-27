@@ -136,6 +136,7 @@ First, you will be asked to enter the package in which the CVE was found. For th
 * `detection` (Under investigation)
 * `true-positive-determination` (Affected)
 * `fixed` (Fixed)
+* `patched` (Patched)
 * `false-positive-determination` (Not affected)
 * `fix-not-planned` (Fix not planned)
 * `pending-upstream-fix` (Pending upstream fix)

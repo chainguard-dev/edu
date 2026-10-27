@@ -4,7 +4,7 @@ linktitle: "Ko"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Go containers using Ko and Chainguard base images"
 date: 2025-09-11T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -252,6 +252,6 @@ You now have a foundation for using Ko to build secure, minimal images for your 
 
 - [Ko's official documentation](https://ko.build/) for advanced configuration options
 - [Chainguard's image catalog](https://images.chainguard.dev/) to discover specialized base images for different use cases
-- [Container signing with Cosign](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/) to add cryptographic signatures to your images
+- [Container signing with Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to add cryptographic signatures to your images
 
 Ko's declarative approach to container building combined with Chainguard's security-focused base images provides a powerful toolkit for modern Go application deployment.

@@ -4,28 +4,6 @@
 (function() {
   "use strict";
 
-  // Create or update backdrop overlay
-  function createBackdrop() {
-    let backdrop = document.getElementById("cookie-banner-backdrop");
-    if (!backdrop) {
-      backdrop = document.createElement("div");
-      backdrop.id = "cookie-banner-backdrop";
-      document.body.appendChild(backdrop);
-    }
-
-    backdrop.style.setProperty("position", "fixed", "important");
-    backdrop.style.setProperty("top", "0", "important");
-    backdrop.style.setProperty("left", "0", "important");
-    backdrop.style.setProperty("right", "0", "important");
-    backdrop.style.setProperty("bottom", "0", "important");
-    backdrop.style.setProperty("background-color", "rgba(0, 0, 0, 0.5)", "important");
-    backdrop.style.setProperty("z-index", "9999", "important");
-    backdrop.style.setProperty("pointer-events", "none", "important");
-    backdrop.style.setProperty("display", "block", "important");
-
-    return backdrop;
-  }
-
   // Function to apply custom styles
   function applyCustomStyles() {
     const isDarkMode = document.documentElement.hasAttribute("data-dark-mode");
@@ -33,13 +11,10 @@
     // Target the parent container - check if it exists FIRST
     const bannerParent = document.getElementById("hs-banner-parent");
 
-    // Only create backdrop if banner actually exists
+    // Nothing to style until the banner exists
     if (!bannerParent) {
       return false;
     }
-
-    // Create backdrop overlay only after confirming banner exists
-    createBackdrop();
 
     if (bannerParent) {
       bannerParent.style.setProperty("position", "fixed", "important");
@@ -166,20 +141,6 @@
     return !!(bannerParent || acceptButton || settingsButton);
   }
 
-  // Remove backdrop when banner is closed
-  function removeBackdrop() {
-    const backdrop = document.getElementById("cookie-banner-backdrop");
-    if (backdrop) {
-      backdrop.remove();
-    }
-  }
-
-  // Check if banner is still visible
-  function isBannerVisible() {
-    const bannerParent = document.getElementById("hs-banner-parent");
-    return bannerParent && bannerParent.offsetParent !== null;
-  }
-
   // Wait for the banner to appear in the DOM
   function waitForBanner() {
     const maxAttempts = 50; // Try for 5 seconds (50 * 100ms)
@@ -191,21 +152,10 @@
       if (applyCustomStyles()) {
         clearInterval(checkInterval);
         setupMutationObserver();
-        setupBannerVisibilityWatcher();
       } else if (attempts >= maxAttempts) {
         clearInterval(checkInterval);
       }
     }, 100);
-  }
-
-  // Watch for banner removal/hiding
-  function setupBannerVisibilityWatcher() {
-    const checkVisibility = setInterval(function() {
-      if (!isBannerVisible()) {
-        removeBackdrop();
-        clearInterval(checkVisibility);
-      }
-    }, 500);
   }
 
   // Watch for HubSpot re-applying inline styles

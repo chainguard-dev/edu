@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-26T12:09:41+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -27,7 +27,7 @@ These notifications are different from [Chainguard Events](/platform/administrat
 
 {{< beta feature="Chainguard Notifications" >}}
 
-Notifications are currently limited to messages related to a small set of topics like breaking changes, incidents, and product lifecycle changes like end-of-life (EOL) and new releases.
+Notifications cover a small set of topics, such as breaking changes, incidents, and product announcements.
 
 The in-app notifications are set up automatically and currently have no configuration options.
 
@@ -97,13 +97,11 @@ If you don't have the *owner* role, ask an owner in your organization to make th
 
 ## Notification categories
 
-Notifications fall into one of multiple categories based on content. Here's a list of the currently available categories:
+Chainguard Notifications use the following categories:
 
-- **Breaking changes** - Changes that could disrupt regular use
-- **Incidents** - Reports and updates
-- **Product lifecycle** - Has two sub-categories:
-    - **End of life**
-    - **New releases**
+- **Breaking changes**: Changes that could disrupt regular use
+- **Incidents**: Incident reports and updates
+- **Product announcements**: New Chainguard product features and announcements
 
 ## Troubleshooting FAQ - setting up Slack
 

@@ -4,7 +4,7 @@ linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
 date: 2025-09-23T00:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -572,12 +572,12 @@ applications.
 To continue learning about container security and optimization for the Java ecosystem, consider exploring:
 
 - [Chainguard Libraries for
-    Java](https://edu.chainguard.dev/chainguard/libraries/java/overview/):
+    Java](/chainguard/libraries/java/overview/):
 provides enhanced security for the Java ecosystem by rebuilding popular Maven
 dependencies with the latest patches and comprehensive supply chain protection.
 
 - [How to Migrate a Java Application to Chainguard
-    Images](https://edu.chainguard.dev/chainguard/containers/migration/migration-guides/java/):
+    Images](/chainguard/containers/migration/migration-guides/java/):
 in this video, learn how to migrate Java applications to Chainguard Containers
 for reduced vulnerabilities, smaller images, and comprehensive JDK/JRE support
 with daily security updates.

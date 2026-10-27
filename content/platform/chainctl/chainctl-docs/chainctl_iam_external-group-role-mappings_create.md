@@ -1,5 +1,5 @@
 ---
-date: 2026-10-12T15:51:44Z
+date: 2026-10-26T19:49:34Z
 title: "chainctl iam external-group-role-mappings create"
 slug: chainctl_iam_external-group-role-mappings_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings_create/
@@ -27,7 +27,7 @@ chainctl iam external-group-role-mappings create --external-group-id GROUP --rol
 ### Options
 
 ```
-      --external-group-id string   IdP group identifier (the claim value from the IdP token)
+      --external-group-id string   Group identifier (case-sensitive): the exact value in the token's groups claim, or the group's EXTERNAL ID as shown by 'chainctl iam identity-providers scim groups list'
       --idp string                 Identity provider (name or UIDP) that owns this mapping
       --role string                Role UIDP or name to grant
       --scope string               Organization or group (name or UIDP) where the role applies

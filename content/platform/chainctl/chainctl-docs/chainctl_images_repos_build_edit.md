@@ -1,5 +1,5 @@
 ---
-date: 2026-10-12T15:51:44Z
+date: 2026-10-26T19:49:34Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/
@@ -102,11 +102,11 @@ Customizable sections:
     environment value written as a secret reference (cg+BACKEND://REF, for
     example cg+gsm://projects/acme/secrets/db/versions/latest) with the
     secret, runs any preflight checks, and then starts the app.
-    preflight, fail_mode, and command_override require guarded_entrypoint:
-    true in the same manifest.
-    NOTE: Guarded Entrypoint, including preflight, fail_mode, and
-    command_override, is a Beta feature. Contact Chainguard customer support
-    to get access.
+    preflight, fail_mode, command_override, and truststore require
+    guarded_entrypoint: true in the same manifest.
+    NOTE: Guarded Entrypoint, including preflight, fail_mode,
+    command_override, and truststore, is a Beta feature. Contact Chainguard
+    customer support to get access.
 
   preflight
     Readiness checks the wrapper runs before starting the app, up to 32. Each
@@ -135,6 +135,15 @@ Customizable sections:
     into it; set it in environment as a cg+BACKEND://REF reference. An
     expanded ${VAR} is visible in the process's command line, so prefer an
     app that reads the secret from its environment.
+
+  truststore
+    Java truststores the wrapper writes before the app starts, so a JVM can
+    trust a private CA. Each entry has sources (absolute paths of PEM files,
+    or directories of PEM files), an output file (absolute, with no
+    whitespace or quotes), and optional system (default true: start from the
+    image's own certificates), password_env (the name of a variable holding
+    the store's password, which can be a cg+ reference), and format (jks, the
+    default). Requires guarded_entrypoint. At most one entry may use jks.
 
 Notice: Customer shall not provide Chainguard any personal data (or similarly regulated data)
 as part of the Custom Assembly tool, other than the personal data that Chainguard collects in

@@ -137,12 +137,6 @@
   identifier = "menu-security"
   weight = 20
 
-[[main]]
-  name = "What is software supply chain security"
-  url = "/software-security/what-is-software-supply-chain-security/"
-  parent = "menu-security"
-  weight = 20
-
 
 [[social]]
   name = "X"

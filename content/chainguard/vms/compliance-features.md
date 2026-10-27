@@ -4,7 +4,7 @@ linktitle: "Compliance"
 description: "Learn about supported compliance features for Chainguard VMs"
 type: "article"
 date: 2025-11-20T08:04:00+00:00
-lastmod: 2026-10-08T13:32:50+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard VMs", "Compliance"]
 menu:
@@ -19,7 +19,7 @@ Chainguard VMs provides pre-hardened, audit-ready Linux virtual-machine images d
 | Feature                             | Description |
 |:------------------------------------| :---- |
 | **FIPS 140-3 validated cryptography**     | [NIST](https://www.nist.gov/) CMVP-validated software modules and [SP 800-90B](https://csrc.nist.gov/pubs/sp/800/90/b/final) compliant entropy, with runtime guardrails blocking non-FIPS crypto. |
-| **STIG hardening**                  | Pre-configured to DISA [STIG](https://edu.chainguard.dev/chainguard/containers/security-and-compliance/stigs/) controls, delivered as production-ready images. |
+| **STIG hardening**                  | Pre-configured to DISA [STIG](/chainguard/containers/security-and-compliance/stigs/) controls, delivered as production-ready images. |
 | **CIS benchmark compliance**        | [CIS](https://www.cisecurity.org/cis-benchmarks/cis-benchmarks-faq) Level 1 hardened variants, hybrid STIG \+ CIS baseline. |
 | **Secure Boot**                     | Secure Boot enabled by default across AWS, Azure, GCP, and on-prem. |
 | **Compliance evidence & reporting** | FIPS certificates, OpenSSL docs, Security Content Automation Protocol (SCAP) scan results, and POA\&M-ready artifacts. |

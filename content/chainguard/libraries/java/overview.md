@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-07T18:02:47+00:00
+lastmod: 2026-10-09T17:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -117,6 +117,8 @@ Chainguard Libraries, check out the [Java migration
 guide](/chainguard/libraries/java/migration/).
 
 ## CVE remediation
+
+{{% blurb/athena %}}
 
 Chainguard Libraries for Java includes the [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature, available in beta for Spring Boot. Remediated
@@ -264,13 +266,40 @@ for details.
 ## Upstream fallback policy and controls
 
 Chainguard Libraries for Java supports an optional built-in fallback to
-the upstream Maven Central repository, managed through the [Chainguard
+a set of upstream public Maven repositories, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
 only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
 subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
-When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from Maven Central stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from an upstream repository stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
+
+### Upstream repositories used for fallback
+
+When the upstream fallback is enabled, the Chainguard Repository can serve
+packages from the following public repositories. The same list applies to all
+organizations. If the same artifact version exists in more than one repository,
+the repository listed first takes precedence.
+
+| Repository | Host | Scope |
+|---|---|---|
+| Maven Central | [repo1.maven.org](https://repo1.maven.org) | All artifacts |
+| Google Maven | [maven.google.com](https://maven.google.com) | Google-published artifacts only |
+| Gradle Plugin Portal | [plugins.gradle.org](https://plugins.gradle.org) | All artifacts |
+| Confluent | [packages.confluent.io](https://packages.confluent.io) | Confluent group IDs only |
+| JBoss | [repository.jboss.org](https://repository.jboss.org) | JBoss project group IDs only |
+
+Chainguard retrieves packages from these repositories on your behalf. Your
+build tools and repository manager only need to reach
+`https://libraries.cgr.dev/java/`; they do not need network access to the
+repositories listed above.
+
+You cannot select individual upstream repositories. The upstream fallback is
+enabled or disabled for all of the listed repositories together.
+
+> **Note:** This list covers the repositories used for upstream fallback. It is
+> separate from the repositories Chainguard uses as sources when building
+> libraries from source, which are described at the start of this page.
 
 Learn more in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).

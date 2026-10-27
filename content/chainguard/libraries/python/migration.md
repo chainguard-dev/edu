@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-13T15:55:54+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -56,9 +56,11 @@ Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
 * [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-* An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python. To enable entitlement for your organization, contact your Chainguard support team.
+* An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Python.
 
-Once your entitlement is in place, enable upstream fallback by running the following command:
+If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
+
+Once your organization is entitled to Python, enable upstream fallback by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -92,7 +94,7 @@ Learn more about creating and managing pull tokens in the [Libraries access docu
 
 {{< tab title="Python keyring" >}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. For GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.python.pull` role. The keyring provider requires pip 23.1 or later.
 
 Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
@@ -109,6 +111,19 @@ Remove or correct any stale entry before proceeding.
 {{< /tabs >}}
 
 > **Note: Do not commit credentials to version control.** Store tokens as environment variables or CI secrets, not as literal values in `pip.conf`, `.netrc`, or any file that might be checked into a repository.
+
+### CI and frozen uv installs
+
+If CI runs `uv sync --frozen`, configure registry authentication even though the command does not re-resolve dependencies. A frozen install can still query configured indexes - for example, to fetch a build backend or another package needed while building a source distribution. Configure credentials before the sync step, and provide access to every index the job may use.
+
+For CI, prefer a pull token or repository-manager credential in the CI secret store, mapped to uv's index-scoped environment variables. For an index named chainguard, for example:
+
+```bash
+export UV_INDEX_CHAINGUARD_USERNAME="$CHAINGUARD_PYTHON_IDENTITY_ID"
+export UV_INDEX_CHAINGUARD_PASSWORD="$CHAINGUARD_PYTHON_TOKEN"
+```
+
+Keep the index name and `UV_INDEX_*` variable names aligned, and set `authenticate = "always"` on the index. If the lockfile contains direct artifact URLs for `libraries.cgr.dev`, a pull-token-backed `.netrc` entry for that host is also suitable. Do not rely on an unauthenticated or reduced-permission path merely because the install is frozen.
 
 ## Step 1: Configure authentication and registry
 
@@ -198,7 +213,22 @@ This method sets both the index and its credentials in one step.
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
-Follow the [instructions to install the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider).
+Install the `keyring` package with the Chainguard backend from PyPI:
+
+```bash
+uv pip install --index https://pypi.org/simple keyring keyrings-chainguard-libraries
+```
+
+Before running `uv sync`, verify that the Chainguard backend is active:
+
+```bash
+uv run --no-project python -m keyring --list-backends \
+  | grep -F 'keyrings.chainctl_auth.ChainctlAuth'
+```
+
+The output should identify `keyrings.chainctl_auth.ChainctlAuth`. If it does not, do not continue to `uv sync`; check that the packages were installed in the environment used by uv.
+
+Learn more about installing the keyring package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 
@@ -526,7 +556,7 @@ For full details on verification options and output, check out [Verification: An
 
 ## Step 6: Commit and roll out
 
-Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies.
+Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, authentication strategy, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies. Test the exact CI command, including `uv sync --frozen`, with the permissions available to the real pipeline.
 
 For organization-wide rollout using a repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 

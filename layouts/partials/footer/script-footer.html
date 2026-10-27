@@ -11,7 +11,7 @@
 {{ $slice := slice $app -}}
 
 {{ if .Site.Params.add_ons.docSearch -}}
-  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build -}}
+  {{ $docsearch := resources.Get "js/docsearch.js" | js.Build (dict "params" (dict "basePath" site.Home.RelPermalink)) -}}
   {{ $slice = $slice | append $docsearch -}}
 {{ end -}}
 
@@ -63,7 +63,7 @@
     <script src="{{ $highlight.RelPermalink }}" integrity="{{ $highlight.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end -}}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
-  <script src="{{ $index.Permalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
+  <script src="{{ $index.RelPermalink }}" integrity="{{ $index.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{ end -}}
 
 {{ $cookieBannerOverride := resources.Get "js/cookie-banner-override.js" -}}

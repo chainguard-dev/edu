@@ -15,9 +15,9 @@
   </div>
   <div class="flex-grow-1 ms-2">
     {{- if $text -}}
-      {{ $text | markdownify }}
+      {{ $text | .Page.RenderString (dict "display" "inline") }}
     {{- else -}}
-      {{ $inner | markdownify }}
+      {{ $inner | .Page.RenderString (dict "display" "inline") }}
     {{- end -}}
   </div>
 </div>

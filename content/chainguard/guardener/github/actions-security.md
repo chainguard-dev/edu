@@ -4,8 +4,10 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-23T04:48:59+00:00
 draft: false
+aliases:
+- /chainguard/guardener/actions-security/
 tags: ["GitHub", "Automation"]
 images: []
 menu:
@@ -16,6 +18,8 @@ toc: true
 ---
 
 The Hardened Actions feature recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents. Pinning actions to a specific commit SHA — rather than a mutable tag or branch — protects your workflows from supply chain attacks in which an upstream tag is moved to point at malicious code.
+
+{{< note >}}Hardened Actions is in Early Access. It's available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 Hardened Actions operates in two independent modes:
 

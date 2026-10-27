@@ -1,3 +1,6 @@
+// $basePath is the site's base path ("/" or "/docs/"), from layouts/partials/head/stylesheet.html.
+@use "hugo:vars" as hugo;
+
 :root {
     --primary-1: #6226f0; // blurple (primary brand color)
     --primary-2: #c0a8fd; // blurple (40)
@@ -134,11 +137,11 @@
     --watch-btn-border: #dcdcdc;
     --watch-btn-color: var(--primary-3);
     --watch-btn-hover-background: #f5f0f0;
-    --info-icon-url: url("/iconography/linky.svg");
-    --chevron-icon-url: url("/chevron.svg");
-    --search-icon-url: url("/search.svg");
-    --copy-icon-url: url("/copy.svg");
-    --copy-icon-opposite-url: url("/copy-dark.svg");
+    --info-icon-url: url("#{hugo.$basePath}iconography/linky.svg");
+    --chevron-icon-url: url("#{hugo.$basePath}chevron.svg");
+    --search-icon-url: url("#{hugo.$basePath}search.svg");
+    --copy-icon-url: url("#{hugo.$basePath}copy.svg");
+    --copy-icon-opposite-url: url("#{hugo.$basePath}copy-dark.svg");
     --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='rgb(28,28,28)' stroke-width='7'></path></svg>");
 }
 
@@ -259,11 +262,11 @@
     --watch-btn-border: #2a2a35;
     --watch-btn-color: #fff;
     --watch-btn-hover-background: #1a1a24;
-    --info-icon-url: url("/iconography/blue/linky.svg");
-    --chevron-icon-url: url("/chevron-dark.svg");
-    --search-icon-url: url("/search-dark.svg");
-    --copy-icon-url: url("/copy-dark.svg");
-    --copy-icon-opposite-url: url("/copy.svg");
+    --info-icon-url: url("#{hugo.$basePath}iconography/blue/linky.svg");
+    --chevron-icon-url: url("#{hugo.$basePath}chevron-dark.svg");
+    --search-icon-url: url("#{hugo.$basePath}search-dark.svg");
+    --copy-icon-url: url("#{hugo.$basePath}copy-dark.svg");
+    --copy-icon-opposite-url: url("#{hugo.$basePath}copy.svg");
     --select-arrow: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='30'><path d='M10,10 l15,15 l15,-15' fill='none' stroke='white' stroke-width='7'></path></svg>");
 }
 
