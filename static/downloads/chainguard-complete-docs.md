@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-26 02:25:37_
+_Compiled on: 2026-10-27 02:22:49_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -291,6 +291,81 @@ _Path: chainguard/changelog.md_
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-10-26
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `apache-pulsar:4.0` | 2026-10-21 | 2027-04-21 |
+| `rancher:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-agent:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-charts:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-dashboard:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-kontainer-driver-metadata:2.11` | 2026-10-24 | 2027-04-24 |
+| `rancher-ui:2.11` | 2026-10-24 | 2027-04-24 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 47 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>commercial-gitlab-*</code></strong> — 5 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-geo-logcursor-ee/versions"><code>commercial-gitlab-geo-logcursor-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-sidekiq-ee/versions"><code>commercial-gitlab-sidekiq-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-toolbox-ee/versions"><code>commercial-gitlab-toolbox-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-webservice-ee/versions"><code>commercial-gitlab-webservice-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/commercial-gitlab-workhorse-ee/versions"><code>commercial-gitlab-workhorse-ee</code></a></td><td>commercial +fips</td><td>2026-10-19</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>sentry-*</code></strong> — 6 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry/versions"><code>sentry</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-launchpad/versions"><code>sentry-launchpad</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-relay/versions"><code>sentry-relay</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-taskbroker/versions"><code>sentry-taskbroker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-uptime-checker/versions"><code>sentry-uptime-checker</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sentry-vroom/versions"><code>sentry-vroom</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/automq/versions"><code>automq</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gke-deploy/versions"><code>gke-deploy</code></a></td><td>application +fips</td><td>2026-10-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-elasticache-controller/versions"><code>aws-elasticache-controller</code></a></td><td>application +fips</td><td>2026-10-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/node-red/versions"><code>node-red</code></a></td><td>application</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sloth/versions"><code>sloth</code></a></td><td>application +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vllm-omni/versions"><code>vllm-omni</code></a></td><td>ai +fips</td><td>2026-10-21</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-sns-controller/versions"><code>aws-sns-controller</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gitleaks/versions"><code>gitleaks</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubernetes-csi-driver-smb/versions"><code>kubernetes-csi-driver-smb</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/mpi-operator/versions"><code>mpi-operator</code></a></td><td>application +fips</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-storage-api/versions"><code>supabase-storage-api</code></a></td><td>application</td><td>2026-10-22</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/snuba/versions"><code>snuba</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-studio/versions"><code>supabase-studio</code></a></td><td>application</td><td>2026-10-23</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/symbolicator/versions"><code>symbolicator</code></a></td><td>application +fips</td><td>2026-10-23</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-10-19
 
@@ -22197,7 +22272,7 @@ Chainguard is not responsible for CVEs in software you add on top of base images
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
 
-Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
+Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of breaking changes and critical security updates.
 
 To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/containers/registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
 
@@ -33256,6 +33331,7 @@ First, you will be asked to enter the package in which the CVE was found. For th
 * `detection` (Under investigation)
 * `true-positive-determination` (Affected)
 * `fixed` (Fixed)
+* `patched` (Patched)
 * `false-positive-determination` (Not affected)
 * `fix-not-planned` (Fix not planned)
 * `pending-upstream-fix` (Pending upstream fix)
@@ -33550,6 +33626,11 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 <tr>
 <td>Fixed</td>
 <td>A patch has been applied to the affected package and the vulnerability is no longer present.</td>
+<td>fixed</td>
+</tr>
+<tr>
+<td>Patched</td>
+<td>The affected package was patched with Chainguard libraries and the vulnerability is no longer present.</td>
 <td>fixed</td>
 </tr>
 <tr>
@@ -47868,11 +47949,13 @@ The text after the digest is the reason. It is one of the following:
 | Reason | Meaning |
 | --- | --- |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
-| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
+| `the listed wrapper version does not read every GUARDED_* setting` | This reason applies only when the repo's `contents.packages` lists a version of `guarded-entrypoint` or `guarded-entrypoint-fips`, and that version is too old for the repo's settings. A version that you list overrides the version that Chainguard installs for that repo. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
+| `the wrapper version Chainguard installs does not read every GUARDED_* setting` | The repo lists no wrapper version, or lists `guarded-entrypoint` or `guarded-entrypoint-fips` without a version, so the version that Chainguard installs applies. That version is older than the repo's settings need. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
-* For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
+* If the reason names the listed wrapper version, raise the version in `contents.packages` to the release in the detail or later. You can also remove the `guarded-entrypoint` or `guarded-entrypoint-fips` entry, so that the version that Chainguard installs applies. If that version is also too old, the build is refused for the second reason.
+* If the reason names the wrapper version that Chainguard installs, contact Chainguard customer support. Only Chainguard can raise that version.
 * Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 
@@ -48239,7 +48322,7 @@ Images whose entrypoint is an init system that must run as PID 1, such as system
 
 ### Refused builds
 
-Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the wrapper version is too old for the repo's settings. The build then fails with a message that names the reason.
 
 For how a refusal appears in `chainctl`, refer to [Entrypoints the wrapper refuses](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#entrypoints-the-wrapper-refuses).
 
@@ -48646,7 +48729,7 @@ The Dockerfile migration feature converts your Dockerfiles to use Chainguard Con
 
 Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the Chainguard App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
-{{< beta feature="Guardener" >}}
+{{< beta feature="Dockerfile migration" >}}
 
 ## Prerequisites
 
@@ -48884,18 +48967,25 @@ _Path: chainguard/guardener/overview.md_
 
 Guardener is a tool for managing and hardening your source code. Rather than adding a separate integration for every task, Guardener provides a growing suite of capabilities that you opt into independently. Some capabilities run through the Chainguard App, a hardened GitHub App, and are configured per repository through files committed to your codebase; others, such as Dockerfile migration, run locally through `chainctl`.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+## Optional Features
 
-Guardener's capabilities fall into two groups:
+Each Guardener capability is an Optional Feature: it stays off until you turn it on. Guardener and its Optional Features are subject to the [Guardener](https://www.chainguard.dev/legal/guardener-terms) and [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms). Under those terms, the offerings are Technology Previews, including the Optional Features in Early Access.
 
-- **[GitHub App](/chainguard/guardener/github/)** — Capabilities that run through the Chainguard App and are enabled per repository with `.chainguard/` configuration files:
-    - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, through non-blocking pull request review comments or migration pull requests that run on a schedule or [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration).
-    - **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Recommends Chainguard container images for the container images a pull request adds or changes, through non-blocking review comments with one-click suggested changes where possible.
-    - **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Replaces the container images a repository already uses with Chainguard container images through a migration pull request that Guardener opens on a schedule or on demand.
-    - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Enforces cryptographically signed commits against a policy you control, supporting both keyless (Sigstore) signatures and static keys such as GPG.
-- **[Dockerfile migration](/chainguard/guardener/dockerfile-migration/)** — Uses AI to iteratively convert your Dockerfiles to Chainguard Containers. This capability runs locally through `chainctl agent dockerfile` commands.
+| Optional Feature | What it does | How to turn it on | Stage |
+| ---------------- | ------------ | ----------------- | ----- |
+| [Hardened Actions](/chainguard/guardener/github/actions-security/) | Recommends hardened, SHA-pinned replacements from Chainguard Actions for your GitHub Actions in pull request review comments and opens migration pull requests on a schedule or on demand. | Add `.chainguard/actions.yaml` to a repository. | Early Access |
+| [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | Recommends Chainguard container images for the images that a pull request adds or changes, with one-click suggested changes where possible. | Add `.chainguard/images.yaml` to a repository. | Early Access |
+| [Container Image Migration](/chainguard/guardener/github/image-migration/) | Opens a pull request, on a schedule or on demand, that replaces a repository's existing container images with Chainguard container images. | Add a `migrate` block to `.chainguard/images.yaml`. | Early Access |
+| [Commit Verification](/chainguard/guardener/github/commit-verification/) | Checks that an authorized signer signed every commit in a pull request. Supports keyless (Sigstore) signatures and static keys such as GPG. | Add `.chainguard/source.yaml` to a repository. | Beta |
+| [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to iteratively convert your Dockerfiles to use Chainguard Containers. Docker builds run on your machine. | Join the waitlist, then run `chainctl agent dockerfile` commands. | Beta |
+| [Agent skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
+| [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
 
-Additional capabilities will be added over time, each with its own opt-in configuration.
+Chainguard may remove, modify, or add Optional Features over time and will update this table to reflect any such changes.
+
+### Chainguard Harness
+
+Chainguard Harness is an Optional Feature of Guardener in Technology Preview, provided under the Code Analysis Terms, located here: [https://www.chainguard.dev/legal/code-analysis-terms](https://www.chainguard.dev/legal/code-analysis-terms). Chainguard Harness uses a Restricted Third Party Artificial Intelligence Large Language Model that its third-party provider has designated as a model with heightened safeguards. Customers should review and validate all Code Analysis Outputs before you rely on them or deploy them in your production environment. Use of Chainguard Harness does not guarantee your software, systems, or dependencies are free from vulnerabilities.
 
 ## Where to start
 
@@ -48915,7 +49005,7 @@ _Path: chainguard/guardener/github/image-suggestions.md_
 
 Guardener reviews pull requests that add or change container image references and recommends the Chainguard container image that replaces each upstream image. Where it can, Guardener includes the replacement as a one-click suggested change.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Container Image Suggestions is in Early Access. It's available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To replace those images, turn on [Container Image Migration](/chainguard/guardener/github/image-migration/), which opens a pull request for the whole repository. To list replacements for every image without changing any files, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
 
@@ -49019,6 +49109,8 @@ _Path: chainguard/guardener/github/commit-verification.md_
 
 The Commit Verification feature verifies that every commit in a pull request is cryptographically signed by an authorized signer, according to a policy you control. This ensures that changes to your codebase come from identities you trust, and it supports both keyless (Sigstore) signatures and static keys such as GPG.
 
+{{< beta feature="Commit Verification" access="organizations that have installed and linked the Chainguard App" >}}
+
 Keyless commit signatures are verified using [gitsign](https://github.com/sigstore/gitsign) and [Sigstore](/open-source/sigstore/). Static key authorities (such as GPG) are verified directly against the key material you supply, without gitsign.
 
 ## Enable Commit Verification
@@ -49104,7 +49196,7 @@ Guardener acts on your GitHub repositories on behalf of your Chainguard organiza
 
 For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/github/getting-started/). This page is the fuller reference for managing connections over time.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## How connections work
 
@@ -49293,7 +49385,7 @@ This guide walks you through everything you need to start using Guardener on you
 
 Once the app is installed, Guardener can respond on your public repositories. Linking connects that activity to your Chainguard organization and unlocks the features that require one, such as private repository coverage — there is no separate entitlement step.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Prerequisites
 
@@ -49394,7 +49486,7 @@ _Path: chainguard/guardener/github/overview.md_
 
 Guardener's GitHub capabilities run through the **Chainguard App**, a single hardened GitHub App that also backs other Chainguard products. Those capabilities are opt-in per repository through configuration files committed to a `.chainguard/` directory, so installing the app has no effect on a repository until you enable a capability.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Getting set up
 
@@ -49513,6 +49605,8 @@ To add or update the Guardener configuration:
 _Path: chainguard/guardener/github/actions-security.md_
 
 The Hardened Actions feature recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents. Pinning actions to a specific commit SHA — rather than a mutable tag or branch — protects your workflows from supply chain attacks in which an upstream tag is moved to point at malicious code.
+
+{{< note >}}Hardened Actions is in Early Access. It's available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 Hardened Actions operates in two independent modes:
 
@@ -49661,7 +49755,7 @@ _Path: chainguard/guardener/github/image-migration.md_
 
 Guardener scans the default branch of a repository for container image references and opens a pull request that replaces them with Chainguard container images your organization already has. As your repository and your organization's images change, Guardener keeps that pull request up to date.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Container Image Migration is in Early Access. It's available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 Container Image Migration and [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) work together. Image Suggestions reviews the images that each new pull request adds, and migration replaces the images the repository already uses. Each has its own setting in `.chainguard/images.yaml`, so you can use either one or both.
 
@@ -58346,7 +58440,7 @@ These notifications are different from [Chainguard Events](/platform/administrat
 
 {{< beta feature="Chainguard Notifications" >}}
 
-Notifications are currently limited to messages related to a small set of topics like breaking changes, incidents, and product lifecycle changes like end-of-life (EOL) and new releases.
+Notifications cover a small set of topics, such as breaking changes, incidents, and product announcements.
 
 The in-app notifications are set up automatically and currently have no configuration options.
 
@@ -58416,13 +58510,11 @@ If you don't have the *owner* role, ask an owner in your organization to make th
 
 ## Notification categories
 
-Notifications fall into one of multiple categories based on content. Here's a list of the currently available categories:
+Chainguard Notifications use the following categories:
 
-- **Breaking changes** - Changes that could disrupt regular use
-- **Incidents** - Reports and updates
-- **Product lifecycle** - Has two sub-categories:
-    - **End of life**
-    - **New releases**
+- **Breaking changes**: Changes that could disrupt regular use
+- **Incidents**: Incident reports and updates
+- **Product announcements**: New Chainguard product features and announcements
 
 ## Troubleshooting FAQ - setting up Slack
 
