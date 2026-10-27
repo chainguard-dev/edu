@@ -84,6 +84,7 @@
         "operationId": "SecurityTokenService_Exchange2",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -91,7 +92,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -110,6 +112,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -117,7 +120,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -129,6 +133,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -136,7 +141,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -186,6 +192,7 @@
         "operationId": "SecurityTokenService_Exchange",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -193,7 +200,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -212,6 +220,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -219,7 +228,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -231,6 +241,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -238,7 +249,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -290,6 +302,7 @@
         "operationId": "SecurityTokenService_ExchangeRefreshToken",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -297,7 +310,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -309,6 +323,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -316,10 +331,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -327,7 +344,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {

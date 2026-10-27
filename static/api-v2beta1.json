@@ -105,6 +105,7 @@
           "CAP_LIBRARIES_GO_LIST",
           "CAP_LIBRARIES_GO_CREATE",
           "CAP_LIBRARIES_RUBY_LIST",
+          "CAP_LIBRARIES_RUST_LIST",
           "CAP_LIBRARIES_CACHE_INVALIDATE",
           "CAP_LIBRARIES_CACHE_LIST",
           "CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE",
@@ -4378,7 +4379,7 @@
             "readOnly": true
           },
           "availabilityChangeTime": {
-            "description": "When this version's answer last changed. A re-check that reaches the same\nanswer does not move it, and neither does a move to a pending availability.\nIt can move with no visible change: the answer that follows a refresh is\nrecorded even when it repeats the earlier one, and so is a move between two\nanswers that report the same availability.\n\nThis is last_request_time while the version is pending, and where no change\nhas been recorded: every version whose answer has not changed since\nChainguard began recording changes.\n\nbuf format keeps a field and its options on one line, which is longer than\nthe line limit here. Disabled for this line only.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "description": "When this version's answer last changed. A re-check that reaches the same\nanswer does not move it. It can move with no visible change: the answer\nthat follows a forced refresh is recorded even when it repeats the earlier\none, and so is a move between two answers that report the same\navailability.\n\nThis is last_request_time while the version is pending, while it holds an\nanswer Chainguard retries automatically, such as CAN_BE_REQUESTED or\nBUILD_FAILED, and where no change has been recorded: every version whose\nanswer has not changed since Chainguard began recording changes. BLOCKED\nand WONT_BUILD are checked again too, but keep the time they were reached.\n\nbuf format keeps a field and its options on one line, which is longer than\nthe line limit here. Disabled for this line only.\nprotolint:disable:next MAX_LINE_LENGTH",
             "format": "date-time",
             "readOnly": true,
             "type": "string"
@@ -6354,6 +6355,7 @@
           },
           {
             "description": "Filter by CVE aliases (e.g., CVE-2024-1234).",
+            "explode": true,
             "in": "query",
             "name": "cves",
             "schema": {
@@ -6361,7 +6363,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6461,6 +6464,7 @@
           },
           {
             "description": "Multiple vulnerability IDs to fetch metadata for.\nLimited to 1000 unique IDs per request.",
+            "explode": true,
             "in": "query",
             "name": "ids",
             "schema": {
@@ -6468,7 +6472,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
@@ -6725,6 +6730,7 @@
           },
           {
             "description": "Products to report. Empty selects all supported products: IMAGES and\nPLATFORM. Other products return UNIMPLEMENTED until their reads are served.\n\n - PRODUCT_UNSPECIFIED: No product selected.\n - PRODUCT_IMAGES: Container images.\n - PRODUCT_HELM_CHARTS: Helm charts.\n - PRODUCT_LIBRARIES: Language libraries.\n - PRODUCT_PACKAGES: OS packages.\n - PRODUCT_SKILLS: Agent skills.\n - PRODUCT_ACTIONS: Actions.\n - PRODUCT_SANDBOX_CHECKS: Checks compute.\n - PRODUCT_SANDBOX_WORKSPACES: Workspaces compute.\n - PRODUCT_PLATFORM: Organization-wide platform capabilities.",
+            "explode": true,
             "in": "query",
             "name": "products",
             "schema": {
@@ -6744,7 +6750,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -6814,6 +6821,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -6821,7 +6829,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
@@ -7065,6 +7074,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -7072,7 +7082,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional exact name to filter by.",
@@ -7499,6 +7510,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -7506,7 +7518,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Filter by identity provider UID.",
@@ -7802,6 +7815,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -7809,7 +7823,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional key_id to filter by.",
@@ -8061,6 +8076,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -8068,7 +8084,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional exact name to filter by.",
@@ -8549,6 +8566,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -8556,7 +8574,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional exact name to filter by.",
@@ -9056,6 +9075,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -9063,7 +9083,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Exact match on identity provider name",
@@ -9832,6 +9853,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -9839,7 +9861,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional identity UID to filter by.",
@@ -10263,6 +10286,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -10270,7 +10294,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional exact name to filter by.",
@@ -10708,6 +10733,7 @@
         "parameters": [
           {
             "description": "The language ecosystems to return artifacts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "required": true,
@@ -10722,7 +10748,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "A string to search artifacts by. If empty, all artifacts\nfrom the given ecosystem will be returned.",
@@ -10818,6 +10845,7 @@
         "parameters": [
           {
             "description": "The language ecosystems to request the artifact counts for.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "required": true,
@@ -10832,7 +10860,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -12250,6 +12279,7 @@
           },
           {
             "description": "Limit the report to these ecosystems. Empty means every ecosystem that\nreports usage.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -12261,7 +12291,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -12363,6 +12394,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -12370,7 +12402,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "If set, only returns bindings referencing this overlay UID.",
@@ -12708,6 +12741,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -12715,7 +12749,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "The unique name of the Overlay to list.",
@@ -13040,6 +13075,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -13047,7 +13083,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Optional exact name to filter by.",
@@ -13643,6 +13680,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -13650,7 +13688,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "The unique name of the Tag to list.",
@@ -13917,6 +13956,7 @@
         "operationId": "SecurityTokenService_Exchange2",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -13924,7 +13964,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -13943,6 +13984,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -13950,7 +13992,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -13962,6 +14005,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -13969,7 +14013,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -14019,6 +14064,7 @@
         "operationId": "SecurityTokenService_Exchange",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -14026,7 +14072,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -14045,6 +14092,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -14052,7 +14100,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -14064,6 +14113,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -14071,7 +14121,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -14123,6 +14174,7 @@
         "operationId": "SecurityTokenService_ExchangeRefreshToken",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -14130,7 +14182,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -14142,6 +14195,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -14149,10 +14203,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -14160,7 +14216,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14238,6 +14295,7 @@
         "parameters": [
           {
             "description": "names limits results to projects with these exact names. When empty,\nevery project is returned.",
+            "explode": true,
             "in": "query",
             "name": "names",
             "schema": {
@@ -14245,7 +14303,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "page_size is the maximum number of projects to return. The server picks a\ndefault when it is zero and may cap large values.",
@@ -14392,6 +14451,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -14399,10 +14459,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Exact advisory IDs (e.g., CGA-xvgw-cvr7-9g2q) to list.",
+            "explode": true,
             "in": "query",
             "name": "advisoryIds",
             "schema": {
@@ -14410,10 +14472,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Exact advisory IDs (e.g., CGA-abcd-efgh-ijkl) as migrated from GitHub advisory repositories.",
+            "explode": true,
             "in": "query",
             "name": "legacyAdvisoryIds",
             "schema": {
@@ -14421,10 +14485,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "List advisories for exact artifact names.",
+            "explode": true,
             "in": "query",
             "name": "artifactNames",
             "schema": {
@@ -14432,10 +14498,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Restrict results to the given artifact type.",
+            "explode": true,
             "in": "query",
             "name": "artifactTypes",
             "schema": {
@@ -14443,10 +14511,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Restrict results to artifacts of the given architectures (e.g., x86_64, aarch64)",
+            "explode": true,
             "in": "query",
             "name": "artifactArchitectures",
             "schema": {
@@ -14454,10 +14524,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "List advisories for exact component names.",
+            "explode": true,
             "in": "query",
             "name": "componentNames",
             "schema": {
@@ -14465,10 +14537,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Restrict results to the given component type.",
+            "explode": true,
             "in": "query",
             "name": "componentTypes",
             "schema": {
@@ -14476,10 +14550,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "List advisories with components found in the given locations (IE ./PKGINFO)",
+            "explode": true,
             "in": "query",
             "name": "componentLocations",
             "schema": {
@@ -14487,10 +14563,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "List advisories that match the list of vulnerability aliases (CVE, GHSA, etc.).",
+            "explode": true,
             "in": "query",
             "name": "aliases",
             "schema": {
@@ -14498,7 +14576,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "origin filters by origin package. Returns all advisories for packages\n(including subpackages) that have this origin. For origin packages, origin equals package_name.\nWhen specified, artifact_name filter is ignored as subpackage names are resolved server-side.",
@@ -14510,6 +14589,7 @@
           },
           {
             "description": "List advisories that match the list of event review states (e.g., PENDING, REQUEST_CHANGES).\nWhen specified, only advisories containing at least one event with any of the provided\nstatuses will be returned. This is useful for review workflows where users need to see\nonly events requiring action.\n\n - REVIEW_STATE_UNSPECIFIED: Unknown/unspecified review status. This is not a valid status for an event.\n - REVIEW_STATE_PENDING: The event is pending review.\n - REVIEW_STATE_APPROVED: The event has been approved. This is a terminal state.\n - REVIEW_STATE_REQUEST_CHANGES: Changes have been requested by a reviewer.\n - REVIEW_STATE_REJECTED: The event has been rejected. This is a terminal state.",
+            "explode": true,
             "in": "query",
             "name": "eventReviewStates",
             "schema": {
@@ -14524,10 +14604,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Filters by event author email\nWhen specified, only advisories containing at least one event created by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "explode": true,
             "in": "query",
             "name": "eventAuthors",
             "schema": {
@@ -14535,10 +14617,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
+            "explode": true,
             "in": "query",
             "name": "excludeEventAuthors",
             "schema": {
@@ -14546,10 +14630,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "event_reviewer filters by event reviewer email\nWhen specified, only advisories containing at least one event reviewed by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "explode": true,
             "in": "query",
             "name": "eventReviewers",
             "schema": {
@@ -14557,10 +14643,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "explode": true,
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -14580,7 +14668,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
