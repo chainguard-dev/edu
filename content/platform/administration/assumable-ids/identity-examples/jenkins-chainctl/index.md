@@ -6,7 +6,7 @@ linktitle: "Jenkins with chainctl"
 description: "How to use chainctl to create a Chainguard identity that can be assumed by a Jenkins pipeline."
 type: "article"
 date: 2025-09-07T08:48:45+00:00
-lastmod: 2026-10-22T13:04:41+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -59,7 +59,7 @@ chainctl iam identities create jenkins-ci \
   --output json
 ```
 
-Bind the identity to a role. We chose `registry.pull` for this example, but you should adjust according to your needs. Refer to [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more:
+Bind the identity to a role. We chose `registry.pull` for this example, but you should adjust according to your needs. To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role). Refer to [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) to learn more:
 
 ```shell
 chainctl iam role-bindings create \
