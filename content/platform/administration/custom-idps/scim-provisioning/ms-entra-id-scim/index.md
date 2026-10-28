@@ -137,9 +137,7 @@ Entra ID doesn't apply any change on this page, including added or deleted mappi
 Make this change before provisioning any user, including with **Provision on demand**, and do not change it afterward. `objectId` is the value the identity provider matches against at login; changing it after users exist leaves those users permanently unlinked. Map `externalId` only to `objectId` — a user-editable or non-unique attribute could link a login to the wrong identity.
 {{< /note >}}
 
-On the same page, delete every mapping whose **Target attribute** contains a value filter on an attribute other than `emails`, such as `addresses[type eq "work"].streetAddress` or `phoneNumbers[type eq "work"].value`.
-
-Chainguard's SCIM endpoint supports value filters on `emails` only, including the default `emails[type eq "work"].value` mapping, so leave that mapping in place. A value filter on any other attribute makes it reject the entire request with a `400` error (`invalidPath`), so nothing in that update reaches Chainguard — deactivations included. Chainguard also doesn't use these attributes, so Entra ID hits the same error on every cycle and retries the failing update until you delete the mappings.
+Keep the default `emails[type eq "work"].value` mapping in place; Chainguard stores it. Entra ID's default mappings also use value filters on other attributes, such as `addresses[type eq "work"].streetAddress` and `phoneNumbers[type eq "work"].value`. Chainguard accepts these without storing them, so you can leave them or delete them.
 
 Chainguard stores `userName`, `externalId`, `displayName`, `active`, and the `name` sub-attributes (`givenName`, `familyName`, and `formatted`). It accepts other mapped attributes, such as `title` and the enterprise extension attributes, without storing them, so Entra ID reports them as synced even though Chainguard keeps no copy. Delete mappings you don't need to keep the sync quiet.
 
@@ -175,7 +173,7 @@ Then have that user log in at [console.chainguard.dev](https://console.chainguar
 
 ## Map Entra ID groups to Chainguard roles
 
-Chainguard's SCIM endpoint provisions users only. To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
 
 Group membership reaches Chainguard only in tokens issued for the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
 
@@ -201,7 +199,11 @@ This is an SSO problem, not SCIM. Recheck the redirect URI, issuer, and client I
 
 ### Provisioning fails with a `400` error
 
-The error names `invalidPath`. A mapping whose **Target attribute** contains a value filter on an attribute other than `emails`, such as `addresses[type eq "work"].streetAddress`, is still in place. Delete it, click **Save** on the **Attribute mapping** page, and provision the user again.
+The error names `invalidPath`. A mapping's **Target attribute** names an attribute that isn't part of the SCIM user schema, such as a misspelled or custom attribute. Correct or delete the mapping, click **Save** on the **Attribute mapping** page, and provision the user again.
+
+### Provisioning reports a `409` error for a user
+
+The error names `uniqueness`: Chainguard already has this user, for example because an earlier create succeeded but Entra ID didn't receive the response. Run **Provision on demand** for the user. Entra ID looks the user up first and links the existing record.
 
 ### Test connection fails
 
