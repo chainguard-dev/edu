@@ -1,4 +1,4 @@
-FROM cgr.dev/chainguard/php:latest-dev@sha256:c6e789fe3cb862fd0b2aaef6d44d61afd01996bed33d358217aa5b5d45341d6e
+FROM cgr.dev/chainguard/php:latest-dev@sha256:6a5cb6f82c1ccc1ed499ff19bdd15dc6913385d0903eb55356c647489523f68a
 
 COPY . /app
 RUN cd /app && \
