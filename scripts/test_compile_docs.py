@@ -66,7 +66,7 @@ def test_dfc_section_is_indexed_and_links_to_the_mappings_page(bundle_text):
     results = index.search(compile_docs.DFC_SECTION_TITLE, max_results=5)
     urls = [r["url"] for r in results if r["section"] == compile_docs.DFC_SECTION_TITLE]
     assert urls == [
-        "https://edu.chainguard.dev/chainguard/containers/reference/package-name-mappings/"
+        "https://www.chainguard.dev/docs/chainguard/containers/reference/package-name-mappings"
     ]
 
 
