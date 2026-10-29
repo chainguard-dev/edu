@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-27T14:11:46+00:00
+lastmod: 2026-10-27T16:42:12+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -281,7 +281,11 @@ default = true
 
 When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
 
-Setting `default = true` on the Chainguard index replaces PyPI as uv's default index. Without it, uv appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match` it can resolve packages from PyPI even when Chainguard serves them. This bypasses Chainguard malware blocking and cooldown. If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
+Choose the index order based on whether your project prefers latest-major or remediated packages. For strict Chainguard preference with PyPI as a fallback, use uv's default `first-index` strategy, list the Chainguard indexes in your preferred order, and configure PyPI as the lowest-priority default index. See [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for both layouts and a complete example.
+
+Do not mark a Chainguard index as `default = true` when PyPI is explicitly listed as a regular index: the default index is lowest priority, so PyPI can be checked first and provide shared packages. Mark the PyPI fallback as `default = true` instead.
+
+If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
