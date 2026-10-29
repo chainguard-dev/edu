@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-10-26T17:48:17+00:00
+lastmod: 2026-10-29T15:38:13+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -21,7 +21,7 @@ Breaking changes and product announcements cover the entire Chainguard portfolio
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -154,7 +154,7 @@ Chainguard is moving the signature and attestation format for the container imag
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -281,7 +281,7 @@ provides:
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
