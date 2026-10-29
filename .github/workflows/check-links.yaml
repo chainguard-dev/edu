@@ -49,7 +49,7 @@ jobs:
           check-latest: true
 
       - name: Run chainlink
-        run: go run . -contentDir ../../content -hostname edu.chainguard.dev -method GET -checkAll
+        run: go run . -contentDir ../../content -hostname www.chainguard.dev -basePath /docs -method GET -checkAll
 
       - name: Find unchecked links
         run: |
