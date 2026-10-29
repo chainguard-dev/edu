@@ -1,5 +1,5 @@
 ---
-date: 2026-10-26T19:49:34Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl checks rerun"
 slug: chainctl_checks_rerun
 url: /platform/chainctl/chainctl-docs/chainctl_checks_rerun/
@@ -24,6 +24,8 @@ For a postsubmit Run the platform started for a pushed branch, a fresh Run of th
 A Run created with `chainctl checks run` is run again with that command.
 
 With --output json the API's answer is printed: the new Run for a postsubmit Run, and for a pull request the Run whose checks are rerun. Under --watch the fresh Run is followed to its final status instead.
+
+With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed. For a pull request whose checks are a single WorkflowRun, --watch cannot follow them and the command exits 0 once the rerun is asked for.
 
 ```
 chainctl checks rerun REF [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]

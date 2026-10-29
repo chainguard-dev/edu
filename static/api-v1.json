@@ -6198,6 +6198,10 @@
             "description": "If true, return what would change but don't create anything.",
             "type": "boolean"
           },
+          "fips": {
+            "description": "If true, default to the newest FIPS tag in the source repo instead of the\nnewest non-FIPS tag. Mutually exclusive with tag; setting both is rejected\nwith INVALID_ARGUMENT.",
+            "type": "boolean"
+          },
           "images": {
             "description": "Catalog repo names of the chart's images to provision (e.g. \"nginx\"; see\nChartImage.repo_name). Must be a subset of the images in the chart's\nmetadata; unknown names are rejected with INVALID_ARGUMENT. Images the\nchart requires are always provisioned regardless of this list — the list\nselects which optional images to include. Empty means all images.",
             "items": {
@@ -6210,7 +6214,7 @@
             "type": "string"
           },
           "tag": {
-            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest tag in the source repo when empty.",
+            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest non-FIPS tag in the source repo when empty, or the newest FIPS\ntag when fips is set. Mutually exclusive with fips.",
             "type": "string"
           }
         },
