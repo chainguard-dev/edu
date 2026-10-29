@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-22T14:19:25+00:00
+lastmod: 2026-10-29T16:33:54+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -151,16 +151,6 @@ Our current minimum supported toolchains are:
 * **JavaScript**: Any supported, non-EOL version of Node.js.
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
-
-### EOL version support
-
-When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-
-* No longer build new packages that require the EOL version
-* No longer provide security fixes for packages built against the EOL version
-* Continue to serve previously built packages
 
 ## Upstream fallback and controls
 
