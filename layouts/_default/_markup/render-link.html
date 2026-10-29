@@ -1,9 +1,13 @@
 {{- /*
 Renders Markdown links. This is Hugo's embedded link render hook (v0.167.0,
 tpl/tplimpl/embedded/templates/_markup/render-link.html), which resolves a
-link to the page or resource it names, plus one addition at the end.
+link to the page or resource it names, plus two additions.
 
-The addition: a root path that doesn't resolve, such as an alias path or a
+First, a link to a section's landing page goes to the section instead, where
+that page is published; its own URL redirects there. That includes a link to
+a heading on the same page. See partials/page-link-target.html.
+
+Second, a root path that doesn't resolve, such as an alias path or a
 static file, gets the site's base path, so it keeps working when the docs are
 served under a prefix such as www.chainguard.dev/docs/. With a base URL at the
 root of its host it changes nothing. See partials/site-path.html.
@@ -11,7 +15,7 @@ root of its host it changes nothing. See partials/site-path.html.
 {{- $u := urls.Parse .Destination -}}
 {{- $href := $u.String -}}
 {{- if strings.HasPrefix $u.String "#" -}}
-	{{- $href = printf "%s#%s" .PageInner.RelPermalink $u.Fragment -}}
+	{{- $href = printf "%s#%s" (partial "page-link-target.html" .PageInner).RelPermalink $u.Fragment -}}
 {{- else if and $href (not $u.IsAbs) -}}
 	{{- $path := strings.TrimPrefix "./" $u.Path -}}
 	{{- with or
@@ -20,6 +24,9 @@ root of its host it changes nothing. See partials/site-path.html.
 		(resources.Get $path)
 	-}}
 		{{- $href = .RelPermalink -}}
+		{{- with $.PageInner.GetPage $path -}}
+			{{- $href = (partial "page-link-target.html" .).RelPermalink -}}
+		{{- end -}}
 		{{- with $u.RawQuery -}}
 			{{- $href = printf "%s?%s" $href . -}}
 		{{- end -}}

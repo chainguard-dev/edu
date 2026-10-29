@@ -1,0 +1,12 @@
+{{- /*
+Maps each landing page's path to the section that shows it, for
+layouts/partials/landing-section.html. Building it reads every page, so call
+it with partialCached: it then runs once per build.
+*/ -}}
+{{- $landingPages := dict -}}
+{{- range $section := where site.Pages "Params.landingpage" "!=" nil -}}
+{{- with site.GetPage $section.Params.landingpage -}}
+{{- $landingPages = merge $landingPages (dict .Path $section) -}}
+{{- end -}}
+{{- end -}}
+{{- return $landingPages -}}
