@@ -65,7 +65,7 @@
     {
       "@type": "WebPage",
       "name": {{ $page.Title }},
-      "url": {{ $page.Permalink }}
+      "url": {{ (partial "page-link-target.html" $page).Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],
@@ -122,7 +122,7 @@
     {
       "@type": "WebPage",
       "name": {{ $page.Title }},
-      "url": {{ $page.Permalink }}
+      "url": {{ (partial "page-link-target.html" $page).Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],

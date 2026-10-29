@@ -88,7 +88,7 @@
                     {{ if le $index 5 }}
                       <div class="d-flex">
                         {{ $title := replace .Params.title "Vulnerability Comparison: " "" }}
-                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ $title }}</a>
+                        <a class="tutorial caption" href="{{ (partial "page-link-target.html" .).RelPermalink }}">{{ $title }}</a>
                       </div>
                     {{ end }}
                   {{ end }}
@@ -108,7 +108,7 @@
                     {{ if le $index 5 }}
                       <div class="d-flex">
                         {{ $title := replace .Params.title "Vulnerability Comparison: " "" }}
-                        <a class="tutorial caption" href="{{ .RelPermalink }}">{{ $title }}</a>
+                        <a class="tutorial caption" href="{{ (partial "page-link-target.html" .).RelPermalink }}">{{ $title }}</a>
                       </div>
                     {{ end }}
                   {{ end }}
@@ -144,7 +144,7 @@
                     (where .Site.RegularPages.ByTitle "Section" .Section)
                     (where .Pages ".Params.unlisted" "!=" "true")}}
                     {{ if in (.RelPermalink | string) $currentSection.RelPermalink }}
-                        <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+                        <a class="docs-navigation-button docs-navigation-button-next" href="{{ (partial "page-link-target.html" .).RelPermalink }}">
                             <span class="next-title">{{ .Title }}</span>
                             <div class="chevron-rotator">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">
@@ -156,7 +156,7 @@
                 {{ end }}
             {{ else }}
                 {{ range .Paginator.Pages }}
-                    <a class="docs-navigation-button docs-navigation-button-next" href="{{ .RelPermalink }}">
+                    <a class="docs-navigation-button docs-navigation-button-next" href="{{ (partial "page-link-target.html" .).RelPermalink }}">
                         <span class="next-title">{{ .Title }}</span>
                         <div class="chevron-rotator">
                             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="15" viewBox="0 0 10 6" fill="none">

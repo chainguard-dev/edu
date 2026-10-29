@@ -44,9 +44,10 @@
 
       {{/* Cross-links defined on this node's _index.md. */}}
       {{ range $page.Params.crosslinks }}
-      {{ $xactive := eq $currentPage.RelPermalink (partial "site-path.html" .url) }}
+      {{ $xhref := partial "sidebar/crosslink-url.html" .url }}
+      {{ $xactive := or (eq $currentPage.RelPermalink $xhref) (eq $currentPage.RelPermalink (partial "site-path.html" .url)) }}
       <li class="sidebar-item-list-item {{ if $xactive }} sidebar-item-list-item-selected {{ end }}">
-        <a class="sidebar-subcategory docs-link rounded {{ if $xactive }} sidebar-item-active active {{ end }} sidebar-item" href="{{ partial "site-path.html" .url }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
+        <a class="sidebar-subcategory docs-link rounded {{ if $xactive }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $xhref }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a>
       </li>
       {{ end }}
     </ul>
@@ -54,11 +55,17 @@
 </li>
 {{ end }}
 {{ else }}
+{{/* A section's landing page is published at the section's URL, so its
+     entry links there and is active on that page too. */}}
+{{ $href := (partial "page-link-target.html" $page).RelPermalink }}
+{{ if ne $href $page.RelPermalink }}
+{{ $active = or $active (eq $currentPage.RelPermalink $href) }}
+{{ end }}
 {{ if $top }}
-<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a></li>
+<li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $href }}">{{ $page.LinkTitle }}</a></li>
 {{ else }}
 <li class="sidebar-item-list-item {{ if $active }} sidebar-item-list-item-selected {{ end }}">
-  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $page.RelPermalink }}">{{ $page.LinkTitle }}</a>
+  <a class="sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item" href="{{ $href }}">{{ $page.LinkTitle }}</a>
 </li>
 {{ end }}
 {{ end }}
