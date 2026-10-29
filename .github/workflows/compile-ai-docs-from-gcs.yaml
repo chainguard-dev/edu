@@ -356,7 +356,7 @@ jobs:
         SLACK_MESSAGE: |
           For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-  # Refresh the copy of the bundle that edu.chainguard.dev actually serves.
+  # Refresh the copy of the bundle that www.chainguard.dev/docs actually serves.
   # Hugo publishes static/downloads/ straight from git, so the served download
   # only changes when a commit lands -- see DOCS-158.
   publish-bundle:
@@ -382,12 +382,12 @@ jobs:
         allowed-endpoints: >
           *.githubapp.com:443
           api.github.com:443
-          edu.chainguard.dev:443
           github.com:443
           hooks.slack.com:443
           objects.githubusercontent.com:443
           octo-sts.dev:443
           release-assets.githubusercontent.com:443
+          www.chainguard.dev:443
 
     - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
       id: octo-sts
@@ -456,7 +456,7 @@ jobs:
         body: |
           Recompiled `static/downloads/chainguard-complete-docs.md`, the bundle
           served at
-          <https://edu.chainguard.dev/downloads/chainguard-complete-docs.md>.
+          <https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md>.
 
           Opened only when the compiled content changed, ignoring the embedded
           `_Compiled on:_` timestamp. Merging this is what refreshes the public
@@ -471,7 +471,7 @@ jobs:
         # A pull request that nobody merges leaves the download stale, which is
         # how it went five months without a refresh (DOCS-158). Fail loudly
         # after two weeks of grace.
-        served_date=$(curl -sS https://edu.chainguard.dev/downloads/chainguard-complete-docs.md \
+        served_date=$(curl -sS https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md \
           | grep -m1 '^_Compiled on: ' | sed -E 's/^_Compiled on: ([0-9-]+).*/\1/')
 
         if [ -z "$served_date" ]; then
