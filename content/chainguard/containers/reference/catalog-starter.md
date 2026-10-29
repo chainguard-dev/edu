@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-10-23T15:11:04+00:00
+lastmod: 2026-10-29T19:22:07+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -41,7 +41,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 3. Enter your company name.
 4. Click **Set up an organization**.
 5. Complete the form and click **Submit**.
-6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page at any time to make or change your selection.
+6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page later to add images until you have five. Once you confirm an image, it can't be swapped or replaced for the life of the free plan.
 
 Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
 
