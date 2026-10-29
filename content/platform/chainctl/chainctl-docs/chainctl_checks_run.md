@@ -1,5 +1,5 @@
 ---
-date: 2026-10-26T19:49:34Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl checks run"
 slug: chainctl_checks_run
 url: /platform/chainctl/chainctl-docs/chainctl_checks_run/
@@ -24,6 +24,8 @@ The plan has no event context: no trigger, labels or pull request. A check whose
 --check restricts the Run to one check and what it needs, and runs it even when it runs only on request; --workflow names its workflow when two have a check of that name. --request satisfies a check's `when: {requested: true}` gate, as a `ci/run:` label does on a pull request; it may be repeated.
 
 The Run is advisory: it is never a pull request's checks or a commit's verdict, so `chainctl checks status` on the commit still reports what the platform ran. Follow the Run by its name, or pass --watch to wait for it. With --output json the Run is printed as the API returns it, or under --watch its final status.
+
+With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed.
 
 ```
 chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK]... [--git-remote NAME] [--base REV] [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]

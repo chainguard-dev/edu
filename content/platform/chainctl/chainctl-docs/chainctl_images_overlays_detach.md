@@ -1,5 +1,5 @@
 ---
-date: 2026-10-26T19:49:34Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl images overlays detach"
 slug: chainctl_images_overlays_detach
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_detach/

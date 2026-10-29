@@ -1,5 +1,5 @@
 ---
-date: 2026-10-26T19:49:34Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl policy custom validate"
 slug: chainctl_policy_custom_validate
 url: /platform/chainctl/chainctl-docs/chainctl_policy_custom_validate/
@@ -39,6 +39,8 @@ source; parameter-schema errors identify the offending field
 
 Policy expressions must be declared under `package chainguard.policies` and
 must define an `allow` rule; validation rejects a module that defines neither.
+
+Exits 0 when the policy is valid and 1 when it is not.
 
 ```
 chainctl policy custom validate --file POLICY.yaml | --expression POLICY.rego [flags]
