@@ -5,13 +5,15 @@ aliases:
 - /chainguard/chainguard-images/using-the-tag-history-api
 - /chainguard/chainguard-images/images-features/using-the-tag-history-api
 - /chainguard/chainguard-images/features/using-the-tag-history-api/
+- /chainguard/chainguard-images/working-with-images/using-the-tag-history-api/
 - /chainguard/containers/using-the-tag-history-api
 - /chainguard/containers/images-features/using-the-tag-history-api
 - /chainguard/containers/features/using-the-tag-history-api/
+- /chainguard/containers/working-with-images/using-the-tag-history-api/
 type: "article"
 description: "Learn how to use the Chainguard Containers Tag History API to fetch the tag history of image variants."
 date: 2023-05-26T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-10-29T18:16:33+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []

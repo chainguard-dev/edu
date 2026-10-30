@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl images helm add-chart"
 slug: chainctl_images_helm_add-chart
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_add-chart/
@@ -25,8 +25,14 @@ Charts are looked up by name in the community catalog by default. To add a chart
 from the iamguarded catalog, prefix the name with "iamguarded-charts/".
 
 The chart's image dependencies are read from a single chart tag. By default the
-newest non-FIPS tag is used; pass --tag to inspect a specific chart version
-instead (including a FIPS variant).
+newest non-FIPS tag is used; pass --fips to use the newest FIPS tag instead, or
+--tag to inspect a specific chart version. --fips and --tag can't be combined.
+
+On a plan with an image allowance (per-image, Starter or Team), every image the
+chart depends on is entitled, and each one the organization doesn't already hold
+uses a slot. Use --dry-run to list the repositories that would be created. A
+chart whose metadata lists no image dependencies is refused with an entitlement
+error.
 
 Examples:
   # Add the argo-cd community chart and all of its image dependencies to an organization
@@ -34,6 +40,9 @@ Examples:
 
   # Add a specific version of the argo-cd chart
   chainctl images helm add-chart argo-cd --tag 9.5.20 --parent my-org
+
+  # Add the newest FIPS version of the argo-cd chart
+  chainctl images helm add-chart argo-cd --fips --parent my-org
 
   # Add the redis iamguarded chart and all of its image dependencies to an organization
   chainctl images helm add-chart iamguarded-charts/redis --parent my-org
@@ -46,6 +55,7 @@ chainctl images helm add-chart CHART [flags]
 
 ```
       --dry-run         Dry-run mode: don't create repos, only show what would change.
+      --fips            Default to the newest FIPS tag of the chart.
       --parent string   The organization to add the chart and its images to.
       --tag string      The chart tag to inspect for image dependencies. Defaults to the newest non-FIPS tag.
 ```

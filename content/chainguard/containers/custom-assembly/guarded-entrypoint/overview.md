@@ -2,9 +2,9 @@
 title: "Guarded Entrypoint for Custom Assembly"
 linktitle: "Guarded Entrypoint overview"
 type: "article"
-description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, run preflight checks, and override its command at container start, and how to turn it on."
+description: "How Guarded Entrypoint lets a Custom Assembly image resolve secrets, write a Java truststore, run preflight checks, and override its command at container start, and how to turn it on."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-09T00:00:00+00:00
+lastmod: 2026-10-21T19:28:47+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Configuration", "Procedural"]
 images: []
@@ -35,8 +35,9 @@ A Chainguard image gives you one way to change its entrypoint: build a new image
 Guarded Entrypoint removes the need for the derived build. When you turn it on for a Custom Assembly repo, Chainguard sets the image's entrypoint to a small binary that Chainguard builds, `/usr/bin/guarded-entrypoint`. When the container starts, the binary does the following:
 
 1. Resolves secret references in the container's environment.
-2. Runs the preflight checks you configured.
-3. Starts your application as its child process.
+2. Writes a Java truststore from CA files that you mount into the container, if you configured one.
+3. Runs the preflight checks you configured.
+4. Starts your application as its child process.
 
 The binary forwards signals to your application and exits with your application's exit code. The image you deploy is the image Chainguard built, with your startup settings stored in its configuration.
 
@@ -58,7 +59,7 @@ export REPO=my-custom-python
 
 ## Turn on Guarded Entrypoint with chainctl
 
-A repo's Custom Assembly configuration is a YAML manifest. Guarded Entrypoint adds four keys to it:
+A repo's Custom Assembly configuration is a YAML manifest. Guarded Entrypoint adds five keys to it:
 
 | Key | Meaning |
 | --- | --- |
@@ -66,6 +67,7 @@ A repo's Custom Assembly configuration is a YAML manifest. Guarded Entrypoint ad
 | `fail_mode` | `closed` (the default) or `open`. Sets what happens when a secret reference can't be resolved. |
 | `preflight` | A list of checks to run before the application starts. |
 | `command_override` | A command to run in place of, or in front of, the image's own command. |
+| `truststore` | A Java truststore that the wrapper writes at start, so a JVM trusts CAs that exist only at run time. |
 
 Secret references go in the existing `environment` key. For details on each key, refer to [How Guarded Entrypoint works](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/).
 
@@ -117,17 +119,29 @@ To confirm that a rebuilt image uses the wrapper, check its entrypoint. The firs
 crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq '.config.Entrypoint'
 ```
 
+If you set `truststore`, the image configuration also holds the setting in a `GUARDED_TRUSTSTORE_0` environment variable:
+
+```shell
+crane config cgr.dev/$ORGANIZATION/$REPO:latest | jq -r '.config.Env[] | select(startswith("GUARDED_TRUSTSTORE"))'
+```
+
+The value uses the same `key=value` form as the deploy-time setting, and holds only the keys you set. For the manifest in [Trust a mounted CA in a Java service](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/#trust-a-mounted-ca-in-a-java-service), the command prints:
+
+```output
+GUARDED_TRUSTSTORE_0=source=/etc/service-ca,output=/truststore/cacerts
+```
+
 ### Turn off Guarded Entrypoint
 
-To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`. The API rejects the other three keys when `guarded_entrypoint` is not set. Also remove any `cg+...` values from `environment`. Without the wrapper, they ship as literal strings. The next rebuild produces an image with its original entrypoint.
+To remove the wrapper from the image, edit the manifest and delete `guarded_entrypoint`, `fail_mode`, `preflight`, `command_override`, and `truststore`. The API rejects the other four keys when `guarded_entrypoint` is not set. Also remove any `cg+...` values from `environment`. Without the wrapper, they ship as literal strings. The next rebuild produces an image with its original entrypoint.
 
 To bypass the wrapper on a running container without a rebuild, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 
 ## Turn on Guarded Entrypoint with the API
 
-The Chainguard API accepts the same four fields. They are `guardedEntrypoint`, `failMode`, `preflight`, and `commandOverride` on the repo's `customOverlay`. For general guidance on authenticating and calling the API, refer to [Using the Chainguard API](/platform/api/api-v2-tutorial/).
+The Chainguard API accepts the same five fields. They are `guardedEntrypoint`, `failMode`, `preflight`, `commandOverride`, and `truststores` on the repo's `customOverlay`. The manifest key is `truststore`, and the API field is `truststores`. For general guidance on authenticating and calling the API, refer to [Using the Chainguard API](/platform/api/api-v2-tutorial/).
 
-The API's enum fields take enum names. `failMode` is `FAIL_MODE_CLOSED` or `FAIL_MODE_OPEN`. A `commandOverride` `mode` is `MODE_DEFAULT`, `MODE_PREPEND`, or `MODE_OVERRIDE`. A preflight `onFailure` is `ON_FAILURE_FAIL` or `ON_FAILURE_CONTINUE`.
+The API's enum fields take enum names. `failMode` is `FAIL_MODE_CLOSED` or `FAIL_MODE_OPEN`. A `commandOverride` `mode` is `MODE_DEFAULT`, `MODE_PREPEND`, or `MODE_OVERRIDE`. A preflight `onFailure` is `ON_FAILURE_FAIL` or `ON_FAILURE_CONTINUE`. A truststore `format` is `FORMAT_JKS`.
 
 The following request turns on Guarded Entrypoint for a repo, with a fail-open setting and one preflight check:
 
@@ -162,15 +176,34 @@ curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
 The request merges into the repo's stored overlay. The API builds an update mask from the fields in the request body, so only the fields you send change:
 
 * A field you leave out keeps its stored value. You can't turn Guarded Entrypoint off by leaving its fields out.
-* The request replaces `environment` and `preflight` as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
+* The request replaces `environment`, `preflight`, and `truststores` as a whole. The example request sets the repo's environment variables to the two it lists and removes the others, so include every variable you want to keep.
 
-To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the four fields.
+To replace the whole overlay with exactly what you send, add `?update_mask=custom_overlay` to the URL. Use this form to turn Guarded Entrypoint off, with a body that leaves out the five fields.
+
+The following request adds a truststore. Each entry has `sources`, `output`, and, optionally, `system`, `passwordEnv`, and `format`:
+
+```shell
+curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  "$API/registry/v2/repos/$REPO_UID" \
+  -d '{
+    "customOverlay": {
+      "guardedEntrypoint": true,
+      "truststores": [
+        {
+          "sources": ["/etc/service-ca"],
+          "output": "/truststore/cacerts"
+        }
+      ]
+    }
+  }'
+```
 
 The API validates the request with the rules in [API errors](#api-errors).
 
 ## Use Guarded Entrypoint with Custom Assembly Overlays
 
-An overlay can carry the same four fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. Refer to the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/) for overlays, bindings, and tag selectors.
+An overlay can carry the same five fields. This lets you apply Guarded Entrypoint to some of a repo's tags, or to many repos at once. Refer to the [overview of Custom Assembly Overlays](/chainguard/containers/custom-assembly/overlays/overview/) for overlays, bindings, and tag selectors.
 
 Guarded Entrypoint has its own enrollment, separate from Custom Assembly Overlays. Contact Chainguard customer support to enable Guarded Entrypoint. Setting the fields on a repo with `chainctl images repos build edit`, as described earlier on this page, needs only Guarded Entrypoint.
 
@@ -196,7 +229,7 @@ chainctl images overlays attach \
   --overlay startup \
   --repo $TAG_REPO \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
 For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
@@ -231,7 +264,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 
 ### How the fields combine across bindings
 
-A tag can match several bindings. Chainguard layers them from the broadest to the most specific. Bindings that apply to every repo in your organization (all-repos bindings) come first, in the order all, variant, exact. The repo's own bindings come next, in the same order. A repo's own binding always wins over an all-repos binding. Each of the four fields combines in its own way:
+A tag can match several bindings. Chainguard layers them from the broadest to the most specific. Bindings that apply to every repo in your organization (all-repos bindings) come first, in the order all, variant, exact. The repo's own bindings come next, in the same order. A repo's own binding always wins over an all-repos binding. Each of the five fields combines in its own way:
 
 | Field | When several bindings match one tag |
 | --- | --- |
@@ -239,8 +272,9 @@ A tag can match several bindings. Chainguard layers them from the broadest to th
 | `fail_mode` | The most specific binding that sets it wins. A binding that leaves it unset uses the value from a broader binding. |
 | `command_override` | The most specific binding that sets it wins. A binding that leaves it unset uses the value from a broader binding. |
 | `preflight` | The checks accumulate. Checks from broader bindings run first, and identical entries are dropped. |
+| `truststore` | The truststore is one value. The most specific binding that sets it replaces the list from broader bindings entirely. A binding with an empty list leaves it unset, so a narrower binding can't clear a broader one. |
 
-Each overlay that sets `fail_mode`, `command_override`, or `preflight` must also set `guarded_entrypoint: true` itself, even when a broader binding already sets it.
+Each overlay that sets `fail_mode`, `command_override`, `preflight`, or `truststore` must also set `guarded_entrypoint: true` itself, even when a broader binding already sets it.
 
 The limit of 32 preflight entries applies to each overlay. The combined list for a tag can be longer.
 
@@ -276,19 +310,44 @@ command_override:
   mode: default
 ```
 
+#### Use a different truststore on one tag
+
+A narrower binding that sets `truststore` replaces the broader list entirely, so it doesn't add to it. To trust one more CA on one tag, bind an overlay to that tag with a more specific selector, and list every source that tag needs, including the ones from the broader binding. For example, an all binding trusts the service CA:
+
+```yaml
+guarded_entrypoint: true
+truststore:
+  - sources:
+      - /etc/service-ca
+    output: /truststore/cacerts
+```
+
+An exact binding on the `3.13` tag trusts the service CA and a corporate CA:
+
+```yaml
+guarded_entrypoint: true
+truststore:
+  - sources:
+      - /etc/service-ca
+      - /etc/corp-ca
+    output: /truststore/cacerts
+```
+
+The `3.13` tag trusts both CAs. Every other tag trusts the service CA.
+
 #### Bindings of the same kind
 
-Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode` or `command_override` to different values. Identical values merge.
+Two bindings of the same kind can match the same tag. Chainguard rejects the second binding when it is created if the two overlays set `fail_mode`, `command_override`, or `truststore` to different values. Identical values merge. An unset `system` equals `true` and an unset `format` equals `jks`, so spelling out a default doesn't create a conflict.
 
 The same check runs when you update an overlay, against every repo the overlay is bound to, and when you update a binding's selector. The error for an overlay update differs from the error for a new binding. Refer to [API errors](#api-errors). To fix a conflict, make the two overlays agree, or bind them to selectors that don't match the same tags.
 
 ## API errors
 
-The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. In a message, `[i]` is the index of the entry in the list, starting at 0.
+The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. The truststore messages also begin with `Invalid argument:` on both paths, which the table leaves out. In a message, `[i]` is the index of the entry in the list, starting at 0.
 
 | Trigger | Code | Message |
 | --- | --- | --- |
-| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed` |
+| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed: this organization is not enrolled in guarded entrypoint. Contact Chainguard customer support to get access.` |
 | `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.preflight requires guarded_entrypoint` |
 | `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.command_override requires guarded_entrypoint` |
 | `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.fail_mode requires guarded_entrypoint` |
@@ -303,17 +362,29 @@ The API validates the Guarded Entrypoint fields the same way for repos and for o
 | `command` entry has a `${` with no closing `}` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
 | `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
 | `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "99"` |
+| `truststore` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.truststores: requires guarded_entrypoint` |
+| Truststore entry has no `sources` | `InvalidArgument` | `<prefix>.truststores[i]: at least one source is required` |
+| A source isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: sources must be absolute paths` |
+| A source contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: sources must not contain ',' or '='` |
+| Truststore entry has no `output` | `InvalidArgument` | `<prefix>.truststores[i]: output is required` |
+| `output` isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: output must be an absolute path` |
+| `output` ends in `/` | `InvalidArgument` | `<prefix>.truststores[i]: output must name a file, not a directory` |
+| `output` contains whitespace or a quote | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain whitespace or quotes` |
+| `output` contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain ',' or '='` |
+| `password_env` isn't a variable name | `InvalidArgument` | `<prefix>.truststores[i]: password_env must be an environment variable name` |
+| `format` isn't `FORMAT_JKS` | `InvalidArgument` | `<prefix>.truststores[i]: format must be "jks"` |
+| More than one truststore entry uses the `jks` format | `InvalidArgument` | `<prefix>.truststores: at most one entry may use format "jks", since the JVM reads one trust store` |
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |
 | Overlay or binding path: organization is not enrolled in Custom Assembly Overlays | `FailedPrecondition` | `Precondition failed: this organization is not enrolled in Custom Assembly Overlays. Contact your Chainguard account team to enroll.` |
 | Overlay or binding path: the repo has its own configuration, or a repo with bindings gets one | `FailedPrecondition` | `repository custom overlay and overlay binding not allowed` |
-| Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, and fail_mode` |
+| Overlay path: `config` sets a field that overlays don't support | `InvalidArgument` | `config may set only contents.packages, contents.runtime_repositories, contents.runtime_keyring, environment, annotations, accounts, certificates.additional, guarded_entrypoint, command_override, preflight, fail_mode, and truststores` |
 | Overlay path: `config` sets nothing | `InvalidArgument` | `config must set at least one customization field` |
 | Binding path: two bindings of one kind that match the same tag set different `fail_mode` or `command_override` values | `FailedPrecondition` | `Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "..." (overlay "...", selector ALL) on fields [fail_mode]` |
 | Overlay update: the new config conflicts with a co-matching binding on a repo the overlay is bound to | `FailedPrecondition` | `Precondition failed: overlay config update does not merge commutatively with co-bound overlay(s): binding "..." and binding "..." (overlay "...") on repo "..." conflict on fields [fail_mode]`, or `Precondition failed: overlay config update conflicts with the overlay of a co-matching binding outside your visible scope or beyond the inspected repos` |
 
-The binding and overlay conflict errors also carry the violation type `OVERLAY_BINDING_CONFLICT`. The message names the bindings and the fields that conflict. A `command_override` conflict lists `command_override` in the fields.
+The binding and overlay conflict errors also carry the violation type `OVERLAY_BINDING_CONFLICT`. The message names the bindings and the fields that conflict. A `command_override` conflict lists `command_override` in the fields, and a truststore conflict lists `truststores`.
 
 The enum fields take enum names in JSON. A request with an enum name that doesn't exist fails when the API parses it, before the checks in the table run. A preflight `onFailure` value that isn't declared is treated as `fail`.
 

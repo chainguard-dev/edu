@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-23T15:51:13+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -42,6 +42,7 @@ When `GUARDED_DISABLE` is set, the wrapper does the following:
 * It doesn't resolve secret references. Your application sees the literal `cg+...` values.
 * It doesn't run preflight checks.
 * It doesn't apply `command_override`. The image's original ENTRYPOINT and CMD run.
+* It doesn't write the Java truststore. Your application trusts only the image's own CAs.
 * It makes no network connections.
 
 If the container then starts, the wrapper or its settings might have caused the failure. Remove the variable after you fix the configuration and Chainguard rebuilds the image.
@@ -84,10 +85,30 @@ The wrapper uses the following exit codes when it stops the container before you
 | `125` | The wrapper itself failed, for example when it couldn't fork a process. | Check the container's resource limits. |
 | `126` | The command exists but can't be run. | Check the execute permission, that the command is not a directory, and that a script's `#!` interpreter exists. |
 | `127` | The command wasn't found. | Check that the first element of `command` is on the container's `PATH`, or use an absolute path. |
+| `128` | The wrapper couldn't write a file that it stages, such as the Java truststore. This stops the container in every fail mode. | Read the log message, which names the setting and the path. Common causes are a source that is missing or unreadable, a file that holds no PEM certificate or holds a private key, an `output` directory that doesn't exist or isn't writable, and a `password_env` variable that is unset or empty. |
 
-Your own application can also exit with any code from `120` to `127`. To tell the two apart, look in the logs for a wrapper error line just before the container exited.
+Your own application can also exit with any code from `120` to `128`. To tell the two apart, look in the logs for a wrapper error line just before the container exited. Exit code `128` is the wrapper's own code. An application that a signal kills exits with `128` plus the signal number, such as `143` for `SIGTERM`.
 
 With `fail_mode: open`, only the configuration errors described in [Fail mode](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#fail-mode) stop the container with exit code `121`.
+
+### A container that doesn't trust a mounted CA
+
+A Java application that fails a TLS handshake with a certificate path error doesn't trust the CA that signed the server's certificate. On the standard Java images, the error reads `PKIX path building failed`. On the FIPS Java images, it reads `No issuer certificate for certificate in certification path found`. If you configured a truststore, check the following:
+
+1. Look in the logs for a `truststore written` line. If it's missing, check that `GUARDED_TRUSTSTORE_0` is in the container's environment, and that `GUARDED_DISABLE` isn't set.
+1. Check that the CA files are mounted at the paths in `sources`.
+1. Restart the container after the CA rotates. The wrapper writes the store on every start, not while the container runs.
+
+If the wrapper stops the container with exit code `128`, the log has a `file staging failed` line. Its `error` text names the setting and the path. The text can change between releases, so match on the `msg` field:
+
+```json
+{"time":"...","level":"ERROR","msg":"file staging failed","src":"guarded-entrypoint","error":"GUARDED_TRUSTSTORE_0: source: stat /certs: no such file or directory"}
+```
+
+Two cases need a different fix:
+
+* **FIPS images with a read-only root filesystem.** TLS fails when `/tmp` isn't writable and doesn't allow executables. Mount an `emptyDir` volume at `/tmp`. Refer to [Mount the volumes](/chainguard/containers/custom-assembly/guarded-entrypoint/how-it-works/#mount-the-volumes).
+* **Keycloak.** On the JDK 21 and earlier FIPS images, Keycloak's start script drops `JAVA_TOOL_OPTIONS`, so the truststore setting doesn't reach Keycloak there. Use Keycloak's own `truststore-paths` option.
 
 ### A container whose entrypoint is an init system
 
@@ -122,11 +143,13 @@ The text after the digest is the reason. It is one of the following:
 | Reason | Meaning |
 | --- | --- |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
-| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. The detail names the first release that reads them all. |
+| `the listed wrapper version does not read every GUARDED_* setting` | This reason applies only when the repo's `contents.packages` lists a version of `guarded-entrypoint` or `guarded-entrypoint-fips`, and that version is too old for the repo's settings. A version that you list overrides the version that Chainguard installs for that repo. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
+| `the wrapper version Chainguard installs does not read every GUARDED_* setting` | The repo lists no wrapper version, or lists `guarded-entrypoint` or `guarded-entrypoint-fips` without a version, so the version that Chainguard installs applies. That version is older than the repo's settings need. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
-* For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
+* If the reason names the listed wrapper version, raise the version in `contents.packages` to the release in the detail or later. You can also remove the `guarded-entrypoint` or `guarded-entrypoint-fips` entry, so that the version that Chainguard installs applies. If that version is also too old, the build is refused for the second reason.
+* If the reason names the wrapper version that Chainguard installs, contact Chainguard customer support. Only Chainguard can raise that version.
 * Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 

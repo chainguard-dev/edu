@@ -41,8 +41,9 @@
       {{/* Section cross-links: extra top-level nav entries pointing at a canonical page in another section. */}}
       {{/* Defined in this section's _index.md as a `crosslinks` list of {title, url} pairs. */}}
       {{ range .Params.crosslinks }}
-      {{ $active := eq $currentPage.RelPermalink (partial "site-path.html" .url) }}
-      <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ partial "site-path.html" .url }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a></li>
+      {{ $href := partial "sidebar/crosslink-url.html" .url }}
+      {{ $active := or (eq $currentPage.RelPermalink $href) (eq $currentPage.RelPermalink (partial "site-path.html" .url)) }}
+      <li><a class="mx-0 sidebar-subcategory docs-link rounded {{ if $active }} sidebar-item-active active {{ end }} sidebar-item sidebar-item-top" href="{{ $href }}">{{ .title }} <i class="bi bi-box-arrow-up-right" style="font-size:.7em;opacity:.6"></i></a></li>
       {{ end }}
     </ul>
   </div>

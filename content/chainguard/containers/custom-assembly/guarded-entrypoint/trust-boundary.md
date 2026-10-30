@@ -4,7 +4,7 @@ linktitle: "Trust boundary"
 type: "article"
 description: "What the Guarded Entrypoint wrapper connects to, what it never does, and what is visible in the image configuration."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-21T19:07:22+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -27,6 +27,7 @@ The wrapper connects only to the endpoints that your configuration names:
 * **Consul:** the address in `CONSUL_HTTP_ADDR`. When it isn't set, the default is `127.0.0.1:8500`.
 * **Google Secret Manager:** `secretmanager.googleapis.com` and Google's token endpoints. The wrapper authenticates with Application Default Credentials, so it also contacts the GCE or GKE metadata server, which it always reaches directly. Credentials of an external account type add their own source URL.
 * **Preflight targets:** the TCP targets that your `preflight` checks name.
+* **Truststore:** none. The wrapper reads the files in `sources` and writes the store to `output`. It makes no network connection for this step.
 * **Proxies:** if you set `HTTPS_PROXY`, the wrapper sends Secret Manager requests and requests to an `https://` Vault address through it. The wrapper never uses a proxy for Consul.
 
 If you build an egress allowlist from this list, include the Google endpoints when you use Secret Manager.
@@ -37,6 +38,8 @@ The wrapper makes no connection to Chainguard.
 
 * It doesn't run code that you upload. The wrapper starts your application and, if you set `command_override`, the command you list.
 * It doesn't send telemetry. It sends no data to Chainguard of any kind.
+* It doesn't put a truststore password on a command line, and it doesn't write the password to its logs. It treats a `password_env` value like any other secret and replaces it with `***` in its log lines.
+* It doesn't write a private key into a truststore. The wrapper rejects a private key, so the store holds certificates only.
 * It doesn't write a resolved secret value to its logs. It replaces a value that it resolved or expanded with `***` in every log line.
 * It doesn't send a Vault or Consul credential anywhere except the address you configure, and it doesn't follow redirects when it reads from either. A Secret Manager credential goes to Google's token endpoints and to Secret Manager.
 
@@ -51,6 +54,8 @@ Anyone who can pull the image can read its configuration, for example with `dock
 | `command_override` text | Yes | Described in the next section. |
 | Preflight targets and settings | Yes | The targets are stored in the image configuration. |
 | Fail mode | Only when `open` | A repo with `fail_mode: closed` has no setting in its image configuration. |
+| Truststore settings | Yes | The image configuration holds the sources, the output path, and the name of the `password_env` variable. It never holds the password. |
+| The truststore file | No | The wrapper writes it in the running container, at `output`. It holds certificates only. |
 
 Chainguard stores the settings in image environment variables whose names start with `GUARDED_`. This prefix is reserved for the wrapper. The API rejects an `environment` key that starts with it.
 
@@ -71,6 +76,8 @@ The wrapper honors `GUARDED_DISABLE` before it resolves a reference, runs a pref
 Anyone who can set environment variables on a container can set `GUARDED_DISABLE`. The wrapper then doesn't resolve references or run checks, and your application starts with the literal `cg+...` values. A repo with `fail_mode: closed` doesn't prevent this.
 
 The same people can override other settings. Every `GUARDED_` setting that Chainguard stores in the image can be overridden from the deployment's environment. So can `VAULT_ADDR` and `CONSUL_HTTP_ADDR`. Pointing `VAULT_ADDR` at another server sends the service account token to that server. Control who can change the environment of your deployments as you would control who can change any other part of the deployment.
+
+A `GUARDED_TRUSTSTORE_0` on a deployment replaces the image's truststore setting, and can add CAs that your image doesn't trust. The wrapper trusts every certificate in a source, so control who can write to the volumes that you mount.
 
 For how to use the escape hatch, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl images entitlements"
 slug: chainctl_images_entitlements
 url: /platform/chainctl/chainctl-docs/chainctl_images_entitlements/
@@ -32,4 +32,5 @@ Manage entitlements to registry repositories.
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
 * [chainctl images entitlements list](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_list/)	 - List registry entitlements of an organization.
+* [chainctl images entitlements summary](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_summary/)	 - Show entitlement summary for an organization.
 

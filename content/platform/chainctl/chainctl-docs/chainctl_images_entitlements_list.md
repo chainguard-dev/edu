@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl images entitlements list"
 slug: chainctl_images_entitlements_list
 url: /platform/chainctl/chainctl-docs/chainctl_images_entitlements_list/
@@ -14,14 +14,15 @@ toc: true
 List registry entitlements of an organization.
 
 ```
-chainctl images entitlements list --parent=PARENT [--all] [--output=json|table|wide] [flags]
+chainctl images entitlements list --parent=PARENT [--all] [--removed-images] [--output=json|table|wide] [flags]
 ```
 
 ### Options
 
 ```
-  -a, --all             Include expired entitlements in the output.
-      --parent string   The name or id of the org to list registry entitlements for.
+  -a, --all              Include expired entitlements in the output.
+      --parent string    The name or id of the org to list registry entitlements for.
+      --removed-images   List the images removed from the entitlements instead of their live images, each with its removal time and whether the removal was charged against the swap budget. Requires -o wide or -o json.
 ```
 
 ### Options inherited from parent commands

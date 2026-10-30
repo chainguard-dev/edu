@@ -55,10 +55,11 @@ blocks = [
 ]
 
 [[group]]
-reason = "resources.yaml configures the directory layout, so it needs a check file to apply to."
-stubs = ["env-default", "check-file"]
+reason = "A resource class file and the env/default.yaml that selects it configure the directory layout, so they need a check file to apply to."
+stubs = ["check-file"]
 blocks = [
-    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/resources.yaml" },
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/resources/compute.yaml" },
+    { page = "chainguard/checks/configuration.md", title = ".chainguard/ci/env/default.yaml", contains = "resources: compute" },
 ]
 
 [[group]]
@@ -87,6 +88,13 @@ blocks = [
 ]
 
 [[group]]
+reason = "docker.yaml uses the docker service that the page defines just before it."
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/docker/docker.yaml" },
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/docker.yaml" },
+]
+
+[[group]]
 reason = "identities.yaml defines the cache pools for the gobuild cache in the ci.yaml before it."
 blocks = [
     { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci.yaml", contains = "gobuild: {}" },
@@ -94,6 +102,19 @@ blocks = [
 ]
 
 # Blocks that can't be validated: excerpts, and files the validator doesn't read.
+
+[[group]]
+reason = "identities.yaml declares staging-plan for the plan check in deploy.yaml after it, in the directory layout."
+stubs = ["env-default"]
+blocks = [
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/identities.yaml", contains = "staging-plan" },
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/deploy.yaml" },
+]
+
+[[skip]]
+page = "chainguard/checks/identity-and-trust.md"
+contains = "tenant_id: 00000000"
+reason = "Excerpt: only the identity's `azure` mapping."
 
 [[skip]]
 page = "chainguard/checks/github.md"

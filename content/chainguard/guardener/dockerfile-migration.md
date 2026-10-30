@@ -7,7 +7,7 @@ aliases:
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-27T18:06:32+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -22,7 +22,7 @@ The Dockerfile migration feature converts your Dockerfiles to use Chainguard Con
 
 Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) and [Commit Verification](/chainguard/guardener/github/commit-verification/) features, Dockerfile migration does not run through the Chainguard App or the `.chainguard/` configuration directory. Instead, you drive it locally through `chainctl agent dockerfile` commands. The AI runs server-side and scans your workspace to perform its analysis, while Docker builds and file access remain local to your machine.
 
-{{< beta feature="Guardener" >}}
+{{< beta feature="Dockerfile migration" >}}
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ While Dockerfile migration is in beta, your organization needs to join the waitl
 
 You also need the following:
 
-- `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so.
+- `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so. If you already have `chainctl`, [update it to the latest version](/platform/chainctl-usage/chainctl-version-update/) — older versions might not include the `chainctl agent dockerfile` commands or their current flags.
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally.
 - Your Dockerfile and build context (source code and other inputs) present on the same machine where you run the migration.
 - A user with permission to accept the Guardener legal terms must accept them for your organization before anyone can run a session. Refer to [IAM access](#iam-access) below for the roles involved.

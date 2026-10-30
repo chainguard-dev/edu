@@ -37,7 +37,7 @@
         {{- if $j }},{{ end }}
         {
           "title": {{ $page.Title | jsonify }},
-          "path": {{ $page.RelPermalink | jsonify }},
+          "path": {{ (partial "page-link-target.html" $page).RelPermalink | jsonify }},
           "description": {{ $page.Description | default $page.Summary | truncate 100 | jsonify }}
         }
         {{- end }}

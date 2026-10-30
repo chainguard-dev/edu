@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl auth configure npm"
 slug: chainctl_auth_configure_npm
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_npm/
@@ -56,6 +56,7 @@ chainctl auth configure npm [flags]
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to create a pull token for npm authentication.
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
+      --sts-http1-downgrade        Downgrade STS requests to HTTP/1.x
       --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
 

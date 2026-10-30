@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-10-22T12:51:41+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -40,19 +40,22 @@ Before you begin, make sure you have the following:
 
 - A GitHub account that can install GitHub Apps on the personal account or organization that owns your repository. To install the app on an organization and link it, you need the owner role on that organization.
 - A local clone of a repository on github.com that you can push to.
-- A work email address. A personal email address, such as a Gmail address, can't create a Chainguard organization.
+- An email address to sign in with. To invite teammates later, use a work email address. A personal email address, such as a Gmail address, creates an organization that can't invite anyone, as described in [Sign up with chainctl develop init](#sign-up-with-chainctl-develop-init).
+- If you already belong to a Chainguard organization, the `owner` or `limited_owner` role in the organization where you turn on Chainguard Checks and Chainguard Workspaces.
 
 ## Install or update chainctl {#install-or-update-chainctl}
 
 You sign up with `chainctl`, and you use it with both products: `chainctl checks` for Chainguard Checks and `chainctl develop` for Chainguard Workspaces. If you don't have it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
-Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.382 or later. Earlier releases can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
+Chainguard Checks and Chainguard Workspaces need `chainctl` 0.2.386 or later. Releases before 0.2.383 can't keep a detached session running while it's busy or use a Claude login that Chainguard holds, and releases before 0.2.382 can't sign you up as this page describes or run Claude Code in a session. Both products change often during the beta, so if you already have `chainctl`, update it to the latest release:
 
 ```shell
 sudo chainctl update
 ```
 
 If you installed `chainctl` with Homebrew, run `brew upgrade chainctl` instead. Refer to [Updating chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl) for details.
+
+Updating doesn't change the sessions you already have. A session created with `chainctl` 0.2.382 or earlier doesn't keep running while it's busy. Unless you keep it running, it parks about 10 minutes after you detach, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away).
 
 ## Install the Chainguard App {#install-the-chainguard-app}
 
@@ -67,7 +70,18 @@ Installing the app doesn't change your repositories. Chainguard Checks runs only
 
 ## Sign up with chainctl develop init {#sign-up-with-chainctl-develop-init}
 
-The `chainctl develop init` command signs you in, creates a free [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organization if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
+The `chainctl develop init` command signs you in, creates a free [Starter organization](#what-a-starter-organization-includes) if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
+
+To create an organization, sign in with a Google account, a GitHub account, or an email address and password. A GitLab sign-in can't create one. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub, that's your GitHub account's verified primary email address, and other addresses on the account don't count.
+
+- With a work email address, the organization is named after your email domain, and you can invite teammates whose addresses are in that domain.
+- With a personal email address, such as a Gmail address, you name the organization yourself, at a prompt or with `--name`, and the name can't contain a dot. The organization's registry and package paths use its ID instead of its name, and it can't invite anyone.
+
+The browser page that `chainctl develop init` opens offers Google, GitHub, and GitLab, but not a password. To sign in with a password, first set `chainctl` to open Chainguard's email sign-in page instead, where you can create an account or log in to one you have. The setting also applies to later `chainctl auth login` sign-ins:
+
+```shell
+chainctl config set default.social-login email
+```
 
 Run the command in an interactive terminal, because it opens your browser and asks questions as it goes:
 
@@ -75,14 +89,12 @@ Run the command in an interactive terminal, because it opens your browser and as
 chainctl develop init
 ```
 
-To create an organization, sign in with a work email address, using a password or a Google account. A personal email address, such as a Gmail address, can't create one, and neither can other sign-in methods, such as GitHub or GitLab.
-
 The command does the following:
 
 1. Signs you in through your browser, and registers a new Chainguard identity if you don't have one.
 2. Picks the Chainguard organization to use:
-    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one, named after your email domain.
-    - If you belong to exactly one organization on the Starter or Team plan, it uses that one.
+    - If you don't belong to one, it asks your name, company, job title, and whether you want updates from Chainguard, then creates one. With a personal email address, it also asks you to name the organization, unless you used `--name`.
+    - If you belong to exactly one organization on the Starter or Team plan, it uses that one, even if your role there, such as `viewer` or `sandbox.user`, can't turn on Chainguard Checks and Chainguard Workspaces. The command then stops with an error that says `missing: terms.accept`, as described in [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
     - Otherwise, it stops and asks you to choose an organization with `--parent`.
 3. Asks you to accept the terms that Chainguard Checks and Chainguard Workspaces are offered under, if your organization hasn't accepted them yet: the [Code Analysis Terms](https://www.chainguard.dev/legal/code-analysis-terms), the [Secured Platform Terms](https://www.chainguard.dev/legal/secure-platform-terms), the [Master Service and License Agreement](https://www.chainguard.dev/legal/master-service-and-license-agreement), and, for the GitHub link, the Guardener [Terms of Service](https://www.chainguard.dev/legal/guardener) and [Data Privacy Agreement](https://www.chainguard.dev/legal/supplemental-dpa).
 4. If your organization isn't linked to a GitHub account yet, asks which one to link. Link the account that owns your repository: press `Enter` to link your own GitHub user, or enter the name of a GitHub organization where you have the owner role, such as `acme`, not a URL. The command opens your browser so you can authorize the link. If the Chainguard App isn't installed on the account, the command offers to open the installation page, then authorizes and links the account again.
@@ -95,6 +107,18 @@ A GitHub account can be linked to only one Chainguard organization at a time. If
 
 If `chainctl develop init` stops with an error, refer to [`chainctl develop init` fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
 
+### What a Starter organization includes {#what-a-starter-organization-includes}
+
+An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images through Chainguard Catalog Starter.
+
+The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
+
+```shell
+chainctl starter add-images $IMAGE
+```
+
+You can't remove or swap an image after you add it.
+
 ### Answer questions ahead of time {#answer-questions-ahead-of-time}
 
 You can answer some of the command's questions with flags:
@@ -102,7 +126,7 @@ You can answer some of the command's questions with flags:
 | Flag | What it does |
 | ---- | ------------ |
 | `--github-org` | Links the named GitHub organization instead of your own GitHub user. |
-| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You must be an owner of the organization. |
+| `--parent` | Turns on Chainguard Checks and Chainguard Workspaces in an organization you already belong to, including an Enterprise organization, instead of creating one. You need the `owner` or `limited_owner` role in it. |
 
 For example, to link the `acme` GitHub organization:
 
@@ -114,7 +138,7 @@ For every flag, refer to the [`chainctl develop init` reference](/chainguard/wor
 
 ### Use an organization your company already has {#use-an-organization-your-company-already-has}
 
-If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). An owner can then turn on both products in it, replacing `$ORGANIZATION` with the organization's name:
+If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). Someone with the `owner` or `limited_owner` role in the organization can then turn on both products, replacing `$ORGANIZATION` with the organization's name:
 
 ```shell
 chainctl develop init --parent $ORGANIZATION
@@ -122,7 +146,7 @@ chainctl develop init --parent $ORGANIZATION
 
 If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
 
-An organization that has a product through the account team must also accept that product's terms, which takes the `owner` role. Until an owner accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
+An organization that has a product through the account team must also accept that product's terms, which takes the `owner` or `limited_owner` role. Until someone accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
 
 ```shell
 chainctl checks accept-terms --parent $ORGANIZATION
@@ -167,6 +191,8 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 
 If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
 
+An organization you created with a personal email address can't create invites, so you can't add teammates to it.
+
 To invite a teammate who can open sessions, follow [Add a teammate](#add-a-teammate), but use `--role limited_owner` instead of `--role sandbox.user` in step 1:
 
 ```shell
@@ -177,7 +203,9 @@ The `limited_owner` role also lets its holder manage your organization's billing
 
 Each invite must name your teammate's email address with `--email`, and the address must be in your organization's domain or one of its subdomains.
 
-A coworker whose email address is in your organization's domain can also ask to join by running `chainctl starter request-access`, which emails you the request. For details, refer to [Request access with chainctl](/chainguard/containers/reference/catalog-starter/#request-access-with-chainctl).
+A coworker can also ask to join by running [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/). They must first sign in to Chainguard, such as with `chainctl auth login`, with an email address in your organization's domain or one of its subdomains. The command emails the request to everyone with the `owner` or `limited_owner` role in your organization. If no organization matches, the command reports the same result and sends nothing.
+
+The link in that email invites the coworker with the `viewer` role, which can't open sessions. To let them open sessions, create an invite with `--role limited_owner` instead, as described earlier in this section.
 
 ## Next steps {#next-steps}
 

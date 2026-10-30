@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -70,8 +70,9 @@ Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" s
 artifacts are resolved from the java repository.
 
 With --output-attestations, available SBOMs and attestations are saved under
-each verified artifact's repository path in --output-dir. Unsupported inputs
-produce no companion files.
+each verified artifact's repository path in --output-dir, which defaults to
+./attestations in the current directory. Unsupported inputs produce no companion
+files.
 
 ```
 chainctl libraries verify [path...] [flags]
@@ -93,7 +94,7 @@ chainctl libraries verify [path...] [flags]
   chainctl libraries verify -o json build/libs/*.jar
 
   # Download available SBOMs and attestations alongside verification
-  chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations --output-dir ./attestations
+  chainctl libraries verify commons-lang3-3.17.0.jar --output-attestations
 
   # Analyze container images
   chainctl libraries verify cgr.dev/chainguard/maven:latest
@@ -129,7 +130,7 @@ chainctl libraries verify [path...] [flags]
       --no-color                Disable colored output
   -o, --output string           Output format (text, json, yaml) (default "text")
       --output-attestations     Download available SBOMs and attestations for verified artifacts into --output-dir; ignored for unsupported ecosystems
-      --output-dir string       Base directory for files downloaded by --output-attestations, laid out under each artifact's repository path. No effect without --output-attestations (default ".")
+      --output-dir string       Base directory for files downloaded by --output-attestations, laid out under each artifact's repository path. No effect without --output-attestations (default "attestations")
       --parent string           Parent organization for authentication
       --verbose                 Enable verbose output
 ```

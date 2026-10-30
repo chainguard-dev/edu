@@ -4,7 +4,7 @@ linktitle: "Overlays overview"
 type: "article"
 description: "How Custom Assembly Overlays use overlays and bindings to apply customizations to a subset of a repository's tags, or to every repository in an organization or folder."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-10-09T00:00:00+00:00
+lastmod: 2026-10-21T18:25:41+00:00
 draft: false
 tags: ["Chainguard Containers", "Conceptual", "Custom Assembly"]
 images: []
@@ -45,7 +45,7 @@ When you create, update, or delete a binding, or update an overlay, Chainguard r
 
 ## Tag selectors
 
-Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all`, `--variant`, or `--tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
+Each binding has exactly one tag selector, which chooses the tags the overlay applies to. In `chainctl`, you set it with one of the `--all-tags`, `--tag-variant`, or `--exact-tag` flags on `chainctl images overlays attach`. A selector is one of three kinds:
 
 | Selector | Matches | Example use |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ An overlay supports the same customizations as standard Custom Assembly, with th
 * [Environment variables and annotations](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#adding-custom-annotations-and-environment-variables) (`environment` and `annotations`)
 * [User accounts and groups](/platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/) (`accounts`)
 * [Custom certificates](/chainguard/containers/custom-assembly/custom-assembly-certs/) (`certificates.additional`)
-* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) (`guarded_entrypoint`, `fail_mode`, `preflight`, and `command_override`). To learn how these fields combine when several bindings match one tag, refer to [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#how-the-fields-combine-across-bindings).
+* [Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/) (`guarded_entrypoint`, `fail_mode`, `preflight`, `command_override`, and `truststore`). To learn how these fields combine when several bindings match one tag, refer to [How the fields combine across bindings](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#how-the-fields-combine-across-bindings).
 
 Overlays don't support Chainguard-managed certificate bundles (`certificates.providers`). If an overlay contains a field that overlays don't support, Chainguard rejects the whole overlay instead of ignoring the field.
 

@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-10-29T16:33:54+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -152,16 +152,6 @@ Our current minimum supported toolchains are:
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
 
-### EOL version support
-
-When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-
-* No longer build new packages that require the EOL version
-* No longer provide security fixes for packages built against the EOL version
-* Continue to serve previously built packages
-
 ## Upstream fallback and controls
 
 Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
@@ -292,7 +282,7 @@ A library policy sets the cooldown, separately from the upstream fallback settin
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
-If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
+If a requested package version falls within the cooldown period, the package manager reports it as blocked: npm returns a `403` with the reason, and other package managers return a not-found error. The version is also withheld from the package's metadata, so it does not appear in version listings until the cooldown passes. The package becomes available once it has passed the cooldown period and cleared malware scanning. For how blocks surface in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
 Learn how to create, enforce, disable, and list policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/) page.
 

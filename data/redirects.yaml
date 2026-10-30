@@ -343,3 +343,8 @@ rules:
   # "contributors" front matter; they never linked to these pages.
   - regex: '^/contributors(/.*)?$'
     to: 'https://www.chainguard.dev/about-us'
+
+  # The community guidelines moved to chainguard.dev. "(\.md|/.*)?" also
+  # matches the page's Markdown copy.
+  - regex: '^/guidelines(\.md|/.*)?$'
+    to: 'https://www.chainguard.dev/community-guidelines'

@@ -51,9 +51,11 @@ To see the programs that each step of a failed check started, and which one most
 chainctl checks trace "$OWNER/$REPO#$NUMBER" --check test --failed --parent $ORGANIZATION
 ```
 
-These commands also work in a Workspaces session, where `chainctl` acts as you. During the beta, they can't find a run by its commit, so pass the pull request, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
+These commands also work in a Workspaces session, where `chainctl` acts as you.
 
-For a run after merging, pass the run's ID instead, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
+Instead of a pull request, you can pass a directory, such as `.`, or a commit SHA to read the commit's newest run, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
+
+For a run after merging, pass the commit's SHA or the run's ID, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
 
 ## Run checks on a pushed commit
 
@@ -85,9 +87,9 @@ To read a run you started, pass its ID, or the start of it, to `chainctl checks 
 chainctl checks status $RUN_ID --watch --parent $ORGANIZATION
 ```
 
-Don't pass `.` or the commit's SHA instead. Because the run never counts as the commit's result, `status` reports that the platform created no run for the commit.
+Don't pass `.` or the commit's SHA instead. They name the newest run that Chainguard Checks has for the commit, which might not be the run you started.
 
-To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
+To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. It lists your organization's runs, newest first, including pull request runs, runs after merging, and your teammates' runs. Runs started with `chainctl checks run` have `-` under both `REF` and `PR`. Find yours by its commit and when you started it. To list only one repository's runs, add `--repo`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
 
 ## See check history {#see-check-history}
 

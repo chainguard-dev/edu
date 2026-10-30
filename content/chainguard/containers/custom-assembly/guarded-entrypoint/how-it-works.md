@@ -2,9 +2,9 @@
 title: "How Guarded Entrypoint works"
 linktitle: "How it works"
 type: "article"
-description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, preflight checks, command override, and variable expansion."
+description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, the Java truststore, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-07T21:37:50+00:00
+lastmod: 2026-10-23T15:59:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -27,6 +27,7 @@ On every start, the wrapper runs these steps in order:
 
 1. **Check for the escape hatch.** If `GUARDED_DISABLE` is set, the wrapper starts the original entrypoint and does nothing else. An empty value, `0`, `false`, `no`, and `off` don't count as set. Refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/).
 1. **Resolve secret references.** The wrapper replaces every environment value of the form `cg+BACKEND://REF` with the secret it names.
+1. **Write the Java truststore.** If you configured a truststore, or set `USE_SYSTEM_CA_CERTS`, the wrapper writes a Java truststore and points the JVM at it. This step stops the container with exit code `128` when it fails, in every fail mode. Refer to [Java truststore](#java-truststore).
 1. **Resolve the command.** The wrapper applies `command_override`, if you set one, and expands `${VAR}` in it.
 1. **Run preflight checks.** The wrapper waits for the TCP endpoints and paths you listed.
 1. **Start your application.** The application runs as the wrapper's child process.
@@ -132,6 +133,74 @@ An unresolved variable is not a secret. Your application sees the literal `cg+..
 
 A repo that sets `fail_mode: open` has `GUARDED_FAIL_MODE=open` in its image environment. A `closed` repo's image carries no setting.
 
+## Java truststore
+
+A Java application trusts the certificate authorities (CAs) in its image. A CA that exists only at run time isn't in the image. Two examples are an OpenShift service CA that rotates, and a private CA in your cluster. You mount such a CA into the container as a file.
+
+The truststore setting covers this case. Before your application starts, the wrapper writes a Java truststore that holds the image's CAs and the mounted CAs, and points the JVM at it. The wrapper writes the store on every start, so a rotated CA takes effect the next time the container starts.
+
+A CA that you know at build time belongs in `certificates.additional`. Refer to [Custom Assembly and Java truststores](/chainguard/containers/custom-assembly/custom-assembly-certs/#custom-assembly-and-java-truststores).
+
+### Configure a truststore
+
+In a Custom Assembly manifest, add a `truststore` entry. It requires `guarded_entrypoint: true`. The JVM reads one truststore, so the manifest holds one entry. The entry has the following keys:
+
+| Key | Meaning | Default |
+| --- | --- | --- |
+| `sources` | Required. A list of absolute paths. Each path is a PEM file or a directory of PEM files. | None |
+| `output` | Required. The absolute path of the store file. | None |
+| `system` | `true` starts from the image's own CAs. `false` trusts the sources only. | `true` |
+| `password_env` | The name of the environment variable that holds the store's password. | The JDK's default password |
+| `format` | The store format. `jks` is the only value. | `jks` |
+
+Notes:
+
+* A directory in `sources` works with a Kubernetes ConfigMap or Secret volume, and the wrapper reads each certificate once. The wrapper adds every certificate in each file, so a bundle of several certificates needs no splitting.
+* The directory of `output` must exist, and the container's user must be able to write to it. With a read-only root filesystem, mount an `emptyDir` volume there. The path can't contain spaces or quotes.
+* The JVM doesn't need a password to read the store. Set `password_env` only if other tools open the store. The variable can hold a `cg+` secret reference.
+
+For an example, refer to [Trust a mounted CA in a Java service](/chainguard/containers/custom-assembly/guarded-entrypoint/examples/#trust-a-mounted-ca-in-a-java-service).
+
+### Set a truststore at deploy time
+
+You can also set the truststore on the deployment. The image must have been rebuilt with wrapper 0.2.385 or later. Check the `version` field on the wrapper's `ready` log line. Set `GUARDED_TRUSTSTORE_0` to comma-separated `key=value` pairs. The keys are the same as in the manifest, with `source` in place of `sources`. Repeat `source` for more than one path:
+
+```text
+GUARDED_TRUSTSTORE_0=source=/etc/service-ca,source=/etc/corp-ca/ca.pem,output=/truststore/cacerts
+```
+
+Values can't contain `,` or `=`. A value that you set on the deployment replaces the one that a manifest stored in the image. The API rejects `GUARDED_` keys in `environment`, so in a Custom Assembly manifest, use the `truststore` key.
+
+### How the wrapper builds the store
+
+When the container starts, the wrapper does the following:
+
+1. Starts from the image's CAs, unless you set `system: false`.
+1. Adds every certificate from your sources. It rejects a private key, and anything else that isn't a certificate.
+1. Writes the store to `output`.
+1. Appends `-Djavax.net.ssl.trustStore=` and the path of the store to `JAVA_TOOL_OPTIONS`, and keeps the options that are already there. It also sets `JRE_CACERTS_PATH` to the path of the store, as Temurin images do.
+1. Logs a `truststore written` line.
+
+### Mount the volumes
+
+Mount the following volumes:
+
+* **The CA files.** Mount the ConfigMap, Secret, or other volume that holds the CA at the path in `sources`.
+* **A writable directory for the store.** Mount an `emptyDir` volume at the directory of `output`. The container can run as an arbitrary user ID, such as one that OpenShift assigns.
+* **A writable `/tmp` on FIPS images.** A FIPS Java image with a read-only root filesystem needs a writable `/tmp` that allows executables, with or without a truststore. A Kubernetes `emptyDir` volume works. With Docker, `--tmpfs` blocks executables by default, so add the `exec` option.
+
+On the JDK 21 and earlier FIPS images, Keycloak's start script drops `JAVA_TOOL_OPTIONS`, so the truststore setting doesn't reach Keycloak there. Give Keycloak the mounted PEM files through its own `truststore-paths` option instead.
+
+### Temurin compatibility
+
+If you come from Eclipse Temurin images, `USE_SYSTEM_CA_CERTS` works the same way. With no truststore set, a non-empty value makes the wrapper build a store from the image's CAs and the files in `/certificates` whose names end in `crt`. The wrapper writes the store under `/tmp`, so `/tmp` must be writable. A missing `/certificates` isn't an error.
+
+A truststore setting wins over `USE_SYSTEM_CA_CERTS`. The wrapper logs a `USE_SYSTEM_CA_CERTS ignored` warning when you set both. On the `-full` Java images, the image's own entrypoint script handles `USE_SYSTEM_CA_CERTS`, and the wrapper leaves it alone.
+
+### Truststore errors
+
+A malformed setting stops the container with exit code `120`. A failure to read your sources or write the store stops it with exit code `128`. Examples are a missing source, a file with no PEM certificate, and an `output` directory that doesn't exist. For how to read these errors, refer to [Troubleshoot a wrapped container](/chainguard/containers/custom-assembly/guarded-entrypoint/troubleshooting/#exit-codes-before-the-application-starts).
+
 ## Preflight checks
 
 A preflight check waits for a dependency before your application starts. Each entry in `preflight` has the following keys:
@@ -220,7 +289,7 @@ Images whose entrypoint is an init system that must run as PID 1, such as system
 
 ### Refused builds
 
-Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the wrapper version is too old for the repo's settings. The build then fails with a message that names the reason.
 
 <!-- TODO: when the generated lists of supported and refused entrypoints are published, add a sentence here linking to them. -->
 

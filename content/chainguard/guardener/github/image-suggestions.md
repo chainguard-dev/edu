@@ -4,7 +4,7 @@ linktitle: "Container Image Suggestions"
 description: "Configure Guardener to recommend Chainguard container images for the container images a pull request adds or changes."
 type: "article"
 date: 2026-10-02T00:00:00+00:00
-lastmod: 2026-10-08T02:59:03+00:00
+lastmod: 2026-10-23T04:48:59+00:00
 draft: false
 tags: ["GitHub", "Chainguard Containers", "Migration"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 Guardener reviews pull requests that add or change container image references and recommends the Chainguard container image that replaces each upstream image. Where it can, Guardener includes the replacement as a one-click suggested change.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Container Image Suggestions is in Early Access. It's available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 Guardener reads only the lines a pull request adds or changes, so it catches upstream images as they're introduced but doesn't review the images a repository already uses. To replace those images, turn on [Container Image Migration](/chainguard/guardener/github/image-migration/), which opens a pull request for the whole repository. To list replacements for every image without changing any files, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/).
 

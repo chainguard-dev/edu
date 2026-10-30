@@ -76,7 +76,7 @@
     border-top-color: var(--tooltip-background);
   }
 
-  &.show {
+  .copy-success + & {
     opacity: 1;
     transform: translateX(-50%) scale(1);
   }

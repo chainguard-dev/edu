@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl auth status"
 slug: chainctl_auth_status
 url: /platform/chainctl/chainctl-docs/chainctl_auth_status/
@@ -12,6 +12,12 @@ toc: true
 ## chainctl auth status
 
 Inspect the local Chainguard Token.
+
+### Synopsis
+
+Inspect the local Chainguard Token.
+
+Exits 0 when the token is valid and 1 when it is missing, expired, or invalid and cannot be renewed, or when the platform cannot be reached. With --quick, the token is checked locally without contacting the platform.
 
 ```
 chainctl auth status [--output=json|table|terse] [flags]

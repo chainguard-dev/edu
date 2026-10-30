@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-10-22T12:51:41+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -34,6 +34,7 @@ The examples on this page use `$ORGANIZATION` for the name of your Chainguard or
 | [`chainctl develop check`](#chainctl-develop-check) | Runs your repository's checks in a session. |
 | [`chainctl develop creds`](#chainctl-develop-creds) | Shows or changes what a session can reach. |
 | [`chainctl develop github`](#chainctl-develop-github) | Connects your GitHub account to the sessions you create. |
+| [`chainctl develop claude`](#chainctl-develop-claude) | Lets Chainguard hold a Claude login for your sessions. |
 | [`chainctl develop policy`](#chainctl-develop-policy) | Shows or changes your organization's GitHub policy for sessions. |
 | [`chainctl develop init`](#chainctl-develop-init) | Signs you up and turns on Chainguard Checks and Chainguard Workspaces. |
 | [`chainctl develop accept-terms`](#chainctl-develop-accept-terms) | Accepts the terms that Chainguard Workspaces is offered under. |
@@ -76,11 +77,11 @@ The argument is a directory, a repository URL, or a session. Without one, `chain
 | `--check` | Gives a new session the environment and network access of a check. From a local directory, the check must be in `.chainguard/ci.yaml`. From a repository URL, it can also be in the `.chainguard/ci/` directory. Refer to [How a session chooses its environment](/chainguard/workspaces/session-environment/#how-a-session-chooses-its-environment). |
 | `--cache` | For a session opened from a repository URL, mounts the Go build cache that your checks keep for your default branch. Refer to [Start with a warm Go build cache](/chainguard/workspaces/session-environment/#start-with-a-warm-go-build-cache). |
 | `--with` | Gives a new or existing session access beyond its defaults. Repeat the flag or separate entries with commas. Refer to [Allow access ahead of time](/chainguard/workspaces/credentials/#allow-access-ahead-of-time) for the entries. |
-| `--keep` | Keeps the session running when you detach, for a duration of up to `24h`, such as `8h`. With `always`, creates a session that keeps running instead of parking. Refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). |
+| `--keep` | Sets how the session keeps running when you detach. Without it, a new session keeps running while it's busy and parks after it's been idle for 10 minutes, no later than 24 hours after you last detach. A duration of up to `24h`, such as `8h`, keeps the session running for that long when you detach. With `always`, creates a session that keeps running instead of parking. With `park`, creates a session that parks about 10 minutes after you detach, busy or not. Refer to [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). |
 | `--git-remote` | For a directory, the git remote whose GitHub repository a new session is on, or `-` for no repository. Refer to [Choose the session's repository](/chainguard/workspaces/manage-sessions/#choose-the-sessions-repository). |
 | `-o json` | Prints the session as JSON instead of attaching to it, and creates the session first if none matches. Refer to [Use sessions from scripts](/chainguard/workspaces/manage-sessions/#use-sessions-from-scripts). |
 
-The `--name`, `--env`, `--check`, `--cache`, and `--keep always` flags each open a new session, so you don't need `--new` with them, and you can't combine them with a session name.
+The `--name`, `--env`, `--check`, `--cache`, `--keep always`, and `--keep park` flags each open a new session, so you don't need `--new` with them, and you can't combine them with a session name.
 
 In a checkout of a repository named `app`, this example opens a new session named `app/scratch` with the default environment:
 
@@ -170,7 +171,7 @@ Without flags, the command lists each service's source and bindings, what your l
 | Flag | Description |
 | ---- | ----------- |
 | `--revoke` | Takes an entry back from the session and from your laptop's remembered approvals. Repeatable. |
-| `--source` | Sets where a service's credential comes from: `laptop`, `org`, or `off`. Repeatable. |
+| `--source` | Sets where a service's credential comes from: `laptop`, `org`, `owner`, or `off`. Repeatable. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
 To add access, run `chainctl develop SESSION --with ENTRY` instead. Refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) for the entries and sources that each service takes.
@@ -196,6 +197,22 @@ chainctl develop github status [-o json|table]
 | `login` | Opens your browser to connect your GitHub account, replacing any earlier connection. The `--port` flag sets the local port that your browser returns to after you authorize the connection. |
 | `logout` | Disconnects your GitHub account. Sessions that act on GitHub as you refuse `git` and `gh` requests until you connect again. |
 | `status` | Shows your connected GitHub account, the app it's connected through, whether the connection works, whether your organization's policy allows sessions to act as you, and which accounts the checkout in your current directory still needs the app installed on. |
+
+## chainctl develop claude {#chainctl-develop-claude}
+
+Lets Chainguard hold a Claude login for your sessions, so that Claude Code in them works whether or not you're attached. One login serves your sessions in every organization, except sessions that use Vertex AI. Refer to [Let Chainguard hold your Claude login](/chainguard/workspaces/coding-agents/#let-chainguard-hold-your-claude-login).
+
+```
+chainctl develop claude login [-o json]
+chainctl develop claude status [-o json|table]
+chainctl develop claude logout
+```
+
+| Command | What it does |
+| ------- | ------------ |
+| `login` | Opens your browser to log in to Claude, and asks you to paste the code that the page shows. Chainguard then holds the login for about 4 weeks. A new login replaces the earlier one and revokes it. |
+| `status` | Shows the login's Claude account, its Claude organization, whether it still works, and when it ends, in the `CLAUDE ACCOUNT`, `ORGANIZATION`, `STATE`, and `EXPIRES` columns. |
+| `logout` | Revokes the login at Anthropic, which ends it in every session at once, and has Chainguard forget it. Sessions that use it refuse Claude Code's requests until you log in again. If Chainguard can't reach Anthropic, it keeps the login, and `logout` says so. In that case, run `chainctl develop claude logout` again. |
 
 ## chainctl develop policy
 
@@ -226,7 +243,7 @@ chainctl develop init [--parent ORGANIZATION] [--github-org ACCOUNT] [--name NAM
 | ---- | ----------- |
 | `--github-org` | The GitHub organization to link, instead of your own GitHub user. |
 | `--parent` | An existing organization, such as an Enterprise organization, to turn on Checks and Workspaces for. You need the `owner` or `limited_owner` role in it. |
-| `--name` | Has no effect, because an organization you create is named after your work email domain. You can't combine it with `--parent`. |
+| `--name` | Names the organization that the command creates when you sign up with a personal email address. The name can't contain a dot. With a work email address, the organization is named after your email domain, and the flag has no effect. You can't combine it with `--parent`. |
 | `--port` | The local port that your browser returns to after you authorize the GitHub link. |
 
 Without `--parent`, the command creates a Starter organization if you don't belong to any organization, and uses your organization on the Starter or Team plan if you have exactly one. Otherwise, it fails and asks you to pass `--parent`. Unlike the other commands, it doesn't fall back to the `default.group` value in your `chainctl` configuration.
@@ -267,9 +284,26 @@ Each command accepts only the following output formats:
 | `creds` | `table` (default), `json` | `sources`, with each service's `source` and `bindings`; `serving`, what serves the session's laptop credentials; and `trail`, the latest changes. |
 | `github login` | `json` | The connected account, in the same form as `github status`. |
 | `github status` | `table` (default), `json` | `login`, `valid`, `user_github`, `installed_accounts`, and `app_slug`. |
+| `claude login` | `json` | The login, in the same form as `claude status`. |
+| `claude status` | `table` (default), `json` | `supported`, `enrolled`, `email`, `organization`, `organization_uuid`, `valid`, and `expires`. |
 | `policy describe`, `policy set` | `table` (default), `json` | The policy. |
 
-A session in JSON output includes its `name`, such as `app/quiet-harbor`; its `label`, the name with the repository's GitHub owner in front; its `id` and `short_id`; its `state`, `repository`, `branch`, `head`, and `directory`; and timestamps such as `create_time` and `expire_time`. Fields without a value are left out.
+A session in JSON output includes its `name`, such as `app/quiet-harbor`; its `label`, the name with the repository's GitHub owner in front; its `id` and `short_id`; its `state`, `repository`, `branch`, `head`, and `directory`; how it keeps running after you detach, in `idle` (`auto_hold` or `keep_running`), `keep_running_until`, `held_until`, and `last_busy`; and timestamps such as `create_time` and `expire_time`. Fields without a value are left out.
+
+## Session states {#session-states}
+
+In JSON output, a session's `state` is one of the values in the following table, which also shows what the `STATE` column of `chainctl develop list` says for each one, as explained in [List sessions](/chainguard/workspaces/manage-sessions/#list-sessions). For how a session moves from one state to the next, refer to [Session lifecycle](/get-started/checks-and-workspaces/how-it-works/#session-lifecycle).
+
+| `state` | What it means | `STATE` column |
+| ------- | ------------- | -------------- |
+| `creating` | Chainguard is starting the session. | `creating` |
+| `attached` | The session is running, and either `chainctl` is attached to it or you're [keeping it running](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away) after you detach, such as for a time that you chose or with `--keep always`. | `running`, or `running` with how long the session keeps running, such as `running, until 17:30` |
+| `idle` | The session is running with no `chainctl` attached, and it's due to park. | `idle (parks in 6m)`, or `running, parks in 6m` if the session parks whether or not it's busy, as one created with `--keep park` does |
+| `parked` | The session is saved to a snapshot and uses no compute. | `parked, expires Oct 13`, or `expired` once that date passes |
+| `reaped` | The session has ended, usually because it expired, and its VM and snapshot are gone. | `expired` |
+| `deleting` | You deleted the session, and Chainguard is removing it. | `deleting` |
+
+A detached session that Chainguard keeps running because it's busy can be `attached` or `idle`, and the `STATE` column shows it as `running (busy: …)`. A session that's parking keeps its `attached` or `idle` state until the park finishes. `chainctl develop list` shows `reaped` and `deleting` sessions only with `--expired`.
 
 ## Exit codes
 
@@ -285,7 +319,7 @@ What you can do with `chainctl develop` depends on your role in the session's or
 
 | Commands | Roles |
 | -------- | ----- |
-| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
+| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, `claude`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
 | `accept-terms` | `owner` or `limited_owner` |
 | `list --all` and `policy set` | `owner` |
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-19T18:35:33Z
+date: 2026-10-28T16:22:54Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -43,7 +43,8 @@ Authentication requirements:
       company's domain. Where personal email providers (Gmail, Yahoo, etc.)
       are accepted, the organization isn't tied to any domain.
     * Authenticate with a verified email address using GitHub, Google,
-      or email and password. For GitHub, this must be your primary email.
+      email and password, or GitLab where available. For GitHub and GitLab,
+      this must be your primary email.
 
 If this command fails and you think the organization already exists,
 you may follow up by running 'chainctl starter request-access'

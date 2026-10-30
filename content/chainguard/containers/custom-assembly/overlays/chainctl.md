@@ -4,7 +4,7 @@ linktitle: "Manage overlays with chainctl"
 type: "article"
 description: "How to use chainctl to create overlays and bind them to specific tags of a repository, or to every repository in an organization or folder."
 date: 2026-09-28T16:33:22+00:00
-lastmod: 2026-10-09T00:00:00+00:00
+lastmod: 2026-10-19T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly", "chainctl"]
 images: []
@@ -26,7 +26,7 @@ For an explanation of overlays, bindings, and tag selectors, refer to [Overview 
 
 Before you start, you need the following:
 
-* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.379 or later. Run `chainctl update` to update it.
+* [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) version 0.2.389 or later. Run `chainctl update` to update it.
 * A role with the `registry.overlays.edit` capability, such as the built-in `editor` or `owner` role.
 * A repository in your organization with no standard Custom Assembly customization. A repository can't use both. To move a repository from standard Custom Assembly, contact your Chainguard account team.
 
@@ -55,21 +55,23 @@ This example adds `py3.13-typer` to the Python 3.13 tags only, so the other Pyth
 
     To add more than one package, repeat `--package` or separate the names with commas.
 
-1. Bind the overlay to the tags that should receive it. Pass `--tag` once for each tag:
+1. Bind the overlay to the tags that should receive it. Pass `--exact-tag` once for each tag:
 
     ```shell
     chainctl images overlays attach \
       --overlay typer \
       --repo $REPO \
       --parent $ORGANIZATION \
-      --tag 3.13 --tag 3.13-dev
+      --exact-tag 3.13 --exact-tag 3.13-dev
     ```
 
     ```output
     attached overlay "typer" to repo 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80 (binding 45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a7c6d5e4f3a21, selector EXACT [3.13 3.13-dev])
     ```
 
-Every `attach` command takes exactly one tag selector: `--tag` for specific tags, `--variant` for every tag of a variant, or `--all` for every tag. The next sections show the other two selectors.
+Every `attach` command takes exactly one tag selector: `--exact-tag` for specific tags, `--tag-variant` for every tag of a variant, or `--all-tags` for every tag. The next sections show the other two selectors.
+
+> **Note**: Before `chainctl` 0.2.389, these flags were named `--tag`, `--variant`, and `--all`. The old names still work, but they're deprecated: use the new names.
 
 Chainguard starts rebuilding `3.13` and `3.13-dev` with the overlay applied. It customizes only the tags you list, even if other tags such as `3.13.7` or `3.13.7-r0` point to the same image. To keep those tags identical, list them too.
 
@@ -77,7 +79,7 @@ To check on the builds, refer to [Check the results](#check-the-results).
 
 ## Add packages to every `-dev` tag
 
-To bind an overlay to every tag ending in `-dev`, use `--variant dev` instead of `--tag`. The following commands create an overlay with two debugging tools and bind it to the repository's `-dev` tags:
+To bind an overlay to every tag ending in `-dev`, use `--tag-variant dev` instead of `--exact-tag`. The following commands create an overlay with two debugging tools and bind it to the repository's `-dev` tags:
 
 ```shell
 chainctl images overlays create debug-tools --parent $ORGANIZATION --package strace,gdb
@@ -86,14 +88,14 @@ chainctl images overlays attach \
   --overlay debug-tools \
   --repo $REPO \
   --parent $ORGANIZATION \
-  --variant dev
+  --tag-variant dev
 ```
 
 The binding also applies to `-dev` tags published after you create it, so new versions get `strace` and `gdb` without any further changes.
 
 ## Add a package to every tag
 
-To bind an overlay to every tag in a repository, use `--all`. The following commands create an overlay that adds `curl` and bind it to every tag:
+To bind an overlay to every tag in a repository, use `--all-tags`. The following commands create an overlay that adds `curl` and bind it to every tag:
 
 ```shell
 chainctl images overlays create curl --parent $ORGANIZATION --package curl
@@ -102,7 +104,7 @@ chainctl images overlays attach \
   --overlay curl \
   --repo $REPO \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
 As with a variant binding, an all binding also applies to tags published after you create it.
@@ -119,7 +121,7 @@ chainctl images overlays attach \
   --overlay cryptography \
   --repo $REPO \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
 The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-cryptography`, and so on. Quote the package name so that your shell doesn't interpret the braces. For details on how Chainguard fills in the placeholders, refer to [Version templates in package names](/chainguard/containers/custom-assembly/overlays/overview/#version-templates-in-package-names).
@@ -164,7 +166,7 @@ An overlay belongs to your organization, so you can bind it to many repositories
 
 ```shell
 for repo in python node go; do
-  chainctl images overlays attach --overlay internal-ca --repo $repo --parent $ORGANIZATION --all
+  chainctl images overlays attach --overlay internal-ca --repo $repo --parent $ORGANIZATION --all-tags
 done
 ```
 
@@ -173,7 +175,7 @@ Each repository gets its own binding, and each binding starts a rebuild of that 
 To attach several overlays in one command, separate their names with commas. Each overlay gets its own binding with the same selector:
 
 ```shell
-chainctl images overlays attach --overlay internal-ca,cryptography --repo $REPO --parent $ORGANIZATION --all
+chainctl images overlays attach --overlay internal-ca,cryptography --repo $REPO --parent $ORGANIZATION --all-tags
 ```
 
 ## Apply an overlay to every repository
@@ -185,10 +187,10 @@ chainctl images overlays attach \
   --overlay internal-ca \
   --all-repos \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
-The binding also covers repositories created after you run the command, so new repositories get the customization automatically. As with any binding, choose the tags with `--all`, `--variant`, or `--tag`.
+The binding also covers repositories created after you run the command, so new repositories get the customization automatically. As with any binding, choose the tags with `--all-tags`, `--tag-variant`, or `--exact-tag`.
 
 To cover one folder instead of the whole organization, name the folder in `--parent`:
 
@@ -197,12 +199,12 @@ chainctl images overlays attach \
   --overlay hardening \
   --all-repos \
   --parent $ORGANIZATION/golden-images \
-  --all
+  --all-tags
 ```
 
 An overlay can have one all-repos binding per organization or folder. The binding's scope is fixed: to move it, detach it and attach a new one. Repositories that use standard Custom Assembly keep their standard customization and don't receive all-repos bindings. For how all-repos bindings at several scopes combine with a repository's own bindings, refer to [How overlapping bindings combine](/chainguard/containers/custom-assembly/overlays/overview/#how-overlapping-bindings-combine).
 
-You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
+You can bind several overlays to one repository with the same kind of selector, as long as they don't set the same field to different values. For example, you can bind both `internal-ca` and `cryptography` to the `python` repository with `--all-tags`. If two overlays conflict, `attach` fails. For example, binding a second overlay that sets `REQUESTS_CA_BUNDLE` to a different value returns an error that names the existing binding and the conflicting field:
 
 ```output
 Error: attaching overlay: rpc error: code = FailedPrecondition desc = Precondition failed: overlay config does not merge commutatively with co-matching binding(s): binding "45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/b7d24dbd7193c219" (overlay "internal-ca", selector ALL) on fields [environment["REQUESTS_CA_BUNDLE"]]
@@ -278,7 +280,7 @@ export BINDING_ID=45a0c3X4MPL3977f03X4MPL3ac06a63X4MPL3595/7c3e5a1b2d4f6e80/9b8a
 The following command replaces the binding's selector, adding `3.13.7` to the tags it applies to:
 
 ```shell
-chainctl images overlays update-binding $BINDING_ID --tag 3.13 --tag 3.13-dev --tag 3.13.7
+chainctl images overlays update-binding $BINDING_ID --exact-tag 3.13 --exact-tag 3.13-dev --exact-tag 3.13.7
 ```
 
 ```output

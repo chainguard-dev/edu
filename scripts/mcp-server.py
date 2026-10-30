@@ -94,7 +94,7 @@ require a Chainguard account:
 
 To browse the public image catalog and its documentation, use
 https://images.chainguard.dev/. Setup for every server:
-https://edu.chainguard.dev/platform/mcp-servers/overview/
+https://www.chainguard.dev/docs/platform/mcp-servers/overview
 """
 
 # Input length limits to prevent CPU DoS on string operations
@@ -159,16 +159,17 @@ EXACT_PHRASE_BONUS = 60  # the whole query, verbatim
 BODY_HIT_CAP = 20  # ceiling on raw frequency, so long pages cannot dominate
 
 # Where the bundled pages are published, so a search result can link to the
-# page rather than only naming it.
-EDU_BASE_URL = "https://edu.chainguard.dev"
+# page rather than only naming it. URLs on www carry no trailing slash; a
+# trailing slash costs the reader a 308 redirect.
+DOCS_BASE_URL = "https://www.chainguard.dev/docs"
 
 
 def page_url(source_path: str) -> str:
     """Map a bundle '_Path:' value to the published page URL.
 
-    compile_docs.py records the path relative to content/, and Hugo serves
+    compile_docs.py records the path relative to content/, and the docs serve
     'chainguard/libraries/python/overview.md' at
-    '<base>/chainguard/libraries/python/overview/'.
+    '<base>/chainguard/libraries/python/overview'.
 
     Both bundle forms are served at the directory rather than below it: a
     branch bundle (_index.md, 32 pages) and a leaf bundle (index.md, 76
@@ -178,8 +179,8 @@ def page_url(source_path: str) -> str:
     slug = source_path.removesuffix(".md")
     slug = slug.removesuffix("/_index").removesuffix("/index")
     if slug in ("_index", "index"):
-        return f"{EDU_BASE_URL}/"
-    return f"{EDU_BASE_URL}/{slug}/"
+        return DOCS_BASE_URL
+    return f"{DOCS_BASE_URL}/{slug}"
 
 
 # Registry hosts that mean Docker Hub. dfc strips these before matching, so

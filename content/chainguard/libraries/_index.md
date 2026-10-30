@@ -4,7 +4,7 @@ linktitle: "Chainguard Libraries"
 description: "Chainguard Libraries provide enhanced security for Java, JavaScript, Python, Go, and .NET dependencies with automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-14T16:46:04+00:00
+lastmod: 2026-10-29T18:47:49+00:00
 draft: false
 images: []
 weight: 40
@@ -81,7 +81,7 @@ tutorials: [
   {
     title: "FAQ",
     description: "Common questions about security and supported ecosystems",
-    url: "/chainguard/libraries/troubleshooting/faq/"
+    url: "/chainguard/libraries/troubleshooting/"
   },
 ]
 

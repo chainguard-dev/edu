@@ -164,6 +164,8 @@ Finally, configure a set of client credentials and make note of the following de
 - Client ID
 - Client Secret
 
+The following steps create the identity provider with `chainctl`. To create it in the Chainguard Console instead, refer to the "Create an identity provider" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#create-an-identity-provider).
+
 Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Google, GitHub, or GitLab) to bootstrap your account.
 
 ```sh
@@ -213,7 +215,7 @@ The organization you choose doesn't affect how your users authenticate, but it d
 
 ## Managing existing identity providers
 
-Identity providers can be managed via `chainctl` using the `chainctl iam identity-provider` subcommand.
+You can manage your identity provider in the [Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/) or with the `chainctl iam identity-provider` subcommand. This section covers `chainctl`.
 
 To create new providers, you can use the `create` subcommand.
 
