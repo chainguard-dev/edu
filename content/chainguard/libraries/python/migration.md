@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-27T16:42:12+00:00
+lastmod: 2026-10-30T13:13:17+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -265,7 +265,7 @@ Edit the `pyproject.toml` for project-level or the `~/.config/uv/uv.toml` to mak
 
 ```toml
 [tool.uv]
-index-strategy = "unsafe-best-match"
+index-strategy = "unsafe-first-match"
 
 [[tool.uv.index]]
 name = "cgr-pr"
@@ -279,13 +279,15 @@ authenticate = "always"
 default = true
 ```
 
-When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
+Set `index-strategy = "unsafe-first-match"` so uv prefers the first index that has a compatible version and falls back to the next only for a version gap. With the remediated index listed first, uv keeps the remediated build when one satisfies a constraint and uses the standard Chainguard index when it doesn't.
 
-Choose the index order based on whether your project prefers latest-major or remediated packages. For strict Chainguard preference with PyPI as a fallback, use uv's default `first-index` strategy, list the Chainguard indexes in your preferred order, and configure PyPI as the lowest-priority default index. See [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for both layouts and a complete example.
+Don't set `index-strategy = "unsafe-best-match"`. That strategy selects the best version across every index at once, so once you add PyPI it can install a newer PyPI version even when Chainguard already has the package, which defeats Chainguard preference.
 
-Do not mark a Chainguard index as `default = true` when PyPI is explicitly listed as a regular index: the default index is lowest priority, so PyPI can be checked first and provide shared packages. Mark the PyPI fallback as `default = true` instead.
+Changing the index strategy fixes version gaps, not per-platform wheel gaps. If a version exists but has no wheel for your operating system, architecture, Python version, or C library — and no source distribution uv can build — no index strategy resolves it. See [Runtime and build requirements](/chainguard/libraries/python/overview/#runtime-and-build-requirements) and [Handling coverage gaps](#handling-coverage-gaps).
 
-If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
+uv's default `first-index` strategy limits candidates to the first index that returns a given package name. This blocks dependency-confusion attacks, but it also means a pinned version that Chainguard hasn't built fails to resolve even when PyPI has it: once a Chainguard index returns the package name, uv never consults a later index for that package. Use `first-index` only when every pinned version is available from Chainguard.
+
+For packages Chainguard hasn't built, prefer the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) over adding PyPI as an explicit index. If you do run an explicit PyPI index, see [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for the full layout. Don't mark a Chainguard index as `default = true` when PyPI is listed as a regular index: the default index is lowest priority, so PyPI could be checked first and serve shared packages. Mark the PyPI fallback as `default = true` instead.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
@@ -594,7 +596,7 @@ Check your install output for a local wheel build (`Building wheel for <package>
 
 ### Handling coverage gaps
 
-Coverage gaps can occur at more than one level. For example, a package name may not be present in the Chainguard catalog, the pinned version may not be available, a wheel may. be available for Linux but not for macOS or Windows, or a transitive dependency introduced by a version change may have different coverage from the direct dependency that caused the change.
+Coverage gaps can occur at more than one level. For example, a package name may not be present in the Chainguard catalog, the pinned version may not be available, a wheel may be available for Linux but not for macOS or Windows, or a transitive dependency introduced by a version change may have different coverage from the direct dependency that caused the change.
 
 Do not use a single successful install as proof that the migration is complete. Test each environment that installs the project.
 
@@ -606,7 +608,45 @@ Choose how to handle coverage gaps:
 * Check the exact package version and wheel tags required by the failing environment.
 * If the artifact is not available from Chainguard, use the configured protected upstream fallback when policy allows it.
 * If the project cannot use fallback, choose a compatible version or move the install to a supported Linux environment only when that is an acceptable product decision.
-* Do not silently replace a package with a different version during migration; treat it as a separate depdendency change and test it separately.
+* Do not silently replace a package with a different version during migration; treat it as a separate dependency change and test it separately.
+
+### Route a transitive dependency to a specific index
+
+When the gap is in a transitive dependency — a package pulled in by one of your dependencies rather than declared directly — you may need to route only that package to a specific index, such as an explicit PyPI fallback. uv's `[tool.uv.sources]` pins a package to a named index, but it applies only to direct dependencies: a source entry for a package that appears only transitively is ignored.
+
+To route a transitive dependency, promote it to a direct dependency by adding it to `[project].dependencies`, then pin it with `[tool.uv.sources]`. For example, to route `urllib3` — pulled in transitively by `requests` — to an explicit PyPI index:
+
+```toml
+[project]
+dependencies = [
+    "requests",
+    "urllib3",   # promoted to a direct dependency so the source below applies
+]
+
+[tool.uv.sources]
+urllib3 = { index = "pypi-fallback" }
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
+```
+
+uv now resolves `urllib3` from `pypi-fallback` while every other package still resolves from the Chainguard indexes.
+
+Promoting a transitive dependency is a real dependency change: you now own its version constraint. Pin a version you have tested, and treat the change as separate from the migration. This pattern applies to explicit multi-index layouts; with the built-in upstream fallback, you don't configure PyPI as a separate index.
+
+### Freeze the lockfile while you route remaining gaps
+
+A full `uv sync` re-resolves your dependency graph and fails if any gap is still unrouted. To keep builds working while you route the remaining gaps one at a time, install from your committed lockfile without re-resolving:
+
+1. Update the integrity hashes in place with `chainctl libraries update-hashes`, which rewrites hashes without changing your locked versions. See [Update your lockfile](#step-2-update-your-lockfile).
+2. Install with `uv sync --frozen`, which installs exactly what the lockfile pins and skips re-resolution.
+
+This holds a known-good graph while you route each gap explicitly — through `[tool.uv.sources]`, the built-in upstream fallback, or a compatible version — instead of letting one unrouted gap block the whole resolve.
+
+`uv sync --frozen` is not an offline mode. It can still query configured indexes to fetch a build backend or another package needed to build a source distribution, so the job still needs credentials for every configured index. See [CI and frozen uv installs](#ci-and-frozen-uv-installs).
+
+Stop relying on `--frozen` once every gap is routed and a full `uv sync` re-resolves cleanly into a stable lockfile.
 
 ## Next steps
 
