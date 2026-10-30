@@ -141,7 +141,7 @@ Keep the default `emails[type eq "work"].value` mapping in place; Chainguard sto
 
 Chainguard stores `userName`, `externalId`, `displayName`, `active`, and the `name` sub-attributes (`givenName`, `familyName`, and `formatted`). It accepts other mapped attributes, such as `title` and the enterprise extension attributes, without storing them, so Entra ID reports them as synced even though Chainguard keeps no copy. Delete mappings you don't need to keep the sync quiet.
 
-Keep the plain-path mappings. Entra ID uses the `userName` mapping, which has matching precedence 1, to look up an existing Chainguard user before it creates one. `active` maps through the default expression `Switch([IsSoftDeleted], , "False", "True", "True", "False")`, which inverts `IsSoftDeleted` so that a user Entra ID soft-deletes or unassigns arrives at Chainguard as inactive — this is what drives deactivation. If the application shows a **Provision Microsoft Entra ID Groups** mapping, disable it if your portal offers an **Enabled** setting for it, and don't assign any groups to the application; Chainguard's SCIM endpoint accepts user provisioning only.
+Keep the plain-path mappings. Entra ID uses the `userName` mapping, which has matching precedence 1, to look up an existing Chainguard user before it creates one. `active` maps through the default expression `Switch([IsSoftDeleted], , "False", "True", "True", "False")`, which inverts `IsSoftDeleted` so that a user Entra ID soft-deletes or unassigns arrives at Chainguard as inactive — this is what drives deactivation. Leave the mappings on the **Groups** tab at their defaults.
 
 ### Provision users under their email address
 
@@ -203,7 +203,10 @@ The error names `invalidPath`. A mapping's **Target attribute** names an attribu
 
 ### Provisioning reports a `409` error for a user
 
-The error names `uniqueness`: Chainguard already has this user, for example because an earlier create succeeded but Entra ID didn't receive the response. Run **Provision on demand** for the user. Entra ID looks the user up first and links the existing record.
+Entra ID shows the error code `SystemForCrossDomainIdentityManagementServiceIncompatibleFiltering` for these errors. Chainguard's message is in the **Web Response** of the provisioning log entry.
+
+* **The message names `uniqueness`:** Chainguard already has this user, for example because an earlier create succeeded but Entra ID didn't receive the response. Run **Provision on demand** for the user. Entra ID looks the user up first and links the existing record.
+* **The message says the change would deactivate the organization's last active privileged owner:** Entra ID tried to deactivate the only remaining owner of your organization, and Chainguard kept them active. Grant the owner role to another person directly with a role binding, then provision the user again.
 
 ### Test connection fails
 
