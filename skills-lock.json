@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "skills": {
+    "uploads-cgr-dev-chainguard.edu-update-changelog": {
+      "source": "uploads.cgr.dev/chainguard.edu/update-changelog",
+      "sourceUrl": "uploads.cgr.dev/chainguard.edu/update-changelog@sha256:8e02680e9836823b813f7bdc64748cdd1a87b13613ca904682df9d2528984fcc",
+      "ref": "latest",
+      "sourceType": "oci",
+      "computedHash": "548bbd4f792c2866406d2d4a52956904b31732c0a6a5158378c887d1366c792d"
+    }
+  }
+}

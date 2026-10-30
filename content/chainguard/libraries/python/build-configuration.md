@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-30T13:13:17+00:00
+lastmod: 2026-10-30T19:27:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -601,11 +601,11 @@ and `cgr-p` entries. Keep the PyPI entry last and marked `default = true` in
 either layout, because `default = true` means lowest priority, not highest.
 
 The example uses `first-index`, which limits candidates to the first index that
-returns a given package name. This gives the strongest protection against
+returns a given package name. This gives protection against
 dependency-confusion attacks, but a pinned version that Chainguard hasn't built
 fails to resolve even when PyPI has it: once a Chainguard index returns the
 package name, uv never consults PyPI for that package. Use `first-index` only
-when every pinned version is available from Chainguard.
+when every pinned version of a package that Chainguard builds is available from Chainguard.
 
 To let PyPI fill version gaps while still preferring Chainguard, set
 `index-strategy = "unsafe-first-match"`. uv then prefers the first index with a
