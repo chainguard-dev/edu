@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-27T16:42:12+00:00
+lastmod: 2026-10-30T19:27:59+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -598,16 +598,35 @@ default = true
 
 This example is **remediated-first**. For latest-major-first, swap the `cgr-pr`
 and `cgr-p` entries. Keep the PyPI entry last and marked `default = true` in
-either layout. uv's `first-index` strategy uses the first index that contains a
-package; it does not compare versions across all indexes. Also note that
-`default = true` means lowest priority, not highest.
+either layout, because `default = true` means lowest priority, not highest.
 
-Avoid `index-strategy = "unsafe-best-match"` when PyPI is configured and you
-require strict Chainguard preference: that strategy considers versions across
-indexes instead of stopping at the first index containing the package. If you
-need packages that Chainguard has not yet rebuilt, use the [built-in upstream
+The example uses `first-index`, which limits candidates to the first index that
+returns a given package name. This gives protection against
+dependency-confusion attacks, but a pinned version that Chainguard hasn't built
+fails to resolve even when PyPI has it: once a Chainguard index returns the
+package name, uv never consults PyPI for that package. Use `first-index` only
+when every pinned version of a package that Chainguard builds is available from Chainguard.
+
+To let PyPI fill version gaps while still preferring Chainguard, set
+`index-strategy = "unsafe-first-match"`. uv then prefers the first index with a
+compatible version and falls back to a later index only when the earlier ones
+lack one. It keeps the Chainguard build when one fits and uses PyPI only for a
+genuine version gap.
+
+Don't set `index-strategy = "unsafe-best-match"` when PyPI is configured. That
+strategy selects the best version across every index at once, so it can install
+a newer PyPI version even when Chainguard has the package, which defeats
+Chainguard preference.
+
+Changing the index strategy fixes version gaps, not per-platform wheel gaps. If
+a version exists but has no wheel for your operating system, architecture,
+Python version, or C library — and no source distribution uv can build — no
+index strategy resolves it. See [Runtime and build
+requirements](/chainguard/libraries/python/overview/#runtime-and-build-requirements).
+
+If you need packages that Chainguard hasn't built, prefer the [built-in upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
-instead of adding PyPI to your configuration.
+over adding PyPI as an explicit index.
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
@@ -717,6 +736,11 @@ name = "pypi-fallback"
 url = "https://pypi.org/simple/"
 default = true
 ```
+
+This example uses `first-index`, which works here because `flask==2.0.0` is
+available from Chainguard. If you pin a version Chainguard hasn't built, switch
+to `index-strategy = "unsafe-first-match"` so uv falls back to PyPI for the
+version gap. See [Multiple indexes](#multiple-indexes) for the trade-offs.
 
 **4. Build the project**
 
