@@ -1,3 +1,6 @@
+// $basePath is the site's base path ("/" or "/docs/"), from layouts/partials/head/stylesheet.html.
+@use "hugo:vars" as hugo;
+
 /** Import theme variables */
 @import "common/variables";
 
@@ -8,7 +11,7 @@
 @import "highlight.js/scss/a11y-light";
 
 /** Import Bootstrap Icons */
-$bootstrap-icons-font-dir: "/fonts";
+$bootstrap-icons-font-dir: "#{hugo.$basePath}fonts";
 
 @import "bootstrap-icons/font/bootstrap-icons.scss";
 
