@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-10-29 02:16:36_
+_Compiled on: 2026-10-30 02:16:30_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -532,6 +532,8 @@ For a postsubmit Run the platform started for a pushed branch, a fresh Run of th
 A Run created with `chainctl checks run` is run again with that command.
 
 With --output json the API's answer is printed: the new Run for a postsubmit Run, and for a pull request the Run whose checks are rerun. Under --watch the fresh Run is followed to its final status instead.
+
+With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed. For a pull request whose checks are a single WorkflowRun, --watch cannot follow them and the command exits 0 once the rerun is asked for.
 
 ```
 chainctl checks rerun REF [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
@@ -4268,74 +4270,6 @@ chainctl skills harden [<path|uploads-ref>] --group <org> [flags]
 
 ---
 
-### chainctl iam auth-policy update
-_Path: platform/chainctl/chainctl-docs/chainctl_iam_auth-policy_update.md_
-
-## chainctl iam auth-policy update
-
-Update an organization's authentication policy.
-
-### Synopsis
-
-Update an organization's authentication policy.
-
---sso-only=true makes the organization's own identity provider the only way
-to sign in to it. Members who sign in any other way (a social login such as
-Google or GitHub, for example) are shut out of the organization as soon as
-the change is saved, so enabling it prints a warning and asks for
-confirmation; pass --yes to skip the prompt. When the organization already
-requires SSO, enabling it again changes nothing and asks nothing.
---sso-only=false lifts the restriction and asks nothing.
-
---sso-only must be given explicitly as true or false. An update that names
-no control is refused rather than sent as a no-op.
-
-```
-chainctl iam auth-policy update --parent ORGANIZATION_NAME | ORGANIZATION_ID --sso-only={true|false} [--yes] [--output=json|table]
-```
-
-### Examples
-
-```
-  # Require my-org's identity provider for every sign-in (asks for confirmation)
-  chainctl iam auth-policy update --parent my-org --sso-only=true
-  
-  # The same, non-interactively
-  chainctl iam auth-policy update --parent my-org --sso-only=true --yes
-  
-  # Allow every sign-in method again
-  chainctl iam auth-policy update --parent my-org --sso-only=false
-```
-
-### Options
-
-```
-      --parent string   The organization (name or UIDP) whose authentication policy to update. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
-      --sso-only        Whether the organization's own identity provider is the only way to sign in to it. Must be given explicitly as --sso-only=true or --sso-only=false.
-  -y, --yes             Skip the confirmation prompt when enabling --sso-only.
-```
-
-### Options inherited from parent commands
-
-```
-      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
-      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
-      --force-color        Force color output even when stdout is not a TTY.
-  -h, --help               Help for chainctl
-      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-      --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
-  -v, --v int              Set the log verbosity level.
-```
-
-### SEE ALSO
-
-* [chainctl iam auth-policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/)	 - Manage an organization's authentication policy (which sign-in methods its members may use).
-
----
-
 ### chainctl auth configure-docker
 _Path: platform/chainctl/chainctl-docs/chainctl_auth_configure-docker.md_
 
@@ -4740,36 +4674,6 @@ refreshed; specific audiences can be selected at install time instead.
 * [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
 * [chainctl auth configure-refresh-service install](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/)	 - Install a background service for automatic token refresh
 * [chainctl auth configure-refresh-service uninstall](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/)	 - Uninstall the background token-refresh service
-
----
-
-### chainctl iam auth-policy
-_Path: platform/chainctl/chainctl-docs/chainctl_iam_auth-policy.md_
-
-## chainctl iam auth-policy
-
-Manage an organization's authentication policy (which sign-in methods its members may use).
-
-### Options inherited from parent commands
-
-```
-      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
-      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
-      --force-color        Force color output even when stdout is not a TTY.
-  -h, --help               Help for chainctl
-      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-      --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
-  -v, --v int              Set the log verbosity level.
-```
-
-### SEE ALSO
-
-* [chainctl iam](/platform/chainctl/chainctl-docs/chainctl_iam/)	 - IAM related commands for the Chainguard platform.
-* [chainctl iam auth-policy describe](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy_describe/)	 - Describe an organization's authentication policy.
-* [chainctl iam auth-policy update](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy_update/)	 - Update an organization's authentication policy.
 
 ---
 
@@ -5211,7 +5115,6 @@ IAM related commands for the Chainguard platform.
 
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
-* [chainctl iam auth-policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/)	 - Manage an organization's authentication policy (which sign-in methods its members may use).
 * [chainctl iam external-group-role-mappings](/platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings (also available under 'iam identity-providers group-mappings').
 * [chainctl iam folders](/platform/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 * [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.
@@ -5363,7 +5266,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|rust_athena|python_athena|dotnet|go|ruby|rust|python|dotnet_athena|java|java_athena|javascript_athena|ruby_athena|javascript|go_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|ruby_athena|python|java_athena|rust_athena|javascript|javascript_athena|dotnet_athena|go|go_athena|java|python_athena|ruby|rust|dotnet}] [flags]
 ```
 
 ### Examples
@@ -5390,7 +5293,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, rust_athena, python_athena, dotnet, go, ruby, rust, python, dotnet_athena, java, java_athena, javascript_athena, ruby_athena, javascript, go_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, ruby_athena, python, java_athena, rust_athena, javascript, javascript_athena, dotnet_athena, go, go_athena, java, python_athena, ruby, rust, dotnet
 ```
 
 ### Options inherited from parent commands
@@ -5993,7 +5896,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|rust_athena|python_athena|dotnet|go|ruby|rust|python|dotnet_athena|java|java_athena|javascript_athena|ruby_athena|javascript|go_athena}] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|ruby_athena|python|java_athena|rust_athena|javascript|javascript_athena|dotnet_athena|go|go_athena|java|python_athena|ruby|rust|dotnet}] [flags]
 ```
 
 ### Examples
@@ -6021,7 +5924,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, rust_athena, python_athena, dotnet, go, ruby, rust, python, dotnet_athena, java, java_athena, javascript_athena, ruby_athena, javascript, go_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, python, java_athena, rust_athena, javascript, javascript_athena, dotnet_athena, go, go_athena, java, python_athena, ruby, rust, dotnet. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -6149,8 +6052,14 @@ Charts are looked up by name in the community catalog by default. To add a chart
 from the iamguarded catalog, prefix the name with "iamguarded-charts/".
 
 The chart's image dependencies are read from a single chart tag. By default the
-newest non-FIPS tag is used; pass --tag to inspect a specific chart version
-instead (including a FIPS variant).
+newest non-FIPS tag is used; pass --fips to use the newest FIPS tag instead, or
+--tag to inspect a specific chart version. --fips and --tag can't be combined.
+
+On a plan with an image allowance (per-image, Starter or Team), every image the
+chart depends on is entitled, and each one the organization doesn't already hold
+uses a slot. Use --dry-run to list the repositories that would be created. A
+chart whose metadata lists no image dependencies is refused with an entitlement
+error.
 
 Examples:
   # Add the argo-cd community chart and all of its image dependencies to an organization
@@ -6158,6 +6067,9 @@ Examples:
 
   # Add a specific version of the argo-cd chart
   chainctl images helm add-chart argo-cd --tag 9.5.20 --parent my-org
+
+  # Add the newest FIPS version of the argo-cd chart
+  chainctl images helm add-chart argo-cd --fips --parent my-org
 
   # Add the redis iamguarded chart and all of its image dependencies to an organization
   chainctl images helm add-chart iamguarded-charts/redis --parent my-org
@@ -6170,6 +6082,7 @@ chainctl images helm add-chart CHART [flags]
 
 ```
       --dry-run         Dry-run mode: don't create repos, only show what would change.
+      --fips            Default to the newest FIPS tag of the chart.
       --parent string   The organization to add the chart and its images to.
       --tag string      The chart tag to inspect for image dependencies. Defaults to the newest non-FIPS tag.
 ```
@@ -7870,6 +7783,12 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_status.md_
 
 Inspect the local Chainguard Token.
 
+### Synopsis
+
+Inspect the local Chainguard Token.
+
+Exits 0 when the token is valid and 1 when it is missing, expired, or invalid and cannot be renewed, or when the platform cannot be reached. With --quick, the token is checked locally without contacting the platform.
+
 ```
 chainctl auth status [--output=json|table|terse] [flags]
 ```
@@ -8968,6 +8887,8 @@ source; parameter-schema errors identify the offending field
 
 Policy expressions must be declared under `package chainguard.policies` and
 must define an `allow` rule; validation rejects a module that defines neither.
+
+Exits 0 when the policy is valid and 1 when it is not.
 
 ```
 chainctl policy custom validate --file POLICY.yaml | --expression POLICY.rego [flags]
@@ -12612,6 +12533,8 @@ The plan has no event context: no trigger, labels or pull request. A check whose
 
 The Run is advisory: it is never a pull request's checks or a commit's verdict, so `chainctl checks status` on the commit still reports what the platform ran. Follow the Run by its name, or pass --watch to wait for it. With --output json the Run is printed as the API returns it, or under --watch its final status.
 
+With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed.
+
 ```
 chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK]... [--git-remote NAME] [--base REV] [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
 ```
@@ -12721,6 +12644,22 @@ _Path: platform/chainctl/chainctl-docs/chainctl.md_
 ## chainctl
 
 Chainguard Control
+
+### Synopsis
+
+Chainguard Control (chainctl) manages Chainguard resources from the command line.
+
+Exit codes:
+
+- 0: the command succeeded, or a confirmation prompt was declined and nothing was changed.
+- 1: the command failed. This covers every error, including invalid arguments and flags, and commands that act as a gate: a check that failed, a policy that denied, a --check or --exit-code gate that matched, or "chainctl images repos build apply --dry-run" finding changes to apply.
+- 2: "chainctl checks status" only. The platform created no Run for the commit or pull request, so there is no verdict.
+- 130: the command was interrupted with SIGINT (Ctrl-C) and did not finish. A command that unwinds after the first Ctrl-C may exit 1, or 0 if it treats the cancellation as a clean stop; a second Ctrl-C forces 130.
+- 143: the command was terminated with SIGTERM.
+
+"chainctl develop" and "chainctl develop attach" exit with the session shell's exit code when the shell exits. "chainctl develop exec" exits with the command's exit code, 124 when --timeout killed it, and 255 when the command's outcome is unknown. "chainctl develop check" exits 0 when the checks pass and 1 when a step fails.
+
+The number in brackets in some error messages, such as "[4] ...", is chainctl's internal error code, also shown as "code" with --output json. It is not the process exit code.
 
 ```
 chainctl [flags]
@@ -14938,7 +14877,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, rust_athena, python_athena, dotnet, go, ruby, rust, python, dotnet_athena, java, java_athena, javascript_athena, ruby_athena, javascript, go_athena. (default "oci")
+      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, ruby_athena, python, java_athena, rust_athena, javascript, javascript_athena, dotnet_athena, go, go_athena, java, python_athena, ruby, rust, dotnet. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
 ```
@@ -15387,69 +15326,6 @@ chainctl images repos delete {REPO_NAME|REPO_ID} --parent ORGANIZATION_NAME | OR
 ### SEE ALSO
 
 * [chainctl images repos](/platform/chainctl/chainctl-docs/chainctl_images_repos/)	 - Image repo related commands for the Chainguard platform.
-
----
-
-### chainctl iam auth-policy describe
-_Path: platform/chainctl/chainctl-docs/chainctl_iam_auth-policy_describe.md_
-
-## chainctl iam auth-policy describe
-
-Describe an organization's authentication policy.
-
-### Synopsis
-
-Describe an organization's authentication policy.
-
-The SSO Only column reports one of:
-  true   only the organization's own identity provider can sign members in.
-  false  every sign-in method is allowed.
-  unset  the organization has never configured a policy. Sign-in is
-         unrestricted, as with false, but nothing has been chosen yet.
-
-In JSON output the same states are {"sso_only":true}, {"sso_only":false}, and
-the sso_only key omitted entirely, so a scripted check should treat a missing
-key as unset rather than as off (with jq, ".sso_only // false" is the
-effective value).
-
-```
-chainctl iam auth-policy describe --parent ORGANIZATION_NAME | ORGANIZATION_ID [--output=json|table]
-```
-
-### Examples
-
-```
-  # Show whether my-org requires its identity provider for every sign-in
-  chainctl iam auth-policy describe --parent my-org
-  
-  # Emit JSON for scripting
-  chainctl iam auth-policy describe --parent my-org -o json
-```
-
-### Options
-
-```
-      --parent string   The organization (name or UIDP) whose authentication policy to show. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
-```
-
-### Options inherited from parent commands
-
-```
-      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
-      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
-      --force-color        Force color output even when stdout is not a TTY.
-  -h, --help               Help for chainctl
-      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-      --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
-  -v, --v int              Set the log verbosity level.
-```
-
-### SEE ALSO
-
-* [chainctl iam auth-policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/)	 - Manage an organization's authentication policy (which sign-in methods its members may use).
 
 ---
 
@@ -22054,7 +21930,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-10-26T19:49:44.134357724Z
+Ce-Time: 2026-10-28T16:23:06.348017328Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 789
 Content-Type: application/json
@@ -22085,7 +21961,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-10-26T19:49:44.132605"
+    "when": "2026-10-28T16:23:06.346864"
   }
 }
 
@@ -22108,7 +21984,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-10-26T19:49:44.132820009Z
+Ce-Time: 2026-10-28T16:23:06.347117291Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -22137,7 +22013,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-10-26T19:49:44.132582"
+    "when": "2026-10-28T16:23:06.346833"
   }
 }
 
@@ -22160,7 +22036,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-10-26T19:49:44.148781542Z
+Ce-Time: 2026-10-28T16:23:06.368305378Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -22200,7 +22076,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-10-26T19:49:44.136619266Z
+Ce-Time: 2026-10-28T16:23:06.378960863Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -22238,7 +22114,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-10-26T19:49:44.136865643Z
+Ce-Time: 2026-10-28T16:23:06.379188895Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -22277,7 +22153,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.148347472Z
+Ce-Time: 2026-10-28T16:23:06.367355651Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -22318,7 +22194,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.148539572Z
+Ce-Time: 2026-10-28T16:23:06.36755525Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -22355,7 +22231,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.148632223Z
+Ce-Time: 2026-10-28T16:23:06.367689246Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -22403,7 +22279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.140198544Z
+Ce-Time: 2026-10-28T16:23:06.37380405Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -22449,7 +22325,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.140399332Z
+Ce-Time: 2026-10-28T16:23:06.373988448Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -22495,7 +22371,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-26T19:49:44.140556826Z
+Ce-Time: 2026-10-28T16:23:06.374167782Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -22534,7 +22410,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-26T19:49:44.14361072Z
+Ce-Time: 2026-10-28T16:23:06.355905965Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -22574,7 +22450,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.143779326Z
+Ce-Time: 2026-10-28T16:23:06.356062362Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -22613,7 +22489,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.143004253Z
+Ce-Time: 2026-10-28T16:23:06.355417493Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -22652,7 +22528,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.143149332Z
+Ce-Time: 2026-10-28T16:23:06.355620115Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -22691,7 +22567,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.143403133Z
+Ce-Time: 2026-10-28T16:23:06.355738415Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -22730,7 +22606,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-26T19:49:44.144085763Z
+Ce-Time: 2026-10-28T16:23:06.375241088Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -22773,7 +22649,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-26T19:49:44.144388793Z
+Ce-Time: 2026-10-28T16:23:06.375438422Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -22813,7 +22689,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.144539384Z
+Ce-Time: 2026-10-28T16:23:06.375652045Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -22852,7 +22728,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-26T19:49:44.145617534Z
+Ce-Time: 2026-10-28T16:23:06.37591323Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -22895,7 +22771,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-26T19:49:44.145804539Z
+Ce-Time: 2026-10-28T16:23:06.3761165Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -22935,7 +22811,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-26T19:49:44.14594745Z
+Ce-Time: 2026-10-28T16:23:06.37629161Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -22972,7 +22848,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.146079258Z
+Ce-Time: 2026-10-28T16:23:06.376489232Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -23012,7 +22888,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.146230337Z
+Ce-Time: 2026-10-28T16:23:06.376667942Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -23056,7 +22932,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.14666395Z
+Ce-Time: 2026-10-28T16:23:06.376866076Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -23095,7 +22971,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.146787351Z
+Ce-Time: 2026-10-28T16:23:06.377055186Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -23136,7 +23012,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-26T19:49:44.151416605Z
+Ce-Time: 2026-10-28T16:23:06.377256121Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -23178,7 +23054,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-26T19:49:44.151581139Z
+Ce-Time: 2026-10-28T16:23:06.377455919Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -23221,7 +23097,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-26T19:49:44.151727842Z
+Ce-Time: 2026-10-28T16:23:06.377673014Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -23260,7 +23136,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-26T19:49:44.151910871Z
+Ce-Time: 2026-10-28T16:23:06.377835947Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -23299,7 +23175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.138969299Z
+Ce-Time: 2026-10-28T16:23:06.370159341Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -23338,7 +23214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.139145184Z
+Ce-Time: 2026-10-28T16:23:06.370329323Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -23377,7 +23253,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-26T19:49:44.139307934Z
+Ce-Time: 2026-10-28T16:23:06.370540177Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -23416,7 +23292,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-26T19:49:44.146920599Z
+Ce-Time: 2026-10-28T16:23:06.379404013Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -23459,7 +23335,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-10-26T19:49:44.149375873Z
+Ce-Time: 2026-10-28T16:23:06.37437898Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -23504,7 +23380,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.147286625Z
+Ce-Time: 2026-10-28T16:23:06.365891693Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -23546,7 +23422,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.147438343Z
+Ce-Time: 2026-10-28T16:23:06.366184966Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -23588,7 +23464,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.14755816Z
+Ce-Time: 2026-10-28T16:23:06.366342003Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -23625,7 +23501,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-26T19:49:44.147651098Z
+Ce-Time: 2026-10-28T16:23:06.366836451Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -23664,7 +23540,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-26T19:49:44.147757284Z
+Ce-Time: 2026-10-28T16:23:06.367024393Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -23703,7 +23579,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-26T19:49:44.147847366Z
+Ce-Time: 2026-10-28T16:23:06.367142469Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -23742,7 +23618,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-26T19:49:44.154691934Z
+Ce-Time: 2026-10-28T16:23:06.351962214Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -23786,7 +23662,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-26T19:49:44.154894217Z
+Ce-Time: 2026-10-28T16:23:06.352127972Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -23830,7 +23706,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-10-26T19:49:44.155056816Z
+Ce-Time: 2026-10-28T16:23:06.352252144Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -23869,7 +23745,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-26T19:49:44.155230781Z
+Ce-Time: 2026-10-28T16:23:06.352388276Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -23911,7 +23787,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-10-26T19:49:44.155421761Z
+Ce-Time: 2026-10-28T16:23:06.352719518Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -23950,7 +23826,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-26T19:49:44.154146071Z
+Ce-Time: 2026-10-28T16:23:06.351398236Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -23994,7 +23870,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-26T19:49:44.154365162Z
+Ce-Time: 2026-10-28T16:23:06.351657412Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -24038,7 +23914,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-10-26T19:49:44.154542607Z
+Ce-Time: 2026-10-28T16:23:06.351809081Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -24077,7 +23953,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.137165297Z
+Ce-Time: 2026-10-28T16:23:06.352971143Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -24123,7 +23999,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-26T19:49:44.137454391Z
+Ce-Time: 2026-10-28T16:23:06.353247967Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -24160,7 +24036,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.137659435Z
+Ce-Time: 2026-10-28T16:23:06.353513168Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -24208,9 +24084,9 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the root organization the policy governs
-Ce-Time: 2026-10-26T19:49:44.136332339Z
+Ce-Time: 2026-10-28T16:23:06.365292721Z
 Ce-Type: dev.chainguard.api.iam.auth_policies.updated.v1
-Content-Length: 167
+Content-Length: 338
 Content-Type: application/json
 User-Agent: Chainguard Enforce
 
@@ -24227,6 +24103,15 @@ User-Agent: Chainguard Enforce
     "enforcement_entitled": true,
     "sso_only": true,
     "uid": "UIDP of the root organization the policy governs"
+  },
+  "change": {
+    "previous": {
+      "sso_only": false,
+      "uid": "UIDP of the root organization the policy governs"
+    },
+    "at": "2026-01-01T00:00:00Z",
+    "client": "chainctl",
+    "client_version": "0.9.1"
   }
 }
 
@@ -24249,7 +24134,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.137890485Z
+Ce-Time: 2026-10-28T16:23:06.357469935Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -24290,7 +24175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.138074129Z
+Ce-Time: 2026-10-28T16:23:06.357678909Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -24327,7 +24212,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.138313299Z
+Ce-Time: 2026-10-28T16:23:06.357862139Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -24375,7 +24260,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-26T19:49:44.138535757Z
+Ce-Time: 2026-10-28T16:23:06.356267904Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -24415,7 +24300,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.138731553Z
+Ce-Time: 2026-10-28T16:23:06.356412485Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -24454,7 +24339,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.157018136Z
+Ce-Time: 2026-10-28T16:23:06.368621556Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -24491,7 +24376,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.157193429Z
+Ce-Time: 2026-10-28T16:23:06.369144317Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -24530,7 +24415,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.157381426Z
+Ce-Time: 2026-10-28T16:23:06.369340483Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -24571,7 +24456,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-26T19:49:44.1576123Z
+Ce-Time: 2026-10-28T16:23:06.370813818Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -24614,7 +24499,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.157827751Z
+Ce-Time: 2026-10-28T16:23:06.371022601Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -24651,7 +24536,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-26T19:49:44.157948991Z
+Ce-Time: 2026-10-28T16:23:06.37119071Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -24691,7 +24576,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-26T19:49:44.158116213Z
+Ce-Time: 2026-10-28T16:23:06.371368228Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -24731,7 +24616,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-26T19:49:44.159567701Z
+Ce-Time: 2026-10-28T16:23:06.353822074Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -24774,7 +24659,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-26T19:49:44.159719324Z
+Ce-Time: 2026-10-28T16:23:06.354068554Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -24814,7 +24699,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-26T19:49:44.160676369Z
+Ce-Time: 2026-10-28T16:23:06.354249607Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -24851,7 +24736,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.162040702Z
+Ce-Time: 2026-10-28T16:23:06.354454622Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -24891,7 +24776,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.162194661Z
+Ce-Time: 2026-10-28T16:23:06.354701806Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -24935,7 +24820,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.16237037Z
+Ce-Time: 2026-10-28T16:23:06.354951438Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -24974,7 +24859,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.162517745Z
+Ce-Time: 2026-10-28T16:23:06.355182069Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -25015,7 +24900,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-26T19:49:44.144869572Z
+Ce-Time: 2026-10-28T16:23:06.35993483Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -25057,7 +24942,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-26T19:49:44.145079719Z
+Ce-Time: 2026-10-28T16:23:06.36013762Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -25094,7 +24979,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-26T19:49:44.145219166Z
+Ce-Time: 2026-10-28T16:23:06.36030717Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -25137,7 +25022,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-26T19:49:44.145407947Z
+Ce-Time: 2026-10-28T16:23:06.36050972Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -25178,7 +25063,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.15573251Z
+Ce-Time: 2026-10-28T16:23:06.35664202Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -25217,7 +25102,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.155923971Z
+Ce-Time: 2026-10-28T16:23:06.356867219Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -25256,7 +25141,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-26T19:49:44.156054371Z
+Ce-Time: 2026-10-28T16:23:06.357143772Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -25295,7 +25180,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-26T19:49:44.13497179Z
+Ce-Time: 2026-10-28T16:23:06.378065307Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -25338,7 +25223,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.149712749Z
+Ce-Time: 2026-10-28T16:23:06.371693542Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -25384,7 +25269,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-10-26T19:49:44.149833374Z
+Ce-Time: 2026-10-28T16:23:06.371914502Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -25421,7 +25306,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-10-26T19:49:44.14992512Z
+Ce-Time: 2026-10-28T16:23:06.372116236Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -25469,7 +25354,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.13957151Z
+Ce-Time: 2026-10-28T16:23:06.372327651Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -25510,7 +25395,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-10-26T19:49:44.139727309Z
+Ce-Time: 2026-10-28T16:23:06.372531409Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -25547,7 +25432,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.139880547Z
+Ce-Time: 2026-10-28T16:23:06.372711415Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -25595,7 +25480,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-10-26T19:49:44.148027699Z
+Ce-Time: 2026-10-28T16:23:06.374750544Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -25635,7 +25520,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.148162171Z
+Ce-Time: 2026-10-28T16:23:06.374988088Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -25674,7 +25559,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.135553875Z
+Ce-Time: 2026-10-28T16:23:06.369575107Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -25711,7 +25596,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.135819371Z
+Ce-Time: 2026-10-28T16:23:06.369760976Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -25750,7 +25635,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-10-26T19:49:44.136060332Z
+Ce-Time: 2026-10-28T16:23:06.369931118Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -25791,7 +25676,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-10-26T19:49:44.15627079Z
+Ce-Time: 2026-10-28T16:23:06.358239911Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -25834,7 +25719,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-10-26T19:49:44.156447859Z
+Ce-Time: 2026-10-28T16:23:06.358510016Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -25871,7 +25756,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-10-26T19:49:44.156581491Z
+Ce-Time: 2026-10-28T16:23:06.358703806Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -25911,7 +25796,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-10-26T19:49:44.156744881Z
+Ce-Time: 2026-10-28T16:23:06.358913645Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -25951,7 +25836,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-10-26T19:49:44.152132626Z
+Ce-Time: 2026-10-28T16:23:06.360768432Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -25994,7 +25879,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-10-26T19:49:44.152334069Z
+Ce-Time: 2026-10-28T16:23:06.362716551Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -26034,7 +25919,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-10-26T19:49:44.152536241Z
+Ce-Time: 2026-10-28T16:23:06.362954942Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -26071,7 +25956,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.152685416Z
+Ce-Time: 2026-10-28T16:23:06.363112076Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -26111,7 +25996,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.152837447Z
+Ce-Time: 2026-10-28T16:23:06.363283329Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -26155,7 +26040,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.153061065Z
+Ce-Time: 2026-10-28T16:23:06.363489416Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -26194,7 +26079,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-10-26T19:49:44.153216624Z
+Ce-Time: 2026-10-28T16:23:06.363662853Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -26235,7 +26120,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-26T19:49:44.150796491Z
+Ce-Time: 2026-10-28T16:23:06.364637492Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -26290,7 +26175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-10-26T19:49:44.151011006Z
+Ce-Time: 2026-10-28T16:23:06.364907997Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -26345,7 +26230,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-10-26T19:49:44.151202298Z
+Ce-Time: 2026-10-28T16:23:06.365091203Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -26384,7 +26269,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-26T19:49:44.150076079Z
+Ce-Time: 2026-10-28T16:23:06.359192838Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -26429,7 +26314,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-10-26T19:49:44.150410706Z
+Ce-Time: 2026-10-28T16:23:06.359485791Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -26474,7 +26359,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-10-26T19:49:44.15060695Z
+Ce-Time: 2026-10-28T16:23:06.359674541Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -26513,7 +26398,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.14076299Z
+Ce-Time: 2026-10-28T16:23:06.373014601Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -26555,7 +26440,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.142435168Z
+Ce-Time: 2026-10-28T16:23:06.373226752Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -26597,7 +26482,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.142652035Z
+Ce-Time: 2026-10-28T16:23:06.373390309Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -26634,7 +26519,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-10-26T19:49:44.142822008Z
+Ce-Time: 2026-10-28T16:23:06.373578539Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -26678,7 +26563,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-10-26T19:49:44.153450289Z
+Ce-Time: 2026-10-28T16:23:06.350563225Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -26720,7 +26605,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-10-26T19:49:44.153630166Z
+Ce-Time: 2026-10-28T16:23:06.350827802Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -26757,7 +26642,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-10-26T19:49:44.153772574Z
+Ce-Time: 2026-10-28T16:23:06.351016408Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -26800,7 +26685,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-10-26T19:49:44.153934868Z
+Ce-Time: 2026-10-28T16:23:06.351173061Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -26841,7 +26726,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.148982473Z
+Ce-Time: 2026-10-28T16:23:06.378340876Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -26880,7 +26765,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-10-26T19:49:44.149097218Z
+Ce-Time: 2026-10-28T16:23:06.378530162Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -26919,7 +26804,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-10-26T19:49:44.149199524Z
+Ce-Time: 2026-10-28T16:23:06.378727288Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -26958,7 +26843,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-26T19:49:44.158339168Z
+Ce-Time: 2026-10-28T16:23:06.364123996Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -26997,7 +26882,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-10-26T19:49:44.159293934Z
+Ce-Time: 2026-10-28T16:23:06.36432461Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -27036,7 +26921,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-10-26T19:49:44.149553871Z
+Ce-Time: 2026-10-28T16:23:06.363867556Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -34929,7 +34814,7 @@ The documentation bundle is one Markdown file holding every page on this site, p
 Download the bundle directly. It refreshes nightly.
 
 ```bash
-curl -LO https://edu.chainguard.dev/downloads/chainguard-complete-docs.md
+curl -LO https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md
 ```
 
 ### Extract the bundle from the container image
@@ -35046,7 +34931,7 @@ Breaking changes and product announcements cover the entire Chainguard portfolio
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -35179,7 +35064,7 @@ Chainguard is moving the signature and attestation format for the container imag
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that have reached end-of-life
 
@@ -35306,7 +35191,7 @@ provides:
 
 {{< changelog-label "EOL" >}}
 
-Chainguard offers [a grace period](/chainguard/containers/features/eol-gp-overview/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
 ### Images that are no longer available
 
@@ -39687,16 +39572,6 @@ Our current minimum supported toolchains are:
 * **JavaScript**: Any supported, non-EOL version of Node.js.
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
-
-### EOL version support
-
-When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-
-* No longer build new packages that require the EOL version
-* No longer provide security fixes for packages built against the EOL version
-* Continue to serve previously built packages
 
 ## Upstream fallback and controls
 
@@ -46744,7 +46619,11 @@ default = true
 
 When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
 
-Setting `default = true` on the Chainguard index replaces PyPI as uv's default index. Without it, uv appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match` it can resolve packages from PyPI even when Chainguard serves them. This bypasses Chainguard malware blocking and cooldown. If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
+Choose the index order based on whether your project prefers latest-major or remediated packages. For strict Chainguard preference with PyPI as a fallback, use uv's default `first-index` strategy, list the Chainguard indexes in your preferred order, and configure PyPI as the lowest-priority default index. See [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for both layouts and a complete example.
+
+Do not mark a Chainguard index as `default = true` when PyPI is explicitly listed as a regular index: the default index is lowest priority, so PyPI can be checked first and provide shared packages. Mark the PyPI fallback as `default = true` instead.
+
+If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
@@ -47633,45 +47512,45 @@ indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-i
 
 You can use this to configure the remediated Chainguard Libraries for Python
 index as the first choice for any library access, with a fallback to the
-Chainguard Libraries for Python index. In addition, if you are consuming from
-our remediated Python libraries index, we recommend setting the [index-strategy
-setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to
-`unsafe-best-match`. This ensures that index resolution continues to work when
-remediated libraries have dependencies on non-remediated libraries.
+Chainguard Libraries for Python index. Choose the order that matches how your project should consume Python packages:
 
-Example `pyproject.toml` index setup for direct access to remediated and default
-packages with netrc-based authentication. Note that the order of the entries in
-the configuration file is significant and determines the order for resolving
-dependencies:
+- Latest-major first: Put the standard Chainguard index first, then the remediated index. With `uv`'s default `first-index` strategy, a package available from the standard index is resolved there rather than from the remediated index.
+- Remediated first: Put the remediated Chainguard index first, then the standard index. This makes a remediated package the preferred source when it is available.
+
+For either layout, list Chainguard indexes before PyPI. To use PyPI only when a package is absent from both Chainguard indexes, configure PyPI explicitly as the default index:
 
 ```toml
+[tool.uv]
+index-strategy = "first-index"
+
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
-default = true # replaces PyPI as the lowest priority index
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
+default = true
 ```
 
-Setting `default = true` on the Chainguard index is important. Without it, uv
-appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match`
-it can resolve packages from PyPI even when Chainguard serves them. This
-bypasses Chainguard malware blocking and cooldown. If you need packages that
-Chainguard has not built, use the [built-in upstream
+This example is **remediated-first**. For latest-major-first, swap the `cgr-pr`
+and `cgr-p` entries. Keep the PyPI entry last and marked `default = true` in
+either layout. uv's `first-index` strategy uses the first index that contains a
+package; it does not compare versions across all indexes. Also note that
+`default = true` means lowest priority, not highest.
+
+Avoid `index-strategy = "unsafe-best-match"` when PyPI is configured and you
+require strict Chainguard preference: that strategy considers versions across
+indexes instead of stopping at the first index containing the package. If you
+need packages that Chainguard has not yet rebuilt, use the [built-in upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
 instead of adding PyPI to your configuration.
-
-Set the index strategy to allow fallback from the remediated package index to
-the Chainguard index in `pyproject.toml`:
-
-```toml
-[tool.uv]
-index-strategy = "unsafe-best-match"
-```
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
@@ -47764,18 +47643,21 @@ dependencies = [
 ]
 
 [tool.uv]
-index-strategy = "unsafe-best-match"
-# This allows uv to search across multiple indexes to find remediated versions of Python libraries
+index-strategy = "first-index"
 
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
 default = true
 ```
 
@@ -51338,7 +51220,7 @@ The following HTML file displays a graphic of Linky alongside a fun octopus fact
 
 <h1>nginx Demo Website</h1>
 
-<h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2>
+<h2>from the <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Academy</a></h2>
 
 <img src="linky.png" class="corners" width="250px">
 
@@ -65467,7 +65349,7 @@ Catalog Starter is designed as a standalone free plan, separate from paid Catalo
 3. Enter your company name.
 4. Click **Set up an organization**.
 5. Complete the form and click **Submit**.
-6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page at any time to make or change your selection.
+6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page later to add images until you have five. Once you confirm an image, it can't be swapped or replaced for the life of the free plan.
 
 Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
 
@@ -85942,7 +85824,9 @@ To configure a Docker credential helper, which will use a token to pull images w
 chainctl auth configure-docker
 ```
 
-> **Note**: {{< blurb/noproxy >}}
+If you connect through a decrypting proxy, you may need to enable HTTP/2 support.
+
+{{< blurb/noproxy >}}
 
 ## Update chainctl to the latest release
 
