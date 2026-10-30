@@ -75,17 +75,22 @@ jobs:
       - name: Create/Update GitHub Issue
         env:
           GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: "[chainlink] check links in the docs"
         run: |
+          # Before the docs moved to www.chainguard.dev/docs, the issue was
+          # titled "[chainlink] check links on edu.chainguard.dev". Match that
+          # title too, so the next run renames the issue instead of opening a
+          # second one.
           existing=$(gh issue list --json number,title |\
-            jq -r '.[] | select(.title == "[chainlink] check links on edu.chainguard.dev") | .number')
+            jq -r --arg title "$ISSUE_TITLE" '.[] | select(.title == $title or .title == "[chainlink] check links on edu.chainguard.dev") | .number')
           if [ -z "${existing}" ]; then
             gh issue create \
-              --title "[chainlink] check links on edu.chainguard.dev" \
+              --title "$ISSUE_TITLE" \
               --assignee SharpRake,s-stumbo \
               --label automated \
               --body-file issue-body.txt
           else
-            gh issue edit "$existing" --body-file issue-body.txt
+            gh issue edit "$existing" --title "$ISSUE_TITLE" --body-file issue-body.txt
           fi
 
       - name: Post failure notice to Slack
