@@ -53,7 +53,6 @@ If you connect through a decrypting proxy, you may need to enable HTTP/2 support
 
 {{< blurb/noproxy >}}
 
-
 ## Update chainctl to the latest release
 
 To see which `chainctl` version you have installed, use:
