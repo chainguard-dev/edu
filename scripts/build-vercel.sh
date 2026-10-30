@@ -34,17 +34,26 @@ curl -sfL https://raw.githubusercontent.com/chainguard-dev/dfc/main/pkg/dfc/buil
 #   - leaves out future-dated pages, as the edu.chainguard.dev build does
 #   - lets search engines index it (HUGO_PARAMS_INDEXABLE, read by
 #     layouts/index.vercelconfig.json; every other build sends noindex)
-#   - removes the trailing slash from page URLs, matching the rest of www
+#
+# A preview is built the way production is, under /docs/ and without trailing
+# slashes, so it shows problems that appear only there, such as a file loaded
+# from the host root. Nothing sits in front of a preview the way www sits in
+# front of production, so a preview serves its files under /docs/ itself, and
+# HUGO_PARAMS_EMULATEWWW adjusts its routes to match
+# (see layouts/index.vercelconfig.json).
 if [ -n "${DOCS_PRODUCTION_BASE_URL:-}" ]; then
   HUGO_PARAMS_INDEXABLE=true hugo --gc --minify -b "$DOCS_PRODUCTION_BASE_URL"
   node scripts/strip-trailing-slashes.mjs public "$DOCS_PRODUCTION_BASE_URL"
+  static_dir=.vercel/output/static
 else
   if [ "${VERCEL_ENV:-}" = "production" ]; then
     host="${VERCEL_PROJECT_PRODUCTION_URL:?not set - enable System Environment Variables in the Vercel project}"
   else
     host="${VERCEL_BRANCH_URL:?not set - enable System Environment Variables in the Vercel project}"
   fi
-  hugo --gc --minify --buildFuture -b "https://$host"
+  HUGO_PARAMS_EMULATEWWW=true hugo --gc --minify --buildFuture -b "https://$host/docs/"
+  node scripts/strip-trailing-slashes.mjs public "https://$host/docs/"
+  static_dir=.vercel/output/static/docs
 fi
 
 # Publish through Vercel's Build Output API, whose config.json carries the
@@ -52,6 +61,12 @@ fi
 # uses (layouts/index.vercelconfig.json). When .vercel/output exists after the
 # build, Vercel serves it and ignores the project's Output Directory setting.
 rm -rf .vercel/output
-mkdir -p .vercel/output
-mv public .vercel/output/static
-mv .vercel/output/static/vercel-config.json .vercel/output/config.json
+mkdir -p "$(dirname "$static_dir")"
+mv public/vercel-config.json .vercel/output/config.json
+mv public "$static_dir"
+
+# Vercel serves the 404 page from the root of the output, so a preview, whose
+# files are under /docs/, needs a copy there.
+if [ "$static_dir" != .vercel/output/static ]; then
+  cp "$static_dir/404.html" .vercel/output/static/404.html
+fi

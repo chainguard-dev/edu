@@ -135,11 +135,18 @@ for (const file of listFiles(outputDir)) {
       if (location && location.length > 1 && location.endsWith("/")) {
         route.headers.Location = location.slice(0, -1);
       }
+      // Strip page URLs in the redirect target only. A route's src is a
+      // pattern, not a URL: on a preview it starts with the base path, and
+      // removing the "/" before "?" in ^/docs/page/?$ would make the page
+      // name's last letter optional.
+      if (route.headers?.Location) {
+        route.headers.Location = stripPageSlashes(route.headers.Location);
+      }
     }
     text = JSON.stringify(config, null, 2);
+  } else {
+    text = stripPageSlashes(text);
   }
-
-  text = stripPageSlashes(text);
 
   if (text !== original) {
     writeFileSync(file, text);
