@@ -34,7 +34,8 @@ jobs:
       - name: Build project
         run: |
           npm ci
-          npm run build
+          # Build the redirect map as the Cloud Run image does (see cloud-run.yaml).
+          npm run build -- -b https://edu.chainguard.dev/
 
       - name: Run Nginx validation
         run: |
