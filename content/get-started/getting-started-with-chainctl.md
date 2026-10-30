@@ -49,7 +49,10 @@ To configure a Docker credential helper, which will use a token to pull images w
 chainctl auth configure-docker
 ```
 
-> **Note**: {{< blurb/noproxy >}}
+If you connect through a decrypting proxy, you may need to enable HTTP/2 support.
+
+{{< blurb/noproxy >}}
+
 
 ## Update chainctl to the latest release
 
