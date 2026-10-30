@@ -51,8 +51,12 @@ jobs:
         echo "Package mappings updated successfully"
         ls -lh data/package-mappings.yaml
 
+    # This image only redirects edu.chainguard.dev to www.chainguard.dev/docs.
+    # nginx.conf puts https://www.chainguard.dev/docs in front of each target
+    # in the redirect map, so the map is built from root paths, at the edu base
+    # URL rather than the /docs/ default.
     - name: npm run build
-      run: npm run build
+      run: npm run build -- -b https://edu.chainguard.dev/
 
     - name: Authenticate to Google Cloud
       id: auth

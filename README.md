@@ -25,7 +25,7 @@ To run a local version of this site, start the development server:
 npm run start
 ```
 
-While the server is running, open `http://localhost:1313` in your web browser. To stop the server, press `Ctrl+C` in the terminal.
+While the server is running, open `http://localhost:1313/docs/` in your web browser. To stop the server, press `Ctrl+C` in the terminal.
 
 ## Testing
 
@@ -33,7 +33,7 @@ Any documentation published to Chainguard Academy is reviewed carefully for accu
 
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 
-- **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
+- **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313/docs/` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
 - **Pre-commit checks** — A required `pre-commit` check validates tags, lints, and scans changed files; a git hook stamps content dates; spell-check runs locally. See [Pre-commit](#pre-commit) below for setup.
 - **Deploy previews** — Every pull request builds a Vercel deploy preview with its own URL. Reviewers open this link to see your changes rendered as they'll appear in production. For a pull request from a fork, a Docs team member must authorize each push before its preview builds.
 
