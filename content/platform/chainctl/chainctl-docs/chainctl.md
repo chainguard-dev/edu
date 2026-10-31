@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-10-30T14:11:50Z
 title: "chainctl"
 slug: chainctl
 url: /platform/chainctl/chainctl-docs/chainctl/
@@ -22,7 +22,8 @@ Exit codes:
 - 0: the command succeeded, or a confirmation prompt was declined and nothing was changed.
 - 1: the command failed. This covers every error, including invalid arguments and flags, and commands that act as a gate: a check that failed, a policy that denied, a --check or --exit-code gate that matched, or "chainctl images repos build apply --dry-run" finding changes to apply.
 - 2: "chainctl checks status" only. The platform created no Run for the commit or pull request, so there is no verdict.
-- 130: the command was interrupted with SIGINT (Ctrl-C) and did not finish. A command that unwinds after the first Ctrl-C may exit 1, or 0 if it treats the cancellation as a clean stop; a second Ctrl-C forces 130.
+- 3-8: "chainctl starter init" only. Each names a way the signup ended; "chainctl starter init --help" lists them.
+- 130: the command was interrupted with SIGINT (Ctrl-C) and did not finish. A command that unwinds after the first Ctrl-C may exit 1, or 0 if it treats the cancellation as a clean stop; "chainctl starter init" exits 7 once it has created the organization. A second Ctrl-C forces 130.
 - 143: the command was terminated with SIGTERM.
 
 "chainctl develop" and "chainctl develop attach" exit with the session shell's exit code when the shell exits. "chainctl develop exec" exits with the command's exit code, 124 when --timeout killed it, and 255 when the command's outcome is unknown. "chainctl develop check" exits 0 when the checks pass and 1 when a step fails.
@@ -64,7 +65,7 @@ chainctl [flags]
 * [chainctl packages](/platform/chainctl/chainctl-docs/chainctl_packages/)	 - Interact with Chainguard packages
 * [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
 * [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
-* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage Chainguard Starter organizations
 * [chainctl update](/platform/chainctl/chainctl-docs/chainctl_update/)	 - Update chainctl.
 * [chainctl version](/platform/chainctl/chainctl-docs/chainctl_version/)	 - Prints the version
 
