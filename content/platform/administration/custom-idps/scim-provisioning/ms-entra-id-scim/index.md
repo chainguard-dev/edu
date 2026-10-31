@@ -171,11 +171,80 @@ curl -s -H "Authorization: Bearer <scim_token>" "<scim_base_url>/Users?count=5"
 
 Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev): click **Use Your Identity Provider**, then **Use Your Organization Name**, enter your organization name, and click **Login with Provider**. The first login must go through this browser flow for linking to complete. Afterward the user is linked to their provisioned record. Enabling SCIM clears the identity provider's default role, so a provisioned user has no role in your organization until you grant one, for example with a role binding or with a [group mapping](/platform/administration/custom-idps/grant-roles-from-groups/).
 
-## Map Entra ID groups to Chainguard roles
+## Push groups to grant roles
 
-To grant Chainguard roles based on a user's Entra ID group membership, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+Entra ID can push the groups you assign to the SCIM application to Chainguard. Chainguard matches each pushed group against your group-to-role mappings and grants the mapped roles to the group's members as role bindings. These bindings persist between logins, unlike the session-scoped roles that [claim-based group mappings](#grant-roles-from-the-groups-claim-instead) grant, and they appear in `chainctl iam role-bindings list`.
 
-Group membership reaches Chainguard only in tokens issued for the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
+You manage these bindings from Entra ID. To change who holds a role, change the group's membership in Entra ID; Chainguard rejects manual edits to a binding that SCIM manages.
+
+### Assign the group to the SCIM application
+
+Under the SCIM application's **Users and groups**, click **Add user/group** and assign the group. Assigning a group requires Entra ID P1 or P2. Entra ID pushes the group with its members, and provisions each member as a Chainguard user. Entra ID pushes membership only for users who are in scope for the application, which assigning the group takes care of.
+
+Leave the mappings on the **Attribute mapping** page's **Groups** tab at their defaults. Chainguard identifies each group by its Entra ID Object ID, which the default mapping sends as `externalId`, so renaming a group in Entra ID doesn't affect the roles it grants.
+
+To push the group immediately instead of waiting for the next provisioning cycle, use **Provision on demand**, select the group, and select the members to include. Provisioning a group on demand with no members selected pushes the group alone; its members follow on the next cycle.
+
+### Map the group to a role
+
+Store your organization's UIDP in the `ORGANIZATION` variable:
+
+```sh
+export ORGANIZATION=$(chainctl iam organizations list -o json | jq -r '.items[0].id')
+```
+
+This command stores the first organization in the list. If you belong to more than one organization, run `echo $ORGANIZATION` and confirm that it's the organization you're configuring.
+
+Then map the group to a Chainguard role. Replace `<group_object_id>` with the group's **Object ID** from the Entra admin center under **Groups**, and `<role_name>` with the role to grant, such as `viewer` or `editor`:
+
+```sh
+chainctl iam external-group-role-mappings create \
+  --external-group-id "<group_object_id>" \
+  --role <role_name> \
+  --scope $ORGANIZATION \
+  --idp ${IDP}
+```
+
+You can map only a role you hold yourself. Chainguard never creates an `owner` or `support` role binding through SCIM: it accepts a mapping to either role, but a pushed group grants neither.
+
+### Verify the role bindings
+
+To confirm that the group reached Chainguard, list the groups Entra ID has pushed. The output shows each group's name and member count, so you can check it before anyone logs in:
+
+```sh
+chainctl iam identity-providers scim groups list ${IDP}
+```
+
+Chainguard creates a member's role binding only after that member has logged in to Chainguard at least once, and that first login applies it immediately. After that, membership changes in Entra ID take effect as soon as Entra ID pushes them, and a mapping you create for a group Chainguard already has takes effect within about five minutes, without another login.
+
+Have a member of the group log in to Chainguard, then list the role bindings in your organization:
+
+```sh
+chainctl iam role-bindings list --parent $ORGANIZATION -o table
+```
+
+The output includes a binding with the mapped role and `SCIM` in the **MANAGED BY** column. The binding's **NAME / EMAIL** column is empty, so identify the member by their identity ID instead. To look up that ID, replace `<user_principal_name>` with the member's `userName` in Chainguard, which is their user principal name unless you [provision users under their email address](#provision-users-under-their-email-address):
+
+```sh
+chainctl iam identity-providers scim users list ${IDP} -o json \
+  | jq -r '.[] | select(.user_name == "<user_principal_name>") | .identity_id'
+```
+
+The binding's **IDENTITY** column matches this value. If the command prints `null`, the member hasn't logged in to Chainguard yet, or their login wasn't linked; refer to [A user logged in but wasn't linked](#a-user-logged-in-but-wasnt-linked).
+
+To confirm that removal works, remove the member from the group in Entra ID and use **Provision on demand** on the group, then list the role bindings again. Chainguard deletes the binding as soon as Entra ID pushes the change. A member of several mapped groups keeps a role until they leave the last group that grants it.
+
+### Retire a group
+
+To stop granting roles from a group, remove the group from the SCIM application's **Users and groups**. On its next push, Entra ID deletes the group in Chainguard, and Chainguard removes the roles that only this group granted.
+
+Deleting a group doesn't deprovision its members, and it doesn't delete the group's role mappings. If you assign the same Entra ID group to the application again, its mappings apply again. To stop a mapping from granting access permanently, delete it with `chainctl iam external-group-role-mappings delete`.
+
+### Grant roles from the groups claim instead
+
+You can instead grant roles from the groups claim in each user's login token, as described in [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/). These roles last only for the user's session and don't appear as role bindings.
+
+The groups claim comes from the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application doesn't add the group to users' login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
 
 Entra ID emits group Object IDs (GUIDs) rather than display names in the groups claim. As a result, a group-to-role mapping displays the group as a GUID, such as `aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee`, in both `chainctl` and the console's group-mapping tab. To find which group an Object ID refers to, look it up in the Entra admin center under **Groups**. To display readable names instead, configure the groups claim to emit cloud-group display names.
 
@@ -205,12 +274,13 @@ This is an SSO problem, not SCIM. Recheck the redirect URI, issuer, and client I
 
 The error names `invalidPath`. A mapping's **Target attribute** names an attribute that isn't part of the SCIM user schema, such as a misspelled or custom attribute. Correct or delete the mapping, click **Save** on the **Attribute mapping** page, and provision the user again.
 
-### Provisioning reports a `409` error for a user
+### Provisioning reports a `409` error
 
 Entra ID shows the error code `SystemForCrossDomainIdentityManagementServiceIncompatibleFiltering` for these errors. Chainguard's message is in the **Web Response** of the provisioning log entry.
 
-* **The message names `uniqueness`:** Chainguard already has this user, for example because an earlier create succeeded but Entra ID didn't receive the response. Run **Provision on demand** for the user. Entra ID looks the user up first and links the existing record.
+* **The message names `uniqueness` for a user:** Chainguard already has this user, for example because an earlier create succeeded but Entra ID didn't receive the response. Run **Provision on demand** for the user. Entra ID looks the user up first and links the existing record.
 * **The message says the change would deactivate the organization's last active privileged owner:** Entra ID tried to deactivate the only remaining owner of your organization, and Chainguard kept them active. Grant the owner role to another person directly with a role binding, then provision the user again.
+* **The message names `uniqueness` for a group and says its correlation key is already provisioned to a group with another name:** Chainguard already has this group under the name it had before it was renamed in Entra ID, and Entra ID no longer has the record linked, for example because the provisioning configuration or the application was recreated. In Entra ID, rename the group to the name in the message and use **Provision on demand** on the group, which links the existing record. Then rename the group back and provision it again.
 
 ### Test connection fails
 
