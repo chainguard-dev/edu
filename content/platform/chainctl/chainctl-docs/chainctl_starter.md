@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-10-30T14:11:50Z
 title: "chainctl starter"
 slug: chainctl_starter
 url: /platform/chainctl/chainctl-docs/chainctl_starter/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl starter
 
-Manage catalog starter organizations
+Manage Chainguard Starter organizations
 
 ### Options inherited from parent commands
 
@@ -31,8 +31,8 @@ Manage catalog starter organizations
 ### SEE ALSO
 
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
-* [chainctl starter add-images](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/)	 - Add catalog images to your catalog starter organization.
-* [chainctl starter init](/platform/chainctl/chainctl-docs/chainctl_starter_init/)	 - Initialize a new catalog starter organization.
-* [chainctl starter request-access](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/)	 - Request access to a catalog starter organization.
-* [chainctl starter status](/platform/chainctl/chainctl-docs/chainctl_starter_status/)	 - Show catalog starter organization status, quota, and image readiness.
+* [chainctl starter add-images](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/)	 - Add catalog images to your Chainguard Starter organization.
+* [chainctl starter init](/platform/chainctl/chainctl-docs/chainctl_starter_init/)	 - Initialize a new Chainguard Starter organization.
+* [chainctl starter request-access](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/)	 - Request access to a Chainguard Starter organization.
+* [chainctl starter status](/platform/chainctl/chainctl-docs/chainctl_starter_status/)	 - Show Chainguard Starter organization status, quota, and image readiness.
 

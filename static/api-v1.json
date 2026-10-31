@@ -728,6 +728,15 @@
             "description": "filename is a human-readable label for the document, supplied by the\nclient at creation time.",
             "type": "string"
           },
+          "findingCounts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentFindingCounts"
+              }
+            ],
+            "description": "finding_counts summarizes the document's cgp_ids: how many have a\nChainguard fix and how many were already known. Set only on List, when\nArgosDocumentFilter.include_finding_counts asks for it and the page is\nbounded; unset otherwise, or when the counts couldn't be read.",
+            "readOnly": true
+          },
           "id": {
             "description": "id is the UIDP of the document, a child of an organization (root group).",
             "type": "string"
@@ -801,6 +810,22 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.argos.ArgosDocumentFindingCounts": {
+        "description": "ArgosDocumentFindingCounts summarizes the CGP identifiers a document\nresolved to. The total is the length of the document's cgp_ids, including\nidentifiers with no served record, which count in neither field.",
+        "properties": {
+          "alreadyKnown": {
+            "description": "already_known counts identifiers whose record was published before the\ndocument was created.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "patched": {
+            "description": "patched counts identifiers whose record has a Chainguard fix.",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosDocumentList": {
         "properties": {
           "items": {
@@ -857,6 +882,28 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosPartners.CreateMitigationBody": {
+        "properties": {
+          "cweId": {
+            "description": "cwe_id is optional. When set it must be on both the vulnerability and\nthe method.",
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "method": {
+            "description": "method is the mitigation method's display name.",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
+          },
+          "vulnId": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosPartners.DeleteCapabilitiesBody": {
         "properties": {
           "capabilities": {
@@ -891,6 +938,20 @@
               "type": "string"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosPartners.UpdateMitigationBody": {
+        "properties": {
+          "cweId": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
           }
         },
         "type": "object"
@@ -1142,6 +1203,21 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ListMitigationsResponse": {
+        "properties": {
+          "mitigations": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is empty on the last page.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.MinimalOSVRecord": {
         "description": "MinimalOSVRecord is the abbreviated vuln entry returned by QueryBatch,\nmatching the OSV spec's batch response (id + modified only); callers\nfollow up with GetVuln for full detail.",
         "properties": {
@@ -1151,6 +1227,42 @@
           "modified": {
             "format": "date-time",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Mitigation": {
+        "properties": {
+          "createTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "cweId": {
+            "description": "cwe_id is empty or of the form CWE-79.",
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "method": {
+            "description": "method is the mitigation method's display name.",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "vulnId": {
+            "type": "string"
+          },
+          "withdrawn": {
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -1172,6 +1284,17 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.argos.MitigationStatus": {
+        "default": "MITIGATION_STATUS_UNSPECIFIED",
+        "description": " - MITIGATION_STATUS_DECLINED: DECLINED: the partner chose not to act.\n - MITIGATION_STATUS_FAILED: FAILED: the partner tried and could not.",
+        "enum": [
+          "MITIGATION_STATUS_UNSPECIFIED",
+          "MITIGATION_STATUS_DECLINED",
+          "MITIGATION_STATUS_MITIGATED",
+          "MITIGATION_STATUS_FAILED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.argos.OSVQueryBatchRequest": {
         "properties": {
@@ -1569,6 +1692,9 @@
             "type": "array"
           }
         },
+        "type": "object"
+      },
+      "chainguard.platform.argos.WithdrawMitigationResponse": {
         "type": "object"
       },
       "chainguard.platform.auth.HeadlessSession": {
@@ -2666,7 +2792,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC.CorrelationRule"
               }
             ],
-            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Immutable after the\nidentity provider is created (enforced server-side): a different rule\nrequires creating a new identity provider. Updates that restate the\ncurrent rule (or leave it unset) are a no-op — a read-modify-write client\nmay echo the field back safely; updates that change it are rejected."
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it (enforced server-side),\nand a later change requires Chainguard support. Updates that restate the\ncurrent rule (or leave it unset) are a no-op — a read-modify-write client\nmay echo the field back safely; updates that change it are rejected."
           },
           "groupsClaim": {
             "description": "groups_claim is the name of the OIDC token claim containing group memberships.\nRequired for IdP group-based role mapping.",
@@ -10125,6 +10251,22 @@
               "format": "date-time",
               "type": "string"
             }
+          },
+          {
+            "description": "cgp_id returns documents whose analysis resolved to this CGP identifier.\nEmpty means no filter; an unmatched value returns nothing.",
+            "in": "query",
+            "name": "cgpId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "include_finding_counts sets finding_counts on each returned document.\nIt needs an explicit page_size between 1 and 200: an unset page_size\nlists unpaged, so the flag is ignored and finding_counts stays unset,\nwith no error.",
+            "in": "query",
+            "name": "includeFindingCounts",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -10342,7 +10484,7 @@
             }
           },
           {
-            "description": "package is an optional exact ecosystem/name filter (v1: exact match).",
+            "description": "package is replaced by ecosystem and package_name; the server never\napplied it.",
             "in": "query",
             "name": "package",
             "schema": {
@@ -10350,7 +10492,7 @@
             }
           },
           {
-            "description": "version is an optional version filter.",
+            "description": "version keeps records whose affected range for package_name contains it,\nor that were fixed at it. It requires package_name, and total_count is\nunset when it is given.",
             "in": "query",
             "name": "version",
             "schema": {
@@ -10378,6 +10520,30 @@
             "name": "updatedSince",
             "schema": {
               "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "has_chainguard_fix keeps records with (true) or without (false) a\nChainguard fix.",
+            "in": "query",
+            "name": "hasChainguardFix",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ecosystem keeps records with an affected package in this ecosystem,\ncompared ignoring case.",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package_name keeps records with an affected package of exactly this name.",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
               "type": "string"
             }
           }
@@ -10773,6 +10939,284 @@
           }
         },
         "summary": "Update Capabilities",
+        "tags": [
+          "ArgosPartners"
+        ]
+      }
+    },
+    "/argos/v1/partners/{partnerId}/mitigations": {
+      "get": {
+        "description": "ListMitigations returns the partner's live mitigations, optionally for\none vulnerability.",
+        "operationId": "ArgosPartners_ListMitigations",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "vuln_id empty lists every vulnerability's mitigations.",
+            "in": "query",
+            "name": "vulnId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.ListMitigationsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Mitigations",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "post": {
+        "description": "CreateMitigation reports how the partner handled a vulnerability. The\npartner must hold an approved capability for method, and method must map\nto one of the vulnerability's CWEs. A vulnerability the partner cannot\nsee is NOT_FOUND.",
+        "operationId": "ArgosPartners_CreateMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.CreateMitigationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      }
+    },
+    "/argos/v1/partners/{partnerId}/mitigations/{id}": {
+      "delete": {
+        "description": "WithdrawMitigation withdraws a live mitigation. It needs no approved\ncapability for the method, so a partner can always pull a report.",
+        "operationId": "ArgosPartners_WithdrawMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.WithdrawMitigationResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Withdraw Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "get": {
+        "description": "GetMitigation returns one of the partner's mitigations, withdrawn or not.",
+        "operationId": "ArgosPartners_GetMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "put": {
+        "description": "UpdateMitigation replaces a live mitigation's cwe_id, status and details\nunder the same checks as CreateMitigation.",
+        "operationId": "ArgosPartners_UpdateMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.UpdateMitigationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Mitigation",
         "tags": [
           "ArgosPartners"
         ]
@@ -20170,6 +20614,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -20277,6 +20729,14 @@
             "name": "task",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
