@@ -134,7 +134,7 @@ Navigate to the **Attribute mapping** tab and select **Users**. Edit the mapping
 Entra ID doesn't apply any change on this page, including added or deleted mappings, until you click **Save** at the bottom of the **Attribute mapping** page. Click **Save** after the edits in this section.
 
 {{< note >}}
-Make this change before provisioning any user, including with **Provision on demand**, and do not change it afterward. `objectId` is the value the identity provider matches against at login; changing it after users exist leaves those users permanently unlinked. Map `externalId` only to `objectId` — a user-editable or non-unique attribute could link a login to the wrong identity.
+Make this change before provisioning any user, including with **Provision on demand**. `objectId` is the value the identity provider matches against at login, so a user provisioned under the default `mailNickname` mapping isn't linked when they log in. If you've already provisioned users, refer to [A user logged in but wasn't linked](#a-user-logged-in-but-wasnt-linked). Map `externalId` only to `objectId` — a user-editable or non-unique attribute could link a login to the wrong identity.
 {{< /note >}}
 
 Keep the default `emails[type eq "work"].value` mapping in place; Chainguard stores it. Entra ID's default mappings also use value filters on other attributes, such as `addresses[type eq "work"].streetAddress` and `phoneNumbers[type eq "work"].value`. Chainguard accepts these without storing them, so you can leave them or delete them.
@@ -187,7 +187,11 @@ Unassigning a user from the application, disabling their account, or deleting th
 
 ### A user logged in but wasn't linked
 
-A correlation mismatch does not error — the login proceeds as a normal, unlinked user. Confirm that you created the identity provider with `--oidc-correlation-rule=oid_equals_external_id` and `profile` in its scopes (check the saved `create` output), that the user's `externalId` is their `objectId` GUID, and that the user has logged in through the browser flow described earlier.
+A correlation mismatch does not error — the login proceeds as a normal, unlinked user. The user reaches the Chainguard Console but is asked to create an organization or sees no organization, and in your organization's user list they still show **Pending sign-in**. Roles from group mappings don't apply to an unlinked user.
+
+Confirm that you created the identity provider with `--oidc-correlation-rule=oid_equals_external_id` and `profile` in its scopes (check the saved `create` output), that the user's `externalId` is their `objectId` GUID, and that the user has logged in through the browser flow described earlier.
+
+If the user's `externalId` is their mail nickname, the `externalId` mapping still uses the default source. Change it to `objectId` as described in [Map externalId to objectId](#map-externalid-to-objectid), then use **Provision on demand** on the user; the **Perform action** step shows `externalId` updated to the GUID. Have the user log out of the Chainguard Console and log in again. That login links them, and their roles apply.
 
 ### Login fails, or the identity provider isn't offered
 
