@@ -100,6 +100,28 @@ chainctl iam identity-providers scim disable $IDENTITY_PROVIDER
 
 Token lifecycle and the on/off switch are independent: rotating or revoking a token never disables provisioning, and disabling never invalidates a token.
 
+## Change the correlation rule
+
+The correlation rule decides which claim in the login token Chainguard matches against the `externalId` your IdP provisions: `sub_equals_external_id`, the default, or `oid_equals_external_id` for Microsoft Entra ID. With the wrong rule, provisioned users log in but never connect to their provisioning records, so they get none of the roles from pushed groups. For example, a Microsoft Entra ID identity provider created with the default rule has this problem.
+
+Change the rule with the following command:
+
+```sh
+chainctl iam identity-providers reset-correlation-rule $IDENTITY_PROVIDER --oidc-correlation-rule=oid_equals_external_id
+```
+
+The command shows the identity provider's current rule and asks you to confirm. The default answer is no; pass `--yes` to skip the prompt in a script. Changing the rule requires a role that can manage both identity providers and SCIM provisioning, such as owner. The `oid_equals_external_id` rule also requires `profile` in the identity provider's scopes; add it with `chainctl iam identity-providers update` first if it's missing.
+
+Changing the rule has these effects:
+
+* **Every provisioned user is disconnected.** Chainguard disconnects each provisioned user of the identity provider from their account and removes the role bindings SCIM granted them. Role bindings assigned directly, and roles from group mappings, are unaffected.
+* **Users reconnect at their next login.** Each user connects again, and gets the roles their pushed groups grant, at their next login that matches under the new rule. A login in the first minute after the change may not connect yet; the next one does.
+* **Deactivated users stay deactivated.** The change never reactivates anyone.
+
+The command reports how many users it disconnected and how many role bindings it removed. If it reports that it couldn't disconnect every user, run the same command again to finish. Running it with the rule the identity provider already has changes nothing else.
+
+You can't change the correlation rule in the Chainguard Console.
+
 ## Limits
 
 * Chainguard rate limits provisioning write requests (create, update, deactivate) per organization and per source address. Past the limit, requests receive HTTP `429` with a `Retry-After` header; IdPs retry on their own schedule.

@@ -82,7 +82,7 @@ chainctl iam identity-providers create \
 
 This `create` command includes two options specific to SCIM linking with Entra ID:
 
-* `--oidc-correlation-rule=oid_equals_external_id` links each login to its provisioned user by the Entra ID `oid` claim. It is immutable — to change it, delete and recreate the identity provider. Confirm it appears in the command's JSON output, and keep that output as your record of the setting.
+* `--oidc-correlation-rule=oid_equals_external_id` links each login to its provisioned user by the Entra ID `oid` claim. If you created the identity provider with a different rule, change it as described in [Change the correlation rule](/platform/administration/custom-idps/scim-provisioning/scim-overview/#change-the-correlation-rule). Confirm it appears in the command's JSON output, and keep that output as your record of the setting.
 * `--oidc-additional-scopes=profile` is required: Entra ID includes the `oid` claim only when you request `profile`. Pass `--oidc-additional-scopes` once per scope.
 
 Set an environment variable to the identity provider's `id` from the previous command's output:
