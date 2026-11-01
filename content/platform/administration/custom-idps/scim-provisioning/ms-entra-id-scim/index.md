@@ -286,6 +286,8 @@ Entra ID shows the error code `SystemForCrossDomainIdentityManagementServiceInco
 
 Confirm the Tenant URL is the SCIM base URL with `?aadOptscim062020` appended and the Secret token is the bare `cgscim_...` value. The URL and token must come from the same `token generate` run.
 
+**The error is `CredentialValidationUnavailable` with an `HTTP/404 Not Found` response.** Entra ID suggests checking the Tenant URL, but if the same URL worked before, the token is no longer accepted. Chainguard answers `404` to a token it doesn't accept, so a token that was revoked, has expired, or was replaced by a regenerated token after its overlap ended looks the same as a wrong URL. The same response appears while SCIM provisioning is disabled for the identity provider. Generate a new token, or enable provisioning again, then paste the token into **Secret token**, click **Test connection**, and click **Save**.
+
 **Provisioning is quarantined.** Entra ID pauses provisioning after repeated errors. Fix the error shown in the provisioning logs and restart provisioning.
 
 ## Related resources
