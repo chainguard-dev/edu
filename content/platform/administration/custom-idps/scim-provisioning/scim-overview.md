@@ -115,7 +115,7 @@ The command shows the identity provider's current rule and asks you to confirm. 
 Changing the rule has these effects:
 
 * **Every provisioned user is disconnected.** Chainguard disconnects each provisioned user of the identity provider from their account and removes the role bindings SCIM granted them. Role bindings assigned directly, and roles from group mappings, are unaffected.
-* **Users reconnect at their next login.** Each user connects again, and gets the roles their pushed groups grant, at their next login that matches under the new rule. A login in the first minute after the change may not connect yet; the next one does.
+* **Users reconnect at their next sign-in.** Each user connects again, and gets the roles their pushed groups grant, the next time they sign in and the new rule matches them. Renewing an existing session doesn't reconnect a user, so a user who stays signed in has no group roles until they sign in again.
 * **Deactivated users stay deactivated.** The change never reactivates anyone.
 
 The command reports how many users it disconnected and how many role bindings it removed. If it reports that it couldn't disconnect every user, run the same command again to finish. Running it with the rule the identity provider already has changes nothing else.
