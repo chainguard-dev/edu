@@ -250,7 +250,9 @@ Entra ID emits group Object IDs (GUIDs) rather than display names in the groups 
 
 ## Deactivation and deletion
 
-Unassigning a user from the application, disabling their account, or deleting them causes Entra ID to deactivate or delete the corresponding Chainguard identity on its next provisioning cycle. Chainguard rejects the login of a user deactivated before they ever logged in. For immediate offboarding, use **Provision on demand** on the affected user rather than waiting for the cycle.
+Unassigning a user from the application, disabling their account, or deleting them causes Entra ID to deactivate the corresponding Chainguard identity on its next provisioning cycle, which removes the roles their groups granted. Deleting the user also removes their provisioned user record from Chainguard. Chainguard rejects the login of a user deactivated before they ever logged in.
+
+For immediate offboarding, disable the user's account in Entra ID and use **Provision on demand** on the user rather than waiting for the cycle. Do this before you delete the user: **Provision on demand** can't find a deleted user, so a deletion reaches Chainguard only on the next provisioning cycle.
 
 ## Troubleshooting
 
