@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-10-30T14:11:50Z
 title: "chainctl iam identity-providers group-mappings delete"
 slug: chainctl_iam_identity-providers_group-mappings_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_group-mappings_delete/

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-10-30T14:11:50Z
 title: "chainctl starter request-access"
 slug: chainctl_starter_request-access
 url: /platform/chainctl/chainctl-docs/chainctl_starter_request-access/
@@ -11,13 +11,13 @@ toc: true
 ---
 ## chainctl starter request-access
 
-Request access to a catalog starter organization.
+Request access to a Chainguard Starter organization.
 
 ### Synopsis
 
-Request access to an existing catalog starter organization.
+Request access to an existing Chainguard Starter organization.
 
-If a catalog starter organization for your email domain already exists, this
+If a Chainguard Starter organization for your email domain already exists, this
 command sends an access request to the organization's owners. They can
 choose whether to invite you; if they do, you will receive an email with
 instructions to join.
@@ -51,5 +51,5 @@ chainctl starter request-access [flags]
 
 ### SEE ALSO
 
-* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage Chainguard Starter organizations
 
