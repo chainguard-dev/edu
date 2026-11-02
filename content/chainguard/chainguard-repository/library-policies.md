@@ -110,7 +110,7 @@ Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `cha
 
 ## Cooldown policies
 
-The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default.
+The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows. Refer to [Cooldown limits by plan](#cooldown-limits-by-plan).
 
 > **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
@@ -123,6 +123,32 @@ As a result, a version can wait up to 24 hours longer than the configured number
 For example, with a 7-day cooldown, a version published upstream at 14:00 UTC on October 15 completes its cooldown at 14:00 UTC on October 22. It becomes available at 00:00 UTC on October 23.
 
 To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version).
+
+### Cooldown limits by plan
+
+Your organization's plan sets the cooldown periods you can choose and whether you can [override the cooldown](#override-cooldown-for-a-package-version) for a package version. These limits apply from November 4, 2026, to every organization on each plan, whatever its creation date.
+
+| Plan | Cooldown period | Cooldown overrides |
+| ---- | --------------- | ------------------ |
+| Starter | Fixed at 7 days | Not allowed |
+| Team | 0 to 7 days | Allowed |
+| Enterprise | 0 to 30 days | Allowed |
+
+The Starter plan is the free plan described in [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+
+Chainguard checks the limits when you create a policy, change a policy's cooldown period, add a cooldown override, or enable a policy in enforce mode. The limits don't change a cooldown that's already in force.
+
+If a request falls outside your plan's limits, Chainguard refuses it. The error message names your plan's limit and what you requested. For example, a Team organization that tries to set a 14-day cooldown gets this message:
+
+```output
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing
+```
+
+A Starter organization that tries to add a cooldown override gets this message:
+
+```output
+Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing
+```
 
 ### Create and enable a cooldown policy
 
@@ -141,7 +167,7 @@ To understand the impact before enforcing a policy, use `--mode=PREVIEW`. In pre
 
 ### Disable cooldown
 
-To disable the cooldown, set it to 0. In the example below, the policy is created, then it is enforced on the Java ecosystem:
+To disable the cooldown, set it to 0. The Starter plan doesn't allow this; refer to [Cooldown limits by plan](#cooldown-limits-by-plan). In the following example, the policy is created, then it is enforced on the Java ecosystem:
 
 ```bash
 chainctl libraries policy create --name=no-cooldown --cooldown-days=0
@@ -229,6 +255,8 @@ chainctl libraries policy update team-policy \
 
 If the new version pulls in transitive dependencies that are also blocked under a cooldown policy, those transitive packages must be overridden too.
 
+The Starter plan doesn't allow cooldown overrides. Refer to [Cooldown limits by plan](#cooldown-limits-by-plan).
+
 ### Override malware or greyware blocking
 
 A malware override should be used sparingly and only after your security team has explicitly reviewed the package. A justification is required when you set `override-malware=true`.
@@ -239,6 +267,10 @@ chainctl libraries policy update team-policy \
 ```
 
 ## Troubleshooting and FAQ
+
+### Why does `chainctl` return "plan allows a library cooldown of"?
+
+Your organization's plan doesn't allow the cooldown period or cooldown override you requested. Choose a value within your plan's range, or remove the override. Refer to [Cooldown limits by plan](#cooldown-limits-by-plan).
 
 ### Why does `chainctl` return "Invalid argument: enable takes no arguments"?
 
