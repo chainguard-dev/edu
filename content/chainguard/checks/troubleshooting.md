@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T15:44:24+00:00
+lastmod: 2026-11-02T16:29:06+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -23,6 +23,7 @@ This page describes common problems with Chainguard Checks and how to fix them. 
 If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chainguard Checks didn't start a run for it. Confirm the following:
 
 - The Chainguard App is installed on the GitHub account that owns the repository, with access to the repository, and that account is linked to your Chainguard organization. Running `chainctl develop init` links the account when you sign up. A GitHub account can be linked to only one Chainguard organization at a time.
+- The installation has accepted the Chainguard App's current permissions. When the App asks for more permissions, GitHub keeps an existing installation on its earlier ones until an owner of the account accepts the request, and Chainguard Checks may not report until then. To review a pending request, open the installation's settings page, which `chainctl guardener github status --parent` with your organization's name lists in its `SETTINGS` column.
 - The repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory at its root, on the pull request's branch or its base branch. A file named `ci.yml` doesn't count.
 - The configuration has presubmit checks. Checks with only `trigger: postsubmit` run after merging, not on pull requests. A pull request that changes every check to `trigger: postsubmit` still gets a summary check, which fails with **Run creation failed**, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). It gets no checks only if each of the base branch's presubmit checks is limited by `when.changed` to files that no longer exist.
 - Chainguard Checks is turned on for your organization, either with `chainctl develop init` or by your Chainguard account team. Pull requests opened or updated before then get no checks, so push a new commit to the pull request to start a run. If `chainctl develop init` failed, refer to [chainctl develop init fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
