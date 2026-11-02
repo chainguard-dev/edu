@@ -147,7 +147,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 7ab6b7f5c5befd162fb5ddddc4af4c1b4fbfe11d  # frozen: v10.13.0
+    rev: 28bccd32cd8c825b0d0913b486f8ef0f56bfb08a  # frozen: v10.14.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
