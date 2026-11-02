@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:26:43+00:00
+lastmod: 2026-11-02T16:29:33+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -121,7 +121,7 @@ Only the summary check always reflects the latest run, but its table shows up to
 
 ## Require checks before merging {#require-checks-before-merging}
 
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset for your default branch.
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset for your default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 Don't require the per-check results, such as **presubmit / ci / test**, or **Chainguard Checks / develop-environment**. A check that passes without reporting anything, that a condition skips, or that runs only on request never reports a result of its own for that pull request, and the develop-environment check appears only on pull requests that change its files, so GitHub would wait for them indefinitely. The summary check already accounts for every check that should block the pull request.
 
