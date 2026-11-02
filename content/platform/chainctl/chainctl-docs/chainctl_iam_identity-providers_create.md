@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-10-30T14:11:50Z
 title: "chainctl iam identity-providers create"
 slug: chainctl_iam_identity-providers_create
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_create/
@@ -45,7 +45,7 @@ chainctl iam identity-providers create --parent ORGANIZATION_NAME | ORGANIZATION
       --oidc-additional-scopes stringArray       additional scopes to request for OIDC type identity provider
       --oidc-client-id string                    client id for OIDC type identity provider
       --oidc-client-secret string                client secret for OIDC type identity provider
-      --oidc-correlation-rule string             How OIDC logins are matched to SCIM-provisioned users: sub_equals_external_id (default; stock Okta) or oid_equals_external_id (Microsoft Entra ID; requires --oidc-additional-scopes=profile). Permanent: the rule cannot be changed after creation.
+      --oidc-correlation-rule string             How OIDC logins are matched to SCIM-provisioned users: sub_equals_external_id (default; stock Okta) or oid_equals_external_id (Microsoft Entra ID; requires --oidc-additional-scopes=profile). Choose it before provisioning users: an update can't change it, and changing it later requires Chainguard support.
       --oidc-groups-claim string                 OIDC token claim carrying group memberships, used for group-to-role mappings (empty disables group mapping). Manage the mappings with 'chainctl iam identity-providers group-mappings'.
       --oidc-issuer string                       Issuer URL for OIDC type identity provider
       --oidc-pkce-enabled                        Include a PKCE challenge during authorization code exchange. Upstream IDP must be configured to respond.
