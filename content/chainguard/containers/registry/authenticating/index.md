@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-10-29T18:20:09+00:00
+lastmod: 2026-11-02T13:34:48+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -155,6 +155,20 @@ chainctl iam identity delete <identity UUID>
 {{< note >}}
 On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Catalog Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 {{< /note >}}
+
+An expired pull token stops working, but its identity stays in your organization until you delete it. `chainctl iam identities list` leaves expired identities out, so add `--expired` to list only those:
+
+```sh
+chainctl iam identities list --expired
+```
+
+To delete every expired static identity in your organization at once, including expired pull tokens, run:
+
+```sh
+chainctl iam identities delete --expired --parent=<organization>
+```
+
+On Catalog Starter, this command fails for the same reason as a single delete.
 
 ### Managing pull tokens in the Chainguard Console
 

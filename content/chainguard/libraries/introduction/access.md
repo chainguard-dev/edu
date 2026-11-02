@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-27T14:11:46+00:00
+lastmod: 2026-11-02T13:34:48+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -477,11 +477,12 @@ to delete a specific pull token using its ID `45a0c61ea6fd97...`:
 chainctl iam identities delete 45a0c61ea6fd97...
 ```
 
-Use the identifier or name of your organization `example` and the `--expired`
-flag to remove all expired pull tokens:
+Use the `--expired` flag with the identifier or name of your organization,
+`example` in this sample, to remove all expired static identities, including
+expired pull tokens:
 
 ```shell
-chainctl iam ids rm --expired
+chainctl iam ids rm --expired --parent=example
 ```
 
 <a id="entitlement"></a>
