@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial on how to register a Keycloak client and integrate it with the Chainguard platform."
 type: "article"
 date: 2025-04-04
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-02T13:27:14+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -115,3 +115,9 @@ chainctl auth login --identity-provider <idp_id>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.
+
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token Keycloak issues. Keycloak adds that claim through the built-in `email` client scope, which new realms assign to new clients by default. The scope's `email` mapper copies the user's email address into the claim, and its `email verified` mapper adds `email_verified`. Check that the Chainguard client still has the `email` client scope assigned, and that your users have an email address in Keycloak.
+
+If your users come from LDAP or Active Directory through user federation, Keycloak fills each user's email address with the federation provider's `email` mapper, which reads the LDAP `mail` attribute by default. If your directory keeps the address in a different attribute, change that mapper's LDAP attribute to match, as described in [LDAP mappers](https://www.keycloak.org/docs/latest/server_admin/index.html#_ldap_mappers) in the Keycloak documentation. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.

@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-02T13:27:14+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -116,7 +116,7 @@ To set up SSO for your identity provider, you must configure one of these resour
 
 Chainguard reads the standard OIDC `email` claim to populate each user's email address. That address is used for display across the Console and for the [support portal](/get-started/get-support/) handoff; it is not used to authenticate users, grant access, or correlate identities. Even so, several things break without it, so the token your identity provider issues must carry a populated `email` claim — requesting the `email` scope alone isn't enough. Some identity providers store a user's email under a directory attribute, such as the LDAP `mail` attribute, that isn't mapped to the standard `email` claim by default. When that mapping is missing, sign-in still completes, but the identity is created without an email: the user appears in the Console by an internal ID rather than a name, and opening a support request fails.
 
-If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim) and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim) guides for the specifics.
+If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim), [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/#send-a-usable-email-claim), and [Keycloak](/platform/administration/custom-idps/idp-providers/keycloak/#send-a-usable-email-claim) guides for the specifics.
 
 Chainguard currently reads email from the standard `email` claim. Where your provider supports it, also send the `email_verified` companion claim: when it is absent or `false`, Chainguard stores the address as unverified and re-evaluates it on each sign-in. Set `email_verified` to `true` only when the address has actually been verified.
 

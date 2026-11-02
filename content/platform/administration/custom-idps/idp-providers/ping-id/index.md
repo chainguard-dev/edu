@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial on how to create a Ping Identity application"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-02T13:27:14+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -136,3 +136,7 @@ chainctl auth login --identity-provider <idp_id>
 ```
 
 The ID value appears in the `ID` column of the table returned by the `chainctl iam identity-provider create` command you ran previously. You can also retrieve this table at any time by running `chainctl iam identity-provider ls -o table` when logged in.
+
+### Send a usable email claim
+
+Chainguard reads the standard `email` claim from the token PingOne issues for the `email` scope you added earlier. PingOne fills that claim from the user's email address in PingOne, so a user whose PingOne profile has no email address signs in to Chainguard without one. This can happen when users are synchronized from a directory that keeps the address in an attribute that isn't mapped to the PingOne email address. Map the source attribute to each user's PingOne email address, as described in [Mapping attributes](https://docs.pingidentity.com/pingone/directory/p1_editsamlattributemapping.html) in the PingOne documentation. See [Required token claims](/platform/administration/custom-idps/custom-idps/#required-token-claims) for the full requirement.
