@@ -68,5 +68,9 @@
     "@docsearch/js": "^5.1.2",
     "@scalar/api-reference": "^1.76.0",
     "bootstrap-icons": "^1.13.2"
+  },
+  "allowScripts": {
+    "hugo-extended": true,
+    "vue-demi": true
   }
 }
