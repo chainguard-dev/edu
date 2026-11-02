@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-22T12:51:41+00:00
+lastmod: 2026-11-02T15:06:16+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -72,7 +72,7 @@ Installing the app doesn't change your repositories. Chainguard Checks runs only
 
 The `chainctl develop init` command signs you in, creates a free [Starter organization](#what-a-starter-organization-includes) if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
 
-To create an organization, sign in with a Google account, a GitHub account, or an email address and password. A GitLab sign-in can't create one. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub, that's your GitHub account's verified primary email address, and other addresses on the account don't count.
+To create an organization, sign in with a Google account, a GitHub account, a GitLab account, or an email address and password. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub or GitLab, that's the account's verified primary email address, and other addresses on the account don't count.
 
 - With a work email address, the organization is named after your email domain, and you can invite teammates whose addresses are in that domain.
 - With a personal email address, such as a Gmail address, you name the organization yourself, at a prompt or with `--name`, and the name can't contain a dot. The organization's registry and package paths use its ID instead of its name, and it can't invite anyone.
