@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add checks to one of your GitHub repositories, and see them run on a pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:48:15+00:00
+lastmod: 2026-11-02T16:29:06+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -47,7 +47,7 @@ Get a first check passing with the [quick start](#quick-start), or learn each pa
     chainctl develop init
     ```
 
-    The command creates your Chainguard organization, if you don't have one, and turns on Chainguard Checks. When it asks which GitHub account to link, choose the one that owns your repository: press `Enter` for your own user, or enter the organization's name. If the Chainguard App isn't installed on that account, the command offers to open its installation page. To sign in with an email address and password, first run `chainctl config set default.social-login email`.
+    The command creates your Chainguard organization, if you don't have one, and turns on Chainguard Checks. When it asks which GitHub account to link, choose the one that owns your repository: press `Enter` for your own user, or enter the organization's name. If the Chainguard App isn't installed on that account, the command offers to open its installation page. Give the App access to your repository. If you installed it earlier and GitHub shows that it's asking for more permissions, accept them. To sign in with an email address and password, first run `chainctl config set default.social-login email`.
 
 1. **Add a first check**
 
@@ -81,7 +81,7 @@ Get a first check passing with the [quick start](#quick-start), or learn each pa
 
 1. **Read the result**
 
-    On the pull request, wait for the **Chainguard Checks (presubmit)** check to pass, and then select it to read the `hello` check's output.
+    On the pull request, wait for the **Chainguard Checks (presubmit)** check to pass, which can take a minute, and then select it to read the `hello` check's output. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
 
 To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To draft checks from your GitHub Actions workflows, refer to [Draft checks from your workflows](#draft-checks-from-your-workflows).
 {.quick-start-done}
@@ -93,14 +93,16 @@ To replace the first check with your own, refer to [Replace the first check with
 
 If your repository runs GitHub Actions workflows on pull requests, `chainctl checks migrate` can draft checks from them. A repository can't have both `.chainguard/ci.yaml` and `.chainguard/ci/migrated.yaml`, so if you added the quick start's first check, delete `.chainguard/ci.yaml` first.
 
-In the root of your local clone, run the following commands. The second one needs [jq](https://jqlang.org/download/).
+In the root of your local clone, run the following commands. The first creates the directory for the draft, and the second drafts the checks without running anything and saves them as `.chainguard/ci/migrated.yaml`. The second command needs [jq](https://jqlang.org/download/).
 
 ```shell
 mkdir -p .chainguard/ci
 chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
 ```
 
-The draft gives every check no network access, so most drafted checks fail until you add the hosts and packages that each one needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl). Then open a pull request with the file, as in the quick start.
+The command drafts checks only from jobs that run on `pull_request`. If none of your workflows does, the draft has no checks and the command reports `Nothing to migrate`, so keep the quick start's first check instead.
+
+The draft gives every check no network access, so most drafted checks fail until you add the hosts and packages that each one needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl). Then commit the file on a new branch and open a pull request with it, as in the quick start, and Chainguard Checks runs the drafted checks on that pull request.
 
 ## Step-by-step guide {#step-by-step-guide}
 
@@ -160,7 +162,7 @@ Chainguard Checks reads the configuration file from the pull request itself, so 
 
 ### Step 4: Review the results
 
-Open the pull request on GitHub and scroll to its checks. After a few seconds, you'll see the following:
+Open the pull request on GitHub and scroll to its checks. Within about a minute, you'll see the following:
 
 - **Chainguard Checks (presubmit)**, the summary check for the whole run. It's pending while checks run, then passes only if every blocking check passed.
 - **presubmit / ci / hello**, for a check that doesn't pass or that reports errors, warnings, notices, or a summary. A check that passes without reporting anything appears only in the summary check's output.
@@ -171,7 +173,7 @@ If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/check
 
 ### Step 5: Require checks before merging
 
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch.
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 Require only the summary check, not the per-check results. A check that passes without reporting anything, or that a condition skips, never reports a result of its own, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
 
