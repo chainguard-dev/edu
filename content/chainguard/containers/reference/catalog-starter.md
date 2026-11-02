@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-10-29T19:22:07+00:00
+lastmod: 2026-11-02T15:06:16+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -119,7 +119,7 @@ This requires selection of a valid authentication option:
     GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub sign-in must use your GitHub account's verified primary email address, and that address must be a business email address.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in must use the account's verified primary email address, and that address must be a business email address.
 
 ### Request access with `chainctl`
 
@@ -215,11 +215,11 @@ No. Catalog Starter is not a discount instrument for larger deployments. You can
 
 If you know you’ll need more than five images, it’s usually better to start with Catalog Pricing or per-image licensing so you can scale cleanly.
 
-### Can I sign up with Google or GitHub?
+### Can I sign up with Google, GitHub, or GitLab?
 
 You can sign up with a Google account on your company's domain, such as a Google Workspace account. A personal Google account, such as a Gmail address, doesn't qualify, because Catalog Starter requires a business email address.
 
-The Console's sign-up page doesn't offer GitHub. To sign up with GitHub, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). Your GitHub account's verified primary email address must be a business email address.
+The Console's sign-up page doesn't offer GitHub or GitLab. To sign up with either one, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). The account's verified primary email address must be a business email address.
 
 ### What happens if I decide to upgrade to a paid plan?
 
