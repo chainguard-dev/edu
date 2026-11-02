@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-11-02T15:42:40+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -94,7 +94,7 @@ The file accepts only the following keys:
 | `from` | No | A check file directly in `.chainguard/ci/`, such as `.chainguard/ci/go.yaml`, or an environment file in `.chainguard/ci/env/`, such as `.chainguard/ci/env/go.yaml`. It can't name `.chainguard/ci.yaml`, `.chainguard/ci/resources.yaml`, or `.chainguard/ci/identities.yaml`. Sessions take only the file's top-level `environment`, or the environment file that it names. They don't start that environment's `services` or mount its caches other than `gobuild`, as described in [Start with a warm Go build cache](#start-with-a-warm-go-build-cache). |
 | `environment` | Unless you set `from` | Without `from`, the session's environment, in the [same format](/chainguard/checks/configuration/#environment) as a Chainguard Checks file, except that it can't name `services` or any cache other than `gobuild`. With `from`, only `packages` to add and `vars` to set, which replace any variables with the same name. |
 | `resources` | No | The session's size: `cpus`, `memory`, and `disk` together, or a resource class. Refer to [Resources](#resources). |
-| `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. `chainctl` 0.2.382 or earlier refuses this key in a session opened from a local directory. |
+| `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. |
 
 Keep the following in mind when you write the file:
 
