@@ -17,7 +17,7 @@ weight: 65
 
 The `chainctl checks` commands read your pull requests' results from your terminal, start and rerun checks, summarize your checks' history, and validate your configuration. This page lists each command's arguments, flags, exit codes, and JSON output. For examples of the commands in use, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-The generated [`chainctl checks` reference](/platform/chainctl/chainctl-docs/chainctl_checks/) has the help text of the latest `chainctl` release. To read the help for the version you have installed, add `--help` to any command, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If your installation of `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+The generated [`chainctl checks` reference](/platform/chainctl/chainctl-docs/chainctl_checks/) has the help text of the latest `chainctl` release. If this page and the generated reference disagree about a command's flags, the generated reference is right. To read the help for the version you have installed, add `--help` to any command, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If your installation of `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `acme/app#123` for a pull request. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
@@ -469,12 +469,14 @@ If Chainguard Checks would refuse the configuration, the command prints each pro
 Drafts a `.chainguard/ci/migrated.yaml` file from your repository's GitHub Actions workflows that run on `pull_request`. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/) for how to review the draft.
 
 ```
-chainctl checks migrate [PATH] [--dry]
+chainctl checks migrate [PATH] [--dry] [--ref SHA] [--max-proves N] [--parity N]
 ```
 
 `PATH` is a local clone whose `origin` remote is on github.com, the current directory by default. The `--dry` flag drafts the file and prints it, followed by a list of what the draft carried over, flagged, and ignored, without running anything.
 
 Without `--dry`, the command also tests the draft by running its checks in your organization, up to six times. These runs need a role, as described in [Access and organization](#access-and-organization), and use your organization's Checks allowance like any other run. In the first run, each check that has no `egress` list can reach any host by name, so that the command can draft its list. Chainguard Checks still refuses connections to IP addresses, private ranges, and metadata endpoints. During the beta, use `--dry` to avoid these runs.
+
+The test runs use the checkout's `HEAD` commit. To test another commit, pass its full SHA with `--ref`. To limit the number of test runs, pass `--max-proves`. The `--parity` flag replays a passing draft against the last pull requests that merged, but `chainctl` can't read their results on GitHub, so it reports each one as unknown.
 
 For example, to write the draft to its file:
 
