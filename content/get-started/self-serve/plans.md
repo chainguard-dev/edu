@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-03T16:30:40+00:00
+lastmod: 2026-11-03T16:40:38+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -14,7 +14,7 @@ tags: ["Reference"]
 Chainguard offers two self-serve plans, which you can sign up for, use, and upgrade without talking to anyone at Chainguard:
 
 * **Chainguard Starter** is free. It gives a small team access to Chainguard Containers, Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. To start, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
-* **Chainguard Team** is a paid plan for teams that outgrow Starter. It raises the Starter limits, removes the caps on members and CI identities, and includes ticket support. A Starter organization upgrades to Team with `chainctl` and pays by card.
+* **Chainguard Team** is a paid plan for teams that outgrow Starter. It raises the Starter limits, removes the caps on members and CI identities, and includes ticket support. A Starter organization [upgrades to Team](/get-started/self-serve/upgrade-team/) with `chainctl` and pays by card.
 
 Enterprise plans, which cover features such as FIPS images, SSO, and custom policies, are set by contract. To discuss one, [contact Chainguard](https://www.chainguard.dev/contact). For prices, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
 
@@ -29,15 +29,15 @@ The following table lists what each self-serve plan includes:
 | Image swaps | None | 2 per rolling 30 days |
 | Helm charts | Charts for your images | Coming soon |
 | Image egress | 100 GiB a month | 1 TiB a month |
-| Storage | 10 GiB | 50 GiB included, then metered |
+| Storage | 100 GiB | 500 GiB included, then metered |
 | **Chainguard Libraries** | | |
 | Ecosystems | Java, Python, JavaScript, .NET, and Go | Java, Python, JavaScript, .NET, and Go |
 | CVE-remediated versions | Not included | Included |
 | Package pulls | 50,000 a month | 1,000,000 a month |
 | Cooldown period | Fixed at 7 days | 0 to 7 days |
 | **Chainguard Checks and Chainguard Workspaces** | | |
-| Checks compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered |
-| Workspaces compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered |
+| Checks compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered up to 2,000 |
+| Workspaces compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered up to 2,000 |
 | Workspaces sessions | 3 per organization, 1 per member | 3 per organization, 1 per member |
 | **Organization and access** | | |
 | Members | Up to 5, from your email domain | Unlimited |
@@ -58,7 +58,9 @@ For how the Libraries cooldown limits work, refer to [Cooldown limits by plan](/
 A plan limit is either a cap or an included amount:
 
 * **A cap** refuses the next request that would go past it. Work that's already running, such as an image pull, finishes.
-* **An included amount** keeps serving you past the limit and meters the extra usage. On Team, storage and Checks and Workspaces compute are included amounts.
+* **An included amount** keeps serving you past the limit and meters the extra usage. On Team, storage and Checks and Workspaces compute are included amounts. Compute past 2,000 vCPU-hours a month is refused.
+
+A Team organization created with a personal email address, rather than a business email domain, can't go past its included compute. To run more, [buy compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute) in advance.
 
 A refused request returns an error that names your plan, the limit, and what you requested, followed by a link to the pricing page. For example:
 
