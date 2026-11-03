@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-10-13T16:15:35+00:00
+lastmod: 2026-11-03T13:58:15+00:00
 draft: false
 weight: 20
 toc: true
@@ -26,7 +26,7 @@ To add Helm charts to your organization from the Console, complete the following
 1. Optional: If your organization is entitled to FIPS images, select the FIPS option to add FIPS variants where they are available.
 1. Confirm your selection to add the charts and their required images to your organization.
 
-Provisioning runs in the background. The Console shows in-progress and completion states while it adds the charts and images, which can take some time to finish.
+Provisioning runs in the background. The Console shows in-progress and completion states while it adds the charts and images, which can take some time to finish. If a chart doesn't appear, see [Troubleshoot a chart that doesn't appear](#troubleshoot-a-chart-that-doesnt-appear).
 
 ## Add a chart with `chainctl`
 
@@ -55,6 +55,15 @@ chainctl images helm add-chart $CHART --dry-run
 ```
 
 To learn more, use `chainctl images helm add-chart --help` or refer to the [`chainctl` Reference documentation](/platform/chainctl/).
+
+## Troubleshoot a chart that doesn't appear
+
+Provisioning usually finishes without any action from you, but it can take longer than expected for either of these reasons:
+
+- Chainguard is working through a large queue of catalog updates.
+- The chart, or one or more of the images it requires, is waiting for a version update.
+
+While you wait, you can add the chart again from the Console or with `chainctl`. If the chart still hasn't appeared 48 hours after you first added it, [open a support request](/get-started/get-support/) that includes your organization name and the chart name.
 
 ## Per-image pricing customers
 
