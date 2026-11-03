@@ -1840,6 +1840,64 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.Disclosure": {
+        "description": "Disclosure is where a record stands in Chainguard's coordinated disclosure:\nwhether it can be disclosed yet, through which channel, and when.\n\nIt is identical for every recipient of the record: no field here varies by\ncaller. A record with no recorded disclosure is NOT_ELIGIBLE. Fields that\nhave not been set are absent.",
+        "properties": {
+          "credited_vuln_id": {
+            "description": "credited_vuln_id is a CVE or GHSA issued after the disclosure that\ncredits it, set only at DISCLOSED.",
+            "type": "string"
+          },
+          "disclosed_at": {
+            "description": "disclosed_at is when the disclosure happened, set at DISCLOSED.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure.Status"
+              }
+            ],
+            "description": "status is where the record stands."
+          },
+          "target_date": {
+            "description": "target_date is the planned disclosure date, set at SELECTED.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure.Type"
+              }
+            ],
+            "description": "type is the disclosure channel, set from ELIGIBLE onward."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Disclosure.Status": {
+        "default": "STATUS_UNSPECIFIED",
+        "description": "Status is the disclosure state of the record. Values serialize as bare\nwords, such as \"DISCLOSED\".\n\n - NOT_ELIGIBLE: NOT_ELIGIBLE: the record cannot be disclosed yet.\n - ELIGIBLE: ELIGIBLE: the record can be disclosed through the channel in type.\n - SELECTED: SELECTED: a target date has been set.\n - DISCLOSED: DISCLOSED: the disclosure has happened.",
+        "enum": [
+          "STATUS_UNSPECIFIED",
+          "NOT_ELIGIBLE",
+          "ELIGIBLE",
+          "SELECTED",
+          "DISCLOSED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.argos.Disclosure.Type": {
+        "default": "TYPE_UNSPECIFIED",
+        "description": "Type is the disclosure channel.\n\n - AKRITES: AKRITES: disclosed through Akrites, while upstream is still vulnerable.\n - CHAINGUARD: CHAINGUARD: disclosed on chainguard-dev/athena, once fixed upstream.",
+        "enum": [
+          "TYPE_UNSPECIFIED",
+          "AKRITES",
+          "CHAINGUARD"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.argos.DumpOSVMetadata": {
         "description": "DumpOSVMetadata is the first message in a Dump stream, carrying archive\nprovenance. Subsequent messages carry raw tar.gz chunks via DumpOSVResponse.",
         "properties": {
@@ -2452,6 +2510,14 @@
       "chainguard.platform.argos.TopLevelDatabaseSpecific": {
         "description": "TopLevelDatabaseSpecific is the Chainguard-defined content for the OSV-spec\ntop-level database_specific field: a JSON object holding additional\ninformation about the vulnerability as defined by the database from which\nthe record was obtained. Unlike the per-Affected DatabaseSpecific, this\napplies to the whole vulnerability record.",
         "properties": {
+          "disclosure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure"
+              }
+            ],
+            "description": "disclosure is the record's coordinated-disclosure state."
+          },
           "embargo": {
             "allOf": [
               {
@@ -4620,6 +4686,10 @@
             "readOnly": true,
             "type": "boolean"
           },
+          "sessionDuration": {
+            "description": "session_duration is how long a sign-in to the organization lasts: the\nmost time a refresh-token session may run from its login before the\nmember must sign in again. A session whose client rotates its refresh\ntokens (chainctl, MCP clients) stays valid while it is used, up to this\nlength; any other session lasts at most 20 hours. When a session covers\nseveral organizations the shortest length wins.\n\nUnset means Chainguard's default. A value is from 1 hour to 90 days, in\nwhole seconds; anything else is rejected with INVALID_ARGUMENT, zero\nincluded. Naming the field in update_mask with no value clears it back\nto the default. A shorter length applies at its next refresh to an\nexisting session that stays valid while it is used; any other existing\nsession keeps the expiry it was issued with, at most 20 hours. A read\ncan return zero, which only Chainguard sets: the organization's members\nget no refresh tokens at all. See\ndocs/customer-platform/2026-10-29-sliding-refresh-lifetime.md in\nchainguard-dev/mono.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "string"
+          },
           "ssoOnly": {
             "description": "sso_only, when true, makes the organization's own identity provider the\nonly way to sign in to it: sessions established through any other method\n(social sign-in, for example) are refused for this organization. Unset or\nfalse leaves sign-in unrestricted, which is the behaviour of an\norganization that has never configured a policy.\n\nThe field is presence-tracked so that \"never configured\" and \"explicitly\noff\" stay distinguishable, and so that an Update whose mask is implied\nfrom the populated fields can carry an explicit false. Readers must use\nthe SsoOnly pointer field directly, never the generated GetSsoOnly()\naccessor: the accessor returns false for nil and erases that distinction.",
             "type": "boolean"
@@ -6463,6 +6533,14 @@
               }
             ],
             "description": "source indicates how this entitlement was provisioned."
+          },
+          "tiers": {
+            "description": "tiers is the set of serving tiers this entitlement grants, sorted by\nvalue name. It decides which versions are served. A grant with no stored\nset reports the set serving falls back to.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Tier"
+            },
+            "readOnly": true,
+            "type": "array"
           }
         },
         "type": "object"
@@ -8358,7 +8436,7 @@
           },
           "supportedResourceType": {
             "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -8419,7 +8497,7 @@
           },
           "supportedResourceType": {
             "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -19583,6 +19661,10 @@
                     "readOnly": true,
                     "type": "boolean"
                   },
+                  "sessionDuration": {
+                    "description": "session_duration is how long a sign-in to the organization lasts: the\nmost time a refresh-token session may run from its login before the\nmember must sign in again. A session whose client rotates its refresh\ntokens (chainctl, MCP clients) stays valid while it is used, up to this\nlength; any other session lasts at most 20 hours. When a session covers\nseveral organizations the shortest length wins.\n\nUnset means Chainguard's default. A value is from 1 hour to 90 days, in\nwhole seconds; anything else is rejected with INVALID_ARGUMENT, zero\nincluded. Naming the field in update_mask with no value clears it back\nto the default. A shorter length applies at its next refresh to an\nexisting session that stays valid while it is used; any other existing\nsession keeps the expiry it was issued with, at most 20 hours. A read\ncan return zero, which only Chainguard sets: the organization's members\nget no refresh tokens at all. See\ndocs/customer-platform/2026-10-29-sliding-refresh-lifetime.md in\nchainguard-dev/mono.\nprotolint:disable:next MAX_LINE_LENGTH",
+                    "type": "string"
+                  },
                   "ssoOnly": {
                     "description": "sso_only, when true, makes the organization's own identity provider the\nonly way to sign in to it: sessions established through any other method\n(social sign-in, for example) are refused for this organization. Unset or\nfalse leaves sign-in unrestricted, which is the behaviour of an\norganization that has never configured a policy.\n\nThe field is presence-tracked so that \"never configured\" and \"explicitly\noff\" stay distinguishable, and so that an Update whose mask is implied\nfrom the populated fields can carry an explicit false. Readers must use\nthe SsoOnly pointer field directly, never the generated GetSsoOnly()\naccessor: the accessor returns false for nil and erases that distinction.",
                     "type": "boolean"
@@ -30498,7 +30580,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {
@@ -30614,7 +30696,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {

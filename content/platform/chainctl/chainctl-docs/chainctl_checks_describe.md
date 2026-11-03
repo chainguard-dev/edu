@@ -1,5 +1,5 @@
 ---
-date: 2026-10-30T14:11:50Z
+date: 2026-11-02T19:27:54Z
 title: "chainctl checks describe"
 slug: chainctl_checks_describe
 url: /platform/chainctl/chainctl-docs/chainctl_checks_describe/
@@ -24,7 +24,10 @@ It may also be a WorkflowRun outside a Run, by resource name or full id, as a
 repository the platform creates no Runs for has; a WorkflowRun inside a Run
 describes its Run.
 
---steps adds each check's steps. --events adds the Run's recorded events and
+--steps adds each check's steps, and the caches its current attempt mounted:
+whether each was a hit (the pool's or its seed's generation) or a miss, the
+size and age of what it read, and whether its writes were queued to be saved.
+--events adds the Run's recorded events and
 each attempt's timings (queued, waiting for a slot, booting, provisioning,
 running steps), which say where its time went.
 
@@ -51,7 +54,7 @@ chainctl checks describe RUN [--sandbox-url URL] [--parent ORGANIZATION_NAME | O
       --events               Show the Run's recorded events and each attempt's timings.
       --parent string        The organization or folder (name or ID) the Runs are in. Defaults to $CHAINCTL_SANDBOX_GROUP, then the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --sandbox-url string   URL of the sandbox control plane serving the WorkflowRuns API. Overridden by $CHAINCTL_WORKFLOWRUNS_URL. (default "https://workflowruns.chainbox.dev")
-      --steps                Show each check's steps.
+      --steps                Show each check's steps and caches.
       --token string         Bearer token for the sandbox host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
 ```
 

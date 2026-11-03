@@ -863,7 +863,7 @@
             "type": "string"
           },
           "terms": {
-            "description": "What the card will be charged, now and later, as the page states it.\nEmpty for a plan whose terms the page states on its own. An organization\nChainguard approved for monthly billing is told its usage is charged\nmonthly instead of buying a balance.",
+            "description": "What the page tells the buyer above its submit button: for compute, what\nthe card will be charged now and later; for the Team plan, a summary of\nthe plan and its monthly price. Empty when the page states neither. An\norganization Chainguard approved for monthly billing is told its usage is\ncharged monthly instead of buying a balance.",
             "readOnly": true,
             "type": "string"
           },
@@ -2651,6 +2651,19 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2beta1.ListSessionsResponse": {
+        "description": "ListSessionsResponse is the response for ListSessions.",
+        "properties": {
+          "sessions": {
+            "description": "The caller's live sessions, newest create_time first.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.Session"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2beta1.ListTermsAcceptancesResponse": {
         "description": "ListTermsAcceptancesResponse is the response message for ListTermsAcceptances.",
         "properties": {
@@ -2776,6 +2789,29 @@
       },
       "chainguard.platform.iam.v2beta1.RequestGroupAccessResponse": {
         "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.RevokeAllSessionsRequest": {
+        "title": "RevokeAllSessionsRequest is the request for RevokeAllSessions.\nprotolint:disable:next INDENT",
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2beta1.RevokeAllSessionsResponse": {
+        "description": "RevokeAllSessionsResponse is the response for RevokeAllSessions.",
+        "properties": {
+          "identity": {
+            "description": "UID of the caller's identity.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sessionUids": {
+            "description": "UIDs of the sessions revoked.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.v2beta1.RevokeScimTokenResponse": {
@@ -3120,6 +3156,45 @@
           "SERVICE_PRINCIPAL_SANDBOX"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.v2beta1.Session": {
+        "description": "Session is one of the caller's sign-in sessions.",
+        "properties": {
+          "createTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "title": "When the login that began the session happened. Unset for sessions that\nbegan before this was recorded.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "string"
+          },
+          "current": {
+            "description": "Whether the session holds the refresh token named by\nListSessionsRequest.current_token_id.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "expireTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "title": "The latest time the session can be refreshed. An organization's session\nlength can end it earlier.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "string"
+          },
+          "identityProvider": {
+            "description": "UIDP of the customer-managed identity provider the login went through.\nEmpty when the login went through none.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "lastUseTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "title": "When the session's current refresh token was issued, which is when the\nsession was last refreshed, to within an hour. Unset for a session whose\nrefresh tokens do not rotate, whose use is not recorded.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "string"
+          },
+          "uid": {
+            "description": "Identifier of the session: the ID (JTI) of the first refresh token\nissued in it. Not a credential.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.v2beta1.SetScimEnabledResponse": {
         "description": "SetScimEnabledResponse reports the resulting provisioning state.",
@@ -6730,7 +6805,7 @@
             }
           },
           {
-            "description": "Products to report. Empty selects all supported products: IMAGES and\nPLATFORM. Other products return UNIMPLEMENTED until their reads are served.\n\n - PRODUCT_UNSPECIFIED: No product selected.\n - PRODUCT_IMAGES: Container images.\n - PRODUCT_HELM_CHARTS: Helm charts.\n - PRODUCT_LIBRARIES: Language libraries.\n - PRODUCT_PACKAGES: OS packages.\n - PRODUCT_SKILLS: Agent skills.\n - PRODUCT_ACTIONS: Actions.\n - PRODUCT_SANDBOX_CHECKS: Checks compute.\n - PRODUCT_SANDBOX_WORKSPACES: Workspaces compute.\n - PRODUCT_PLATFORM: Organization-wide platform capabilities.",
+            "description": "Products to report. Empty selects IMAGES and PLATFORM, plus configured\nSANDBOX_CHECKS and SANDBOX_WORKSPACES reads. For Starter and Team plans,\nit also includes LIBRARIES when monthly usage and Libraries reads are\nconfigured. Products without a configured read return UNIMPLEMENTED.\n\n - PRODUCT_UNSPECIFIED: No product selected.\n - PRODUCT_IMAGES: Container images.\n - PRODUCT_HELM_CHARTS: Helm charts.\n - PRODUCT_LIBRARIES: Language libraries.\n - PRODUCT_PACKAGES: OS packages.\n - PRODUCT_SKILLS: Agent skills.\n - PRODUCT_ACTIONS: Actions.\n - PRODUCT_SANDBOX_CHECKS: Checks compute.\n - PRODUCT_SANDBOX_WORKSPACES: Workspaces compute.\n - PRODUCT_PLATFORM: Organization-wide platform capabilities.",
             "explode": true,
             "in": "query",
             "name": "products",
@@ -10596,6 +10671,135 @@
         ]
       }
     },
+    "/iam/v2beta1/sessions": {
+      "get": {
+        "description": "ListSessions returns the caller's live sessions, newest first.",
+        "operationId": "SessionsService_ListSessions",
+        "parameters": [
+          {
+            "description": "ID (JTI) of a refresh token the caller holds. The session holding it is\nmarked current.",
+            "in": "query",
+            "name": "currentTokenId",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.ListSessionsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Sessions",
+        "tags": [
+          "SessionsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/sessions/{uid}": {
+      "delete": {
+        "description": "DeleteSession revokes one of the caller's sessions: every refresh token\nin it stops working. An unknown uid is NOT_FOUND.",
+        "operationId": "SessionsService_DeleteSession",
+        "parameters": [
+          {
+            "description": "UID of the session to revoke.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Session",
+        "tags": [
+          "SessionsService"
+        ]
+      }
+    },
+    "/iam/v2beta1/sessions:revokeAllSessions": {
+      "post": {
+        "description": "RevokeAllSessions revokes every one of the caller's sessions, the one\nmaking the call included.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "SessionsService_RevokeAllSessions",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RevokeAllSessionsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.RevokeAllSessionsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Revoke All Sessions",
+        "tags": [
+          "SessionsService"
+        ]
+      }
+    },
     "/iam/v2beta1/terms/{group}": {
       "get": {
         "description": "ListTermsAcceptances returns the legal documents that a group has accepted.",
@@ -14034,7 +14238,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {
@@ -14150,7 +14354,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {
@@ -14890,6 +15094,10 @@
     {
       "description": "ScimUsersService reads the SCIM-provisioned users of an identity provider.",
       "name": "ScimUsersService"
+    },
+    {
+      "description": "SessionsService lists and revokes the caller's own sign-in sessions. A\nsession is one refresh-token family: it begins at an interactive login and\nlasts while its refresh tokens do.\n\nEvery method acts on the identity in the caller's token. There is no\nparent and no way to name another identity, so any authenticated caller\nmay invoke them. Revoking a session stops its refresh tokens; access\ntokens already minted from it stay valid until they expire.",
+      "name": "SessionsService"
     },
     {
       "description": "ArtifactsService provides access to Chainguard Libraries artifact metadata.",

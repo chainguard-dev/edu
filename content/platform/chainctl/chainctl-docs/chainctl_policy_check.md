@@ -1,5 +1,5 @@
 ---
-date: 2026-10-30T14:11:50Z
+date: 2026-11-02T19:27:54Z
 title: "chainctl policy check"
 slug: chainctl_policy_check
 url: /platform/chainctl/chainctl-docs/chainctl_policy_check/
