@@ -4,7 +4,7 @@ linktitle: "Catalog Starter"
 type: "article"
 description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-11-02T15:06:16+00:00
+lastmod: 2026-11-03T16:49:44+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -21,6 +21,8 @@ aliases:
 Chainguard Catalog Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
 
 {{< beta feature="Chainguard Catalog Starter" >}}
+
+Catalog Starter is the Chainguard Containers part of the free Chainguard Starter plan, which also includes Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. For everything Starter includes, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
 To sign up for Catalog Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
 
@@ -89,7 +91,9 @@ Pull tokens expire. The default lifetime is 30 days and the maximum is one year 
 
 ### 3. Upgrade when you’re ready
 
-After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
+After trying out Chainguard Containers with Catalog Starter, you can upgrade to the paid Chainguard Team plan yourself, with `chainctl`. Team raises the Starter limits and lets you swap images. Refer to [Upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/).
+
+For more images or features such as FIPS images, reach out to our sales team about one of Chainguard's other paid plans:
 
 * [Catalog pricing](/chainguard/containers/reference/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
@@ -98,7 +102,7 @@ Moving to a paid plan means moving off Catalog Starter; the free five-image enti
 
 ## Manage Catalog Starter with `chainctl`
 
-As an alternative to the Console, you can sign up for and manage Catalog Starter from the command line with `chainctl`.
+As an alternative to the Console, you can sign up for and manage Catalog Starter from the command line with `chainctl`. For the full sign-up flow, including signing up from a script or a coding agent, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
 
 ### Sign up with `chainctl`
 
@@ -224,7 +228,9 @@ The Console's sign-up page doesn't offer GitHub or GitLab. To sign up with eithe
 
 ### What happens if I decide to upgrade to a paid plan?
 
-When you upgrade:
+If you upgrade to Chainguard Team, your organization keeps its images and members and gets Team's limits. Refer to [What changes when you upgrade](/get-started/self-serve/upgrade-team/#what-changes-when-you-upgrade).
+
+When you upgrade to another paid plan through Chainguard's sales team:
 
 * Your organization moves off the free Catalog Starter plan.
 * You gain access to the broader capabilities of your chosen paid tier (for example, full Catalog Pricing with self-service provisioning and, optionally, FIPS access), as well as Chainguard's full support services and CVE SLA.
