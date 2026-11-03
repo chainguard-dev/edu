@@ -1,7 +1,7 @@
 ---
 title: "Sign up for Chainguard Starter"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-03T16:30:40+00:00
+lastmod: 2026-11-03T17:16:36+00:00
 linktitle: "Sign up for Starter"
 description: "Create a free Chainguard Starter organization with chainctl, add images, and join an existing Starter organization"
 type: "article"
@@ -20,7 +20,7 @@ You need the following:
 * `chainctl` 0.2.394 or later. To install it, refer to [How to install chainctl](/platform/chainctl-usage/how-to-install-chainctl/). To update an existing installation, run `sudo chainctl update`, or `brew upgrade chainctl` if you installed it with Homebrew.
 * A verified email address on one of these accounts: GitHub, GitLab, Google, or an email-and-password account. For GitHub and GitLab, Chainguard uses the account's primary email address.
 
-Use a business email address if you plan to invite colleagues. With a business address, Chainguard names your organization after your email domain, and you can invite people whose addresses are in that domain. A personal email address, such as a Gmail address, creates an organization that isn't tied to any domain.
+Use a business email address if you plan to invite colleagues. With a business address, Chainguard names your organization after your email domain, and you can invite people whose addresses are in that domain. A personal email address, such as a Gmail address, creates an organization that isn't tied to any domain and can't invite anyone until it upgrades to Chainguard Team.
 
 ## Sign up
 
@@ -52,7 +52,7 @@ A Starter organization can hold up to five images. To find image names, browse t
 chainctl starter add-images nginx redis
 ```
 
-Once you add an image, you can't swap it for another one. Any Helm charts that depend on your images are included, and the images a chart needs count toward the five.
+Once you add an image, you can't swap it for another one. To add a Helm chart, use `chainctl images helm add-chart`. Each image the chart needs that your organization doesn't already have uses one of the five slots. Refer to [Self-serve Helm charts](/get-started/self-serve/helm-charts/#chainguard-starter-organizations).
 
 To check whether your images are ready to pull, run `chainctl starter status`. It shows your organization's registry path, how many images you've added, and each image's state. An image shows `INITIALIZING` until it's ready to pull, then `READY`.
 
@@ -102,7 +102,7 @@ chainctl starter init --non-interactive --social-login google \
 
 With `--non-interactive`, the command never prompts. If a required flag is missing, it fails and names the flags it needs. A missing `--email-updates` counts as no. If you sign up with a personal email address, also pass `--name`.
 
-With `--output json`, the command writes progress to standard error and writes one JSON object to standard output. The object includes the outcome, the organization's ID and name, the images it added, the next command to run, and the error, if any.
+With `--output json`, the command writes progress to standard error and writes one JSON object to standard output. The object includes the outcome, the organization's ID and name, the images it added, the next command to run, and the error, if any. If the identity you signed in with already belongs to an organization, the object also includes `organizations`, the organizations it belongs to; `identity`, the email address it signed in with; and `hint`, what to do instead.
 
 The command exits with one of the following codes:
 
@@ -114,7 +114,7 @@ The command exits with one of the following codes:
 | `4` | The identity isn't eligible for a Starter organization. |
 | `5` | The organization couldn't be created. One may already exist for your email domain; run `chainctl starter request-access`. |
 | `6` | Authentication failed. |
-| `7` | The organization was created, but a later step failed, such as adding the `--images`. The JSON's `next` field names the command to run next. |
+| `7` | The organization was created, but a later step failed, such as adding the `--images`. The JSON's `next` field names the command to run next. Pressing Ctrl-C after the organization was created also exits with `7`. |
 | `8` | The browser sign-in wasn't finished within 5 minutes. Run the same command again. |
 
 ## Next steps
