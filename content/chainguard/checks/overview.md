@@ -106,6 +106,8 @@ During the beta, Chainguard Checks has the following limits:
 
 Chainguard counts each check's vCPUs for as long as its VM runs. A check with the [default resources](/chainguard/checks/configuration/#resources) uses 2 vCPU-hours for each hour it runs, and a `medium` check uses 4. Chainguard doesn't show your usage during the beta. When the allowance is used up, Chainguard Checks doesn't start new runs until it resets, and runs already in progress finish. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed) for what a pull request shows then.
 
+On the Chainguard Team plan, the allowance is 1,000 vCPU-hours of Checks each month, and Checks keeps running past it, metered, up to 2,000. For both plans' limits, refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
+
 If your organization arranged access with its Chainguard account team, its allowance and limits can differ.
 
 ## Get help

@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-11-03T13:58:15+00:00
+lastmod: 2026-11-03T16:49:44+00:00
 draft: false
 weight: 20
 toc: true
@@ -13,7 +13,7 @@ toc: true
 Catalog customers can provision Chainguard Helm charts, along with the container images each chart depends on, directly from the Chainguard Console. This replaces the previous manual request process, which required coordination with Chainguard sales, customer success, and support and could take 1 to 4 days.
 
 {{< note >}}
-This capability is available to Catalog customers whose plan includes the APPLICATION tier. It does not apply to the free [Catalog Starter](/chainguard/containers/reference/catalog-starter/) plan. Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
+This capability is available to Catalog customers whose plan includes the APPLICATION tier. Chainguard Starter organizations add charts with `chainctl`, as described in [Chainguard Starter organizations](#chainguard-starter-organizations). Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
 {{< /note >}}
 
 ## Add a chart in the Chainguard Console
@@ -64,6 +64,15 @@ Provisioning usually finishes without any action from you, but it can take longe
 - The chart, or one or more of the images it requires, is waiting for a version update.
 
 While you wait, you can add the chart again from the Console or with `chainctl`. If the chart still hasn't appeared 48 hours after you first added it, [open a support request](/get-started/get-support/) that includes your organization name and the chart name.
+
+## Chainguard Starter organizations
+
+A [Chainguard Starter](/get-started/self-serve/plans/) organization can add a chart with `chainctl images helm add-chart`, as described in [Add a chart with `chainctl`](#add-a-chart-with-chainctl). Each image the chart depends on that your organization doesn't already have uses one of its five image slots. To see which images a chart would add before you use any slots, run the command with `--dry-run` first.
+
+A chart is refused in the following cases:
+
+* The chart needs more images than your organization has slots left. The error includes a link to upgrade.
+* The chart's metadata lists no image dependencies. The error reports an entitlement problem, even though the cause is the chart's metadata.
 
 ## Per-image pricing customers
 
