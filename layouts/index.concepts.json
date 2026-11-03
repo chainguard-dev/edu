@@ -16,7 +16,7 @@
     {
       "name": {{ $tag | jsonify }},
       "slug": {{ $tag | urlize | jsonify }},
-      "url": {{ printf "/tags/%s/" ($tag | urlize) | absURL | jsonify }},
+      "url": {{ printf "tags/%s/" ($tag | urlize) | absURL | jsonify }},
       "pageCount": {{ len $pages }},
       "relatedConcepts": [
         {{- $related := slice -}}

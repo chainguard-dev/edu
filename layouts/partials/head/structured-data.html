@@ -45,7 +45,7 @@
         "logo": {
           "@type": "ImageObject",
           "@id": {{ print $baseURL "#/schema/image/1"}},
-          "url": {{ print $baseURL .Site.Params.schemaLogo }},
+          "url": {{ .Site.Params.schemaLogo | absURL }},
           "width": {{ .Site.Params.schemaLogoWidth }},
           "height": {{ .Site.Params.schemaLogoHeight }},
           "caption": "{{ .Site.Params.schemaName }}"
@@ -57,7 +57,7 @@
         "image": {
           "@type": "ImageObject",
           "@id": {{ print $baseURL "#/schema/image/1"}},
-          "url": {{ print $baseURL .Site.Params.schemaImage }},
+          "url": {{ .Site.Params.schemaImage | absURL }},
           "width": {{ .Site.Params.schemaImageWidth }},
           "height": {{ .Site.Params.schemaImageHeight }},
           "caption": "{{ .Site.Params.schemaName }}"
