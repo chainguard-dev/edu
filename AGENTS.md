@@ -1,6 +1,6 @@
 # Instructions for AI agents
 
-These instructions apply to any AI agent working in the Chainguard Academy
+These instructions apply to any AI agent working in the Chainguard Docs
 docs repository. Codex, Cursor, and GitHub Copilot read this file directly.
 Claude Code reads it through `CLAUDE.md`, and Gemini CLI through `GEMINI.md`.
 

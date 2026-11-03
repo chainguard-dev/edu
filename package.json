@@ -1,6 +1,6 @@
 {
-  "name": "chainguard-academy-theme",
-  "description": "Chainguard Academy",
+  "name": "chainguard-docs-theme",
+  "description": "Chainguard Docs",
   "version": "0.4.3",
   "engines": {
     "node": ">=22"
