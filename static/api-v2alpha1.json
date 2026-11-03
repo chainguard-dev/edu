@@ -161,7 +161,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {
@@ -277,7 +277,7 @@
             }
           },
           {
-            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.",
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
             "in": "query",
             "name": "refreshTokenRotation",
             "schema": {

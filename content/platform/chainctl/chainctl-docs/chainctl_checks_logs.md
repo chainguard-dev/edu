@@ -1,5 +1,5 @@
 ---
-date: 2026-10-30T14:11:50Z
+date: 2026-11-02T19:27:54Z
 title: "chainctl checks logs"
 slug: chainctl_checks_logs
 url: /platform/chainctl/chainctl-docs/chainctl_checks_logs/
@@ -27,7 +27,7 @@ The bounded views read a part of one check's log, and need --check:
 
   --errors       the lines the control plane's log parser names as errors (::error commands, and error-level JSON, logfmt and prefixed lines), with -C lines around each. When it names none, the log's last 30 lines, saying so.
   --grep RE      the lines matching the RE2 expression RE, with -C lines around each, reading at most 64 MiB.
-  --tail N       the last N lines. The API reads a log only forward, so this reads the whole log.
+  --tail N       the last N lines. A finished check's log is read from its end; a running check's is read whole.
   --offset BYTES [--limit-bytes N]
                  exactly the N bytes (64 KiB by default) from byte BYTES.
 
@@ -76,7 +76,7 @@ chainctl checks logs [REF] [--check CHECK [--workflow WORKFLOW]] [--follow] [--a
       --parent string        The organization or folder (name or ID) the Runs are in. Defaults to $CHAINCTL_SANDBOX_GROUP, then the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --raw                  Write the repository's and the guest's text as raw bytes, escape sequences included, even to a terminal. Output that is not a terminal is always raw.
       --sandbox-url string   URL of the sandbox control plane serving the WorkflowRuns API. Overridden by $CHAINCTL_WORKFLOWRUNS_URL. (default "https://workflowruns.chainbox.dev")
-      --tail int             Show only the log's last N lines, as many of them as fit in 16 KiB. Needs --check.
+      --tail int             Show only the log's last N lines, as many of them as fit in 16 KiB, read from the end of a finished check's log. Needs --check.
       --token string         Bearer token for the sandbox host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
       --workflow string      The workflow the check is in, when two workflows have a check of that name.
 ```
