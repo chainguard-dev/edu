@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T17:00:59+00:00
+lastmod: 2026-11-04T18:36:54+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -63,21 +63,22 @@ The summary check's title says how the run ended:
 | **N of M blocking check(s) failed** | At least one blocking check failed. N also counts blocking checks that couldn't be executed. If no check is advisory, the title leaves out "blocking". |
 | **N check(s) could not be executed** | No blocking check failed, but at least one couldn't run to the end. |
 
-The output starts with a **checks dashboard** link to the run page, the merge commit the run tested, and how many checks passed. It also shows a diagram of the checks, with how long each took. It then lists how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
+The output starts with a **checks dashboard** link to the run page and a **Tested:** line with the commits the run tested. It then says how many checks passed, including how many results came from the cache, and how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
 
-Then a table lists each check with its outcome, a class for a check that failed or couldn't be executed, and the exit code of a check that failed. A check with `foreach` has one row, plus a row for each variation that didn't pass. The table shows up to 50 rows, and an advisory check's outcome ends with `(advisory)`.
+If a blocking check failed or couldn't be executed, a callout names it next. Then tables list the checks, grouped by result. The failed checks' table is open, and each other group, such as the passed checks, is collapsed until you expand it. Each table has **Workflow**, **Job**, and **Result** columns, where **Workflow** is the name of the check's file without `.yaml`, such as `ci`. A check with `foreach` has one row, plus a row for each variation that didn't pass. For a run with 50 or fewer checks that ran, a diagram after any failed checks shows each check, with how long it took.
 
-| Outcome | Class | What it means |
-| ------- | ----- | ------------- |
-| `PASSED` | | The check passed. |
-| `FAILED` | `CHECK` | A command exited with a nonzero code, shown under **Exit code**. |
-| `FAILED` | `POLICY` | The check has `policy: destroy` and tried to reach a host it doesn't list, so Chainguard Checks stopped its VM. The check fails even if its commands would have succeeded. |
-| `ERRORED` | `TIMEOUT` | The check ran longer than its `timeout`. |
-| `ERRORED` | `INFRA` | Something else kept the check from finishing, such as packages that can't be installed together, a workload identity that the pull request doesn't get, or a VM that kept failing after [automatic retries](#automatic-retries). |
-| `DEPENDENCY_FAILED` | | A check that it `needs` didn't pass, so it didn't run. |
-| `NOT_INSTANTIATED` | | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
+| Result | What it means |
+| ------ | ------------- |
+| `passed` | The check passed. |
+| `failed` | A command exited with a nonzero code. The check's own GitHub check, titled **Failed (exit N)**, gives the exit code. A check with `policy: destroy` also fails when it tries to reach a host it doesn't list, because Chainguard Checks stops its VM, even if its commands would have succeeded. |
+| `errored` | The check couldn't run to the end. It ran longer than its `timeout`, or something else stopped it, such as packages that can't be installed together, a workload identity that the pull request doesn't get, or a VM that kept failing after [automatic retries](#automatic-retries). |
+| `cancelled` | The run was cancelled before the check finished. |
+| `skipped: a dependency failed` | A check that it `needs` didn't pass, so it didn't run. |
+| `skipped: nothing to run` | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
 
-For each check that couldn't be executed, the reason appears under **Errors:** after the table, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
+An advisory check's result ends with `(advisory)`. If it didn't pass, its row is marked with a warning sign instead of a failure, and the callout leaves it out. If the tables don't fit in the summary, it leaves out passed and skipped checks first, and then says how many checks it left out, with a link to the run page.
+
+For each check that couldn't be executed, the reason appears under **Errors:** after the tables, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
 
 ## Read results with the GitHub API {#read-results-with-the-github-api}
 
@@ -99,11 +100,11 @@ A result can go out of date, so get the head commit's SHA and read the summary c
 - A rerun, a `ci/run:` label, or a [change to the pull request](#reruns-when-a-pull-request-changes) can start a new run on the same commit, and the summary check goes back to `queued` or `in_progress`.
 - A push moves the pull request to a new head commit. Chainguard Checks cancels the earlier commit's run, and that commit's summary check can stay `queued` or `in_progress` indefinitely.
 
-To see which of your checks failed, read their own check runs. Each check gets one when it finishes:
+To see which of your checks failed, read their own check runs. A check gets one when it finishes, unless it passed without reporting anything or wasn't instantiated:
 
 | Outcome | Check run's conclusion |
 | ------- | ---------------------- |
-| `PASSED` | `success` |
+| `PASSED` | `success`, for a check that reported something |
 | `FAILED` | `failure` |
 | `ERRORED` | `failure` |
 | `DEPENDENCY_FAILED` | `skipped` |
@@ -113,11 +114,11 @@ An advisory check gets the same conclusion as a blocking check with the same out
 
 Decide whether a pull request passes from the summary check alone, not from the per-check results:
 
-- Some checks have no check run: checks that weren't instantiated, checks that haven't finished, and checks that never will because the run ended early, such as when the summary check fails with **Run failed**. A run that can't start, such as when the summary check fails with **Run creation failed**, reports no per-check results at all.
+- Some checks have no check run: checks that passed without reporting anything, checks that weren't instantiated, checks that haven't finished, and checks that never will because the run ended early, such as when the summary check fails with **Run failed**. A run that can't start, such as when the summary check fails with **Run creation failed**, reports no per-check results at all.
 - A failed advisory check shows `failure` while the summary check passes.
 - A check run from an earlier run on the same commit can remain. The API returns it until the new run reports that check, and keeps returning it if the new run never does, such as when the check isn't instantiated this time or the new run can't start.
 
-Only the summary check always reflects the latest run, but its table shows up to 50 rows. With a role in your Chainguard organization, `chainctl checks status` shows every check's result, as described in [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). For the API's parameters and fields, refer to GitHub's [REST API endpoints for check runs](https://docs.github.com/en/rest/checks/runs).
+Only the summary check always reflects the latest run, but if a run has too many checks to list, the summary leaves some of them out. With a role in your Chainguard organization, `chainctl checks status` shows every check's result, as described in [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). For the API's parameters and fields, refer to GitHub's [REST API endpoints for check runs](https://docs.github.com/en/rest/checks/runs).
 
 ## Require checks before merging {#require-checks-before-merging}
 
