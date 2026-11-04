@@ -16,7 +16,7 @@ toc: true
 weight: 10
 ---
 
-Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports the results on the pull request's **Checks** tab on GitHub, beside any other checks the repository runs. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, which [`chainctl checks migrate`](/chainguard/checks/migrate-from-github-actions/) can draft for you.
+Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports the results on the pull request's **Checks** tab on GitHub, beside any other checks the repository runs. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/).
 
 A *check* is one command or script that you name in that file. On every pull request, Chainguard Checks runs each check in its own *microVM*: a small virtual machine, built on Chainguard OS, that starts fresh for that check.
 

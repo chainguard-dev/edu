@@ -83,26 +83,11 @@ Get a first check passing with the [quick start](#quick-start), or learn each pa
 
     On the pull request's **Checks** tab, wait for **Chainguard Checks (presubmit)** to appear and pass, which usually takes less than a minute. It's the only check that Chainguard Checks adds for this file, because a check that passes without reporting anything gets no GitHub check of its own. Select it to see the run's summary: its title reads **All 1 check(s) passed**, and its table lists `hello` as passed. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
 
-To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To draft checks from your GitHub Actions workflows, refer to [Draft checks from your workflows](#draft-checks-from-your-workflows).
+To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To move checks from your GitHub Actions workflows, refer to [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/).
 {.quick-start-done}
 {{% /quickstart %}}
 
 {{< beta feature="Chainguard Checks" access="organizations that turn it on with `chainctl develop init`, which comes with a free monthly compute allowance, or that arrange access with their Chainguard account team" >}}
-
-## Draft checks from your workflows {#draft-checks-from-your-workflows}
-
-If your repository runs GitHub Actions workflows on pull requests, `chainctl checks migrate` can draft checks from them. A repository can't have both `.chainguard/ci.yaml` and `.chainguard/ci/migrated.yaml`, so if you added the quick start's first check, delete `.chainguard/ci.yaml` first.
-
-In the root of your local clone, run the following commands. The first creates the directory for the draft, and the second drafts the checks without running anything and saves them as `.chainguard/ci/migrated.yaml`. The second command needs [jq](https://jqlang.org/download/).
-
-```shell
-mkdir -p .chainguard/ci
-chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
-```
-
-The command drafts checks only from jobs that run on `pull_request`. If none of your workflows does, the draft has no checks and the command reports `Nothing to migrate`, so keep the quick start's first check instead.
-
-The draft gives every check no network access, so most drafted checks fail until you add the hosts and packages that each one needs, as described in [Migrate from GitHub Actions](/chainguard/checks/migrate-from-github-actions/#draft-a-configuration-with-chainctl). Then commit the file on a new branch and open a pull request with it, as in the quick start, and Chainguard Checks runs the drafted checks on that pull request.
 
 ## Step-by-step guide {#step-by-step-guide}
 
