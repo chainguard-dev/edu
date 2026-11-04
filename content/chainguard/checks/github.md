@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T16:29:33+00:00
+lastmod: 2026-11-04T17:00:59+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -63,7 +63,7 @@ The summary check's title says how the run ended:
 | **N of M blocking check(s) failed** | At least one blocking check failed. N also counts blocking checks that couldn't be executed. If no check is advisory, the title leaves out "blocking". |
 | **N check(s) could not be executed** | No blocking check failed, but at least one couldn't run to the end. |
 
-The output starts with the merge commit the run tested and how many checks passed. It then lists how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
+The output starts with a **checks dashboard** link to the run page, the merge commit the run tested, and how many checks passed. It also shows a diagram of the checks, with how long each took. It then lists how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
 
 Then a table lists each check with its outcome, a class for a check that failed or couldn't be executed, and the exit code of a check that failed. A check with `foreach` has one row, plus a row for each variation that didn't pass. The table shows up to 50 rows, and an advisory check's outcome ends with `(advisory)`.
 
