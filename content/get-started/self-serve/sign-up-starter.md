@@ -1,7 +1,7 @@
 ---
 title: "Sign up for Chainguard Starter"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-03T17:16:36+00:00
+lastmod: 2026-11-04T14:25:09+00:00
 linktitle: "Sign up for Starter"
 description: "Create a free Chainguard Starter organization with chainctl, add images, and join an existing Starter organization"
 type: "article"
@@ -32,8 +32,9 @@ To create a Starter organization, complete the following steps:
     chainctl starter init
     ```
 
-1. Choose an identity provider from the menu, and finish signing in in the browser window that opens.
-1. Answer the questions about your name, company, job title, and whether you want updates from Chainguard.
+1. Choose an identity provider from the menu. `chainctl` offers to save your choice, so you aren't asked again next time.
+1. Sign in using the browser window that opens. You have 5 minutes to finish.
+1. Answer the questions about your name, company, job title, and whether you want updates from Chainguard. Before the questions, `chainctl` prints the terms and privacy notice that you agree to by continuing.
 1. If you signed in with a personal email address, enter a name for your organization. The name can't look like a domain name.
 
 `chainctl` creates your organization and prints its name and ID. Chainguard then sets up the organization's access to images, which usually takes a few minutes.
@@ -46,13 +47,13 @@ chainctl starter init --social-login github --images nginx,redis
 
 ## Add images
 
-A Starter organization can hold up to five images. To find image names, browse the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add images after you sign up, run `chainctl starter add-images` with one or more image names:
+A Starter organization can hold up to five images. To find image names, browse the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add images after you sign up, run `chainctl starter add-images` with one or more image names, or add them in the [Chainguard Console](https://console.chainguard.dev):
 
 ```shell
 chainctl starter add-images nginx redis
 ```
 
-Once you add an image, you can't swap it for another one. To add a Helm chart, use `chainctl images helm add-chart`. Each image the chart needs that your organization doesn't already have uses one of the five slots. Refer to [Self-serve Helm charts](/get-started/self-serve/helm-charts/#chainguard-starter-organizations).
+Once you add an image, you can't swap it for another one. When all five slots are used, `chainctl starter status` says so and links to a page for contacting Chainguard about more images. To add a Helm chart, use `chainctl images helm add-chart`. Each image the chart needs that your organization doesn't already have uses one of the five slots. Refer to [Self-serve Helm charts](/get-started/self-serve/helm-charts/#chainguard-starter-organizations).
 
 To check whether your images are ready to pull, run `chainctl starter status`. It shows your organization's registry path, how many images you've added, and each image's state. An image shows `INITIALIZING` until it's ready to pull, then `READY`.
 
