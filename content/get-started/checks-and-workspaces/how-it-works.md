@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-10-22T14:48:15+00:00
+lastmod: 2026-11-04T13:54:31+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -67,16 +67,28 @@ Both products use the same `network.egress` allowlist, but they read a missing `
 | -- | -- | -- |
 | No `network` key | No network access | The open internet |
 | `network.egress` lists hosts | Only those hosts | Only those hosts, when you open the session on that check |
-| `network.egress: ["*"]` | Any public host | Any public host |
+| `network.egress: ["*"]` | Any public hostname | Any public hostname |
 | `policy: destroy` | A connection to an unlisted host stops the VM, and the check fails | Treated as `deny`: the connection is refused, and the session keeps running |
 
 A session that uses the default environment, a `.chainguard/develop.yaml` file, or a file's top-level `environment` reaches the open internet, because none of these can set `network`. To restrict a session, open it on a check that has an `egress` list. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access).
 
-Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges. Chainguard Checks also intercepts most HTTPS connections from a check, using a certificate authority that it creates for that check's VM alone, as described in [Network access](/chainguard/checks/configuration/#network-access).
+Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+Checks and sessions handle HTTPS the same way. Each VM gets a certificate authority of its own when it starts, and the VM's system certificate bundle trusts it. A session keeps its certificate authority when it resumes after parking. Chainguard intercepts connections to ports 80 and 443, so that it can verify each host's certificate itself and add credentials outside the VM, and it presents the VM with certificates from that certificate authority. It never presents its own certificate for a host whose certificate didn't verify. Connections to other TCP ports pass through without interception, and UDP traffic other than DNS is blocked. For the cases where a check sees the host's own certificate, refer to [Network access](/chainguard/checks/configuration/#network-access).
 
 The `egress` list doesn't apply to a session's credential hostnames, such as `http://github/` and `http://claude/`, so a session with a narrow list can still push to GitHub and use Claude Code. Google Cloud is different, because its requests go to Google's own hosts: a check that uses a Google Cloud workload identity, and a session that uses your Google Cloud credentials with an `egress` list, must list `sts.googleapis.com` and the Google APIs they call.
 
 To see which hosts a check tried to reach, and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link on GitHub. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+
+### How egress matches a host {#how-egress-matches-a-host}
+
+Chainguard applies an `egress` list when the VM looks up a name and when it opens a connection:
+
+- A hostname or wildcard allows the addresses that the name resolves to.
+- To connect to an IP address without looking up a name, list the address or a CIDR range that contains it. A `*` entry allows every name, but not a connection made straight to an IP address.
+- A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
+
+Because the list allows addresses, a check or session can reach any service that shares an address with an allowed name, such as another site behind the same CDN. Keep that in mind when you decide which names to allow.
 
 ## Trust {#trust}
 

@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:51:44+00:00
+lastmod: 2026-11-04T13:54:31+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -283,9 +283,9 @@ checks:
 Each entry in `egress` can be one of the following:
 
 - A hostname, such as `registry.npmjs.org`, in lowercase and without a scheme or port.
-- A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard can't cover a whole top-level domain, such as `*.com`.
-- An IPv4 address or CIDR range. IPv6 isn't supported.
-- `*`, which allows any host.
+- A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
+- An IPv4 address or CIDR range. IPv6 isn't supported. A check that connects to an IP address without looking up a name needs one of these.
+- `*`, which allows any hostname, but not a connection made straight to an IP address.
 
 An entry with a scheme or a port, such as `https://registry.npmjs.org` or `registry.npmjs.org:443`, passes validation but matches nothing. If you include a `network` key, `egress` must list at least one entry. To keep a check off the network, leave out `network` entirely.
 
@@ -297,6 +297,8 @@ The `policy` key controls what happens when the check tries to reach a host that
 | `destroy` | Chainguard Checks stops the check's VM, and the check fails. |
 
 Whatever a check allows, it can never reach cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+A hostname in `egress` allows the addresses that it resolves to, so a check can also reach other services at those addresses, such as sites behind the same CDN. Refer to [How egress matches a host](/get-started/checks-and-workspaces/how-it-works/#how-egress-matches-a-host).
 
 When a check with network access makes an HTTPS request, Chainguard Checks verifies the host's own certificate, then presents the check with a certificate signed by a certificate authority that it creates for that check's VM alone. Chainguard Checks doesn't replace the host's certificate in the following cases:
 

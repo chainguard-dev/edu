@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T15:42:40+00:00
+lastmod: 2026-11-04T13:54:31+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -211,6 +211,10 @@ A session's network access depends on its environment:
 That's different from Chainguard Checks, where a check with no `network` key has no network access at all. In a session, only an `egress` list restricts the network.
 
 A session never reaches cloud metadata endpoints, loopback addresses, or private IP ranges, whatever its environment allows.
+
+An `egress` list allows the addresses that its hostnames resolve to, so a session can also reach other services at those addresses, such as sites behind the same CDN. Refer to [How egress matches a host](/get-started/checks-and-workspaces/how-it-works/#how-egress-matches-a-host).
+
+Like a check, a session intercepts HTTPS connections, with a certificate authority that Chainguard creates for the session's VM and keeps when the session resumes. The VM's system certificate bundle, `/etc/ssl/certs/ca-certificates.crt`, trusts that certificate authority, and the session sets `SSL_CERT_FILE`, `REQUESTS_CA_BUNDLE`, `PIP_CERT`, `CURL_CA_BUNDLE`, `NODE_EXTRA_CA_CERTS`, and `HEX_CACERTS_PATH` to the bundle, so most tools work without changes. A tool that keeps its own list of trusted certificates and doesn't read these variables rejects the intercepted connections with a certificate error. Point it at the system bundle. Refer to [Network](/get-started/checks-and-workspaces/how-it-works/#network).
 
 When a session tries to reach a host outside its `egress` list, Chainguard refuses the connection and the session keeps running. A check can declare `policy: destroy` to stop its VM on a refused connection instead, but in a session, `destroy` is treated as `deny`.
 
