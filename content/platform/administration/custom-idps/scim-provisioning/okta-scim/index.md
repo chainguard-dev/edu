@@ -23,13 +23,13 @@ To complete this guide, you need the following:
 * Okta already configured for login to Chainguard through an OIDC app integration. If you haven't set that up yet, refer to our guide on [How to integrate Okta SSO with Chainguard](/platform/administration/custom-idps/idp-providers/okta/).
 * The [prerequisites for SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/#prerequisites): an IAM role that can manage identity providers, at least one owner who can sign in and holds the owner role directly, and an authenticated `chainctl`.
 
-The rest of this guide refers to your identity provider by its UIDP, stored in the `IDENTITY_PROVIDER` environment variable:
+The rest of this guide refers to your identity provider by its ID, stored in the `IDENTITY_PROVIDER` environment variable:
 
 ```sh
 export IDENTITY_PROVIDER=$(chainctl iam identity-providers list -o json | jq -r '.items[0].id')
 ```
 
-Organizations generally have one identity provider, so the list usually holds a single entry and the `.items[0].id` filter selects it. If the list holds more than one — because you belong to several organizations, or your organization has several providers — run `chainctl iam identity-providers list` on its own and set `IDENTITY_PROVIDER` to the UIDP of the provider you are configuring.
+Organizations generally have one identity provider, so the list usually holds a single entry and the `.items[0].id` filter selects it. If the list holds more than one — because you belong to several organizations, or your organization has several providers — run `chainctl iam identity-providers list` on its own and set `IDENTITY_PROVIDER` to the ID of the provider you are configuring.
 
 ## Step 1: Enable provisioning and generate the SCIM token
 
@@ -107,7 +107,7 @@ You manage these bindings from Okta. To change who holds a role, change the grou
 
 ### Map the group to a role
 
-Store your organization's UIDP in the `ORGANIZATION` variable:
+Store your organization's ID in the `ORGANIZATION` variable:
 
 ```sh
 export ORGANIZATION=$(chainctl iam organizations list -o json | jq -r '.items[0].id')
