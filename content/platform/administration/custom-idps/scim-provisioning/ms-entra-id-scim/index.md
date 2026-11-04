@@ -158,7 +158,7 @@ curl -s -H "Authorization: Bearer <scim_token>" "<scim_base_url>/Users?count=5"
 
 Then have that user log in at [console.chainguard.dev](https://console.chainguard.dev). They enter your organization name in the **Email or organization** box and click **Continue**, and the Console detects your organization's identity provider and sends them to Entra ID to sign in. The first login must go through this browser flow for linking to complete.
 
-The user is now linked but holds no role in your organization, so the Console asks them to join an organization. To grant roles, follow [Push groups to grant roles](#push-groups-to-grant-roles) or [Grant roles from the groups claim](#grant-roles-from-the-groups-claim).
+The user is now linked but holds no role in your organization, so the Console asks them to join an organization. To grant roles, follow [Push groups to grant roles](#push-groups-to-grant-roles).
 
 ## Push groups to grant roles
 
@@ -199,7 +199,7 @@ chainctl iam external-group-role-mappings create \
   --idp $IDP
 ```
 
-You can map only a role you hold yourself. Chainguard never grants `owner` or `support` through SCIM: it accepts a mapping to either role, but the mapping grants no access.
+You can map only a role you hold yourself. Chainguard accepts a mapping to `owner` or `support`, but it never creates a binding for either role through SCIM.
 
 ### Assign and provision the group
 
@@ -224,7 +224,7 @@ Chainguard creates a member's role binding only after that member has logged in 
 Have a member of the group log in to Chainguard through Entra ID, then list the role bindings in your organization:
 
 ```sh
-chainctl iam role-bindings list --parent $ORGANIZATION
+chainctl iam role-bindings list --parent $ORGANIZATION -o table
 ```
 
 The output includes a binding with the mapped role and `SCIM` in the **MANAGED BY** column. The binding's **NAME / EMAIL** column is empty, so identify the member by their identity ID instead. To look up that ID, replace `<user_principal_name>` with the member's user principal name:
@@ -246,9 +246,11 @@ To stop granting roles from a group, remove the group from the SCIM enterprise a
 
 Removing the group also takes its members out of provisioning scope, unless they're assigned to the application another way, so Entra ID deactivates their Chainguard users too.
 
+If the groups claim from your SSO application also carries the group, members who still hold another role in your organization get the mapped role back at each login, because claim-based roles use the same mapping. To revoke the role fully, also [delete the group's mapping](/platform/administration/custom-idps/grant-roles-from-groups/#manage-access).
+
 ## Grant roles from the groups claim
 
-You can also grant Chainguard roles from the groups claim in the login token, with or without SCIM. Chainguard grants these roles per session at login, and they don't appear in `chainctl iam role-bindings list`. To set this up, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
+You can also grant Chainguard roles from the groups claim in the login token. Chainguard applies these mappings only to a user who already holds a role in your organization, for example from a pushed group. Because enabling SCIM clears the default role, the groups claim alone doesn't give a newly linked user access. Chainguard grants these roles per session at login, and they don't appear in `chainctl iam role-bindings list`. To set this up, follow [Grant Chainguard roles from identity provider groups](/platform/administration/custom-idps/grant-roles-from-groups/).
 
 Group membership reaches Chainguard only in tokens issued for the SSO application you registered in [Register the Entra ID application for SSO](#register-the-entra-id-application-for-sso), not the SCIM enterprise application. Assigning a group to the SCIM application provisions its members but doesn't add the group to their login tokens. If you limit the groups claim to groups assigned to the application, assign each mapped group to the SSO application as well. For the full list of Entra ID settings, refer to [Microsoft Entra ID](/platform/administration/custom-idps/grant-roles-from-groups/#microsoft-entra-id) in the group mapping guide.
 

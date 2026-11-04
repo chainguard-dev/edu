@@ -16,7 +16,7 @@ System for Cross-domain Identity Management (SCIM) is an open standard for autom
 
 Chainguard's SCIM provisioning manages accounts, and it can also grant roles. Okta and Microsoft Entra ID can both push groups over SCIM, and Chainguard grants the roles you've mapped to each group as role bindings for its members. To set this up, refer to "Push groups to grant roles" in the [Okta guide](/platform/administration/custom-idps/scim-provisioning/okta-scim/#step-5-push-groups-to-grant-roles) or the [Entra ID guide](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/#push-groups-to-grant-roles).
 
-You can also grant roles from the groups claim in your IdP's login token, using [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/). Group mappings work with or without SCIM.
+You can also grant roles from the groups claim in your IdP's login token, using [group mappings](/platform/administration/custom-idps/grant-roles-from-groups/). Chainguard applies these mappings only to a user who already holds a role in your organization. Enabling SCIM clears the identity provider's default role, so with SCIM, a newly provisioned user needs a role from a pushed group before the groups claim takes effect.
 
 This page explains how provisioning behaves and how to manage the connection over its lifetime. To connect a specific identity provider, follow its guide:
 

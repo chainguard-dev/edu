@@ -95,7 +95,9 @@ With the integration saved, select **To App** in the **Provisioning** tab, click
 
 ## Step 4: Assign users and verify
 
-In Okta, assign a user to the provisioning app integration you created in Step 2. Okta provisions them immediately. Have that user log in to Chainguard through Okta and confirm they have access. A provisioned user connects to their login by matching the SCIM `externalId` against the login token's subject; with Okta, both default to the Okta user ID, so they align without configuration.
+In Okta, assign a user to the provisioning app integration you created in Step 2. Okta provisions them immediately. Have that user log in to Chainguard through Okta. A provisioned user connects to their login by matching the SCIM `externalId` against the login token's subject; with Okta, both default to the Okta user ID, so they align without configuration.
+
+The user is now linked but holds no role in your organization, so the Console asks them to join an organization. To grant roles, follow [Step 5: Push groups to grant roles](#step-5-push-groups-to-grant-roles).
 
 To confirm the rest of the lifecycle, deactivate that user in Okta or remove their assignment, and confirm that Chainguard refuses their next login. Then reactivate them and confirm that they can log in again.
 
@@ -125,7 +127,7 @@ chainctl iam external-group-role-mappings create \
   --idp $IDENTITY_PROVIDER
 ```
 
-You can map only a role you hold yourself. Chainguard never grants `owner` or `support` through SCIM: it accepts a mapping to either role, but the mapping grants no access.
+You can map only a role you hold yourself. Chainguard accepts a mapping to `owner` or `support`, but it never creates a binding for either role through SCIM.
 
 {{< note >}}
 Okta doesn't send a stable identifier for groups, so Chainguard identifies a group by its name the first time it is pushed, matched exactly including case. If you rename the group in Okta, the mapping keeps working under the original name, so keep using the original name in mappings. You can't reuse the original name for a new group until you unlink the original with **Delete the group in the target app**.
@@ -161,7 +163,7 @@ chainctl iam identity-providers scim users list $IDENTITY_PROVIDER
 Have a member of the group log in to Chainguard through Okta, then list the role bindings in your organization:
 
 ```sh
-chainctl iam role-bindings list --parent $ORGANIZATION
+chainctl iam role-bindings list --parent $ORGANIZATION -o table
 ```
 
 The output includes a binding with the mapped role and `SCIM` in the **MANAGED BY** column. The binding's **NAME / EMAIL** column is empty, so identify the member by their identity ID instead. To look up that ID, replace `<okta_username>` with the member's Okta username:
@@ -185,6 +187,8 @@ To stop granting roles from a group, open the **Push Groups** tab and select **U
 * **Leave the group in the target app**: Okta sends nothing, so the group and its roles stay as they were. Members you later remove from the group in Okta keep their roles.
 
 Deleting a group doesn't deprovision its members. To remove a member's Chainguard access, unassign them from the provisioning app.
+
+If the groups claim in your Okta login token also carries the group, members who still hold another role in your organization get the mapped role back at each login, because claim-based roles use the same mapping. To revoke the role fully, also [delete the group's mapping](/platform/administration/custom-idps/grant-roles-from-groups/#manage-access).
 
 ## Troubleshooting
 
