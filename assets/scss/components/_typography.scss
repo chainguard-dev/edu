@@ -183,31 +183,31 @@ ul, ol {
 
 // Blockquotes
 blockquote {
+    display: flex;
     font-family: $TextFont;
     font-size: $text-lg;
-    font-style: italic;
     line-height: $leading-relaxed;
     color: var(--body-color);
     opacity: 0.9;
-    border-left: 4px solid var(--primary-1);
-    padding-left: 1.5rem;
+    background: var(--blockquote-background);
+    border-left: 2px solid var(--blockquote-border);
+    border-radius: 0 4px 4px 0;
+    padding: 24px;
     margin: 2rem 0;
 
-    p {
+    &::before {
+        content: var(--info-icon-url);
+        position: relative;
+        top: 2px;
+        margin-right: 14px;
+    }
+
+    > p:last-child {
         margin-bottom: 0;
     }
 
-    cite {
-        display: block;
-        font-size: $text-sm;
-        font-style: normal;
-        font-weight: $font-medium;
-        margin-top: 1rem;
-        opacity: 0.8;
-
-        &::before {
-            content: "— ";
-        }
+    p a {
+        color: var(--blockquote-link-color) !important;
     }
 }
 
@@ -272,10 +272,6 @@ table {
         margin-bottom: $content-paragraph-margin;
         font-size: $content-font-size;
         line-height: $content-line-height;
-    }
-
-    blockquote > p:only-child {
-        margin-bottom: 0;
     }
 
     ul, ol {
