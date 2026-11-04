@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T18:25:28+00:00
+lastmod: 2026-11-04T18:46:51+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -263,7 +263,7 @@ Each tool, except the ones that create and list sessions, takes a session by its
 - For a long build or test, the agent should run the command in the background with the `exec` tool's `run_in_background` option, then wait for it with the `wait` tool, so the other tools keep working. If the agent runs `chainctl develop exec` in its shell instead, the session is held until the command finishes, and the server's tools wait for it.
 - Deleting a session needs its full name a second time, and it can't be undone. Changes in the session that weren't pushed are lost.
 
-When the agent starts the server, the server sends it instructions for the tools, including a reminder to commit and push regularly. The tools change between `chainctl` releases. To see the ones that your release serves, run `chainctl develop mcp --help`. For the command itself, refer to [`chainctl develop mcp`](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-mcp).
+When the agent starts the server, the server sends it instructions for the tools, including a reminder to commit and push regularly. The tools change between `chainctl` releases. To find the ones that your release serves, run `chainctl develop mcp --help`. For the command itself, refer to [`chainctl develop mcp`](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-mcp).
 
 ## Check the agent's work before it pushes
 
