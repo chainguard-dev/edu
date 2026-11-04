@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T17:03:32+00:00
+lastmod: 2026-11-04T13:54:31+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -178,7 +178,7 @@ By default, `actions/setup-go` caches downloaded modules and build output betwee
 
 The run page that a check's **Details** link opens lists each host the check tried to reach, and suggests an `egress` list built from the hosts it connected to. The suggestion includes only connections that the check's `egress` allowed, so to see every host a check uses, let it reach any host for one run:
 
-1. In a pull request whose code you trust, set the check's `network.egress` to `["*"]`. With `*`, the check's commands can reach any public host.
+1. In a pull request whose code you trust, set the check's `network.egress` to `["*"]`. With `*`, the check's commands can reach any public host by name.
 2. When the check finishes, open its **Network activity** on the run page, as described in [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
 3. Review the hosts listed after **Suggested allowlist (review before applying)**, replace `*` with them, and push the change.
 
