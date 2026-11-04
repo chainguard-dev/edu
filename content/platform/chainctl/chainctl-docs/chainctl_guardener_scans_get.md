@@ -1,5 +1,5 @@
 ---
-date: 2026-11-02T19:27:54Z
+date: 2026-11-03T23:15:35Z
 title: "chainctl guardener scans get"
 slug: chainctl_guardener_scans_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_scans_get/
@@ -29,7 +29,7 @@ chainctl guardener scans get SCAN_ID [flags]
 
 ```
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group that owns the scan. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group that owns the scan. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
 ```
 
 ### Options inherited from parent commands

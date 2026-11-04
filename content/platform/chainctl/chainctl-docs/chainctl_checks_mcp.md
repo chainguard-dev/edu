@@ -1,5 +1,5 @@
 ---
-date: 2026-11-02T19:27:54Z
+date: 2026-11-03T23:15:35Z
 title: "chainctl checks mcp"
 slug: chainctl_checks_mcp
 url: /platform/chainctl/chainctl-docs/chainctl_checks_mcp/
