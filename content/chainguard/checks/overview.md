@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Checks runs your repository's CI checks in isolated microVMs on every GitHub pull request, with no network access unless a check asks for it."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T16:16:27+00:00
+lastmod: 2026-11-04T17:00:59+00:00
 draft: false
 tags: ["Chainguard Checks", "Overview", "GitHub"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 weight: 10
 ---
 
-Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports each result in the pull request's list of checks on GitHub. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, which [`chainctl checks migrate`](/chainguard/checks/migrate-from-github-actions/) can draft for you.
+Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports the results on the pull request's **Checks** tab on GitHub, beside any other checks the repository runs. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, which [`chainctl checks migrate`](/chainguard/checks/migrate-from-github-actions/) can draft for you.
 
 A *check* is one command or script that you name in that file. On every pull request, Chainguard Checks runs each check in its own *microVM*: a small virtual machine, built on Chainguard OS, that starts fresh for that check.
 
@@ -59,6 +59,8 @@ checks:
 ```
 
 This file defines two checks, `vet` and `test`, and installs Go in each check's VM. Each check runs in a fresh VM with no network access unless it asks for some, so both list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+
+On a pull request where both checks pass, the **Checks** tab shows one entry from Chainguard Checks, **Chainguard Checks (presubmit)**, titled **All 2 check(s) passed**. If `test` fails, it shows two: the summary check, titled **1 of 2 check(s) failed**, and **presubmit / ci / test**, whose title gives the exit code and whose output shows the end of the check's log.
 
 ## Isolation by default
 

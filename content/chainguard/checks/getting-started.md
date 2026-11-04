@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add checks to one of your GitHub repositories, and see them run on a pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T16:29:06+00:00
+lastmod: 2026-11-04T17:00:59+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -81,7 +81,7 @@ Get a first check passing with the [quick start](#quick-start), or learn each pa
 
 1. **Read the result**
 
-    On the pull request, wait for the **Chainguard Checks (presubmit)** check to pass, which can take a minute, and then select it to read the `hello` check's output. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
+    On the pull request's **Checks** tab, wait for **Chainguard Checks (presubmit)** to appear and pass, which usually takes less than a minute. It's the only check that Chainguard Checks adds for this file, because a check that passes without reporting anything gets no GitHub check of its own. Select it to see the run's summary: its title reads **All 1 check(s) passed**, and its table lists `hello` as passed. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
 
 To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To draft checks from your GitHub Actions workflows, refer to [Draft checks from your workflows](#draft-checks-from-your-workflows).
 {.quick-start-done}
