@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T13:54:31+00:00
+lastmod: 2026-11-04T16:38:24+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -284,8 +284,8 @@ Each entry in `egress` can be one of the following:
 
 - A hostname, such as `registry.npmjs.org`, in lowercase and without a scheme or port.
 - A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
-- An IPv4 address or CIDR range. IPv6 isn't supported. A check that connects to an IP address without looking up a name needs one of these.
-- `*`, which allows any hostname, but not a connection made straight to an IP address.
+- An IPv4 address or CIDR range. A check that connects to an IP address without looking up a name needs one of these. IPv6 isn't supported.
+- `*`, which allows any hostname, but not a connection made directly to an IP address.
 
 An entry with a scheme or a port, such as `https://registry.npmjs.org` or `registry.npmjs.org:443`, passes validation but matches nothing. If you include a `network` key, `egress` must list at least one entry. To keep a check off the network, leave out `network` entirely.
 

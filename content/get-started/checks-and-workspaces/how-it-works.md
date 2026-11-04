@@ -1,7 +1,7 @@
 ---
 title: "How Chainguard Checks and Chainguard Workspaces isolate your code"
 date: 2026-10-15T12:09:53+00:00
-lastmod: 2026-11-04T13:54:31+00:00
+lastmod: 2026-11-04T16:38:24+00:00
 linktitle: "How it works"
 description: "The security model of Chainguard Checks and Chainguard Workspaces in one place: microVM isolation, credentials kept outside the VM, network allowlists, trust rings, and the run and session lifecycles."
 type: "article"
@@ -85,7 +85,7 @@ To see which hosts a check tried to reach, and whether Chainguard Checks allowed
 Chainguard applies an `egress` list when the VM looks up a name and when it opens a connection:
 
 - A hostname or wildcard allows the addresses that the name resolves to.
-- To connect to an IP address without looking up a name, list the address or a CIDR range that contains it. A `*` entry allows every name, but not a connection made straight to an IP address.
+- To connect to an IP address without looking up a name, list the address or a CIDR range that contains it. A `*` entry allows every name, but not a connection made directly to an IP address.
 - A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
 
 Because the list allows addresses, a check or session can reach any service that shares an address with an allowed name, such as another site behind the same CDN. Keep that in mind when you decide which names to allow.
