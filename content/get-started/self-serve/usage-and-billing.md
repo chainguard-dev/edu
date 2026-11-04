@@ -1,7 +1,7 @@
 ---
 title: "Usage, limits, and billing"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-03T17:16:36+00:00
+lastmod: 2026-11-04T16:36:21+00:00
 linktitle: "Usage and billing"
 description: "Check your Chainguard Starter or Chainguard Team organization's usage against its plan limits, respond to a refused request, and buy Checks and Workspaces compute"
 type: "article"
@@ -33,7 +33,7 @@ The following options narrow the list:
 * `--product` shows only the products you name, separated by commas. The products are `images`, `helm-charts`, `libraries`, `packages`, `skills`, `actions`, `checks`, `workspaces`, and `platform`.
 * `--parent` names the organization to check, if you belong to more than one.
 
-Usage figures include anything above an included amount. If Chainguard can't measure a figure yet, the list shows a dash. Both commands accept `--output json`.
+Usage figures include anything above an included amount. Image egress is shown in bytes. If Chainguard can't measure a figure yet, the list shows a dash; for a new organization, that's usually the case until Chainguard's next hourly usage count. Both commands accept `--output json`.
 
 ### Check usage from a script
 
