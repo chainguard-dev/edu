@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-11-02T17:37:53+00:00
+lastmod: 2026-11-04T17:32:20+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -124,7 +124,7 @@ Your organization's plan sets the cooldown periods you can choose and whether yo
 | Team | 0 to 7 days | Allowed |
 | Enterprise | 0 to 30 days | Allowed |
 
-The Starter plan is the free plan described in [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+The Starter plan is the free plan described in [Chainguard plans](/get-started/self-serve/plans/).
 
 Chainguard checks the limits when you create a policy, change a policy's cooldown period, add a cooldown override, or enable a policy in enforce mode. The limits don't change a cooldown that's already in force.
 
