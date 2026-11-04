@@ -134,7 +134,7 @@ Your organization's plan sets the cooldown periods you can choose and whether yo
 | Team | 0 to 7 days | Allowed |
 | Enterprise | 0 to 30 days | Allowed |
 
-The Starter plan is the free plan described in [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+The Starter plan is the free plan described in [Chainguard plans](/get-started/self-serve/plans/).
 
 Chainguard checks the limits when you create a policy, change a policy's cooldown period, add a cooldown override, or enable a policy in enforce mode. The limits don't change a cooldown that's already in force.
 

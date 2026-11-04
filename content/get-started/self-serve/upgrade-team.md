@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-03T17:16:36+00:00
+lastmod: 2026-11-04T17:32:20+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -44,6 +44,12 @@ To upgrade to Team, complete the following steps:
 
     The output names the Team plan. Until the payment succeeds, it still reads Starter.
 
+1. Sign in again, so your credentials carry the `owner` role that the upgrade gives you:
+
+    ```shell
+    chainctl auth login
+    ```
+
 If you're working on a machine without a browser, such as over SSH, add `--no-browser`. The command prints the checkout page's URL, which you can open on another device.
 
 ## What changes when you upgrade
@@ -52,10 +58,16 @@ Your organization keeps its name, members, and images, and gets the following:
 
 * **Team limits.** Refer to [Plan limits](/get-started/self-serve/plans/#plan-limits) for the full list.
 * **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they're still a member when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on one.
-* **Image swaps.** You can replace an image you chose with another one, twice in a rolling 30 days.
+* **Image swaps.** You can replace an image you chose with another one, up to five times in a rolling 30 days.
 * **Invitations outside your email domain.** You can invite anyone, with any role you hold yourself.
 * **CVE-remediated Chainguard Libraries versions.**
 * **Ticket support** during business hours. Refer to [Get support](/get-started/get-support/).
+
+`chainctl starter status` works only for Starter organizations, so after the upgrade it reports that no Starter organization exists. To list your organization's images, run `chainctl images repos list`:
+
+```shell
+chainctl images repos list
+```
 
 Team pull tokens last at most 7 days. `chainctl` releases before 0.2.393 ask for 30-day tokens by default, which Team refuses, so update `chainctl` before you create pull tokens. For CI pipelines, use a CI identity instead; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
