@@ -4,7 +4,7 @@ description: "Chainguard Containers reduces the time and effort for establishing
 lead: "Chainguard Containers reduces the time and effort for establishing CMMC 2.0 compliance"
 type: "article"
 date: 2024-08-09T19:10:09+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 contributors: []
 draft: false
 aliases:
@@ -44,4 +44,4 @@ By leveraging Chainguard’s resources, organizations can accelerate their path 
 - [What is CMMC 2.0? Maturity levels and who must comply](https://www.chainguard.dev/supply-chain-security-101/what-is-cmmc-2-0)
 - [CMMC 2.0 practices: All 14 domains and naming conventions](https://www.chainguard.dev/supply-chain-security-101/cmmc-2-0-practices)
 
-**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)**
+**[Get started with FIPS Chainguard Containers today!](https://images.chainguard.dev/?category=fips)**

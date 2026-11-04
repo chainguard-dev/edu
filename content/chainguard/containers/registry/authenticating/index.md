@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-11-02T13:34:48+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -57,7 +57,7 @@ If the pull fails, refer to [Troubleshoot registry authentication errors](/chain
 
 ## Signing up
 
-You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This creates your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login). This creates your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login).
 
 For more details on signing in, you can review our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/platform/administration/custom-idps/custom-idps/).
 

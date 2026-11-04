@@ -5,7 +5,7 @@ description: "The three practices behind the low CVE counts in Chainguard Contai
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 images: []
 weight: 70
@@ -51,7 +51,7 @@ The key point is that CVE counts on Chainguard Containers are a function of how 
 
 A pinned digest never changes. That is the purpose of pinning, and also its cost. Pair it with tooling that moves the pin, such as [Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot/), and refer to [Considerations for image updates](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) for guidance on planning the cadence.
 
-For current CVE data on a specific container and tag, refer to that container's entry in the [Chainguard Containers directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve).
+For current CVE data on a specific container and tag, refer to that container's entry in the [Chainguard Containers directory](https://images.chainguard.dev/directory).
 
 ## Practice 1: shipping less software
 
@@ -77,7 +77,7 @@ A Chainguard security advisory is a machine-readable record, issued per package 
 
 Advisories are published in several places:
 
-- The [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve) in the Containers directory, for browsing by CVE or container.
+- The [Security Advisories page](https://images.chainguard.dev/security/) in the Containers directory, for browsing by CVE or container.
 - [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) on GitHub, where each package's advisories live as YAML.
 - An [OSV](https://ossf.github.io/osv-schema/) feed, for scanners and automation.
 

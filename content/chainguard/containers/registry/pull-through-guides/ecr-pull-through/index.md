@@ -4,7 +4,7 @@ linktitle: "Amazon ECR"
 type: "article"
 description: "Tutorial outlining how to set up an Amazon ECR pull through cache rule for pulling containers from Chainguard's registry."
 date: 2026-03-31T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Registry"]
 images: []
@@ -31,7 +31,7 @@ To complete this tutorial, you need the following:
 * Docker installed on your local machine. Refer to [the official documentation](https://docs.docker.com/engine/install/) to set this up.
 * `chainctl`, Chainguard's command-line interface tool, installed on your local machine. If you haven't already installed it, follow our [`chainctl` installation guide](/platform/chainctl-usage/how-to-install-chainctl/).
 
-To pull Production Containers, you also need permissions to pull images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, though other built-in roles like `owner`, `editor`, or `viewer` also work. Refer to our [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details. If you don't already have access to Production Containers, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To pull Production Containers, you also need permissions to pull images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, though other built-in roles like `owner`, `editor`, or `viewer` also work. Refer to our [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details. If you don't already have access to Production Containers, you can [contact our sales team](https://www.chainguard.dev/contact).
 
 ## Creating a Chainguard pull token
 

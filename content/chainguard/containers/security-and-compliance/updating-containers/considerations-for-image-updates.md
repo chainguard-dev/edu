@@ -12,7 +12,7 @@ aliases:
 type: "article"
 description: "Learn best practices for updating container images, including Chainguard's approach to daily rebuilds, semantic versioning, and balancing security with stability"
 date: 2023-10-05T11:07:52+02:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -38,7 +38,7 @@ When referencing an image, it's important to know exactly what image you are wor
 [host]/[repository][image_name][:tag]
 ```
 
-For example, the full name for the [Go Chainguard Container](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-recommended-practices-considerations-for-image-updates), is `cgr.dev/chainguard/go:latest`.
+For example, the full name for the [Go Chainguard Container](https://images.chainguard.dev/directory/image/go/versions), is `cgr.dev/chainguard/go:latest`.
 
 Certain elements of this name format are optional in many cases. For instance, if you omit the hostname portion of an image name in either Docker or Kubernetes, both will default to using the public Docker registry.
 

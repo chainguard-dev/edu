@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a remote Artifactory repository to pull images through Chainguard's container registry."
 date: 2024-02-13T15:56:52-07:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -33,7 +33,7 @@ To complete this tutorial, you need the following:
 * Administrative privileges over an Artifactory instance. If you're interested in testing out this configuration, you can set up a trial instance on the [JFrog Artifactory landing page](https://jfrog.com/artifactory/).
 * Docker installed on your local machine. Refer to [the official documentation](https://docs.docker.com/engine/install/) to set this up.
 
-Part of this guide assumes you have access to a private registry provided by Chainguard with one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To complete this portion, you will also need the following:
+Part of this guide assumes you have access to a private registry provided by Chainguard with one or more Production container images. If you don't already have access to these, you can [contact our sales team](https://www.chainguard.dev/contact). To complete this portion, you will also need the following:
 
 * Permissions to pull container images from your organization's private Chainguard registry. At minimum, you must be granted the `registry.pull` role, but other built-in roles like `owner`, `editor`, or `viewer` will also work. Refer to our guide on [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles) for more details.
 * `chainctl`, Chainguard's command line interface tool, installed on your local machine. To set this up, follow our [installation guide for `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).

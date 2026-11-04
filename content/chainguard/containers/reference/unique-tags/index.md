@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's unique tags feature for production container images, enabling precise version tracking and automated deployment workflows with timestamped tags"
 date: 2024-02-29T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -73,7 +73,7 @@ Check out the ["Pulling by digest" section](/chainguard/containers/using-and-dep
 
 Additionally, you may find our three-part blog series on Chainguard's image tagging philosophy to be of interest.
 
-- [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
+- [Part 1](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-1-of-3)
 - [Part 2](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-2-of-3)
 - [Part 3](https://www.chainguard.dev/unchained/chainguards-image-tagging-philosophy-enabling-high-velocity-updates-pt-3-of-3)
 

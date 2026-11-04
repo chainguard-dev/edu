@@ -5,7 +5,7 @@ identifier: "Custom Assembly FAQs"
 type: "article"
 description: "Answers to your questions about Chainguard's Custom Assembly tool"
 date: 2025-02-19T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly"]
 images: []
@@ -58,7 +58,7 @@ These tools help you understand exactly what's inside your container.
 
 ## Is Custom Assembly covered by an SLA?
 
-Today, Chainguard delivers an [SLA for CVE remediation](https://www.chainguard.dev/legal/cve-sla?utm_source=docs) for all our container images.
+Today, Chainguard delivers an [SLA for CVE remediation](https://www.chainguard.dev/legal/cve-sla) for all our container images.
 
 However, when you re-configure Chainguard’s standard, off-the-shelf images, we cannot extend our SLA to packages you add on because we do not have control over the build. You’re thus responsible for maintaining these added packages or run the risk of accruing CVEs.
 
