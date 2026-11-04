@@ -5428,7 +5428,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.CorrelationRule"
               }
             ],
-            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, because changing the\nrule that maps token claims to identities would re-open\nattacker-controllable-claim attacks. To change it later, contact\nChainguard support. Updates that restate the current rule (or leave it\nunset) are a no-op — a\nread-modify-write client may echo the field back safely, including over\nHTTP PATCH, where the update mask is derived from the request-body keys.\nUpdates that change it are rejected."
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, because changing the\nrule that maps token claims to identities would re-open\nattacker-controllable-claim attacks. To change it later, use\nResetCorrelationRule, which unlinks every provisioned user so each\nlinks again under the new rule. Updates that restate the current rule\n(or leave it unset) are a no-op — a read-modify-write client may echo\nthe field back safely, including over HTTP PATCH, where the update mask\nis derived from the request-body keys. Updates that change it are\nrejected."
           },
           "groupsClaim": {
             "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",
@@ -5570,6 +5570,32 @@
         },
         "required": [
           "etag"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.IdentityProvidersService.ResetCorrelationRuleBody": {
+        "description": "ResetCorrelationRuleRequest changes an identity provider's correlation rule.",
+        "properties": {
+          "correlationRule": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.CorrelationRule"
+              }
+            ],
+            "title": "The new correlation rule.\nprotolint:disable:next MAX_LINE_LENGTH"
+          },
+          "expectedCorrelationRule": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.CorrelationRule"
+              }
+            ],
+            "title": "The identity provider's current correlation rule, the one being replaced.\nA change is refused with FAILED_PRECONDITION when this is not the current\nrule, so a caller acting on a stale read changes nothing.\nAn identity provider created without a rule reads back as UNSPECIFIED;\nname SUB_EQUALS_EXTERNAL_ID for it, the rule it has in effect.\nprotolint:disable:next MAX_LINE_LENGTH"
+          }
+        },
+        "required": [
+          "correlationRule",
+          "expectedCorrelationRule"
         ],
         "type": "object"
       },
@@ -5936,6 +5962,46 @@
       },
       "chainguard.platform.iam.v2.RequestGroupAccessResponse": {
         "description": "RequestGroupAccessResponse is the response message for RequestGroupAccess.\nIt is intentionally empty; the access request is delivered out of band.",
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.ResetCorrelationRuleResponse": {
+        "description": "ResetCorrelationRuleResponse reports what a correlation-rule reset changed.",
+        "properties": {
+          "bindingsDropped": {
+            "description": "How many SCIM-managed role bindings this call removed. Any it could not\nremove are removed in the background shortly after.",
+            "format": "int64",
+            "type": "string"
+          },
+          "changed": {
+            "description": "Whether this call changed the rule. False when correlation_rule was\nalready the current rule.",
+            "type": "boolean"
+          },
+          "identityProvider": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider"
+              }
+            ],
+            "description": "The identity provider after the reset."
+          },
+          "previousCorrelationRule": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.CorrelationRule"
+              }
+            ],
+            "description": "The correlation rule in effect before this call: an unset rule reads as\nSUB_EQUALS_EXTERNAL_ID. When changed is false it is the rule in effect\nnow, even where identity_provider reports the rule as UNSPECIFIED."
+          },
+          "unlinkComplete": {
+            "description": "Whether every provisioned user linked under a replaced rule is now\nunlinked. False means the unlink stopped short; repeat the request with\nboth rules set to the current rule to finish it.",
+            "type": "boolean"
+          },
+          "usersUnlinked": {
+            "description": "How many provisioned users this call unlinked from their Chainguard\nidentity. Each is linked again at their next sign-in.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
         "type": "object"
       },
       "chainguard.platform.iam.v2.RevokeScimTokenResponse": {
@@ -21497,6 +21563,61 @@
           }
         },
         "summary": "Regenerate Scim Token",
+        "tags": [
+          "IdentityProvidersService"
+        ]
+      }
+    },
+    "/iam/v2/identityProviders/{identityProviderUid}:resetCorrelationRule": {
+      "post": {
+        "description": "The request must name the rule being replaced: a change is refused unless\nexpected_correlation_rule is the identity provider's current rule. A\nrequest whose correlation_rule is already the current rule changes\nnothing, and also finishes an unlink an earlier reset left incomplete.\n\nFails with FAILED_PRECONDITION while the organization enforces sign-in\nthrough its identity provider only (sso_only), and when SCIM is enabled\nand the organization has no owner who can sign in and whose owner role\nbinding is assigned directly (not managed by SCIM).\n\nA rule change also retires the organization's recorded validation of the\nidentity provider, so sso_only readiness reports IDP_VALIDATION_MISSING\nuntil the provider is validated again.\n\nThe reset can take several minutes and runs to completion once it starts:\na caller that stops waiting neither cancels nor rolls it back, so a\nclient-side timeout can report an error for a reset that applied. Read\nthe identity provider's correlation rule to confirm the outcome.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "IdentityProvidersService_ResetCorrelationRule",
+        "parameters": [
+          {
+            "description": "UID of the identity provider whose correlation rule is being changed.",
+            "in": "path",
+            "name": "identityProviderUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvidersService.ResetCorrelationRuleBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2.ResetCorrelationRuleResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Reset Correlation Rule",
         "tags": [
           "IdentityProvidersService"
         ]

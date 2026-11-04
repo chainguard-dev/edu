@@ -1,5 +1,5 @@
 ---
-date: 2026-11-02T19:27:54Z
+date: 2026-11-03T23:15:35Z
 title: "chainctl guardener github status"
 slug: chainctl_guardener_github_status
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_status/
@@ -17,8 +17,9 @@ List the GitHub organizations linked to your Chainguard groups.
 
 List the GitHub organizations linked to your Chainguard groups.
 
-By default every group you can see is checked and each group with a linked
-GitHub organization is listed. Pass --parent to list only one group.
+Only the --parent group is checked, falling back to the default.group config
+value. With neither set, every group you can see is checked and each group with
+a linked GitHub organization is listed.
 
 Which repositories guardener acts on is controlled by the guardener GitHub App's
 repository selection on GitHub — follow the SETTINGS link in the output to review
@@ -35,7 +36,7 @@ chainctl guardener github status [flags]
 ### Options
 
 ```
-      --parent string   Name or UIDP of the Chainguard group to list. Lists every group with a linked organization if omitted.
+      --parent string   Name or UIDP of the Chainguard group to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Lists every group with a linked organization if neither is set.
 ```
 
 ### Options inherited from parent commands

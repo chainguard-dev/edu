@@ -1,5 +1,5 @@
 ---
-date: 2026-11-02T19:27:54Z
+date: 2026-11-03T23:15:35Z
 title: "chainctl iam folders describe"
 slug: chainctl_iam_folders_describe
 url: /platform/chainctl/chainctl-docs/chainctl_iam_folders_describe/
