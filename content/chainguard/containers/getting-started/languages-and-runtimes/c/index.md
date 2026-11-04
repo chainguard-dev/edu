@@ -11,7 +11,7 @@ aliases:
 - /chainguard/containers/getting-started/c/
 description: "Learn how to compile and run C/C++ applications using Chainguard's security-hardened containers with minimal CVEs and optimized runtime environments"
 date: 2024-07-30T15:54:33+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -71,7 +71,7 @@ nano hello.c
 Inside of your `hello.c` file, add in the following C code which will execute a "Hello, world!" application.
 
 ```C
-/* Chainguard Academy (edu.chainguard.dev)
+/* Chainguard Docs (www.chainguard.dev/docs)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Examples 1 & 2 - C
 */
@@ -81,7 +81,7 @@ Inside of your `hello.c` file, add in the following C code which will execute a 
 // Main Function
 int main(){
  printf("Hello, world!\n");
- printf("I am a demo from the Chainguard Academy.\n");
+ printf("I am a demo from Chainguard Docs.\n");
  printf("My code was written in C.\n");
 
  return 0;
@@ -106,7 +106,7 @@ This will return the "Hello, world!" program output in your terminal if the prog
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -168,7 +168,7 @@ You will see output in your terminal identical to that of the binary you compile
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -238,7 +238,7 @@ You will see output in your terminal identical to that of the previous example.
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -259,7 +259,7 @@ nano hello.cpp
 Add the following C++ code to the file you just created. This code will display a greeting specifying that it was written in C++.
 
 ```C++
-/* Chainguard Academy (edu.chainguard.dev)
+/* Chainguard Docs (www.chainguard.dev/docs)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Example 3 - C++
 */
@@ -270,7 +270,7 @@ using namespace std;
 // Main Function
 int main(){
     cout << "Hello, world!\n";
-    cout << "I am a demo from the Chainguard Academy.\n";
+    cout << "I am a demo from Chainguard Docs.\n";
     cout << "My code was written in C++.\n";
 
     return 0;
@@ -295,7 +295,7 @@ You will see the following output in your terminal.
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C++.
 ```
 
@@ -359,7 +359,7 @@ You will see output in your terminal identical to that of the C++ binary you com
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C++.
 ```
 

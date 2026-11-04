@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://edu.chainguard.dev" target="_blank"><img src="https://edu.chainguard.dev/logos/3d-linky.png" width="200" height="auto"></a>
+  <a href="https://www.chainguard.dev/docs" target="_blank"><img src="https://www.chainguard.dev/docs/logos/3d-linky.png" width="200" height="auto"></a>
 </p>
-<h1 align="center">Chainguard Academy</h1>
+<h1 align="center">Chainguard Docs</h1>
 
 <a href="https://chainguard.dev/" target="_blank"><img alt="Chainguard" src="https://img.shields.io/badge/Chainguard-4445E7.svg?style=for-the-badge&logo=Chainguard&logoColor=white"></a>
 
-Chainguard Academy is the documentation site for Chainguard products. It exists to help you succeed with Chainguard. Visit it at 🔗 [edu.chainguard.dev](https://edu.chainguard.dev)
+Chainguard Docs is the documentation site for Chainguard products. It exists to help you succeed with Chainguard. Visit it at 🔗 [www.chainguard.dev/docs](https://www.chainguard.dev/docs)
 
 You can find the educational resource files in Markdown under the `content` directory.
 
@@ -29,7 +29,7 @@ While the server is running, open `http://localhost:1313/docs/` in your web brow
 
 ## Testing
 
-Any documentation published to Chainguard Academy is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
+Any documentation published to Chainguard Docs is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
 
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 

@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "An overview of the differences between glibc and musl."
 date: 2024-08-26T18:42:57+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers", "cheatsheet"]
 images: []
@@ -25,7 +25,7 @@ Over the years, various implementations of the [C standard library](https://en.w
 
 When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all of Chainguard's container images are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
-> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Containers demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 ## High-level differences between glibc and musl
 
@@ -51,7 +51,7 @@ The following table highlights some of the main differences between glibc and mu
 
 Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
-> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Containers demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 ## Library and binary size
 

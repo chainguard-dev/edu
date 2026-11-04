@@ -7,7 +7,7 @@ aliases:
 - /chainguard/containers/getting-started/nginx
 description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2026-10-22T15:17:02+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -80,7 +80,7 @@ The following HTML file displays a graphic of Linky alongside a fun octopus fact
 
 <h1>nginx Demo Website</h1>
 
-<h2>from the <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Academy</a></h2>
+<h2>from <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Docs</a></h2>
 
 <img src="linky.png" class="corners" width="250px">
 
@@ -105,7 +105,7 @@ Copy the following code to your `stylesheet.css` file.
 
 ```CSS
 /*
-Chainguard Academy nginx Demo Website
+Chainguard Docs nginx Demo Website
 */
 
 body {

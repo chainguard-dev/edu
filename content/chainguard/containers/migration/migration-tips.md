@@ -7,7 +7,7 @@ linktitle: "Migration tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -246,4 +246,4 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn more
 
-For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. We also have a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.

@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's development container images and how they differ from our standard images."
 date: 2024-11-01T07:52:00+02:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -79,5 +79,5 @@ It’s likely already clear that switching to our standard images requires a few
 ## Resources
 
 - [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)
-- [Chainguard Academy: Overview of Chainguard Containers](/chainguard/containers/overview/)
-- [Chainguard Academy: Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/)
+- [Docs: Overview of Chainguard Containers](/chainguard/containers/overview/)
+- [Docs: Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/)

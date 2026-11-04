@@ -20,7 +20,7 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Containers for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
@@ -151,6 +151,6 @@ Though `musl` is sometimes chosen because of its minimal footprint, Chainguardâ€
 
 ## Next steps
 
-Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Academy](/chainguard/containers/), where you can find documentation to help you start incorporating them into your workflow.
+Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Containers docs](/chainguard/containers/), which can help you start incorporating them into your workflow.
 
 Interested in learning more about adopting Chainguard Containers for your organization? [Letâ€™s get in touch!](https://www.chainguard.dev/contact)

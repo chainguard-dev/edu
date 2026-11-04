@@ -34,36 +34,14 @@
     height: 1.5em !important;
 }
 
-// LIGHT MODE - No filters, show original purple color
-html:not([data-dark-mode]) img[src="/logos/linky-flat.svg"],
+// Linky logo (.logo-purple): purple in light mode, inverted to white in dark mode.
+// darkmode-init.js sets data-dark-mode from the OS preference, so no media query is needed.
 html:not([data-dark-mode]) .logo-purple {
     filter: none !important;
 }
 
-// DARK MODE - Invert purple to white
-html[data-dark-mode] img[src="/logos/linky-flat.svg"],
 html[data-dark-mode] .logo-purple {
     filter: brightness(0) invert(1) !important;
-}
-
-// Override for automatic detection
-@media (prefers-color-scheme: light) {
-    img[src="/logos/linky-flat.svg"],
-    .logo-purple {
-        filter: none !important;
-    }
-
-    html[data-dark-mode="true"] img[src="/logos/linky-flat-white.svg"],
-    html[data-dark-mode="true"] .logo-purple {
-        filter: brightness(0) invert(1) !important;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    html:not([data-dark-mode="false"]) img[src="/logos/linky-flat-white.svg"],
-    html:not([data-dark-mode="false"]) .logo-purple {
-        filter: brightness(0) invert(1) !important;
-    }
 }
 
 // Fix sidebar overflow issues on mobile only

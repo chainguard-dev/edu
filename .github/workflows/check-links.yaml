@@ -1,4 +1,4 @@
-name: Check links on Academy
+name: Check links on Chainguard Docs
 on:
   schedule:
     - cron: "0 0 * * *"

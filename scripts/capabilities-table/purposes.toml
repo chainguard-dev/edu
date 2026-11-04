@@ -8,9 +8,9 @@
 #   argos.*            partner program roles
 #   gulfstream         a single controller capability
 #   signing.*          experimental; every sigstore.* capability is deprecated
-#   advisories.*       no Academy docs for authoring advisories through the API
+#   advisories.*       no docs for authoring advisories through the API
 #   libraries.go.*, libraries.dotnet.*, libraries.ruby.*
-#                      no Academy docs for these ecosystems yet
+#                      no docs for these ecosystems yet
 roles = [
     "owner",
     "editor",
@@ -41,7 +41,7 @@ roles = [
 ]
 
 # Resources that documented roles grant but the page leaves out. owner holds
-# capabilities on these, but Academy doesn't document the ecosystems yet.
+# capabilities on these, but the docs don't document the ecosystems yet.
 omitted_resources = [
     "libraries.dotnet",
     "libraries.go",

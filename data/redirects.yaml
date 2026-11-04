@@ -2,22 +2,29 @@
 # as removed sections, subtrees sent to another host, and section roots that
 # must match only themselves.
 #
-# layouts/partials/redirect-rules.html turns these into both the production
-# nginx map (public/_aliases, included by nginx.conf) and the Vercel preview's
-# routing table (public/vercel-config.json), so the two cannot drift apart.
-#
-# Every generated alias rule is matched before any rule here, so a rule here
-# only wins where no alias matches the same URL. To send one page of a moved
-# section somewhere else, add an "aliases:" entry on the destination page
-# instead: alias rules are sorted longest first and will outrank the section.
+# layouts/partials/redirect-rules.html combines these with every page alias
+# into one ordered list. The build renders that list as the Vercel routing
+# table for www.chainguard.dev/docs and its previews (public/vercel-config.json)
+# and as the nginx map for edu.chainguard.dev (public/_aliases, included by
+# nginx.conf), so the two cannot drift apart.
 #
 # Each rule has "to", the target, and one of:
+#   path   an exact path, matched case-insensitively (nginx map semantics)
 #   regex  a PCRE pattern matched case-sensitively against the request path
 #          with the query string removed; "$1" in "to" is its first group
-#   path   an exact path, matched case-insensitively (nginx map semantics)
 #
-# Rules are tried in order and the first match wins. The query string is
-# carried over to the target.
+# The list is tried in this order, and the first match wins:
+#   1. "path" rules from this file
+#   2. page aliases, longest first
+#   3. "regex" rules from this file, in file order
+#   4. section landing pages
+#
+# So a "path" rule beats every alias, and a "regex" rule only wins where no
+# alias matches the same URL. To send one page of a moved section somewhere
+# else, add an "aliases:" entry on the destination page rather than a regex
+# rule: aliases are sorted longest first and will outrank the section.
+#
+# The query string is carried over to the target.
 
 rules:
 
