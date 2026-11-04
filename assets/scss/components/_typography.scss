@@ -274,6 +274,10 @@ table {
         line-height: $content-line-height;
     }
 
+    blockquote > p:only-child {
+        margin-bottom: 0;
+    }
+
     ul, ol {
         margin-bottom: $content-paragraph-margin;
 
