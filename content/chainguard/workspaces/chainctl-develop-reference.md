@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-11-02T16:00:35+00:00
+lastmod: 2026-11-05T15:14:03+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -202,7 +202,7 @@ The server talks to the agent on standard input and standard output, so the agen
 claude mcp add develop -- chainctl develop mcp
 ```
 
-Each tool takes a session, by name or short ID, and finds it as other `chainctl develop` commands do, in the organization that `--parent` names. Paths are absolute in the session, or relative to `/work`. An agent can run a long build or test in the background and wait for it, so the server's other tools keep working in the meantime. The tools change between `chainctl` releases. To see the ones that your release serves, run `chainctl develop mcp --help`.
+Each tool takes a session, by name or short ID, and finds it as other `chainctl develop` commands do, in the organization that `--parent` names. Paths are absolute in the session, or relative to `/work`. An agent can run a long build or test in the background and wait for it, so the server's other tools keep working in the meantime. The tools change between `chainctl` releases. To find the ones that your release serves, run `chainctl develop mcp --help`.
 
 ## chainctl develop creds
 
