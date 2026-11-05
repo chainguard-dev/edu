@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-11-05T13:55:34+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -59,7 +59,7 @@ You also need:
   Libraries](/chainguard/libraries/introduction/access/#entitlement)
 - One of the following for each ecosystem you verify:
     - The `pull_token_creator` role, such as
-      `libraries.java.pull_token_creator`, or the Owner role. After a regular
+      `libraries.java.pull_token_creator`, or the `owner` role. After a regular
       `chainctl auth login`, the command creates a pull token to fetch
       provenance data, which requires one of these roles. Each run creates a
       new pull token, which appears in your organization's identity list as
@@ -172,7 +172,7 @@ defaults to `attestations` in the current directory. Only packages verified as
 Chainguard builds produce companion files. The verification report lists the
 saved files and their trust status in text, JSON, YAML, and CSV output.
 
-> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the Owner role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
+> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the `owner` role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
 
 ### Analyze a Python wheel file
 

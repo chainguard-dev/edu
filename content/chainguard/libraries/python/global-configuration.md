@@ -4,7 +4,7 @@ linktitle: "Global configuration"
 description: "Configuring Chainguard Libraries for Python in your organization"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-05T13:55:34+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -79,7 +79,7 @@ chainctl libraries update-hashes \
   --token "$REPO_TOKEN"
 ```
 
-> **Note**: With a regular `chainctl auth login`, `chainctl libraries update-hashes` creates a pull token, which requires the `libraries.python.pull_token_creator` role or the Owner role. With only the `libraries.python.pull` role, sign in with `chainctl auth login --audience=libraries.cgr.dev` or pass a libraries-scoped token. For details, refer to [Authentication](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 After updating the lockfile, keep your repository manager configuration in place and reinstall through the same repository manager endpoint to apply the updated hashes.
 

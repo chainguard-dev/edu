@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-11-05T13:55:34+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -107,7 +107,7 @@ Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/
 `update-hashes` fetches checksums from Chainguard Libraries,
 which requires authentication. Where it fetches from depends on your environment: some setups authenticate directly to `libraries.cgr.dev`, but if your build routes through a repository manager configured as a pull-through proxy for Chainguard Libraries, point `update-hashes` there instead with `--registry-url` so it validates against the same source your build used.
 
-> **Note**: With a regular `chainctl auth login`, `chainctl libraries update-hashes` creates a pull token, which requires the `libraries.javascript.pull_token_creator` role or the Owner role. With only the `libraries.javascript.pull` role, sign in with `chainctl auth login --audience=libraries.cgr.dev` or pass a libraries-scoped token. For details, refer to [Authentication](#update-hashes-auth).
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 Authenticating to `libraries.cgr.dev` directly:
 
@@ -149,8 +149,8 @@ remediate` after your project is configured to use the Chainguard registry and a
 lockfile exists.
 
 > **Note**: With a regular `chainctl auth login`, `chainctl libraries remediate` creates a
-> pull token, which requires the `libraries.javascript.pull_token_creator` role or the Owner
-> role. With only the `libraries.javascript.pull` role, sign in with
+> pull token, which requires the `libraries.javascript.pull_token_creator` role or the
+> `owner` role. With only the `libraries.javascript.pull` role, sign in with
 > `chainctl auth login --audience=libraries.cgr.dev` first, or pass a libraries-scoped token
 > with `--token`.
 

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-11-05T13:55:34+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -588,7 +588,7 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 
 {{< /tabs >}}
 
-> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `libraries.java.pull_token_creator` role or the Owner role, because the command creates a pull token. With only the `libraries.java.pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
+{{% blurb/libraries-verify-permissions ecosystem="java" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard:
 

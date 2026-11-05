@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-11-05T13:55:34+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -389,7 +389,7 @@ Run the following command to auto-detect and update the lockfile in the current 
 chainctl libraries update-hashes
 ```
 
-> **Note**: With a regular `chainctl auth login`, `chainctl libraries update-hashes` creates a pull token, which requires the `libraries.python.pull_token_creator` role or the Owner role. With only the `libraries.python.pull` role, sign in with `chainctl auth login --audience=libraries.cgr.dev` or pass a libraries-scoped token. For details, refer to [Authentication](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify the lockfile when running the command. For example:
 
@@ -552,7 +552,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `libraries.python.pull_token_creator` role or the Owner role, because the command creates a pull token. With only the `libraries.python.pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
+{{% blurb/libraries-verify-permissions ecosystem="python" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
