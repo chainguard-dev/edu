@@ -50,7 +50,7 @@ The **Identity Provider** page has three tabs:
 | **Client secret** | Yes | The client secret of the OIDC application. |
 | **Default role** | Yes | The role that users who log in through this identity provider receive by default, such as `viewer`. For more about this choice, refer to [IAM and security](/platform/administration/custom-idps/custom-idps/#iam-and-security). |
 | **Scopes** | Yes | The scopes Chainguard requests from your identity provider. The form requires `openid` and `email`. |
-| **Correlation rule** | Yes | How Chainguard matches logins to users provisioned with SCIM. Keep the default, **Subject (sub = externalId)**, unless your identity provider is Microsoft Entra ID, in which case choose **Microsoft Entra ID (oid = externalId)** and add the `profile` scope. You can't change this value after you create the identity provider. |
+| **Correlation rule** | Yes | How Chainguard matches logins to users provisioned with SCIM. Keep the default, **Subject (sub = externalId)**, unless your identity provider is Microsoft Entra ID, in which case choose **Microsoft Entra ID (oid = externalId)** and add the `profile` scope. You can't change this value in the Console after you create the identity provider; to change it later, refer to [Change the correlation rule](/platform/administration/custom-idps/scim-provisioning/scim-overview/#change-the-correlation-rule). |
 | **Enable group-based role mapping** | No | Select this to grant roles based on your users' IdP groups. Selecting it shows the **Groups claim** field. |
 | **Groups claim** | Conditional | Required if you selected **Enable group-based role mapping**. The name of the token claim in which your identity provider sends group memberships, such as `groups`. |
 
@@ -61,7 +61,7 @@ After you create the identity provider, users can log in with it. Refer to [Auth
 ## Update an identity provider
 
 1. On the **IdP details** tab, click **Update**.
-2. Edit the fields you need to change. You can edit every field except **Correlation rule**.
+2. Edit the fields you need to change. You can edit every field except **Correlation rule**. To change the correlation rule, refer to [Change the correlation rule](/platform/administration/custom-idps/scim-provisioning/scim-overview/#change-the-correlation-rule).
 3. Click **Update**.
 
 The **Client secret** field is empty when the form opens, because Chainguard doesn't display the existing secret. Leave it empty to keep the current secret. To rotate the secret, enter the new value.
