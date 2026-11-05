@@ -1,7 +1,7 @@
 ---
 title: "Usage, limits, and billing"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-04T17:32:20+00:00
+lastmod: 2026-11-05T12:46:23+00:00
 linktitle: "Usage and billing"
 description: "Check your Chainguard Starter or Chainguard Team organization's usage against its plan limits, respond to a refused request, and buy Checks and Workspaces compute"
 type: "article"
@@ -50,7 +50,7 @@ Don't rely on the exit status alone. Both `plans` commands exit with status 1 wh
 When a request would go past a plan limit, Chainguard refuses it and returns an error that names your plan and the limit, and what you've used or what you asked for. `chainctl` follows it with the `chainctl plans quotas list` command that shows the related limits. For example, the error message for a cooldown outside Team's range reads as follows:
 
 ```output
-Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
 ```
 
 To respond to a refusal, do one of the following:
