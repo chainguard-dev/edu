@@ -1,13 +1,6 @@
 {{ partial "top-body-additions.html" . }}
 <div class="row flex-md-nowrap">
-  <div class="leftnav-container">
-    <div class="board-background leftnav">
-      <nav id="sidebar-default" aria-label="Main navigation">
-        {{ partial "sidebar/docs-menu.html" . }}
-      </nav>
-      {{ partial "sidebar/nav-bottom.html" }}
-    </div>
-  </div>
+  {{ partial "sidebar/primary-nav.html" . }}
 
   <div class="content-and-terminal">
   <div class="center-content single-html">

@@ -13,14 +13,7 @@
   {{ end }}
   {{ else if eq .Params.topic true }}
   <div class="row flex-md-nowrap">
-    <div class="leftnav-container">
-      <div class="board-background leftnav">
-        <nav id="sidebar-default" aria-label="Main navigation">
-          {{ partial "sidebar/docs-menu.html" . }}
-        </nav>
-        {{ partial "sidebar/nav-bottom.html" }}
-      </div>
-    </div>
+    {{ partial "sidebar/primary-nav.html" . }}
     <div class="center-content list-html">
       <main class="docs-content">
       <div class="back-button">
@@ -123,14 +116,7 @@
   </div>
   {{ else }}
   <div class="row flex-md-nowrap">
-    <div class="leftnav-container">
-      <div class="board-background leftnav">
-        <nav id="sidebar-default" aria-label="Main navigation">
-          {{ partial "sidebar/docs-menu.html" . }}
-        </nav>
-        {{ partial "sidebar/nav-bottom.html" }}
-      </div>
-    </div>
+    {{ partial "sidebar/primary-nav.html" . }}
     <div class="row justify-content-center topic-container flex-shrink-1">
       <div class="col-md-12 col-lg-10 col-xl-8">
         <article>
