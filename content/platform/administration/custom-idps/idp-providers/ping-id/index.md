@@ -22,7 +22,7 @@ This guide outlines how to create a Ping Identity application and integrate it w
 
 ## Prerequisites
 
-To complete this guide, you will need the following.
+To complete this guide, you need the following:
 
 * `chainctl` installed on your system. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) if you don't already have this installed.
 * A Ping Identity account over which you have administrative access.
@@ -86,9 +86,9 @@ To configure Chainguard make a note of the following settings from your Ping app
 * Client Secret
 * Issuer URL
 
-If you belong to more than one Chainguard organization, you will also need the UIDP of the one under which you want to install the identity provider. Your selection won’t affect how your users authenticate but will have implications on who has permission to modify the SSO configuration.
+If you belong to more than one Chainguard organization, you also need the ID of the one under which you want to install the identity provider. Your selection won’t affect how your users authenticate but it does affect who has permission to modify the SSO configuration.
 
-You can retrieve a list of all the Chainguard organizations you belong to — along with their UIDPs — with the following command.
+You can retrieve a list of all the Chainguard organizations you belong to — along with their IDs — with the following command.
 
 ```shell
 chainctl iam organizations ls -o table
@@ -127,7 +127,7 @@ Note the `--default-role` option. This defines the default role granted to users
 
 You can refer to our [Generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide) in our Introduction to Custom Identity Providers guide for more information about the `chainctl iam identity-provider create` command and its required options.
 
-To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev](https://console.chainguard.dev) and click **Use Your Identity Provider**. Next, click **Use Your Organization Name** and enter the name of the organization associated with the new identity provider. Finally, click the **Login with Provider** button. This will open up a new window with the Ping Identity login flow, allowing you to complete the login process through there.
+To log in to the Chainguard Console with the new identity provider you just created, navigate to [console.chainguard.dev/auth/login](https://console.chainguard.dev/auth/login), enter your Chainguard organization's name into the **Email or organization** box, and click **Continue**. This opens a new window with the Ping Identity login flow, where you can complete the login process.
 
 You can also use the custom identity provider to log in through `chainctl`. To do this, run the `chainctl auth login` command and add the `--identity-provider` option followed by the identity provider's ID value:
 
