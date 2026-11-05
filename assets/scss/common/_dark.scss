@@ -309,10 +309,6 @@ $navbar-dark-active-color: $link-color-dark;
   background: $gray-500;
 }
 
-[data-dark-mode] body blockquote {
-  border-left: 3px solid $border-dark;
-}
-
 [data-dark-mode] body .docs-toc {
   scrollbar-width: thin;
   scrollbar-color: $body-bg-dark $body-bg-dark;

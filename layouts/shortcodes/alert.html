@@ -1,7 +1,7 @@
 {{- $context := .Get "context" | default "info" -}}
 {{- $text := .Get "text" -}}
 {{- $inner := .Inner -}}
-<div class="alert alert-{{ $context }} d-flex" role="alert">
+<div class="alert alert-{{ $context }} d-flex">
   <div class="flex-shrink-0">
     {{- if eq $context "danger" -}}
       <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
