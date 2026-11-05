@@ -11,7 +11,7 @@ lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-10-27T14:25:39+00:00
+lastmod: 2026-11-05T15:59:18+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Libraries"]
 images: []
@@ -25,7 +25,7 @@ In such cases, you can create a Chainguard identity for these systems to assume,
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
 
 {{< note >}}
-[Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+A [Chainguard Starter](/get-started/self-serve/plans/) organization can create up to 3 assumable identities for CI pipelines, and can bind each one only to a pull role, such as `registry.pull`. It can't create AWS identities. For the other Starter limits, refer to [Plan limits](/get-started/self-serve/plans/#plan-limits).
 {{< /note >}}
 
 ## About assumable identities
