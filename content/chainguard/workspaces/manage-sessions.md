@@ -4,7 +4,7 @@ linktitle: "Manage sessions"
 description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, copy text out of one, and keep a session running while you're away."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T14:50:35+00:00
+lastmod: 2026-11-05T15:56:15+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Procedural"]
 images: []
@@ -34,7 +34,7 @@ Sessions you open from a directory and sessions you open from a repository URL a
 
 ## Choose the session's repository {#choose-the-sessions-repository}
 
-A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. When the session can start from one of the repository's commits, `chainctl` uploads only what differs from that commit. By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
+A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. If your checkout shares a commit with the repository on GitHub, the session starts from that commit, and `chainctl` uploads only your directory's differences from it, such as commits you haven't pushed and uncommitted changes. Otherwise, it uploads the whole directory. For what the upload includes, refer to [How a session works](/chainguard/workspaces/overview/#how-a-session-works). By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
 
 To choose ahead of time, pass `--git-remote` with the name of a remote. This example opens a session on the repository that the `upstream` remote points to:
 
@@ -57,6 +57,8 @@ git remote add upstream https://github.com/acme/app
 The session's `github` credential already covers your checkout's other github.com remotes where the Chainguard App is installed, as described in [What a session can reach by default](/chainguard/workspaces/credentials/#what-a-session-can-reach-by-default). To run your hooks in the session, install them again there, for example with `pre-commit install`.
 
 ## Detach from a session {#detach-from-a-session}
+
+Detaching returns your terminal to your laptop's shell. Depending on the option you choose, the session then keeps running or *parks*: it saves its memory and disk to a snapshot and stops its VM, so it stops using compute. A parked session resumes where it left off when you return.
 
 While you're attached to a session, press `Ctrl+]` to open the session menu. You can also type `~.` at the session's shell prompt, or as the first thing you type after you attach or press `Enter`. In a program that draws its own input line, such as Claude Code, `~.` works only right after `Enter`, so use `Ctrl+]` there. The menu has the following options:
 

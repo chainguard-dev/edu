@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T13:54:31+00:00
+lastmod: 2026-11-05T15:45:20+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -205,8 +205,8 @@ A session's network access depends on its environment:
 | The default environment | The open internet |
 | A `.chainguard/develop.yaml` file | The open internet |
 | A file's top-level `environment`, with no check selected | The open internet |
-| A check with no `network` key, selected with `--check` or named `develop` | The open internet |
-| A check with `network.egress`, selected with `--check` or named `develop` | Only the hosts in `egress` |
+| A check that you pass with `--check`, or the file's check named `develop`, with no `network` key | The open internet |
+| A check that you pass with `--check`, or the file's check named `develop`, with `network.egress` | Only the hosts in `egress` |
 
 That's different from Chainguard Checks, where a check with no `network` key has no network access at all. In a session, only an `egress` list restricts the network.
 
@@ -227,7 +227,7 @@ By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk, and run
 | Environment | Where the size comes from |
 | ----------- | ------------------------- |
 | A `.chainguard/develop.yaml` file | The file's `resources` key, not the one in the file that `from` names |
-| A check, selected with `--check` or named `develop` | The first of these that sets `resources`: the check, the check's file, and, in the directory layout, `.chainguard/ci/env/default.yaml`. If none does, the default size, unless your repository has a `.chainguard/ci/resources.yaml` file, which gives the session its `default` class |
+| A check that you pass with `--check`, or the file's check named `develop` | The first of these that sets `resources`: the check, the check's file, and, in the directory layout, `.chainguard/ci/env/default.yaml`. If none does, the default size, unless your repository has a `.chainguard/ci/resources.yaml` file, which gives the session its `default` class |
 | A file's top-level `environment`, with no check selected | The file's top-level `resources` key |
 | The default environment or a generated one | Always the default size |
 
