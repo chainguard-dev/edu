@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-11-04 02:13:37_
+_Compiled on: 2026-11-05 02:15:12_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -91,7 +91,7 @@ For best results when searching this document:
 
 ### Document Structure
 
-This bundle contains publicly available documentation from Chainguard Academy, including conceptual guides, tutorials, and best practices. Its final section holds the Dockerfile Converter (dfc) package and image mappings.
+This bundle contains publicly available documentation from Chainguard Docs, including conceptual guides, tutorials, and best practices. Its final section holds the Dockerfile Converter (dfc) package and image mappings.
 
 ---
 ## Table of Contents
@@ -1020,16 +1020,28 @@ Both products use the same `network.egress` allowlist, but they read a missing `
 | -- | -- | -- |
 | No `network` key | No network access | The open internet |
 | `network.egress` lists hosts | Only those hosts | Only those hosts, when you open the session on that check |
-| `network.egress: ["*"]` | Any public host | Any public host |
+| `network.egress: ["*"]` | Any public hostname | Any public hostname |
 | `policy: destroy` | A connection to an unlisted host stops the VM, and the check fails | Treated as `deny`: the connection is refused, and the session keeps running |
 
 A session that uses the default environment, a `.chainguard/develop.yaml` file, or a file's top-level `environment` reaches the open internet, because none of these can set `network`. To restrict a session, open it on a check that has an `egress` list. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access).
 
-Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges. Chainguard Checks also intercepts most HTTPS connections from a check, using a certificate authority that it creates for that check's VM alone, as described in [Network access](/chainguard/checks/configuration/#network-access).
+Whatever a check or session allows, it never reaches cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+Checks and sessions handle HTTPS the same way. Each VM gets a certificate authority of its own when it starts, and the VM's system certificate bundle trusts it. A session keeps its certificate authority when it resumes after parking. Chainguard intercepts connections to ports 80 and 443, so that it can verify each host's certificate itself and add credentials outside the VM, and it presents the VM with certificates from that certificate authority. It never presents its own certificate for a host whose certificate didn't verify. Connections to other TCP ports pass through without interception, and UDP traffic other than DNS is blocked. For the cases where a check sees the host's own certificate, refer to [Network access](/chainguard/checks/configuration/#network-access).
 
 The `egress` list doesn't apply to a session's credential hostnames, such as `http://github/` and `http://claude/`, so a session with a narrow list can still push to GitHub and use Claude Code. Google Cloud is different, because its requests go to Google's own hosts: a check that uses a Google Cloud workload identity, and a session that uses your Google Cloud credentials with an `egress` list, must list `sts.googleapis.com` and the Google APIs they call.
 
 To see which hosts a check tried to reach, and whether Chainguard Checks allowed each one, open the check's run page from its **Details** link on GitHub. Refer to [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
+
+### How egress matches a host {#how-egress-matches-a-host}
+
+Chainguard applies an `egress` list when the VM looks up a name and when it opens a connection:
+
+- A hostname or wildcard allows the addresses that the name resolves to.
+- To connect to an IP address without looking up a name, list the address or a CIDR range that contains it. A `*` entry allows every name, but not a connection made directly to an IP address.
+- A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
+
+Because the list allows addresses, a check or session can reach any service that shares an address with an allowed name, such as another site behind the same CDN. Keep that in mind when you decide which names to allow.
 
 ## Trust {#trust}
 
@@ -3279,7 +3291,7 @@ To turn off a session's Chainguard identity, run `chainctl develop creds` with `
 ### Use Claude Code in a Chainguard Workspaces session
 _Path: chainguard/workspaces/coding-agents.md_
 
-A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session.
+A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session, and how to let an agent on your laptop work in one.
 
 Claude Code is the only coding agent that sessions supply a model credential for. You can install other coding agents in a session, but sessions don't send them a credential. Every session writes a guide that any agent can read, as described in [The session's guide for agents](#the-sessions-guide-for-agents).
 
@@ -3508,6 +3520,27 @@ chainctl develop --new --name fix-cache --parent $ORGANIZATION
 
 Run each command in its own terminal. Each agent works on its own branch in its own session, and pushes its work when it's done.
 
+## Work in a session from an agent on your laptop {#work-in-a-session-from-an-agent-on-your-laptop}
+
+Instead of running Claude Code in a session, you can keep it on your laptop and let it work in a session through the `chainctl develop mcp` MCP server. With the server's tools, the agent can run commands and read and edit files in a session without attaching to it, copy files between your laptop and the session, and create, list, and delete your sessions.
+
+Only the agent's commands run in the session. The agent itself runs on your laptop, with your laptop's files, credentials, and settings, so this way doesn't keep the agent away from your laptop.
+
+To add the server to Claude Code, run the following command on your laptop:
+
+```shell
+claude mcp add develop -- chainctl develop mcp --parent $ORGANIZATION
+```
+
+Each tool, except the ones that create and list sessions, takes a session by its name or short ID in that organization. The server's tools differ from `chainctl` commands in the following ways:
+
+- The server never prompts. When a `chainctl develop` command would ask you to choose, such as between two sessions, the tool fails and lists the choices.
+- The agent must read a file with the server's `read` tool before it writes or edits the file, and the server refuses the change if the file changed after that read.
+- For a long build or test, the agent should run the command in the background with the `exec` tool's `run_in_background` option, then wait for it with the `wait` tool, so the other tools keep working. If the agent runs `chainctl develop exec` in its shell instead, the session is held until the command finishes, and the server's tools wait for it.
+- Deleting a session needs its full name a second time, and it can't be undone. Changes in the session that weren't pushed are lost.
+
+When the agent starts the server, the server sends it instructions for the tools, including a reminder to commit and push regularly. The tools change between `chainctl` releases. To find the ones that your release serves, run `chainctl develop mcp --help`. For the command itself, refer to [`chainctl develop mcp`](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-mcp).
+
 ## Check the agent's work before it pushes
 
 If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the [session's guide for agents](#the-sessions-guide-for-agents) tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
@@ -3717,6 +3750,10 @@ A session's network access depends on its environment:
 That's different from Chainguard Checks, where a check with no `network` key has no network access at all. In a session, only an `egress` list restricts the network.
 
 A session never reaches cloud metadata endpoints, loopback addresses, or private IP ranges, whatever its environment allows.
+
+An `egress` list allows the addresses that its hostnames resolve to, so a session can also reach other services at those addresses, such as sites behind the same CDN. Refer to [How egress matches a host](/get-started/checks-and-workspaces/how-it-works/#how-egress-matches-a-host).
+
+Like a check, a session intercepts HTTPS connections, with a certificate authority that Chainguard creates for the session's VM and keeps when the session resumes. The VM's system certificate bundle, `/etc/ssl/certs/ca-certificates.crt`, trusts that certificate authority, and the session sets `SSL_CERT_FILE`, `REQUESTS_CA_BUNDLE`, `PIP_CERT`, `CURL_CA_BUNDLE`, `NODE_EXTRA_CA_CERTS`, and `HEX_CACERTS_PATH` to the bundle, so most tools work without changes. A tool that keeps its own list of trusted certificates and doesn't read these variables rejects the intercepted connections with a certificate error. Point it at the system bundle. Refer to [Network](/get-started/checks-and-workspaces/how-it-works/#network).
 
 When a session tries to reach a host outside its `egress` list, Chainguard refuses the connection and the session keeps running. A check can declare `policy: destroy` to stop its VM on a refused connection instead, but in a session, `destroy` is treated as `deny`.
 
@@ -9109,7 +9146,7 @@ _Path: chainguard/containers/custom-assembly/custom-assembly-api-demo.md_
 
 Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/) is a tool that allows customers to create customized containers with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-You can use the Chainguard API to further customize your Custom Assembly builds and retrieve information about them. This tutorial highlights a demo application (which can be found in [Chainguard Academy's Demo Applications repository](https://github.com/chainguard-dev/edu-images-demos/tree/main)) which, when run, updates a Custom Assembly container's configuration based on a provided YAML file.
+You can use the Chainguard API to further customize your Custom Assembly builds and retrieve information about them. This tutorial highlights a demo application (which can be found in [Chainguard's demo applications repository](https://github.com/chainguard-dev/edu-images-demos/tree/main)) which, when run, updates a Custom Assembly container's configuration based on a provided YAML file.
 
 > **Note**: This tutorial highlights using the Chainguard API to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/containers/custom-assembly/custom-assembly-chainctl/), as well as [the Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/).
 
@@ -12650,7 +12687,7 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn more
 
-For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. We also have a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.
 
 ---
 
@@ -12934,7 +12971,7 @@ The move to a distroless workflow can be confusing for both individual developer
 
 ### Troubleshooting resources
 
-To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/).
+To help with troubleshooting issues that can occur, we have a guide on [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/).
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/containers/faq/).
 
@@ -12944,7 +12981,7 @@ Once you have worked through the [sample application port](/chainguard/container
 
 To automate Dockerfile migration, [Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
 
-Chainguard Academy groups the rest of its migration material into three sets:
+The rest of our migration material falls into three sets:
 
 * **[Migration guides](/chainguard/containers/migration/migration-guides/)** — language- and platform-specific guidance for Python, Node, PHP, .NET, Go, and Java.
 * **[Compatibility guides](/chainguard/containers/migration/compatibility/)** — what changes when moving from Alpine, Debian, Red Hat, or Ubuntu.
@@ -13013,7 +13050,7 @@ Chainguard container images are designed to be minimal and to include special fe
 - [ ] Build and test your image to validate your setup.
 - [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](/chainguard/containers/concepts/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
 
-For detailed migration guidance, please refer to our [Migration docs](/chainguard/containers/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.
+For detailed migration guidance, please refer to our [Migration docs](/chainguard/containers/migration/). For troubleshooting, check our [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.
 
 ---
 
@@ -13599,7 +13636,7 @@ When migrating your Python application, keep in mind these differences between t
 
 ## Migrating a Python application
 
-When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down standard image. Chainguard Academy hosts [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/containers/getting-started/languages-and-runtimes/python/).
+When migrating most containerized Python applications, we recommend building a virtual environment with any needed Python packages using our provided development images, then copying over the virtual environment to our stripped-down standard image. We also have [detailed instructions for a multi-stage build for a CLI-based Python script](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
 The below Dockerfile provides an example of such a multi-stage build for a simple Flask application. You can view a version of this Dockerfile with included sample Flask application and `requirements.txt` in [this repository](https://github.com/chainguard-dev/cg-images-python-migration/tree/python-only), and the original unmigrated application in the [v0 branch](https://github.com/chainguard-dev/cg-images-python-migration/tree/v0). A more complex setup with reverse proxy orchestrated with Docker Compose is provided in the next section.
 
@@ -16867,7 +16904,7 @@ fi
 
 This script decides how to run the application depending on how the `ENV` environment variable is set. The idea here is to allow us to use the same image in development, testing, and production. This approach is no longer recommended as it leads to development tooling being present in the production environment. Even though the development tooling isn't run in production, it is still bloating the image and is potentially exploitable by attackers. Therefore, we use a different approach and break the Dockerfile into separate development and production images.
 
-Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on the [Chainguard Academy guide to Python images](/chainguard/containers/getting-started/languages-and-runtimes/python/).
+Let’s skip to the final Dockerfile for our image and walk through the changes made. These changes address multiple issues, beyond just having multiple images, and are based on our [guide to Python images](/chainguard/containers/getting-started/languages-and-runtimes/python/).
 
 Replace the Dockerfile with this one (this is also available on the ["main" branch](https://github.com/chainguard-dev/identidock-cg/blob/main/identidock/Dockerfile)):
 
@@ -18137,8 +18174,8 @@ It’s likely already clear that switching to our standard images requires a few
 ## Resources
 
 - [Blog: Minimal container images: Towards a more secure future](https://www.chainguard.dev/unchained/minimal-container-images-towards-a-more-secure-future)
-- [Chainguard Academy: Overview of Chainguard Containers](/chainguard/containers/overview/)
-- [Chainguard Academy: Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/)
+- [Docs: Overview of Chainguard Containers](/chainguard/containers/overview/)
+- [Docs: Debugging distroless images](/chainguard/containers/troubleshooting/debugging-distroless-images/)
 
 ---
 
@@ -18236,7 +18273,7 @@ Over the years, various implementations of the [C standard library](https://en.w
 
 When developing [Wolfi](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview), the "undistro" on which all of Chainguard's container images are built, Chainguard elected to have it use glibc instead of another implementation like musl. This conceptual article aims to highlight the differences between these two implementations within the context of Chainguard's choice of using glibc over musl as the default implementation for the Wolfi undistro.
 
-> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: Several sections of this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples used to find this data with the Dockerfiles and C program files hosted in the `glibc-vs-musl` directory of the [Chainguard Containers demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 ## High-level differences between glibc and musl
 
@@ -18262,7 +18299,7 @@ The following table highlights some of the main differences between glibc and mu
 
 Be aware that binaries are not compatible between Alpine and Wolfi. You **should not** attempt to copy Alpine binaries into a Wolfi-based container image.
 
-> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Academy Containers Demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
+> **Note**: As mentioned previously, several of the remaining sections in this guide present data about the differences between glibc and musl across various categories. You can recreate some of these examples by following the same procedure of setting creating and testing container images based on the Dockerfiles and program files relevant to the example you're exploring. You can find the appropriate files in the `glibc-vs-musl` directory of the [Chainguard Containers demos repository](https://github.com/chainguard-dev/edu-images-demos/tree/main/glibc-vs-musl).
 
 ## Library and binary size
 
@@ -18508,7 +18545,7 @@ Though `musl` is sometimes chosen because of its minimal footprint, Chainguard�
 
 ## Next steps
 
-Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Academy](/chainguard/containers/), where you can find documentation to help you start incorporating them into your workflow.
+Understanding the differences between various Chainguard Containers allows you to make informed decisions about what images to choose for your compiled applications. You can check out our complete suite of Chainguard Containers on [Chainguard's registry](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-compiled-programs-compiled-programs). To learn more about using Chainguard Containers, head to the [Chainguard Containers docs](/chainguard/containers/), which can help you start incorporating them into your workflow.
 
 Interested in learning more about adopting Chainguard Containers for your organization? [Let’s get in touch!](https://www.chainguard.dev/contact)
 
@@ -21471,7 +21508,7 @@ To avoid this problem, you could include either or both of the following `set` o
 
 ## Learn more
 
-To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of Chainguard Academy, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
+To get up to speed with Sigstore, you can review the [Sigstore](/open-source/sigstore/) section of our docs, visit the upstream [Sigstore Docs](https://docs.sigstore.dev/) site, and check out the [Sigstore organization on GitHub](https://github.com/sigstore). You can learn more about verifying software artifacts with Cosign by reading [How to verify file signatures with Cosign](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
 Navigate to our [container images](/chainguard/containers/) landing page or [Getting started guides](/chainguard/containers/getting-started/) to understand more about Chainguard Containers and how its images offer low-to-zero CVEs.
 
@@ -26252,7 +26289,7 @@ The following HTML file displays a graphic of Linky alongside a fun octopus fact
 
 <h1>nginx Demo Website</h1>
 
-<h2>from the <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Academy</a></h2>
+<h2>from <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Docs</a></h2>
 
 <img src="linky.png" class="corners" width="250px">
 
@@ -26277,7 +26314,7 @@ Copy the following code to your `stylesheet.css` file.
 
 ```CSS
 /*
-Chainguard Academy nginx Demo Website
+Chainguard Docs nginx Demo Website
 */
 
 body {
@@ -28539,7 +28576,7 @@ nano hello.c
 Inside of your `hello.c` file, add in the following C code which will execute a "Hello, world!" application.
 
 ```C
-/* Chainguard Academy (edu.chainguard.dev)
+/* Chainguard Docs (www.chainguard.dev/docs)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Examples 1 & 2 - C
 */
@@ -28549,7 +28586,7 @@ Inside of your `hello.c` file, add in the following C code which will execute a 
 // Main Function
 int main(){
  printf("Hello, world!\n");
- printf("I am a demo from the Chainguard Academy.\n");
+ printf("I am a demo from Chainguard Docs.\n");
  printf("My code was written in C.\n");
 
  return 0;
@@ -28574,7 +28611,7 @@ This will return the "Hello, world!" program output in your terminal if the prog
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -28636,7 +28673,7 @@ You will see output in your terminal identical to that of the binary you compile
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -28706,7 +28743,7 @@ You will see output in your terminal identical to that of the previous example.
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C.
 ```
 
@@ -28727,7 +28764,7 @@ nano hello.cpp
 Add the following C++ code to the file you just created. This code will display a greeting specifying that it was written in C++.
 
 ```C++
-/* Chainguard Academy (edu.chainguard.dev)
+/* Chainguard Docs (www.chainguard.dev/docs)
 *  Getting Started with the C/C++ Chainguard Containers
 *  Example 3 - C++
 */
@@ -28738,7 +28775,7 @@ using namespace std;
 // Main Function
 int main(){
     cout << "Hello, world!\n";
-    cout << "I am a demo from the Chainguard Academy.\n";
+    cout << "I am a demo from Chainguard Docs.\n";
     cout << "My code was written in C++.\n";
 
     return 0;
@@ -28763,7 +28800,7 @@ You will see the following output in your terminal.
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C++.
 ```
 
@@ -28827,7 +28864,7 @@ You will see output in your terminal identical to that of the C++ binary you com
 
 ```Output
 Hello, world!
-I am a demo from the Chainguard Academy.
+I am a demo from Chainguard Docs.
 My code was written in C++.
 ```
 
@@ -47719,7 +47756,7 @@ By default, `actions/setup-go` caches downloaded modules and build output betwee
 
 The run page that a check's **Details** link opens lists each host the check tried to reach, and suggests an `egress` list built from the hosts it connected to. The suggestion includes only connections that the check's `egress` allowed, so to see every host a check uses, let it reach any host for one run:
 
-1. In a pull request whose code you trust, set the check's `network.egress` to `["*"]`. With `*`, the check's commands can reach any public host.
+1. In a pull request whose code you trust, set the check's `network.egress` to `["*"]`. With `*`, the check's commands can reach any public host by name.
 2. When the check finishes, open its **Network activity** on the run page, as described in [A check can't reach a host](/chainguard/checks/troubleshooting/#a-check-cant-reach-a-host).
 3. Review the hosts listed after **Suggested allowlist (review before applying)**, replace `*` with them, and push the change.
 
@@ -47799,7 +47836,7 @@ The `chainctl checks status -o json` command prints the run's full name in its `
 
 ## Output and exit codes {#output-and-exit-codes}
 
-To print JSON for a script or a coding agent, add `-o json`, which is short for `--output json`. Each command's section describes its JSON.
+To print JSON for a script or a coding agent, add `-o json`, which is short for `--output json`. Each command's section describes its JSON, and some show an example. The commands print each object on one line, and the examples add line breaks so that they're easier to read.
 
 On a terminal, commands that print your repository's output remove escape sequences and other control characters from it. To keep them, add `--raw` to a command that takes it. When the output isn't a terminal, such as when you pipe it to a file, the commands always print it as it is.
 
@@ -47833,7 +47870,38 @@ The output marks a failed advisory check as `(advisory)`, and shows the label th
 | `1` | The run finished and a blocking check didn't pass, or the command failed. |
 | `2` | Chainguard Checks created no run for the `REF`. |
 
-With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `revision`, `pull_request`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
+With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `repository_id`, `revision`, `pull_request`, `trigger`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
+
+For example, for a pull request run whose `test` check failed and whose `vet` check passed, the command prints the following and exits with `1`:
+
+```json
+{
+  "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+  "repository": "github.com/acme/app",
+  "revision": "3e9b7c1d5a2f8e40b6c3d9a1f7e2b5c8d0a4f613",
+  "pull_request": "https://github.com/acme/app/pull/123",
+  "repository_id": "5e8a1c3f7b2d9e046a1f8c3b7d2e5a90",
+  "trigger": "presubmit",
+  "phase": "DONE",
+  "outcome": "FAILED",
+  "failed": true,
+  "checks": [
+    {
+      "workflow": "ci",
+      "check": "test",
+      "phase": "DONE",
+      "outcome": "FAILED",
+      "exit_code": 1
+    },
+    {
+      "workflow": "ci",
+      "check": "vet",
+      "phase": "DONE",
+      "outcome": "PASSED"
+    }
+  ]
+}
+```
 
 ### chainctl checks failures {#chainctl-checks-failures}
 
@@ -47859,7 +47927,64 @@ chainctl checks failures acme/app#123 --parent $ORGANIZATION
 
 The output starts with the run's name, then its status and how many of its checks failed, passed, and didn't run. The command exits with `0` when it shows failures, so use `chainctl checks status` to test whether a run passed.
 
-With `-o json`, the command prints one object with the run's name in `target`, its `phase` and `outcome`, the `counts` of checks that `passed`, `failed`, haven't finished (`running`), or didn't run (`not_run`), a `failed` list, and `truncated`, which is `true` when the command shortened or left out part of the output to fit `--budget`. Each failed check has its `check`, `outcome`, `exit_code`, the `step` that failed, and `quotes` from its log. Each quote has its `text` and the `log_ranges` it came from. When the log has output before the quote, the quote's `more` field is the `chainctl checks logs` command that reads that output. A check with no record of why it failed has no quotes, and its own `more` field is the command that reads the end of its log. With `--not-run`, the object also has a `not_run` list.
+With `-o json`, the command prints one object with the run's name in `target`, its `phase` and `outcome`, the `counts` of checks that `passed`, `failed`, haven't finished (`running`), or didn't run (`not_run`), a `failed` list, and `truncated`, which is `true` when the command shortened or left out part of the output to fit `--budget`. The `budget_bytes` and `used_bytes` fields give the budget and how much of it the output used. Each failed check has its `workflow`, `check`, `attempt`, `outcome`, and `exit_code`, the `step` that failed, with its `command`, and `quotes` from its log. Each quote has its `text` and the `log_ranges` it came from. When the log has output before the quote, the quote's `more` field is the `chainctl checks logs` command that reads that output. A check with no record of why it failed has no quotes, and its own `more` field is the command that reads the end of its log. With `--not-run`, the object also has a `not_run` list.
+
+For the same run, the command prints the following:
+
+```json
+{
+  "target": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+  "phase": "DONE",
+  "outcome": "FAILED",
+  "counts": {
+    "passed": 1,
+    "failed": 1,
+    "not_run": 0,
+    "running": 0
+  },
+  "failed": [
+    {
+      "workflow_run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63/workflowRuns/c6d3f8a2-1e7b-4c09-b5a4-8d2e6f1a9c37",
+      "workflow": "ci",
+      "check": "test",
+      "attempt": 1,
+      "outcome": "FAILED",
+      "exit_code": 1,
+      "step": {
+        "index": 0,
+        "name": "step 0",
+        "outcome": "FAILED",
+        "exit_code": 1,
+        "command": "sh -e -c \"echo \\\"this check fails on purpose, for a docs example\\\"\\nexit 1\\n\"",
+        "command_bytes": 77,
+        "working_directory": "/work"
+      },
+      "quotes": [
+        {
+          "process": {
+            "program": "sh",
+            "exit_code": 1,
+            "provenance": "guest-attested"
+          },
+          "text": "this check fails on purpose, for a docs example\n",
+          "log_ranges": [
+            [
+              390,
+              438
+            ]
+          ],
+          "log_digest": "sha256:bfad8ff122de69c3dccc9c912a673a76ab886429797975db1ec95b7728a4d217",
+          "omitted_bytes": 0,
+          "not_retained_bytes": 0
+        }
+      ]
+    }
+  ],
+  "budget_bytes": 8192,
+  "used_bytes": 1011,
+  "truncated": false
+}
+```
 
 ### chainctl checks logs {#chainctl-checks-logs}
 
@@ -47938,7 +48063,47 @@ For example:
 chainctl checks attempts acme/app#123 --check test --parent $ORGANIZATION
 ```
 
-To read one attempt's log or events, pass its number to `--attempt` in `chainctl checks logs` or `chainctl checks events`. With `-o json`, the command prints one object with the check's `workflow_run`, `workflow`, and `check`, and its `attempts` as the API returns them.
+To read one attempt's log or events, pass its number to `--attempt` in `chainctl checks logs` or `chainctl checks events`. With `-o json`, the command prints one object with the check's `workflow_run`, `workflow`, and `check`, and its `attempts` as the API returns them. Unlike the other commands' JSON, each attempt's keys are in camel case, such as `exitCode`, and its values have a prefix, such as `OUTCOME_FAILED`. The following example, for the same run's `test` check, leaves out most of the attempt's fields, such as its resources and log streams:
+
+```json
+{
+  "workflow_run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63/workflowRuns/c6d3f8a2-1e7b-4c09-b5a4-8d2e6f1a9c37",
+  "workflow": "ci",
+  "check": "test",
+  "attempts": [
+    {
+      "number": 1,
+      "reason": "ATTEMPT_REASON_FIRST",
+      "phase": "DONE",
+      "outcome": "OUTCOME_FAILED",
+      "exitCode": 1,
+      "createTime": "2026-11-04T16:58:48.148040047Z",
+      "startTime": "2026-11-04T16:58:48.148207797Z",
+      "endTime": "2026-11-04T16:58:59.623444185Z",
+      "timings": {
+        "slot": "0.052962567s",
+        "boot": "2.061895718s",
+        "provision": "7.539728472s",
+        "steps": "0.186034422s"
+      },
+      "steps": [
+        {
+          "name": "step 0",
+          "outcome": "OUTCOME_FAILED",
+          "exitCode": 1,
+          "argv": [
+            "sh",
+            "-e",
+            "-c",
+            "echo \"this check fails on purpose, for a docs example\"\nexit 1\n"
+          ],
+          "workingDirectory": "/work"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ### chainctl checks events {#chainctl-checks-events}
 
@@ -48010,6 +48175,33 @@ chainctl checks list --repo acme/app --ref main --outcome failed --parent $ORGAN
 The output has one row for each run, with the columns `RUN`, `CREATED`, `REPOSITORY`, `REF`, `COMMIT`, `PR`, `TRIGGER`, and `STATUS`. The `RUN` column is the run's ID. For a pull request run, `COMMIT` is the head of the pull request, and `PR` is the pull request's URL. `COMMIT` shows the start of the commit's SHA, so to name the commit in another command, use the full SHA in the `revision` field of the `-o json` output. A run started with `chainctl checks run` has `-` under both `REF` and `PR`. The `STATUS` column shows `queued`, `running`, or `cancelling` until the run finishes, then its outcome, such as `passed`.
 
 With `-o json`, the command prints a list with one object for each run, with its `run`, `create_time`, `repository`, `ref`, `revision`, `pull_request`, `trigger`, `phase`, `outcome`, and `cancel_requested`. The command leaves out fields that have no value, such as `outcome` for a run that hasn't finished.
+
+For example, for a repository's last two pull request runs, the command prints the following. They're pull request runs, so they have no `ref`, and no one asked to cancel them, so they have no `cancel_requested`:
+
+```json
+[
+  {
+    "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+    "create_time": "2026-11-04T16:58:47Z",
+    "repository": "github.com/acme/app",
+    "revision": "3e9b7c1d5a2f8e40b6c3d9a1f7e2b5c8d0a4f613",
+    "pull_request": "https://github.com/acme/app/pull/123",
+    "trigger": "presubmit",
+    "phase": "DONE",
+    "outcome": "FAILED"
+  },
+  {
+    "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/e1a84c07-3d92-4b5f-a6c8-0f2d7b9e4a15",
+    "create_time": "2026-11-02T16:23:21Z",
+    "repository": "github.com/acme/app",
+    "revision": "a7f2e5c8b1d4093e6a2c7f5b8d1e4a9c3f6b0d27",
+    "pull_request": "https://github.com/acme/app/pull/122",
+    "trigger": "presubmit",
+    "phase": "DONE",
+    "outcome": "PASSED"
+  }
+]
+```
 
 ## Start and stop runs {#start-and-stop-runs}
 
@@ -48211,7 +48403,7 @@ mkdir -p .chainguard/ci
 chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
 ```
 
-With `-o json`, the command prints one object with the `repository`, `revision`, the draft's `path`, the number of `jobs` it drafted, the draft itself in `document`, and the `ledger` of what it carried over, flagged, and ignored.
+With `-o json`, the command prints one object with the `repository`, `revision`, the `source` it drafted from, which is `github-actions`, `dry`, which is `true` with `--dry`, the draft's `path`, the number of `jobs` it drafted, the draft itself in `document`, and the `ledger` of what it carried over, flagged, and ignored.
 
 ### chainctl checks accept-terms {#chainctl-checks-accept-terms}
 
@@ -48287,21 +48479,22 @@ The summary check's title says how the run ended:
 | **N of M blocking check(s) failed** | At least one blocking check failed. N also counts blocking checks that couldn't be executed. If no check is advisory, the title leaves out "blocking". |
 | **N check(s) could not be executed** | No blocking check failed, but at least one couldn't run to the end. |
 
-The output starts with the merge commit the run tested and how many checks passed. It then lists how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
+The output starts with a **checks dashboard** link to the run page and a **Tested:** line with the commits the run tested. It then says how many checks passed, including how many results came from the cache, and how many checks weren't instantiated, which means their conditions or `foreach` selected nothing for this change. A check that isn't instantiated counts as passing. The output also lists the checks that can run on request, with the label for each, any advisory checks that didn't pass, and any checks that labels requested.
 
-Then a table lists each check with its outcome, a class for a check that failed or couldn't be executed, and the exit code of a check that failed. A check with `foreach` has one row, plus a row for each variation that didn't pass. The table shows up to 50 rows, and an advisory check's outcome ends with `(advisory)`.
+If a blocking check failed or couldn't be executed, a callout names it next. Then tables list the checks, grouped by result. The failed checks' table is open, and each other group, such as the passed checks, is collapsed until you expand it. Each table has **Workflow**, **Job**, and **Result** columns, where **Workflow** is the name of the check's file without `.yaml`, such as `ci`. A check with `foreach` has one row, plus a row for each variation that didn't pass. For a run with 50 or fewer checks that ran, a diagram after any failed checks shows each check, with how long it took.
 
-| Outcome | Class | What it means |
-| ------- | ----- | ------------- |
-| `PASSED` | | The check passed. |
-| `FAILED` | `CHECK` | A command exited with a nonzero code, shown under **Exit code**. |
-| `FAILED` | `POLICY` | The check has `policy: destroy` and tried to reach a host it doesn't list, so Chainguard Checks stopped its VM. The check fails even if its commands would have succeeded. |
-| `ERRORED` | `TIMEOUT` | The check ran longer than its `timeout`. |
-| `ERRORED` | `INFRA` | Something else kept the check from finishing, such as packages that can't be installed together, a workload identity that the pull request doesn't get, or a VM that kept failing after [automatic retries](#automatic-retries). |
-| `DEPENDENCY_FAILED` | | A check that it `needs` didn't pass, so it didn't run. |
-| `NOT_INSTANTIATED` | | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
+| Result | What it means |
+| ------ | ------------- |
+| `passed` | The check passed. |
+| `failed` | A command exited with a nonzero code. The check's own GitHub check, titled **Failed (exit N)**, gives the exit code. A check with `policy: destroy` also fails when it tries to reach a host it doesn't list, because Chainguard Checks stops its VM, even if its commands would have succeeded. |
+| `errored` | The check couldn't run to the end. It ran longer than its `timeout`, or something else stopped it, such as packages that can't be installed together, a workload identity that the pull request doesn't get, or a VM that kept failing after [automatic retries](#automatic-retries). |
+| `cancelled` | The run was cancelled before the check finished. |
+| `skipped: a dependency failed` | A check that it `needs` didn't pass, so it didn't run. |
+| `skipped: nothing to run` | The check didn't need to run for this change, because of its conditions or because it runs only on request. It counts as passing. |
 
-For each check that couldn't be executed, the reason appears under **Errors:** after the table, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
+An advisory check's result ends with `(advisory)`. If it didn't pass, its row is marked with a warning sign instead of a failure, and the callout leaves it out. If the tables don't fit in the summary, it leaves out passed and skipped checks first, and then says how many checks it left out, with a link to the run page.
+
+For each check that couldn't be executed, the reason appears under **Errors:** after the tables, and the check's own GitHub check is titled **Could not be executed**, followed by the reason. For how to fix the common reasons, refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/).
 
 ## Read results with the GitHub API {#read-results-with-the-github-api}
 
@@ -48323,11 +48516,11 @@ A result can go out of date, so get the head commit's SHA and read the summary c
 - A rerun, a `ci/run:` label, or a [change to the pull request](#reruns-when-a-pull-request-changes) can start a new run on the same commit, and the summary check goes back to `queued` or `in_progress`.
 - A push moves the pull request to a new head commit. Chainguard Checks cancels the earlier commit's run, and that commit's summary check can stay `queued` or `in_progress` indefinitely.
 
-To see which of your checks failed, read their own check runs. Each check gets one when it finishes:
+To see which of your checks failed, read their own check runs. A check gets one when it finishes, unless it passed without reporting anything or wasn't instantiated:
 
 | Outcome | Check run's conclusion |
 | ------- | ---------------------- |
-| `PASSED` | `success` |
+| `PASSED` | `success`, for a check that reported something |
 | `FAILED` | `failure` |
 | `ERRORED` | `failure` |
 | `DEPENDENCY_FAILED` | `skipped` |
@@ -48337,11 +48530,11 @@ An advisory check gets the same conclusion as a blocking check with the same out
 
 Decide whether a pull request passes from the summary check alone, not from the per-check results:
 
-- Some checks have no check run: checks that weren't instantiated, checks that haven't finished, and checks that never will because the run ended early, such as when the summary check fails with **Run failed**. A run that can't start, such as when the summary check fails with **Run creation failed**, reports no per-check results at all.
+- Some checks have no check run: checks that passed without reporting anything, checks that weren't instantiated, checks that haven't finished, and checks that never will because the run ended early, such as when the summary check fails with **Run failed**. A run that can't start, such as when the summary check fails with **Run creation failed**, reports no per-check results at all.
 - A failed advisory check shows `failure` while the summary check passes.
 - A check run from an earlier run on the same commit can remain. The API returns it until the new run reports that check, and keeps returning it if the new run never does, such as when the check isn't instantiated this time or the new run can't start.
 
-Only the summary check always reflects the latest run, but its table shows up to 50 rows. With a role in your Chainguard organization, `chainctl checks status` shows every check's result, as described in [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). For the API's parameters and fields, refer to GitHub's [REST API endpoints for check runs](https://docs.github.com/en/rest/checks/runs).
+Only the summary check always reflects the latest run, but if a run has too many checks to list, the summary leaves some of them out. With a role in your Chainguard organization, `chainctl checks status` shows every check's result, as described in [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). For the API's parameters and fields, refer to GitHub's [REST API endpoints for check runs](https://docs.github.com/en/rest/checks/runs).
 
 ## Require checks before merging {#require-checks-before-merging}
 
@@ -48980,7 +49173,7 @@ Get a first check passing with the [quick start](#quick-start), or learn each pa
 
 1. **Read the result**
 
-    On the pull request, wait for the **Chainguard Checks (presubmit)** check to pass, which can take a minute, and then select it to read the `hello` check's output. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
+    On the pull request's **Checks** tab, wait for **Chainguard Checks (presubmit)** to appear and pass, which usually takes less than a minute. It's the only check that Chainguard Checks adds for this file, because a check that passes without reporting anything gets no GitHub check of its own. Select it to see the run's summary: its title reads **All 1 check(s) passed**, and its table lists `hello` as passed. If no check appears, refer to [A pull request gets no checks](/chainguard/checks/troubleshooting/#a-pull-request-gets-no-checks).
 
 To replace the first check with your own, refer to [Replace the first check with your own](#replace-the-first-check-with-your-own). To draft checks from your GitHub Actions workflows, refer to [Draft checks from your workflows](#draft-checks-from-your-workflows).
 {.quick-start-done}
@@ -49386,9 +49579,9 @@ checks:
 Each entry in `egress` can be one of the following:
 
 - A hostname, such as `registry.npmjs.org`, in lowercase and without a scheme or port.
-- A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard can't cover a whole top-level domain, such as `*.com`.
-- An IPv4 address or CIDR range. IPv6 isn't supported.
-- `*`, which allows any host.
+- A wildcard for a domain's subdomains, such as `*.githubusercontent.com`. A wildcard doesn't match the domain itself, so list `githubusercontent.com` too if the check needs it. A wildcard needs at least two labels after `*.`, so `*.co.uk` is accepted and `*.com` isn't.
+- An IPv4 address or CIDR range. A check that connects to an IP address without looking up a name needs one of these. IPv6 isn't supported.
+- `*`, which allows any hostname, but not a connection made directly to an IP address.
 
 An entry with a scheme or a port, such as `https://registry.npmjs.org` or `registry.npmjs.org:443`, passes validation but matches nothing. If you include a `network` key, `egress` must list at least one entry. To keep a check off the network, leave out `network` entirely.
 
@@ -49400,6 +49593,8 @@ The `policy` key controls what happens when the check tries to reach a host that
 | `destroy` | Chainguard Checks stops the check's VM, and the check fails. |
 
 Whatever a check allows, it can never reach cloud metadata endpoints, loopback addresses, or private IP ranges.
+
+A hostname in `egress` allows the addresses that it resolves to, so a check can also reach other services at those addresses, such as sites behind the same CDN. Refer to [How egress matches a host](/get-started/checks-and-workspaces/how-it-works/#how-egress-matches-a-host).
 
 When a check with network access makes an HTTPS request, Chainguard Checks verifies the host's own certificate, then presents the check with a certificate signed by a certificate authority that it creates for that check's VM alone. Chainguard Checks doesn't replace the host's certificate in the following cases:
 
@@ -49804,7 +49999,7 @@ The script creates a virtual environment so that `pip` installs packages for the
 ### Chainguard Checks overview
 _Path: chainguard/checks/overview.md_
 
-Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports each result in the pull request's list of checks on GitHub. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, which [`chainctl checks migrate`](/chainguard/checks/migrate-from-github-actions/) can draft for you.
+Chainguard Checks runs your pull requests' checks, such as linting and tests, on Chainguard's infrastructure, and reports the results on the pull request's **Checks** tab on GitHub, beside any other checks the repository runs. You define the checks in a `.chainguard/ci.yaml` file in your repository, in Chainguard Checks' own format. Chainguard Checks doesn't run GitHub Actions workflows, so moving a workflow's jobs to it means writing that file, which [`chainctl checks migrate`](/chainguard/checks/migrate-from-github-actions/) can draft for you.
 
 A *check* is one command or script that you name in that file. On every pull request, Chainguard Checks runs each check in its own *microVM*: a small virtual machine, built on Chainguard OS, that starts fresh for that check.
 
@@ -49847,6 +50042,8 @@ checks:
 ```
 
 This file defines two checks, `vet` and `test`, and installs Go in each check's VM. Each check runs in a fresh VM with no network access unless it asks for some, so both list the Go module proxy and checksum database under `network.egress` to download the modules your code depends on. Refer to the [configuration reference](/chainguard/checks/configuration/) for every option.
+
+On a pull request where both checks pass, the **Checks** tab shows one entry from Chainguard Checks, **Chainguard Checks (presubmit)**, titled **All 2 check(s) passed**. If `test` fails, it shows two: the summary check, titled **1 of 2 check(s) failed**, and **presubmit / ci / test**, whose title gives the exit code and whose output shows the end of the check's log.
 
 ## Isolation by default
 
@@ -63110,6 +63307,48 @@ Remove cloud provider account associations from a location.
 
 ---
 
+### chainctl auth sessions revoke
+_Path: platform/chainctl/chainctl-docs/chainctl_auth_sessions_revoke.md_
+
+## chainctl auth sessions revoke
+
+Revoke one of your sign-in sessions, or all of them.
+
+### Synopsis
+
+Revoke one of your sign-in sessions, or all of them. With --all, the session this chainctl holds is revoked too and its local tokens are deleted.
+
+```
+chainctl auth sessions revoke UID|--all [flags]
+```
+
+### Options
+
+```
+      --all   Revoke every session, then delete the local tokens.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl auth sessions](/platform/chainctl/chainctl-docs/chainctl_auth_sessions/)	 - List and revoke your sign-in sessions.
+
+---
+
 ### chainctl develop claude
 _Path: platform/chainctl/chainctl-docs/chainctl_develop_claude.md_
 
@@ -63301,8 +63540,9 @@ List the GitHub organizations linked to your Chainguard groups.
 
 List the GitHub organizations linked to your Chainguard groups.
 
-By default every group you can see is checked and each group with a linked
-GitHub organization is listed. Pass --parent to list only one group.
+Only the --parent group is checked, falling back to the default.group config
+value. With neither set, every group you can see is checked and each group with
+a linked GitHub organization is listed.
 
 Which repositories guardener acts on is controlled by the guardener GitHub App's
 repository selection on GitHub — follow the SETTINGS link in the output to review
@@ -63319,7 +63559,7 @@ chainctl guardener github status [flags]
 ### Options
 
 ```
-      --parent string   Name or UIDP of the Chainguard group to list. Lists every group with a linked organization if omitted.
+      --parent string   Name or UIDP of the Chainguard group to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Lists every group with a linked organization if neither is set.
 ```
 
 ### Options inherited from parent commands
@@ -63789,7 +64029,7 @@ chainctl guardener github link [flags]
 
 ```
       --github-org string   GitHub account login to link (an organization, or your own user).
-      --parent string       Name or UIDP of the Chainguard group to link to. Prompts interactively if omitted.
+      --parent string       Name or UIDP of the Chainguard group to link to. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 
@@ -64211,6 +64451,36 @@ chainctl auth configure nuget [flags]
 
 ---
 
+### chainctl auth sessions
+_Path: platform/chainctl/chainctl-docs/chainctl_auth_sessions.md_
+
+## chainctl auth sessions
+
+List and revoke your sign-in sessions.
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
+* [chainctl auth sessions list](/platform/chainctl/chainctl-docs/chainctl_auth_sessions_list/)	 - List your sign-in sessions, marking the one this chainctl holds with *.
+* [chainctl auth sessions revoke](/platform/chainctl/chainctl-docs/chainctl_auth_sessions_revoke/)	 - Revoke one of your sign-in sessions, or all of them.
+
+---
+
 ### chainctl iam account-associations set azure
 _Path: platform/chainctl/chainctl-docs/chainctl_iam_account-associations_set_azure.md_
 
@@ -64514,8 +64784,11 @@ Manage entitlements to registry repositories.
 ### SEE ALSO
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
+* [chainctl images entitlements add-image](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_add-image/)	 - Add a catalog image to an organization's registry entitlement.
 * [chainctl images entitlements list](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_list/)	 - List registry entitlements of an organization.
+* [chainctl images entitlements remove-image](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_remove-image/)	 - Remove a catalog image from an organization's registry entitlement.
 * [chainctl images entitlements summary](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_summary/)	 - Show entitlement summary for an organization.
+* [chainctl images entitlements swap-image](/platform/chainctl/chainctl-docs/chainctl_images_entitlements_swap-image/)	 - Atomically swap catalog images on an organization's registry entitlement.
 
 ---
 
@@ -64904,7 +65177,7 @@ Run one command in a session's guest without a terminal and exit with its exit c
 
 CMD and its arguments run as given, with no shell; pass sh -c '...' for one. The command runs in --cwd, /work by default. With -i (--stdin) this process's stdin, read to its end (at most 16 MiB), is the command's stdin; without it the command's stdin is empty, so a shell loop's input is never consumed. The command's stdout and stderr arrive on this process's stdout and stderr, byte for byte.
 
-The exit code is the command's, 124 when --timeout killed it, and 255 when the command's outcome is unknown: the session could not be found or reached, or the call was refused or cut off. Interrupting this process, or --timeout passing, kills the command's process group; anything it started with setsid keeps running. A parked session is resumed first, and a session busy with another client's call on another API replica is waited for, up to 10 minutes. A directory session whose tree has not synced yet is refused: attach to it once to sync it. The command holds the session's guest until it exits, so a long one delays other clients' calls; for a long build an agent drives, prefer 'chainctl develop mcp' and its exec tool's run_in_background. The command's output is the guest's, byte for byte, terminal escapes included, as with ssh.
+The exit code is the command's, 124 when --timeout killed it, and 255 when the command's outcome is unknown: the session could not be found or reached, or the call was refused or cut off. Interrupting this process, or --timeout passing, kills the command's process group; anything it started with setsid keeps running. A parked session is resumed first; a session still starting is waited for, up to 5 minutes, and refused with the server's reason when its start keeps failing; and a session busy with another client's call on another API replica is waited for, up to 10 minutes. A directory session whose tree has not synced yet is refused: attach to it once to sync it. The command holds the session's guest until it exits, so a long one delays other clients' calls; for a long build an agent drives, prefer 'chainctl develop mcp' and its exec tool's run_in_background. The command's output is the guest's, byte for byte, terminal escapes included, as with ssh.
 
 ```
 chainctl develop exec SESSION [-i] [--cwd DIR] [--timeout D] -- CMD [ARGS...]
@@ -65176,7 +65449,7 @@ chainctl guardener scans get SCAN_ID [flags]
 
 ```
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group that owns the scan. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group that owns the scan. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
 ```
 
 ### Options inherited from parent commands
@@ -65626,7 +65899,7 @@ chainctl guardener entitlement get [flags]
 ### Options
 
 ```
-      --parent string   Name or UIDP of the Chainguard group. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
 ```
 
 ### Options inherited from parent commands
@@ -67644,6 +67917,7 @@ Auth related commands for the Chainguard platform.
 * [chainctl auth login](/platform/chainctl/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
 * [chainctl auth logout](/platform/chainctl/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
 * [chainctl auth pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/)	 - Create a pull token.
+* [chainctl auth sessions](/platform/chainctl/chainctl-docs/chainctl_auth_sessions/)	 - List and revoke your sign-in sessions.
 * [chainctl auth status](/platform/chainctl/chainctl-docs/chainctl_auth_status/)	 - Inspect the local Chainguard Token.
 * [chainctl auth token](/platform/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 
@@ -67829,12 +68103,12 @@ Unlink a GitHub organization from its Chainguard group.
 
 Unlink a GitHub organization from its Chainguard group.
 
-If --parent is set, this first tries your Chainguard credentials: if you hold
-guardener.association.manage on the group, the org is unlinked with no browser
-involved. Otherwise (or if those credentials are insufficient) it falls back to
-the GitHub authorization flow, which proves you own the organization. Either way
-you must be logged in to Chainguard; the GitHub flow just needs no access to the
-group.
+If --parent (or the default.group config value) names a group, this first
+tries your Chainguard credentials: if you hold guardener.association.manage on
+the group, the org is unlinked with no browser involved. Otherwise (or if those
+credentials are insufficient) it falls back to the GitHub authorization flow,
+which proves you own the organization. Either way you must be logged in to
+Chainguard; the GitHub flow just needs no access to the group.
 
 ```
 chainctl guardener github unlink [flags]
@@ -67844,7 +68118,7 @@ chainctl guardener github unlink [flags]
 
 ```
       --github-org string   GitHub account login to unlink (an organization, or your own user).
-      --parent string       Name or UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser).
+      --parent string       Name or UIDP of the Chainguard group; enables unlinking with your Chainguard credentials (no browser). Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 
@@ -68205,7 +68479,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go_athena|ruby|rust|python|java_athena|python_athena|dotnet|go|ruby_athena|rust_athena|java|javascript_athena|dotnet_athena|javascript}[,...] | --repository=all] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|javascript|java_athena|dotnet|ruby|java|rust|python|javascript_athena|dotnet_athena|go|go_athena|ruby_athena|python_athena|rust_athena}[,...] | --repository=all] [flags]
 ```
 
 ### Examples
@@ -68239,7 +68513,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, go_athena, ruby, rust, python, java_athena, python_athena, dotnet, go, ruby_athena, rust_athena, java, javascript_athena, dotnet_athena, javascript. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, javascript, java_athena, dotnet, ruby, java, rust, python, javascript_athena, dotnet_athena, go, go_athena, ruby_athena, python_athena, rust_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -68741,7 +69015,7 @@ chainctl guardener github migrate create REPOSITORY [flags]
 ### Options
 
 ```
-      --parent string      Name or UIDP of the Chainguard group that owns the installation. Prompts interactively if omitted.
+      --parent string      Name or UIDP of the Chainguard group that owns the installation. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --timeout duration   How long to wait for the migration when --wait is set. (default 10m0s)
       --wait               Wait for the migration operation to complete before returning. (default true)
 ```
@@ -69279,7 +69553,7 @@ Serve the develop session tools over the Model Context Protocol on stdin and std
 
   claude mcp add develop -- chainctl develop mcp
 
-The tools are exec, wait, kill, read, write, edit and upload (a file from this machine); service_start, service_list and service_stop (long-lived processes, in a session with agent contexts); and session_create, session_list, session_rename, session_extend and session_delete. A session parameter is a session name or short id, resolved in --parent as the other develop verbs resolve it. Paths are absolute in the guest or relative to /work. write and edit refuse a file that changed since this server last read it. session_delete takes the session's full name again in confirm_name. Nothing is asked on the terminal: a choice the verbs would prompt for fails with the candidates instead.
+The tools are exec, wait, kill, read, write, edit, upload (a file from this machine) and download (a file to this machine); service_start, service_list and service_stop (long-lived processes, in a session with agent contexts); and session_create, session_list, session_rename, session_extend and session_delete. A session parameter is a session name or short id, resolved in --parent as the other develop verbs resolve it. Paths are absolute in the guest or relative to /work. write and edit refuse a file that changed since this server last read it. session_delete takes the session's full name again in confirm_name. Nothing is asked on the terminal: a choice the verbs would prompt for fails with the candidates instead.
 
 Run long builds and tests with the exec tool's run_in_background, then wait for them: the command runs detached in the guest, so the server's other calls go on beside it. A 'chainctl develop exec' from Bash instead holds the guest for the whole command, and another API replica's calls queue behind it.
 
@@ -69348,6 +69622,12 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_logout.md_
 ## chainctl auth logout
 
 Logout from the Chainguard platform.
+
+### Synopsis
+
+Logout from the Chainguard platform.
+
+Without --audience, the sessions this chainctl holds are revoked on the server before the local tokens are deleted. With --audience, only that audience's local tokens are deleted.
 
 ```
 chainctl auth logout [--audience=AUDIENCE]
@@ -70450,6 +70730,51 @@ chainctl iam identity-providers scim token revoke IDENTITY_PROVIDER [--yes] [fla
 
 ---
 
+### chainctl images entitlements remove-image
+_Path: platform/chainctl/chainctl-docs/chainctl_images_entitlements_remove-image.md_
+
+## chainctl images entitlements remove-image
+
+Remove a catalog image from an organization's registry entitlement.
+
+### Synopsis
+
+Remove a catalog image from an organization's registry entitlement.
+
+Each image you remove counts against the organization's rolling 30-day swap quota. Unless the swap quota is unlimited, an image you remove cannot be added back to the same entitlement until 30 days after its removal. Removals made by Chainguard staff count against neither.
+
+```
+chainctl images entitlements remove-image (--parent=PARENT | --entitlement-id=ENTITLEMENT_ID) IMAGE_NAME [flags]
+```
+
+### Options
+
+```
+      --entitlement-id string   The id of the entitlement to remove the image from directly.
+      --parent string           The name or id of the org to remove an entitlement image from.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl images entitlements](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+
+---
+
 ### chainctl libraries storage
 _Path: platform/chainctl/chainctl-docs/chainctl_libraries_storage.md_
 
@@ -70837,6 +71162,38 @@ Manage guardener integrations.
 * [chainctl guardener entitlement](/platform/chainctl/chainctl-docs/chainctl_guardener_entitlement/)	 - Manage a group's guardener entitlement.
 * [chainctl guardener github](/platform/chainctl/chainctl-docs/chainctl_guardener_github/)	 - Link and unlink a GitHub organization to a Chainguard group.
 * [chainctl guardener scans](/platform/chainctl/chainctl-docs/chainctl_guardener_scans/)	 - View guardener dependency scans.
+
+---
+
+### chainctl auth sessions list
+_Path: platform/chainctl/chainctl-docs/chainctl_auth_sessions_list.md_
+
+## chainctl auth sessions list
+
+List your sign-in sessions, marking the one this chainctl holds with *.
+
+```
+chainctl auth sessions list [--output=json|table] [flags]
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl auth sessions](/platform/chainctl/chainctl-docs/chainctl_auth_sessions/)	 - List and revoke your sign-in sessions.
 
 ---
 
@@ -73266,7 +73623,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go_athena|ruby|rust|python|java_athena|python_athena|dotnet|go|ruby_athena|rust_athena|java|javascript_athena|dotnet_athena|javascript}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|javascript|java_athena|dotnet|ruby|java|rust|python|javascript_athena|dotnet_athena|go|go_athena|ruby_athena|python_athena|rust_athena}] [flags]
 ```
 
 ### Examples
@@ -73293,7 +73650,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go_athena, ruby, rust, python, java_athena, python_athena, dotnet, go, ruby_athena, rust_athena, java, javascript_athena, dotnet_athena, javascript
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, javascript, java_athena, dotnet, ruby, java, rust, python, javascript_athena, dotnet_athena, go, go_athena, ruby_athena, python_athena, rust_athena
 ```
 
 ### Options inherited from parent commands
@@ -73490,6 +73847,53 @@ chainctl images overlays update <UID|NAME> [flags]
 ### SEE ALSO
 
 * [chainctl images overlays](/platform/chainctl/chainctl-docs/chainctl_images_overlays/)	 - Manage Custom Assembly overlays and the repos they are attached to.
+
+---
+
+### chainctl images entitlements swap-image
+_Path: platform/chainctl/chainctl-docs/chainctl_images_entitlements_swap-image.md_
+
+## chainctl images entitlements swap-image
+
+Atomically swap catalog images on an organization's registry entitlement.
+
+### Synopsis
+
+Atomically remove and add catalog images on an organization's registry entitlement in a single request.
+
+Either the whole swap applies or nothing does, so a swap never leaves an image removed without its replacement. Each image you swap out counts against the organization's rolling 30-day swap quota. Unless the swap quota is unlimited, an image you swap out cannot be added back to the same entitlement until 30 days after its removal. Swaps made by Chainguard staff count against neither. Both --remove and --add are required and may be repeated; an image may not appear in both.
+
+```
+chainctl images entitlements swap-image (--parent=PARENT | --entitlement-id=ENTITLEMENT_ID) --remove=IMAGE --add=IMAGE [flags]
+```
+
+### Options
+
+```
+      --add strings             Catalog image name to add. Repeatable.
+      --entitlement-id string   The id of the entitlement to swap images on directly.
+      --parent string           The name or id of the org to swap entitlement images on.
+      --remove strings          Catalog image name to remove. Repeatable.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl images entitlements](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
 
 ---
 
@@ -73845,7 +74249,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, go_athena, ruby, rust, python, java_athena, python_athena, dotnet, go, ruby_athena, rust_athena, java, javascript_athena, dotnet_athena, javascript. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, javascript, java_athena, dotnet, ruby, java, rust, python, javascript_athena, dotnet_athena, go, go_athena, ruby_athena, python_athena, rust_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -75330,7 +75734,7 @@ chainctl guardener scans list [flags]
 
 ```
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group whose scans to list. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group whose scans to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --repo string     Only list scans of this repository (a github.com URL or "owner/repo").
 ```
 
@@ -76074,7 +76478,7 @@ chainctl guardener github migrate list [flags]
 ```
       --limit int       The most migrations to list. (default 20)
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --repo string     Only list migrations of this repository (a github.com URL or "owner/repo").
 ```
 
@@ -78717,6 +79121,45 @@ chainctl config unset PROPERTY_NAME
 
 ---
 
+### chainctl images entitlements add-image
+_Path: platform/chainctl/chainctl-docs/chainctl_images_entitlements_add-image.md_
+
+## chainctl images entitlements add-image
+
+Add a catalog image to an organization's registry entitlement.
+
+```
+chainctl images entitlements add-image (--parent=PARENT | --entitlement-id=ENTITLEMENT_ID) IMAGE_NAME [flags]
+```
+
+### Options
+
+```
+      --entitlement-id string   The id of the entitlement to add the image to directly.
+      --parent string           The name or id of the org to add an entitlement image to.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl images entitlements](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/)	 - Manage entitlements to registry repositories.
+
+---
+
 ### chainctl policy override
 _Path: platform/chainctl/chainctl-docs/chainctl_policy_override.md_
 
@@ -78875,7 +79318,7 @@ This shows that you have successfully subscribed the test service to Chainguard 
 
 The webhook will get all events for your organization. You will need to filter them to only the events you are interested in, which can be done using the `ce-type` header. For pull events the type is `dev.chainguard.registry.pull.v1` and push events are of type `dev.chainguard.registry.push.v1`.
 
-A full description of all events and their types is [available on Chainguard Academy](/platform/administration/cloudevents/events-reference/).
+[Chainguard Events](/platform/administration/cloudevents/events-reference/) describes all events and their types.
 
 ## Validating events
 
@@ -78992,7 +79435,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-11-02T19:28:05.612077868Z
+Ce-Time: 2026-11-03T23:15:47.435068258Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 789
 Content-Type: application/json
@@ -79023,7 +79466,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-11-02T19:28:05.610629"
+    "when": "2026-11-03T23:15:47.434025"
   }
 }
 
@@ -79046,7 +79489,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-11-02T19:28:05.610893609Z
+Ce-Time: 2026-11-03T23:15:47.434272116Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -79075,7 +79518,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-11-02T19:28:05.610601"
+    "when": "2026-11-03T23:15:47.433990"
   }
 }
 
@@ -79098,7 +79541,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-11-02T19:28:05.641892752Z
+Ce-Time: 2026-11-03T23:15:47.462582356Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -79138,7 +79581,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-11-02T19:28:05.618544571Z
+Ce-Time: 2026-11-03T23:15:47.449127663Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -79176,7 +79619,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-11-02T19:28:05.618738183Z
+Ce-Time: 2026-11-03T23:15:47.449279683Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -79215,7 +79658,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.640816886Z
+Ce-Time: 2026-11-03T23:15:47.453503654Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -79256,7 +79699,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.641017051Z
+Ce-Time: 2026-11-03T23:15:47.453740036Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -79293,7 +79736,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.64116309Z
+Ce-Time: 2026-11-03T23:15:47.453908993Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -79341,7 +79784,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.625968489Z
+Ce-Time: 2026-11-03T23:15:47.437964496Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -79387,7 +79830,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.62616583Z
+Ce-Time: 2026-11-03T23:15:47.438210887Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -79433,7 +79876,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-02T19:28:05.626340716Z
+Ce-Time: 2026-11-03T23:15:47.438377531Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -79472,7 +79915,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-02T19:28:05.642485453Z
+Ce-Time: 2026-11-03T23:15:47.454175752Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -79512,7 +79955,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.642637372Z
+Ce-Time: 2026-11-03T23:15:47.454406246Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -79551,7 +79994,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.641391597Z
+Ce-Time: 2026-11-03T23:15:47.451225312Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -79590,7 +80033,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.641607728Z
+Ce-Time: 2026-11-03T23:15:47.451356604Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -79629,7 +80072,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.641730473Z
+Ce-Time: 2026-11-03T23:15:47.451456574Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -79668,7 +80111,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-02T19:28:05.614717938Z
+Ce-Time: 2026-11-03T23:15:47.441506096Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -79711,7 +80154,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-02T19:28:05.614984555Z
+Ce-Time: 2026-11-03T23:15:47.441745679Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -79751,7 +80194,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.615124594Z
+Ce-Time: 2026-11-03T23:15:47.441950436Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -79790,7 +80233,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-02T19:28:05.619691944Z
+Ce-Time: 2026-11-03T23:15:47.442225596Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -79833,7 +80276,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-02T19:28:05.621396868Z
+Ce-Time: 2026-11-03T23:15:47.442449162Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -79873,7 +80316,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-02T19:28:05.621675332Z
+Ce-Time: 2026-11-03T23:15:47.442662824Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -79910,7 +80353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.621879472Z
+Ce-Time: 2026-11-03T23:15:47.442865005Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -79950,7 +80393,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.622063437Z
+Ce-Time: 2026-11-03T23:15:47.44310234Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -79994,7 +80437,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.622282224Z
+Ce-Time: 2026-11-03T23:15:47.443311065Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -80033,7 +80476,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.622438479Z
+Ce-Time: 2026-11-03T23:15:47.443442733Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -80074,7 +80517,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-02T19:28:05.643689759Z
+Ce-Time: 2026-11-03T23:15:47.445752732Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -80116,7 +80559,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-02T19:28:05.643872548Z
+Ce-Time: 2026-11-03T23:15:47.44598945Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -80159,7 +80602,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-02T19:28:05.644036003Z
+Ce-Time: 2026-11-03T23:15:47.446192415Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -80198,7 +80641,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-02T19:28:05.644265109Z
+Ce-Time: 2026-11-03T23:15:47.446341532Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -80237,7 +80680,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.617847651Z
+Ce-Time: 2026-11-03T23:15:47.438580681Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -80276,7 +80719,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.61808071Z
+Ce-Time: 2026-11-03T23:15:47.438811239Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -80315,7 +80758,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-02T19:28:05.618250324Z
+Ce-Time: 2026-11-03T23:15:47.438964771Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -80354,7 +80797,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-02T19:28:05.615757525Z
+Ce-Time: 2026-11-03T23:15:47.457663743Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -80397,7 +80840,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-11-02T19:28:05.624267597Z
+Ce-Time: 2026-11-03T23:15:47.460631287Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -80442,7 +80885,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.622894789Z
+Ce-Time: 2026-11-03T23:15:47.458062473Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -80484,7 +80927,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.623188988Z
+Ce-Time: 2026-11-03T23:15:47.458284055Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -80526,7 +80969,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.623369625Z
+Ce-Time: 2026-11-03T23:15:47.4584667Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -80563,7 +81006,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-02T19:28:05.62358718Z
+Ce-Time: 2026-11-03T23:15:47.458610392Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -80602,7 +81045,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-02T19:28:05.623818887Z
+Ce-Time: 2026-11-03T23:15:47.458814846Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -80641,7 +81084,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-02T19:28:05.623979221Z
+Ce-Time: 2026-11-03T23:15:47.45897153Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -80680,7 +81123,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-02T19:28:05.63012867Z
+Ce-Time: 2026-11-03T23:15:47.452140297Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -80724,7 +81167,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-02T19:28:05.630374816Z
+Ce-Time: 2026-11-03T23:15:47.452302357Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -80768,7 +81211,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-02T19:28:05.630581516Z
+Ce-Time: 2026-11-03T23:15:47.452426537Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -80807,7 +81250,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-02T19:28:05.630757458Z
+Ce-Time: 2026-11-03T23:15:47.452538644Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -80849,7 +81292,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-02T19:28:05.630997844Z
+Ce-Time: 2026-11-03T23:15:47.452755201Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -80888,7 +81331,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-02T19:28:05.629341076Z
+Ce-Time: 2026-11-03T23:15:47.45168274Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -80932,7 +81375,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-02T19:28:05.629686352Z
+Ce-Time: 2026-11-03T23:15:47.45188449Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -80976,7 +81419,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-02T19:28:05.629912979Z
+Ce-Time: 2026-11-03T23:15:47.452011141Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -81015,7 +81458,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.612688537Z
+Ce-Time: 2026-11-03T23:15:47.44659585Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -81061,7 +81504,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-02T19:28:05.613033556Z
+Ce-Time: 2026-11-03T23:15:47.446814488Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -81098,7 +81541,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.613244624Z
+Ce-Time: 2026-11-03T23:15:47.446953044Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -81146,7 +81589,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the root organization the policy governs
-Ce-Time: 2026-11-02T19:28:05.639958345Z
+Ce-Time: 2026-11-03T23:15:47.449495217Z
 Ce-Type: dev.chainguard.api.iam.auth_policies.updated.v1
 Content-Length: 338
 Content-Type: application/json
@@ -81196,7 +81639,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.626598197Z
+Ce-Time: 2026-11-03T23:15:47.454656797Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -81237,7 +81680,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.626820488Z
+Ce-Time: 2026-11-03T23:15:47.454849922Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -81274,7 +81717,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.627035659Z
+Ce-Time: 2026-11-03T23:15:47.455027431Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -81322,7 +81765,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-02T19:28:05.615334422Z
+Ce-Time: 2026-11-03T23:15:47.447191627Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -81362,7 +81805,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.61553541Z
+Ce-Time: 2026-11-03T23:15:47.447402808Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -81401,7 +81844,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.642080621Z
+Ce-Time: 2026-11-03T23:15:47.443604457Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -81438,7 +81881,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.642200934Z
+Ce-Time: 2026-11-03T23:15:47.443746661Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -81477,7 +81920,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.642316079Z
+Ce-Time: 2026-11-03T23:15:47.444483065Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -81518,7 +81961,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-02T19:28:05.638629734Z
+Ce-Time: 2026-11-03T23:15:47.46171522Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -81561,7 +82004,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.638871696Z
+Ce-Time: 2026-11-03T23:15:47.461919034Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -81598,7 +82041,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-02T19:28:05.639592614Z
+Ce-Time: 2026-11-03T23:15:47.462125784Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -81638,7 +82081,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-02T19:28:05.639755372Z
+Ce-Time: 2026-11-03T23:15:47.462324365Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -81678,7 +82121,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-02T19:28:05.616031317Z
+Ce-Time: 2026-11-03T23:15:47.449814362Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -81721,7 +82164,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-02T19:28:05.616248833Z
+Ce-Time: 2026-11-03T23:15:47.449953325Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -81761,7 +82204,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-02T19:28:05.616378129Z
+Ce-Time: 2026-11-03T23:15:47.450057912Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -81798,7 +82241,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.616577622Z
+Ce-Time: 2026-11-03T23:15:47.450167811Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -81838,7 +82281,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.616786313Z
+Ce-Time: 2026-11-03T23:15:47.450289495Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -81882,7 +82325,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.617033483Z
+Ce-Time: 2026-11-03T23:15:47.450419794Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -81921,7 +82364,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.617307851Z
+Ce-Time: 2026-11-03T23:15:47.450518685Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -81945,6 +82388,58 @@ User-Agent: Chainguard Enforce
 
 ```
 
+### Method: ResetCorrelationRule
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
+Ce-Specversion: 1.0
+Ce-Subject: UIDP of the identity provider
+Ce-Time: 2026-11-03T23:15:47.450735259Z
+Ce-Type: dev.chainguard.api.iam.identity_providers.correlation_rule.reset.v1
+Content-Length: 419
+Content-Type: application/json
+User-Agent: Chainguard Enforce
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "bindings_dropped": 30,
+    "changed": true,
+    "identity_provider": {
+      "Configuration": {
+        "Oidc": {
+          "client_id": "Client ID of the identity provider",
+          "correlation_rule": 2,
+          "issuer": "Issuer URL of the identity provider"
+        }
+      },
+      "name": "Name of the identity provider",
+      "uid": "UIDP of the identity provider"
+    },
+    "previous_correlation_rule": 1,
+    "unlink_complete": true,
+    "users_unlinked": 12
+  }
+}
+
+```
+
 ## Service: v2 - RoleBindingsService
 
 ### Method: CreateRoleBinding
@@ -81962,7 +82457,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-02T19:28:05.624583986Z
+Ce-Time: 2026-11-03T23:15:47.459278482Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -82004,7 +82499,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-02T19:28:05.624815901Z
+Ce-Time: 2026-11-03T23:15:47.459492632Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -82041,7 +82536,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-02T19:28:05.625004658Z
+Ce-Time: 2026-11-03T23:15:47.459652277Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -82084,7 +82579,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-02T19:28:05.625252507Z
+Ce-Time: 2026-11-03T23:15:47.459842338Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -82125,7 +82620,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.62729726Z
+Ce-Time: 2026-11-03T23:15:47.460996545Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -82164,7 +82659,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.627489856Z
+Ce-Time: 2026-11-03T23:15:47.461199903Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -82203,7 +82698,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-02T19:28:05.62766207Z
+Ce-Time: 2026-11-03T23:15:47.461384332Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -82242,7 +82737,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-02T19:28:05.617620593Z
+Ce-Time: 2026-11-03T23:15:47.436210417Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -82285,7 +82780,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.632797067Z
+Ce-Time: 2026-11-03T23:15:47.440160348Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -82331,7 +82826,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-02T19:28:05.633017686Z
+Ce-Time: 2026-11-03T23:15:47.440386986Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -82368,7 +82863,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-02T19:28:05.633192508Z
+Ce-Time: 2026-11-03T23:15:47.440651121Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -82416,7 +82911,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.631250549Z
+Ce-Time: 2026-11-03T23:15:47.460061464Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -82457,7 +82952,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-02T19:28:05.631459641Z
+Ce-Time: 2026-11-03T23:15:47.46023978Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -82494,7 +82989,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.631634782Z
+Ce-Time: 2026-11-03T23:15:47.460368536Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -82542,7 +83037,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-02T19:28:05.627917592Z
+Ce-Time: 2026-11-03T23:15:47.453078802Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -82582,7 +83077,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.628120068Z
+Ce-Time: 2026-11-03T23:15:47.453295712Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -82621,7 +83116,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.6319531Z
+Ce-Time: 2026-11-03T23:15:47.436415822Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -82658,7 +83153,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.632177599Z
+Ce-Time: 2026-11-03T23:15:47.436598027Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -82697,7 +83192,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-02T19:28:05.632392202Z
+Ce-Time: 2026-11-03T23:15:47.436896699Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -82738,7 +83233,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-02T19:28:05.628411363Z
+Ce-Time: 2026-11-03T23:15:47.439259923Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -82781,7 +83276,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-02T19:28:05.628639141Z
+Ce-Time: 2026-11-03T23:15:47.439499562Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -82818,7 +83313,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-02T19:28:05.628827562Z
+Ce-Time: 2026-11-03T23:15:47.439703767Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -82858,7 +83353,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-02T19:28:05.629028175Z
+Ce-Time: 2026-11-03T23:15:47.439872924Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -82898,7 +83393,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-02T19:28:05.642811802Z
+Ce-Time: 2026-11-03T23:15:47.447756458Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -82941,7 +83436,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-02T19:28:05.642939563Z
+Ce-Time: 2026-11-03T23:15:47.447960607Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -82981,7 +83476,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-02T19:28:05.643048076Z
+Ce-Time: 2026-11-03T23:15:47.448116684Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -83018,7 +83513,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.643145439Z
+Ce-Time: 2026-11-03T23:15:47.44856752Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -83058,7 +83553,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.643235993Z
+Ce-Time: 2026-11-03T23:15:47.448724908Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -83102,7 +83597,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.643336427Z
+Ce-Time: 2026-11-03T23:15:47.448850024Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -83141,7 +83636,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-02T19:28:05.643431366Z
+Ce-Time: 2026-11-03T23:15:47.448949562Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -83182,7 +83677,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-02T19:28:05.613587396Z
+Ce-Time: 2026-11-03T23:15:47.435519006Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -83237,7 +83732,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-02T19:28:05.613917201Z
+Ce-Time: 2026-11-03T23:15:47.435840423Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -83292,7 +83787,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-11-02T19:28:05.614215663Z
+Ce-Time: 2026-11-03T23:15:47.435994459Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -83331,7 +83826,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-02T19:28:05.63794199Z
+Ce-Time: 2026-11-03T23:15:47.456091444Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -83376,7 +83871,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-02T19:28:05.638166705Z
+Ce-Time: 2026-11-03T23:15:47.456285793Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -83421,7 +83916,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-11-02T19:28:05.638341607Z
+Ce-Time: 2026-11-03T23:15:47.456465942Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -83460,7 +83955,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.634509207Z
+Ce-Time: 2026-11-03T23:15:47.456786975Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -83502,7 +83997,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.636117609Z
+Ce-Time: 2026-11-03T23:15:47.457081631Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -83544,7 +84039,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.63633962Z
+Ce-Time: 2026-11-03T23:15:47.457260924Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -83581,7 +84076,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-02T19:28:05.636586421Z
+Ce-Time: 2026-11-03T23:15:47.457460713Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -83625,7 +84120,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-02T19:28:05.636899347Z
+Ce-Time: 2026-11-03T23:15:47.455305143Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -83667,7 +84162,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-02T19:28:05.637078697Z
+Ce-Time: 2026-11-03T23:15:47.455518212Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -83704,7 +84199,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-02T19:28:05.637226656Z
+Ce-Time: 2026-11-03T23:15:47.455694465Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -83747,7 +84242,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-02T19:28:05.637372344Z
+Ce-Time: 2026-11-03T23:15:47.455875878Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -83788,7 +84283,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.640253343Z
+Ce-Time: 2026-11-03T23:15:47.440903752Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -83827,7 +84322,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-02T19:28:05.640441956Z
+Ce-Time: 2026-11-03T23:15:47.441070053Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -83866,7 +84361,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-02T19:28:05.640603115Z
+Ce-Time: 2026-11-03T23:15:47.441249617Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -83905,7 +84400,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-02T19:28:05.625553697Z
+Ce-Time: 2026-11-03T23:15:47.437353728Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -83944,7 +84439,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-02T19:28:05.625753942Z
+Ce-Time: 2026-11-03T23:15:47.437562061Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -83983,7 +84478,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-02T19:28:05.633471371Z
+Ce-Time: 2026-11-03T23:15:47.437108121Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -92614,7 +93109,7 @@ _Path: platform/chainctl-usage/chainctl-events.md_
 
 Chainguard's `chainctl events` commands provide programmatic access to security event streams using the [CloudEvents](https://cloudevents.io/) specification. These commands enable you to monitor container activities, security alerts, and supply chain events across your organization for enhanced observability and compliance.
 
-Chainguard Academy has several deeper guides on [Chainguard CloudEvents](/platform/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/platform/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](/platform/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
+We have several deeper guides on [Chainguard CloudEvents](/platform/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/platform/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](/platform/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
 
 There are three `chainctl events` commands available: `create`, `list`, and `delete`.
 
@@ -92908,6 +93403,8 @@ To check the binary's signature before you run it, [install a pinned version wit
 
 The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` formula in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
 
+The formula also installs `docker-credential-cgr`, a symlink to `chainctl` in Homebrew's `bin` directory, so the Docker credential helper is on your `PATH` as soon as the install finishes. The formula doesn't change your Docker configuration, so Docker doesn't use the helper yet. To add the helper to your Docker configuration, run `chainctl auth configure-docker`, as described in [Configure a Docker credential helper](#configure-a-docker-credential-helper).
+
 On macOS, Homebrew needs the Xcode Command Line Tools to install `chainctl`. The Homebrew installer sets them up, so most Macs already have them. If `brew` reports `No developer tools installed`, install the tools and then run the `brew install` command again:
 
 ```sh
@@ -93100,7 +93597,7 @@ chainctl auth configure-docker
 
 This will:
 
-* Create a link for `docker-credential-cgr` in the same directory as `chainctl`.
+* Create a link for `docker-credential-cgr` in the same directory as the `chainctl` on your `PATH`. If a file named `docker-credential-cgr` already exists there, as it does after a Homebrew install, the command leaves it in place.
 * Update your Docker config file to call `docker-credential-cgr` when an auth token is needed. A browser window will open when the token needs to be refreshed.
 
 {{< note >}}
