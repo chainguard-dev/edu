@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-10-19T18:40:28+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -57,7 +57,19 @@ You also need:
 - Sufficient [network access](/chainguard/libraries/introduction/network-requirements/)
 - Your organization [must include entitlement for access to Chainguard
   Libraries](/chainguard/libraries/introduction/access/#entitlement)
-- You must have one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+- One of the following for each ecosystem you verify:
+    - The `pull_token_creator` role, such as
+      `libraries.java.pull_token_creator`, or the `owner` role. After a regular
+      `chainctl auth login`, the command creates a pull token to fetch
+      provenance data, which requires one of these roles. Each run creates a
+      new pull token, which appears in your organization's identity list as
+      `pull-token - libraries.<ecosystem>`.
+    - The `pull` role, such as `libraries.java.pull`, with a libraries-scoped
+      token, as described in [Verify with a pull role](#verify-with-a-pull-role).
+      The command uses the token directly and creates no pull token.
+
+  For what each role includes, refer to [Pull token creator
+  roles](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles).
 
 Confirm that `chainctl` is installed and available on the `PATH`:
 
@@ -109,6 +121,48 @@ chainctl config view
 Ensure that you use this configuration or add the `--parent` parameter in all
 the following examples as necessary.
 
+### Verify with a pull role
+
+If your identity holds only a `pull` role, such as `libraries.java.pull`, sign
+in with the libraries registry as the audience and pass the resulting token to
+the command in the `CHAINCTL_AUTH_TOKEN` environment variable:
+
+```sh
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify /path/to/artifact.jar
+```
+
+Without `CHAINCTL_AUTH_TOKEN`, a `pull` role reports 0% coverage, even after you
+sign in with the libraries audience. Because this method creates no pull token,
+it also keeps repeated runs, such as CI/CD jobs, from adding a pull token to
+your organization each time.
+
+## Verification results
+
+`chainctl libraries verify` reports coverage: the share of the inspected
+artifacts that Chainguard built from source. It doesn't report
+vulnerabilities, policy decisions, or whether an artifact is safe to deploy. A
+package that your organization received through [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
+counts as not verified, so coverage below 100% is expected when upstream
+fallback is on.
+
+The report is informational. Keep the following in mind when you run the
+command in CI/CD:
+
+- The command exits with status 0 whatever the coverage, so the exit status
+  can't gate a build. Gating a build on the coverage percentage isn't the
+  intended use either.
+- If the command can't obtain credentials, for example because the identity
+  lacks the [required role](#requirements), it prints an error, reports 0%
+  coverage, and still exits with status 0. With `-o json`, the JSON report
+  doesn't include the error. Before you trust a 0% result, check the command's
+  error output.
+- For JavaScript lockfiles, entries that the registry couldn't answer for,
+  because of an outage or rejected credentials, are reported as unchecked
+  rather than unverified.
+
 ## File analysis
 
 To save available Software Bills of Materials (SBOMs) and attestations while
@@ -118,7 +172,7 @@ defaults to `attestations` in the current directory. Only packages verified as
 Chainguard builds produce companion files. The verification report lists the
 saved files and their trust status in text, JSON, YAML, and CSV output.
 
-> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the `owner` role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
 
 ### Analyze a Python wheel file
 
@@ -152,6 +206,8 @@ For CI/CD, use JSON output to save a machine-readable report:
 ```bash
 chainctl libraries verify --detailed -o json .venv/ > provenance-report.json
 ```
+
+[Verification results](#verification-results) explains what this report can and can't tell a pipeline.
 
 #### Download Python SBOMs and attestations
 
@@ -272,7 +328,7 @@ It can take up to 5 minutes for this command to return results. It returns outpu
 ...
 ```
 
-In this example, out of 31 `totalItems`, 23 were verified. The `arfifactVerificationCoverage` percent is 74.
+In this example, out of 31 `totalItems`, 23 were verified. The `artifactVerificationCoverage` percent is 74.
 
 #### Java fat JAR limitations
 
@@ -443,6 +499,12 @@ chainctl libraries verify package-lock.json
 Supported lockfiles include `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, and `bun.lock`.
 
 This command verifies what the lockfile claims will be installed. It does not verify the package bytes present on disk.
+
+An entry counts as verified only when the lockfile binds it to the tarball that Chainguard attested. A single integrity hash binds the entry, because the package manager rejects any tarball that doesn't match it. An entry that lists several integrity hashes is reported as attested but not bound, because a tarball matching any one of them would install. The exception is an entry whose resolved URL is on the Chainguard built route, `https://libraries.cgr.dev/javascript/`, which fixes the source.
+
+By default, `chainctl libraries update-hashes` adds the Chainguard hash alongside the original registry hash, which produces multi-hash entries. Those entries verify only while they resolve from the Chainguard built route, so behind a repository manager or a custom `--registry-url` they're reported as not bound. To record a single Chainguard hash per entry, run `chainctl libraries update-hashes --replace`. Entries bound this way verify regardless of where they resolve from.
+
+Entries with no usable digest, such as linked dependencies, git dependencies, and Yarn Berry checksums, are reported at zero coverage.
 
 #### Download JavaScript SBOMs and attestations
 
