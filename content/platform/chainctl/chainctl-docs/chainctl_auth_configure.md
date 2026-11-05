@@ -1,5 +1,5 @@
 ---
-date: 2026-11-03T23:15:35Z
+date: 2026-11-04T22:40:04Z
 title: "chainctl auth configure"
 slug: chainctl_auth_configure
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure/
@@ -17,12 +17,11 @@ Configure a local tool to authenticate to Chainguard.
 
 Configure a local tool to authenticate to Chainguard.
 
-Each subcommand writes credentials where its tool looks for them. The npm,
-NuGet and Bundler subcommands create a long-lived pull token by default;
-npm and NuGet accept --pull-token=false to write the token of your current
-Chainguard session instead, which expires within the hour. Bundler always
-uses a pull token. Docker uses a credential helper by default and writes a
-pull token with --pull-token.
+Each subcommand writes credentials where its tool looks for them. The npm
+and NuGet subcommands write the token of your current Chainguard session by
+default, which expires within the hour; with --pull-token they create a
+long-lived pull token instead. Bundler always uses a pull token. Docker uses
+a credential helper by default and writes a pull token with --pull-token.
 
 ### Options inherited from parent commands
 

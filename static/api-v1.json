@@ -769,6 +769,26 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.argos.ArgosDocumentCGPStats": {
+        "properties": {
+          "duplicate": {
+            "description": "duplicate counts identifiers whose record was published strictly before\nthe earliest referencing document's created_at.",
+            "format": "int64",
+            "type": "string"
+          },
+          "novel": {
+            "description": "novel counts every resolved identifier that is not a duplicate,\nincluding records with no published time.",
+            "format": "int64",
+            "type": "string"
+          },
+          "unresolved": {
+            "description": "unresolved counts identifiers with no served record; they count in no\nother field of ArgosDocumentStats.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosDocumentFileBinding": {
         "description": "ArgosDocumentFileBinding is one archive file joined to its per-file\nanalysis outcome. Deliberately filename-keyed: the platform-internal\ncontent digest is NOT exposed here, since an unsalted digest of\ncustomer-authored content would let any org reader test whether exact\ncandidate content was uploaded (a content-membership oracle bypassing\nthe gated plaintext path).",
         "properties": {
@@ -818,8 +838,8 @@
             "format": "int32",
             "type": "integer"
           },
-          "patched": {
-            "description": "patched counts identifiers whose record has a Chainguard fix.",
+          "fixAvailable": {
+            "description": "fix_available counts identifiers whose record has any fixed version,\nupstream or a Chainguard rebuild, as chainctl counts it. Field 1 was\npatched, a narrower rule.",
             "format": "int32",
             "type": "integer"
           }
@@ -848,6 +868,67 @@
             "description": "Total number of documents matching the filter. Optional; provided for\nUI pagination.",
             "format": "int64",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosDocumentPatchStats": {
+        "properties": {
+          "byStatus": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "by_status counts identifiers keyed by PatchStatus name (see\nargos_osv.platform.proto), PATCH_STATUS_UNSPECIFIED included, so its\nvalues sum to fix_available + no_fix.",
+            "type": "object"
+          },
+          "fixAvailable": {
+            "description": "fix_available counts identifiers whose record has any fixed version.",
+            "format": "int64",
+            "type": "string"
+          },
+          "noFix": {
+            "description": "no_fix counts identifiers whose record has no fixed version.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosDocumentStats": {
+        "description": "ArgosDocumentStats holds totals only; it lists no documents or\nidentifiers. Each CGP identifier counts once however many documents\nresolved to it.",
+        "properties": {
+          "cgps": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentCGPStats"
+              }
+            ],
+            "description": "cgps classifies the distinct CGP identifiers the documents resolved to."
+          },
+          "findings": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "findings counts file bindings keyed by ArgosDocumentFileBinding.Status\nname.",
+            "type": "object"
+          },
+          "patches": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentPatchStats"
+              }
+            ],
+            "description": "patches summarizes the patch state of identifiers with a served record."
+          },
+          "submissions": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "submissions counts documents keyed by ArgosDocument.Status name.",
+            "type": "object"
           }
         },
         "type": "object"
@@ -10371,6 +10452,139 @@
         ]
       }
     },
+    "/argos/v1/documents/stats": {
+      "get": {
+        "description": "Stats returns organization-wide totals over the documents matching the\nrequest: submissions, per-file findings, the CGP identifiers they\nresolved to, and those identifiers' patch state. Returns\nRESOURCE_EXHAUSTED when the documents reference more than 50,000 CGP\nidentifiers, and UNAVAILABLE when the identifiers' records can't be read.",
+        "operationId": "ArgosDocuments_Stats",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) counts documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "default": "STATUS_UNSPECIFIED",
+              "enum": [
+                "STATUS_UNSPECIFIED",
+                "STATUS_PENDING",
+                "STATUS_READY",
+                "STATUS_FAILED",
+                "STATUS_FALSE_POSITIVE"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "created_since counts documents created at or after the given time.",
+            "in": "query",
+            "name": "createdSince",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "finding_status, when set, counts only file bindings in this state, and\ntakes CGP identifiers from those bindings alone, dropping identifiers\nattached only at the document level. Unset counts every binding.\n\n - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file.",
+            "in": "query",
+            "name": "findingStatus",
+            "schema": {
+              "default": "STATUS_UNSPECIFIED",
+              "enum": [
+                "STATUS_UNSPECIFIED",
+                "STATUS_PENDING",
+                "STATUS_ANALYZED",
+                "STATUS_FAILED"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "patch_filter restricts the cgps and patches totals; submissions and\nfindings are unaffected.\n\n - PATCH_FILTER_UNSPECIFIED: No restriction.\n - PATCH_FILTER_FIX_AVAILABLE: Only identifiers whose record has a fixed version.\n - PATCH_FILTER_NO_FIX: Only identifiers whose record has no fixed version.",
+            "in": "query",
+            "name": "patchFilter",
+            "schema": {
+              "default": "PATCH_FILTER_UNSPECIFIED",
+              "enum": [
+                "PATCH_FILTER_UNSPECIFIED",
+                "PATCH_FILTER_FIX_AVAILABLE",
+                "PATCH_FILTER_NO_FIX"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentStats"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Stats",
+        "tags": [
+          "ArgosDocuments"
+        ]
+      }
+    },
     "/argos/v1/documents/{id}": {
       "delete": {
         "operationId": "ArgosDocuments_Delete",
@@ -10598,9 +10812,9 @@
             }
           },
           {
-            "description": "has_chainguard_fix keeps records with (true) or without (false) a\nChainguard fix.",
+            "description": "has_fix keeps records with (true) or without (false) any fixed version,\nupstream or a Chainguard rebuild, as chainctl counts it. Field 7 was\nhas_chainguard_fix, a narrower rule.",
             "in": "query",
-            "name": "hasChainguardFix",
+            "name": "hasFix",
             "schema": {
               "type": "boolean"
             }
