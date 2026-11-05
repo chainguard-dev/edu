@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Workspaces, open your first development session, and learn how to detach from it and return."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-05T15:46:44+00:00
+lastmod: 2026-11-05T15:56:15+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -16,7 +16,7 @@ toc: true
 weight: 20
 ---
 
-A Chainguard Workspaces *session* is a VM on Chainguard's infrastructure, not on your laptop, for one of your GitHub repositories. When you run `chainctl develop` in your repository's directory, `chainctl` creates a session, syncs your checkout into it, and opens a shell in it. There you can build, test, and run Claude Code as you would on your laptop. When you detach and come back later, your files and running processes are as you left them.
+A Chainguard Workspaces *session* is a VM on Chainguard's infrastructure, not on your laptop, for one of your GitHub repositories. When you run `chainctl develop` in your repository's directory, `chainctl` creates a session, syncs your checkout into it, and opens a shell in it. There you can build, test, and run Claude Code as you would on your laptop. When you detach and come back later, your files and running processes are as you left them. To learn how sessions work, including how your directory gets into one and how a session isolates your code, refer to the [Chainguard Workspaces overview](/chainguard/workspaces/overview/) and [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/).
 
 This guide shows you how to open your first session. To open a session with the fewest steps, use the [quick start](#quick-start). To learn how each part works, including how to detach from a session, return to it, and delete it, follow the [step-by-step guide](#step-by-step-guide), which takes about 15 minutes.
 

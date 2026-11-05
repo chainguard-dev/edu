@@ -4,7 +4,7 @@ linktitle: "Manage sessions"
 description: "Open, detach from, return to, list, rename, and delete Chainguard Workspaces sessions, run several terminals in one, copy text out of one, and keep a session running while you're away."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-05T15:45:20+00:00
+lastmod: 2026-11-05T15:56:15+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Procedural"]
 images: []
@@ -34,7 +34,7 @@ Sessions you open from a directory and sessions you open from a repository URL a
 
 ## Choose the session's repository {#choose-the-sessions-repository}
 
-A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. If your checkout shares a commit with the repository on GitHub, the session starts from that commit, and `chainctl` uploads only your directory's differences from it, such as commits you haven't pushed and uncommitted changes. Otherwise, it uploads the whole directory. By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
+A session that you open on a directory is on one GitHub repository, and the session's `github` credential is scoped to it. If your checkout shares a commit with the repository on GitHub, the session starts from that commit, and `chainctl` uploads only your directory's differences from it, such as commits you haven't pushed and uncommitted changes. Otherwise, it uploads the whole directory. For what the upload includes, refer to [How a session works](/chainguard/workspaces/overview/#how-a-session-works). By default, the session is on the repository that your checkout's `origin` remote points to. If the checkout's remotes point to more than one GitHub repository, such as a fork and its upstream, `chainctl` lists them, starting with the one `origin` points to, and asks which one to use when it creates the session. Without a terminal, or with `--non-interactive`, it uses the repository that `origin` points to.
 
 To choose ahead of time, pass `--git-remote` with the name of a remote. This example opens a session on the repository that the `upstream` remote points to:
 
