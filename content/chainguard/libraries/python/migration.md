@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-27T16:42:12+00:00
+lastmod: 2026-11-05T13:41:02+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -552,7 +552,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull` permission or the Owner role.
+> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull_token_creator` role or the Owner role. The command creates a pull token to fetch provenance data, so the `libraries.python.pull` role isn't enough.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 

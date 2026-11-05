@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-27T14:11:46+00:00
+lastmod: 2026-11-05T13:41:02+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -715,7 +715,7 @@ chainctl libraries verify ./node_modules
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull` permission or the Owner role.
+> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull_token_creator` role or the Owner role. The command creates a pull token to fetch provenance data, so the `libraries.javascript.pull` role isn't enough.
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 
