@@ -118,6 +118,8 @@ Changing the rule has these effects:
 * **Users reconnect at their next sign-in.** Each user connects again, and gets the roles their pushed groups grant, the next time they sign in and the new rule matches them. Renewing an existing session doesn't reconnect a user, so a user who stays signed in has no group roles until they sign in again.
 * **Deactivated users stay deactivated.** The change never reactivates anyone.
 
+The command can take several minutes. Interrupting it doesn't stop the change. If the command fails or is interrupted, the change might still have been applied. To check, run `chainctl iam identity-providers describe $IDENTITY_PROVIDER -o json`. If the output has no `correlation_rule`, the rule is `sub_equals_external_id`. It's safe to run the command again.
+
 The command reports how many users it disconnected and how many role bindings it removed. If it reports that it couldn't disconnect every user, run the same command again to finish. Running it with the rule the identity provider already has changes nothing else.
 
 You can't change the correlation rule in the Chainguard Console.
