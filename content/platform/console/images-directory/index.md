@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -157,7 +157,7 @@ As with SBOM data, Chainguard began generating vulnerability data for its images
 
 The **Advisories** tab lists the CVEs that have affected the image and what action Chainguard took on each one. It shows a timeline of the image's security advisories, newest first. Each entry specifies the date and time the advisory was released, the CVE in question, the affected package, and the [current status](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/#summary-of-advisory-statuses).
 
-To learn more about Chainguard security advisories, read [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) and [How to use Chainguard Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/). You can also browse every advisory published for Chainguard Containers on the self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+To learn more about Chainguard security advisories, read [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) and [How to use Chainguard Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/). You can also browse every advisory published for Chainguard Containers on the self-service [Security Advisories page](https://images.chainguard.dev/security).
 
 ### Builds
 
@@ -179,4 +179,4 @@ Use the **Architecture** drop-down above the list to filter packages by architec
 
 ## Learn more
 
-The Chainguard Console helps you find which Chainguard container images are available and learn details about each one. To work with an individual image, check whether a [getting started guide](/chainguard/containers/getting-started/) exists for it. You can also learn [how to use Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) on the [self-service public Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-images-directory).
+The Chainguard Console helps you find which Chainguard container images are available and learn details about each one. To work with an individual image, check whether a [getting started guide](/chainguard/containers/getting-started/) exists for it. You can also learn [how to use Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) on the [self-service public Security Advisories page](https://images.chainguard.dev/security).

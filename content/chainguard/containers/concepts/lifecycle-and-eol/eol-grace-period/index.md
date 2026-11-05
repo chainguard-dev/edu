@@ -4,7 +4,7 @@ linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-10-15T14:26:56+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -175,4 +175,4 @@ Of course, you won't use `curl` to interact with the Chainguard API in most scen
 
 Chainguard's EOL grace period gives customers the opportunity to continue to receive best-effort CVE remediated updates on EOL images, while they work on transitioning to a newer upstream version.
 
-For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our blog post [Why end-of-life software means 400+ CVEs per year](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year) explains how end-of-life software accumulates vulnerabilities.
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our blog post [Why end-of-life software means 400+ CVEs per year](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year) explains how end-of-life software accumulates vulnerabilities.
