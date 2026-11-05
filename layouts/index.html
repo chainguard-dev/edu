@@ -1,13 +1,6 @@
 {{ define "main" }}
 <div class="row flex-md-nowrap">
-  <div class="leftnav-container">
-    <div class="board-background leftnav">
-      <nav id="sidebar-default" aria-label="Main navigation">
-        {{ partial "sidebar/docs-menu.html" . }}
-      </nav>
-      {{ partial "sidebar/nav-bottom.html" }}
-    </div>
-  </div>
+  {{ partial "sidebar/primary-nav.html" . }}
   <div class="center-content index-html flex-shrink-1">
     <main class="docs-content">
       <div class="hero-section">

@@ -88,14 +88,7 @@
         </button>
       </div>
       <div class="offcanvas-body">
-        <div class="leftnav-container">
-          <div class="board-background leftnav">
-            <nav id="sidebar-default" aria-label="Main navigation">
-              {{ partial "sidebar/docs-menu.html" . }}
-            </nav>
-            {{ partial "sidebar/nav-bottom.html" }}
-          </div>
-        </div>
+        {{ partial "sidebar/primary-nav.html" . }}
       </div>
     </div>
   </nav>
