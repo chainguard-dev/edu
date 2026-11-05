@@ -1118,9 +1118,18 @@
         "description": "AuthPolicy is an organization's authentication policy. There is one per\norganization; it has no identity of its own and is addressed by the\norganization's UIDP.",
         "properties": {
           "enforcementEntitled": {
-            "description": "Fields from 40 report the organization's readiness to enforce the\npolicy: facts about the organization that decide whether sso_only can be\nturned on and whether, once on, it takes effect. They are never written.\n\nenforcement_entitled reports whether the organization is enabled for SSO\nenforcement. While the feature is in early access Chainguard enables it\nper organization: UpdateAuthPolicy refuses to turn sso_only on for an\norganization that is not, with FAILED_PRECONDITION and the violation type\nSSO_ENFORCEMENT_NOT_ENTITLED, and an sso_only that is already on is stored\nbut not enforced at sign-in until the organization is enabled again.\nTurning sso_only off never needs it. Unset when it could not be\ndetermined for this response; a client treats unset as unknown, not as\nfalse.",
+            "description": "enforcement_entitled reports whether the organization is enabled for SSO\nenforcement. While the feature is in early access Chainguard enables it\nper organization: UpdateAuthPolicy refuses to turn sso_only on for an\norganization that is not, with FAILED_PRECONDITION and the violation type\nSSO_ENFORCEMENT_NOT_ENTITLED, and an sso_only that is already on is stored\nbut not enforced at sign-in until the organization is enabled again.\nTurning sso_only off never needs it. Unset when it could not be\ndetermined for this response; a client treats unset as unknown, not as\nfalse.",
             "readOnly": true,
             "type": "boolean"
+          },
+          "readiness": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.SsoOnlyReadiness"
+              }
+            ],
+            "description": "Fields from 30 report the organization's readiness to enforce the\npolicy: facts about the organization that decide whether sso_only can be\nturned on and whether, once on, it takes effect. They are never written.\n\nreadiness reports whether sso_only may be enabled right now\nand, when it may not, why. GetAuthPolicy populates it; UpdateAuthPolicy\nleaves it unset and ignores it on input. Enabling sso_only is refused\nwith FAILED_PRECONDITION (reason SSO_ONLY_NOT_READY, one\nPreconditionFailure violation per reason) while it reports a blocker,\nwith no way to force it; disabling is never gated. It is still reported\nwhile sso_only is on, so an organization can see when it would have to\nvalidate again before it could re-enable the policy.\n\nField numbers 10 through 29 are held for the validation and break-glass\ndesignation surfaces that land alongside this one; readiness and later\nread-only state use 30 upward.",
+            "readOnly": true
           },
           "sessionDuration": {
             "description": "session_duration is how long a sign-in to the organization lasts: the\nmost time a refresh-token session may run from its login before the\nmember must sign in again. A session whose client rotates its refresh\ntokens (chainctl, MCP clients) stays valid while it is used, up to this\nlength; any other session lasts at most 20 hours. When a session covers\nseveral organizations the shortest length wins.\n\nUnset means Chainguard's default. A value is from 1 hour to 90 days, in\nwhole seconds; anything else is rejected with INVALID_ARGUMENT, zero\nincluded. Naming the field in update_mask with no value clears it back\nto the default. A shorter length applies at its next refresh to an\nexisting session that stays valid while it is used; any other existing\nsession keeps the expiry it was issued with, at most 20 hours. A read\ncan return zero, which only Chainguard sets: the organization's members\nget no refresh tokens at all. See\ndocs/customer-platform/2026-10-29-sliding-refresh-lifetime.md in\nchainguard-dev/mono.\nprotolint:disable:next MAX_LINE_LENGTH",
@@ -1864,7 +1873,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvider.OIDC.CorrelationRule"
               }
             ],
-            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, because changing the\nrule that maps token claims to identities would re-open\nattacker-controllable-claim attacks. To change it later, use\nResetCorrelationRule, which unlinks every provisioned user so each\nlinks again under the new rule. Updates that restate the current rule\n(or leave it unset) are a no-op — a read-modify-write client may echo\nthe field back safely, including over HTTP PATCH, where the update mask\nis derived from the request-body keys. Updates that change it are\nrejected."
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, so that a client\nechoing the field back can't re-key every link by accident. To change\nit later, use ResetCorrelationRule, which unlinks every provisioned\nuser so each\nlinks again under the new rule. Updates that restate the current rule\n(or leave it unset) are a no-op — a read-modify-write client may echo\nthe field back safely, including over HTTP PATCH, where the update mask\nis derived from the request-body keys. Updates that change it are\nrejected."
           },
           "groupsClaim": {
             "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",
@@ -2683,6 +2692,46 @@
           },
           "identityProviderUid": {
             "description": "UID of the identity provider, echoed for attribution.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.SsoOnlyReadiness": {
+        "description": "SsoOnlyReadiness is the verdict of the checks that gate enabling\nsso_only: the organization's identity provider has passed validation in\nits current configuration, and a designated break-glass identity has\nproven it can still sign in without it.",
+        "properties": {
+          "breakGlassReady": {
+            "description": "break_glass_ready is true when at least one designated break-glass\nidentity has validated its non-SSO sign-in recently enough, can still\nsign in, holds the owner role on the organization, and has an identity\nthat does not expire.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "idpValidatedCurrent": {
+            "description": "idp_validated_current is true when the organization's identity provider\nhas passed validation and its configuration (issuer, client id, scopes,\nPKCE setting, token-endpoint auth method, client secret and the secret\nversion it is pinned to) has not changed since.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "reasons": {
+            "description": "reasons lists what blocks enabling sso_only, one per blocker. Empty\nwhen both booleans are true.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.SsoOnlyReadiness.Reason"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.SsoOnlyReadiness.Reason": {
+        "description": "Reason is one blocker of enabling sso_only.",
+        "properties": {
+          "code": {
+            "description": "code is a stable UPPER_SNAKE_CASE identifier for the blocker:\nIDENTITY_PROVIDER_MISSING, IDP_VALIDATION_MISSING,\nIDP_VALIDATION_STALE, BREAK_GLASS_NOT_DESIGNATED,\nBREAK_GLASS_VALIDATION_MISSING, BREAK_GLASS_VALIDATION_EXPIRED,\nBREAK_GLASS_NOT_OWNER, BREAK_GLASS_EXPIRING, or\nORGANIZATION_NOT_VERIFIED. New codes may be added; render message for\nany code not recognised.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "message": {
+            "description": "message explains the blocker in plain language, fit to show an\norganization owner as is.",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -5540,9 +5589,18 @@
                 "description": "The policy to apply. uid names the root organization it belongs to and\nfollows the AuthPolicy.uid rule: a sub-group UIDP is INVALID_ARGUMENT.",
                 "properties": {
                   "enforcementEntitled": {
-                    "description": "Fields from 40 report the organization's readiness to enforce the\npolicy: facts about the organization that decide whether sso_only can be\nturned on and whether, once on, it takes effect. They are never written.\n\nenforcement_entitled reports whether the organization is enabled for SSO\nenforcement. While the feature is in early access Chainguard enables it\nper organization: UpdateAuthPolicy refuses to turn sso_only on for an\norganization that is not, with FAILED_PRECONDITION and the violation type\nSSO_ENFORCEMENT_NOT_ENTITLED, and an sso_only that is already on is stored\nbut not enforced at sign-in until the organization is enabled again.\nTurning sso_only off never needs it. Unset when it could not be\ndetermined for this response; a client treats unset as unknown, not as\nfalse.",
+                    "description": "enforcement_entitled reports whether the organization is enabled for SSO\nenforcement. While the feature is in early access Chainguard enables it\nper organization: UpdateAuthPolicy refuses to turn sso_only on for an\norganization that is not, with FAILED_PRECONDITION and the violation type\nSSO_ENFORCEMENT_NOT_ENTITLED, and an sso_only that is already on is stored\nbut not enforced at sign-in until the organization is enabled again.\nTurning sso_only off never needs it. Unset when it could not be\ndetermined for this response; a client treats unset as unknown, not as\nfalse.",
                     "readOnly": true,
                     "type": "boolean"
+                  },
+                  "readiness": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2.SsoOnlyReadiness"
+                      }
+                    ],
+                    "description": "Fields from 30 report the organization's readiness to enforce the\npolicy: facts about the organization that decide whether sso_only can be\nturned on and whether, once on, it takes effect. They are never written.\n\nreadiness reports whether sso_only may be enabled right now\nand, when it may not, why. GetAuthPolicy populates it; UpdateAuthPolicy\nleaves it unset and ignores it on input. Enabling sso_only is refused\nwith FAILED_PRECONDITION (reason SSO_ONLY_NOT_READY, one\nPreconditionFailure violation per reason) while it reports a blocker,\nwith no way to force it; disabling is never gated. It is still reported\nwhile sso_only is on, so an organization can see when it would have to\nvalidate again before it could re-enable the policy.\n\nField numbers 10 through 29 are held for the validation and break-glass\ndesignation surfaces that land alongside this one; readiness and later\nread-only state use 30 upward.",
+                    "readOnly": true
                   },
                   "sessionDuration": {
                     "description": "session_duration is how long a sign-in to the organization lasts: the\nmost time a refresh-token session may run from its login before the\nmember must sign in again. A session whose client rotates its refresh\ntokens (chainctl, MCP clients) stays valid while it is used, up to this\nlength; any other session lasts at most 20 hours. When a session covers\nseveral organizations the shortest length wins.\n\nUnset means Chainguard's default. A value is from 1 hour to 90 days, in\nwhole seconds; anything else is rejected with INVALID_ARGUMENT, zero\nincluded. Naming the field in update_mask with no value clears it back\nto the default. A shorter length applies at its next refresh to an\nexisting session that stays valid while it is used; any other existing\nsession keeps the expiry it was issued with, at most 20 hours. A read\ncan return zero, which only Chainguard sets: the organization's members\nget no refresh tokens at all. See\ndocs/customer-platform/2026-10-29-sliding-refresh-lifetime.md in\nchainguard-dev/mono.\nprotolint:disable:next MAX_LINE_LENGTH",

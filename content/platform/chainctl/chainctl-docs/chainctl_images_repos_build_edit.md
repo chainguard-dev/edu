@@ -1,5 +1,5 @@
 ---
-date: 2026-11-03T23:15:35Z
+date: 2026-11-04T22:40:04Z
 title: "chainctl images repos build edit"
 slug: chainctl_images_repos_build_edit
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_edit/

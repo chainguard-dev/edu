@@ -2214,7 +2214,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.v2beta1.IdentityProvider.OIDC.CorrelationRule"
               }
             ],
-            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, because changing the\nrule that maps token claims to identities would re-open\nattacker-controllable-claim attacks. To change it later, contact\nChainguard support. Updates that restate the current rule (or leave it\nunset) are a no-op — a\nread-modify-write client may echo the field back safely, including over\nHTTP PATCH, where the update mask is derived from the request-body keys.\nUpdates that change it are rejected."
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it, so that a client\nechoing the field back can't re-key every link by accident. To change\nit later, use the v2 API's IdentityProvidersService.ResetCorrelationRule.\nUpdates that restate the current rule (or leave it\nunset) are a no-op — a\nread-modify-write client may echo the field back safely, including over\nHTTP PATCH, where the update mask is derived from the request-body keys.\nUpdates that change it are rejected."
           },
           "groupsClaim": {
             "description": "Name of the OIDC token claim that carries the user's group memberships\n(e.g. \"groups\" for Entra, a custom claim name for Okta). Required for\nIdP group-based role mapping; when empty, group extraction is skipped.",

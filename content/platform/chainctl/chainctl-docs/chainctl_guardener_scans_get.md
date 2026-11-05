@@ -1,5 +1,5 @@
 ---
-date: 2026-11-03T23:15:35Z
+date: 2026-11-04T22:40:04Z
 title: "chainctl guardener scans get"
 slug: chainctl_guardener_scans_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_scans_get/
