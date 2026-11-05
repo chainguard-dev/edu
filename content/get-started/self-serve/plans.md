@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-05T12:46:23+00:00
+lastmod: 2026-11-05T13:02:12+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -26,8 +26,8 @@ The following table lists what each self-serve plan includes:
 | --- | --- | --- |
 | **Chainguard Containers** | | |
 | Catalog images | 5 application, base, or AI images | 5 application, base, or AI images |
-| Image swaps | None | 5 per rolling 30 days |
-| Helm charts | Charts for your images | Coming soon |
+| Image swaps | None | 1 per rolling 30 days |
+| Helm charts | Charts for your images | Charts for your images |
 | Image egress | 100 GiB a month | 1 TiB a month |
 | Storage | 100 GiB | 500 GiB included, then metered |
 | **Chainguard Libraries** | | |

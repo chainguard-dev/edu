@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-11-03T17:16:36+00:00
+lastmod: 2026-11-05T13:02:12+00:00
 draft: false
 weight: 20
 toc: true
@@ -13,7 +13,7 @@ toc: true
 Catalog customers can provision Chainguard Helm charts, along with the container images each chart depends on, directly from the Chainguard Console. This replaces the previous manual request process, which required coordination with Chainguard sales, customer success, and support and could take 1 to 4 days.
 
 {{< note >}}
-This capability is available to Catalog customers whose plan includes the APPLICATION tier. Chainguard Starter organizations add charts with `chainctl`, as described in [Chainguard Starter organizations](#chainguard-starter-organizations). Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
+This capability is available to Catalog customers whose plan includes the APPLICATION tier. Chainguard Starter and Chainguard Team organizations add charts with `chainctl`, as described in [Chainguard Starter and Chainguard Team organizations](#chainguard-starter-and-chainguard-team-organizations). Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
 {{< /note >}}
 
 ## Add a chart in the Chainguard Console
@@ -56,9 +56,9 @@ chainctl images helm add-chart $CHART --dry-run
 
 To learn more, use `chainctl images helm add-chart --help` or refer to the [`chainctl` Reference documentation](/platform/chainctl/).
 
-## Chainguard Starter organizations
+## Chainguard Starter and Chainguard Team organizations
 
-A [Chainguard Starter](/get-started/self-serve/plans/) organization can add a chart with `chainctl images helm add-chart`, as described in [Add a chart with `chainctl`](#add-a-chart-with-chainctl). Each image the chart depends on that your organization doesn't already have uses one of its five image slots. To see which images a chart would add before you use any slots, run the command with `--dry-run` first.
+A [Chainguard Starter or Chainguard Team](/get-started/self-serve/plans/) organization can add a chart with `chainctl images helm add-chart`, as described in [Add a chart with `chainctl`](#add-a-chart-with-chainctl). Each image the chart depends on that your organization doesn't already have uses one of its five image slots. To see which images a chart would add before you use any slots, run the command with `--dry-run` first.
 
 A chart is refused in the following cases:
 
