@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-04T17:32:20+00:00
+lastmod: 2026-11-05T12:46:23+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -75,10 +75,10 @@ A plan limit is a cap, an included amount, or a feature the plan doesn't include
 
 A Team organization created with a personal email address, rather than a business email domain, can't go past its included compute. To run more, [buy compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute) in advance.
 
-A refused request returns an error that names your plan and the limit, and what you've used or what you asked for, followed by a link to the pricing page. For example:
+A refused request returns an error that names your plan and the limit, and what you've used or what you asked for, followed by a link to the pricing page and a `chainctl plans update` command for the next plan. For example:
 
 ```output
-Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
 ```
 
 To see your organization's plan and the limits it's close to, run `chainctl plans describe`:

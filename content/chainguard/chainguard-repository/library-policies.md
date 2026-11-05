@@ -141,13 +141,13 @@ Chainguard checks the limits when you create a policy, change a policy's cooldow
 If a request falls outside your plan's limits, Chainguard refuses it. The error message names your plan's limit and what you requested. For example, a Team organization that tries to set a 14-day cooldown gets this message:
 
 ```output
-Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
 ```
 
 A Starter organization that tries to add a cooldown override gets this message:
 
 ```output
-Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing
+Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan team
 ```
 
 ### Create and enable a cooldown policy
