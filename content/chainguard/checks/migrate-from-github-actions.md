@@ -1,7 +1,7 @@
 ---
 title: "Migrate from GitHub Actions to Chainguard Checks"
 linktitle: "Migrate from GitHub Actions"
-description: "Draft a Chainguard Checks configuration from GitHub Actions pull request workflows with chainctl, or convert workflows by hand with a mapping of common GitHub Actions keys."
+description: "Convert GitHub Actions pull request workflows to a Chainguard Checks configuration, with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
 lastmod: 2026-11-04T13:54:31+00:00
@@ -17,68 +17,7 @@ weight: 60
 
 If your repository runs its pull request checks with GitHub Actions, you can move them to Chainguard Checks one workflow at a time. Chainguard Checks and GitHub Actions can run on the same pull requests, so you can compare their results before you remove a workflow.
 
-You can convert workflows by hand, or start from a draft that the `chainctl checks migrate` command writes for you.
-
 If you'd rather keep your workflows on GitHub Actions, [Chainguard Actions](/chainguard/actions/overview/) replaces the actions they use with hardened equivalents, and Guardener's [Hardened Actions](/chainguard/guardener/github/actions-security/) feature can migrate them for you.
-
-## Draft a configuration with chainctl {#draft-a-configuration-with-chainctl}
-
-The `chainctl checks migrate` command drafts a Chainguard Checks configuration from your GitHub Actions workflows. With the `--dry` flag, it prints the draft and runs nothing. Without `--dry`, it also runs the draft's checks in your Chainguard organization to test them, as described in [Test the draft with a proof run](#test-the-draft-with-a-proof-run).
-
-### What the draft can't carry over {#what-the-draft-cant-carry-over}
-
-Before you run the command, look for the following in your workflows, because the draft drops them or changes how they run:
-
-- A step that uses a container action, such as `uses: docker://alpine:3.20`, is dropped.
-- A step that uses an action the command can't map is dropped. That includes Docker's build actions, such as `docker/setup-buildx-action` and `docker/build-push-action`. To build container images in a check, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). The command maps `actions/checkout` and setup actions, such as `actions/setup-go`.
-- A job with no steps left after these are dropped isn't drafted at all.
-- A job that sets a `container:` image is drafted, but its check runs in a VM, not in that image, so the image's tools aren't there. List the packages that its commands need.
-
-### Draft and review the file {#draft-and-review-the-file}
-
-Run the command from the root of a local clone of your repository whose `origin` remote is on github.com:
-
-```shell
-chainctl checks migrate --dry
-```
-
-The command reads each workflow that runs on `pull_request` and prints a draft `.chainguard/ci/migrated.yaml` file. After the draft, it prints three tables, which `chainctl` calls the ledger:
-
-- **Carried**: what the draft includes.
-- **Flagged**: what the draft dropped or couldn't carry over as written. Each flagged item also appears in the draft as a `# migrator:` comment.
-- **Ignored**: what has no meaning in Chainguard Checks, such as `runs-on`, and each workflow that doesn't run on `pull_request`.
-
-If no workflow runs on `pull_request`, the draft has no checks, and the command prints `Nothing to migrate`. Convert the workflows that the **Ignored** table lists by hand, as described in the rest of this page.
-
-To write the draft to its file, run the following commands:
-
-```shell
-mkdir -p .chainguard/ci
-chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
-```
-
-The draft has one check for each job it can carry over, and a separate check for each combination of a static matrix of up to 8 combinations. A job whose matrix uses `include` or an expression, or has more than 8 combinations, isn't carried over. The **Flagged** table lists it, so convert it by hand. The draft's checks appear on GitHub as `presubmit / migrated / <check>`.
-
-The draft uses the [directory layout](/chainguard/checks/configuration/#file-layouts), and a repository can't use both layouts. If your repository already has a `.chainguard/ci.yaml` file, move its checks into a file in `.chainguard/ci/`, and its environment to `.chainguard/ci/env/default.yaml`, before you add the draft.
-
-Review the draft before you commit it:
-
-- Add the packages each check needs. The draft lists packages for setup actions, such as `actions/setup-go`, but not for tools that the GitHub Actions runner image includes, such as `git` and `make`.
-- Add the hosts each check needs under `network.egress`. The draft gives checks no network access. To find the hosts, refer to [Find the hosts a check needs](#find-the-hosts-a-check-needs).
-- For each check that needs x86-64, set `resources` to a class that pins it, such as the built-in `medium-amd64`. The draft ignores `runs-on`, so its checks usually run on arm64.
-- Read each `# migrator:` comment. Each one marks something the draft couldn't carry over, such as a dropped step, a step with a `${{ }}` expression, a service container, or a `paths` filter. Convert each one by hand.
-
-Then run `chainctl checks validate` to check the result. When it finds no problems, it prints `ok: the document lowers`. That means Chainguard Checks can read the configuration and wouldn't refuse anything in it. The command runs none of your checks' commands and makes no network calls, so a pass doesn't show that each check has the packages and hosts it needs, or that your organization can use every feature in the file. For each problem it finds, it prints the file and position, and it exits with a nonzero status.
-
-The rest of this page explains how to convert what the draft leaves out, including workflows that run on other events, such as `push`.
-
-### Test the draft with a proof run {#test-the-draft-with-a-proof-run}
-
-Without `--dry`, `chainctl checks migrate` also tests the draft, which `chainctl` calls the *proof*. It runs the draft's checks in your Chainguard organization against your checkout's `HEAD` commit, or against the commit that `--ref` names. If the checks needed network hosts, the command adds those hosts to the draft and runs the checks again. It stops when the checks pass, or when a check fails and adding hosts can't fix it. For a failed check, it prints the end of the check's log. When the checks pass, the command prints a description for the pull request that adds the file. It doesn't open the pull request.
-
-A dry run's last line, `Dry run: nothing was proven and no PR was opened`, refers to this test.
-
-Proof runs need a role in your organization and use its Checks allowance, as described in [chainctl checks migrate](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-migrate). During the beta, use `--dry`, and test the draft in a pull request instead, as described in [Switch over](#switch-over).
 
 ## How the models differ
 
@@ -89,7 +28,7 @@ A GitHub Actions job starts on a general-purpose runner image, checks out your c
 | Actions | Steps can use actions with `uses:`. | There are no actions. List each tool's package and run it directly. You don't need `actions/checkout`, because `/work` already holds your repository's tracked files and history at the commit under test, but not its submodules or Git LFS content. |
 | Preinstalled tools | The runner image includes many tools. | The VM includes BusyBox, GNU tar, and the packages you list. List every tool a check uses, including `git`, `bash`, and `make`. |
 | Network | Jobs can reach the internet. | A check has no network access unless it lists hosts under `network.egress`, such as your package registry. |
-| Shell | A `run` step uses `bash -e`, or `bash -eo pipefail` with `shell: bash`. | A `script` runs with BusyBox `sh -e`, or with `bash -e` if you list the `bash` package and set `shell: bash`. Neither sets `pipefail`, so for a step that had `shell: bash`, start its script with `set -o pipefail`. The draft keeps `pipefail` for these steps. Refer to [The script key](/chainguard/checks/configuration/#the-script-key). |
+| Shell | A `run` step uses `bash -e`, or `bash -eo pipefail` with `shell: bash`. | A `script` runs with BusyBox `sh -e`, or with `bash -e` if you list the `bash` package and set `shell: bash`. Neither sets `pipefail`, so for a step that had `shell: bash`, start its script with `set -o pipefail`. Refer to [The script key](/chainguard/checks/configuration/#the-script-key). |
 | Caches | Jobs save and restore caches with actions, such as `actions/cache`. | A check starts with no cache. If the `trust` section of `.chainguard/ci/identities.yaml` on your default branch defines a cache pool, a check can reuse Go build output, and the files that Go, pip, uv, Maven, and Gradle download, from earlier runs. |
 | Run length | A job can run for up to 6 hours. | A whole run can take up to two hours, and checks still running at that point fail. Split long jobs into several checks, which run in parallel. |
 | Background processes | A process that a step starts in the background keeps running in the job's later steps. | When a step ends, Chainguard Checks stops every process that the step left running in the background. To keep a process, such as a database, running for a check's commands, use a [service](/chainguard/checks/variations-services-caches/#services). Refer to [How commands run](/chainguard/checks/configuration/#how-commands-run). |
@@ -120,7 +59,7 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |
 | `timeout-minutes` | `timeout`, as a duration such as `15m` |
-| `strategy.matrix` | `foreach`. Chainguard Checks doesn't expand a matrix, so write one entry for each combination, and replace each `${{ matrix.<key> }}` with a variable that the entry sets in `vars`, such as `$GOARCH` in a `script`. An entry can't change the check's packages, so for a matrix of tool versions, write a separate check with its own environment for each version, as the draft does. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `strategy.matrix` | `foreach`. Chainguard Checks doesn't expand a matrix, so write one entry for each combination, and replace each `${{ matrix.<key> }}` with a variable that the entry sets in `vars`, such as `$GOARCH` in a `script`. An entry can't change the check's packages, so for a matrix of tool versions, write a separate check with its own environment for each version. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
 | `strategy.max-parallel` | `parallelism` |
 | `defaults.run.working-directory` | `workdir` |
 | `$GITHUB_STEP_SUMMARY` | Not set, so a command that writes to it fails. Instead, print Markdown between a `::sandbox-summary::` line and an `::end-sandbox-summary::` line, and the check's output on GitHub shows it before the log. Refer to [Add a Markdown summary](/chainguard/checks/configuration/#add-a-markdown-summary). |
@@ -190,7 +129,7 @@ To open the run page, you need a role in your Chainguard organization, as descri
 
 To move a workflow to Chainguard Checks without a gap in coverage, follow these steps:
 
-1. In a pull request, add the equivalent checks to `.chainguard/ci.yaml`, or add the `.chainguard/ci/migrated.yaml` file that you drafted, and keep the GitHub Actions workflow.
+1. In a pull request, add the equivalent checks to `.chainguard/ci.yaml`, and keep the GitHub Actions workflow.
 2. Compare the results of both on that pull request and the ones after it.
 3. When the results match, add **Chainguard Checks (presubmit)** as a required status check, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 4. Remove the GitHub Actions workflow, and remove its jobs from your required status checks.

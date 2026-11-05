@@ -41,16 +41,15 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 | [`chainctl checks trends`](#chainctl-checks-trends) | Shows how long checks take, hour by hour. |
 | [`chainctl checks validate`](#chainctl-checks-validate) | Finds problems in your configuration without running anything. |
 | [`chainctl checks explain`](#chainctl-checks-explain) | Prints each check as Chainguard Checks reads it. |
-| [`chainctl checks migrate`](#chainctl-checks-migrate) | Drafts a configuration from your GitHub Actions workflows. |
 | [`chainctl checks accept-terms`](#chainctl-checks-accept-terms) | Accepts the terms that Chainguard Checks is offered under. |
 
 ## Access and organization {#access-and-organization}
 
-Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
+Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. That role can start runs, with `chainctl checks run` or with `chainctl checks migrate` without `--dry`, but it can't read any run. Those runs use your allowance without showing you their results, so don't use either command in a Starter organization. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
+If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. That role can start runs with `chainctl checks run`, but it can't read any run. Those runs use your allowance without showing you their results, so don't use that command in a Starter organization. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
-The `validate`, `explain`, and `migrate --dry` commands read only your local checkout, so they don't need a Chainguard account or network access.
+The `validate` and `explain` commands read only your local checkout, so they don't need a Chainguard account or network access.
 
 The commands that need a role take `--parent` with the name or ID of your Chainguard organization. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
 
@@ -618,29 +617,6 @@ chainctl checks explain [DIR] [--raw]
 | `--raw` | Prints check names, commands, and other text from your repository as they are, including escape sequences, even on a terminal. |
 
 If Chainguard Checks would refuse the configuration, the command prints each problem with its file and position, and exits with `1`. With `-o json`, it prints the resolved configuration, or the problems when it's refused.
-
-### chainctl checks migrate {#chainctl-checks-migrate}
-
-Drafts a `.chainguard/ci/migrated.yaml` file from your repository's GitHub Actions workflows that run on `pull_request`. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/) for how to review the draft.
-
-```
-chainctl checks migrate [PATH] [--dry] [--ref SHA] [--max-proves N] [--parity N]
-```
-
-`PATH` is a local clone whose `origin` remote is on github.com, the current directory by default. The `--dry` flag drafts the file and prints it, followed by a list of what the draft carried over, flagged, and ignored, without running anything.
-
-Without `--dry`, the command also tests the draft by running its checks in your organization, up to six times. These runs need a role, as described in [Access and organization](#access-and-organization), and use your organization's Checks allowance like any other run. In the first run, each check that has no `egress` list can reach any host by name, so that the command can draft its list. Chainguard Checks still refuses connections to IP addresses, private ranges, and metadata endpoints. During the beta, use `--dry` to avoid these runs.
-
-The test runs use the checkout's `HEAD` commit. To test another commit, pass its full SHA with `--ref`. To limit the number of test runs, pass `--max-proves`. The `--parity` flag replays a passing draft against the last pull requests that merged, but `chainctl` can't read their results on GitHub, so it reports each one as unknown.
-
-For example, to write the draft to its file:
-
-```shell
-mkdir -p .chainguard/ci
-chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
-```
-
-With `-o json`, the command prints one object with the `repository`, `revision`, the `source` it drafted from, which is `github-actions`, `dry`, which is `true` with `--dry`, the draft's `path`, the number of `jobs` it drafted, the draft itself in `document`, and the `ledger` of what it carried over, flagged, and ignored.
 
 ### chainctl checks accept-terms {#chainctl-checks-accept-terms}
 
