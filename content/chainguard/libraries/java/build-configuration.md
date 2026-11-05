@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-05T13:41:02+00:00
+lastmod: 2026-11-05T13:55:34+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -539,7 +539,7 @@ chainctl libraries verify \
   ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull_token_creator` role or the Owner role. The command creates a pull token to fetch provenance data, so the `libraries.java.pull` role isn't enough.
+> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `libraries.java.pull_token_creator` role or the Owner role, because the command creates a pull token. With only the `libraries.java.pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
 
 A successfully verified artifact produces output similar to the following:
 
@@ -785,7 +785,7 @@ Then copy the exact path to the jar and verify it with `chainctl`:
 chainctl libraries verify /full/path/to/guava-<version>.jar
 ```
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull_token_creator` role or the Owner role. The command creates a pull token to fetch provenance data, so the `libraries.java.pull` role isn't enough.
+> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `libraries.java.pull_token_creator` role or the Owner role, because the command creates a pull token. With only the `libraries.java.pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
 
 A successfully verified artifact produces output similar to the following:
 

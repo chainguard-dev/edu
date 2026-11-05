@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-05T13:41:02+00:00
+lastmod: 2026-11-05T13:55:34+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -248,7 +248,7 @@ After setup, you can verify which dependencies were built from source by Chaingu
 chainctl libraries verify /path/to/artifact
 ```
 
-> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify (`libraries.java.pull_token_creator`, `libraries.javascript.pull_token_creator`, or `libraries.python.pull_token_creator`), or the Owner role. The command creates a pull token to fetch provenance data, so a `pull` role isn't enough.
+> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, such as `libraries.java.pull_token_creator`, or the Owner role, because the command creates a pull token. With only a `pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
 
 For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
 

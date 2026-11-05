@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-11-05T13:41:02+00:00
+lastmod: 2026-11-05T13:55:34+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -428,7 +428,7 @@ Run the command in the directory containing the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+> **Note**: With a regular `chainctl auth login`, `chainctl libraries update-hashes` creates a pull token, which requires the `libraries.javascript.pull_token_creator` role or the Owner role. With only the `libraries.javascript.pull` role, sign in with `chainctl auth login --audience=libraries.cgr.dev` or pass a libraries-scoped token. For details, refer to [Authentication](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth).
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
@@ -715,7 +715,7 @@ chainctl libraries verify ./node_modules
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull_token_creator` role or the Owner role. The command creates a pull token to fetch provenance data, so the `libraries.javascript.pull` role isn't enough.
+> **Note**: With a regular `chainctl auth login`, running `chainctl libraries verify` requires the `libraries.javascript.pull_token_creator` role or the Owner role, because the command creates a pull token. With only the `libraries.javascript.pull` role, pass a libraries-scoped token instead, as described in [Verify with a pull role](/chainguard/libraries/policies-and-security/verification/#verify-with-a-pull-role).
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 

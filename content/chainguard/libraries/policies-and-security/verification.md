@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-11-05T13:41:02+00:00
+lastmod: 2026-11-05T13:55:34+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -57,14 +57,18 @@ You also need:
 - Sufficient [network access](/chainguard/libraries/introduction/network-requirements/)
 - Your organization [must include entitlement for access to Chainguard
   Libraries](/chainguard/libraries/introduction/access/#entitlement)
-- You must have the `pull_token_creator` role for each ecosystem you verify
-  (`libraries.java.pull_token_creator`,
-  `libraries.javascript.pull_token_creator`, or
-  `libraries.python.pull_token_creator`), or the Owner role. The command
-  creates a pull token to fetch provenance data, so a `pull` role such as
-  `libraries.java.pull` isn't enough. Each run creates a new pull token, which
-  appears in your organization's identity list as
-  `pull-token - libraries.<ecosystem>`. For what each role includes, refer to [Pull token creator
+- One of the following for each ecosystem you verify:
+    - The `pull_token_creator` role, such as
+      `libraries.java.pull_token_creator`, or the Owner role. After a regular
+      `chainctl auth login`, the command creates a pull token to fetch
+      provenance data, which requires one of these roles. Each run creates a
+      new pull token, which appears in your organization's identity list as
+      `pull-token - libraries.<ecosystem>`.
+    - The `pull` role, such as `libraries.java.pull`, with a libraries-scoped
+      token, as described in [Verify with a pull role](#verify-with-a-pull-role).
+      The command uses the token directly and creates no pull token.
+
+  For what each role includes, refer to [Pull token creator
   roles](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/#pull-token-creator-roles).
 
 Confirm that `chainctl` is installed and available on the `PATH`:
@@ -117,6 +121,23 @@ chainctl config view
 Ensure that you use this configuration or add the `--parent` parameter in all
 the following examples as necessary.
 
+### Verify with a pull role
+
+If your identity holds only a `pull` role, such as `libraries.java.pull`, sign
+in with the libraries registry as the audience and pass the resulting token to
+the command in the `CHAINCTL_AUTH_TOKEN` environment variable:
+
+```sh
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify /path/to/artifact.jar
+```
+
+Without `CHAINCTL_AUTH_TOKEN`, a `pull` role reports 0% coverage, even after you
+sign in with the libraries audience. Because this method creates no pull token,
+it also keeps repeated runs, such as CI/CD jobs, from adding a pull token to
+your organization each time.
+
 ## Verification results
 
 `chainctl libraries verify` reports coverage: the share of the inspected
@@ -151,7 +172,7 @@ defaults to `attestations` in the current directory. Only packages verified as
 Chainguard builds produce companion files. The verification report lists the
 saved files and their trust status in text, JSON, YAML, and CSV output.
 
-> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, or the Owner role. A `pull` role isn't enough. For details, refer to [Requirements](#requirements).
+> **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the Owner role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
 
 ### Analyze a Python wheel file
 
