@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T15:06:16+00:00
+lastmod: 2026-11-05T15:14:03+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -239,6 +239,14 @@ curl -s "http://github/.chainguard/access?repo=$OWNER/$REPO"
 ```
 
 On your laptop, `chainctl develop github status` shows which accounts the checkout in your current directory still needs the app installed on.
+
+## A tool in a session fails with a certificate error {#a-tool-in-a-session-fails-with-a-certificate-error}
+
+If HTTPS requests from a session fail with a certificate error, such as `self-signed certificate in certificate chain` or `PKIX path building failed`, the tool that made the request doesn't trust the certificate authority that the session uses for its HTTPS connections. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access). This happens in the following cases:
+
+- The tool keeps its own list of trusted certificates and ignores `SSL_CERT_FILE` and the other variables that the session sets. Point the tool at the system bundle, `/etc/ssl/certs/ca-certificates.crt`, which includes the certificate authority.
+- `SSL_CERT_FILE`, or another variable that names a certificate bundle, names a different file, because a script or your shell configuration sets it. Unset the variable, or make sure that the file it names includes the certificate authority.
+- The tool pins the host's certificate. A session has no setting that exempts a host, so the tool can't connect to that host from a session.
 
 ## A session runs out of space or memory {#a-session-runs-out-of-space-or-memory}
 
