@@ -3,9 +3,9 @@ title: "Overview of Chainguard OS"
 linktitle: "Chainguard OS overview"
 type: "article"
 description: "Learn about Chainguard OS, the security-focused operating system that powers Chainguard containers with continuous updates, minimal attack surface, and enterprise-grade security features"
-lead: "Chainguard OS is a purpose-built operating system designed for container security, featuring continuous updates, minimal packages, and hardened configurations that power all Chainguard container images."
+lead: "Chainguard OS is a purpose-built operating system designed for container security, featuring continuous updates, minimal packages, and hardened configurations that power Chainguard's Production container images."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -17,7 +17,7 @@ weight: 10
 toc: true
 ---
 
-Chainguard OS provides a more secure operating system that powers all Chainguard container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface.
+Chainguard OS provides a more secure operating system that powers Chainguard's Production container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface. Chainguard's Free container images run on Wolfi, Chainguard's open source distribution, instead. To learn how the two differ, see the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi).
 
 Chainguard OS adheres to four key principles:
 

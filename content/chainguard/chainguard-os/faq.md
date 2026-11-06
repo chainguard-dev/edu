@@ -5,7 +5,7 @@ type: "article"
 description: "Frequently asked questions about Chainguard OS, the secure operating system powering production Chainguard containers with enterprise features and continuous updates"
 lead: "Chainguard OS powers production container images with enhanced security, continuous updates, and enterprise-grade features - find answers to common questions about this purpose-built container operating system."
 date: 2025-07-03T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard OS"]
 images: []
@@ -25,11 +25,22 @@ Chainguard OS is a minimal, hardened Linux-based operating system designed for s
 
 ## What is the relationship between Chainguard OS and Wolfi?
 
-Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguard/containers/concepts/container-categories/#free-containers).
+Wolfi and Chainguard OS are both Linux distributions that Chainguard builds and maintains. Wolfi is the open source distribution behind Chainguard's [Free container images](/chainguard/containers/concepts/container-categories/#free-containers). Chainguard OS is the distribution behind [Production container images](/chainguard/containers/concepts/container-categories/#production-containers) and Chainguard's other products.
 
-Chainguard OS refers to the production-grade distribution that powers all other Chainguard products.
+The two work the same way. Both use the apk package format, and both are rolling releases: neither has major OS versions, and packages update continuously as upstream projects publish new releases. They differ in who can access them and what Chainguard commits to:
 
-Please note that mixing and matching content across Wolfi and Chainguard OS is not supported.
+| Feature | Wolfi | Chainguard OS |
+|---|---|---|
+| Container images | Free containers, such as `wolfi-base` | Production containers, such as `chainguard-base` |
+| Package repository | The public Wolfi repository, `https://apk.cgr.dev/chainguard`, which doesn't require authentication | Your organization's Private APK Repository, `https://apk.cgr.dev/$ORGANIZATION_ID`, which requires authentication |
+| Vulnerability remediation SLAs | No | Yes |
+| End-of-life (EOL) support | Updates stop when upstream support ends | Updates continue for an additional period under the [EOL Grace Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) |
+| FIPS-validated packages | No | Yes |
+| How scanners identify the OS | As Wolfi | As Chainguard, so scanners use Chainguard's security feed |
+
+Don't mix packages from Wolfi and Chainguard OS in the same container image. Chainguard doesn't support images that combine them.
+
+To compare the `wolfi-base` and `chainguard-base` images in more detail, see [Choosing a base container](/chainguard/containers/concepts/choosing-a-base-container/).
 
 ## What are the core principles behind Chainguard OS?
 

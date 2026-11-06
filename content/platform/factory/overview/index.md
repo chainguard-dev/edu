@@ -7,7 +7,7 @@ type: "article"
 description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-15T08:49:31+00:00
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -80,12 +80,12 @@ cluster (sometimes even a specially provisioned EKS cluster for images such as
 [eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview)).
 
 On top of this, software is constantly going End-of-Life (EOL). When software
-is no longer supported upstream, we will cease updating it in Wolfi (refer to [Wolfi
-Packages in chainguard
-Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#wolfi-packages-in-chainguard-containers)).
-Customers benefit from an extended [EOL grace
+is no longer supported upstream, we will cease updating it in Wolfi (refer to [Maintaining Wolfi
+packages in Chainguard
+Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#maintaining-wolfi-packages-in-chainguard-containers)).
+Customers benefit from an extended [EOL Grace
 Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/)
-with Chainguard OS where we continue to build old versions).
+with Chainguard OS, where we continue to build old versions.
 
 The result is a relentless, orchestrated flow of updates — ensuring our
 software remains secure, current, and reliable.
