@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-05T13:02:12+00:00
+lastmod: 2026-11-06T15:44:47+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -34,7 +34,7 @@ To upgrade to Team, complete the following steps:
 
     If you belong to more than one organization, add `--parent` with the name of the organization to upgrade.
 
-1. In the checkout page that opens in your browser, enter your card and billing address, then save them. Saving the card doesn't charge it.
+1. In the checkout page that opens in your browser, enter your card and billing address, then save them. If the page shows **I'm purchasing as a business**, which depends on your billing country, you can select it and enter a business tax ID, such as a VAT number. Saving the card doesn't charge it.
 1. Wait for the first payment. Chainguard charges the card for the first month, and your organization moves to Team once the charge succeeds. That usually takes less than a minute.
 1. Confirm the upgrade:
 

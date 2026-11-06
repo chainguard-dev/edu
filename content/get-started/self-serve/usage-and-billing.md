@@ -1,7 +1,7 @@
 ---
 title: "Usage, limits, and billing"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-05T12:46:23+00:00
+lastmod: 2026-11-06T15:44:47+00:00
 linktitle: "Usage and billing"
 description: "Check your Chainguard Starter or Chainguard Team organization's usage against its plan limits, respond to a refused request, and buy Checks and Workspaces compute"
 type: "article"
@@ -74,7 +74,7 @@ Each month, your organization uses its plan's included Checks and Workspaces com
     chainctl plans top-up --amount 200
     ```
 
-1. In the checkout page that opens in your browser, enter your card and billing address, then save them. The first purchase opens this page even if you saved a card earlier.
+1. In the checkout page that opens in your browser, enter your card and billing address, then save them. If the page shows **I'm purchasing as a business**, which depends on your billing country, you can select it and enter a business tax ID, such as a VAT number. The first purchase opens this page even if you saved a card earlier.
 
 Chainguard charges the card for the balance, plus applicable tax. When the balance falls below 20% of the amount you bought, Chainguard charges the card again to bring it back to that amount. Unused balance expires one year after you buy it.
 
