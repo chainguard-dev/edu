@@ -98,7 +98,7 @@ Every Chainguard image includes an `/etc/os-release` file that identifies the di
 ID=chainguard
 NAME="Chainguard"
 PRETTY_NAME="Chainguard"
-VERSION_ID="rolling"
+VERSION_ID="20230214"
 HOME_URL="https://chainguard.dev/"
 ```
 
