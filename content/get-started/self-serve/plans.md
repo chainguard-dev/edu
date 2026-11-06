@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-05T15:52:41+00:00
+lastmod: 2026-11-06T14:47:27+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -49,7 +49,7 @@ The following table lists what each self-serve plan includes:
 
 Monthly limits reset at the start of each calendar month, in UTC. GiB and TiB are binary units: 1 GiB is 1,024 MiB, and 1 TiB is 1,024 GiB. Chainguard uses these units when it reports usage and when it refuses a request.
 
-Chainguard refuses a Starter request that would go past the limit for image egress, storage, or package pulls. To see which limits you're already near, run `chainctl plans quotas list --near`.
+Chainguard counts Starter usage against the limits for image egress, storage, and package pulls now, and starts refusing requests past them on January 1, 2027. To see which limits you're already near, run `chainctl plans quotas list --near`.
 
 FIPS, developer-tool, and commercial images need an Enterprise plan.
 
