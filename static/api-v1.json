@@ -5643,8 +5643,8 @@
             "readOnly": true
           },
           "supportedResourceType": {
-            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
+            "description": "Required on CreatePolicy: a request that sets neither this field nor the\ndeprecated supported_resource_types is rejected with InvalidArgument.\n\nImmutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RubyPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -5704,8 +5704,8 @@
             "readOnly": true
           },
           "supportedResourceType": {
-            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
+            "description": "Required on CreatePolicy: a request that sets neither this field nor the\ndeprecated supported_resource_types is rejected with InvalidArgument.\n\nImmutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RubyPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -16652,6 +16652,14 @@
             "schema": {
               "format": "int32",
               "type": "integer"
+            }
+          },
+          {
+            "description": "Only return bindings of this policy (UIDP).\nEmpty returns bindings of every policy.\nNote: Changing policy between pages invalidates the page token.",
+            "in": "query",
+            "name": "policy",
+            "schema": {
+              "type": "string"
             }
           }
         ],

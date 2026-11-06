@@ -1,5 +1,5 @@
 ---
-date: 2026-11-04T22:40:04Z
+date: 2026-11-05T20:53:08Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -120,6 +120,7 @@ chainctl starter init [--output=json] [flags]
       --name string           Name of the organization, when you sign up with a personal email address. It can't look like a domain name. Ignored for an organization named after your email domain.
       --non-interactive       Never prompt: skip the provider menu, and fail naming the flags still needed instead of asking a question.
       --social-login string   Identity provider to sign in with, instead of choosing from a menu. Must be one of: email, google, github, gitlab
+      --terms-step            With --output json, add the terms to accept and what the Starter plan includes, and point next at 'chainctl starter accept-terms' once the organization is created.
 ```
 
 ### Options inherited from parent commands
