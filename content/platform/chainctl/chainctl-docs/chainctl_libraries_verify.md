@@ -1,5 +1,5 @@
 ---
-date: 2026-11-04T22:40:04Z
+date: 2026-11-05T20:53:08Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -64,6 +64,11 @@ This report is informational: the exit status does not reflect coverage. Coverag
 counts entries Chainguard built from source, so a package that is simply not
 built from source is not a defect, and gating a build on the percentage is not
 the intended use. Per-entry results are available with "-o json --detailed".
+
+A NuGet package (.nupkg) is verified by the Chainguard package signature it
+carries: an author signature under Chainguard's code-signing certificate, with
+a timestamp, made for that exact package. The check reads only the package, so
+it needs no token and no network.
 
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java

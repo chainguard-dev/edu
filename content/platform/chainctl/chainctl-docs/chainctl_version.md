@@ -1,5 +1,5 @@
 ---
-date: 2026-11-04T22:40:04Z
+date: 2026-11-05T20:53:08Z
 title: "chainctl version"
 slug: chainctl_version
 url: /platform/chainctl/chainctl-docs/chainctl_version/
