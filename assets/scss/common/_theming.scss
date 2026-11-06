@@ -23,15 +23,15 @@
 
     --a-original-color: inherit;
     --active-element-background: #f3f3f3;
-    --active-element-shadow: var(--secondary-2);
-    --active-link-color: var(--secondary-2);
+    --active-element-shadow: var(--primary-1);
+    --active-link-color: var(--primary-1);
     --article-link-color: var(--primary-1);
     --article-link-secondary-color: var(--primary-2);
     --basics-card-background: inherit;
     --basics-card-border: var(--primary-3-border);
     --blockquote-background: var(--secondary-3-border);
-    --blockquote-link-color: var(--tertiary-3);
-    --blockquote-border: var(--secondary-2);
+    --blockquote-link-color: var(--primary-1);
+    --blockquote-border: var(--primary-1);
     --board-background-color: #FFF;
     --body-background: #FFF;
     --body-color: var(--primary-3);
@@ -62,7 +62,7 @@
     --footer-link-hover-color: var(--primary-1);
     --footer-muted-color: var(--primary-3);
     --footer-title-color: var(--primary-3);
-    --form-check-input-background: var(--secondary-2);
+    --form-check-input-background: var(--primary-1);
     --form-check-input-checked-background: inherit;
     --form-check-input-checked-border: inherit;
     --form-check-input-color: var(--secondary-1);
@@ -76,7 +76,7 @@
     --navbar-contact-border: var(--secondary-3);
     --navbar-contact-color: var(--primary-1);
     --note-deprecated: var(--tertiary-4);
-    --note-notice: var(--secondary-2);
+    --note-notice: var(--primary-1);
     --note-warning: var(--tertiary-3);
     --note-cta: var(--secondary-1);
     --note-cta-background: var(--primary-1);
@@ -148,7 +148,7 @@
     --a-original-color: #c5c5c5;
     --active-element-background: #ffffff29;
     --active-element-shadow: var(--primary-2);
-    --active-link-color: var(--secondary-1);
+    --active-link-color: var(--primary-2);
     --article-link-color: var(--primary-2);
     --article-link-secondary-color: var(--primary-1);
     --basics-card-background: var(--desaturated-primary-3);
@@ -202,7 +202,7 @@
     --note-cta-background: var(--primary-1);
     --note-cta-link: var(--primary-2);
     --note-deprecated: var(--tertiary-2);
-    --note-notice: var(--tertiary-1);
+    --note-notice: var(--primary-2);
     --note-warning: var(--tertiary-3);
     --offcanvas-close-color: #fff;
     --page-link-active-color: var(--primary-2);

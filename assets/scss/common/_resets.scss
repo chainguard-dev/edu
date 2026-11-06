@@ -27,40 +27,6 @@ h4 code {
   font-size: 1rem;
 }
 
-h1 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 130%;
-  letter-spacing: -0.02em;
-}
-
-h3 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 140%;
-
-  /* identical to box height, or 28px */
-  letter-spacing: -0.02em;
-}
-
-h4,
-h5 {
-  font-family:$titleFont;
-}
-
 // Link element reset, beats _dark.scss selectors
 a[href][href][href] {
   text-decoration: none;

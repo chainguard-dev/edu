@@ -475,16 +475,6 @@
   .basics-card:hover {
     box-shadow: 0 8px 32px rgba(0, 160, 235, 0.2);
   }
-
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
 }
 
 // Animated Gradient Background (subtle)
