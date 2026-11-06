@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-06T15:44:47+00:00
+lastmod: 2026-11-06T17:57:18+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -86,6 +86,8 @@ To replace the card your plan is charged to, run `chainctl plans add-card`. It o
 ```shell
 chainctl plans add-card
 ```
+
+If the page shows **I'm purchasing as a business**, which depends on your billing country, you can also enter a business tax ID, such as a VAT number. The tax ID is saved with your billing details and appears on later invoices.
 
 ## Cancel Team
 
