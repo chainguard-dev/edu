@@ -44,7 +44,6 @@ $bootstrap-icons-font-dir: "#{hugo.$basePath}fonts";
 /** Import custom styles */
 @import "common/custom";
 @import "common/mobile";
-@import "components/modern-effects";
 @import "components/header-enhanced";
 @import "components/cards-enhanced";
 @import "components/typography";

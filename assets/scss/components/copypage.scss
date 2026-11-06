@@ -39,11 +39,11 @@
 
   &.copy-success {
     svg {
-      stroke: var(--secondary-2);
+      stroke: var(--active-link-color);
     }
 
     .copy-btn-text {
-      color: var(--secondary-2);
+      color: var(--active-link-color);
     }
   }
 }

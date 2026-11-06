@@ -167,10 +167,6 @@ html[data-dark-mode] .logo-purple {
     margin-bottom: 12px;
 }
 
-.article h2 {
-    margin-top: 64px;
-}
-
 .board-background {
     background-color: var(--board-background-color);
 }
@@ -1362,16 +1358,6 @@ header .search-container {
     a.sl-link {
         color: var(--article-link-secondary-color);
     }
-}
-
-h4,
-.h4 {
-    font-family: $titleFont;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
 }
 
 .note,
