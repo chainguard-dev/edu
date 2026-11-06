@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-11-05T15:59:18+00:00
+lastmod: 2026-11-06T15:25:16+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -190,7 +190,7 @@ If the Console won't let you create a pull token, your role is missing a capabil
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
 
 {{< note >}}
-This approach requires an assumable identity. A [Chainguard Starter](/get-started/self-serve/plans/) organization can create up to 3 of them, and can bind each one only to a pull role, such as `registry.pull`. For more pipelines than that, authenticate with a pull token. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+This approach requires an assumable identity, which [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Catalog Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 {{< /note >}}
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
