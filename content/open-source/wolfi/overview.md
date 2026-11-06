@@ -4,7 +4,7 @@ linktitle: "Wolfi overview"
 description: "Linux undistro to support secure container images"
 type: "article"
 date: 2022-09-05T08:49:15+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Wolfi", "Overview"]
 images: []
@@ -15,7 +15,7 @@ weight: 10
 toc: true
 ---
 
-Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard's container images are built on Wolfi.
+Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard's Free container images are built on Wolfi, and Production container images are built on [Chainguard OS](/chainguard/chainguard-os/). To learn how the two differ, see the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi).
 
 To learn what Wolfi is and why Chainguard built it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) in Supply Chain Security 101. The pages in this section show you how to work with Wolfi.
 

@@ -5,7 +5,7 @@ type: "article"
 description: "Learn about Chainguard Containers, distroless images, and how they provide enhanced security through minimal attack surface and comprehensive supply chain features."
 lead: "Chainguard Containers is a collection of security-hardened container images built with a distroless approach that keeps only essential application components and runtime dependencies."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -89,7 +89,7 @@ Every container listed in the [Containers Directory](https://images.chainguard.d
 
 ## Architecture
 
-By default, all Wolfi-based images are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architecture with the following CPU Instruction Set Architecture (ISA) baseline features:
+By default, all Chainguard Containers, whether built on Wolfi or Chainguard OS, are built for x86_64 (also known as AMD64) and AArch64 (also known as ARM64) architecture with the following CPU Instruction Set Architecture (ISA) baseline features:
 
 - x86_64: x86-64-v2 (Sapphire Rapids)
 - AArch64: Armv8-A with CRC and Cryptographic extensions (Neoverse V2)

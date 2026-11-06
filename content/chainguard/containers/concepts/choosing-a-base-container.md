@@ -20,7 +20,7 @@ aliases:
 type: "article"
 description: "An overview comparing various Chainguard Containers for compiled programs"
 date: 2024-07-12T17:55:01+00:00
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Cheatsheet"]
 images: []
@@ -58,7 +58,7 @@ The following packages are included in the `wolfi-base:latest` Chainguard Contai
 ### chainguard-base
 
 *Paid Container* \
-In addition to the functionality of the `wolfi-base` Chainguard Container, [`chainguard-base`](https://images.chainguard.dev/directory/image/chainguard-base/versions) reports as being a Chainguard Container, which scanners use to determine what security feeds to reference for vulnerabilities. Additionally, the `chainguard-base` container image provides access to vulnerability remediation SLAs to ensure your containers are always up-to-date with the latest releases and patches.
+The [`chainguard-base`](https://images.chainguard.dev/directory/image/chainguard-base/versions) Chainguard Container is built on [Chainguard OS](/chainguard/chainguard-os/) instead of Wolfi. To learn how the two differ, see the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi). In addition to the functionality of the `wolfi-base` Chainguard Container, `chainguard-base` reports as being a Chainguard Container, which scanners use to determine what security feeds to reference for vulnerabilities. Additionally, the `chainguard-base` container image provides access to vulnerability remediation SLAs to ensure your containers are always up-to-date with the latest releases and patches.
 
 The following packages are included in the `chainguard-base:latest` Chainguard Container:
 
