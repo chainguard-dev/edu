@@ -5,7 +5,7 @@ lead: "A map of where each Chainguard product fits in a CI/CD pipeline, in the o
 description: "Where each Chainguard product fits in a CI/CD pipeline: hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current."
 type: "article"
 date: 2026-09-24T00:00:00+00:00
-lastmod: 2026-10-19T12:59:08+00:00
+lastmod: 2026-11-06T15:25:16+00:00
 draft: false
 tags: ["Getting Started"]
 images: []

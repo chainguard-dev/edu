@@ -7,7 +7,7 @@ lead: "Reference for Chainguard's built-in roles and their specific capabilities
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-11-06T15:25:16+00:00
 draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []

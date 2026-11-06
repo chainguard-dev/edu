@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T15:06:16+00:00
+lastmod: 2026-11-03T16:49:44+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -271,7 +271,7 @@ A parked session expires 5 days after it parks, and an expired session can't be 
 
 If `chainctl develop` fails with a `FailedPrecondition` error that says `this month's compute allowance is used up`, your organization has used its monthly vCPU-hours of Workspaces. Until the allowance resets on the first day of the month (UTC), you can't create a session or resume a parked one. Being busy no longer keeps a detached session running, so it parks about 10 minutes after you detach, and a session created with `--keep always` parks after you detach instead of staying up. Sessions you're attached to keep running until you detach.
 
-A parked session still expires 5 days after it parks, even if the allowance hasn't reset yet, so push your work regularly. To learn how sessions use the allowance, refer to [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits). To continue before the allowance resets, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+A parked session still expires 5 days after it parks, even if the allowance hasn't reset yet, so push your work regularly. To learn how sessions use the allowance, refer to [Availability and limits](/chainguard/workspaces/overview/#availability-and-limits). To continue before the allowance resets, a Chainguard Team organization can [buy compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute). Otherwise, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 
 ## Your organization's access to Chainguard Workspaces ended {#your-organizations-access-to-chainguard-workspaces-ended}
 
