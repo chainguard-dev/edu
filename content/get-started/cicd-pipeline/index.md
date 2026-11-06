@@ -5,7 +5,7 @@ lead: "A map of where each Chainguard product fits in a CI/CD pipeline, in the o
 description: "Where each Chainguard product fits in a CI/CD pipeline: hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current."
 type: "article"
 date: 2026-09-24T00:00:00+00:00
-lastmod: 2026-11-05T15:59:18+00:00
+lastmod: 2026-11-06T15:25:16+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -77,7 +77,7 @@ chainctl auth login \
 
 [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) covers non-interactive use, and the [identity examples](/platform/administration/assumable-ids/identity-examples/) include worked setups for GitHub, GitLab, and several cloud providers.
 
-**On Chainguard Starter.** A [Chainguard Starter](/get-started/self-serve/plans/) organization can use either approach with up to 3 assumable identities, and can bind each one only to a pull role, such as `registry.pull`. For more pipelines than that, authenticate with a pull token, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+**On Catalog Starter.** [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 **Why it matters.** There's no long-lived credential to leak, rotate, or track. A token that shows up in a build log has already expired by the time anyone reads it.
 

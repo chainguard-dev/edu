@@ -7,7 +7,7 @@ lead: "Reference for Chainguard's built-in roles and their specific capabilities
 description: "A resource documenting the capabilities and permissions of Chainguard's built-in IAM roles."
 type: "article"
 date: 2025-08-14T00:00:00Z
-lastmod: 2026-11-05T16:04:06+00:00
+lastmod: 2026-11-06T15:25:16+00:00
 draft: false
 tags: ["IAM", "Reference", "Product"]
 images: []
@@ -36,7 +36,7 @@ This guide outlines the following built-in roles provided by Chainguard:
     * `owner`: Full administrative access with all capabilities
     * `editor`: `viewer` access plus creating, updating, and deleting container repositories, editing Custom Assembly overlays, drafting library build requests, and managing event subscriptions
     * `viewer`: Read-only access across all resources, **can** pull images, and can run Guardener sessions
-    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens and CI identities (up to 3, bound only to pull roles), invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
+    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
     * `console_viewer`: Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, or view legal terms
 * **Registry and Container Roles:**
     * `registry.pull`: Container image access
