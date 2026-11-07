@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-10-22T14:19:25+00:00
+lastmod: 2026-11-07T00:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -35,7 +35,7 @@ This page uses the following terms:
 
 Chainguard Libraries supports the following types of policies:
 
-* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date.
+* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
 * **Block**: Deny a package or version outright. Use a block rule when your organization never wants to allow a package or version.
 * **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     * An override policy takes precedence over a block policy.
@@ -114,6 +114,16 @@ The default cooldown period is 7 days. You cannot change the default policy, but
 
 > **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
+### When a version becomes available
+
+The cooldown cutoff moves forward once a day, at 00:00 UTC. A version becomes available at the first 00:00 UTC after its cooldown period has fully passed, counted from its upstream publish time. Every version whose cooldown ends on the same UTC day becomes available at the same moment, rather than one by one throughout the day.
+
+As a result, a version can wait up to 24 hours longer than the configured number of days. With the default 7-day cooldown, a version waits at least 7 days and up to 8 days.
+
+For example, with a 7-day cooldown, a version published upstream at 14:00 UTC on October 15 completes its cooldown at 14:00 UTC on October 22. It becomes available at 00:00 UTC on October 23.
+
+To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version).
+
 ### Create and enable a cooldown policy
 
 When upstream fallback is enabled, users with the Owner role can create and enable a cooldown policy with `chainctl`. The cooldown period provides an additional layer of defense on top of malware and greyware scanning, giving the broader security community time to surface threats that may not be immediately detectable.
@@ -186,6 +196,8 @@ Use `chainctl libraries packages blocked` to review what has been blocked by you
 ```bash
 chainctl libraries packages blocked --ecosystem=JAVASCRIPT
 ```
+
+For versions blocked by a cooldown, the output shows when each version becomes available. The `UNBLOCKS` column in the default table output shows the date, and the `unblocksAt` field in `--output json` shows the exact time, which is 00:00 UTC on that date. Versions blocked by malware detection or a block rule show `never (flagged)` or `never (policy)`, because they don't become available on their own.
 
 If you have policies enabled in Preview mode, you can check successful pulls that *would have been blocked* in the last 30 days if the policy were to be enforced. For example:
 
