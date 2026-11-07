@@ -1,5 +1,5 @@
 ---
-date: 2026-11-05T20:53:08Z
+date: 2026-11-06T22:09:37Z
 title: "chainctl policy binding list"
 slug: chainctl_policy_binding_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_binding_list/
@@ -31,6 +31,11 @@ Rows flagged INVALID are elaborated below the table with the
 concrete reasons; the JSON output carries the same detail when at
 least one binding is invalidated.
 
+--policy lists the bindings of one policy, given by name or UIDP. A
+name shared by policies of several resource types also needs
+--resource-type to select one. --resource-type alone narrows the
+table to one resource type.
+
 ```
 chainctl policy binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
 ```
@@ -43,12 +48,16 @@ chainctl policy binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--o
   
   # List bindings for a specific organization
   chainctl policy binding list --parent=engineering
+  
+  # List the bindings of the cooldown policy for container images
+  chainctl policy binding list --parent=engineering --policy=cooldown --resource-type=Repo
 ```
 
 ### Options
 
 ```
       --parent string          The name or id of the organization to list bindings for.
+      --policy string          Only list bindings of this policy (name or UIDP). A name shared by policies of several resource types also needs --resource-type.
       --resource-type string   Only list entries for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type).
 ```
 

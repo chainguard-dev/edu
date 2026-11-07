@@ -1647,6 +1647,9 @@
       },
       "chainguard.platform.argos.Range": {
         "properties": {
+          "database_specific": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.RangeDatabaseSpecific"
+          },
           "events": {
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.argos.Event"
@@ -1672,6 +1675,15 @@
           "GIT"
         ],
         "type": "string"
+      },
+      "chainguard.platform.argos.RangeDatabaseSpecific": {
+        "properties": {
+          "fix_status": {
+            "description": "\"fix_found\", \"no_fix_found\" or \"not_confirmed\".",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.argos.Reference": {
         "description": "Reference is one OSV-spec references[] entry: a typed, record-level URL\n(https://ossf.github.io/osv-schema/#references-field). Chainguard emits\nFIX-typed references naming the verified upstream fix commit — the exact\ncommit, validated by tag ancestry in the named repository, behind the\nrecord's highest fixed boundary. A reference is record-level and carries\nno binding to any affected range or version, per the OSV spec.",
@@ -17344,9 +17356,17 @@
             }
           },
           {
-            "description": "name is the exact name of the policy to filter by.",
+            "description": "name is the exact name of the policy to filter by.\nNote: Changing name between pages invalidates the page token.",
             "in": "query",
             "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return policies whose supported_resource_type equals this value.\nThe value takes the versioned form Policy.supported_resource_type takes\n(e.g. \"registry.chainguard.dev/Repo@v1\") and matches exactly. A value\nwithout an \"@\u003cversion\u003e\" suffix is rejected with INVALID_ARGUMENT. A\nwell-formed type that no policy declares returns an empty list.\nEmpty returns policies of every type.\nNote: Changing supported_resource_type between pages invalidates the page\ntoken.",
+            "in": "query",
+            "name": "supportedResourceType",
             "schema": {
               "type": "string"
             }
