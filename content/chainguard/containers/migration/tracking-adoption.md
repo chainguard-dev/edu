@@ -30,7 +30,13 @@ Image references are available almost everywhere — in manifests, in the Kubern
 
 It doesn't work for images that you build using a Chainguard image as a base. An image built `FROM cgr.dev/$ORGANIZATION/python` and pushed to your own registry has a reference like `registry.example.com/my-app`, which tells you nothing about its base image.
 
-Image references are better at identifying images that aren't Chainguard images. A reference to an upstream image, like `docker.io/library/nginx` or `quay.io/prometheus/prometheus`, isn't a Chainguard image, and usually tells you which Chainguard image replaces it. References to your own registry depend on how you organize it. A path that you know mirrors an upstream registry, like `registry.example.com/dockerhub/`, identifies upstream images, and a path that only holds Chainguard images identifies Chainguard ones. Images that your teams build and push, on the other hand, are unknown either way until you inspect them.
+Image references are a better way to identify images that aren't Chainguard images. A reference to an upstream image, such as `docker.io/library/nginx` or `quay.io/prometheus/prometheus`, points to an image that isn't from Chainguard, and can help you find a Chainguard image that could replace it.
+
+For references to your own registry, the result depends on how you organize it:
+
+- A path that mirrors an upstream registry, such as `registry.example.com/dockerhub/`, contains upstream images.
+- A path that holds only Chainguard images contains Chainguard images.
+- A path that your teams push their own builds to could contain either, and you can't tell which until you inspect each image.
 
 ### Labels and annotations
 
