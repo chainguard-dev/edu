@@ -120,15 +120,15 @@ It's equally useful for images that aren't Chainguard images, because other dist
 It's also the signal that vulnerability scanners use to decide which advisory data applies to an image. Most scanners and cloud-native application protection platforms (CNAPPs) report it as image metadata, so you may already be collecting it. For example, `trivy` reports it as the OS family:
 
 ```shell
-trivy image --quiet --format json cgr.dev/chainguard/python:latest | jq '.Metadata.OS'
+trivy image --quiet --format json cgr.dev/$ORGANIZATION/python:latest | jq '.Metadata.OS'
 ```
 
-For a public Chainguard image, the OS family is `wolfi`:
+For an image in your organization, the OS family is `chainguard`. For a public image in `cgr.dev/chainguard`, it's `wolfi`:
 
 ```json
 {
-  "Family": "wolfi",
-  "Name": "20230201"
+  "Family": "chainguard",
+  "Name": "20230214"
 }
 ```
 
