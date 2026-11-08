@@ -28,7 +28,7 @@ The simplest signal is the image reference itself. An image pulled from `cgr.dev
 
 Image references are available almost everywhere — in manifests, in the Kubernetes API, in registry logs — so this approach is cheap to implement. It works well for application images that you run as-is, like `nginx` or `postgres`.
 
-It doesn't work for images that are based on Chainguard images. An image built `FROM cgr.dev/$ORGANIZATION/python` and pushed to your own registry has a reference like `registry.example.com/my-app`, which tells you nothing about its base image.
+It doesn't work for images that you build using a Chainguard image as a base. An image built `FROM cgr.dev/$ORGANIZATION/python` and pushed to your own registry has a reference like `registry.example.com/my-app`, which tells you nothing about its base image.
 
 Image references are better at identifying images that aren't Chainguard images. A reference to an upstream image, like `docker.io/library/nginx` or `quay.io/prometheus/prometheus`, isn't a Chainguard image, and usually tells you which Chainguard image replaces it. References to your own registry depend on how you organize it. A path that you know mirrors an upstream registry, like `registry.example.com/dockerhub/`, identifies upstream images, and a path that only holds Chainguard images identifies Chainguard ones. Images that your teams build and push, on the other hand, are unknown either way until you inspect them.
 
