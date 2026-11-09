@@ -25,6 +25,14 @@
     --active-element-background: #f3f3f3;
     --active-element-shadow: var(--primary-1);
     --active-link-color: var(--primary-1);
+    --alert-danger-accent: #d40555; // solar dark
+    --alert-danger-background: #fef6f6; // solar air
+    --alert-info-accent: var(--primary-1);
+    --alert-info-background: var(--secondary-3-border);
+    --alert-success-accent: #108000; // lime dark
+    --alert-success-background: #f2fdf2; // lime air
+    --alert-warning-accent: #b45309; // amber, console-ui warning
+    --alert-warning-background: #fffbeb; // amber 50
     --article-link-color: var(--primary-1);
     --article-link-secondary-color: var(--primary-2);
     --basics-card-background: inherit;
@@ -149,6 +157,14 @@
     --active-element-background: #ffffff29;
     --active-element-shadow: var(--primary-2);
     --active-link-color: var(--primary-2);
+    --alert-danger-accent: #fd3964; // solar
+    --alert-danger-background: rgba(253, 57, 100, 0.08);
+    --alert-info-accent: var(--primary-2);
+    --alert-info-background: var(--secondary-3-border);
+    --alert-success-accent: #44fd2b; // lime
+    --alert-success-background: rgba(68, 253, 43, 0.08);
+    --alert-warning-accent: #ffa726; // amber, console-ui dark warning
+    --alert-warning-background: rgba(255, 167, 38, 0.08);
     --article-link-color: var(--primary-2);
     --article-link-secondary-color: var(--primary-1);
     --basics-card-background: var(--desaturated-primary-3);

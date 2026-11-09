@@ -1,23 +1,11 @@
+{{- $icons := dict "info" "bi-info-circle" "success" "bi-check-circle" "warning" "bi-exclamation-triangle" "danger" "bi-exclamation-circle" -}}
 {{- $context := .Get "context" | default "info" -}}
-{{- $text := .Get "text" -}}
-{{- $inner := .Inner -}}
+{{- $icon := index $icons $context -}}
+{{- if not $icon }}{{ errorf "%s: unknown alert context %q" .Position $context }}{{ end -}}
 <div class="alert alert-{{ $context }} d-flex">
-  <div class="flex-shrink-0">
-    {{- if eq $context "danger" -}}
-      <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
-    {{- else if eq $context "warning" -}}
-      <i class="bi bi-exclamation-triangle" aria-hidden="true"></i>
-    {{- else if eq $context "success" -}}
-      <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
-    {{- else -}}
-      <i class="bi bi-info-circle-fill" aria-hidden="true"></i>
-    {{- end -}}
-  </div>
+  <div class="flex-shrink-0"><i class="bi {{ $icon }}" aria-hidden="true"></i></div>
   <div class="flex-grow-1 ms-2">
-    {{- if $text -}}
-      {{ $text | .Page.RenderString (dict "display" "inline") }}
-    {{- else -}}
-      {{ $inner | .Page.RenderString (dict "display" "inline") }}
-    {{- end -}}
+    <span class="visually-hidden">{{ $context | title }}: </span>
+    {{- .Get "text" | default .Inner | .Page.RenderString (dict "display" "inline") -}}
   </div>
 </div>
