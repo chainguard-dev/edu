@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-06T15:44:47+00:00
+lastmod: 2026-11-09T18:55:19+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -11,7 +11,7 @@ toc: true
 tags: ["Reference"]
 ---
 
-Chainguard offers two self-serve plans, which you can sign up for, use, and upgrade without talking to anyone at Chainguard:
+Chainguard offers two self-serve plans, which you can sign up for, use, and upgrade without involving anyone at Chainguard:
 
 * **Chainguard Starter** is free. It gives a small team access to Chainguard Containers, Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. To start, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
 * **Chainguard Team** is a paid plan for teams that outgrow Starter. It raises most Starter limits, removes the caps on members and CI identities, and includes ticket support. A Starter organization [upgrades to Team](/get-started/self-serve/upgrade-team/) with `chainctl` and pays by card.
@@ -49,7 +49,7 @@ The following table lists what each self-serve plan includes:
 
 Monthly limits reset at the start of each calendar month, in UTC. GiB and TiB are binary units: 1 GiB is 1,024 MiB, and 1 TiB is 1,024 GiB. Chainguard uses these units when it reports usage and when it refuses a request.
 
-Chainguard counts Starter usage against the limits for image egress, storage, and package pulls now, and starts refusing requests past them on January 1, 2027. The CI-identity and pull-token limits also start on January 1, 2027. Until then, a Starter organization can't create CI identities, and its pull tokens follow the lifetimes in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token). To see which limits you're already near, run `chainctl plans quotas list --near`.
+Chainguard counts Starter usage against the limits for image egress, storage, and package pulls now, and starts refusing requests past them on January 1, 2027. The CI-identity and pull-token limits also start on January 1, 2027. Until then, a Starter organization can't create CI identities, and its pull tokens follow the lifetimes in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token). To find which limits you're approaching, run `chainctl plans quotas list --near`.
 
 FIPS, developer-tool, and commercial images need an Enterprise plan.
 
@@ -81,7 +81,7 @@ A refused request returns an error that names your plan and the limit, and what 
 Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
 ```
 
-To see your organization's plan and the limits it's close to, run `chainctl plans describe`:
+To find your organization's plan and the limits it's close to, run `chainctl plans describe`:
 
 ```shell
 chainctl plans describe

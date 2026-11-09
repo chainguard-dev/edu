@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-06T17:57:18+00:00
+lastmod: 2026-11-09T18:55:19+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -57,7 +57,7 @@ If you're working on a machine without a browser, such as over SSH, add `--no-br
 Your organization keeps its name, members, and images, and gets the following:
 
 * **Team limits.** Refer to [Plan limits](/get-started/self-serve/plans/#plan-limits) for the full list.
-* **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they're still a member when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on one.
+* **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they're still a member when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on a single person.
 * **Image swaps.** You can replace an image you chose with another one, once in a rolling 30 days.
 * **Invitations outside your email domain.** You can invite anyone, with any role you hold yourself.
 * **CVE-remediated Chainguard Libraries versions.**

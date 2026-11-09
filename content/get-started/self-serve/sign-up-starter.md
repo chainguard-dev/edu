@@ -1,7 +1,7 @@
 ---
 title: "Sign up for Chainguard Starter"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-09T14:55:44+00:00
+lastmod: 2026-11-09T18:55:19+00:00
 linktitle: "Sign up for Starter"
 description: "Create a free Chainguard Starter organization with chainctl, add images, and join an existing Starter organization"
 type: "article"
@@ -47,7 +47,7 @@ chainctl starter init --social-login github --images nginx,redis
 
 ## Add images
 
-A Starter organization can hold up to five images. To find image names, browse the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add images after you sign up, run `chainctl starter add-images` with one or more image names, or add them in the [Chainguard Console](https://console.chainguard.dev):
+A Starter organization can access up to five images. To find image names, browse the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add images after you sign up, run `chainctl starter add-images` with one or more image names:
 
 ```shell
 chainctl starter add-images nginx redis
