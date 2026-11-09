@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T18:02:18+00:00
+lastmod: 2026-11-09T18:17:54+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -65,7 +65,7 @@ environment:
 | Environment | Recommended method | Credential lifetime |
 | --- | --- | --- |
 | Artifact manager | A [pull token](#pull-token) stored in the artifact manager. Users and builds authenticate to the artifact manager, not to Chainguard. | The pull token TTL you set |
-| Workstation with direct access | A [session token](#session-tokens) from `chainctl`, where your build tool supports one. Otherwise, a [pull token](#pull-token) with a short TTL, loaded from [environment variables](#env). | Up to one hour for a session token, or the pull token TTL you set |
+| Workstation with direct access | A [session token](#session-tokens) from `chainctl`. If you can't get a new token when it expires, use a [pull token](#pull-token) with a short TTL, loaded from [environment variables](#env). | Up to one hour for a session token, or the pull token TTL you set |
 | CI/CD platform that supports OIDC, such as GitHub Actions | An [assumable identity](/platform/administration/assumable-ids/assumable-ids/) with the `libraries.<ecosystem>.pull` role | Up to one hour |
 | Environment that can't log in to Chainguard, such as some CI/CD platforms and build servers | A [pull token](#pull-token) with the shortest TTL that works, stored in a secrets manager | The pull token TTL you set |
 
@@ -126,25 +126,34 @@ Build tools get session tokens from `chainctl` in the following ways:
   nuget`](/chainguard/libraries/dotnet/build-configuration/) writes your session
   token to the NuGet configuration file. Re-run the command when the token
   expires.
-- For scripts and manual testing, print a token with [`chainctl auth
-  token`](/platform/chainctl/chainctl-docs/chainctl_auth_token/):
+- Other build tools, such as Maven, Gradle, and Go, accept a session token in
+  place of a pull token. Use `_token` as the username and the output of
+  [`chainctl auth
+  token`](/platform/chainctl/chainctl-docs/chainctl_auth_token/) as the
+  password. For example, set the environment variables that the [Java build
+  configuration](/chainguard/libraries/java/build-configuration/) uses:
 
   ```shell
-  chainctl auth token --audience=libraries.cgr.dev
+  export CHAINGUARD_JAVA_IDENTITY_ID=_token
+  export CHAINGUARD_JAVA_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
   ```
+
+  Run the commands again when the token expires.
 
 To reduce how often you need to log in again on a workstation, install the
 [token refresh
-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/),
-which refreshes the tokens that `chainctl` has cached:
+service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/):
 
 ```shell
 chainctl auth configure-refresh-service install --audience=libraries.cgr.dev
 ```
 
-The refresh service updates the `chainctl` token cache, which the Python keyring
-provider reads. It doesn't update a token that was already written to a file,
-such as `.npmrc` or the NuGet configuration file.
+The refresh service renews the `libraries.cgr.dev` token in the `chainctl`
+token cache, which the Python keyring provider and `chainctl auth token` read.
+It only renews a token that's already in the cache, so log in with `chainctl
+auth login --audience=libraries.cgr.dev` first. It doesn't update a token that
+was already copied into a file or an environment variable, such as `.npmrc`,
+the NuGet configuration file, or `CHAINGUARD_JAVA_TOKEN`.
 
 <a id="credential-guidelines"></a>
 
