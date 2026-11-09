@@ -19,6 +19,13 @@
        base-uri 'self';
      "
 />
+{{ $kapaDeepLink := resources.Get "js/kapa-deep-link.js" | js.Build | minify |
+fingerprint "sha512" -}}
+<script
+  src="{{ $kapaDeepLink.RelPermalink }}"
+  integrity="{{ $kapaDeepLink.Data.Integrity }}"
+  crossorigin="anonymous"
+></script>
 <script
   async
   src="https://widget.kapa.ai/kapa-widget.bundle.js"
