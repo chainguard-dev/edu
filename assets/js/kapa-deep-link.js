@@ -9,6 +9,11 @@
 // send the question, so a link someone else crafted can't make the assistant
 // answer it the moment the page opens.
 //
+// Links to these URLs already exist outside the docs, in emails and on other
+// sites. Ask in #docs before you remove this file or rename its parameters.
+// Otherwise those links still load the page, but the assistant doesn't open.
+// See https://github.com/chainguard-dev/edu/wiki/Linking-to-the-AI-assistant
+//
 // This file loads before the Kapa widget script, which loads asynchronously.
 
 // Kapa's preinitialization snippet, from
