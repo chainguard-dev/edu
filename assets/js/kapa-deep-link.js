@@ -1,10 +1,13 @@
 // Opens the Kapa AI assistant when the page URL asks for it, so a link from
 // an email or the marketing site can take a reader straight to the chat:
 //
-//   /docs/?ask-ai                        opens the assistant
-//   /docs/?ask-ai&q=How+do+I+get+started  opens it with the question filled in
+//   /docs/?ask-ai                                opens the assistant
+//   /docs/?ask-ai&q=How+do+I+get+started          opens it with the question filled in
+//   /docs/?ask-ai&q=How+do+I+get+started&submit   also sends the question
 //
-// The question is filled in but never submitted; the reader sends it.
+// Sending is opt-in per link. Without "submit", the reader decides whether to
+// send the question, so a link someone else crafted can't make the assistant
+// answer it the moment the page opens.
 //
 // This file loads before the Kapa widget script, which loads asynchronously.
 
@@ -29,5 +32,6 @@
   if (!params.has("ask-ai")) return;
 
   const question = params.get("q") || "";
-  window.Kapa("open", { mode: "ai", query: question });
+  const sendQuestion = params.has("submit") && question !== "";
+  window.Kapa("open", { mode: "ai", query: question, submit: sendQuestion });
 })();
