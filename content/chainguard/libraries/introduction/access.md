@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T17:08:42+00:00
+lastmod: 2026-11-09T18:01:16+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -65,8 +65,7 @@ environment:
 | Environment | Recommended method | Credential lifetime |
 | --- | --- | --- |
 | Artifact manager | A [pull token](#pull-token) stored in the artifact manager. Users and builds authenticate to the artifact manager, not to Chainguard. | The pull token TTL you set |
-| Workstation with direct access to Python, JavaScript, or .NET libraries | A [session token](#session-tokens) from `chainctl`, through the [Python keyring provider](#python-keyring), [`chainctl auth configure-npm`](/chainguard/libraries/javascript/build-configuration/), or [`chainctl auth configure nuget`](/chainguard/libraries/dotnet/build-configuration/) | Up to one hour |
-| Workstation with direct access to Java or Go libraries | A [pull token](#pull-token) with a short TTL, loaded from [environment variables](#env) | The pull token TTL you set |
+| Workstation with direct access | A [session token](#session-tokens) from `chainctl`, where your build tool supports one. Otherwise, a [pull token](#pull-token) with a short TTL, loaded from [environment variables](#env). | Up to one hour for a session token, or the pull token TTL you set |
 | CI/CD platform that supports OIDC, such as GitHub Actions | An [assumable identity](/platform/administration/assumable-ids/assumable-ids/) with the `libraries.<ecosystem>.pull` role | Up to one hour |
 | Environment that can't log in to Chainguard, such as some CI/CD platforms and build servers | A [pull token](#pull-token) with the shortest TTL that works, stored in a secrets manager | The pull token TTL you set |
 
