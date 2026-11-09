@@ -48,9 +48,10 @@ jobs:
       with:
         egress-policy: block
         allowed-endpoints: >
-          api.github.com:443
           *.pkg.dev:443
           *.r2.cloudflarestorage.com:443
+          actions.enforce.dev:443
+          api.github.com:443
           apk.cgr.dev:443
           cgr.dev:443
           dl.google.com:443
@@ -62,24 +63,23 @@ jobs:
           iamcredentials.googleapis.com:443
           oauth2.googleapis.com:443
           objects.githubusercontent.com:443
-          release-assets.githubusercontent.com:443
           pypi.org:443
           raw.githubusercontent.com:443
           rekor.sigstore.dev:443
+          release-assets.githubusercontent.com:443
           run.googleapis.com:443
-          us-central1-run.googleapis.com:443
-          sts.googleapis.com:443
           storage.googleapis.com:443
+          sts.googleapis.com:443
           timestamp.sigstore.dev:443
           tuf-repo-cdn.sigstore.dev:443
-
+          us-central1-run.googleapis.com:443
     - name: Checkout edu repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         persist-credentials: false  # No git write occurs in this workflow; outputs go to GCS/GHCR
 
     - name: Authenticate to Google Cloud
-      uses: step-security/google-github-auth@775fc4c80760272ef389c9f9f8d98de7db0c170d # v3.0.2
+      uses: chainguard-actions/google-github-actions-auth@bd3bbd8882ee8311ef35685ad3c341584e23b4d5 # v3.0.0
       with:
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
@@ -341,7 +341,7 @@ jobs:
         retention-days: 1
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+      uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
@@ -381,6 +381,7 @@ jobs:
         egress-policy: block
         allowed-endpoints: >
           *.githubapp.com:443
+          actions.enforce.dev:443
           api.github.com:443
           github.com:443
           hooks.slack.com:443
@@ -388,7 +389,6 @@ jobs:
           octo-sts.dev:443
           release-assets.githubusercontent.com:443
           www.chainguard.dev:443
-
     - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
       id: octo-sts
       with:
@@ -489,7 +489,7 @@ jobs:
         fi
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+      uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
