@@ -1,7 +1,7 @@
 ---
 title: "Sign up for Chainguard Starter"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-05T13:02:12+00:00
+lastmod: 2026-11-09T14:55:44+00:00
 linktitle: "Sign up for Starter"
 description: "Create a free Chainguard Starter organization with chainctl, add images, and join an existing Starter organization"
 type: "article"
@@ -117,6 +117,23 @@ The command exits with one of the following codes:
 | `6` | Authentication failed. |
 | `7` | The organization was created, but a later step failed, such as adding the `--images`. The JSON's `next` field names the command to run next. Pressing Ctrl-C after the organization was created also exits with `7`. |
 | `8` | The browser sign-in wasn't finished within 5 minutes. Run the same command again. |
+
+### Have a person accept the terms
+
+When a coding agent signs up for you, add `--terms-step` so that you, not the agent, accept the terms. This flag needs `chainctl` 0.2.397 or later.
+
+With `--terms-step` and `--output json`, the JSON object also includes the following fields:
+
+* `terms`: the statement to accept and the documents it refers to.
+* `plan`: what the Starter plan includes and excludes. The list can include limits that Chainguard doesn't enforce yet. For the current limits, refer to [Chainguard plans](/get-started/self-serve/plans/).
+
+Once the organization exists, the `next` field names the command that accepts the terms. An owner of the organization reads the terms and runs it. Replace `<organization-id>` with the ID from the JSON's `organization` field:
+
+```shell
+chainctl starter accept-terms --parent <organization-id>
+```
+
+The command prints what the Starter plan includes, then the terms, and asks you to accept them. Without an interactive terminal, add `--yes`; using it means you agree to the terms. Running the command again after the terms are accepted changes nothing.
 
 ## Next steps
 
