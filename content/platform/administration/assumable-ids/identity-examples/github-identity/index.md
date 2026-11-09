@@ -11,7 +11,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by a GitHub Actions workflow."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-11-06T15:25:16+00:00
+lastmod: 2026-10-27T14:11:46+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Libraries"]
 images: []

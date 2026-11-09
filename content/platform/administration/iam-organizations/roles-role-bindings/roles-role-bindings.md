@@ -7,7 +7,7 @@ lead: ""
 description: "An overview of Chainguard's identities, roles, and role-bindings, as well as instructions for how to manage roles and role-bindings with chainctl."
 type: "article"
 date: 2024-04-03T08:48:45+00:00
-lastmod: 2026-11-06T15:25:16+00:00
+lastmod: 2026-10-13T13:53:01+00:00
 draft: false
 tags: ["chainctl", "Overview"]
 images: []

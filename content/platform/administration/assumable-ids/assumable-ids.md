@@ -11,7 +11,7 @@ lead: ""
 description: "An overview of what assumable identities are and how they can be used with Chainguard assets."
 type: "article"
 date: 2023-05-04T08:48:45+00:00
-lastmod: 2026-11-06T15:25:16+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard Libraries"]
 images: []
