@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T18:01:16+00:00
+lastmod: 2026-11-09T18:02:18+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -69,9 +69,6 @@ environment:
 | CI/CD platform that supports OIDC, such as GitHub Actions | An [assumable identity](/platform/administration/assumable-ids/assumable-ids/) with the `libraries.<ecosystem>.pull` role | Up to one hour |
 | Environment that can't log in to Chainguard, such as some CI/CD platforms and build servers | A [pull token](#pull-token) with the shortest TTL that works, stored in a secrets manager | The pull token TTL you set |
 
-These recommendations describe the latest version of `chainctl`. To get the
-same behavior, [update
-`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 For guidance that applies to every environment, see [Credential
 guidelines](#credential-guidelines).
 
