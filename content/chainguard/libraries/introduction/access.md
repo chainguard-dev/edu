@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T18:17:54+00:00
+lastmod: 2026-11-12T19:50:22+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -40,8 +40,8 @@ direct access.
 #### Artifact manager
 
 If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
-the configuration. This option is recommended for organizations with multiple
-teams, and provides centralized access controls and consistent uptime.
+the configuration. This option suits organizations with multiple teams, and
+provides centralized access controls and consistent uptime.
 
 #### Direct access
 
@@ -51,25 +51,26 @@ allow for global configuration. It requires configuration per project and
 workstation, which creates more overhead as you scale across teams and projects.
 
 An artifact manager authenticates to Chainguard Libraries with a pull token.
-For direct access, use a short-lived session token where your build tool
-supports it, and a pull token only where it doesn't.
+For direct access, you can use a session token or a pull token.
 
 <a id="choose-auth"></a>
 
 ### Choose an authentication method
 
-Where possible, Chainguard recommends using short-lived credentials to access
-Chainguard Libraries. Use the following table to choose a method for each
-environment:
+Chainguard Libraries supports both short-lived credentials and long-lived pull
+tokens. Chainguard recommends short-lived credentials where your tools and
+workflows support them, because they expire on their own and are tied to a
+person or workload. Pull tokens work with every build tool and artifact
+manager, so they're a practical choice when short-lived credentials aren't.
 
-| Environment | Recommended method | Credential lifetime |
-| --- | --- | --- |
-| Artifact manager | A [pull token](#pull-token) stored in the artifact manager. Users and builds authenticate to the artifact manager, not to Chainguard. | The pull token TTL you set |
-| Workstation with direct access | A [session token](#session-tokens) from `chainctl`. If you can't get a new token when it expires, use a [pull token](#pull-token) with a short TTL, loaded from [environment variables](#env). | Up to one hour for a session token, or the pull token TTL you set |
-| CI/CD platform that supports OIDC, such as GitHub Actions | An [assumable identity](/platform/administration/assumable-ids/assumable-ids/) with the `libraries.<ecosystem>.pull` role | Up to one hour |
-| Environment that can't log in to Chainguard, such as some CI/CD platforms and build servers | A [pull token](#pull-token) with the shortest TTL that works, stored in a secrets manager | The pull token TTL you set |
+| Option | How it works | Lifetime | Good fit |
+| --- | --- | --- | --- |
+| Session token with a `chainctl` helper (recommended) | A helper gets a token from your `chainctl` login and gives it to your build tool. See [Session tokens and pull tokens](#session-tokens) for the available helpers. | Up to one hour | Workstations with direct access, where your build tool has a helper |
+| Session token from `chainctl auth token` | You supply the token to your build tool as a password, and get a new one when it expires. | Up to one hour | Scripts and short sessions with build tools that have no helper |
+| Assumable identity (recommended for CI/CD) | Your CI/CD platform exchanges its OIDC token for a Chainguard token. See [assumable identities](/platform/administration/assumable-ids/assumable-ids/). | Up to one hour | CI/CD platforms that support OIDC, such as GitHub Actions |
+| [Pull token](#pull-token) | A username and password for an identity that can only pull. Store it in a secrets manager or password manager and load it from [environment variables](#env). | The TTL you set, 30 days by default and up to 365 days | Any build tool, artifact managers, CI/CD platforms without OIDC, and teams that share one credential |
 
-For guidance that applies to every environment, see [Credential
+For guidance that applies to every option, see [Credential
 guidelines](#credential-guidelines).
 
 A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
@@ -159,20 +160,24 @@ the NuGet configuration file, or `CHAINGUARD_JAVA_TOKEN`.
 
 ### Credential guidelines
 
-Follow these guidelines for every environment:
+Follow these guidelines whichever option you choose:
 
 - Commit the registry URL to your project, but never commit credentials. Keep
   authentication lines, such as `_auth` and `_authToken` entries in `.npmrc`,
   out of version control.
-- Give each engineer and each automated workload, such as a CI/CD pipeline or
-  an AI agent that runs outside a workstation, its own credential. Don't share
-  one pull token across a team.
-- On workstations, prefer session tokens. If a workstation needs a pull token,
-  set a short TTL, such as `--ttl=24h`.
-- For CI/CD pipelines and other automated workloads, use an assumable identity
-  instead of an engineer's session token or pull token.
-- Load pull tokens from [environment variables](#env) or a secrets manager
-  instead of writing them into configuration files.
+- Prefer short-lived credentials where your build tools and workflows support
+  them.
+- Store pull tokens in a secrets manager or password manager, and load them
+  from [environment variables](#env) instead of writing them into configuration
+  files. A team can share one pull token this way.
+- Set the shortest pull token TTL that fits how often you can rotate it,
+  replace the token before it expires, and [delete expired
+  tokens](#pull-token-management).
+- Limit who can create pull tokens, so you know where each one is used.
+- Give CI/CD pipelines and other automated workloads, such as AI agents that
+  run outside a workstation, their own credential, ideally an assumable
+  identity, instead of an engineer's session token or a team's shared pull
+  token.
 
 <a id="pull-token"></a>
 
