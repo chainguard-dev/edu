@@ -1,7 +1,7 @@
 ---
 title: "Usage, limits, and billing"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-06T15:44:47+00:00
+lastmod: 2026-11-09T19:57:25+00:00
 linktitle: "Usage and billing"
 description: "Check your Chainguard Starter or Chainguard Team organization's usage against its plan limits, respond to a refused request, and buy Checks and Workspaces compute"
 type: "article"
@@ -34,6 +34,8 @@ The following options narrow the list:
 * `--parent` names the organization to check, if you belong to more than one.
 
 Usage figures include anything above an included amount. On Team, storage shows as unlimited, because storage past the included 500 GiB is metered, not refused. Image egress is shown in bytes. If Chainguard can't measure a figure yet, the list shows a dash; for a new organization, that's usually the case until Chainguard's next hourly usage count. Both commands accept `--output json`.
+
+On Starter, the rows for application, base, and AI images each show a limit of 5, but those images share one total of 5, which the catalog images row shows.
 
 ### Check usage from a script
 
