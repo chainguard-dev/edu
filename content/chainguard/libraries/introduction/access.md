@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T18:24:45+00:00
+lastmod: 2026-11-09T18:41:04+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -65,7 +65,7 @@ manager, so they're a practical choice when short-lived credentials aren't.
 
 | Option | How it works | Lifetime | Good fit |
 | --- | --- | --- | --- |
-| Session token with a `chainctl` helper (recommended) | A helper gets a token from your `chainctl` login and gives it to your build tool. See [Session tokens and pull tokens](#session-tokens) for the available helpers. | Up to one hour | Workstations with direct access, where your build tool has a helper |
+| Session token with a `chainctl` helper (recommended) | A helper gets a token from your `chainctl` login and gives it to your build tool. See [Session tokens and pull tokens](#session-tokens) for the available helpers. | Up to one hour | Workstations with direct access, with the use of a `chainctl` helper |
 | Session token from `chainctl auth token` | You supply the token to your build tool as a password, and get a new one when it expires. | Up to one hour | Scripts and short sessions with build tools that have no helper |
 | Assumable identity (recommended for CI/CD) | Your CI/CD platform exchanges its OIDC token for a Chainguard token. See [assumable identities](/platform/administration/assumable-ids/assumable-ids/). | Up to one hour | CI/CD platforms that support OIDC, such as GitHub Actions |
 | [Pull token](#pull-token) | A username and password for an identity that can only pull. Store it in a secrets manager or password manager and load it from [environment variables](#env). | The TTL you set, 30 days by default and up to 365 days | Any build tool, artifact managers, CI/CD platforms without OIDC, and teams that share one credential |
@@ -106,7 +106,7 @@ Chainguard Libraries accepts two kinds of credentials:
   `libraries.cgr.dev`. It's valid for up to one hour, pulls are associated with
   your user, and you can end the session with [`chainctl auth sessions
   revoke`](/platform/chainctl/chainctl-docs/chainctl_auth_sessions_revoke/).
-  Getting one needs no permissions beyond pull access, but every machine that
+  Getting one needs no permissions beyond pull access, and every machine that
   uses it needs `chainctl`.
 - **Pull token**: a username and password for a separate identity that holds
   only a pull role. It works in any tool that supports basic authentication and
@@ -160,9 +160,9 @@ the NuGet configuration file, or `CHAINGUARD_JAVA_TOKEN`.
 
 ### Credential guidelines
 
-Follow these guidelines whichever option you choose:
+Follow these guidelines for whichever option you choose:
 
-- Commit the registry URL to your project, but never commit credentials. Keep
+- Commit the registry URL to your project, but do not commit credentials. Keep
   authentication lines, such as `_auth` and `_authToken` entries in `.npmrc`,
   out of version control.
 - Prefer short-lived credentials where your build tools and workflows support
