@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-11-02T18:27:40+00:00
+lastmod: 2026-11-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,119 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-09
+
+{{< changelog-label "Product Announcements" >}}
+
+### SCIM 2.0 user provisioning and group-to-role mapping
+
+_Launched November 5, 2026._
+
+Chainguard now supports SCIM 2.0 provisioning from Okta and Microsoft Entra ID. Your identity provider can now manage Chainguard access for you:
+
+- Provision and deactivate Chainguard users
+- Map identity provider groups to built-in or custom Chainguard roles
+
+Existing users keep their access when you turn on provisioning, and administrators can turn provisioning off if needed. For details, refer to [Provision Chainguard users with SCIM](/platform/administration/custom-idps/scim-provisioning/scim-overview/). For setup steps, refer to the guides for [Okta](/platform/administration/custom-idps/scim-provisioning/okta-scim/) and [Microsoft Entra ID](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/).
+
+### Breaking-change endpoint for Chainguard Athena
+
+_Launched November 5, 2026._
+
+Chainguard Athena members can now opt into a separate `cgb` endpoint. It delivers package fixes that include breaking API or interface changes, along with backward-compatible fixes. The existing `cgp` endpoint continues to deliver backward-compatible fixes only, so current setups don't change.
+
+Use `cgb` when a vulnerability fix requires a breaking change, and keep routine patching on `cgp`. OSV and VEX feeds identify `.cgb` versions as fixed. For more, refer to [Chainguard endpoints now handle breaking changes](https://www.chainguard.dev/unchained/chainguard-endpoints-now-handle-breaking-changes).
+
+### Private package uploads for Chainguard Repository (beta)
+
+_Launched November 4, 2026._
+
+Chainguard Repository now offers an invite-only beta for publishing internal Go modules and Java packages. Your uploaded packages resolve through the same authenticated endpoint as open source and Chainguard-remediated packages:
+
+- Your uploaded versions take precedence during resolution.
+- Dependencies your packages declare still pass through upstream policy gates.
+
+The beta doesn't scan the contents of uploaded packages and has no Chainguard Console upload interface.
+
+### Guarded Entrypoint for Custom Assembly (beta)
+
+_Launched November 4, 2026._
+
+Guarded Entrypoint adds a Chainguard-built startup wrapper to a Custom Assembly image, so you no longer need a derived image to configure startup. The wrapper can:
+
+- Resolve environment variable secrets from Google Secret Manager, Vault, or Consul
+- Build a Java truststore at runtime
+- Run TCP or file preflight checks
+- Override the application command
+
+It forwards signals to the application and preserves its exit code. Because you deploy the image Chainguard built and signed, you keep its provenance and Chainguard's rebuilds. For details, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `vitess:23` | 2026-11-04 | 2027-05-04 |
+| `ruby3.2-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby3.3-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby3.4-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby4.0-rails:8.0` | 2026-11-07 | 2027-05-07 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 41 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>openstack-*</code></strong> — 7 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-mariadb-oshelm/versions"><code>openstack-mariadb-oshelm</code></a></td><td>application +fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-api-kolla/versions"><code>openstack-nova-api-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-compute-kolla/versions"><code>openstack-nova-compute-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-conductor-kolla/versions"><code>openstack-nova-conductor-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-novncproxy-kolla/versions"><code>openstack-nova-novncproxy-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-scheduler-kolla/versions"><code>openstack-nova-scheduler-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-ssh-kolla/versions"><code>openstack-nova-ssh-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kube-startup-cpu-boost/versions"><code>kube-startup-cpu-boost</code></a></td><td>application</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/netbox-operator/versions"><code>netbox-operator</code></a></td><td>application +fips</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-postgres/versions"><code>supabase-postgres</code></a></td><td>application</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/adoptium-jdk-openssl-fips/versions"><code>adoptium-jdk-openssl-fips</code></a></td><td>fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/amazon-corretto-jdk-openssl-fips/versions"><code>amazon-corretto-jdk-openssl-fips</code></a></td><td>fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/buildpack-deps/versions"><code>buildpack-deps</code></a></td><td>base</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-provider-opentofu/versions"><code>crossplane-provider-opentofu</code></a></td><td>application +fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pg-protocol/versions"><code>pg-protocol</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/rancher-turtles/versions"><code>rancher-turtles</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/spark-operator-kubectl/versions"><code>spark-operator-kubectl</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-insights/versions"><code>crossplane-azure-insights</code></a></td><td>application</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/debezium-server/versions"><code>debezium-server</code></a></td><td>application +fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-postgres-meta-fips/versions"><code>supabase-postgres-meta-fips</code></a></td><td>fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/argo-workflows-crdinstaller/versions"><code>argo-workflows-crdinstaller</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-cloudwatch-controller/versions"><code>aws-cloudwatch-controller</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dra-driver-nvidia-gpu/versions"><code>dra-driver-nvidia-gpu</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/velero-plugin-for-openstack/versions"><code>velero-plugin-for-openstack</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/buildkite-agent-metrics/versions"><code>buildkite-agent-metrics</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubevirt-gpu-device-plugin/versions"><code>kubevirt-gpu-device-plugin</code></a></td><td>application +fips</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vgpu-device-manager/versions"><code>vgpu-device-manager</code></a></td><td>ai +fips</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zenoh/versions"><code>zenoh</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/cypress-included/versions"><code>cypress-included</code></a></td><td>application</td><td>2026-11-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nginx-gateway-fabric/versions"><code>nginx-gateway-fabric</code></a></td><td>application +fips</td><td>2026-11-07</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-02
 
