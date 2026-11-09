@@ -6,11 +6,11 @@
   --hs-banner-backgroundColor: #fff;
   --hs-banner-backgroundColorRgba: rgba(255, 255, 255, 0.98);
   --hs-banner-textColor: #1a1a1a;
-  --hs-banner-linkColor: #7545fb;
-  --hs-banner-accentColor: #7545fb;
+  --hs-banner-linkColor: var(--primary-1);
+  --hs-banner-accentColor: var(--primary-1);
   --hs-banner-settings-text-color: #fff;
   --hs-banner-border-color: rgba(0, 0, 0, 0.1);
-  --hs-banner-button-hover-color: #5a35d1;
+  --hs-banner-button-hover-color: var(--primary-hover);
 }
 
 // Dark mode CSS variables
@@ -18,11 +18,9 @@
   --hs-banner-backgroundColor: #1a1a2e;
   --hs-banner-backgroundColorRgba: rgba(26, 26, 46, 0.98);
   --hs-banner-textColor: #e0e0e0;
-  --hs-banner-linkColor: #9d7bff;
-  --hs-banner-accentColor: #7545fb;
+  --hs-banner-linkColor: var(--primary-2);
   --hs-banner-settings-text-color: #fff;
   --hs-banner-border-color: rgba(255, 255, 255, 0.1);
-  --hs-banner-button-hover-color: #9d7bff;
 }
 
 // Parent container - override HubSpot's inline styles
@@ -123,10 +121,10 @@ body #hs-eu-cookie-confirmation button#hs-eu-confirmation-button,
 #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-confirmation-button,
 button#hs-eu-confirmation-button[aria-label] {
   color: #fff !important;
-  background: #7545fb !important;
+  background: var(--primary-1) !important;
 
   &:hover {
-    background: #5a35d1 !important;
+    background: var(--primary-hover) !important;
     transform: translateY(-1px) !important;
     box-shadow: 0 2px 8px rgba(117, 69, 251, 0.3) !important;
   }
@@ -148,17 +146,6 @@ button#hs-eu-cookie-settings-button[aria-label] {
 }
 
 // Dark mode overrides for buttons with maximum specificity
-[data-dark-mode] body #hs-eu-cookie-confirmation button#hs-eu-confirmation-button,
-[data-dark-mode] #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-confirmation-button,
-[data-dark-mode] button#hs-eu-confirmation-button[aria-label] {
-  background: #7545fb !important;
-  color: #fff !important;
-
-  &:hover {
-    background: #9d7bff !important;
-  }
-}
-
 [data-dark-mode] body #hs-eu-cookie-confirmation button#hs-eu-cookie-settings-button,
 [data-dark-mode] #hs-eu-cookie-confirmation #hs-eu-confirmation-button-group button#hs-eu-cookie-settings-button,
 [data-dark-mode] button#hs-eu-cookie-settings-button[aria-label] {

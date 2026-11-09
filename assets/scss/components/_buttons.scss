@@ -21,14 +21,8 @@
     cursor: pointer;
 
     &:hover {
-        background: #7545FB;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.25);
+        background: var(--primary-hover);
         color: #fff !important;
-    }
-
-    &:active {
-        transform: translateY(0);
     }
 
     // With arrow icon
@@ -61,12 +55,6 @@
         background: var(--primary-1);
         border-color: var(--primary-1);
         color: #fff !important;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.15);
-    }
-
-    &:active {
-        transform: translateY(0);
     }
 
     // With arrow icon
@@ -101,9 +89,4 @@
 .button-secondary:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-
-    &:hover {
-        transform: none;
-        box-shadow: none;
-    }
 }

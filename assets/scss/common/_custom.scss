@@ -184,13 +184,10 @@ html[data-dark-mode] .logo-purple {
     border: 1px solid rgba(13, 22, 28, 0.1);
     border-radius: 12px;
     width: 100%;
-    box-shadow: 0 1px 3px rgba(13, 22, 28, 0.05);
     transition: all 0.2s ease;
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.12);
-        border-color: rgba(98, 38, 240, 0.2);
+        border-color: var(--card-hover-border);
     }
 }
 
@@ -198,13 +195,6 @@ html[data-dark-mode] .logo-purple {
 :root[data-dark-mode] .card-background {
     background: #0d0d14;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-        box-shadow: 0 4px 12px rgba(0, 160, 235, 0.15);
-        border-color: rgba(0, 160, 235, 0.3);
-        transform: translateY(-2px);
-    }
 }
 
 .form-check-input {
@@ -325,12 +315,9 @@ h2[id^="chainctl"] {
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
     &:hover {
         text-decoration: none;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
         background-color: var(--watch-btn-hover-background) !important;
     }
 }
@@ -414,8 +401,6 @@ h2[id^="chainctl"] {
     &:hover {
         background-color: var(--primary-1);
         color: white !important;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
     }
 }
 
@@ -1031,11 +1016,6 @@ header .search-container {
     &:hover {
         border-color: var(--primary-1);
         background-color: rgba(122, 69, 251, 0.04);
-        transform: translateX(2px);
-    }
-
-    &.docs-navigation-button-previous:hover {
-        transform: translateX(-2px);
     }
 }
 
