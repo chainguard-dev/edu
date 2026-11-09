@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-09T18:55:19+00:00
+lastmod: 2026-11-09T19:10:27+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -91,6 +91,6 @@ If the page shows **I'm purchasing as a business**, which depends on your billin
 
 ## Cancel Team
 
-To cancel Team, contact Chainguard support. Refer to [Get support](/get-started/get-support/). Cancellation takes effect at the end of the current billing month, and your organization then moves back to Starter.
+To cancel Team, contact Chainguard support. Refer to [Get support](/get-started/get-support/). Your organization moves back to Starter, which includes up to five images, so support asks which images to keep.
 
 To move to an Enterprise plan instead, [contact Chainguard](https://www.chainguard.dev/contact).
