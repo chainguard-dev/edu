@@ -84,8 +84,8 @@
     // Target the Accept button
     const acceptButton = document.getElementById("hs-eu-confirmation-button");
     if (acceptButton) {
-      acceptButton.style.setProperty("background-color", "#7545fb", "important");
-      acceptButton.style.setProperty("background", "#7545fb", "important");
+      acceptButton.style.setProperty("background-color", "var(--primary-1)", "important");
+      acceptButton.style.setProperty("background", "var(--primary-1)", "important");
       acceptButton.style.setProperty("color", "#ffffff", "important");
       acceptButton.style.setProperty("border", "none", "important");
       acceptButton.style.setProperty("opacity", "1", "important");

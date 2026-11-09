@@ -2,7 +2,8 @@
 @use "hugo:vars" as hugo;
 
 :root {
-    --primary-1: #6226f0; // blurple (primary brand color)
+    --primary-1: #6226fb; // blurple (primary brand color)
+    --primary-hover: #3200af; // blurple dark
     --primary-2: #c0a8fd; // blurple (40)
     --primary-3: #0d161c; // ink (dark text)
     --primary-3-border: #0d161c1F;
@@ -50,6 +51,7 @@
     --caption-title-color: var(--primary-3);
     --card-background-0: var(--primary-2);
     --card-background-1: var(--secondary-2);
+    --card-hover-border: var(--primary-1);
     --center-title-color: var(--primary-3);
     --code-color: #818b981f;
     --contact-us-button-background: var(--primary-1);
@@ -103,6 +105,7 @@
     --segmented-button-background: #F5F5FB;
     --segmented-button-checked: var(--primary-1);
     --segmented-button-color: #8C8C8C;
+    --selection-background: var(--secondary-3);
     --severity-search-background: #F3F3F3;
     --severity-search-border: var(--primary-1);
     --sidebar-bottom-item-color: var(--primary-3);
@@ -182,6 +185,7 @@
     --caption-title-color: #fff;
     --card-background-0: rgba(98, 38, 240, 0.15); // Muted blurple
     --card-background-1: rgba(0, 160, 235, 0.10); // Muted aqua
+    --card-hover-border: var(--primary-2);
     --center-title-color: #fff;
     --code-color: #1a1a24;
     --contact-us-button-background: var(--primary-1);
@@ -234,6 +238,7 @@
     --segmented-button-background: #1a1a24;
     --segmented-button-checked: var(--primary-1);
     --segmented-button-color: #8C8C8C;
+    --selection-background: #3200af;
     --severity-search-background: #1a1a24;
     --sidebar-bottom-item-color: #c5c5c5;
     --sidebar-bottom-item-hover-color: var(--primary-2);
