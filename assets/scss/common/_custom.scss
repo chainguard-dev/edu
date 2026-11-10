@@ -1353,6 +1353,10 @@ header .search-container {
     text-decoration: underline;
 }
 
+.home .docs-content.docs-content a {
+    text-decoration: none;
+}
+
 [data-dark-mode] .docs-content.docs-content {
     a.sl-block,
     a.sl-link {
