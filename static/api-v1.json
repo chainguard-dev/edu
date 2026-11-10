@@ -2331,6 +2331,10 @@
             "description": "eligible reports whether the domain of the caller's email address may\ncreate a self-serve Starter organization. A personal-mail domain can be\neligible: unverified_starter is then set too, and the organization the\ncaller creates is unverified. Such a domain stays ineligible for\nLookupGroup and RequestGroupAccess, so read unverified_starter before\noffering those flows.",
             "type": "boolean"
           },
+          "existingOrganization": {
+            "description": "existing_organization reports that a verified organization already exists\nfor the caller's email domain, so the caller should request access to it\nrather than create a new Starter organization. It is a bare signal: the\ncaller has already proven a verified email on the domain, and no detail\nidentifying the organization is returned.",
+            "type": "boolean"
+          },
           "unverifiedStarter": {
             "description": "unverified_starter is set with eligible when the caller's email domain is\na personal-mail provider: a Starter organization the caller creates is\nunverified, takes a name the caller chooses, and is never found by email\ndomain.",
             "type": "boolean"
@@ -4718,6 +4722,227 @@
           "POLICY_CHAINGUARD_AND_UPSTREAM"
         ],
         "type": "string"
+      },
+      "chainguard.platform.libraries.RemoteRegistries.ReorderBody": {
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem whose entries to reorder."
+          },
+          "names": {
+            "description": "names lists every entry's name once, first to last.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ecosystem",
+          "names"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistries.UpdateBody": {
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem of the entry."
+          },
+          "enabled": {
+            "description": "enabled turns the entry on or off. It is the only part of an entry that\ncan change.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ecosystem",
+          "enabled"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistry": {
+        "description": "RemoteRegistry is one entry in a repository's upstream list.",
+        "properties": {
+          "baseUrl": {
+            "description": "base_url is the upstream registry's URL. It is fixed by Chainguard.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem the entry serves.",
+            "readOnly": true
+          },
+          "enabled": {
+            "description": "enabled reports whether the entry is tried.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "name": {
+            "description": "name is the canonical name of the upstream registry, for example npmjs.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "precedence": {
+            "description": "precedence is the entry's place in the order entries are tried; lower is\ntried first.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistryList": {
+        "description": "RemoteRegistryList is a repository's upstream list for one ecosystem.\nUpstream fallback is on only when both entitled_to_upstream and\nany_enabled are true.",
+        "properties": {
+          "anyEnabled": {
+            "description": "any_enabled reports whether at least one entry is enabled.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "entitledToUpstream": {
+            "description": "entitled_to_upstream reports whether the organization's Libraries\nentitlement includes upstream packages for the ecosystem.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "items": {
+            "description": "items are the entries in the order they are tried.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistry"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.Repositories.CreateBody": {
+        "properties": {
+          "name": {
+            "description": "name is the repository name: lowercase letters, digits and hyphens,\nstarting with a letter, at most 63 characters. It cannot be changed\nlater.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.Repository": {
+        "description": "Repository is a Libraries repository of an org.",
+        "properties": {
+          "createTime": {
+            "description": "create_time is when the repository was created. Unset for the default\nrepository.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the UIDP of the repository's folder, or of the org for the default\nrepository. Empty while the folder does not exist yet.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "isDefault": {
+            "description": "is_default reports whether this is the org's default repository.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "name": {
+            "description": "name is the repository name. It never changes. The default repository is\nnamed \"default\".",
+            "readOnly": true,
+            "type": "string"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the org.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryState"
+              }
+            ],
+            "description": "state is where the repository is in its lifecycle. A READY repository\nserves. A FOLDER_MISSING repository may still serve until Delete removes\nit; the API returns no URLs for it.",
+            "readOnly": true
+          },
+          "updateTime": {
+            "description": "update_time is when the repository last changed state. Unset for the\ndefault repository.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "urls": {
+            "description": "urls are the repository's URLs, one per ecosystem the org is entitled\nto. The list is empty for a FOLDER_MISSING repository.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryURL"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RepositoryList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RepositoryState": {
+        "default": "REPOSITORY_STATE_UNSPECIFIED",
+        "description": "RepositoryState is the lifecycle state of a repository. Every state counts\ntoward the org's repository limit.\n\n - REPOSITORY_STATE_CREATING: CREATING: the name is reserved and the folder does not exist yet.\n - REPOSITORY_STATE_PROVISIONING: PROVISIONING: the folder exists and the upstream list is being seeded.\n - REPOSITORY_STATE_READY: READY: the repository serves.\n - REPOSITORY_STATE_DELETING: DELETING: the repository and its folder are being removed.\n - REPOSITORY_STATE_FOLDER_MISSING: FOLDER_MISSING: the repository's folder was deleted outside this API. The\nAPI returns no URLs for it, it may still serve until Delete removes it,\nand it holds its plan slot until then.",
+        "enum": [
+          "REPOSITORY_STATE_UNSPECIFIED",
+          "REPOSITORY_STATE_CREATING",
+          "REPOSITORY_STATE_PROVISIONING",
+          "REPOSITORY_STATE_READY",
+          "REPOSITORY_STATE_DELETING",
+          "REPOSITORY_STATE_FOLDER_MISSING"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.RepositoryURL": {
+        "description": "RepositoryURL is the URL a client uses to pull one ecosystem's packages\nfrom a repository.",
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem served at url.",
+            "readOnly": true
+          },
+          "serving": {
+            "description": "serving is true while the ecosystem's repository routes serve in this\nenvironment, so a client can reach url. It follows the environment's\nrepository route switches. The default repository's URLs always serve.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "url": {
+            "description": "url is the base URL to configure in the ecosystem's client.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.libraries.ResolutionCache.SetOptOutBody": {
         "properties": {
@@ -16224,6 +16449,425 @@
         ]
       }
     },
+    "/libraries/v1/remote_registries/{parentId}/{repository}": {
+      "get": {
+        "description": "List returns the repository's entries for the ecosystem in the order they\nare tried, and the two parts of its effective upstream fallback.",
+        "operationId": "RemoteRegistries_List",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "ecosystem is the language ecosystem whose entries to list.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "in": "query",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "default": "UNKNOWN",
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT",
+                "JAVA_ATHENA",
+                "PYTHON_ATHENA",
+                "JAVASCRIPT_ATHENA",
+                "DOTNET",
+                "DOTNET_ATHENA",
+                "GO",
+                "GO_ATHENA",
+                "RUBY",
+                "RUBY_ATHENA",
+                "RUST",
+                "RUST_ATHENA"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/remote_registries/{parentId}/{repository}/{name}": {
+      "patch": {
+        "description": "Update turns one entry on or off. Turning every entry of an ecosystem off\nturns upstream fallback off for that repository and ecosystem.",
+        "operationId": "RemoteRegistries_Update",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the canonical name of the entry.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistries.UpdateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/remote_registries/{parentId}/{repository}:reorder": {
+      "post": {
+        "description": "Reorder sets the order the repository's entries for the ecosystem are\ntried in. It takes every entry's name exactly once.",
+        "operationId": "RemoteRegistries_Reorder",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistries.ReorderBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Reorder",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/repositories/{parentId}": {
+      "get": {
+        "description": "List returns the default repository first, then every named repository\nof the org ordered by name, in every state.",
+        "operationId": "Repositories_List",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      },
+      "post": {
+        "description": "Create makes a named repository under the org. It refuses when the org\nhas no Libraries entitlement at its root for an ecosystem repositories\nserve (JavaScript, Java, Python, Go or .NET), when the org's plan has no\nroom for another repository, and when a folder with the name already\nexists under the org and backs no repository. Creating a repository that\nalready exists returns it, unless its folder is missing, when Create\nrefuses with FailedPrecondition FOLDER_MISSING.",
+        "operationId": "Repositories_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org. The org must be a root group.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Repositories.CreateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      }
+    },
+    "/libraries/v1/repositories/{parentId}/{name}": {
+      "delete": {
+        "description": "Delete removes a named repository and its folder. Without force it\nrefuses while pull tokens, role bindings or Libraries policy bindings\nexist at the folder, and names them; with force it removes them. It\nalways refuses while image repositories exist under the folder. When\nthe folder cannot be deleted, the repository stays DELETING and running\nDelete again finishes it. The default repository cannot be deleted.",
+        "operationId": "Repositories_Delete",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the repository name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "force removes the pull tokens, role bindings, Libraries policy bindings\nand upstream entries at the repository's folder along with it.",
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      },
+      "get": {
+        "description": "Get returns one repository by name. The name \"default\" returns the\ndefault repository.",
+        "operationId": "Repositories_Get",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the repository name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      }
+    },
     "/libraries/v1/resolutioncache/{parentId}/entries": {
       "get": {
         "description": "List pages through the org's resolution cache entries.",
@@ -22253,6 +22897,14 @@
     {
       "description": "LibraryPolicyBlockEvents lists per-package block events recorded when a pull\nis withheld. Writes are performed internally by the serve layer and are not\nexposed in the public API.",
       "name": "LibraryPolicyBlockEvents"
+    },
+    {
+      "description": "Libraries Remote Registries API",
+      "name": "LibrariesRemoteRegistries"
+    },
+    {
+      "description": "Libraries Repositories API",
+      "name": "LibrariesRepositories"
     },
     {
       "description": "Libraries Resolution Cache API",
