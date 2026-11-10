@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-11-07T00:00:00+00:00
+lastmod: 2026-11-10T13:03:31+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -122,7 +122,7 @@ As a result, a version can wait up to 24 hours longer than the configured number
 
 For example, with a 7-day cooldown, a version published upstream at 14:00 UTC on October 15 completes its cooldown at 14:00 UTC on October 22. It becomes available at 00:00 UTC on October 23.
 
-To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version).
+To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version), except on the Starter plan, which doesn't allow overrides.
 
 ### Cooldown limits by plan
 
