@@ -5,7 +5,7 @@ lead: "Chainguard offers several ways to get help, and the right one depends on 
 description: "Get help from Chainguard: check the self-service options, choose the right support channel, and open a ticket a support engineer can act on."
 type: "article"
 date: 2026-09-01T00:00:00+00:00
-lastmod: 2026-11-03T16:49:44+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -35,7 +35,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 - **You can't sign in at all, so you can't reach the portal.** Email [support@chainguard.dev](mailto:support@chainguard.dev).
 
-- **Your organization uses Chainguard Starter, including Catalog Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Starter doesn't include ticket access.
+- **Your organization uses Chainguard Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Starter doesn't include ticket access.
 
 - **Your organization uses Chainguard Team.** Open a ticket in the [support portal](https://support.chainguard.dev/). Chainguard answers Team tickets during business hours, with no response-time commitment. To cancel Team, open a ticket.
 
@@ -49,7 +49,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 The support portal has two prerequisites.
 
-First, your organization needs a paid plan, such as Chainguard Team. Chainguard Starter, including Catalog Starter, doesn't include support tickets or root cause analysis. To compare the plans, see [Chainguard plans](/get-started/self-serve/plans/).
+First, your organization needs a paid plan, such as Chainguard Team. Chainguard Starter doesn't include support tickets or root cause analysis. To compare the plans, see [Chainguard plans](/get-started/self-serve/plans/).
 
 Second, your identity has to be linked to an organization. The portal identifies you through your Chainguard Console account, and an unlinked identity produces an error. To check, sign in to the [Chainguard Console](https://console.chainguard.dev) and look for your organization in the left sidebar. If it isn't there, ask an administrator in your organization to invite you, then open the invitation email and complete the setup flow. Signing in without completing that flow leaves your identity unlinked.
 

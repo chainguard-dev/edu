@@ -6,7 +6,7 @@ lead: ""
 description: "Overview of the self-serve Chainguard Starter and Chainguard Team plans, and of self-serve Helm charts"
 type: "article"
 date: 2026-05-12T01:00:01+00:00
-lastmod: 2026-11-03T16:49:44+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 draft: false
 weight: 10
 ---
@@ -23,5 +23,5 @@ and pays for by card. This section covers the following:
 - **[Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/)** creates a free organization with `chainctl`.
 - **[Upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/)** moves a Starter organization to Team.
 - **[Usage, limits, and billing](/get-started/self-serve/usage-and-billing/)** covers checking usage, responding to a plan limit, and buying Checks and Workspaces compute.
-- **[Catalog Starter](/chainguard/containers/reference/catalog-starter/)** covers the Chainguard Containers part of Starter: choosing up to five images and pulling them.
+- **[Chainguard Containers on Chainguard Starter](/chainguard/containers/reference/catalog-starter/)** covers choosing up to five container images and pulling them.
 - **[Self-serve Helm charts](/get-started/self-serve/helm-charts/)** lets you provision Chainguard Helm charts, along with the container images they depend on.

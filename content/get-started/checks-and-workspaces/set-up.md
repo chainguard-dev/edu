@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-11-03T16:51:00+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -109,7 +109,7 @@ If `chainctl develop init` stops with an error, refer to [`chainctl develop init
 
 ### What a Starter organization includes {#what-a-starter-organization-includes}
 
-An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images through Chainguard Catalog Starter. For all of the Starter plan's limits, and for upgrading to Chainguard Team, refer to [Chainguard plans](/get-started/self-serve/plans/).
+An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images. For all of the Starter plan's limits, and for upgrading to Chainguard Team, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
 The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
 
