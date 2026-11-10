@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-11-09T18:55:19+00:00
+lastmod: 2026-11-10T19:57:45+00:00
 draft: false
 weight: 20
 toc: true
@@ -71,8 +71,8 @@ A [Chainguard Starter or Chainguard Team](/get-started/self-serve/plans/) organi
 
 Chainguard refuses charts in the following cases:
 
-* The chart needs more image slots than your organization has left. The error says so.
-* The chart's metadata lists no image dependencies. The error reports an entitlement problem, even though the cause is the chart's metadata.
+- The chart needs more image slots than your organization has left. The error says so.
+- The chart's metadata lists no image dependencies. The error reports an entitlement problem, even though the cause is the chart's metadata.
 
 ## Per-image pricing customers
 
