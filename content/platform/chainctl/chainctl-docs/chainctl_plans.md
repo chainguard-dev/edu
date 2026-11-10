@@ -1,5 +1,5 @@
 ---
-date: 2026-11-06T22:09:37Z
+date: 2026-11-09T19:57:31Z
 title: "chainctl plans"
 slug: chainctl_plans
 url: /platform/chainctl/chainctl-docs/chainctl_plans/
@@ -33,4 +33,5 @@ Show your organization's plan, limits, and usage.
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl plans describe](/platform/chainctl/chainctl-docs/chainctl_plans_describe/)	 - Show the plan, product access, and quotas near their limits.
 * [chainctl plans quotas](/platform/chainctl/chainctl-docs/chainctl_plans_quotas/)	 - Show plan limits and current usage.
+* [chainctl plans update](/platform/chainctl/chainctl-docs/chainctl_plans_update/)	 - Move your organization to another plan.
 

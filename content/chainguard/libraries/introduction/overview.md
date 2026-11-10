@@ -195,7 +195,7 @@ To serve only Chainguard-built packages, set the policy to `CHAINGUARD` instead:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD
 ```
 
-To change the cooldown, create a library policy and enable it for the ecosystem. You can set the cooldown from 1 to 30 days, or set it to 0 to disable it. For example, the following commands disable the cooldown for JavaScript:
+To change the cooldown, create a library policy and enable it for the ecosystem. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). For example, on a plan that allows it, the following commands disable the cooldown for JavaScript:
 
 ```bash
 chainctl libraries policy create --name=no-cooldown --cooldown-days=0
@@ -292,7 +292,7 @@ curl -s \
 
 When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
-A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. You can set it from 1 to 30 days, or set it to 0 to disable it.
+A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
