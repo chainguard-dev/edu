@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-07T00:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -236,7 +236,9 @@ the upstream fallback is enabled, for example when:
 * A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
 * A recently published version is still in the cooldown period, so the
-  repository will not yet serve it.
+  repository will not yet serve it. Cooldowns end at 00:00 UTC, so a version
+  can stay blocked for up to a day after the configured number of days. See
+  [When a version becomes available](/chainguard/chainguard-repository/library-policies/#when-a-version-becomes-available).
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
