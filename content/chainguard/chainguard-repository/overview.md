@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-10T00:15:21+00:00
 draft: false
 weight: 10
 ---
@@ -43,9 +43,9 @@ See each artifact type's documentation for authentication and configuration deta
 
 The Chainguard Repository includes a policy engine that lets you define rules governing which artifacts can be consumed and under what conditions. Policies can be configured in the Chainguard Console or with `chainctl`, and are enforced automatically across your environment.
 
-For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
+For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the policy-governed fallback to public registries. Available policies include:
 
-* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.
+* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry. New Libraries entitlements have upstream fallback on by default.
 * **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
 
 All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.

@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-10-19T18:40:28+00:00
+lastmod: 2026-11-10T00:15:21+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -70,8 +70,8 @@ URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
 Repository](/chainguard/libraries/javascript/overview/), which provides a
-single endpoint for Python package retrieval and supports protected upstream
-fallback when configured for your organization. This allows builds to prefer
+single endpoint for Python package retrieval and includes protected upstream
+fallback, which is on by default for new entitlements. This allows builds to prefer
 Chainguard-built packages first while still covering packages or wheel files
 that Chainguard does not currently serve directly. Configure this endpoint
 [globally through a repository
@@ -548,10 +548,13 @@ specifically for each package, version, and file.
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for Python supports an optional built-in fallback to
+Chainguard Libraries for Python includes a built-in, policy-governed fallback to
 the upstream PyPI index, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New Python entitlements
+have upstream fallback on by default. Entitlements created before that default keep
+the policy they were created with. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).

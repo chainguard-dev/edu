@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-11-05T16:46:12+00:00
+lastmod: 2026-11-10T00:15:21+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -60,7 +60,7 @@ Before you begin, you need:
 
 If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
 
-Once your organization is entitled to Python, enable upstream fallback by running the following command:
+New Python entitlements have upstream fallback on by default. If your entitlement was created before that default, check its policy with `chainctl libraries entitlements list` and, if needed, turn on upstream fallback by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -129,7 +129,7 @@ Keep the index name and `UV_INDEX_*` variable names aligned, and set `authentica
 
 How you configure the index depends on your environment. Follow the instructions that match your setup.
 
-The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
+The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
 
 ### Direct access
 

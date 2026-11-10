@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Java project to pull dependencies from Chainguard Libraries"
 date: 2026-07-02T00:00:00+00:00
-lastmod: 2026-11-05T16:46:12+00:00
+lastmod: 2026-11-10T00:15:21+00:00
 tags: ["Chainguard Libraries", "Java"]
 menu:
   docs:
@@ -36,7 +36,7 @@ Before you begin, you need:
 
 You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To add an entitlement for your organization, contact your Chainguard account team.
 
-Once your organization is entitled to Java, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
+New Java entitlements have upstream fallback on by default, with a default 7-day cooldown. If your entitlement was created before that default, check its policy with `chainctl libraries entitlements list` and, if needed, turn on upstream fallback by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
@@ -126,7 +126,7 @@ The command returns an HTML page listing repository directories. If credentials 
 
 ## Step 3: Configure repository access
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 ### Direct access
 

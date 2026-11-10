@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-05T16:46:12+00:00
+lastmod: 2026-11-10T00:15:21+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -25,9 +25,10 @@ this pattern.
 Chainguard Libraries for Java, JavaScript, and Python are rebuilt from verified
 source in an isolated build environment, making them malware-resistant by
 design. When a package is available as a Chainguard-built library, that rebuilt
-package is served first. When you use the [upstream
+package is served first. With [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-the same ecosystem endpoint can also serve eligible upstream packages that
+which is on by default for new entitlements, the same ecosystem endpoint can
+also serve eligible upstream packages that
 Chainguard has not yet built, subject to configurable policy controls such as
 cooldown and malware scanning. This gives your engineers drop-in replacements
 for the packages they already use, with no breaking changes.
@@ -132,7 +133,7 @@ Once you have a pull token, you can configure your build tool. Configuration
 steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
-If you [configure upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), the same ecosystem endpoint can serve both:
+With [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), which is on by default for new entitlements, the same ecosystem endpoint can serve both:
 
 * Libraries rebuilt from source by Chainguard, and
 * Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
@@ -234,10 +235,11 @@ Check out minimal example projects for
 
 <a id="upstream-note"></a>
 
-> **Note on upstream fallback**: The upstream fallback is
-> available as an opt-in setting for both repository manager or direct access
-> approaches, and is turned off by default. Learn more about upstream
-> fallback policy and controls in the [Libraries
+> **Note on upstream fallback**: Upstream fallback works with both the
+> repository manager and direct access approaches, and new entitlements have it
+> on by default. Entitlements created before that default keep the policy they
+> were created with; check yours with `chainctl libraries entitlements list`.
+> Learn more about upstream fallback policy and controls in the [Libraries
 > overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 ## Step 4: Verify your libraries
