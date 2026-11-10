@@ -1,10 +1,10 @@
 ---
-title: "Chainguard Catalog Starter"
-linktitle: "Catalog Starter"
+title: "Chainguard Containers on Chainguard Starter"
+linktitle: "Containers on Starter"
 type: "article"
-description: "Learn about Chainguard Catalog Starter, an offering allowing teams to try out five Chainguard container images for free."
+description: "Learn about the five free Chainguard container images in Chainguard Starter, and how to choose and pull them."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-11-02T15:06:16+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -18,29 +18,31 @@ aliases:
 - /chainguard/containers/about/catalog-starter/
 ---
 
-Chainguard Catalog Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
+Chainguard Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
 
-{{< beta feature="Chainguard Catalog Starter" >}}
+{{< beta feature="Chainguard Starter" >}}
 
-To sign up for Catalog Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
+Starter is a free plan. Besides the five container images this page covers, it includes Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. For everything Starter includes, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
-## What is Catalog Starter?
+To sign up for Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
 
-With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
+## What Starter includes from Chainguard Containers
 
-Catalog Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
+With Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
 
-> **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
+Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
 
-## Sign up for Catalog Starter
+> **Note**: Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
+
+## Sign up for Chainguard Starter
 
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Catalog Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify.
-3. Enter your company name.
-4. Click **Set up an organization**.
-5. Complete the form and click **Submit**.
+2. Sign up with an email address, or click **Continue with Google**, **Continue with GitHub**, or **Continue with GitLab**. A work email address, including a Google account on your company's domain, creates a verified organization named after your email domain. A personal email address, such as a Gmail address, or a GitHub or GitLab sign-in, creates an unverified organization, which you can verify later.
+3. Click **Set up an organization**, then click **Set up Starter organization**.
+4. Complete the form, which asks for your name and job title, and for an organization name if your organization is unverified.
+5. Click **Create Chainguard Starter organization**.
 6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page later to add images until you have five. Once you confirm an image, it can't be swapped or replaced for the life of the free plan.
 
 Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
@@ -51,7 +53,7 @@ After you complete signup, you're free to use the five images you selected howev
 
 #### Authenticate CI pipelines with a pull token
 
-Because Catalog Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
+Because Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
 
 ```shell
 chainctl auth pull-token create --output=env
@@ -89,16 +91,18 @@ Pull tokens expire. The default lifetime is 30 days and the maximum is one year 
 
 ### 3. Upgrade when you’re ready
 
-After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
+After trying out Chainguard Containers with Starter, you can upgrade to the paid Chainguard Team plan yourself, with `chainctl`. Team raises the Starter limits and lets you swap images. Refer to [Upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/).
+
+For more images or features such as FIPS images, reach out to our sales team about one of Chainguard's other paid plans:
 
 * [Catalog pricing](/chainguard/containers/reference/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
 
-Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
+Moving to a paid plan means moving off Starter; the free five-image entitlement is not stacked on top of a paid subscription.
 
-## Manage Catalog Starter with `chainctl`
+## Manage Starter with `chainctl`
 
-As an alternative to the Console, you can sign up for and manage Catalog Starter from the command line with `chainctl`.
+As an alternative to the Console, you can sign up for and manage Starter from the command line with `chainctl`. For the full sign-up flow, including signing up from a script or a coding agent, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
 
 ### Sign up with `chainctl`
 
@@ -119,11 +123,11 @@ This requires selection of a valid authentication option:
     GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in must use the account's verified primary email address, and that address must be a business email address.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in uses the account's verified primary email address. A personal address creates an unverified organization, which you name yourself.
 
 ### Request access with `chainctl`
 
-If your organization already has a Catalog Starter plan, request access to it with [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/):
+If your company already has a Starter organization, request access to it with [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/):
 
 ```shell
 chainctl starter request-access
@@ -134,10 +138,10 @@ chainctl starter request-access
 You can see which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
 
 ```shell
-chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
+chainctl starter add-images $IMAGE1 [$IMAGE2 ...]
 ```
 
-After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name:
+After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name, or with its ID if you created it with a personal email address, and `$IMAGE` with the desired image's name:
 
 ```shell
 docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
@@ -145,7 +149,7 @@ docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
 
 ### Check status with `chainctl`
 
-To show the status of your Catalog Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, run [`chainctl starter status`](/platform/chainctl/chainctl-docs/chainctl_starter_status/):
+To show the status of your Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, run [`chainctl starter status`](/platform/chainctl/chainctl-docs/chainctl_starter_status/):
 
 ```shell
 chainctl starter status
@@ -153,45 +157,46 @@ chainctl starter status
 
 ## Plan limitations and terms
 
-Catalog Starter allows users to try out Chainguard Containers, but it comes with certain limitations, including the following:
+Starter allows users to try out Chainguard Containers, but it comes with certain limitations, including the following:
 
 * You can select up to five non-FIPS images. Once chosen, these images cannot be swapped or replaced during the lifetime of the free plan.
-* The following types of Chainguard Containers are not included in the Catalog Starter plan:
+* The following types of Chainguard Containers are not included in the Starter plan:
     * [FIPS-validated images](/platform/fips/fips-images/)
     * Images that fall under the [EOL grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
-* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
-    * Catalog Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
-* [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
-* User management is limited. You can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
-* The user who creates a Catalog Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
-* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
-* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
-* Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
-* Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
-* Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
+* Teams using Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
+    * Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
+* [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Starter.
+* If your organization uses [Chainguard Libraries](/chainguard/libraries/introduction/overview/), its [cooldown period](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan) is fixed at 7 days. You can't change it, and you can't add an override that lets a package version skip the cooldown.
+* User management is limited. An organization created with a personal email address can't invite anyone yet. Otherwise, you can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
+* The user who creates a Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
+* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+* Revoking a pull token takes a different path. On the Console's **Access Tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+* Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Starter plan.
+* Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
 ## Frequently asked questions
 
 ### Can I change my five images after I select them?
 
-No. Once you’ve selected your five images under Catalog Starter, that selection is fixed for the life of the free plan and cannot be swapped or replaced.
+No. Once you’ve selected your five images under Starter, that selection is fixed for the life of the free plan and cannot be swapped or replaced.
 
 If you anticipate needing different images over time, we recommend talking to our team about Catalog Pricing or per-image licensing.
 
-### Does Catalog Starter include FIPS images or Chainguard commercial builds?
+### Does Starter include FIPS images or Chainguard commercial builds?
 
-No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
+No. FIPS images and Chainguard Commercial Builds are not included in the Starter plan.
 
 If you require FIPS-validated images or dedicated commercial build work, you’ll need a paid plan that includes those capabilities.
 
-### Can I use Chainguard's GitHub Action with Catalog Starter?
+### Can I use Chainguard's GitHub Action with Starter?
 
-No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Catalog Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 
-### Can my colleagues and I use the same Catalog Starter images?
+### Can my colleagues and I use the same images?
 
-Yes. Everyone in a Catalog Starter organization uses the same five images, and no one can swap them.
+Yes. Everyone in a Starter organization uses the same five images, and no one can swap them.
 
 Anyone with the `limited_owner` role can invite a colleague whose email address is in the organization's domain or one of its subdomains. The `viewer` role is enough to pull images. Replace `$ORGANIZATION` with your organization's name and `$EMAIL` with your colleague's email address:
 
@@ -201,32 +206,34 @@ chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
 
 To let your colleague invite others too, use `--role limited_owner` instead. That role also manages your organization's billing.
 
-If a Catalog Starter organization already exists for your email domain, you can also ask to join it. In the Console, click **Request access**, or run `chainctl starter request-access`. The request goes by email to everyone with the `owner` or `limited_owner` role in the organization. The link in that email invites you with the `viewer` role.
+If a Starter organization already exists for your email domain, you can also ask to join it. In the Console, click **Request access**, or run `chainctl starter request-access`. The request goes by email to everyone with the `owner` or `limited_owner` role in the organization. The link in that email invites you with the `viewer` role.
 
-### I’m already a Chainguard Containers customer. Can I add Catalog Starter to my account?
+### I’m already a Chainguard Containers customer. Can I add Chainguard Starter to my account?
 
-No. Catalog Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
+No. Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
 
 If you try to sign up using an email domain already associated with a paid Chainguard account, you’ll receive an error message. Contact your Chainguard account administrator for access to your organization’s existing account.
 
-### Can I use Catalog Starter to cover some of the images I need?
+### Can I use Starter to cover some of the images I need?
 
-No. Catalog Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
+No. Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
 
 If you know you’ll need more than five images, it’s usually better to start with Catalog Pricing or per-image licensing so you can scale cleanly.
 
 ### Can I sign up with Google, GitHub, or GitLab?
 
-You can sign up with a Google account on your company's domain, such as a Google Workspace account. A personal Google account, such as a Gmail address, doesn't qualify, because Catalog Starter requires a business email address.
+Yes. A work email address, including a Google account on your company's domain, creates a verified organization. A GitHub or GitLab sign-in, or a personal email address such as a Gmail address, creates an unverified organization, which you can verify later.
 
-The Console's sign-up page doesn't offer GitHub or GitLab. To sign up with either one, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). The account's verified primary email address must be a business email address.
+You can also sign up from the command line with `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl).
 
 ### What happens if I decide to upgrade to a paid plan?
 
-When you upgrade:
+If you upgrade to Chainguard Team, your organization keeps its images and members and gets Team's limits. Refer to [What changes when you upgrade](/get-started/self-serve/upgrade-team/#what-changes-when-you-upgrade).
 
-* Your organization moves off the free Catalog Starter plan.
+When you upgrade to another paid plan through Chainguard's sales team:
+
+* Your organization moves off the free Starter plan.
 * You gain access to the broader capabilities of your chosen paid tier (for example, full Catalog Pricing with self-service provisioning and, optionally, FIPS access), as well as Chainguard's full support services and CVE SLA.
 * Pricing is based on the paid plan’s terms (such as developer bands for Catalog Pricing or image counts for per-image plans).
 
-Our team will work with you to map your existing Catalog Starter images into the right long-term structure.
+Our team will work with you to map the images you chose on Starter into the right long-term structure.

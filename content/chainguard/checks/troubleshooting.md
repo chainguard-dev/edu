@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-02T16:29:06+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
