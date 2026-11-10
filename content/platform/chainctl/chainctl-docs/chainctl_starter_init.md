@@ -1,5 +1,5 @@
 ---
-date: 2026-11-06T22:09:37Z
+date: 2026-11-09T19:57:31Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -42,8 +42,8 @@ and whether you want updates from Chainguard. --given-name, --family-name,
 The terms line is printed either way. With --non-interactive, it never
 prompts: it leaves the identity provider to the browser, treats a missing
 --email-updates as no, and fails naming the missing flags instead of asking.
-It checks them before you sign in, except --name: whether your organization
-needs one is known only after you sign in.
+It checks them before you sign in. A --name is checked before you sign in
+too, though whether your organization uses it is known only after.
 
 Once your organization exists, the Chainguard platform will automatically
 entitle it to choose images to be added. It should be ready within a
@@ -120,7 +120,7 @@ chainctl starter init [--output=json] [flags]
       --name string           Name of the organization, when you sign up with a personal email address. It can't look like a domain name. Ignored for an organization named after your email domain.
       --non-interactive       Never prompt: skip the provider menu, and fail naming the flags still needed instead of asking a question.
       --social-login string   Identity provider to sign in with, instead of choosing from a menu. Must be one of: email, google, github, gitlab
-      --terms-step            With --output json, add the terms to accept and what the Starter plan includes, and point next at 'chainctl starter accept-terms' once the organization is created.
+      --terms-step            With --output json, add the terms to accept and what the Starter plan includes, and a human_step naming 'chainctl starter accept-terms' for the person to run once the organization is created.
 ```
 
 ### Options inherited from parent commands

@@ -3,7 +3,7 @@
     "schemas": {
       "chainguard.capabilities.Capability": {
         "default": "UNKNOWN",
-        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_IAM_AUTH_POLICIES_UPDATE: Auth policies: an organization's sign-in controls (today, sso_only).\nupdate can shut members who do not sign in through the organization's\nidentity provider out of it, so it is owner-only; list (which also\nauthorizes Get) sits with the other IAM read capabilities. Numbered in a\nfresh block, update/list in the 2/3 slots the IAM resources above use;\nthe create/delete slots are reserved below.\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_USE: Customer-registry access also requires the operation's repository and\ncontent permissions.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_ARGOS_MITIGATION_REPORT: report lets a partner submit, edit and withdraw its mitigation reports.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_LIMITS_GET: Cross-organization sandbox limit snapshots, held by the public API's\ninternal reader at the configured authorization root.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under.\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.\n - CAP_HARNESS_UPLOADS_CREATE: Baddie Hunter harness uploads (the Uploads intake API,\nchainguard.platform.harness.v1alpha1): submitting one repository's sealed\nsource bundle and reading the org's uploads. Customer-facing and held by\nOwners. uploads.create also authorizes Uploads.GetOrgPublicKey, the\nharness-keyring key a submitter seals the bundle under. Uploading starts\nno hunt.\n\nNeither reaches the submitted source: the bundle is sealed to a key this\nAPI cannot use, and these grant upload metadata only.\n - CAP_ENTITLEMENTS_GET: Reading an organization's plan and effective product limits.",
+        "description": "Capability is an enumeration of the Chainguard IAM capabilities.\n\n - CAP_IAM_GROUPS_RENAME: Renames an unverified organization that has a plan kind, and nothing\nelse: no other field, no folder, no verified organization, whose name\nis its domain. groups.update covers renames everywhere else.\n - CAP_TENANT_VULN_REPORTS_LIST: TODO(colin): deprecate this cap once the legacy endpoint is removed\n - CAP_IAM_AUTH_POLICIES_UPDATE: Auth policies: an organization's sign-in controls (today, sso_only).\nupdate can shut members who do not sign in through the organization's\nidentity provider out of it, so it is owner-only; list (which also\nauthorizes Get) sits with the other IAM read capabilities. Numbered in a\nfresh block, update/list in the 2/3 slots the IAM resources above use;\nthe create/delete slots are reserved below.\n - CAP_REPO_BLOBS_GET: repo.blobs.get is a capability required to pull container images.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with images vs pulling the image itself.\n - CAP_REPO_CREATE: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_CREATE as a transitional grant for write access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_WRITE, drop the dual-accept in cassie.\n - CAP_REPO_LIST: TODO(laney): cassie's CAS/ActionCache/ByteStream handlers also\naccept CAP_REPO_LIST as a transitional grant for read access to\nits REAPI cache surface. Once consumers have migrated to\nCAP_CASSIE_CAS_READ, drop the dual-accept in cassie.\n - CAP_REPO_INTERNAL_ADMIN: repo.internal.admin allows administering internal-only repository fields\n(catalog tier, bundles, aliases, active tags, README, and sync settings)\nthat are otherwise read-only to customers.\n - CAP_APK_BLOBS_GET: apk.blobs.get is a capability required to pull APKs.\nWe explicitly define this to distinguish roles that allow browsing/viewing\nmetadata associated with APKs vs pulling the APK itself.\n - CAP_BUILD_REPORT_LIST: Custom Image Build\n - CAP_LIBRARIES_ENTITLEMENTS_CREATE: Global libraries capabilities\n - CAP_LIBRARIES_PYTHON_LIST: Ecosystems specific capabilities\n - CAP_LIBRARIES_CACHE_INVALIDATE: Cache invalidation capability for the libraries cache (covers all ecosystems).\nGranted to org owners and account admins; not to regular developer members.\n - CAP_LIBRARIES_CACHE_LIST: Read capability for the libraries resolution cache (status and entry\nlisting). Separate from CAP_LIBRARIES_ENTITLEMENTS_LIST on purpose: an\norg's dependency-consumption history is sensitive data.\n - CAP_LIBRARIES_REBUILDER_REQUESTS_CREATE: Rebuilder API capabilities\n - CAP_LIBRARIES_AWS_MARKETPLACE_SUBSCRIPTIONS_CREATE: AWS Marketplace Subscriptions (Chainguard Libraries on AWS Security Hub Extended)\n - CAP_LIBRARIES_REQUEST_GROUPS_CREATE: Library build requests: an organization asks Chainguard to build specific\nlibrary versions and tracks what it already has.\n\nSeparate from the libraries.rebuilder.* capabilities above, which are\ninternal_only and are never grantable to a customer organization.\n - CAP_LIBRARIES_REQUEST_GROUPS_LIST: list covers every read on a request group: the groups themselves, their\nitems, and the per-library view of them.\n - CAP_LIBRARIES_REQUEST_GROUPS_DELETE: delete covers draft groups only; removing a submitted group needs\ndelete_submitted.\n - CAP_LIBRARIES_REQUEST_GROUPS_SUBMIT: submit promotes a draft and carries the CVE-remediation opt-in for the group.\nIt is its own capability because submitting is restricted to owners, which a\nfield mask on update could not express.\n - CAP_LIBRARIES_REQUEST_GROUPS_ITEMS_UPDATE: items.update covers draft item editing: remove, restore and per-item update.\n - CAP_LIBRARIES_REQUEST_GROUPS_REFRESH_COVERAGE: Re-running a group's coverage check is expensive, and submitted groups are\nrefreshed automatically, so it is reserved for Chainguard support.\n - CAP_LIBRARIES_REMOTE_REGISTRIES_CREATE: Remote registries: an org's configured upstream registries for virtual\nrepositories. Creating or deleting one changes where the org's builds\npull dependencies from, so both are owner-only alongside the library\npolicy capabilities; list is ordinary member read.\n - CAP_LIBRARIES_STORAGE_USAGE_GET: Storage usage: how much storage an org's own uploads consume in each\nlanguage ecosystem. Owner-only because it is org-wide accounting (and the\nbasis for upcoming quotas), not something every member needs to see.\n - CAP_LIBRARIES_MALWARE_STATUS_UPDATE: Malware status: stamps the per-version scanned/malicious flags on upstream\nrows in serve-v2. An unscanned upstream version is withheld until it is\nstamped, so whoever holds this decides what reaches customers unscanned;\nit is internal_only so only Chainguard's scan pipeline can hold it.\n - CAP_REPOSITORIES_CREATE: Repositories: an org's named Libraries repositories, each an IAM folder\ndirectly under the org. Bound at the org. create, update (a repository's\nupstream list) and delete are owner-only; list is ordinary member read.\n - CAP_REGISTRY_ENTITLEMENTS_LIST: Registry Entitlements\n - CAP_REGISTRY_SETTINGS_LIST: Registry Settings\n - CAP_REGISTRY_OVERLAYS_LIST: Registry Overlays (tag-scoped Custom Assembly)\n - CAP_REGISTRY_CHARTS_ADD: Registry Charts\nFor adding a catalog Helm chart to an organization through AddChart,\nwhich creates only the chart's folder, chart repo and selected image\nrepos. It grants no repo.create or groups.create, every source still\nneeds the organization's entitlement, and entitling the selected images\non per-image and Starter plans also requires\nregistry.entitlements.images.add.\n - CAP_REGISTRY_USE: Customer-registry access also requires the operation's repository and\ncontent permissions.\n - CAP_REGISTRY_DEPLOYMENTS_CREATE: Registry Deployments\n - CAP_POLICIES_POLICY_CREATE: Policies\n - CAP_POLICIES_OVERRIDE_CREATE: Policy overrides waive enforcement for a specific artifact. These are\nseparate capabilities from binding management so they can be granted\nindependently. By default create and delete are held by org owners (like\nbinding management) and listing is available to viewers.\n - CAP_TERMS_ACCEPT: Terms\n - CAP_GULFSTREAM: This is orthogonal enough that we should leave\nit somewhat separate, so add new capabilities above.\nTODO(mattmoor): Think about whether we can encode specific\ncontroller capabilities into our access control here?\ne.g. could each logical controller/webhook be its own\ncapability?\n - CAP_GUARDENER_DFC_CONVERT: Guardener\n - CAP_GUARDENER_ASSOCIATION_MANAGE: guardener.association.manage gates self-service linking/unlinking of a\nGitHub org to a Chainguard group (the GroupAccountAssociations record).\n - CAP_GUARDENER_ASSOCIATION_LIST: guardener.association.list gates read-only listing of the GitHub org\ninstallations linked to a Chainguard group (the read counterpart to\nguardener.association.manage).\n - CAP_GUARDENER_ENTITLEMENT_MANAGE: guardener.entitlement.manage gates the support-only surface for configuring a\ngroup's guardener entitlement (e.g. which repo visibility scope guardener\nresponds to). It is internal_only: it can never be granted by a role\navailable to customer organizations.\n - CAP_GUARDENER_ENTITLEMENT_LIST: guardener.entitlement.list gates read-only access to a group's guardener\nentitlement. Unlike guardener.entitlement.manage it is not internal_only, so\nnormal viewers can see the settings that apply to their group.\n - CAP_GUARDENER_ACTIONS_MIGRATE: Guardener actions migrator — on-demand enqueue of a repository's GitHub\nActions migration (opens a pull request), tracked via a long-running\noperation. Mutating, so distinct from the read-only actions catalog cap.\n - CAP_GUARDENER_SCAN_LIST: guardener.scan.list gates listing summaries of the dependency scans\nguardener builds for the group's linked repositories.\n - CAP_GUARDENER_SCAN_GET: guardener.scan.get gates reading one dependency scan by id (its declared\nartifacts and their relationships).\n - CAP_GUARDENER_IMAGES_MIGRATE: Authorizes requesting and reading repository image migrations.\n - CAP_MCP_TOOL_CALL: MCP tool calls\n - CAP_SKILLS_PUBLISH: Skills registry — publishing skill artifacts to skills.cgr.dev\n - CAP_SKILLS_ENTITLEMENTS_CREATE: Skills registry entitlements\n - CAP_SKILLS_LIST: Skills catalog metadata table (description / license / category) backing\nListSkills/GetSkill and search. One org-agnostic set: per-org isolation is\nthe UIDP scope on each RPC, not separate caps. These gate the catalog\ntable's CRUD only; publishing skill artifacts to the registry stays\nCAP_SKILLS_PUBLISH and entitlements stay CAP_SKILLS_ENTITLEMENTS_*.\n\nskills.list is customer-facing (read the catalog for orgs you can access).\nThe writes are internal_only: the catalog is populated by the Chainguard\npublish pipeline, not by customer orgs, so a customer role can never be\ngranted them (a role carrying them must also grant CAP_INTERNAL).\nskills.write is a single create-or-update cap: UpdateSkill is one\nAIP-134 create-or-update RPC, so there is no separate create vs update.\n - CAP_SKILLS_HARDEN_READ: Skills harden — access to the Skills harden API, split per RPC so read,\nsubmit, and cancel can be granted independently. Customer-facing: an org\nmember holds these on the target group named by `chainctl skills harden\n--group`.\n  read   -\u003e GetHardenOperation\n  write  -\u003e HardenSkill (submit)\n  cancel -\u003e CancelHardenOperation\nThese let a customer kick off and track a harden; they do NOT let the caller\nwrite the hardened output. Publishing the hardened artifact and recording the\njob result into the skills registry/catalog is done by internal identities\nvia the internal_only skills.write cap, and the pipeline's record-result RPC\nis gated on CAP_INTERNAL — so a customer can never push into the hardened\narea directly.\n - CAP_ARGOS_DOCUMENTS_CREATE: Argos — client-side encrypted document records.\n - CAP_ARGOS_DOCUMENTATION_READ: Argos — documentation visibility. Grants read access to Argos API\ndocumentation.\n - CAP_ARGOS_OSV_READ: Argos — Private OSV API (customer-facing OSV query surface).\n - CAP_ARGOS_COALITION_MEMBER: Argos — identity types. Mutually exclusive: an identity holding both is\ntreated as a mitigation partner (the more restrictive of the two) for any\nAPI call which varies the return value based on identity type.\n - CAP_ARGOS_PARTNER_CAPABILITY_REQUEST: Argos — mitigation partner capabilities. request lets a partner submit\nits capabilities and interests; approve lets staff review them.\n - CAP_ARGOS_MITIGATION_REPORT: report lets a partner submit, edit and withdraw its mitigation reports.\n - CAP_LIBRARIES_POLICY_CREATE: Libraries Policy Gates — customer-facing policies and bindings that\nconfigure the cooldown and malware gates applied to upstream package pulls,\nplus the block events recorded when a pull is withheld.\n - CAP_BUILDAPI_BUILD_CREATE: Build API\n - CAP_CASSIE_CAS_READ: Cassie REAPI cache surface. CAS (blobs + ByteStream) and the ActionCache\nare separately gated: a caller may read or write action results without\nany authority over the underlying content blobs, and vice versa.\n - CAP_LOGGIE_LOGS_READ: Loggie: the live-log service. Readers tailing a stream hold logs.read;\na producer appending to its streams holds logs.write; the orchestrator\nissuing streams holds logs.create. Appending also requires the stream's\nsigned write name, so a logs.write holder can only append to streams it\nwas handed. An archiver that has copied a finished stream out of loggie\nholds logs.retire to shorten the stream's hot-tier retention. Retire is\nkeyed by the read name, which carries no token, so it is not folded into\nlogs.write: every write holder could otherwise expire any finished\nstream it can name.\n - CAP_REX_EXECUTIONS_CREATE: Rex: the remote-execution service. The edge authorizes submitting an\nexecution; the scheduler authorizes a worker joining the pool; the\nexecutions query surface authorizes cross-run reads at the instance.\n - CAP_REX_CLASS_USE: Gated platform classes. USE authorizes submitting an execution that\ndemands a gated class; SERVE authorizes a worker pool advertising one.\nBoth are evaluated at the class's own UIDP node, never at the instance.\n - CAP_ACTIONS_LIST: Actions catalog — the read-only catalog of Chainguard-published GitHub\nActions and the upstreams they mirror. Writes are internal (importer only).\n - CAP_ACTIONS_DEPENDENCIES_UPDATE: Recording the dependency edges of a composite action's revision, i.e. the\n`uses:` steps of its action.yml. Internal only: the edges are derived by\nthe hardening pipeline that reads the action.yml, and are not something a\ncustomer asserts about the shared graph.\n - CAP_ACTIONS_DEPENDENCIES_LIST: Reading the dependency graph. Internal only: reads are fenced to groups the\ncaller holds a capability in, which no customer does for these actions.\n - CAP_SANDBOX_LIMITS_GET: Cross-organization sandbox limit snapshots, held by the public API's\ninternal reader at the configured authorization root.\n - CAP_SANDBOX_RUN_CREATE: Sandbox: the ACID sandbox Runs control plane (the WorkflowRuns API,\nai-cicd/sandbox). Customer-grantable — an org's members run, watch, and\ncancel workflow runs in the org's own instance — via the sandbox.user\nrole, and held by Owners. The SANDBOX service principal's internal\nsandbox.service_agent role carries the same capabilities.\n - CAP_SANDBOX_INSTALLATIONS_RESOLVE: Resolving a guardener GitHub App installation to the root group it is\nlinked to. Internal only: the answer names another customer's\norganization, so it is held by the sandbox GitHub reconciler alone and\nchecked at the acid-sandbox group, never at a customer group.\n - CAP_ENTITLEMENTS_FEATURES_LIST: Central Entitlements Service FEATURE entitlements (product features such\nas sandbox_checks). Reading an organization's FEATURE rows. Internal only:\nit is held by the SANDBOX service principal's sandbox.service_agent role,\nwhich reads the org's rows to admit work. It is separate from\nregistry.entitlements.list so the SANDBOX principal cannot read image\nentitlements.\n - CAP_ENTITLEMENTS_FEATURES_MANAGE: Writing and deleting an organization's FEATURE rows as Chainguard\n(the INTERNAL and CONSOLE_ADMIN sources). Internal only: it is the support\nsurface for backfill, trial extension and the kill switch, held through the\nsupport role.\n - CAP_SANDBOX_SESSION_CREATE: Sandbox develop sessions (the Sessions API, ai-cicd/sandbox): resident\ndevelopment sessions opened with `chainctl develop`. session.create opens\nsessions and lets the caller see and manage its own; it is\ncustomer-grantable via the sandbox.user role. session.list sees and\nmanages (renames, deletes) every user's sessions in the instance — an\nadministrative power held by Owners, not by sandbox.user.\n - CAP_SANDBOX_IDENTITY_CREATE: Sandbox develop session identities: the GCP (and later other cloud)\nidentities a session may act as. identity.create defines, updates, and\ndeletes the caller's own personal identities, via the sandbox.user role.\nidentity.use consents a shared identity into one's session; it is checked\nat the shared identity's groups, so it has its own role\n(sandbox.identity.user) that an owner binds at the groups they choose.\nidentity.admin defines shared identities and sees every identity in the\ninstance; Owners hold it.\n - CAP_TELEMETRY_CONTAINERS_LIST: Telemetry: read access to the container images a group's linked\nrepositories declare, as observed by the telemetry reconciler.\nprotolint:disable:next ENUM_FIELD_NAMES_PREFIX MAX_LINE_LENGTH\n - CAP_BILLING_MANAGE: Billing: buying and paying for a self-serve plan for an org. Starting a\ncheckout leads to a charge and, once the first invoice is paid, to the\npurchaser becoming the org's owner, so it is held by owner and\nlimited_owner only.\n - CAP_HARNESS_HUNTS_CREATE: Baddie Hunter harness hunts (the Hunts intake API,\nchainguard.platform.harness.v1alpha1): submitting source bundles to be\nhunted and reading the hunts' metadata. Customer-facing — an org's members\nhunt their own source in their own organization — and held by Owners.\nhunts.create also authorizes Hunts.GetOrgPublicKey, the harness-keyring\nkey a submitter seals the bundle under.\n\nNeither reaches the submitted source or the hunt's findings: the bundle is\nsealed to a key this API cannot use, and these grant hunt metadata only.\n - CAP_HARNESS_UPLOADS_CREATE: Baddie Hunter harness uploads (the Uploads intake API,\nchainguard.platform.harness.v1alpha1): submitting one repository's sealed\nsource bundle and reading the org's uploads. Customer-facing and held by\nOwners. uploads.create also authorizes Uploads.GetOrgPublicKey, the\nharness-keyring key a submitter seals the bundle under. Uploading starts\nno hunt.\n\nNeither reaches the submitted source: the bundle is sealed to a key this\nAPI cannot use, and these grant upload metadata only.\n - CAP_ENTITLEMENTS_GET: Reading an organization's plan and effective product limits.",
         "enum": [
           "UNKNOWN",
           "CAP_INTERNAL",
@@ -142,6 +142,10 @@
           "CAP_LIBRARIES_REMOTE_REGISTRIES_DELETE",
           "CAP_LIBRARIES_STORAGE_USAGE_GET",
           "CAP_LIBRARIES_MALWARE_STATUS_UPDATE",
+          "CAP_REPOSITORIES_CREATE",
+          "CAP_REPOSITORIES_UPDATE",
+          "CAP_REPOSITORIES_DELETE",
+          "CAP_REPOSITORIES_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_LIST",
           "CAP_REGISTRY_ENTITLEMENTS_CREATE",
           "CAP_REGISTRY_ENTITLEMENTS_DELETE",
@@ -1117,6 +1121,27 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.iam.v2.AuthPoliciesService.StartValidationBody": {
+        "description": "StartValidationRequest is the request message for StartValidation.",
+        "properties": {
+          "identityUidp": {
+            "description": "identity_uidp is the designated break-glass identity to validate. Required\nfor VALIDATION_KIND_BREAK_GLASS, and must be empty for VALIDATION_KIND_IDP.\nIt must be an identity currently designated on this organization's policy.",
+            "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationKind"
+              }
+            ],
+            "description": "kind selects what to validate: the identity provider, or a break-glass\nidentity's non-IdP path."
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "type": "object"
+      },
       "chainguard.platform.iam.v2.AuthPolicy": {
         "description": "AuthPolicy is an organization's authentication policy. There is one per\norganization; it has no identity of its own and is addressed by the\norganization's UIDP.",
         "properties": {
@@ -1145,6 +1170,15 @@
           "uid": {
             "description": "UIDP of the root organization this policy belongs to. Only root\norganizations carry a policy; it governs sign-in for every group beneath\nthem. The value MUST be a root organization's UIDP: the UIDP of a group\nbelow the root is rejected with INVALID_ARGUMENT and is never resolved to\nits root, so authorization is always checked against the organization the\npolicy governs and an owner of a sub-group alone cannot read or write it.\n\nThis is the policy's address, not a server-assigned id: UpdateAuthPolicy\ntakes it from the request body (and the HTTP path), so it is REQUIRED on\ninput rather than OUTPUT_ONLY. Clients that build requests from the field\nannotations (AIP-203) would otherwise drop it and have nothing to address.",
             "type": "string"
+          },
+          "validations": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationStatus"
+              }
+            ],
+            "description": "validations reports, computed when the policy is read, whether the\norganization's recorded validations are current: whether the identity\nprovider validation still matches the provider as it is configured now,\nand which currently-designated break-glass identities have one of their\nown. Currency is a read-time comparison of the recorded fingerprint to the\nlive provider configuration, with no invalidation hooks: a provider change\nmakes a validation stale the moment the policy is next read. It is\npopulated only for a caller holding auth_policies.update at this\norganization, the capability that acts on it; every other reader gets the\npolicy without it. Whether sso_only may be enabled is not decided here:\nthat is readiness, below, which applies the same predicates and adds\nthe owner-binding check; this view breaks them out per designee.",
+            "readOnly": true
           }
         },
         "required": [
@@ -1228,6 +1262,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2.BreakGlassValidationStatus": {
+        "description": "BreakGlassValidationStatus is one designated break-glass identity's\nvalidation currency, computed at read time.",
+        "properties": {
+          "identityUidp": {
+            "description": "identity_uidp is the designated break-glass identity.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "validationCurrent": {
+            "description": "validation_current is true when this identity has a recorded non-IdP\nvalidation no older than the maximum age Chainguard applies (90 days by\ndefault) that is still bound to the identity as it is configured now:\nthe validation records the identity's claim_match as it was when the\nsign-in passed, so re-pointing the identity at another issuer, subject\nor audience means validating again. The same rule readiness applies.\nUn-designating an identity drops its validation, so a re-designated\nidentity must pass its own again.",
+            "readOnly": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2.CheckAccountAssociationResponse": {
         "description": "CheckAccountAssociationResponse is the response for CheckAccountAssociation.",
         "properties": {
@@ -1255,6 +1305,10 @@
         "properties": {
           "eligible": {
             "description": "eligible reports whether the domain of the caller's email address may\ncreate a self-serve Starter organization. A personal-mail domain can be\neligible: unverified_starter is then set too, and the organization the\ncaller creates is unverified. Such a domain stays ineligible for\nLookupGroup and RequestGroupAccess, so read unverified_starter before\noffering those flows.",
+            "type": "boolean"
+          },
+          "existingOrganization": {
+            "description": "existing_organization reports that a verified organization already exists\nfor the caller's email domain, so the caller should request access to it\nrather than create a new Starter organization. It is a bare signal: the\ncaller has already proven a verified email on the domain, and no detail\nidentifying the organization is returned.",
             "type": "boolean"
           },
           "unverifiedStarter": {
@@ -2231,6 +2285,33 @@
         "title": "ListIdentityProvidersResponse is the response message for ListIdentityProviders",
         "type": "object"
       },
+      "chainguard.platform.iam.v2.ListManualBindingsResponse": {
+        "description": "ListManualBindingsResponse is the response message for ListManualBindings.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Token for retrieving the next page of results.\nEmpty if no more results.",
+            "type": "string"
+          },
+          "people": {
+            "description": "People with at least one matching directly assigned role binding.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingPerson"
+            },
+            "type": "array"
+          },
+          "skipped": {
+            "description": "Number of provisioned people passed over before this page, including any\nthe filters left out. Accumulates across paginated requests.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "totalCount": {
+            "description": "Total number of people matching the filter.\nOptional, provided for UI pagination.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2.ListRoleBindingsResponse": {
         "description": "ListRoleBindingsResponse is the response message for ListRoleBindings.",
         "properties": {
@@ -2346,6 +2427,105 @@
           "MANAGED_BY_SCIM"
         ],
         "type": "string"
+      },
+      "chainguard.platform.iam.v2.ManualBinding": {
+        "description": "ManualBinding is one directly assigned role binding and how SCIM relates to\nit.",
+        "properties": {
+          "bindingClass": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingClass"
+              }
+            ],
+            "description": "The binding's class. Unspecified when the binding is excluded."
+          },
+          "exclusion": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingExclusion"
+              }
+            ],
+            "description": "Why the binding is never classified. Unspecified when the binding has a\nclass."
+          },
+          "groupName": {
+            "description": "Name of the group where the binding applies.",
+            "type": "string"
+          },
+          "groupUid": {
+            "description": "UID of the group where the binding applies.",
+            "type": "string"
+          },
+          "roleName": {
+            "description": "Name of the role the binding grants.",
+            "type": "string"
+          },
+          "roleUid": {
+            "description": "UID of the role the binding grants.",
+            "type": "string"
+          },
+          "supersedingSources": {
+            "description": "One entry for each SCIM group that grants a SCIM-managed binding\nsuperseding this one, so a binding granted by several groups appears once\nper group. Empty for NOT_COVERED and excluded bindings.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.ScimBindingSource"
+            },
+            "type": "array"
+          },
+          "uid": {
+            "description": "UID of the role binding.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.ManualBindingClass": {
+        "default": "MANUAL_BINDING_CLASS_UNSPECIFIED",
+        "description": "ManualBindingClass says how SCIM relates to a role binding that was assigned\ndirectly.\n\n - MANUAL_BINDING_CLASS_UNSPECIFIED: The class is unset. It is not a valid value in a request, which names the\nclasses it wants or leaves them empty for every class.\n - MANUAL_BINDING_CLASS_DUPLICATE: A SCIM-managed binding already grants the same role at the same scope.\nRemoving the binding changes nothing.\n - MANUAL_BINDING_CLASS_COVERED: SCIM-managed bindings at the same scope or a parent scope already include\nevery capability of the role. Removing the binding changes nothing in\npractice.\n - MANUAL_BINDING_CLASS_NOT_COVERED: Neither of the above. Removing the binding takes access away.",
+        "enum": [
+          "MANUAL_BINDING_CLASS_UNSPECIFIED",
+          "MANUAL_BINDING_CLASS_DUPLICATE",
+          "MANUAL_BINDING_CLASS_COVERED",
+          "MANUAL_BINDING_CLASS_NOT_COVERED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2.ManualBindingExclusion": {
+        "default": "MANUAL_BINDING_EXCLUSION_UNSPECIFIED",
+        "description": "ManualBindingExclusion says why a directly assigned role binding is never\nclassified, and so is never removed.\n\n - MANUAL_BINDING_EXCLUSION_UNSPECIFIED: The binding is not excluded. It is not a valid value in a request, which\nnames the reasons it wants.\n - MANUAL_BINDING_EXCLUSION_PRIVILEGED_ROLE: The role is the built-in owner or support role. A person whose link was\nmade under a replaced correlation rule has every binding reported as\nNO_CURRENT_SCIM_LINK instead, owner and support included.\n - MANUAL_BINDING_EXCLUSION_NO_CURRENT_SCIM_LINK: The person's SCIM link was made under a correlation rule that has since\nbeen replaced, so it grants nothing. People with no provisioned user, or\nwho have not signed in, are not listed at all.",
+        "enum": [
+          "MANUAL_BINDING_EXCLUSION_UNSPECIFIED",
+          "MANUAL_BINDING_EXCLUSION_PRIVILEGED_ROLE",
+          "MANUAL_BINDING_EXCLUSION_NO_CURRENT_SCIM_LINK"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2.ManualBindingPerson": {
+        "description": "ManualBindingPerson is a SCIM-provisioned person and their directly assigned\nrole bindings.",
+        "properties": {
+          "bindings": {
+            "description": "The person's directly assigned role bindings.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBinding"
+            },
+            "type": "array"
+          },
+          "email": {
+            "description": "The person's primary email from their provisioned user, else the first\none it lists, else empty.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Display name of the identity, or the provisioned user's display name when\nthe identity has none.",
+            "type": "string"
+          },
+          "uid": {
+            "description": "UID of the person's Chainguard identity.",
+            "type": "string"
+          },
+          "userName": {
+            "description": "The person's SCIM userName.",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.iam.v2.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
@@ -2660,6 +2840,36 @@
         },
         "type": "object"
       },
+      "chainguard.platform.iam.v2.ScimBindingSource": {
+        "description": "ScimBindingSource is a SCIM-managed role binding, and the SCIM group that\ngrants it, that supersedes a directly assigned one. Only a binding that a\ncurrent membership and mapping grant supersedes anything.",
+        "properties": {
+          "groupUid": {
+            "description": "UID of the group where it applies, the same scope as the directly assigned\nbinding or a parent of it.",
+            "type": "string"
+          },
+          "roleBindingUid": {
+            "description": "UID of the SCIM-managed role binding.",
+            "type": "string"
+          },
+          "roleName": {
+            "description": "Name of the role it grants.",
+            "type": "string"
+          },
+          "roleUid": {
+            "description": "UID of the role it grants.",
+            "type": "string"
+          },
+          "scimGroupName": {
+            "description": "Display name of the SCIM group whose mapping grants it.",
+            "type": "string"
+          },
+          "scimGroupUid": {
+            "description": "UID of the SCIM group whose mapping grants it.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
         "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.\n - SERVICE_PRINCIPAL_SANDBOX: Sandbox service principal for the ACID sandbox Runs control plane.",
@@ -2803,6 +3013,159 @@
           "identityMetadata"
         ],
         "type": "object"
+      },
+      "chainguard.platform.iam.v2.Validation": {
+        "description": "Validation is one validation session: its identity, its state, and — once\nit completes — the diagnostics the sign-in produced. It carries no token,\ncode, secret or cookie. Every field is output-only.",
+        "properties": {
+          "diagnostics": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.Validation.Diagnostics"
+              }
+            ],
+            "description": "diagnostics is what a completed session's sign-in showed; unset while\npending.",
+            "readOnly": true
+          },
+          "id": {
+            "description": "id is the session id.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "identityUidp": {
+            "description": "identity_uidp is the designated break-glass identity a BREAK_GLASS session\nis for; empty for an IDP session.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "kind": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationKind"
+              }
+            ],
+            "description": "kind is what the session validates.",
+            "readOnly": true
+          },
+          "openUrl": {
+            "description": "open_url is the URL the human opens to run the sign-in. It is set only on\nthe response to StartValidation, never on GetValidationStatus: it carries\nthe session id, which is the only credential the sign-in needs, so it is\nshown once, to the administrator who started the session (and, for a\nbreak-glass session, handed to the designee). It is never recorded in the\nevent StartValidation emits.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationState"
+              }
+            ],
+            "description": "state is where the session is in its life.",
+            "readOnly": true
+          },
+          "uid": {
+            "description": "uid is the root organization the session validates.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.Validation.Diagnostics": {
+        "description": "Diagnostics is what a completed session's sign-in showed: not a generic\npass/fail, but which step failed, the provider's error code, and the\nclaims the verified token carried.",
+        "properties": {
+          "claims": {
+            "description": "claims lists the names of the claims the verified ID token carried.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "email": {
+            "description": "email is the token's email claim, when present.",
+            "type": "string"
+          },
+          "emailVerified": {
+            "description": "email_verified is the token's email_verified claim, when present.",
+            "type": "boolean"
+          },
+          "errorCode": {
+            "description": "error_code is the provider's own error code when it gave one, or the\nissuer's rejection reason for the ID token.",
+            "type": "string"
+          },
+          "issuer": {
+            "description": "issuer is the iss of the verified ID token, when one was verified.",
+            "type": "string"
+          },
+          "message": {
+            "description": "message is a short, human-readable description of the outcome.",
+            "type": "string"
+          },
+          "step": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationStep"
+              }
+            ],
+            "description": "step is the stage a failed sign-in stopped at; unset for a passed one."
+          },
+          "subject": {
+            "description": "subject is the sub of the verified ID token, when one was verified.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.ValidationKind": {
+        "default": "VALIDATION_KIND_UNSPECIFIED",
+        "description": "ValidationKind is what a validation session proves.\n\n - VALIDATION_KIND_UNSPECIFIED: Unset; a request must name a kind.\n - VALIDATION_KIND_IDP: The organization's identity provider authenticates a person end to end.\n - VALIDATION_KIND_BREAK_GLASS: A designated break-glass identity can sign in without the identity\nprovider.",
+        "enum": [
+          "VALIDATION_KIND_UNSPECIFIED",
+          "VALIDATION_KIND_IDP",
+          "VALIDATION_KIND_BREAK_GLASS"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2.ValidationState": {
+        "default": "VALIDATION_STATE_UNSPECIFIED",
+        "description": "ValidationState is where a validation session is in its life.\n\n\n - VALIDATION_STATE_UNSPECIFIED: Unset.\n - VALIDATION_STATE_PENDING: Created; the sign-in has not finished.\n - VALIDATION_STATE_PASSED: The sign-in succeeded and its result is recorded.\n - VALIDATION_STATE_FAILED: The sign-in failed; diagnostics say where.\n - VALIDATION_STATE_EXPIRED: Never completed before the session's expiry.",
+        "enum": [
+          "VALIDATION_STATE_UNSPECIFIED",
+          "VALIDATION_STATE_PENDING",
+          "VALIDATION_STATE_PASSED",
+          "VALIDATION_STATE_FAILED",
+          "VALIDATION_STATE_EXPIRED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.iam.v2.ValidationStatus": {
+        "description": "ValidationStatus is the read-time currency of an organization's recorded\nvalidations. Every field is derived when the policy is read; nothing here\nis stored or writable: the whole message is output-only.",
+        "properties": {
+          "breakGlassDesignees": {
+            "description": "break_glass_designees lists each currently-designated break-glass identity\nwith whether its own non-IdP validation is current. A new designee appears\nhere with validation_current false until it passes its own validation; a\ndesignee removed from the policy drops out of the list.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.BreakGlassValidationStatus"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "idpValidationCurrent": {
+            "description": "idp_validation_current is true when the organization's identity provider\nhas a recorded validation whose fingerprint still matches the provider as\nit is configured now. False when there has never been one or the\nconfiguration has changed since (a stale validation).",
+            "readOnly": true,
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.ValidationStep": {
+        "default": "VALIDATION_STEP_UNSPECIFIED",
+        "description": "ValidationStep is the stage of the sign-in a failed session stopped at, so a\ndiagnostic names a step rather than a generic pass/fail.\n\n - VALIDATION_STEP_UNSPECIFIED: Unset; a passed session names no step.\n - VALIDATION_STEP_DISCOVERY: Resolving the identity provider and its OIDC discovery document.\n - VALIDATION_STEP_REDIRECT: The provider sent the person back with an error instead of a code.\n - VALIDATION_STEP_CODE_EXCHANGE: Redeeming the authorization code at the provider's token endpoint.\n - VALIDATION_STEP_ID_TOKEN: Verifying the ID token the provider returned.\n - VALIDATION_STEP_CLAIMS: Reading the claims a sign-in needs from the verified token.\n - VALIDATION_STEP_IDENTITY_MATCH: Matching the authenticated person to the designated break-glass identity.",
+        "enum": [
+          "VALIDATION_STEP_UNSPECIFIED",
+          "VALIDATION_STEP_DISCOVERY",
+          "VALIDATION_STEP_REDIRECT",
+          "VALIDATION_STEP_CODE_EXCHANGE",
+          "VALIDATION_STEP_ID_TOKEN",
+          "VALIDATION_STEP_CLAIMS",
+          "VALIDATION_STEP_IDENTITY_MATCH"
+        ],
+        "type": "string"
       },
       "chainguard.platform.libraries.v2.Artifact": {
         "description": "Artifact contains metadata about a software artifact in a language ecosystem.",
@@ -5612,6 +5975,15 @@
                   "ssoOnly": {
                     "description": "sso_only, when true, makes the organization's own identity provider the\nonly way to sign in to it: sessions established through any other method\n(social sign-in, for example) are refused for this organization. Unset or\nfalse leaves sign-in unrestricted, which is the behaviour of an\norganization that has never configured a policy.\n\nThe field is presence-tracked so that \"never configured\" and \"explicitly\noff\" stay distinguishable, and so that an Update whose mask is implied\nfrom the populated fields can carry an explicit false. Readers must use\nthe SsoOnly pointer field directly, never the generated GetSsoOnly()\naccessor: the accessor returns false for nil and erases that distinction.",
                     "type": "boolean"
+                  },
+                  "validations": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/chainguard.platform.iam.v2.ValidationStatus"
+                      }
+                    ],
+                    "description": "validations reports, computed when the policy is read, whether the\norganization's recorded validations are current: whether the identity\nprovider validation still matches the provider as it is configured now,\nand which currently-designated break-glass identities have one of their\nown. Currency is a read-time comparison of the recorded fingerprint to the\nlive provider configuration, with no invalidation hooks: a provider change\nmakes a validation stale the moment the policy is next read. It is\npopulated only for a caller holding auth_policies.update at this\norganization, the capability that acts on it; every other reader gets the\npolicy without it. Whether sso_only may be enabled is not decided here:\nthat is readiness, below, which applies the same predicates and adds\nthe owner-binding check; this view breaks them out per designee.",
+                    "readOnly": true
                   }
                 },
                 "type": "object"
@@ -5645,6 +6017,113 @@
           }
         },
         "summary": "Update Auth Policy",
+        "tags": [
+          "AuthPoliciesService"
+        ]
+      }
+    },
+    "/iam/v2/authPolicies/{uid}/validations/{sessionId}": {
+      "get": {
+        "description": "GetValidationStatus returns a validation session by id: its state\n(pending, passed, failed or expired), the diagnostics the sign-in\nproduced (which step failed, the provider's error code, the claims it\nsaw), and the recorded result. It never returns open_url. It is a read\nand emits no event, but it is held to the same capability that started\nthe session: the diagnostics name the person who signed in (their\nprovider subject and email), which is not for every member who may read\nthe policy flag. The policy's uid is a root organization UIDP, a single\npath segment, so the binding matches it exactly; the session is addressed\nas a resource under the policy, so its id travels in the path rather\nthan in the query string.",
+        "operationId": "AuthPoliciesService_GetValidationStatus",
+        "parameters": [
+          {
+            "description": "UIDP of the root organization the session belongs to. A session is bound\nto its organization; a mismatch is NOT_FOUND.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "session_id is the id StartValidation returned.",
+            "in": "path",
+            "name": "sessionId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2.Validation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Validation Status",
+        "tags": [
+          "AuthPoliciesService"
+        ]
+      }
+    },
+    "/iam/v2/authPolicies/{uid}:startValidation": {
+      "post": {
+        "description": "Held by organization owners, the same capability as UpdateAuthPolicy:\nstarting a validation is part of configuring the policy, and the designee\nof a break-glass session is named by an owner, not self-selected.",
+        "operationId": "AuthPoliciesService_StartValidation",
+        "parameters": [
+          {
+            "description": "UIDP of the root organization whose provider (or break-glass path) is\nbeing validated. Follows the AuthPolicy.uid rule: a sub-group UIDP is\nINVALID_ARGUMENT.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.AuthPoliciesService.StartValidationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2.Validation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Start Validation",
         "tags": [
           "AuthPoliciesService"
         ]
@@ -7386,6 +7865,129 @@
           }
         },
         "summary": "Generate Scim Token",
+        "tags": [
+          "IdentityProvidersService"
+        ]
+      }
+    },
+    "/iam/v2/identityProviders/{identityProviderUid}:listManualBindings": {
+      "get": {
+        "description": "- DUPLICATE: a SCIM-managed binding already grants the same role at the\n    same scope. Removing the binding changes nothing.\n  - COVERED: SCIM-managed bindings at the same scope or a parent scope\n    already include every capability of the role. Removing the binding\n    changes nothing in practice.\n  - NOT_COVERED: anything else. Removing the binding takes access away.\n\nA SCIM-managed binding counts only while a current group membership and\nmapping grant it, for an active user, and not for a privileged role. One\nthat nothing grants any more is waiting to be revoked, and is not counted.\nA legacy or dangling row the reconciler refuses for another reason (a role\nscoped below the group, a role or scope group that no longer exists) is\nnot filtered out, so the list is advisory: a removal must re-check before\nit deletes.\n\nBindings that are never classified, and so are never removed, are reported\nonly when include_excluded is set or exclusions names a reason: the owner\nand support roles, and the\nbindings of people whose SCIM link was made under a correlation rule that\nhas since been replaced. The list covers the people the identity provider\nprovisions: an identity with no provisioned user is not listed, and its\nbindings are never removed. Only bindings in groups under the identity\nprovider's organization are listed. Reads only; nothing is changed.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "IdentityProvidersService_ListManualBindings",
+        "parameters": [
+          {
+            "description": "UID of the identity provider whose SCIM-provisioned people are listed.",
+            "in": "path",
+            "name": "identityProviderUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Return classified bindings of these classes. Empty returns every class,\nunless exclusions is set: then only excluded bindings are returned, and\nnaming classes as well returns both.\nprotolint:disable:next MAX_LINE_LENGTH\n\n - MANUAL_BINDING_CLASS_UNSPECIFIED: The class is unset. It is not a valid value in a request, which names the\nclasses it wants or leaves them empty for every class.\n - MANUAL_BINDING_CLASS_DUPLICATE: A SCIM-managed binding already grants the same role at the same scope.\nRemoving the binding changes nothing.\n - MANUAL_BINDING_CLASS_COVERED: SCIM-managed bindings at the same scope or a parent scope already include\nevery capability of the role. Removing the binding changes nothing in\npractice.\n - MANUAL_BINDING_CLASS_NOT_COVERED: Neither of the above. Removing the binding takes access away.",
+            "explode": true,
+            "in": "query",
+            "name": "classes",
+            "schema": {
+              "items": {
+                "enum": [
+                  "MANUAL_BINDING_CLASS_UNSPECIFIED",
+                  "MANUAL_BINDING_CLASS_DUPLICATE",
+                  "MANUAL_BINDING_CLASS_COVERED",
+                  "MANUAL_BINDING_CLASS_NOT_COVERED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Also return every excluded binding, whatever its reason, unless exclusions\nnarrows them. With no classes or exclusions set, the result holds every\nclass plus every excluded binding.",
+            "in": "query",
+            "name": "includeExcluded",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "Return excluded bindings with these reasons. Setting it implies\ninclude_excluded, and on its own returns only excluded bindings. Set with\nclasses, it returns both.\nprotolint:disable:next MAX_LINE_LENGTH\n\n - MANUAL_BINDING_EXCLUSION_UNSPECIFIED: The binding is not excluded. It is not a valid value in a request, which\nnames the reasons it wants.\n - MANUAL_BINDING_EXCLUSION_PRIVILEGED_ROLE: The role is the built-in owner or support role. A person whose link was\nmade under a replaced correlation rule has every binding reported as\nNO_CURRENT_SCIM_LINK instead, owner and support included.\n - MANUAL_BINDING_EXCLUSION_NO_CURRENT_SCIM_LINK: The person's SCIM link was made under a correlation rule that has since\nbeen replaced, so it grants nothing. People with no provisioned user, or\nwho have not signed in, are not listed at all.",
+            "explode": true,
+            "in": "query",
+            "name": "exclusions",
+            "schema": {
+              "items": {
+                "enum": [
+                  "MANUAL_BINDING_EXCLUSION_UNSPECIFIED",
+                  "MANUAL_BINDING_EXCLUSION_PRIVILEGED_ROLE",
+                  "MANUAL_BINDING_EXCLUSION_NO_CURRENT_SCIM_LINK"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Maximum number of people to return per page.\nDefault: 50, Maximum: 200.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Page token from a previous List response for pagination.\nOpaque token with 3-day expiration.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Order results by a provisioned user's field: uid (the provisioned user's\nUID, which the response does not show), user_name, created_at or\nupdated_at. Format: \"field [asc|desc]\"\nDefault: \"uid asc\"\nNote: Changing order_by between pages invalidates the page token.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of people to skip before returning, counted among the provisioned\npeople who hold at least one directly assigned binding in the identity\nprovider's organization, before the class and exclusion filters apply.\nResumes from an offset among those people. It does not map to result pages\nwhen the filters leave people out.\nCannot be combined with page_token: a request with both is rejected.\nMust be non-negative.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2.ListManualBindingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Manual Bindings",
         "tags": [
           "IdentityProvidersService"
         ]

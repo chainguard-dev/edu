@@ -1,5 +1,5 @@
 ---
-date: 2026-11-06T22:09:37Z
+date: 2026-11-09T19:57:31Z
 title: "chainctl config edit"
 slug: chainctl_config_edit
 url: /platform/chainctl/chainctl-docs/chainctl_config_edit/
