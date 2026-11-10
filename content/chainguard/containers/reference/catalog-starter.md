@@ -4,7 +4,7 @@ linktitle: "Containers on Starter"
 type: "article"
 description: "Learn about the five free Chainguard container images in Chainguard Starter, and how to choose and pull them."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-11-10T17:44:41+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -39,10 +39,10 @@ Starter is designed as a standalone free plan, separate from paid Catalog or per
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify.
-3. Enter your company name.
-4. Click **Set up an organization**.
-5. Complete the form and click **Submit**.
+2. Sign up with an email address, or click **Continue with Google**, **Continue with GitHub**, or **Continue with GitLab**. A work email address, including a Google account on your company's domain, creates a verified organization named after your email domain. A personal email address, such as a Gmail address, or a GitHub or GitLab sign-in, creates an unverified organization, which you can verify later.
+3. Click **Set up an organization**, then click **Set up Starter organization**.
+4. Complete the form, which asks for your name and job title, and for an organization name if your organization is unverified.
+5. Click **Create Chainguard Starter organization**.
 6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page later to add images until you have five. Once you confirm an image, it can't be swapped or replaced for the life of the free plan.
 
 Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
@@ -123,7 +123,7 @@ This requires selection of a valid authentication option:
     GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in must use the account's verified primary email address, and that address must be a business email address.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in uses the account's verified primary email address. A personal address creates an unverified organization, which you name yourself.
 
 ### Request access with `chainctl`
 
@@ -138,10 +138,10 @@ chainctl starter request-access
 You can see which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
 
 ```shell
-chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
+chainctl starter add-images $IMAGE1 [$IMAGE2 ...]
 ```
 
-After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name:
+After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name, or with its ID if you created it with a personal email address, and `$IMAGE` with the desired image's name:
 
 ```shell
 docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
@@ -168,11 +168,11 @@ Starter allows users to try out Chainguard Containers, but it comes with certain
     * Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
 * [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Starter.
 * If your organization uses [Chainguard Libraries](/chainguard/libraries/introduction/overview/), its [cooldown period](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan) is fixed at 7 days. You can't change it, and you can't add an override that lets a package version skip the cooldown.
-* User management is limited. You can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
+* User management is limited. An organization created with a personal email address can't invite anyone yet. Otherwise, you can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
 * The user who creates a Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
-* Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+* Revoking a pull token takes a different path. On the Console's **Access Tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Starter plan.
 * Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
@@ -222,9 +222,9 @@ If you know you’ll need more than five images, it’s usually better to start 
 
 ### Can I sign up with Google, GitHub, or GitLab?
 
-You can sign up with a Google account on your company's domain, such as a Google Workspace account. A personal Google account, such as a Gmail address, doesn't qualify, because Starter requires a business email address.
+Yes. A work email address, including a Google account on your company's domain, creates a verified organization. A GitHub or GitLab sign-in, or a personal email address such as a Gmail address, creates an unverified organization, which you can verify later.
 
-The Console's sign-up page doesn't offer GitHub or GitLab. To sign up with either one, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). The account's verified primary email address must be a business email address.
+You can also sign up from the command line with `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl).
 
 ### What happens if I decide to upgrade to a paid plan?
 

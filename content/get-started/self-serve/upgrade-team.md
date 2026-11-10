@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-10T15:30:02+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -34,7 +34,7 @@ To upgrade to Team, complete the following steps:
 
     If you belong to more than one organization, add `--parent` with the name of the organization to upgrade.
 
-1. In the checkout page that opens in your browser, enter your card and billing address, then save them. If the page shows **I'm purchasing as a business**, which depends on your billing country, you can select it and enter a business tax ID, such as a VAT number. Saving the card doesn't charge it.
+1. In the checkout page that opens in your browser, enter your card and billing address, select the checkbox to accept the terms, then save your card. If the page shows **I'm purchasing as a business**, which depends on your billing country, you can select it and enter a business tax ID, such as a VAT number. Saving the card doesn't charge it.
 1. Wait for the first payment. Chainguard charges the card for the first month, and your organization moves to Team once the charge succeeds. That usually takes a few minutes.
 1. Confirm the upgrade:
 
@@ -57,7 +57,7 @@ If you're working on a machine without a browser, such as over SSH, add `--no-br
 Your organization keeps its name, members, and images, and gets the following:
 
 * **Team limits.** Refer to [Plan limits](/get-started/self-serve/plans/#plan-limits) for the full list.
-* **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they're still a member when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on a single person.
+* **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they still have the `owner` or `limited_owner` role when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on a single person.
 * **Image swaps.** You can replace an image you chose with another one, once in a rolling 30 days.
 * **Invitations outside your email domain.** You can invite anyone, with any role you hold yourself.
 * **CVE-remediated Chainguard Libraries versions.**
@@ -65,15 +65,15 @@ Your organization keeps its name, members, and images, and gets the following:
 
 After the upgrade, `chainctl starter status` and `chainctl starter add-images` work as they did on Starter. They need `chainctl` 0.2.399 or later; earlier releases report that no Starter organization exists.
 
-Team pull tokens last at most 7 days. `chainctl` releases before 0.2.393 ask for 30-day tokens by default, which Team refuses, so update `chainctl` before you create pull tokens. For CI pipelines, use a CI identity instead; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
+Team pull tokens are limited to 7 days, a limit Chainguard doesn't enforce yet. For CI pipelines, use a CI identity instead; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
-If you created your organization with a personal email address, its Checks and Workspaces compute stops at the included amount rather than being metered past it. To run more, [buy compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute) in advance.
+If you created your organization with a personal email address, its Checks and Workspaces compute stops at the included amount rather than being metered past it.
 
 ## How Team is billed
 
 Team is billed monthly, in advance, to the card you saved. The first month starts on the day you upgrade. Applicable tax is added. For the current price, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
 
-Storage above Team's included 500 GiB is metered, and Chainguard starts charging for it on January 1, 2027. Checks and Workspaces compute past the included amount comes from a prepaid balance that you buy, not from a monthly charge; refer to [Buy Checks and Workspaces compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute). To check your usage, refer to [Usage, limits, and billing](/get-started/self-serve/usage-and-billing/).
+Storage above Team's included 500 GiB is metered, and Chainguard starts charging for it on January 1, 2027. Checks and Workspaces compute past the included amount is metered, up to 2,000 vCPU-hours a month. To check your usage, refer to [Usage, limits, and billing](/get-started/self-serve/usage-and-billing/).
 
 ## Change your card
 

@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-09T18:55:19+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -47,9 +47,11 @@ The following table lists what each self-serve plan includes:
 | SSO and SCIM | Not included | Not included |
 | **Support** | Community | Tickets during business hours, with no response-time commitment |
 
-Monthly limits reset at the start of each calendar month, in UTC. GiB and TiB are binary units: 1 GiB is 1,024 MiB, and 1 TiB is 1,024 GiB. Chainguard uses these units when it reports usage and when it refuses a request.
+Monthly limits reset at the start of each calendar month, in UTC. GiB and TiB are binary units: 1 GiB is 1,024 MiB, and 1 TiB is 1,024 GiB. Chainguard uses these units when it refuses a request.
 
-Chainguard counts Starter usage against the limits for image egress, storage, and package pulls now, and starts refusing requests past them on January 1, 2027. The CI-identity and pull-token limits also start on January 1, 2027. Until then, a Starter organization can't create CI identities, and its pull tokens follow the lifetimes in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token). To find which limits you're approaching, run `chainctl plans quotas list --near`.
+Chainguard counts Starter usage against the limits for image egress and package pulls now, and starts refusing requests past them on January 1, 2027. The storage limit already applies: a push that would take your organization past 100 GiB is refused. The CI-identity and pull-token limits also start on January 1, 2027. Until then, a Starter organization can't create CI identities, and its pull tokens follow the lifetimes in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token). To find which limits you're approaching, run `chainctl plans quotas list --near`.
+
+Chainguard doesn't yet refuse Team requests past the image egress, package pull, and pull-token limits.
 
 FIPS, developer-tool, and commercial images need an Enterprise plan.
 
@@ -57,7 +59,7 @@ On Starter, a newly published package version stays unavailable for 7 days, and 
 
 A Starter organization created with a personal email address can't invite anyone until it upgrades to Team.
 
-Team pull tokens last at most 7 days. To authenticate CI pipelines on Team without replacing a secret every week, use a CI identity, which Team doesn't cap. Refer to [Overview of assumable identities in Chainguard](/platform/administration/assumable-ids/assumable-ids/).
+Once Chainguard enforces Team's pull-token limit, Team pull tokens last at most 7 days. To authenticate CI pipelines on Team without replacing a secret every week, use a CI identity, which Team doesn't cap. Refer to [Overview of assumable identities in Chainguard](/platform/administration/assumable-ids/assumable-ids/).
 
 ### What the limits count
 
@@ -70,10 +72,10 @@ Team pull tokens last at most 7 days. To authenticate CI pipelines on Team witho
 A plan limit is a cap, an included amount, or a feature the plan doesn't include:
 
 * **A cap** refuses the next request that would go past it. Work that's already running, such as an image pull, finishes.
-* **An included amount** keeps serving you past the limit and meters the extra usage. On Team, storage and Checks and Workspaces compute are included amounts. On Team, compute past 2,000 vCPU-hours a month is refused, unless your organization has bought compute.
+* **An included amount** keeps serving you past the limit and meters the extra usage. On Team, storage and Checks and Workspaces compute are included amounts. On Team, compute past 2,000 vCPU-hours a month is refused.
 * **A feature the plan doesn't include**, such as SSO, is refused whenever you try to use it.
 
-A Team organization created with a personal email address, rather than a business email domain, can't go past its included compute. To run more, [buy compute](/get-started/self-serve/usage-and-billing/#buy-checks-and-workspaces-compute) in advance.
+A Team organization created with a personal email address, rather than a business email domain, can't go past its included compute.
 
 A refused request returns an error that names your plan and the limit, and what you've used or what you asked for, followed by a link to the pricing page and a `chainctl plans update` command for the next plan. For example:
 
