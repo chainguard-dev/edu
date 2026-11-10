@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-05T15:14:03+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []

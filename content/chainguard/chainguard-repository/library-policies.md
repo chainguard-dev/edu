@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-11-07T00:00:00+00:00
+lastmod: 2026-11-10T13:03:31+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -122,7 +122,7 @@ As a result, a version can wait up to 24 hours longer than the configured number
 
 For example, with a 7-day cooldown, a version published upstream at 14:00 UTC on October 15 completes its cooldown at 14:00 UTC on October 22. It becomes available at 00:00 UTC on October 23.
 
-To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version).
+To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version), except on the Starter plan, which doesn't allow overrides.
 
 ### Cooldown limits by plan
 
@@ -134,20 +134,20 @@ Your organization's plan sets the cooldown periods you can choose and whether yo
 | Team | 0 to 7 days | Allowed |
 | Enterprise | 0 to 30 days | Allowed |
 
-The Starter plan is the free plan described in [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+The Starter plan is the free plan described in [Chainguard plans](/get-started/self-serve/plans/).
 
 Chainguard checks the limits when you create a policy, change a policy's cooldown period, add a cooldown override, or enable a policy in enforce mode. The limits don't change a cooldown that's already in force.
 
 If a request falls outside your plan's limits, Chainguard refuses it. The error message names your plan's limit and what you requested. For example, a Team organization that tries to set a 14-day cooldown gets this message:
 
 ```output
-Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
 ```
 
 A Starter organization that tries to add a cooldown override gets this message:
 
 ```output
-Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing
+Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan team
 ```
 
 ### Create and enable a cooldown policy

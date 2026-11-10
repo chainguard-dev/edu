@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "Learn how Chainguard Workspaces runs your repository and your coding agents in a remote microVM session without putting your credentials in the session."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T12:09:53+00:00
+lastmod: 2026-11-03T16:49:44+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Overview", "AI"]
 images: []
@@ -84,7 +84,7 @@ During the beta, Chainguard Workspaces has the following limits:
 - GitHub features, including pushing from a session, work only with repositories on github.com.
 - By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk. Unless Chainguard has raised your organization's limit, a session can't have more vCPUs or memory than that, but its disk can be up to 100 GB. Refer to [Resources](/chainguard/workspaces/session-environment/#resources) to change a session's size. The `/tmp` directory is held in memory and is limited to a quarter of the session's memory, 4 GB by default, so put large files under `/var/tmp` instead.
 - A session can't forward ports to your laptop.
-- `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. An allowance arranged with your Chainguard account team can differ.
+- `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. On the Chainguard Team plan, the allowance is 1,000 vCPU-hours of Workspaces, and Workspaces keeps running past it, metered, up to 2,000; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits). An allowance arranged with your Chainguard account team can differ.
 
 A session counts its vCPUs against the allowance for every hour its VM runs, whether it's busy or idle. A session with the default 4 vCPUs uses 4 vCPU-hours an hour, including the time it keeps running while it's busy after you detach and the 10 idle minutes before it parks, and a parked session uses none. A 4-vCPU session created with `--keep always` and left running uses the month's allowance in about 5 days. Chainguard doesn't show your usage during the beta.
 

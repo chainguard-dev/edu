@@ -50,7 +50,7 @@ Before getting started:
 * Ensure your organization is entitled to Chainguard Libraries. To add an
   entitlement for an ecosystem, contact your Chainguard account team.
 
-Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
+Chainguard Libraries are also included in the self-serve plans. A Chainguard Starter organization can pull Java, Python, JavaScript, .NET, and Go packages, without CVE-remediated versions. Chainguard Team adds the remediated versions. Refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 ## Step 1: Choose your access method
 
