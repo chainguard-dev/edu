@@ -17,7 +17,7 @@ weight: 30
 toc: true
 ---
 
-This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features.
+This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's Production container images and enterprise features.
 
 ## What is Chainguard OS?
 
@@ -25,7 +25,7 @@ Chainguard OS is a minimal, hardened Linux-based operating system designed for s
 
 ## What is the relationship between Chainguard OS and Wolfi?
 
-Wolfi and Chainguard OS are both Linux distributions that Chainguard builds and maintains. Wolfi is the open source distribution behind Chainguard's [Free container images](/chainguard/containers/concepts/container-categories/#free-containers). Chainguard OS is the distribution behind [Production container images](/chainguard/containers/concepts/container-categories/#production-containers) and Chainguard's other products.
+Wolfi is the open source core of Chainguard OS, and Chainguard builds and maintains both. Wolfi is the distribution behind Chainguard's [Free container images](/chainguard/containers/concepts/container-categories/#free-containers). Chainguard OS builds on Wolfi and adds packages and enterprise features, such as FIPS-validated packages and the EOL Grace Period. It's the distribution behind [Production container images](/chainguard/containers/concepts/container-categories/#production-containers) and Chainguard's other products.
 
 The two work the same way. Both use the apk package format, and both are rolling releases: neither has major OS versions, and packages update continuously as upstream projects publish new releases. They differ in who can access them and what Chainguard commits to:
 
