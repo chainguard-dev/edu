@@ -40,7 +40,7 @@ The two work the same way. Both use the apk package format, and both are rolling
 
 Don't mix packages from Wolfi and Chainguard OS in the same container image. Chainguard doesn't support images that combine them.
 
-To compare the `wolfi-base` and `chainguard-base` images in more detail, see [Choosing a base container](/chainguard/containers/concepts/choosing-a-base-container/).
+To compare the `wolfi-base` and `chainguard-base` images in more detail, refer to [Choosing a base container](/chainguard/containers/concepts/choosing-a-base-container/).
 
 ## What are the core principles behind Chainguard OS?
 
