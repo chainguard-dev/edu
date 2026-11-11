@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -501,9 +501,8 @@ libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_ent
 
 New entitlements have [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
-on by default. Entitlements created before that default keep the policy they
-were created with. To turn on upstream fallback for such an entitlement, use
-the `--policy` flag:
+on by default. To turn on upstream fallback for an entitlement that has it off,
+use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM

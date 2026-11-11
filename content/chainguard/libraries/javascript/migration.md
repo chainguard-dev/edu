@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -48,7 +48,7 @@ Before you begin, you'll need:
 
 You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
 
-New JavaScript entitlements have upstream fallback on by default, with a default 7-day cooldown. If your entitlement was created before that default, check its policy with `chainctl libraries entitlements list` and, if needed, turn on upstream fallback by running:
+New JavaScript entitlements have upstream fallback on by default, with a default 7-day cooldown. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM

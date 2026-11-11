@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -60,7 +60,7 @@ Before you begin, you need:
 
 If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
 
-New Python entitlements have upstream fallback on by default. If your entitlement was created before that default, check its policy with `chainctl libraries entitlements list` and, if needed, turn on upstream fallback by running the following command:
+New Python entitlements have upstream fallback on by default. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM

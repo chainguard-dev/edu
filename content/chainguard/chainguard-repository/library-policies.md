@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-11-10T13:03:31+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -18,7 +18,7 @@ toc: true
 
 Chainguard Libraries policies enable you to filter and restrict package versions pulled through Chainguard Repository.
 
-Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. Policies only take effect for an ecosystem when [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for it. They then apply to all packages pulled through Chainguard Repository, Chainguard-built and upstream alike.
 
 One custom policy per ecosystem can be enabled at a time. This policy should include all the rules you need, which may include a cooldown period, package block rules, and any overrides.
 
@@ -35,7 +35,7 @@ This page uses the following terms:
 
 Chainguard Libraries supports the following types of policies:
 
-* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
+* **Cooldown**: Delays newly published package versions for a set number of days after the upstream registry publish date. The cooldown only applies when upstream fallback is enabled, and then to Chainguard-built and upstream packages alike. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
 * **Block**: Deny a package or version outright. Use a block rule when your organization never wants to allow a package or version.
 * **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     * An override policy takes precedence over a block policy.
@@ -110,7 +110,7 @@ Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `cha
 
 ## Cooldown policies
 
-The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows.
+The default cooldown period is 7 days. It applies only when upstream fallback is enabled for the ecosystem, and then to Chainguard-built and upstream packages alike. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows.
 
 > **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 

@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -237,8 +237,7 @@ Check out minimal example projects for
 
 > **Note on upstream fallback**: Upstream fallback works with both the
 > repository manager and direct access approaches, and new entitlements have it
-> on by default. Entitlements created before that default keep the policy they
-> were created with; check yours with `chainctl libraries entitlements list`.
+> on by default. To check yours, run `chainctl libraries entitlements list`.
 > Learn more about upstream fallback policy and controls in the [Libraries
 > overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 

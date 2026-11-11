@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -220,8 +220,7 @@ Replace `PACKAGE` and `VERSION` with the package name and version (for example, 
 Chainguard Libraries for JavaScript includes a built-in, policy-governed fallback to
 the upstream npm Registry, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/). New JavaScript entitlements
-have upstream fallback on by default. Entitlements created before that default keep
-the policy they were created with. The endpoint always serves Chainguard-built
+have upstream fallback on by default. The endpoint always serves Chainguard-built
 packages first. When upstream fallback is on, upstream packages are
 subject to additional security controls before being served. To serve only
 Chainguard-built packages, set the entitlement policy to Chainguard-only.
