@@ -4,7 +4,7 @@ linktitle: "chainctl checks reference"
 description: "Reference for the chainctl checks commands that inspect pull request runs, start and rerun checks, summarize check history, and validate your Chainguard Checks configuration."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-11-04T18:25:28+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Reference"]
 images: []
@@ -45,9 +45,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 
 ## Access and organization {#access-and-organization}
 
-Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
-
-If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. That role can start runs with `chainctl checks run`, but it can't read any run. Those runs use your allowance without showing you their results, so don't use that command in a Starter organization. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
+Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 The `validate` and `explain` commands read only your local checkout, so they don't need a Chainguard account or network access.
 

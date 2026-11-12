@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T18:36:54+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -82,7 +82,7 @@ For each check that couldn't be executed, the reason appears under **Errors:** a
 
 ## Read results with the GitHub API {#read-results-with-the-github-api}
 
-A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs, so it also works if you have the `limited_owner` role in a Starter organization. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
+A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
 
 Results appear on the pull request's head commit, not on the merge commit that Chainguard Checks tests. List the head commit's check runs by name. Filtering by app alone isn't enough, because the Chainguard App also reports checks for other Chainguard products, such as Guardener. These commands use the GitHub CLI. Replace `$OWNER/$REPO` with your repository and `$NUMBER` with the pull request's number:
 
