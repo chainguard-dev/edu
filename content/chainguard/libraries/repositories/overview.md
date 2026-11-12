@@ -214,31 +214,56 @@ The command writes a `.npmrc` file that contains the following lines:
 ```properties
 registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
 //libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
 ```
 
 npm matches credentials by URL prefix, so the credential keyed to
 `//libraries.cgr.dev/javascript/` also covers the repository URL. If you run
 the command again, it keeps the repository URL.
 
-### Yarn Classic, Yarn, and pnpm
+### pnpm
 
-For Yarn Classic, Yarn, and pnpm, set the registry to the repository URL and
-keep the credential setup described in [Build
-configuration](/chainguard/libraries/javascript/build-configuration/):
+In `.npmrc`, set `registry` to the repository URL and key the credential to
+either `//libraries.cgr.dev/javascript/` or `//libraries.cgr.dev/`. Both keys
+work:
 
-* **Yarn Classic:** In `.npmrc`, set `registry` to the repository URL. Keep the
-  `//libraries.cgr.dev/javascript/:_auth` line.
-* **Yarn:** In `.yarnrc.yml`, set `npmRegistryServer` to the repository URL.
-  Keep the `npmAuthIdent` and `npmAlwaysAuth` entries under
-  `npmRegistries["//libraries.cgr.dev/javascript"]`.
-* **pnpm:** In `.npmrc`, set `registry` to the repository URL. Keep the
-  `//libraries.cgr.dev/:_auth` line.
+```properties
+registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
+//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+```
 
-Chainguard hasn't yet verified these three clients against repository URLs. In
-particular, Yarn looks up credentials by registry URL, and it isn't confirmed
-whether the `//libraries.cgr.dev/javascript` entry applies to a repository URL.
-If a client returns HTTP `401` with a repository URL, contact your Chainguard
-account team.
+### Yarn Classic
+
+In `.npmrc`, set `registry` to the repository URL, key the credential to the
+full repository URL, and set `always-auth=true`:
+
+```properties
+registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
+//libraries.cgr.dev/javascript/~/acme.com/prod/:_auth=<base64-encoded-token>
+always-auth=true
+```
+
+Yarn Classic doesn't send a credential keyed to `//libraries.cgr.dev/javascript/`
+to a repository URL. With that key, the request fails with HTTP `401`, which
+Yarn Classic reports as `Couldn't find package`.
+
+### Yarn
+
+In `.yarnrc.yml`, set `npmRegistryServer` to the repository URL. Add an
+`npmRegistries` entry keyed by the same full URL, with `npmAuthIdent` and
+`npmAlwaysAuth: true`:
+
+```yaml
+npmRegistryServer: "https://libraries.cgr.dev/javascript/~/acme.com/prod/"
+npmRegistries:
+  "//libraries.cgr.dev/javascript/~/acme.com/prod/":
+    npmAuthIdent: "<base64-encoded-token>"
+    npmAlwaysAuth: true
+```
+
+An entry keyed by `//libraries.cgr.dev/javascript` doesn't authenticate
+requests to a repository URL. Yarn reports `YN0033: No authentication
+configured for request`.
 
 ## Responses from a repository URL
 
