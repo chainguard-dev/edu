@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 weight: 10
 ---
@@ -36,6 +36,11 @@ Each artifact type is accessible via its own endpoint:
 | Libraries for [JavaScript](/chainguard/libraries/javascript/overview/) | `https://libraries.cgr.dev/javascript/` |
 | Libraries for [Java](/chainguard/libraries/java/overview/) | `https://libraries.cgr.dev/java/` |
 | Libraries for [Python](/chainguard/libraries/python/overview/) | `https://libraries.cgr.dev/python/` |
+
+These endpoints are your organization's default repository. For JavaScript,
+you can also create named repositories, each with its own URL and upstream
+fallback setting. Repositories are in beta; refer to
+[Repositories](/chainguard/libraries/repositories/overview/).
 
 See each artifact type's documentation for authentication and configuration details.
 

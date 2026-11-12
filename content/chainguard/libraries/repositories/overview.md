@@ -1,18 +1,13 @@
 ---
-title: "Repositories"
-linktitle: "Repositories"
-description: "Create named repositories in Chainguard Libraries for JavaScript, each with its own URL and upstream fallback setting"
+title: "Chainguard Libraries repositories overview"
+linktitle: "Repositories overview"
+description: "Create named repositories in Chainguard Libraries, each with its own URL and upstream fallback setting"
 type: "article"
 date: 2026-11-12T09:00:00+00:00
 lastmod: 2026-11-12T09:00:00+00:00
 draft: true
-tags: ["Chainguard Libraries", "JavaScript"]
-images: []
-menu:
-  docs:
-    parent: "javascript"
-    identifier: "JavaScript Repositories"
-weight: 50
+tags: ["Chainguard Libraries", "Overview"]
+weight: 10
 toc: true
 ---
 
@@ -28,28 +23,29 @@ Libraries repositories are not available for this organization.
 
 ## How repositories work
 
-Chainguard Libraries for JavaScript gives your organization one npm registry
-URL, `https://libraries.cgr.dev/javascript/`. It serves packages that
-Chainguard builds from source. If your organization turned on [upstream
+Chainguard Libraries gives your organization one URL per ecosystem, such as
+`https://libraries.cgr.dev/javascript/` for JavaScript. Each URL serves
+packages that Chainguard builds from source. If your organization turned on
+[upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-it also serves packages from the public npm Registry that Chainguard hasn't
-built.
+it also serves packages from the public registry, such as the npm Registry,
+that Chainguard hasn't built.
 
-This URL is your organization's *default repository*. If you don't create any
-other repository, nothing changes: the URL keeps working exactly as it does
-today.
+These URLs are your organization's *default repository*. If you don't create
+any other repository, nothing changes: the URLs keep working exactly as they
+do today.
 
-A *repository* is an additional, named registry URL in the same organization.
-Each repository has its own upstream fallback setting. A common setup uses two
-repositories:
+A *repository* is an additional, named set of URLs in the same organization.
+Each repository has its own upstream fallback setting. In this beta, only
+JavaScript serves repository URLs. A common setup uses two repositories:
 
 * A `prod` repository with upstream fallback off, so CI installs only packages
   that Chainguard builds.
 * A `dev` repository with upstream fallback on, so engineers can install any
   package.
 
-A repository URL has the following form, where `acme.com` is the organization
-name and `prod` is the repository name:
+A JavaScript repository URL has the following form, where `acme.com` is the
+organization name and `prod` is the repository name:
 
 ```text
 https://libraries.cgr.dev/javascript/~/acme.com/prod/
@@ -199,7 +195,12 @@ chainctl auth pull-token create --repository=javascript --parent acme.com/prod -
 For more about pull tokens, see [Chainguard Libraries
 access](/chainguard/libraries/introduction/access/).
 
-## Configure npm
+## Configure JavaScript clients
+
+The following sections show how to point JavaScript clients at a repository
+URL.
+
+### npm
 
 To point npm at a repository and write a pull token in one step, run the
 following command:
@@ -219,7 +220,7 @@ npm matches credentials by URL prefix, so the credential keyed to
 `//libraries.cgr.dev/javascript/` also covers the repository URL. If you run
 the command again, it keeps the repository URL.
 
-## Configure other clients
+### Yarn Classic, Yarn, and pnpm
 
 For Yarn Classic, Yarn, and pnpm, set the registry to the repository URL and
 keep the credential setup described in [Build

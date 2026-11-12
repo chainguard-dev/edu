@@ -6,7 +6,7 @@ aliases:
 description: "Configure and enforce policies that control which Chainguard Libraries package versions your organization can pull"
 type: "article"
 date: 2026-07-31T00:00:00+00:00
-lastmod: 2026-10-22T14:19:25+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -19,6 +19,10 @@ toc: true
 Chainguard Libraries policies enable you to filter and restrict package versions pulled through Chainguard Repository.
 
 Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+
+Policies apply to your organization's default repository and to every named
+repository in it. There are no per-repository policies. Named repositories are
+in beta; refer to [Repositories](/chainguard/libraries/repositories/overview/).
 
 One custom policy per ecosystem can be enabled at a time. This policy should include all the rules you need, which may include a cooldown period, package block rules, and any overrides.
 

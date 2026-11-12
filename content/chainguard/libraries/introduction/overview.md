@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-22T14:19:25+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -208,6 +208,11 @@ The following options are available:
 
 * **No upstream fallback (default)**: Only Chainguard-built packages are served.
 * **Upstream fallback enabled**: Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+
+Your entitlement sets the upstream fallback for your organization's default
+repository, the URLs such as `https://libraries.cgr.dev/javascript/`. Named
+repositories, in beta for JavaScript, each have their own upstream fallback
+setting. Refer to [Repositories](/chainguard/libraries/repositories/overview/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 

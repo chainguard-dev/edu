@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-19T18:40:28+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -224,5 +224,11 @@ only Chainguard-built packages. When the upstream fallback is enabled, upstream 
 subject to additional security controls before being served.
 
 Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
+
+The `https://libraries.cgr.dev/javascript/` URL is your organization's default
+repository. To use a different upstream fallback setting for some builds, such
+as a CI repository that serves only Chainguard-built packages, you can create a
+named repository with its own URL. Repositories are in beta. Refer to
+[Repositories](/chainguard/libraries/repositories/overview/).
 
 > Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.

@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -178,6 +178,11 @@ credential set. It is therefore suitable for use in any service application,
 such as a repository manager or a build tool that is not tied to a specific
 user. You can also use the token as an individual for your development with
 direct access to Chainguard Libraries.
+
+A pull token created for the organization works on every URL in the
+organization, including the URLs of its named repositories. A pull token
+created for a named repository works only on that repository's URL. Named
+repositories are in beta; refer to [Repositories](/chainguard/libraries/repositories/overview/).
 
 To use the pull token in another environment, supply the username and password
 for basic authentication. Note that the actual returned values are much longer.
