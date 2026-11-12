@@ -4,7 +4,7 @@ linktitle: "Variations, services, and caches"
 description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database or Docker, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-11-12T14:46:46+00:00
+lastmod: 2026-11-12T15:35:48+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -354,7 +354,7 @@ By default, each check starts with nothing from earlier runs, so a Go check comp
 
 <span id="build-caches"></span>
 
-Each key under `caches` is a cache type. During the beta, five types store files from earlier runs:
+Each key under `caches` is a cache type. During the beta, the following types store files from earlier runs:
 
 | Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
 | ---- | -------------- | ----------------- | -------------------------------- |
