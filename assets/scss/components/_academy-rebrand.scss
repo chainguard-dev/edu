@@ -69,8 +69,8 @@
 }
 
 // Colorful Accent Bars
-.accent-bar-cyan {
-  background: #2BBAFD;
+.accent-bar-blurple {
+  background: var(--primary-1);
 }
 
 // Enhanced Section Titles
@@ -79,7 +79,7 @@
   font-size: 42px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--center-title-color);
   margin-bottom: 24px;
 
@@ -102,10 +102,7 @@
 }
 
 .section-description {
-  font-size: 18px;
-  line-height: 1.6;
   color: var(--caption-color);
-  margin-bottom: 48px;
 }
 
 // Enhanced Cards with Bold Style
@@ -175,6 +172,7 @@
 // Enhanced Basics Cards
 .basics-card {
   position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
 
   &::before {
@@ -209,6 +207,12 @@
 
 .basics-card:hover .form-check-input {
   background: var(--primary-hover);
+}
+
+:root[data-dark-mode] {
+  .basics-card:hover .form-check-input {
+    background: var(--primary-1);
+  }
 }
 
 // Bold Featured Cards
