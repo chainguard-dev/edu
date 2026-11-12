@@ -4,7 +4,7 @@ linktitle: "Configuration reference"
 description: "Reference for the .chainguard/ci.yaml file that defines Chainguard Checks: file layouts, packages, commands, network access, conditions, triggers, resources, and environment variables."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T16:38:24+00:00
+lastmod: 2026-11-12T14:46:46+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -655,6 +655,8 @@ Unless `identities.yaml` on your default branch has a `trust` section, any open 
 To find mistakes in your configuration without running anything, run `chainctl checks validate .` from your repository's directory. To see how Chainguard Checks interprets your configuration, run `chainctl checks explain`. Refer to [Validate your configuration offline](/chainguard/checks/run-checks/#validate-your-configuration-offline) for details.
 
 ## More examples
+
+For Java with Maven, Rust, container image builds, monorepos, and checks that use Postgres and Redis, refer to [Chainguard Checks examples](/chainguard/checks/examples/).
 
 ### Node.js
 

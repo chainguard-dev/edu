@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-05T15:45:20+00:00
+lastmod: 2026-11-12T14:46:46+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -122,7 +122,7 @@ checks:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format.
+A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format, and to [Chainguard Checks examples](/chainguard/checks/examples/) for complete files for common kinds of projects.
 
 Keep the following in mind when you write the file for sessions:
 

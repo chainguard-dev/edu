@@ -4,7 +4,7 @@ linktitle: "Variations, services, and caches"
 description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database or Docker, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-11-02T15:44:24+00:00
+lastmod: 2026-11-12T14:46:46+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -354,7 +354,7 @@ By default, each check starts with nothing from earlier runs, so a Go check comp
 
 <span id="build-caches"></span>
 
-Each key under `caches` is a cache type. During the beta, four types store files from earlier runs:
+Each key under `caches` is a cache type. During the beta, five types store files from earlier runs:
 
 | Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
 | ---- | -------------- | ----------------- | -------------------------------- |
@@ -362,6 +362,7 @@ Each key under `caches` is a cache type. During the beta, four types store files
 | `gomod` | Downloaded Go modules | `go` or a `go-<version>` package | `GOMODCACHE` |
 | `python` | Packages that pip and uv download | `python` or a `python-<version>` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
 | `java` | Files that Maven and Gradle download, in `~/.m2/repository` and `~/.gradle/caches/modules-2/files-2.1` | An `openjdk-<version>` package | None |
+| `cargo` | Crates and Git dependencies that Cargo downloads, and the build output in `target/` in the check's `workdir` | `rust` or a `rust-<version>` package | `CARGO_HOME`, set to `/home/build/.cargo` |
 
 The `node` and `directory` types pass validation, but they store nothing during the beta.
 
@@ -390,6 +391,7 @@ A cache does nothing until your default branch defines cache pools, as described
 - With `gobuild`, Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
 - With `gomod`, Go reuses downloaded modules but downloads any that the cache doesn't have, and with `python`, pip and uv do the same, so keep the hosts that your tools download from in `egress`.
 - With `java`, Maven can build from the cache alone once it holds every file the build needs. Gradle still asks its repositories for each file's checksum, so keep them in `egress` for Gradle builds. The cache doesn't store the Gradle wrapper's distributions.
+- With `cargo`, Chainguard Checks restores `target/` as one saved copy, rather than merging files from several runs, because Cargo can't rebuild correctly from a mix of builds. Only the `target/` directory in the check's `workdir` is cached, not one in a nested workspace. A check can't set `CARGO_HOME` or `CARGO_TARGET_DIR`, because the cache depends on Cargo keeping its files where Chainguard Checks expects them.
 - A [planner](#compute-variations-during-a-run) can't name a cache. Name the cache on the checks it plans instead.
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
 
