@@ -5,7 +5,7 @@ description: "Create named repositories in Chainguard Libraries, each with its o
 type: "article"
 date: 2026-11-12T09:00:00+00:00
 lastmod: 2026-11-12T09:00:00+00:00
-draft: true
+draft: false
 tags: ["Chainguard Libraries", "Overview"]
 weight: 10
 toc: true
