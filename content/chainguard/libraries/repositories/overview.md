@@ -14,9 +14,8 @@ toc: true
 {{< beta feature="Repositories in Chainguard Libraries" access="a small group of organizations that Chainguard enrolls" >}}
 
 The commands on this page work only after Chainguard enrolls your
-organization. Update `chainctl` to the latest release before you start;
-earlier releases do not show these commands. If your organization isn't
-enrolled, `chainctl` returns the following error:
+organization. Update `chainctl` to the latest release before you start. If
+your organization isn't enrolled, `chainctl` returns the following error:
 
 ```text
 Libraries repositories are not available for this organization.
@@ -62,17 +61,6 @@ The number of repositories you can create depends on your plan:
 | Team | The default repository and one named repository |
 | Enterprise | The default repository and as many named repositories as you need |
 
-When you reach the limit, `chainctl` refuses to create another repository and
-returns one of the following messages:
-
-```text
-Starter plans include only the default repository; upgrade to Team for more.
-```
-
-```text
-Team plans include 1 repository in addition to the default; upgrade to Enterprise for more.
-```
-
 ## Create a repository
 
 To create a repository named `prod` in the `example.com` organization, run the
@@ -89,6 +77,10 @@ Repository prod is ready.
 URLs:
   JAVASCRIPT  https://libraries.cgr.dev/javascript/~/example.com/prod/
 ```
+
+Running `create` again with the same name doesn't fail or create a second
+repository: `chainctl` prints that the existing repository is ready and shows
+its URL.
 
 A repository can't use the name of a folder that already exists in the
 organization. `chainctl` refuses the name rather than turn the existing folder
