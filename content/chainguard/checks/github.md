@@ -4,7 +4,7 @@ linktitle: "Checks on GitHub"
 description: "Learn when Chainguard Checks runs on GitHub, how to read its results, and how to require checks before merging, rerun them, and run checks on request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-12T13:41:48+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Checks", "GitHub", "Configuration"]
 images: []
@@ -15,7 +15,7 @@ toc: true
 weight: 40
 ---
 
-Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, how to read them with the GitHub API, and how to use them to protect your branches.
+Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, how to read them with the GitHub API, and how to use them to protect your branches. To watch a pull request's checks pass, fail, and pass again after a fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ## When Checks runs {#when-checks-runs}
 
