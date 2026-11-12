@@ -51,6 +51,27 @@
         },
         "type": "object"
       },
+      "chainguard.platform.oci.v2alpha1.RegistriesService.EnrollRegistryBody": {
+        "description": "EnrollRegistryRequest selects an existing root organization for enrollment.",
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.RegistriesService.SetRegistryStateBody": {
+        "description": "SetRegistryStateRequest changes an enrolled Registry's lifecycle state.",
+        "properties": {
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry.State"
+              }
+            ],
+            "description": "ACTIVE or DISABLED; STATE_UNSPECIFIED is not an update."
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
       "chainguard.platform.oci.v2alpha1.Registry": {
         "description": "Registry is an operator-enrolled private registry owned by an organization.",
         "properties": {
@@ -95,7 +116,7 @@
       },
       "chainguard.platform.oci.v2alpha1.Registry.State": {
         "default": "STATE_UNSPECIFIED",
-        "description": "State controls whether the Registry accepts writes.\n\n - STATE_UNSPECIFIED: State was not specified.\n - ACTIVE: Registry accepts authorized writes.\n - DISABLED: Writes are refused; metadata reads and cleanup remain available.",
+        "description": "State controls Registry content serving and writes.\n\n - STATE_UNSPECIFIED: State was not specified.\n - ACTIVE: Registry permits authorized content serving and writes.\n - DISABLED: Content serving and writes are refused; metadata and cleanup remain\navailable.",
         "enum": [
           "STATE_UNSPECIFIED",
           "ACTIVE",
@@ -244,6 +265,61 @@
         ]
       }
     },
+    "/oci/v2alpha1/organizations/{parent}/registries:enroll": {
+      "post": {
+        "description": "EnrollRegistry provisions the organization's private Registry. Retrying\npreserves its identity, state and domain. Enrollment does not add the\norganization to the deployment's serving allowlist.",
+        "operationId": "RegistriesService_EnrollRegistry",
+        "parameters": [
+          {
+            "description": "Owning organization UIDP. The service assigns the domain.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.RegistriesService.EnrollRegistryBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Enroll Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
     "/oci/v2alpha1/registries/{parent}/repos": {
       "get": {
         "description": "ListRepos lists direct children of the specified Registry.",
@@ -323,6 +399,48 @@
       }
     },
     "/oci/v2alpha1/registries/{uid}": {
+      "delete": {
+        "description": "DeleteRegistry removes an empty Registry. Live repositories must be deleted\nfirst; disabling a Registry alone does not remove its content.",
+        "operationId": "RegistriesService_DeleteRegistry",
+        "parameters": [
+          {
+            "description": "Registry UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      },
       "get": {
         "description": "GetRegistry retrieves a Registry by UIDP, including disabled Registries.",
         "operationId": "RegistriesService_GetRegistry",
@@ -361,6 +479,61 @@
           }
         },
         "summary": "Get Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/registries/{uid}:setRegistryState": {
+      "post": {
+        "description": "SetRegistryState enables or disables content serving without deleting data.\nEnabling does not bypass the deployment's per-organization allowlist.",
+        "operationId": "RegistriesService_SetRegistryState",
+        "parameters": [
+          {
+            "description": "Registry UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.RegistriesService.SetRegistryStateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Set Registry State",
         "tags": [
           "RegistriesService"
         ]

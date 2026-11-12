@@ -159,6 +159,7 @@
           "CAP_REGISTRY_CHARTS_ADD",
           "CAP_REGISTRY_USE",
           "CAP_REGISTRY_LIST",
+          "CAP_REGISTRY_MANAGE",
           "CAP_SIGSTORE_CREATE",
           "CAP_SIGSTORE_UPDATE",
           "CAP_SIGSTORE_LIST",
@@ -2075,6 +2076,27 @@
         ],
         "type": "object"
       },
+      "chainguard.platform.iam.v2.IdentityProvidersService.RemoveManualBindingsBody": {
+        "description": "RemoveManualBindingsRequest is the request message for RemoveManualBindings.",
+        "properties": {
+          "classes": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingClass"
+            },
+            "title": "The classes to remove. Empty selects DUPLICATE and COVERED. NOT_COVERED\ntakes access away and is removed only when named here. UNSPECIFIED is not\na valid value.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "type": "array"
+          },
+          "dryRun": {
+            "description": "Whether to only plan the removal. True changes nothing and returns the\nplan and its plan_token. False, or unset, applies the removal the\nplan_token describes, so it needs the plan_token.",
+            "type": "boolean"
+          },
+          "planToken": {
+            "description": "The plan_token from a dry run of the same selection. Required when dry_run\nis false, else the call is refused with INVALID_ARGUMENT. The call is\nrefused with FAILED_PRECONDITION if the bindings it covers, or what they\nrely on, have changed since the dry run. Ignored in a dry run.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.iam.v2.IdentityProvidersService.ResetCorrelationRuleBody": {
         "description": "ResetCorrelationRuleRequest changes an identity provider's correlation rule.",
         "properties": {
@@ -2517,7 +2539,7 @@
             "type": "string"
           },
           "uid": {
-            "description": "UID of the person's Chainguard identity.",
+            "description": "UID of the person's Chainguard identity. A person is not unique by uid:\nafter a correlation-rule reset a row linked under the replaced rule and\nthe current row can both be listed for the same identity, so with\ninclude_excluded the same uid can appear twice, once classified and once\nexcluded, and total_count counts it twice. Key by the provisioned user,\nnot by uid.",
             "type": "string"
           },
           "userName": {
@@ -2526,6 +2548,48 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.iam.v2.ManualBindingRemoval": {
+        "description": "ManualBindingRemoval is the outcome for one binding.",
+        "properties": {
+          "binding": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBinding"
+              }
+            ],
+            "description": "The binding and its class."
+          },
+          "identityUid": {
+            "description": "UID of the person's Chainguard identity.",
+            "type": "string"
+          },
+          "outcome": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingRemovalOutcome"
+              }
+            ],
+            "description": "What happened, or in a dry run would happen, to the binding."
+          },
+          "reason": {
+            "description": "Why the binding was refused. Empty unless the outcome is REFUSED.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.ManualBindingRemovalOutcome": {
+        "default": "MANUAL_BINDING_REMOVAL_OUTCOME_UNSPECIFIED",
+        "description": "ManualBindingRemovalOutcome is what happened, or in a dry run would happen,\nto one binding.\n\n - MANUAL_BINDING_REMOVAL_OUTCOME_UNSPECIFIED: The outcome is unset.\n - MANUAL_BINDING_REMOVAL_OUTCOME_PLANNED: Dry run: the binding would be removed.\n - MANUAL_BINDING_REMOVAL_OUTCOME_REMOVED: The binding was removed.\n - MANUAL_BINDING_REMOVAL_OUTCOME_ALREADY_GONE: Another writer removed the binding after this call selected it, so there\nwas nothing to delete.\n - MANUAL_BINDING_REMOVAL_OUTCOME_REFUSED: The binding was left in place, and reason says why: the caller could not\ngrant its role at its scope, its role no longer exists, the binding or\nthe SCIM bindings it relied on changed after this call recomputed the\nplan, a concurrent SCIM change made the delete give up, in which case a\nnew dry run and apply is safe, or the datastore failed, in which case the\nbindings after it were not attempted.",
+        "enum": [
+          "MANUAL_BINDING_REMOVAL_OUTCOME_UNSPECIFIED",
+          "MANUAL_BINDING_REMOVAL_OUTCOME_PLANNED",
+          "MANUAL_BINDING_REMOVAL_OUTCOME_REMOVED",
+          "MANUAL_BINDING_REMOVAL_OUTCOME_ALREADY_GONE",
+          "MANUAL_BINDING_REMOVAL_OUTCOME_REFUSED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.iam.v2.OrgKind": {
         "default": "ORG_KIND_UNSPECIFIED",
@@ -2584,6 +2648,40 @@
           "token": {
             "description": "The plaintext SCIM bearer token, returned exactly once. Store it now: it is\nnever retrievable again, and only its SHA-256 digest is persisted.\nFormat: \"cgscim_\" followed by 64 hexadecimal characters.\nSensitive: marked debug_redact so redaction-aware log formatting omits it.",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.iam.v2.RemoveManualBindingsResponse": {
+        "description": "RemoveManualBindingsResponse reports a dry run's plan or an apply's results.",
+        "properties": {
+          "dryRun": {
+            "description": "Whether this call was a dry run. When true nothing was removed.",
+            "type": "boolean"
+          },
+          "identityProviderUid": {
+            "description": "UID of the identity provider, echoed for attribution.",
+            "type": "string"
+          },
+          "moreRemain": {
+            "description": "Whether selected bindings were left for a further call, because a call\nhandles a bounded number, because an applied call stopped early, or because\na binding's delete gave up on a concurrent change and the binding is still\nin place. Run a new dry run before applying again.",
+            "type": "boolean"
+          },
+          "peopleLosingAccess": {
+            "description": "How many people lose access if the removals are applied: those with a\nNOT_COVERED binding among the planned or removed ones. Zero when only\nDUPLICATE and COVERED are selected.",
+            "format": "int64",
+            "type": "string"
+          },
+          "planToken": {
+            "description": "Dry run only: the token that applies exactly the bindings listed in\nremovals as PLANNED.",
+            "type": "string"
+          },
+          "removals": {
+            "description": "One entry per binding handled by this call: PLANNED in a dry run, and the\noutcome of each removal when applied. A binding the caller may not remove\nis listed as REFUSED in both.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.iam.v2.ManualBindingRemoval"
+            },
+            "type": "array"
           }
         },
         "type": "object"
@@ -2872,7 +2970,7 @@
       },
       "chainguard.platform.iam.v2.ServicePrincipal": {
         "default": "SERVICE_PRINCIPAL_UNSPECIFIED",
-        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.\n - SERVICE_PRINCIPAL_SANDBOX: Sandbox service principal for the ACID sandbox Runs control plane.",
+        "description": "ServicePrincipal represents a Chainguard service that can assume an identity.\n\n - SERVICE_PRINCIPAL_UNSPECIFIED: Unknown/unspecified service principal.\n - SERVICE_PRINCIPAL_COSIGNED: Cosigned service for image signing.\n - SERVICE_PRINCIPAL_INGESTER: Ingester service for data ingestion.\n - SERVICE_PRINCIPAL_CATALOG_SYNCER: Catalog syncer service for synchronizing image catalogs.\n - SERVICE_PRINCIPAL_APKO_BUILDER: APKO builder service for building images.\n - SERVICE_PRINCIPAL_ENTITLEMENT_SYNCER: Entitlement syncer service for synchronizing entitlements.\n - SERVICE_PRINCIPAL_TENANT_SCANNER: Tenant scanner service for scanning tenant resources.\n - SERVICE_PRINCIPAL_SEDIMENTOLOGY: Sedimentology service for data analysis.\n - SERVICE_PRINCIPAL_SKILLUP: Skillup service for fixing repository skill violations.\n - SERVICE_PRINCIPAL_MATERIALIZER: Materializer service for materializing solutions from problem statements.\n - SERVICE_PRINCIPAL_MICROFLOW: Microflow service for running a pull request's committed CI workflows in microVMs.\n - SERVICE_PRINCIPAL_GUARDENER: Guardener service, Chainguard's GitHub automation app for securing and maintaining repositories.\n - SERVICE_PRINCIPAL_MICROVM: MicroVM service for running ephemeral microVM sandboxes and pulling their guest packages.\n - SERVICE_PRINCIPAL_SKILLS: Skills service principal for the harden pipeline's customer-org access.\n - SERVICE_PRINCIPAL_SANDBOX: Sandbox service principal for the ACID sandbox Runs control plane.\n - SERVICE_PRINCIPAL_CGRUSER: Registered registry storage allowance reads.",
         "enum": [
           "SERVICE_PRINCIPAL_UNSPECIFIED",
           "SERVICE_PRINCIPAL_COSIGNED",
@@ -2888,7 +2986,8 @@
           "SERVICE_PRINCIPAL_GUARDENER",
           "SERVICE_PRINCIPAL_MICROVM",
           "SERVICE_PRINCIPAL_SKILLS",
-          "SERVICE_PRINCIPAL_SANDBOX"
+          "SERVICE_PRINCIPAL_SANDBOX",
+          "SERVICE_PRINCIPAL_CGRUSER"
         ],
         "type": "string"
       },
@@ -7872,7 +7971,7 @@
     },
     "/iam/v2/identityProviders/{identityProviderUid}:listManualBindings": {
       "get": {
-        "description": "- DUPLICATE: a SCIM-managed binding already grants the same role at the\n    same scope. Removing the binding changes nothing.\n  - COVERED: SCIM-managed bindings at the same scope or a parent scope\n    already include every capability of the role. Removing the binding\n    changes nothing in practice.\n  - NOT_COVERED: anything else. Removing the binding takes access away.\n\nA SCIM-managed binding counts only while a current group membership and\nmapping grant it, for an active user, and not for a privileged role. One\nthat nothing grants any more is waiting to be revoked, and is not counted.\nA legacy or dangling row the reconciler refuses for another reason (a role\nscoped below the group, a role or scope group that no longer exists) is\nnot filtered out, so the list is advisory: a removal must re-check before\nit deletes.\n\nBindings that are never classified, and so are never removed, are reported\nonly when include_excluded is set or exclusions names a reason: the owner\nand support roles, and the\nbindings of people whose SCIM link was made under a correlation rule that\nhas since been replaced. The list covers the people the identity provider\nprovisions: an identity with no provisioned user is not listed, and its\nbindings are never removed. Only bindings in groups under the identity\nprovider's organization are listed. Reads only; nothing is changed.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "description": "- DUPLICATE: a SCIM-managed binding already grants the same role at the\n    same scope. Removing the binding changes nothing.\n  - COVERED: SCIM-managed bindings at the same scope or a parent scope\n    already include every capability of the role. Removing the binding\n    changes nothing in practice.\n  - NOT_COVERED: anything else. Removing the binding takes access away.\n\nA SCIM-managed binding counts only while a current group membership and\nmapping grant it, for an active user, and not for a privileged role. One\nthat nothing grants any more is waiting to be revoked, and is not counted.\nA legacy or dangling row the reconciler refuses for another reason (a role\nscoped below the group, a role or scope group that no longer exists) is\nnot filtered out, so the list is advisory: a removal must re-check before\nit deletes.\n\nBindings that are never classified, and so are never removed, are reported\nonly when include_excluded is set or exclusions names a reason: the owner\nand support roles, and the bindings of people whose SCIM link was made\nunder a correlation rule that has since been replaced. The list covers the\npeople the identity provider provisions: an identity with no provisioned\nuser is not listed, and its bindings are never removed. Only bindings in\ngroups under the identity provider's organization are listed. A person is\nnot unique by uid (see ManualBindingPerson). Reads only; nothing is\nchanged.\nprotolint:disable:next MAX_LINE_LENGTH",
         "operationId": "IdentityProvidersService_ListManualBindings",
         "parameters": [
           {
@@ -8043,6 +8142,61 @@
           }
         },
         "summary": "Regenerate Scim Token",
+        "tags": [
+          "IdentityProvidersService"
+        ]
+      }
+    },
+    "/iam/v2/identityProviders/{identityProviderUid}:removeManualBindings": {
+      "post": {
+        "description": "A dry run (dry_run true) changes nothing and returns the bindings that\nwould be removed, with a plan_token that fingerprints exactly that set. To\napply, send the plan_token with dry_run false. The call recomputes the set\nand removes it, and the whole call is refused with FAILED_PRECONDITION if\nanything the plan_token covers has changed since the dry run. A request\nthat leaves dry_run unset applies, so without a plan_token it is refused\nwith INVALID_ARGUMENT and nothing is removed. A plan that would need more\nthan 40,000 provisioned people fails with RESOURCE_EXHAUSTED.\n\nThe set is classified from reads that are not one snapshot, so it is\nadvisory. Each binding is removed through the datastore's role binding\ndelete, which checks, in the delete's own transaction, that the binding\nstill belongs to the person and has the role the plan named, and that\nevery SCIM-managed binding that made it redundant still exists and is\nstill granted. A binding that fails that check is reported as REFUSED\nwith the reason, and the others are still attempted. The check does not\nre-verify that role capabilities still cover, so a role edited while the\ncall runs can defeat it; the plan_token covers the time between the dry\nrun and the call.\n\nOnly role bindings assigned directly, of the selected classes, and not\nexcluded (see ListManualBindings) are selected, and only those whose role\nthe caller could grant at their scope; the rest are reported as REFUSED. A\ncall handles a bounded number of bindings, and more_remain reports whether\nto run a new dry run and apply it. A retry with the same plan_token is\nrefused once a call has removed any binding or found one already gone,\nbecause the selection changed. A call that left every selected binding in\nplace, for example because a concurrent change aborted them all, leaves\nthe plan_token valid; run a new dry run first all the same, to see what\nremains.\n\nRemoving NOT_COVERED bindings takes access away from the people who hold\nthem, so they are removed only when that class is named.\n\nA dry run publishes no audit event. An applied call publishes one role\nbinding delete event for each binding it removed, and one summary event.\nprotolint:disable:next MAX_LINE_LENGTH",
+        "operationId": "IdentityProvidersService_RemoveManualBindings",
+        "parameters": [
+          {
+            "description": "UID of the identity provider whose SCIM-provisioned people are affected.",
+            "in": "path",
+            "name": "identityProviderUid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.iam.v2.IdentityProvidersService.RemoveManualBindingsBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.iam.v2.RemoveManualBindingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Remove Manual Bindings",
         "tags": [
           "IdentityProvidersService"
         ]

@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl auth configure-refresh-service uninstall"
 slug: chainctl_auth_configure-refresh-service_uninstall
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/
@@ -53,5 +53,5 @@ chainctl auth configure-refresh-service uninstall [flags]
 
 ### SEE ALSO
 
-* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed
+* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 

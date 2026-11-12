@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl libraries entitlements create"
 slug: chainctl_libraries_entitlements_create
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/
@@ -22,7 +22,7 @@ chainctl libraries entitlements create --parent=PARENT --ecosystems=LANGUAGE1,LA
 ```
       --ecosystems strings   The language ecosystems to entitle to the parent org.
       --parent string        The name or id of the org to create an entitlement for.
-      --policy string        The policy to apply to the entitlement (chainguard, chainguard_and_upstream). Defaults to the ecosystem's default: chainguard_and_upstream for go and dotnet, chainguard otherwise.
+      --policy string        The policy to apply to the entitlement (chainguard, chainguard_and_upstream). Defaults to chainguard_and_upstream.
 ```
 
 ### Options inherited from parent commands
