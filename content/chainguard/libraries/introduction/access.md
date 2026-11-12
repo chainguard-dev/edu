@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-09T18:41:04+00:00
+lastmod: 2026-11-12T19:36:52+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -65,7 +65,7 @@ manager, so they're a practical choice when short-lived credentials aren't.
 
 | Option | How it works | Lifetime | Good fit |
 | --- | --- | --- | --- |
-| Session token with a `chainctl` helper (recommended) | A helper gets a token from your `chainctl` login and gives it to your build tool. See [Session tokens and pull tokens](#session-tokens) for the available helpers. | Up to one hour | Workstations with direct access, with the use of a `chainctl` helper |
+| Session token with a `chainctl` helper (recommended) | Chainguard provides authentication helpers that retrieve a token using `chainctl`. Helpers are available for Python with pip and uv ([Python keyring provider](#python-keyring)), JavaScript with npm ([`chainctl auth configure-npm`](/chainguard/libraries/javascript/build-configuration/)), and .NET with NuGet ([`chainctl auth configure nuget`](/chainguard/libraries/dotnet/build-configuration/)). | Up to one hour | Workstations with direct access, with the use of a `chainctl` helper |
 | Session token from `chainctl auth token` | You supply the token to your build tool as a password, and get a new one when it expires. | Up to one hour | Scripts and short sessions with build tools that have no helper |
 | Assumable identity (recommended for CI/CD) | Your CI/CD platform exchanges its OIDC token for a Chainguard token. See [assumable identities](/platform/administration/assumable-ids/assumable-ids/). | Up to one hour | CI/CD platforms that support OIDC, such as GitHub Actions |
 | [Pull token](#pull-token) | A username and password for an identity that can only pull. Store it in a secrets manager or password manager and load it from [environment variables](#env). | The TTL you set, 30 days by default and up to 365 days | Any build tool, artifact managers, CI/CD platforms without OIDC, and teams that share one credential |
