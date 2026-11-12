@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-12T19:51:22+00:00
+lastmod: 2026-11-12T20:31:27+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -61,7 +61,7 @@ Chainguard Libraries supports both short-lived credentials and long-lived pull
 tokens. Chainguard recommends short-lived credentials where your tools and
 workflows support them, because they expire on their own and are tied to a
 person or workload. Pull tokens work with every build tool and artifact
-manager, so they're a practical choice when short-lived credentials aren't.
+manager.
 
 | Option | How it works | Lifetime | Good fit |
 | --- | --- | --- | --- |
