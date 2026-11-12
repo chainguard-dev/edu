@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-12T13:41:48+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -269,4 +269,4 @@ If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can
 
 Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 
-A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.
+A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows. To walk the whole loop once, from Claude Code's change through a failing check and its fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).

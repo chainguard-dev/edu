@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-11-12T13:41:48+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -33,6 +33,8 @@ A typical loop uses both products:
 2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
 3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
 4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+To walk this loop once with a small project, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ## Prerequisites {#prerequisites}
 
@@ -209,6 +211,7 @@ The link in that email invites the coworker with the `viewer` role, which can't 
 
 ## Next steps {#next-steps}
 
+- [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/): walk the whole loop once, with a small Go project.
 - [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
 - [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
 - [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.
