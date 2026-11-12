@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-07T00:00:00+00:00
+lastmod: 2026-11-12T15:52:19+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -247,6 +247,35 @@ though a version appears in the public registry.
 
 For more details on the errors you may see when a package is blocked for these reasons,
 see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+## Why might I see 0% coverage when running `chainctl libraries verify`?
+
+There are a few reasons why `chainctl libraries verify` might report 0% coverage:
+
+* Missing .package-lock.json: If `.package-lock.json` is not present in the directory, the directory is not recognized as an npm tree and verification will not run.
+* Upstream fallback is enabled: If upstream fallback is on, packages that Chainguard didn't build are counted as not verified. If most or all of your packages came from upstream fallback, coverage will be very low or 0%.
+* Fat or shaded JAR: For Java, a 0% coverage result is [expected when verifying a fat JAR, uber JAR, or shaded JAR](/chainguard/libraries/policies-and-security/verification#why-might-i-see-0-coverage-when-verifying-java-artifacts).
+* Insufficient role or missing credentials: With a regular `chainctl auth login`, the command requires the pull token creator role (for example, for JavaScript: `libraries.javascript.pull_token_creator`), or the owner role, because it creates a pull token internally. If you only have the pull role for an ecosystem, you must pass a libraries-scoped token explicitly. For example:
+
+```bash
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify ./node_modules
+```
+
+Without this, a pull-only role will report 0% coverage even after login.
+
+* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example:
+
+```bash
+chainctl libraries verify --parent <your-organization> ./node_modules
+```
+
+Or set a default organization first:
+
+```bash
+chainctl config set default.group <your-organization>
+```
 
 ## What are Chibbies?
 
