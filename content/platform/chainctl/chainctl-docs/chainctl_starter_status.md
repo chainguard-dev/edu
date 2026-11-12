@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl starter status"
 slug: chainctl_starter_status
 url: /platform/chainctl/chainctl-docs/chainctl_starter_status/
@@ -38,7 +38,7 @@ chainctl starter status [flags]
 ### Options
 
 ```
-      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
+      --parent string   The name, path or ID of the Starter, Team or customer organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands

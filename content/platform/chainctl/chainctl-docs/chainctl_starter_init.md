@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -55,7 +55,7 @@ images added, the next command to run, and the error, if any. An
 already-in-org outcome also carries "organizations", the organizations
 the identity belongs to, "identity", the email it signed in with, and
 "hint", what to do instead. Its next command is 'chainctl starter status'
-when one of those organizations is a Starter organization, and none
+when that command would find exactly one organization to show, and none
 otherwise.
 
 Exit codes:

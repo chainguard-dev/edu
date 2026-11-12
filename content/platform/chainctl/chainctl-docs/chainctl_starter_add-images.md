@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl starter add-images"
 slug: chainctl_starter_add-images
 url: /platform/chainctl/chainctl-docs/chainctl_starter_add-images/
@@ -17,9 +17,10 @@ Add catalog images to your Chainguard Starter organization.
 
 Add catalog images to your Chainguard Starter organization.
 
-The target organization is the Starter or Team org the caller's
-identity is bound to — auto-discovered. An account bound to more than
-one names it with --parent; otherwise its Starter org is used.
+The target organization is the Starter, Team or customer org the
+caller's identity is bound to — auto-discovered. An account bound to
+more than one names it with --parent; otherwise its Starter org is used,
+else its Team org, else its customer org.
 
 Images are resolved against the catalog by exact name match. The server
 picks the active starter entitlement that has remaining capacity. The
@@ -32,7 +33,7 @@ chainctl starter add-images IMAGE_NAME [IMAGE_NAME ...] [flags]
 ### Options
 
 ```
-      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
+      --parent string   The name, path or ID of the Starter, Team or customer organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands

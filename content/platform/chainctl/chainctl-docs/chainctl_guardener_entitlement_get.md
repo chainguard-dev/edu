@@ -1,5 +1,5 @@
 ---
-date: 2026-11-09T19:57:31Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl guardener entitlement get"
 slug: chainctl_guardener_entitlement_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_entitlement_get/
