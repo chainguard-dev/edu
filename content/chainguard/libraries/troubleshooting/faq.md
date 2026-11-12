@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-12T19:10:18+00:00
+lastmod: 2026-11-12T19:21:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -254,7 +254,7 @@ see the [Error messages documentation](/chainguard/libraries/troubleshooting/err
 There are a few reasons why `chainctl libraries verify` might report 0% coverage:
 
 * Missing .package-lock.json: If `.package-lock.json` is not present in the directory, the directory is not recognized as an npm tree and verification will not run.
-* The packages you are verifying come from Chainguard's upstream fallback. Packages that Chainguard did not build show as not verified. These packages can be found via the Console or `chainctl libraries packages`. 
+* The packages you are verifying come from Chainguard's upstream fallback. Packages that Chainguard did not build show as not verified. These packages can be found via the Console or `chainctl libraries packages`.
 * Fat or shaded JAR: For Java, a 0% coverage result is [expected when verifying a fat JAR, uber JAR, or shaded JAR](/chainguard/libraries/policies-and-security/verification#why-might-i-see-0-coverage-when-verifying-java-artifacts).
 * Insufficient role or missing credentials: With a regular `chainctl auth login`, the command requires the pull token creator role (for example, for JavaScript: `libraries.javascript.pull_token_creator`), or the owner role, because it creates a pull token internally. If you only have the pull role for an ecosystem, you must pass a libraries-scoped token explicitly. For example:
 
