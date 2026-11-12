@@ -101,7 +101,7 @@ Existing JavaScript lockfiles usually contain upstream integrity hashes. Because
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
-If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
 
