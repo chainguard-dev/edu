@@ -34,11 +34,11 @@ jobs:
 
     steps:
       - name: 'Github Actions Runner'
-        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: audit
 
-      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
+      - uses: sigstore/cosign-installer@756fe2d284c7292c4e9b62c8a28f1e5629c59532 # v4.1.3
 
       - name: 'Checkout default branch to $GITHUB_WORKSPACE dir'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -118,7 +118,7 @@ jobs:
       #  run: cosign sign -y "$(cat image-refs.txt)
 
       - name: Post failure notice to Slack
-        uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
+        uses: chainguard-actions/rtCamp-action-slack-notify@bf512f517ddbc637a545627d27bf7453b3e48452 # v2.4.1
         if: ${{ failure() }}
         env:
           SLACK_ICON: http://github.com/chainguard-dev.png?size=48
