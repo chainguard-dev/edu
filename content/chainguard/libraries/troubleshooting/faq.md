@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-12T15:52:19+00:00
+lastmod: 2026-11-12T19:10:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -249,7 +249,7 @@ though a version appears in the public registry.
 For more details on the errors you may see when a package is blocked for these reasons,
 see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
 
-## Why might I see 0% coverage when running `chainctl libraries verify`?
+## Why might `chainctl libraries verify` report 0% coverage?
 
 There are a few reasons why `chainctl libraries verify` might report 0% coverage:
 
