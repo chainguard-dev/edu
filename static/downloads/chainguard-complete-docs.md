@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-11-10 02:19:17_
+_Compiled on: 2026-11-12 02:14:27_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -247,6 +247,119 @@ _Path: chainguard/changelog.md_
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-09
+
+{{< changelog-label "Product Announcements" >}}
+
+### SCIM 2.0 user provisioning and group-to-role mapping
+
+_Launched November 5, 2026._
+
+Chainguard now supports SCIM 2.0 provisioning from Okta and Microsoft Entra ID. Your identity provider can now manage Chainguard access for you:
+
+- Provision and deactivate Chainguard users
+- Map identity provider groups to built-in or custom Chainguard roles
+
+Existing users keep their access when you turn on provisioning, and administrators can turn provisioning off if needed. For details, refer to [Provision Chainguard users with SCIM](/platform/administration/custom-idps/scim-provisioning/scim-overview/). For setup steps, refer to the guides for [Okta](/platform/administration/custom-idps/scim-provisioning/okta-scim/) and [Microsoft Entra ID](/platform/administration/custom-idps/scim-provisioning/ms-entra-id-scim/).
+
+### Breaking-change endpoint for Chainguard Athena
+
+_Launched November 5, 2026._
+
+Chainguard Athena members can now opt into a separate `cgb` endpoint. It delivers package fixes that include breaking API or interface changes, along with backward-compatible fixes. The existing `cgp` endpoint continues to deliver backward-compatible fixes only, so current setups don't change.
+
+Use `cgb` when a vulnerability fix requires a breaking change, and keep routine patching on `cgp`. OSV and VEX feeds identify `.cgb` versions as fixed. For more, refer to [Chainguard endpoints now handle breaking changes](https://www.chainguard.dev/unchained/chainguard-endpoints-now-handle-breaking-changes).
+
+### Private package uploads for Chainguard Repository (beta)
+
+_Launched November 4, 2026._
+
+Chainguard Repository now offers an invite-only beta for publishing internal Go modules and Java packages. Your uploaded packages resolve through the same authenticated endpoint as open source and Chainguard-remediated packages:
+
+- Your uploaded versions take precedence during resolution.
+- Dependencies your packages declare still pass through upstream policy gates.
+
+The beta doesn't scan the contents of uploaded packages and has no Chainguard Console upload interface.
+
+### Guarded Entrypoint for Custom Assembly (beta)
+
+_Launched November 4, 2026._
+
+Guarded Entrypoint adds a Chainguard-built startup wrapper to a Custom Assembly image, so you no longer need a derived image to configure startup. The wrapper can:
+
+- Resolve environment variable secrets from Google Secret Manager, Vault, or Consul
+- Build a Java truststore at runtime
+- Run TCP or file preflight checks
+- Override the application command
+
+It forwards signals to the application and preserves its exit code. Because you deploy the image Chainguard built and signed, you keep its provenance and Chainguard's rebuilds. For details, refer to [Guarded Entrypoint for Custom Assembly](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `vitess:23` | 2026-11-04 | 2027-05-04 |
+| `ruby3.2-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby3.3-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby3.4-rails:8.0` | 2026-11-07 | 2027-05-07 |
+| `ruby4.0-rails:8.0` | 2026-11-07 | 2027-05-07 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 41 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td colspan="3">
+<details>
+<summary><strong><code>openstack-*</code></strong> — 7 images (with FIPS variants)</summary>
+<table>
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-mariadb-oshelm/versions"><code>openstack-mariadb-oshelm</code></a></td><td>application +fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-api-kolla/versions"><code>openstack-nova-api-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-compute-kolla/versions"><code>openstack-nova-compute-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-conductor-kolla/versions"><code>openstack-nova-conductor-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-novncproxy-kolla/versions"><code>openstack-nova-novncproxy-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-scheduler-kolla/versions"><code>openstack-nova-scheduler-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-nova-ssh-kolla/versions"><code>openstack-nova-ssh-kolla</code></a></td><td>application</td><td>2026-11-06</td></tr>
+</tbody>
+</table>
+</details>
+</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kube-startup-cpu-boost/versions"><code>kube-startup-cpu-boost</code></a></td><td>application</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/netbox-operator/versions"><code>netbox-operator</code></a></td><td>application +fips</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-postgres/versions"><code>supabase-postgres</code></a></td><td>application</td><td>2026-11-02</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/adoptium-jdk-openssl-fips/versions"><code>adoptium-jdk-openssl-fips</code></a></td><td>fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/amazon-corretto-jdk-openssl-fips/versions"><code>amazon-corretto-jdk-openssl-fips</code></a></td><td>fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/buildpack-deps/versions"><code>buildpack-deps</code></a></td><td>base</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-provider-opentofu/versions"><code>crossplane-provider-opentofu</code></a></td><td>application +fips</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/pg-protocol/versions"><code>pg-protocol</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/rancher-turtles/versions"><code>rancher-turtles</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/spark-operator-kubectl/versions"><code>spark-operator-kubectl</code></a></td><td>application</td><td>2026-11-03</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-azure-insights/versions"><code>crossplane-azure-insights</code></a></td><td>application</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/debezium-server/versions"><code>debezium-server</code></a></td><td>application +fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/supabase-postgres-meta-fips/versions"><code>supabase-postgres-meta-fips</code></a></td><td>fips</td><td>2026-11-04</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/argo-workflows-crdinstaller/versions"><code>argo-workflows-crdinstaller</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-cloudwatch-controller/versions"><code>aws-cloudwatch-controller</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dra-driver-nvidia-gpu/versions"><code>dra-driver-nvidia-gpu</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/velero-plugin-for-openstack/versions"><code>velero-plugin-for-openstack</code></a></td><td>application +fips</td><td>2026-11-05</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/buildkite-agent-metrics/versions"><code>buildkite-agent-metrics</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kubevirt-gpu-device-plugin/versions"><code>kubevirt-gpu-device-plugin</code></a></td><td>application +fips</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/vgpu-device-manager/versions"><code>vgpu-device-manager</code></a></td><td>ai +fips</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/zenoh/versions"><code>zenoh</code></a></td><td>application</td><td>2026-11-06</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/cypress-included/versions"><code>cypress-included</code></a></td><td>application</td><td>2026-11-07</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/nginx-gateway-fabric/versions"><code>nginx-gateway-fabric</code></a></td><td>application +fips</td><td>2026-11-07</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-02
 
@@ -1450,7 +1563,7 @@ The Chainguard Repository includes a policy engine that lets you define rules go
 For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
 
 * **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.
-* **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
+* **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown defaults to 7 days, and your plan sets the range you can configure, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). It is applied globally across all packages to prevent dependency resolution errors.
 
 All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
@@ -1510,7 +1623,7 @@ This page uses the following terms:
 
 Chainguard Libraries supports the following types of policies:
 
-* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date.
+* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
 * **Block**: Deny a package or version outright. Use a block rule when your organization never wants to allow a package or version.
 * **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     * An override policy takes precedence over a block policy.
@@ -1585,9 +1698,45 @@ Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `cha
 
 ## Cooldown policies
 
-The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default.
+The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows.
 
 > **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
+
+### When a version becomes available
+
+The cooldown cutoff moves forward once a day, at 00:00 UTC. A version becomes available at the first 00:00 UTC after its cooldown period has fully passed, counted from its upstream publish time. Every version whose cooldown ends on the same UTC day becomes available at the same moment, rather than one by one throughout the day.
+
+As a result, a version can wait up to 24 hours longer than the configured number of days. With the default 7-day cooldown, a version waits at least 7 days and up to 8 days.
+
+For example, with a 7-day cooldown, a version published upstream at 14:00 UTC on October 15 completes its cooldown at 14:00 UTC on October 22. It becomes available at 00:00 UTC on October 23.
+
+To check when a blocked version becomes available, see [Check blocked packages](#check-blocked-packages). To get a version sooner, [override the cooldown for that version](#override-cooldown-for-a-package-version), except on the Starter plan, which doesn't allow overrides.
+
+### Cooldown limits by plan
+
+Your organization's plan sets the cooldown periods you can choose and whether you can [override the cooldown](#override-cooldown-for-a-package-version) for a package version. These limits apply from November 4, 2026, to every organization on each plan, whatever its creation date.
+
+| Plan | Cooldown period | Cooldown overrides |
+| ---- | --------------- | ------------------ |
+| Starter | Fixed at 7 days | Not allowed |
+| Team | 0 to 7 days | Allowed |
+| Enterprise | 0 to 30 days | Allowed |
+
+The Starter plan is the free plan described in [Chainguard plans](/get-started/self-serve/plans/).
+
+Chainguard checks the limits when you create a policy, change a policy's cooldown period, add a cooldown override, or enable a policy in enforce mode. The limits don't change a cooldown that's already in force.
+
+If a request falls outside your plan's limits, Chainguard refuses it. The error message names your plan's limit and what you requested. For example, a Team organization that tries to set a 14-day cooldown gets this message:
+
+```output
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
+```
+
+A Starter organization that tries to add a cooldown override gets this message:
+
+```output
+Starter plan allows only a library cooldown of 7 days (a cooldown bypass for pkg:npm/undici@8.4.1 requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan team
+```
 
 ### Create and enable a cooldown policy
 
@@ -1606,7 +1755,7 @@ To understand the impact before enforcing a policy, use `--mode=PREVIEW`. In pre
 
 ### Disable cooldown
 
-To disable the cooldown, set it to 0. In the example below, the policy is created, then it is enforced on the Java ecosystem:
+To disable the cooldown, set it to 0. In the following example, the policy is created, then it is enforced on the Java ecosystem:
 
 ```bash
 chainctl libraries policy create --name=no-cooldown --cooldown-days=0
@@ -1661,6 +1810,8 @@ Use `chainctl libraries packages blocked` to review what has been blocked by you
 ```bash
 chainctl libraries packages blocked --ecosystem=JAVASCRIPT
 ```
+
+For versions blocked by a cooldown, the output shows when each version becomes available. The `UNBLOCKS` column in the default table output shows the date, and the `unblocksAt` field in `--output json` shows the exact time, which is 00:00 UTC on that date. Versions blocked by malware detection or a block rule show `never (flagged)` or `never (policy)`, because they don't become available on their own.
 
 If you have policies enabled in Preview mode, you can check successful pulls that *would have been blocked* in the last 30 days if the policy were to be enforced. For example:
 
@@ -8413,7 +8564,7 @@ JavaScript entitlement:
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To change the cooldown, create a library policy and enable it for the ecosystem. You can set the cooldown from 1 to 30 days, or set it to 0 to disable it. For example, the following commands disable the cooldown for JavaScript:
+To change the cooldown, create a library policy and enable it for the ecosystem. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). For example, on a plan that allows it, the following commands disable the cooldown for JavaScript:
 
 ```bash
 chainctl libraries policy create --name=no-cooldown --cooldown-days=0
@@ -8510,7 +8661,7 @@ curl -s \
 
 When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
-A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. You can set it from 1 to 30 days, or set it to 0 to disable it.
+A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
 The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
 
@@ -9285,7 +9436,7 @@ Before getting started:
 * Ensure your organization is entitled to Chainguard Libraries. To add an
   entitlement for an ecosystem, contact your Chainguard account team.
 
-Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
+Chainguard Libraries are also included in the self-serve plans. A Chainguard Starter organization can pull Java, Python, JavaScript, .NET, and Go packages, without CVE-remediated versions. Chainguard Team adds the remediated versions. Refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 ## Step 1: Choose your access method
 
@@ -15618,7 +15769,9 @@ the upstream fallback is enabled, for example when:
 * A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
 * A recently published version is still in the cooldown period, so the
-  repository will not yet serve it.
+  repository will not yet serve it. Cooldowns end at 00:00 UTC, so a version
+  can stay blocked for up to a day after the configured number of days. See
+  [When a version becomes available](/chainguard/chainguard-repository/library-policies/#when-a-version-becomes-available).
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
@@ -21272,32 +21425,34 @@ The [Debugging distroless](/chainguard/containers/troubleshooting/debugging-dist
 
 ---
 
-### Chainguard Catalog Starter
+### Chainguard Containers on Chainguard Starter
 _Path: chainguard/containers/reference/catalog-starter.md_
 
-Chainguard Catalog Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
+Chainguard Starter is a way to try production-grade Chainguard Containers for free, without committing to a full subscription. It lets you choose a set of five container images from the broader Chainguard catalog so you can validate security, performance, and operational fit in your own environment before you buy.
 
-{{< beta feature="Chainguard Catalog Starter" >}}
+{{< beta feature="Chainguard Starter" >}}
 
-To sign up for Catalog Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
+Starter is a free plan. Besides the five container images this page covers, it includes Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. For everything Starter includes, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
-## What is Catalog Starter?
+To sign up for Starter, follow the steps on this page. Once set up, you can start piloting up to five secure container images from the Chainguard catalog.
 
-With Chainguard Catalog Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
+## What Starter includes from Chainguard Containers
 
-Catalog Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
+With Starter, users can choose any five non-FIPS images from our catalog of secure-by-default containers. Any Helm charts that depend on those images are included and count toward the five-image limit.
 
-> **Note**: Catalog Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
+Starter is designed as a standalone free plan, separate from paid Catalog or per-image subscriptions. It's meant for teams who want to try Chainguard Containers in real workloads before committing to a larger rollout, giving them a better understanding of how Chainguard’s hardened images and CVE posture behave in practice.
 
-## Sign up for Catalog Starter
+> **Note**: Starter is best suited for small teams to get them started right away. When you are ready to standardize on Chainguard and deploy organization-wide, we have several paid plans that provide unlimited user access to the Chainguard Containers and additional features like Custom Assembly, FIPS images, EOL/EmeritOSS image versions, a contractual CVE-remediation SLA, and dedicated support.
+
+## Sign up for Chainguard Starter
 
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Enter your business email address and create an account, or click **Continue with Google** and sign in with a Google account on your company's domain. Catalog Starter requires a corporate email domain, so a personal email address, such as a Gmail address, doesn't qualify.
-3. Enter your company name.
-4. Click **Set up an organization**.
-5. Complete the form and click **Submit**.
+2. Sign up with an email address, or click **Continue with Google**, **Continue with GitHub**, or **Continue with GitLab**. A work email address, including a Google account on your company's domain, creates a verified organization named after your email domain. A personal email address, such as a Gmail address, or a GitHub or GitLab sign-in, creates an unverified organization, which you can verify later.
+3. Click **Set up an organization**, then click **Set up Starter organization**.
+4. Complete the form, which asks for your name and job title, and for an organization name if your organization is unverified.
+5. Click **Create Chainguard Starter organization**.
 6. Click **Select images**, choose between one and five images, and confirm your selection. You can also go to the **Images** page later to add images until you have five. Once you confirm an image, it can't be swapped or replaced for the life of the free plan.
 
 Once you've added all five images, a prompt directs you to contact Chainguard if you need access to additional images.
@@ -21308,7 +21463,7 @@ After you complete signup, you're free to use the five images you selected howev
 
 #### Authenticate CI pipelines with a pull token
 
-Because Catalog Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
+Because Starter organizations can't create assumable identities, CI pipelines authenticate with a pull token. Create one with `chainctl`:
 
 ```shell
 chainctl auth pull-token create --output=env
@@ -21346,16 +21501,18 @@ Pull tokens expire. The default lifetime is 30 days and the maximum is one year 
 
 ### 3. Upgrade when you’re ready
 
-After trying out Chainguard Containers with Catalog Starter, you can reach out to our sales team to upgrade to one of Chainguard's paid plans:
+After trying out Chainguard Containers with Starter, you can upgrade to the paid Chainguard Team plan yourself, with `chainctl`. Team raises the Starter limits and lets you swap images. Refer to [Upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/).
+
+For more images or features such as FIPS images, reach out to our sales team about one of Chainguard's other paid plans:
 
 * [Catalog pricing](/chainguard/containers/reference/pricing/) — a subscription that grants broad access to the full Chainguard Containers catalog with self-service provisioning through the Console.
 * Per-image pricing — a scoped set of images licensed individually, often used for tightly defined image deployments.
 
-Moving to a paid plan means moving off Catalog Starter; the free five-image entitlement is not stacked on top of a paid subscription.
+Moving to a paid plan means moving off Starter; the free five-image entitlement is not stacked on top of a paid subscription.
 
-## Manage Catalog Starter with `chainctl`
+## Manage Starter with `chainctl`
 
-As an alternative to the Console, you can sign up for and manage Catalog Starter from the command line with `chainctl`.
+As an alternative to the Console, you can sign up for and manage Starter from the command line with `chainctl`. For the full sign-up flow, including signing up from a script or a coding agent, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
 
 ### Sign up with `chainctl`
 
@@ -21376,11 +21533,11 @@ This requires selection of a valid authentication option:
     GitLab
 ```
 
-Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in must use the account's verified primary email address, and that address must be a business email address.
+Use the arrow keys and press **Enter** to select an option, which launches a browser window to the Chainguard Console to complete sign-up. A GitHub or GitLab sign-in uses the account's verified primary email address. A personal address creates an unverified organization, which you name yourself.
 
 ### Request access with `chainctl`
 
-If your organization already has a Catalog Starter plan, request access to it with [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/):
+If your company already has a Starter organization, request access to it with [`chainctl starter request-access`](/platform/chainctl/chainctl-docs/chainctl_starter_request-access/):
 
 ```shell
 chainctl starter request-access
@@ -21391,10 +21548,10 @@ chainctl starter request-access
 You can see which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
 
 ```shell
-chainctl starter add-images $IMAGE1 [$IMAGE2] ... [$IMAGE4]
+chainctl starter add-images $IMAGE1 [$IMAGE2 ...]
 ```
 
-After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name and `$IMAGE` with the desired image's name:
+After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name, or with its ID if you created it with a personal email address, and `$IMAGE` with the desired image's name:
 
 ```shell
 docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
@@ -21402,7 +21559,7 @@ docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
 
 ### Check status with `chainctl`
 
-To show the status of your Catalog Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, run [`chainctl starter status`](/platform/chainctl/chainctl-docs/chainctl_starter_status/):
+To show the status of your Starter organization, including the registry path, account provisioning status, image quota usage, and per-image readiness, run [`chainctl starter status`](/platform/chainctl/chainctl-docs/chainctl_starter_status/):
 
 ```shell
 chainctl starter status
@@ -21410,45 +21567,46 @@ chainctl starter status
 
 ## Plan limitations and terms
 
-Catalog Starter allows users to try out Chainguard Containers, but it comes with certain limitations, including the following:
+Starter allows users to try out Chainguard Containers, but it comes with certain limitations, including the following:
 
 * You can select up to five non-FIPS images. Once chosen, these images cannot be swapped or replaced during the lifetime of the free plan.
-* The following types of Chainguard Containers are not included in the Catalog Starter plan:
+* The following types of Chainguard Containers are not included in the Starter plan:
     * [FIPS-validated images](/platform/fips/fips-images/)
     * Images that fall under the [EOL grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#understanding-chainguards-eol-grace-period)
     * Images whose software is part of [Chainguard EmeritOSS](https://github.com/chainguard-forks/)
-* Teams using Chainguard Catalog Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
-    * Catalog Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
-* [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Catalog Starter.
-* User management is limited. You can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
-* The user who creates a Catalog Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
-* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Catalog Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
-* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Catalog Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
-* Revoking a pull token takes a different path. On the Console's **Pull tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
-* Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Catalog Starter plan.
-* Catalog Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
+* Teams using Starter will not have access to the support services available to paying customers: they will not be added to Chainguard's support platform, be able to create support tickets, or have access to root cause analysis (RCA).
+    * Starter users will still have access to Chainguard resources like our [documentation](/), [courses](https://courses.chainguard.dev/), the [Community Slack channel](https://www.chainguard.dev/unchained/the-chainguard-slack-community-is-here), and the [public support knowledge base](https://support.chainguard.dev/hc/en-us).
+* [Chainguard's CVE SLA](https://www.chainguard.dev/legal/cve-policy) does not apply to container images obtained through Starter.
+* If your organization uses [Chainguard Libraries](/chainguard/libraries/introduction/overview/), its [cooldown period](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan) is fixed at 7 days. You can't change it, and you can't add an override that lets a package version skip the cooldown.
+* User management is limited. An organization created with a personal email address can't invite anyone yet. Otherwise, you can invite colleagues and remove members, but you can't create role-bindings, so you can't grant custom roles. An invite can give only a role whose permissions you also have. Everyone in your organization uses the same five images.
+* The user who creates a Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
+* You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
+* The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+* Revoking a pull token takes a different path. On the Console's **Access Tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+* Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Starter plan.
+* Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
 ## Frequently asked questions
 
 ### Can I change my five images after I select them?
 
-No. Once you’ve selected your five images under Catalog Starter, that selection is fixed for the life of the free plan and cannot be swapped or replaced.
+No. Once you’ve selected your five images under Starter, that selection is fixed for the life of the free plan and cannot be swapped or replaced.
 
 If you anticipate needing different images over time, we recommend talking to our team about Catalog Pricing or per-image licensing.
 
-### Does Catalog Starter include FIPS images or Chainguard commercial builds?
+### Does Starter include FIPS images or Chainguard commercial builds?
 
-No. FIPS images and Chainguard Commercial Builds are not included in the Catalog Starter plan.
+No. FIPS images and Chainguard Commercial Builds are not included in the Starter plan.
 
 If you require FIPS-validated images or dedicated commercial build work, you’ll need a paid plan that includes those capabilities.
 
-### Can I use Chainguard's GitHub Action with Catalog Starter?
+### Can I use Chainguard's GitHub Action with Starter?
 
-No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Catalog Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
+No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) action federates a GitHub OIDC token into a Chainguard assumable identity, and Starter organizations can't create assumable identities. Log in to `cgr.dev` with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
 
-### Can my colleagues and I use the same Catalog Starter images?
+### Can my colleagues and I use the same images?
 
-Yes. Everyone in a Catalog Starter organization uses the same five images, and no one can swap them.
+Yes. Everyone in a Starter organization uses the same five images, and no one can swap them.
 
 Anyone with the `limited_owner` role can invite a colleague whose email address is in the organization's domain or one of its subdomains. The `viewer` role is enough to pull images. Replace `$ORGANIZATION` with your organization's name and `$EMAIL` with your colleague's email address:
 
@@ -21458,35 +21616,37 @@ chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
 
 To let your colleague invite others too, use `--role limited_owner` instead. That role also manages your organization's billing.
 
-If a Catalog Starter organization already exists for your email domain, you can also ask to join it. In the Console, click **Request access**, or run `chainctl starter request-access`. The request goes by email to everyone with the `owner` or `limited_owner` role in the organization. The link in that email invites you with the `viewer` role.
+If a Starter organization already exists for your email domain, you can also ask to join it. In the Console, click **Request access**, or run `chainctl starter request-access`. The request goes by email to everyone with the `owner` or `limited_owner` role in the organization. The link in that email invites you with the `viewer` role.
 
-### I’m already a Chainguard Containers customer. Can I add Catalog Starter to my account?
+### I’m already a Chainguard Containers customer. Can I add Chainguard Starter to my account?
 
-No. Catalog Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
+No. Starter is a distinct, standalone free plan meant for new organizations. It can’t be combined with existing licenses or used to "carve out" a subset of images from a current subscription.
 
 If you try to sign up using an email domain already associated with a paid Chainguard account, you’ll receive an error message. Contact your Chainguard account administrator for access to your organization’s existing account.
 
-### Can I use Catalog Starter to cover some of the images I need?
+### Can I use Starter to cover some of the images I need?
 
-No. Catalog Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
+No. Starter is not a discount instrument for larger deployments. You can’t, for example, license 10 images but expect to pay for only five by applying this plan to the rest.
 
 If you know you’ll need more than five images, it’s usually better to start with Catalog Pricing or per-image licensing so you can scale cleanly.
 
 ### Can I sign up with Google, GitHub, or GitLab?
 
-You can sign up with a Google account on your company's domain, such as a Google Workspace account. A personal Google account, such as a Gmail address, doesn't qualify, because Catalog Starter requires a business email address.
+Yes. A work email address, including a Google account on your company's domain, creates a verified organization. A GitHub or GitLab sign-in, or a personal email address such as a Gmail address, creates an unverified organization, which you can verify later.
 
-The Console's sign-up page doesn't offer GitHub or GitLab. To sign up with either one, run `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl). The account's verified primary email address must be a business email address.
+You can also sign up from the command line with `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl).
 
 ### What happens if I decide to upgrade to a paid plan?
 
-When you upgrade:
+If you upgrade to Chainguard Team, your organization keeps its images and members and gets Team's limits. Refer to [What changes when you upgrade](/get-started/self-serve/upgrade-team/#what-changes-when-you-upgrade).
 
-* Your organization moves off the free Catalog Starter plan.
+When you upgrade to another paid plan through Chainguard's sales team:
+
+* Your organization moves off the free Starter plan.
 * You gain access to the broader capabilities of your chosen paid tier (for example, full Catalog Pricing with self-service provisioning and, optionally, FIPS access), as well as Chainguard's full support services and CVE SLA.
 * Pricing is based on the paid plan’s terms (such as developer bands for Catalog Pricing or image counts for per-image plans).
 
-Our team will work with you to map your existing Catalog Starter images into the right long-term structure.
+Our team will work with you to map the images you chose on Starter into the right long-term structure.
 
 ---
 
@@ -42866,7 +43026,7 @@ chainctl iam identity delete <identity UUID>
 ```
 
 {{< note >}}
-On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Catalog Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+On [Chainguard Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 {{< /note >}}
 
 An expired pull token stops working, but its identity stays in your organization until you delete it. `chainctl iam identities list` leaves expired identities out, so add `--expired` to list only those:
@@ -42881,7 +43041,7 @@ To delete every expired static identity in your organization at once, including 
 chainctl iam identities delete --expired --parent=<organization>
 ```
 
-On Catalog Starter, this command fails for the same reason as a single delete.
+On Starter, this command fails for the same reason as a single delete.
 
 ### Managing pull tokens in the Chainguard Console
 
@@ -42903,7 +43063,7 @@ If the Console won't let you create a pull token, your role is missing a capabil
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
 
 {{< note >}}
-This approach requires an assumable identity, which [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Catalog Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+This approach requires an assumable identity, which [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 {{< /note >}}
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
@@ -43592,7 +43752,7 @@ During the beta, Chainguard Workspaces has the following limits:
 - GitHub features, including pushing from a session, work only with repositories on github.com.
 - By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk. Unless Chainguard has raised your organization's limit, a session can't have more vCPUs or memory than that, but its disk can be up to 100 GB. Refer to [Resources](/chainguard/workspaces/session-environment/#resources) to change a session's size. The `/tmp` directory is held in memory and is limited to a quarter of the session's memory, 4 GB by default, so put large files under `/var/tmp` instead.
 - A session can't forward ports to your laptop.
-- `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. An allowance arranged with your Chainguard account team can differ.
+- `chainctl develop init` turns on a free monthly allowance, which resets on the first day of each month (UTC) and includes 500 vCPU-hours of Workspaces. Chainguard Checks has its own allowance. Each user can have one session at a time, including a parked one, and the organization can have three. On the Chainguard Team plan, the allowance is 1,000 vCPU-hours of Workspaces, and Workspaces keeps running past it, metered, up to 2,000; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits). An allowance arranged with your Chainguard account team can differ.
 
 A session counts its vCPUs against the allowance for every hour its VM runs, whether it's busy or idle. A session with the default 4 vCPUs uses 4 vCPU-hours an hour, including the time it keeps running while it's busy after you detach and the 10 idle minutes before it parks, and a parked session uses none. A 4-vCPU session created with `--keep always` and left running uses the month's allowance in about 5 days. Chainguard doesn't show your usage during the beta.
 
@@ -45460,7 +45620,7 @@ Each Guardener capability is an Optional Feature: it stays off until you turn it
 | [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | Recommends Chainguard container images for the images that a pull request adds or changes, with one-click suggested changes where possible. | Add `.chainguard/images.yaml` to a repository. | Early Access |
 | [Container Image Migration](/chainguard/guardener/github/image-migration/) | Opens a pull request, on a schedule or on demand, that replaces a repository's existing container images with Chainguard container images. | Add a `migrate` block to `.chainguard/images.yaml`. | Early Access |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | Checks that an authorized signer signed every commit in a pull request. Supports keyless (Sigstore) signatures and static keys such as GPG. | Add `.chainguard/source.yaml` to a repository. | Beta |
-| [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to iteratively convert your Dockerfiles to use Chainguard Containers. Docker builds run on your machine. | Join the waitlist, then run `chainctl agent dockerfile` commands. | Beta |
+| [Dockerfile migration](/chainguard/guardener/dockerfile-migration/) | Uses AI to iteratively convert your Dockerfiles to use Chainguard Containers. Docker builds run on your machine. | Run `chainctl agent dockerfile` commands. | Beta |
 | [Agent skill hardening](/chainguard/agent-skills/skill-hardening/) | Hardens the agent skills you upload and reports what changed. | Run `chainctl skills harden`. | Beta |
 | [Chainguard Harness](https://www.chainguard.dev/harness) | Finds exploitable vulnerabilities in your application code with a frontier AI model and returns fixes a Chainguard engineer has reviewed. | Join the waitlist, then give Chainguard read-only access to your code through the Chainguard App or send a source archive. | Beta |
 
@@ -45494,9 +45654,7 @@ Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-secur
 
 ## Prerequisites
 
-While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [the Guardener landing page](https://www.chainguard.dev/guardener).
-
-You also need the following:
+You need the following:
 
 - `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so. If you already have `chainctl`, [update it to the latest version](/platform/chainctl-usage/chainctl-version-update/) — older versions might not include the `chainctl agent dockerfile` commands or their current flags.
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally.
@@ -48187,6 +48345,8 @@ During the beta, Chainguard Checks has the following limits:
 - Each check's VM can have up to 4 vCPUs and 16 GB of memory.
 
 Chainguard counts each check's vCPUs for as long as its VM runs. A check with the [default resources](/chainguard/checks/configuration/#resources) uses 2 vCPU-hours for each hour it runs, and a `medium` check uses 4. Chainguard doesn't show your usage during the beta. When the allowance is used up, Chainguard Checks doesn't start new runs until it resets, and runs already in progress finish. Refer to [Troubleshoot Chainguard Checks](/chainguard/checks/troubleshooting/#the-summary-check-says-the-run-couldnt-be-created-or-failed) for what a pull request shows then.
+
+On the Chainguard Team plan, the allowance is 1,000 vCPU-hours of Checks each month, and Checks keeps running past it, metered, up to 2,000. For both plans' limits, refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 If your organization arranged access with its Chainguard account team, its allowance and limits can differ.
 
@@ -61829,7 +61989,7 @@ Verifying your organization lets you:
 - Log in through your [custom identity provider](/platform/administration/custom-idps/custom-idps/) by entering your organization name. This works in `chainctl`, the Chainguard Console, and the [Terraform provider](/platform/administration/terraform-provider/), so users don't need your identity provider's ID.
 - [Request new container images](/chainguard/containers/reference/request-resources/) in the Chainguard Console.
 
-Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Starter](/chainguard/containers/reference/catalog-starter/).
 
 ## Check whether your organization is verified
 
@@ -61954,7 +62114,7 @@ There are a number of built-in roles in Chainguard's IAM model that customers ca
 
 `console_viewer` is a role that has read-only access and **cannot** pull images. It is designed for teams that need visibility into the Chainguard Console without any image pull access. A console viewer can browse the Console — viewing organizations, roles, and group information — but has no `registry.pull` or `apk.pull` permissions. It also can't view legal terms or run Guardener conversions or migrations. This makes it a safe option for inviting developers, auditors, or stakeholders who need awareness of your organization's setup without the ability to pull images or APK packages.
 
-`limited_owner` is the role of a Starter organization's owner, such as a [Catalog Starter](/chainguard/containers/reference/catalog-starter/) user. It combines the capabilities of the `viewer` role with pull token creation. It can also invite people whose email address is in the organization's domain, remove members, manage billing, and turn on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/). It can't create identities other than pull tokens or use paid features like Custom Assembly.
+`limited_owner` is the role of a Starter organization's owner, such as a [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) user. It combines the capabilities of the `viewer` role with pull token creation. It can also invite people whose email address is in the organization's domain (an organization created with a personal email address can't invite anyone yet), remove members, manage billing, and turn on [Chainguard Checks](/chainguard/checks/overview/) and [Chainguard Workspaces](/chainguard/workspaces/overview/). It can't create identities other than pull tokens or use paid features like Custom Assembly.
 
 The remaining roles are for more specialized functions. For example, `registry.pull`, `registry.push`, and `registry.pull_token_creator` relate to administering a registry of Chainguard products. `sandbox.user` lets a member use Chainguard Checks and Chainguard Workspaces, and `mcp.tool_user` lets an identity call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/).
 
@@ -62672,7 +62832,7 @@ In such cases, you can create a Chainguard identity for these systems to assume,
 This guide provides a general overview of assumable identities in Chainguard, outlining how they work and how to create them.
 
 {{< note >}}
-[Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+[Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities. A pull token is the only credential they can issue for automation. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 {{< /note >}}
 
 ## About assumable identities
@@ -65584,7 +65744,7 @@ To complete this guide, you will need the following.
     * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
     * `terraform` installed on your local machine. Terraform is an Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * A GitHub repository you can use for testing out GitHub identity federation. To complete this guide, you must have permissions to create GitHub Actions on this testing repo.
-* A Chainguard organization that can create assumable identities. [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't, so authenticate those pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+* A Chainguard organization that can create assumable identities. [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organizations can't, so authenticate those pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 ## Creating an identity
 
@@ -66013,7 +66173,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-11-06T22:09:49.487886666Z
+Ce-Time: 2026-11-09T19:57:46.896791484Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 789
 Content-Type: application/json
@@ -66044,7 +66204,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-11-06T22:09:49.486538"
+    "when": "2026-11-09T19:57:46.895563"
   }
 }
 
@@ -66067,7 +66227,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-11-06T22:09:49.48679728Z
+Ce-Time: 2026-11-09T19:57:46.895844314Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -66096,7 +66256,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-11-06T22:09:49.486510"
+    "when": "2026-11-09T19:57:46.895531"
   }
 }
 
@@ -66119,7 +66279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-11-06T22:09:49.504342862Z
+Ce-Time: 2026-11-09T19:57:46.916472297Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -66159,7 +66319,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-11-06T22:09:49.505228433Z
+Ce-Time: 2026-11-09T19:57:46.912733499Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -66197,7 +66357,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-11-06T22:09:49.505360574Z
+Ce-Time: 2026-11-09T19:57:46.912957469Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -66236,7 +66396,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.500564935Z
+Ce-Time: 2026-11-09T19:57:46.900825951Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -66277,7 +66437,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.500726068Z
+Ce-Time: 2026-11-09T19:57:46.901111148Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -66314,7 +66474,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.500851456Z
+Ce-Time: 2026-11-09T19:57:46.901362484Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -66362,7 +66522,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.51021151Z
+Ce-Time: 2026-11-09T19:57:46.914623113Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -66408,7 +66568,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.510392323Z
+Ce-Time: 2026-11-09T19:57:46.914836515Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -66454,7 +66614,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-06T22:09:49.51055304Z
+Ce-Time: 2026-11-09T19:57:46.915024527Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -66493,7 +66653,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-06T22:09:49.503734595Z
+Ce-Time: 2026-11-09T19:57:46.915973961Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -66533,7 +66693,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.503854598Z
+Ce-Time: 2026-11-09T19:57:46.916219217Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66572,7 +66732,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.5059528Z
+Ce-Time: 2026-11-09T19:57:46.917355064Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -66611,7 +66771,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.506136334Z
+Ce-Time: 2026-11-09T19:57:46.917544388Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -66650,7 +66810,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.506297579Z
+Ce-Time: 2026-11-09T19:57:46.917713545Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66689,7 +66849,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-06T22:09:49.489730075Z
+Ce-Time: 2026-11-09T19:57:46.902063831Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -66732,7 +66892,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-06T22:09:49.489972227Z
+Ce-Time: 2026-11-09T19:57:46.902397465Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -66772,7 +66932,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.490159209Z
+Ce-Time: 2026-11-09T19:57:46.902689006Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66811,7 +66971,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-06T22:09:49.502733299Z
+Ce-Time: 2026-11-09T19:57:46.918013125Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -66854,7 +67014,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-06T22:09:49.502865743Z
+Ce-Time: 2026-11-09T19:57:46.918233431Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -66894,7 +67054,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-06T22:09:49.503019372Z
+Ce-Time: 2026-11-09T19:57:46.918418291Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -66931,7 +67091,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.503131352Z
+Ce-Time: 2026-11-09T19:57:46.918602799Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -66971,7 +67131,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.503244627Z
+Ce-Time: 2026-11-09T19:57:46.918804394Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -67015,7 +67175,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.503347678Z
+Ce-Time: 2026-11-09T19:57:46.918999045Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -67054,7 +67214,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.503441369Z
+Ce-Time: 2026-11-09T19:57:46.919180322Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -67095,7 +67255,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-06T22:09:49.507720616Z
+Ce-Time: 2026-11-09T19:57:46.920356517Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -67137,7 +67297,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-06T22:09:49.507894941Z
+Ce-Time: 2026-11-09T19:57:46.920569296Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -67180,7 +67340,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-06T22:09:49.508096027Z
+Ce-Time: 2026-11-09T19:57:46.920741292Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -67219,7 +67379,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-06T22:09:49.508276593Z
+Ce-Time: 2026-11-09T19:57:46.920938216Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -67258,7 +67418,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.5090204Z
+Ce-Time: 2026-11-09T19:57:46.905075116Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67297,7 +67457,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.509220495Z
+Ce-Time: 2026-11-09T19:57:46.905275199Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67336,7 +67496,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-06T22:09:49.509384476Z
+Ce-Time: 2026-11-09T19:57:46.905500856Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -67375,7 +67535,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-06T22:09:49.506888101Z
+Ce-Time: 2026-11-09T19:57:46.927682427Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67418,7 +67578,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-11-06T22:09:49.492064341Z
+Ce-Time: 2026-11-09T19:57:46.913233443Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -67463,7 +67623,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.501323799Z
+Ce-Time: 2026-11-09T19:57:46.905925109Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -67505,7 +67665,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.501601576Z
+Ce-Time: 2026-11-09T19:57:46.907964904Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -67547,7 +67707,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.50174758Z
+Ce-Time: 2026-11-09T19:57:46.908180834Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -67584,7 +67744,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-06T22:09:49.501880552Z
+Ce-Time: 2026-11-09T19:57:46.908360191Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -67623,7 +67783,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-06T22:09:49.502382984Z
+Ce-Time: 2026-11-09T19:57:46.90855485Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -67662,7 +67822,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-06T22:09:49.502487811Z
+Ce-Time: 2026-11-09T19:57:46.908708544Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -67701,7 +67861,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-06T22:09:49.491019476Z
+Ce-Time: 2026-11-09T19:57:46.929538698Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -67745,7 +67905,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-06T22:09:49.491234147Z
+Ce-Time: 2026-11-09T19:57:46.929780683Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -67789,7 +67949,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-06T22:09:49.491430513Z
+Ce-Time: 2026-11-09T19:57:46.93000702Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -67828,7 +67988,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-06T22:09:49.491623599Z
+Ce-Time: 2026-11-09T19:57:46.930242949Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -67870,7 +68030,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-06T22:09:49.491807813Z
+Ce-Time: 2026-11-09T19:57:46.930450439Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -67909,7 +68069,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-06T22:09:49.490447034Z
+Ce-Time: 2026-11-09T19:57:46.928891116Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -67953,7 +68113,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-06T22:09:49.490642184Z
+Ce-Time: 2026-11-09T19:57:46.929142564Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -67997,7 +68157,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-06T22:09:49.490805597Z
+Ce-Time: 2026-11-09T19:57:46.929307273Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68036,7 +68196,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.492423344Z
+Ce-Time: 2026-11-09T19:57:46.897362471Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -68082,7 +68242,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-06T22:09:49.492619078Z
+Ce-Time: 2026-11-09T19:57:46.897620495Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -68119,7 +68279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.492787179Z
+Ce-Time: 2026-11-09T19:57:46.897881926Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -68167,9 +68327,9 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the root organization the policy governs
-Ce-Time: 2026-11-06T22:09:49.506572284Z
+Ce-Time: 2026-11-09T19:57:46.919459911Z
 Ce-Type: dev.chainguard.api.iam.auth_policies.updated.v1
-Content-Length: 338
+Content-Length: 347
 Content-Type: application/json
 User-Agent: Chainguard Enforce
 
@@ -68183,7 +68343,9 @@ User-Agent: Chainguard Enforce
     "subject": "identity that triggered the event"
   },
   "body": {
-    "enforcement_entitled": true,
+    "session_duration": {
+      "seconds": 43200
+    },
     "sso_only": true,
     "uid": "UIDP of the root organization the policy governs"
   },
@@ -68195,6 +68357,45 @@ User-Agent: Chainguard Enforce
     "at": "2026-01-01T00:00:00Z",
     "client": "chainctl",
     "client_version": "0.9.1"
+  }
+}
+
+```
+
+### Method: StartValidation
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
+Ce-Specversion: 1.0
+Ce-Subject: UIDP of the root organization the validation is for
+Ce-Time: 2026-11-09T19:57:46.919797146Z
+Ce-Type: dev.chainguard.api.iam.auth_policies.validation.started.v1
+Content-Length: 145
+Content-Type: application/json
+User-Agent: Chainguard Enforce
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "kind": 1,
+    "state": 1,
+    "uid": "UIDP of the root organization the validation is for"
   }
 }
 
@@ -68217,7 +68418,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.493011818Z
+Ce-Time: 2026-11-09T19:57:46.922679431Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -68258,7 +68459,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.493249586Z
+Ce-Time: 2026-11-09T19:57:46.923001658Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -68295,7 +68496,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.493464865Z
+Ce-Time: 2026-11-09T19:57:46.923291567Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -68343,7 +68544,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-06T22:09:49.51386248Z
+Ce-Time: 2026-11-09T19:57:46.923607115Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -68383,7 +68584,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.514065046Z
+Ce-Time: 2026-11-09T19:57:46.923862186Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68422,7 +68623,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.498949533Z
+Ce-Time: 2026-11-09T19:57:46.915268423Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68459,7 +68660,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.499123106Z
+Ce-Time: 2026-11-09T19:57:46.915502224Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -68498,7 +68699,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.499317056Z
+Ce-Time: 2026-11-09T19:57:46.915715034Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -68539,7 +68740,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-06T22:09:49.504617238Z
+Ce-Time: 2026-11-09T19:57:46.928005286Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -68582,7 +68783,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.504769907Z
+Ce-Time: 2026-11-09T19:57:46.928227703Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68619,7 +68820,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-06T22:09:49.504884463Z
+Ce-Time: 2026-11-09T19:57:46.928417739Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -68659,7 +68860,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-06T22:09:49.505030107Z
+Ce-Time: 2026-11-09T19:57:46.92862287Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -68699,7 +68900,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-06T22:09:49.493789051Z
+Ce-Time: 2026-11-09T19:57:46.898328673Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -68742,7 +68943,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-06T22:09:49.494092484Z
+Ce-Time: 2026-11-09T19:57:46.898633093Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -68782,7 +68983,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-06T22:09:49.494273258Z
+Ce-Time: 2026-11-09T19:57:46.898842487Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -68819,7 +69020,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.49447144Z
+Ce-Time: 2026-11-09T19:57:46.899178602Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -68859,7 +69060,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.49465951Z
+Ce-Time: 2026-11-09T19:57:46.8994584Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -68903,7 +69104,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.49486042Z
+Ce-Time: 2026-11-09T19:57:46.899805785Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -68942,7 +69143,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.495240728Z
+Ce-Time: 2026-11-09T19:57:46.900101518Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -68981,7 +69182,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.495600668Z
+Ce-Time: 2026-11-09T19:57:46.900359149Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.correlation_rule.reset.v1
 Content-Length: 419
 Content-Type: application/json
@@ -69035,7 +69236,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-06T22:09:49.49952219Z
+Ce-Time: 2026-11-09T19:57:46.90315976Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -69077,7 +69278,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-06T22:09:49.49971106Z
+Ce-Time: 2026-11-09T19:57:46.903449501Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -69114,7 +69315,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-06T22:09:49.499874834Z
+Ce-Time: 2026-11-09T19:57:46.903700397Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -69157,7 +69358,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-06T22:09:49.500133962Z
+Ce-Time: 2026-11-09T19:57:46.903975779Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -69198,7 +69399,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.507170878Z
+Ce-Time: 2026-11-09T19:57:46.926173324Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69237,7 +69438,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.507370053Z
+Ce-Time: 2026-11-09T19:57:46.926407901Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69276,7 +69477,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-06T22:09:49.507536282Z
+Ce-Time: 2026-11-09T19:57:46.926623023Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -69315,7 +69516,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-06T22:09:49.50358887Z
+Ce-Time: 2026-11-09T19:57:46.925286622Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69358,7 +69559,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.488451259Z
+Ce-Time: 2026-11-09T19:57:46.909136652Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -69404,7 +69605,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-06T22:09:49.48873434Z
+Ce-Time: 2026-11-09T19:57:46.909354342Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -69441,7 +69642,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-06T22:09:49.488973172Z
+Ce-Time: 2026-11-09T19:57:46.90951206Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -69489,7 +69690,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.509601882Z
+Ce-Time: 2026-11-09T19:57:46.909734566Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -69530,7 +69731,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-06T22:09:49.509776408Z
+Ce-Time: 2026-11-09T19:57:46.910110157Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -69567,7 +69768,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.509935997Z
+Ce-Time: 2026-11-09T19:57:46.910278498Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -69615,7 +69816,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-06T22:09:49.498485742Z
+Ce-Time: 2026-11-09T19:57:46.92559249Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -69655,7 +69856,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.498690932Z
+Ce-Time: 2026-11-09T19:57:46.925854065Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -69694,7 +69895,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.508492976Z
+Ce-Time: 2026-11-09T19:57:46.9269784Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -69731,7 +69932,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.508666285Z
+Ce-Time: 2026-11-09T19:57:46.927217937Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -69770,7 +69971,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-06T22:09:49.508804433Z
+Ce-Time: 2026-11-09T19:57:46.927430067Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -69811,7 +70012,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-06T22:09:49.51078836Z
+Ce-Time: 2026-11-09T19:57:46.924196149Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -69854,7 +70055,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-06T22:09:49.510945581Z
+Ce-Time: 2026-11-09T19:57:46.924443821Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -69891,7 +70092,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-06T22:09:49.511086993Z
+Ce-Time: 2026-11-09T19:57:46.924669478Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -69931,7 +70132,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-06T22:09:49.511201541Z
+Ce-Time: 2026-11-09T19:57:46.92491899Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -69971,7 +70172,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-06T22:09:49.511374402Z
+Ce-Time: 2026-11-09T19:57:46.921203534Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -70014,7 +70215,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-06T22:09:49.511495638Z
+Ce-Time: 2026-11-09T19:57:46.921419736Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -70054,7 +70255,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-06T22:09:49.511603833Z
+Ce-Time: 2026-11-09T19:57:46.921612556Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -70091,7 +70292,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.511686052Z
+Ce-Time: 2026-11-09T19:57:46.92176357Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -70131,7 +70332,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.511784127Z
+Ce-Time: 2026-11-09T19:57:46.921974364Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -70175,7 +70376,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.511945316Z
+Ce-Time: 2026-11-09T19:57:46.922175743Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -70214,7 +70415,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-06T22:09:49.512097465Z
+Ce-Time: 2026-11-09T19:57:46.922361795Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -70255,7 +70456,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository the image was deleted from
-Ce-Time: 2026-11-06T22:09:49.489280061Z
+Ce-Time: 2026-11-09T19:57:46.920079079Z
 Ce-Type: dev.chainguard.api.platform.registry.image.deleted.v1
 Content-Length: 258
 Content-Type: application/json
@@ -70300,7 +70501,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-06T22:09:49.497736551Z
+Ce-Time: 2026-11-09T19:57:46.913533536Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -70355,7 +70556,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-06T22:09:49.49804192Z
+Ce-Time: 2026-11-09T19:57:46.913735554Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -70410,7 +70611,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-11-06T22:09:49.498240342Z
+Ce-Time: 2026-11-09T19:57:46.914292118Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -70449,7 +70650,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-06T22:09:49.496986247Z
+Ce-Time: 2026-11-09T19:57:46.91174194Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -70494,7 +70695,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-06T22:09:49.497338066Z
+Ce-Time: 2026-11-09T19:57:46.912423543Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -70539,7 +70740,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-11-06T22:09:49.497511791Z
+Ce-Time: 2026-11-09T19:57:46.912576214Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -70578,7 +70779,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.513098152Z
+Ce-Time: 2026-11-09T19:57:46.910605165Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70620,7 +70821,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.513303879Z
+Ce-Time: 2026-11-09T19:57:46.910800041Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70662,7 +70863,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.513472732Z
+Ce-Time: 2026-11-09T19:57:46.91096975Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -70699,7 +70900,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-06T22:09:49.513642617Z
+Ce-Time: 2026-11-09T19:57:46.911115388Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70743,7 +70944,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-06T22:09:49.512346913Z
+Ce-Time: 2026-11-09T19:57:46.904171198Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -70785,7 +70986,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-06T22:09:49.51250739Z
+Ce-Time: 2026-11-09T19:57:46.904310541Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -70822,7 +71023,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-06T22:09:49.512662762Z
+Ce-Time: 2026-11-09T19:57:46.904438397Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -70865,7 +71066,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-06T22:09:49.512828112Z
+Ce-Time: 2026-11-09T19:57:46.904568868Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -70906,7 +71107,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.505512034Z
+Ce-Time: 2026-11-09T19:57:46.916764198Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -70945,7 +71146,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-06T22:09:49.505683112Z
+Ce-Time: 2026-11-09T19:57:46.916979072Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -70984,7 +71185,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-06T22:09:49.505772426Z
+Ce-Time: 2026-11-09T19:57:46.917145317Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -71023,7 +71224,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-06T22:09:49.514286605Z
+Ce-Time: 2026-11-09T19:57:46.911326479Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -71062,7 +71263,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-06T22:09:49.514479755Z
+Ce-Time: 2026-11-09T19:57:46.911495324Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -71101,7 +71302,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-06T22:09:49.50034216Z
+Ce-Time: 2026-11-09T19:57:46.904755824Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -80223,8 +80424,9 @@ Add catalog images to your Chainguard Starter organization.
 
 Add catalog images to your Chainguard Starter organization.
 
-The target organization is the single kind=starter org the
-caller's identity is bound to — auto-discovered, no flags needed.
+The target organization is the Starter or Team org the caller's
+identity is bound to — auto-discovered. An account bound to more than
+one names it with --parent; otherwise its Starter org is used.
 
 Images are resolved against the catalog by exact name match. The server
 picks the active starter entitlement that has remaining capacity. The
@@ -80232,6 +80434,12 @@ total cap across all starter images is enforced by the server.
 
 ```
 chainctl starter add-images IMAGE_NAME [IMAGE_NAME ...] [flags]
+```
+
+### Options
+
+```
+      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands
@@ -85284,7 +85492,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, go, ruby, rust_athena, python, java_athena, dotnet, rust, javascript_athena, go_athena, ruby_athena, javascript, dotnet_athena, java, python_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -85320,7 +85528,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|go|ruby|rust_athena|python|java_athena|dotnet|rust|javascript_athena|go_athena|ruby_athena|javascript|dotnet_athena|java|python_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|java_athena|dotnet_athena|rust|rust_athena|dotnet|go|ruby|javascript_athena|ruby_athena|python|javascript|python_athena|go_athena}] [flags]
 ```
 
 ### Examples
@@ -85347,7 +85555,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, go, ruby, rust_athena, python, java_athena, dotnet, rust, javascript_athena, go_athena, ruby_athena, javascript, dotnet_athena, java, python_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena
 ```
 
 ### Options inherited from parent commands
@@ -86868,6 +87076,7 @@ Show your organization's plan, limits, and usage.
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl plans describe](/platform/chainctl/chainctl-docs/chainctl_plans_describe/)	 - Show the plan, product access, and quotas near their limits.
 * [chainctl plans quotas](/platform/chainctl/chainctl-docs/chainctl_plans_quotas/)	 - Show plan limits and current usage.
+* [chainctl plans update](/platform/chainctl/chainctl-docs/chainctl_plans_update/)	 - Move your organization to another plan.
 
 ---
 
@@ -91885,7 +92094,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|go|ruby|rust_athena|python|java_athena|dotnet|rust|javascript_athena|go_athena|ruby_athena|javascript|dotnet_athena|java|python_athena}[,...] | --repository=all] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|java_athena|dotnet_athena|rust|rust_athena|dotnet|go|ruby|javascript_athena|ruby_athena|python|javascript|python_athena|go_athena}[,...] | --repository=all] [flags]
 ```
 
 ### Examples
@@ -91919,7 +92128,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, go, ruby, rust_athena, python, java_athena, dotnet, rust, javascript_athena, go_athena, ruby_athena, javascript, dotnet_athena, java, python_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -92737,13 +92946,15 @@ Show Chainguard Starter organization status, quota, and image readiness.
 
 Show the status of your Chainguard Starter organization.
 
-Reports the registry path, account provisioning status, image quota
-usage, and per-image readiness — INITIALIZING until the catalog
-syncer has both created the repo and mirrored at least one tag, READY
-afterwards.
+Reports the registry path, the Chainguard Libraries host, account
+provisioning status, image quota usage, and per-image readiness —
+INITIALIZING until the catalog syncer has both created the repo and
+mirrored at least one tag, READY afterwards.
 
 The registry path names an organization by its domain, or by its ID when
-it has no verified domain, as for a personal email address.
+it has no verified domain, as for a personal email address. The
+Chainguard Libraries host is a separate address, the one a package
+manager pulls from.
 
 Use this command to check whether a newly-added image is pullable yet,
 or to confirm your starter org has finished provisioning before
@@ -92751,6 +92962,12 @@ running 'chainctl starter add-images'.
 
 ```
 chainctl starter status [flags]
+```
+
+### Options
+
+```
+      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands
@@ -93037,6 +93254,68 @@ chainctl checks explain [DIR] [--raw] [--output=json]
 ### SEE ALSO
 
 * [chainctl checks](/platform/chainctl/chainctl-docs/chainctl_checks/)	 - Inspect and manage a repository's Checks on the Chainguard sandbox plane.
+
+---
+
+### chainctl plans update
+_Path: platform/chainctl/chainctl-docs/chainctl_plans_update.md_
+
+## chainctl plans update
+
+Move your organization to another plan.
+
+### Synopsis
+
+Move your organization to another plan.
+
+With --plan team, this opens a hosted checkout page where an owner
+enters a card. Nothing is charged on the page itself. The organization
+moves to Team once the card is charged, which usually follows within a
+minute but can take up to an hour. Until then it stays on Starter and
+'chainctl plans describe' still reads Starter.
+
+The upgrade makes the purchaser an owner of the organization. The
+command waits up to 15 minutes for that, refreshing your local token
+until it carries the owner role. With --no-wait or --output json it
+exits once the checkout page is shown; run 'chainctl auth login' once
+the organization is on Team.
+
+With --plan enterprise or --plan starter, the command tells you how to
+ask Chainguard for the change.
+
+To cancel Team, contact Chainguard support.
+
+```
+chainctl plans update --plan team|enterprise|starter [--parent ORG] [--no-browser] [--no-wait] [--output=json|table] [flags]
+```
+
+### Options
+
+```
+      --no-browser      Print the checkout URL instead of opening it in a browser.
+      --no-wait         Exit once the checkout page is shown, instead of waiting for the organization to move to Team.
+      --parent string   The name or id of the organization whose plan to change.
+      --plan string     The plan to move to: team, enterprise, or starter.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl plans](/platform/chainctl/chainctl-docs/chainctl_plans/)	 - Show your organization's plan, limits, and usage.
 
 ---
 
@@ -93786,8 +94065,8 @@ and whether you want updates from Chainguard. --given-name, --family-name,
 The terms line is printed either way. With --non-interactive, it never
 prompts: it leaves the identity provider to the browser, treats a missing
 --email-updates as no, and fails naming the missing flags instead of asking.
-It checks them before you sign in, except --name: whether your organization
-needs one is known only after you sign in.
+It checks them before you sign in. A --name is checked before you sign in
+too, though whether your organization uses it is known only after.
 
 Once your organization exists, the Chainguard platform will automatically
 entitle it to choose images to be added. It should be ready within a
@@ -93864,7 +94143,7 @@ chainctl starter init [--output=json] [flags]
       --name string           Name of the organization, when you sign up with a personal email address. It can't look like a domain name. Ignored for an organization named after your email domain.
       --non-interactive       Never prompt: skip the provider menu, and fail naming the flags still needed instead of asking a question.
       --social-login string   Identity provider to sign in with, instead of choosing from a menu. Must be one of: email, google, github, gitlab
-      --terms-step            With --output json, add the terms to accept and what the Starter plan includes, and point next at 'chainctl starter accept-terms' once the organization is created.
+      --terms-step            With --output json, add the terms to accept and what the Starter plan includes, and a human_step naming 'chainctl starter accept-terms' for the person to run once the organization is created.
 ```
 
 ### Options inherited from parent commands
@@ -95796,7 +96075,9 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 - **You can't sign in at all, so you can't reach the portal.** Email [support@chainguard.dev](mailto:support@chainguard.dev).
 
-- **Your organization uses Catalog Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Catalog Starter doesn't include ticket access.
+- **Your organization uses Chainguard Starter.** Use the [knowledge base](https://support.chainguard.dev/hc/en-us), the [community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw), and the free [Chainguard courses](https://courses.chainguard.dev/). Starter doesn't include ticket access.
+
+- **Your organization uses Chainguard Team.** Open a ticket in the [support portal](https://support.chainguard.dev/). Chainguard answers Team tickets during business hours, with no response-time commitment. To cancel Team, open a ticket.
 
 - **Your request concerns your subscription or what your organization is licensed for — for example, whether a particular image is included in your entitlements.** Contact your account team, meaning the customer success manager or solutions architect assigned to your organization.
 
@@ -95808,7 +96089,7 @@ The support portal handles most requests, but it isn't the only route, and for s
 
 The support portal has two prerequisites.
 
-First, your organization needs a paid plan. Catalog Starter doesn't include support tickets or root cause analysis. For what the free plan does cover, see [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+First, your organization needs a paid plan, such as Chainguard Team. Chainguard Starter doesn't include support tickets or root cause analysis. To compare the plans, see [Chainguard plans](/get-started/self-serve/plans/).
 
 Second, your identity has to be linked to an organization. The portal identifies you through your Chainguard Console account, and an unlinked identity produces an error. To check, sign in to the [Chainguard Console](https://console.chainguard.dev) and look for your organization in the left sidebar. If it isn't there, ask an administrator in your organization to invite you, then open the invitation email and complete the setup flow. Signing in without completing that flow leaves your identity unlinked.
 
@@ -96136,7 +96417,7 @@ If `chainctl develop init` stops with an error, refer to [`chainctl develop init
 
 ### What a Starter organization includes {#what-a-starter-organization-includes}
 
-An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images through Chainguard Catalog Starter.
+An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images. For all of the Starter plan's limits, and for upgrading to Chainguard Team, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
 The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
 
@@ -96288,17 +96569,174 @@ Guardener also migrates GitHub Actions to hardened, SHA-pinned equivalents and e
 
 ---
 
+### Upgrade to Chainguard Team
+_Path: get-started/self-serve/upgrade-team.md_
+
+[Chainguard Team](/get-started/self-serve/plans/) is Chainguard's paid self-serve plan. You upgrade a Chainguard Starter organization to Team with `chainctl` and pay by card, and Team limits apply as soon as the first payment succeeds. This page covers upgrading, what changes afterward, how billing works, and how to change your card or cancel.
+
+## Before you begin
+
+You need the following:
+
+* A Chainguard Starter organization. To create one, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
+* The `limited_owner` or `owner` role in that organization. The person who created a Starter organization has the `limited_owner` role.
+* `chainctl` 0.2.394 or later. To update it, run `sudo chainctl update`, or `brew upgrade chainctl` if you installed it with Homebrew.
+* A credit or debit card and its billing address.
+
+## Upgrade your organization
+
+To upgrade to Team, complete the following steps:
+
+1. Run `chainctl plans update` with `--plan team`:
+
+    ```shell
+    chainctl plans update --plan team
+    ```
+
+    If you belong to more than one organization, add `--parent` with the name of the organization to upgrade.
+
+1. In the checkout page that opens in your browser, enter your card and billing address, select the checkbox to accept the terms, then save your card. If the page shows **I'm purchasing as a business**, which depends on your billing country, you can select it and enter a business tax ID, such as a VAT number. Saving the card doesn't charge it.
+1. Wait for the first payment. Chainguard charges the card for the first month, and your organization moves to Team once the charge succeeds. That usually takes a few minutes.
+1. Confirm the upgrade:
+
+    ```shell
+    chainctl plans describe
+    ```
+
+    The output names the Team plan. Until the payment succeeds, it still reads Starter.
+
+1. Sign in again, so your credentials carry the `owner` role that the upgrade gives you:
+
+    ```shell
+    chainctl auth login
+    ```
+
+If you're working on a machine without a browser, such as over SSH, add `--no-browser`. The command prints the checkout page's URL, which you can open on another device.
+
+## What changes when you upgrade
+
+Your organization keeps its name, members, and images, and gets the following:
+
+* **Team limits.** Refer to [Plan limits](/get-started/self-serve/plans/#plan-limits) for the full list.
+* **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they still have the `owner` or `limited_owner` role when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on a single person.
+* **Image swaps.** You can replace an image you chose with another one, once in a rolling 30 days.
+* **Invitations outside your email domain.** You can invite anyone, with any role you hold yourself.
+* **CVE-remediated Chainguard Libraries versions.**
+* **Ticket support** during business hours. Refer to [Get support](/get-started/get-support/).
+
+After the upgrade, `chainctl starter status` and `chainctl starter add-images` work as they did on Starter. They need `chainctl` 0.2.399 or later; earlier releases report that no Starter organization exists.
+
+Team pull tokens are limited to 7 days, a limit Chainguard doesn't enforce yet. For CI pipelines, use a CI identity instead; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
+
+If you created your organization with a personal email address, its Checks and Workspaces compute stops at the included amount rather than being metered past it.
+
+## How Team is billed
+
+Team is billed monthly, in advance, to the card you saved. The first month starts on the day you upgrade. Applicable tax is added. For the current price, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
+
+Storage above Team's included 500 GiB is metered, and Chainguard starts charging for it on January 1, 2027. Checks and Workspaces compute past the included amount is metered, up to 2,000 vCPU-hours a month. To check your usage, refer to [Usage, limits, and billing](/get-started/self-serve/usage-and-billing/).
+
+## Change your card
+
+To replace the card your plan is charged to, run `chainctl plans add-card`. It opens a page where you save a new card, without charging anything:
+
+```shell
+chainctl plans add-card
+```
+
+If the page shows **I'm purchasing as a business**, which depends on your billing country, you can also enter a business tax ID, such as a VAT number. The tax ID is saved with your billing details and appears on later invoices.
+
+## Cancel Team
+
+To cancel Team, contact Chainguard support. Refer to [Get support](/get-started/get-support/). Your organization moves back to Starter, which includes up to five images, so support asks which images to keep.
+
+To move to an Enterprise plan instead, [contact Chainguard](https://www.chainguard.dev/contact).
+
+---
+
 ### Self-serve overview
 _Path: get-started/self-serve/overview.md_
 
-**Self-serve** refers to the ways you can provision Chainguard products,
-such as container images and Helm charts, on your own, without direct
-involvement from Chainguard employees.
+**Self-serve** refers to the ways you can sign up for, use, and pay for
+Chainguard products on your own, without direct involvement from Chainguard
+employees.
 
-This section covers the self-serve options available today:
+Chainguard has two self-serve plans. **Chainguard Starter** is free, and
+**Chainguard Team** is a paid plan that a Starter organization upgrades to
+and pays for by card. This section covers the following:
 
-- **[Catalog Starter](/chainguard/containers/reference/catalog-starter/)** is a free plan that lets you try up to five Chainguard container images. Any Helm charts that depend on those images are included.
-- **[Self-serve Helm charts](/get-started/self-serve/helm-charts/)** lets Catalog customers provision Chainguard Helm charts, along with the container images they depend on, directly from the Chainguard Console.
+- **[Chainguard plans](/get-started/self-serve/plans/)** compares what Starter and Team include, with one table of their limits.
+- **[Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/)** creates a free organization with `chainctl`.
+- **[Upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/)** moves a Starter organization to Team.
+- **[Usage, limits, and billing](/get-started/self-serve/usage-and-billing/)** covers checking usage, responding to a plan limit, and buying Checks and Workspaces compute.
+- **[Chainguard Containers on Chainguard Starter](/chainguard/containers/reference/catalog-starter/)** covers choosing up to five container images and pulling them.
+- **[Self-serve Helm charts](/get-started/self-serve/helm-charts/)** lets you provision Chainguard Helm charts, along with the container images they depend on.
+
+---
+
+### Usage, limits, and billing
+_Path: get-started/self-serve/usage-and-billing.md_
+
+Every Chainguard Starter and Chainguard Team organization has [plan limits](/get-started/self-serve/plans/#plan-limits). This page covers checking your usage against them, what to do when a request is refused, and what Chainguard charges you for.
+
+## Check your usage
+
+To see your organization's plan, the products it can use, and any limits it's close to, run `chainctl plans describe`:
+
+```shell
+chainctl plans describe
+```
+
+To list every limit with its current usage, run `chainctl plans quotas list`:
+
+```shell
+chainctl plans quotas list
+```
+
+The following options narrow the list:
+
+* `--near` shows only the limits you're close to or have reached.
+* `--product` shows only the products you name, separated by commas, such as `images`, `libraries`, `checks`, `workspaces`, and `platform`.
+* `--parent` names the organization to check, if you belong to more than one.
+
+Usage figures include anything above an included amount. On Team, storage shows as unlimited, because storage past the included 500 GiB is metered, not refused. Image egress is shown in bytes. If Chainguard can't measure a figure yet, the list shows a dash; for a new organization, that's usually the case until Chainguard's next hourly usage count. Both commands accept `--output json`.
+
+On Starter, the rows for application, base, and AI images each show a limit of 5, but those images share one total of 5, which the catalog images row shows.
+
+### Check usage from a script
+
+Chainguard doesn't send you alerts as you approach a limit. To watch for limits from a scheduled job, run `chainctl plans quotas list` with `--near` and `--output json`, and read the JSON:
+
+```shell
+chainctl plans quotas list --near --output json
+```
+
+Don't rely on the exit status alone. Both `plans` commands exit with status 1 when usage is unavailable, even if `--near` shows no rows. With usage available, an empty `--near` list exits with status 0, which means no limit is near.
+
+## When a request is refused
+
+When a request would go past a plan limit, Chainguard refuses it and returns an error that names your plan and the limit, and what you've used or what you asked for. `chainctl` follows it with the `chainctl plans quotas list` command that shows the related limits. For example, the error message for a cooldown outside Team's range reads as follows:
+
+```output
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
+```
+
+To respond to a refusal, do one of the following:
+
+* **Stay within the limit.** For example, if you're at the pull-token limit, revoke a token you no longer use before you create another one.
+* **Wait for the monthly reset.** Monthly limits, such as image egress and package pulls, reset at the start of each calendar month, in UTC.
+* **Upgrade.** On Starter, [upgrade to Chainguard Team](/get-started/self-serve/upgrade-team/). On Team, [contact Chainguard](https://www.chainguard.dev/contact) about an Enterprise plan.
+
+A refusal stops only the next request. Work that's already running, such as an image pull, finishes.
+
+## What Chainguard charges for
+
+Chainguard charges the following to the card you save:
+
+* **The Team plan fee**, monthly in advance. Refer to [How Team is billed](/get-started/self-serve/upgrade-team/#how-team-is-billed).
+* **Storage above Team's included 500 GiB**, starting January 1, 2027.
+
+Starter is free. Applicable tax is added to every charge. For prices, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
 
 ---
 
@@ -96308,7 +96746,7 @@ _Path: get-started/self-serve/helm-charts.md_
 Catalog customers can provision Chainguard Helm charts, along with the container images each chart depends on, directly from the Chainguard Console. This replaces the previous manual request process, which required coordination with Chainguard sales, customer success, and support and could take 1 to 4 days.
 
 {{< note >}}
-This capability is available to Catalog customers whose plan includes the APPLICATION tier. It does not apply to the free [Catalog Starter](/chainguard/containers/reference/catalog-starter/) plan. Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
+This capability is available to Catalog customers whose plan includes the APPLICATION tier. Chainguard Starter and Chainguard Team organizations add charts with `chainctl`, as described in [Chainguard Starter and Chainguard Team organizations](#chainguard-starter-and-chainguard-team-organizations). Customers on per-image pricing can request charts through a support workflow, described in [Per-image pricing customers](#per-image-pricing-customers).
 {{< /note >}}
 
 ## Add a chart in the Chainguard Console
@@ -96360,6 +96798,15 @@ Provisioning usually finishes without any action from you, but it can take longe
 
 While you wait, you can add the chart again from the Console or with `chainctl`. If the chart still hasn't appeared 48 hours after you first added it, [open a support request](/get-started/get-support/) that includes your organization name and the chart name.
 
+## Chainguard Starter and Chainguard Team organizations
+
+A [Chainguard Starter or Chainguard Team](/get-started/self-serve/plans/) organization can add a chart with `chainctl images helm add-chart`, as described in [Add a chart with `chainctl`](#add-a-chart-with-chainctl). Each image the chart depends on that your organization doesn't already have uses one of its five image slots. To see which images a chart would add before you use any slots, run the command with `--dry-run` first.
+
+Chainguard refuses charts in the following cases:
+
+- The chart needs more image slots than your organization has left. The error says so.
+- The chart's metadata lists no image dependencies. The error reports an entitlement problem, even though the cause is the chart's metadata.
+
 ## Per-image pricing customers
 
 If your organization uses per-image pricing, or a chart requires images outside your active tiers, the Console doesn't provision the chart instantly. Instead, it generates a single support request that lists the chart and any missing images, prefilled with your organization's details. Chainguard support then provisions the chart and images, typically within 1 to 2 days.
@@ -96367,6 +96814,230 @@ If your organization uses per-image pricing, or a chart requires images outside 
 ## Use your charts
 
 After provisioning completes, authenticate and deploy your charts by following [How to Use Chainguard Helm Charts](/chainguard/containers/using-and-deploying/helm-charts/use-chainguard-helm-charts/).
+
+---
+
+### Chainguard plans
+_Path: get-started/self-serve/plans.md_
+
+Chainguard offers two self-serve plans, which you can sign up for, use, and upgrade without involving anyone at Chainguard:
+
+* **Chainguard Starter** is free. It gives a small team access to Chainguard Containers, Chainguard Libraries, Chainguard Checks, Chainguard Workspaces, and Guardener. To start, refer to [Sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/).
+* **Chainguard Team** is a paid plan for teams that outgrow Starter. It raises most Starter limits, removes the caps on members and CI identities, and includes ticket support. A Starter organization [upgrades to Team](/get-started/self-serve/upgrade-team/) with `chainctl` and pays by card.
+
+Enterprise plans, which cover features such as FIPS images, SSO, and custom policies, are set by contract. To discuss one, [contact Chainguard](https://www.chainguard.dev/contact). For prices, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
+
+## Plan limits
+
+The following table lists what each self-serve plan includes:
+
+| | Chainguard Starter | Chainguard Team |
+| --- | --- | --- |
+| **Chainguard Containers** | | |
+| Catalog images | 5 application, base, or AI images | 5 application, base, or AI images |
+| Image swaps | None | 1 per rolling 30 days |
+| Helm charts | Charts for your images | Charts for your images |
+| Image egress | 100 GiB a month | 1 TiB a month |
+| Storage | 100 GiB | 500 GiB included, then metered |
+| **Chainguard Libraries** | | |
+| Ecosystems | Java, Python, JavaScript, .NET, and Go | Java, Python, JavaScript, .NET, and Go |
+| CVE-remediated versions | Not included | Included |
+| Package pulls | 50,000 a month | 1,000,000 a month |
+| Cooldown period | Fixed at 7 days, no per-package override | 0 to 7 days |
+| **Chainguard Checks and Chainguard Workspaces** | | |
+| Checks compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered up to 2,000 |
+| Workspaces compute | 500 vCPU-hours a month | 1,000 vCPU-hours a month included, then metered up to 2,000 |
+| Workspaces sessions | 3 per organization, 1 per member | 3 per organization, 1 per member |
+| **Organization and access** | | |
+| Members | Up to 5, from your email domain | Unlimited |
+| CI identities | 3 | Unlimited |
+| Pull tokens | 5 active, each valid for up to 30 days | 5 active, each valid for up to 7 days |
+| [CloudEvents](/platform/administration/cloudevents/) subscriptions | None | 1 |
+| SSO and SCIM | Not included | Not included |
+| **Support** | Community | Tickets during business hours, with no response-time commitment |
+
+Monthly limits reset at the start of each calendar month, in UTC. GiB and TiB are binary units: 1 GiB is 1,024 MiB, and 1 TiB is 1,024 GiB. Chainguard uses these units when it refuses a request.
+
+Chainguard counts Starter usage against the limits for image egress and package pulls now, and starts refusing requests past them on January 1, 2027. The storage limit already applies: a push that would take your organization past 100 GiB is refused. The CI-identity and pull-token limits also start on January 1, 2027. Until then, a Starter organization can't create CI identities, and its pull tokens follow the lifetimes in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token). To find which limits you're approaching, run `chainctl plans quotas list --near`.
+
+Chainguard doesn't yet refuse Team requests past the image egress, package pull, and pull-token limits.
+
+FIPS, developer-tool, and commercial images need an Enterprise plan.
+
+On Starter, a newly published package version stays unavailable for 7 days, and you can't override the cooldown for a package. For how the Libraries cooldown limits work, refer to [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
+
+A Starter organization created with a personal email address can't invite anyone until it upgrades to Team.
+
+Once Chainguard enforces Team's pull-token limit, Team pull tokens last at most 7 days. To authenticate CI pipelines on Team without replacing a secret every week, use a CI identity, which Team doesn't cap. Refer to [Overview of assumable identities in Chainguard](/platform/administration/assumable-ids/assumable-ids/).
+
+### What the limits count
+
+* **Image egress** counts the image layers you download. Manifests don't count.
+* **Package pulls** count one download of one package version, however many files the download includes. A version served from the upstream registry counts the same as one Chainguard built.
+* **Storage** counts the images, uploads, and skills your organization pushes, and the Libraries packages it uploads. The Chainguard images you pull don't count.
+
+## What happens at a limit
+
+A plan limit is a cap, an included amount, or a feature the plan doesn't include:
+
+* **A cap** refuses the next request that would go past it. Work that's already running, such as an image pull, finishes.
+* **An included amount** keeps serving you past the limit and meters the extra usage. On Team, storage and Checks and Workspaces compute are included amounts. On Team, compute past 2,000 vCPU-hours a month is refused.
+* **A feature the plan doesn't include**, such as SSO, is refused whenever you try to use it.
+
+A Team organization created with a personal email address, rather than a business email domain, can't go past its included compute.
+
+A refused request returns an error that names your plan and the limit, and what you've used or what you asked for, followed by a link to the pricing page and a `chainctl plans update` command for the next plan. For example:
+
+```output
+Team plan allows a library cooldown of 0 to 7 days (14 days requested). Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
+```
+
+To find your organization's plan and the limits it's close to, run `chainctl plans describe`:
+
+```shell
+chainctl plans describe
+```
+
+To list every limit with its current usage, run `chainctl plans quotas list`. Add `--near` to show only the limits you're close to.
+
+## Mirroring
+
+The self-serve plans' terms don't allow mirroring Chainguard images or packages into a repository manager, such as JFrog Artifactory.
+
+---
+
+### Sign up for Chainguard Starter
+_Path: get-started/self-serve/sign-up-starter.md_
+
+[Chainguard Starter](/get-started/self-serve/plans/) is Chainguard's free self-serve plan. You sign up with `chainctl starter init`, which creates a Starter organization for you and, optionally, adds your first images. This page covers signing up, adding images, joining an organization that already exists, and signing up from a script or a coding agent.
+
+## Before you begin
+
+You need the following:
+
+* `chainctl` 0.2.394 or later. To install it, refer to [How to install chainctl](/platform/chainctl-usage/how-to-install-chainctl/). To update an existing installation, run `sudo chainctl update`, or `brew upgrade chainctl` if you installed it with Homebrew.
+* A verified email address on one of these accounts: GitHub, GitLab, Google, or an email-and-password account. For GitHub and GitLab, Chainguard uses the account's primary email address.
+
+Use a business email address if you plan to invite colleagues. With a business address, Chainguard names your organization after your email domain, and you can invite people whose addresses are in that domain. A personal email address, such as a Gmail address, creates an organization that isn't tied to any domain and can't invite anyone until it upgrades to Chainguard Team.
+
+## Sign up
+
+To create a Starter organization, complete the following steps:
+
+1. Run `chainctl starter init`:
+
+    ```shell
+    chainctl starter init
+    ```
+
+1. Choose an identity provider from the menu. `chainctl` offers to save your choice for later `chainctl auth login` runs. `chainctl starter init` shows the menu each time unless you add `--social-login`.
+1. Sign in using the browser window that opens. You have 5 minutes to finish.
+1. Answer the questions about your name, company, job title, and whether you want updates from Chainguard. Before the questions, `chainctl` prints the terms and privacy notice that you agree to by continuing.
+1. If you signed in with a personal email address, enter a name for your organization. The name can't look like a domain name.
+
+`chainctl` creates your organization and prints its name and ID. Chainguard then sets up the organization's access to images, which usually takes a few minutes.
+
+To add images as part of signing up, list them with `--images`. For example, the following command signs in with GitHub and adds the `nginx` and `redis` images once the organization is ready:
+
+```shell
+chainctl starter init --social-login github --images nginx,redis
+```
+
+## Add images
+
+A Starter organization can access up to five images. To find image names, browse the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add images after you sign up, run `chainctl starter add-images` with one or more image names:
+
+```shell
+chainctl starter add-images nginx redis
+```
+
+Once you add an image, you can't swap it for another one. When all five slots are used, `chainctl starter status` says so and suggests upgrading to Chainguard Team with `chainctl plans update --plan team`. To add a Helm chart, use `chainctl images helm add-chart`. Each image the chart needs that your organization doesn't already have uses one of the five slots. Refer to [Self-serve Helm charts](/get-started/self-serve/helm-charts/#chainguard-starter-and-chainguard-team-organizations).
+
+To check whether your images are ready to pull, run `chainctl starter status`. It shows your organization's registry path, how many images you've added, and each image's state. An image shows `INITIALIZING` until it's ready to pull, then `READY`.
+
+```shell
+chainctl starter status
+```
+
+When an image is ready, pull it from your organization's registry path, which `chainctl starter status` shows on its `Registry:` line, such as `cgr.dev/example.com`. Replace `$REGISTRY` with that path:
+
+```shell
+docker pull $REGISTRY/nginx:latest
+```
+
+An organization created with a personal email address has no domain, so its registry path uses the organization's ID instead of a name.
+
+To pull from CI pipelines, create a pull token. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+
+## Join an existing organization
+
+If your company already has a Starter organization for your email domain, `chainctl starter init` can't create a second one. Ask to join the existing organization instead:
+
+1. Sign in to Chainguard with your business email address:
+
+    ```shell
+    chainctl auth login
+    ```
+
+1. Request access:
+
+    ```shell
+    chainctl starter request-access
+    ```
+
+Chainguard emails the request to the organization's owners, who decide whether to invite you. For privacy, the command responds the same way whether or not an organization exists for your domain.
+
+## Sign up from a script or a coding agent
+
+`chainctl starter init` can run without prompts, which lets a script or a coding agent run it for you. You still sign in yourself in the browser.
+
+Pass `--non-interactive` with a flag for each question:
+
+```shell
+chainctl starter init --non-interactive --social-login google \
+  --given-name Ada --family-name Lovelace --company Acme --job-title Engineer \
+  --output json
+```
+
+With `--non-interactive`, the command never prompts. If a required flag is missing, it fails and names the flags it needs. A missing `--email-updates` counts as no. If you sign up with a personal email address, also pass `--name`.
+
+With `--output json`, the command writes progress to standard error and writes one JSON object to standard output. The object includes the outcome, the organization's ID and name, the images it added, the next command to run, and the error, if any. If the identity you signed in with already belongs to an organization, the object also includes `organizations`, the organizations it belongs to; `identity`, the email address it signed in with; and `hint`, what to do instead.
+
+The command exits with one of the following codes:
+
+| Code | Meaning |
+| ---- | ------- |
+| `0` | The organization was created, and any `--images` were added. |
+| `1` | Any other failure, such as an invalid or missing flag, or a network error. |
+| `3` | The identity you signed in with already belongs to an organization. The browser may have reused an earlier sign-in; sign out in the browser to use another identity. |
+| `4` | The identity isn't eligible for a Starter organization. |
+| `5` | The organization couldn't be created. One may already exist for your email domain; run `chainctl starter request-access`. |
+| `6` | Authentication failed. |
+| `7` | The organization was created, but a later step failed, such as adding the `--images`. The JSON's `next` field names the command to run next. Pressing Ctrl-C after the organization was created also exits with `7`. |
+| `8` | The browser sign-in wasn't finished within 5 minutes. Run the same command again. |
+
+### Have a person accept the terms
+
+When a coding agent signs up for you, add `--terms-step` so that you, not the agent, accept the terms. This flag needs `chainctl` 0.2.397 or later.
+
+With `--terms-step` and `--output json`, the JSON object also includes the following fields:
+
+* `terms`: the statement to accept and the documents it refers to.
+* `plan`: what the Starter plan includes and excludes. The list can include limits that Chainguard doesn't enforce yet. For the current limits, refer to [Chainguard plans](/get-started/self-serve/plans/).
+* `human_step`: the step that only a person can take. Its `command` field holds the command that accepts the terms.
+
+Once the organization exists, `human_step` names the command that accepts the terms, and `next` is empty, so the agent has nothing to run. With `chainctl` releases before 0.2.399, `next` names the command instead. An owner of the organization reads the terms and runs the command. Replace `<organization-id>` with the ID from the JSON's `organization` field:
+
+```shell
+chainctl starter accept-terms --parent <organization-id>
+```
+
+The command prints what the Starter plan includes, then the terms, and asks you to accept them. Without an interactive terminal, add `--yes`; using it means you agree to the terms. Running the command again after the terms are accepted changes nothing.
+
+## Next steps
+
+* Compare what Starter and Team include in [Chainguard plans](/get-started/self-serve/plans/).
+* To use Chainguard Checks and Chainguard Workspaces, refer to [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/).
 
 ---
 
@@ -96461,7 +97132,7 @@ chainctl auth login \
 
 [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) covers non-interactive use, and the [identity examples](/platform/administration/assumable-ids/identity-examples/) include worked setups for GitHub, GitLab, and several cloud providers.
 
-**On Catalog Starter.** [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+**On Chainguard Starter.** [Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 **Why it matters.** There's no long-lived credential to leak, rotate, or track. A token that shows up in a build log has already expired by the time anyone reads it.
 
