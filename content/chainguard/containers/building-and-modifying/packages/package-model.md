@@ -5,7 +5,7 @@ lead: "Overview of Chainguard's package repositories, highlighting the different
 description: "Overview of Chainguard's package repositories, highlighting the different repositories and how to access them."
 type: "article"
 date: 2025-10-09T00:00:00Z
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Product"]
 images: []
@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/features/packages/package-model/
 ---
 
-Chainguard's container images are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
+Chainguard's container images are built using packages from one of two Linux distributions: Free container images use Wolfi, and Production container images use Chainguard OS. To learn how the two differ, refer to the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi). If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
