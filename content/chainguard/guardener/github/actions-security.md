@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-11-05T18:36:10+00:00
+lastmod: 2026-11-12T13:56:30+00:00
 draft: false
 aliases:
 - /chainguard/guardener/actions-security/
@@ -52,6 +52,8 @@ migrate:
 ```
 
 Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
+
+When a later run finds nothing left to migrate or upgrade, for example after a new `migrate.ignore` entry excludes the remaining changes, Guardener closes the migration pull request with a comment that says why. Guardener leaves the pull request open if it has an assignee or the `skip:guardener` label, or if a lookup in the Chainguard Actions catalog failed during the run. Setting `migrate.enabled: false` doesn't close the pull request.
 
 ## Run an on-demand migration
 
@@ -174,7 +176,9 @@ Upgrades go into the same pull request as migrations, in a table that lists each
 | `4.3.0` | Minor |
 | `5.0.0` or later | Major |
 
-A newer build of the same version counts as a patch. When a later version passes its cooldown, Guardener updates the pull request instead of opening another one. A pull request that only upgrades pins is titled "Upgrade Chainguard GitHub Actions".
+A newer build of the same version counts as a patch, except for a SHA pin on a floating tag. There, a newer build counts as the largest change the tag allows: a minor for `# v4` and a patch for `# v4.3`. A rule that skips minor updates therefore also skips new builds of `v4`.
+
+When a later version passes its cooldown, Guardener updates the pull request instead of opening another one. A pull request that only upgrades pins is titled "Upgrade Chainguard GitHub Actions".
 
 ### Set the cooldown
 
@@ -219,7 +223,9 @@ Guardener doesn't support Dependabot's `versions` field in ignore rules.
 
 ### Fix invalid upgrade settings
 
-A mistake in `migrate.upgrade` turns off upgrades for the repository, but nothing else. Migrations and pull request recommendations keep running, and the migration pull request names the setting that turned off upgrades. These count as mistakes:
+A mistake in `migrate.upgrade` turns off upgrades for the repository, but nothing else. Migrations and pull request recommendations keep running, and the migration pull request names the setting that turned off upgrades. If the mistake leaves nothing to migrate or upgrade, Guardener [closes the migration pull request](#enable-automated-migration-pull-requests) and names the setting in its closing comment. If the repository has no migration pull request, Guardener doesn't report the mistake, so check `.chainguard/actions.yaml` when expected upgrades don't appear.
+
+These count as mistakes:
 
 - A value of the wrong type, such as `0.5` for `default-days`
 - A number of days outside the range from 0 to 365
@@ -245,7 +251,7 @@ updates:
       - dependency-name: "chainguard-actions/*"
 ```
 
-For Renovate, add a package rule that turns off updates for packages under `chainguard-actions/`.
+For Renovate, add a `packageRules` entry that turns off updates for packages under `chainguard-actions/`.
 
 ### Upgrade limitations
 
