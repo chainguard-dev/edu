@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-02T14:47:27+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -154,31 +154,46 @@ We will attempt to rebuild any libraries that meet the [licensing and source ava
 
 ## Upstream fallback and controls
 
-Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
+Chainguard Libraries include a protected upstream fallback, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/).
 
-By default, the Chainguard library endpoints serve
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+New entitlements have upstream fallback on by default for every ecosystem that has
+an upstream registry. The endpoint serves Chainguard-built packages first and serves
+eligible upstream packages only when Chainguard hasn't built the requested version.
+Upstream packages are subject to additional security controls before being served.
+
+To see the policy on each of your entitlements, run
+`chainctl libraries entitlements list`. To change it, follow the steps in the next
+section.
 
 > Note: When using `chainctl` to configure upstream fallback or cooldown duration, it can take up to 30 minutes for the repository changes to take effect.
 
 ### Enable the upstream repository
 
-Upstream fallback and the cooldown period are separate settings, and you can change each one without changing the other:
+Two settings control how the repository serves packages:
 
 * Your **entitlement** controls whether the repository serves upstream packages. Use the [`chainctl
   libraries entitlements`
   command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) to change it.
 * A **library policy** controls the cooldown period. Use the `chainctl libraries policy` command to change it.
 
-When you enable upstream fallback, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to Chainguard-built packages and upstream packages alike. When upstream fallback is off, the repository serves only Chainguard-built packages and no cooldown applies to them.
 
-For example, the following command adds the npm upstream fallback policy to your
-JavaScript entitlement:
+When upstream fallback is on, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
+
+New entitlements already have upstream fallback on. If yours is off, or you want
+to switch an entitlement to Chainguard-only, change the entitlement policy. For
+example, the following command turns on upstream fallback for your JavaScript
+entitlement:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
+```
+
+To serve only Chainguard-built packages, set the policy to `CHAINGUARD` instead:
+
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD
 ```
 
 To change the cooldown, create a library policy and enable it for the ecosystem. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). For example, on a plan that allows it, the following commands disable the cooldown for JavaScript:
@@ -196,8 +211,8 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 
 The following options are available:
 
-* **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled**: Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **Upstream fallback on (default for new entitlements)**: Chainguard-built packages are served first. Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **No upstream fallback**: Only Chainguard-built packages are served, and the cooldown does not apply. Set the entitlement policy to `CHAINGUARD` to choose this option.
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
@@ -276,11 +291,11 @@ curl -s \
 
 ### Cooldown period
 
-When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
+When upstream fallback is enabled, package versions are subject to a cooldown period from their upstream publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
-A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
+A library policy sets the cooldown. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
-The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to both Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window. When upstream fallback is off, no cooldown applies to the Chainguard-built packages the repository serves.
 
 If a requested package version falls within the cooldown period, the package manager reports it as blocked: npm returns a `403` with the reason, and other package managers return a not-found error. The version is also withheld from the package's metadata, so it does not appear in version listings until the cooldown passes. The package becomes available once it has passed the cooldown period and cleared malware scanning. For how blocks surface in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 

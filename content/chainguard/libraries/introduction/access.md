@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-02T13:34:48+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -493,20 +493,24 @@ An entitlement grants your organization access to a Chainguard Libraries
 ecosystem. To add or remove an entitlement, contact your Chainguard account
 team.
 
-Once your organization is entitled to an ecosystem, you can enable upstream
-fallback and list your entitlements yourself with [`chainctl libraries
-entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+Once your organization is entitled to an ecosystem, you can list your
+entitlements and change their upstream fallback policy yourself with [`chainctl
+libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ### Enable upstream fallback
 
-To enable upstream fallback for an entitled ecosystem, use the `--policy` flag:
+New entitlements have [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
+on by default. To turn on upstream fallback for an entitlement that has it off,
+use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the upstream fallback policy on an existing entitlement, rerun the
-command with the new `--policy` value.
+To change the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value. For example, `--policy=CHAINGUARD` serves
+only Chainguard-built packages.
 
 ### List entitlements
 
