@@ -45,11 +45,11 @@ JavaScript serves repository URLs. A common setup uses two repositories:
 * A `dev` repository with upstream fallback on, so engineers can install any
   package.
 
-A JavaScript repository URL has the following form, where `acme.com` is the
+A JavaScript repository URL has the following form, where `example.com` is the
 organization name and `prod` is the repository name:
 
 ```text
-https://libraries.cgr.dev/javascript/~/acme.com/prod/
+https://libraries.cgr.dev/javascript/~/example.com/prod/
 ```
 
 ## Plan limits
@@ -75,11 +75,11 @@ Team plans include 1 repository in addition to the default; upgrade to Enterpris
 
 ## Create a repository
 
-To create a repository named `prod` in the `acme.com` organization, run the
+To create a repository named `prod` in the `example.com` organization, run the
 following command:
 
 ```shell
-chainctl libraries repos create prod --parent acme.com
+chainctl libraries repos create prod --parent example.com
 ```
 
 The output shows the repository URL:
@@ -87,7 +87,7 @@ The output shows the repository URL:
 ```text
 Repository prod is ready.
 URLs:
-  JAVASCRIPT  https://libraries.cgr.dev/javascript/~/acme.com/prod/
+  JAVASCRIPT  https://libraries.cgr.dev/javascript/~/example.com/prod/
 ```
 
 A repository can't use the name of a folder that already exists in the
@@ -99,7 +99,7 @@ into a repository.
 To list the repositories in an organization, run the following command:
 
 ```shell
-chainctl libraries repos list --parent acme.com
+chainctl libraries repos list --parent example.com
 ```
 
 The output is a table with the `NAME`, `CREATED`, and `STATE` columns. The
@@ -109,7 +109,7 @@ repository. A repository that's working shows the state `ready`.
 To view the details of one repository, pass its name:
 
 ```shell
-chainctl libraries repos describe prod --parent acme.com
+chainctl libraries repos describe prod --parent example.com
 ```
 
 The output shows the repository's state, its creation time, the URL for each
@@ -124,7 +124,7 @@ message such as `Libraries repositories are not available for java yet.`
 To view the default repository, omit the name:
 
 ```shell
-chainctl libraries repos describe --parent acme.com
+chainctl libraries repos describe --parent example.com
 ```
 
 The output shows the default repository's URLs and the following line:
@@ -141,13 +141,13 @@ public npm Registry, listed as `npmjs`, enabled.
 To view a repository's upstream registries, run the following command:
 
 ```shell
-chainctl libraries repos upstreams list --parent acme.com/prod --ecosystem javascript
+chainctl libraries repos upstreams list --parent example.com/prod --ecosystem javascript
 ```
 
 To turn upstream fallback off, disable `npmjs`:
 
 ```shell
-chainctl libraries repos upstreams disable npmjs --parent acme.com/prod --ecosystem javascript
+chainctl libraries repos upstreams disable npmjs --parent example.com/prod --ecosystem javascript
 ```
 
 The command prints `Disabled upstream registry npmjs for JAVASCRIPT in
@@ -157,7 +157,7 @@ JavaScript.
 To turn upstream fallback on again, enable `npmjs`:
 
 ```shell
-chainctl libraries repos upstreams enable npmjs --parent acme.com/prod --ecosystem javascript
+chainctl libraries repos upstreams enable npmjs --parent example.com/prod --ecosystem javascript
 ```
 
 With upstream fallback off, the repository serves packages that Chainguard
@@ -190,7 +190,7 @@ To create a pull token bound to the `prod` repository, run the following
 command:
 
 ```shell
-chainctl auth pull-token create --repository=javascript --parent acme.com/prod --name ci-prod
+chainctl auth pull-token create --repository=javascript --parent example.com/prod --name ci-prod
 ```
 
 For more about pull tokens, see [Chainguard Libraries
@@ -207,13 +207,13 @@ To point npm at a repository and write a pull token in one step, run the
 following command:
 
 ```shell
-chainctl auth configure npm --pull-token --parent acme.com/prod --repo-name prod
+chainctl auth configure npm --pull-token --parent example.com/prod --repo-name prod
 ```
 
 The command writes a `.npmrc` file that contains the following lines:
 
 ```properties
-registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
+registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
 //libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
 //libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
 ```
@@ -229,7 +229,7 @@ either `//libraries.cgr.dev/javascript/` or `//libraries.cgr.dev/`. Both keys
 work:
 
 ```properties
-registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
+registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
 //libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
 ```
 
@@ -239,8 +239,8 @@ In `.npmrc`, set `registry` to the repository URL, key the credential to the
 full repository URL, and set `always-auth=true`:
 
 ```properties
-registry=https://libraries.cgr.dev/javascript/~/acme.com/prod/
-//libraries.cgr.dev/javascript/~/acme.com/prod/:_auth=<base64-encoded-token>
+registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
+//libraries.cgr.dev/javascript/~/example.com/prod/:_auth=<base64-encoded-token>
 always-auth=true
 ```
 
@@ -255,9 +255,9 @@ In `.yarnrc.yml`, set `npmRegistryServer` to the repository URL. Add an
 `npmAlwaysAuth: true`:
 
 ```yaml
-npmRegistryServer: "https://libraries.cgr.dev/javascript/~/acme.com/prod/"
+npmRegistryServer: "https://libraries.cgr.dev/javascript/~/example.com/prod/"
 npmRegistries:
-  "//libraries.cgr.dev/javascript/~/acme.com/prod/":
+  "//libraries.cgr.dev/javascript/~/example.com/prod/":
     npmAuthIdent: "<base64-encoded-token>"
     npmAlwaysAuth: true
 ```
@@ -287,7 +287,7 @@ builds `lodash` but doesn't build `leftpad`.
 To delete the `dev` repository, run the following command:
 
 ```shell
-chainctl libraries repos delete dev --parent acme.com
+chainctl libraries repos delete dev --parent example.com
 ```
 
 The command asks you to confirm. To skip the confirmation, pass `--yes`.
