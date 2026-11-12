@@ -4,7 +4,7 @@ linktitle: "Migrate from GitHub Actions"
 description: "Convert GitHub Actions pull request workflows to a Chainguard Checks configuration, with a mapping of common GitHub Actions keys."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T13:54:31+00:00
+lastmod: 2026-11-12T14:53:33+00:00
 draft: false
 tags: ["Chainguard Checks", "Migration", "GitHub"]
 images: []
@@ -54,7 +54,7 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `actions/checkout` with `repository` | `inputs` with `git`, for a public repository on github.com. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
 | `actions/checkout` with `submodules` or `lfs` | No equivalent. Submodule directories are empty, and Git LFS files hold their pointer files. |
 | `actions/upload-artifact` and `actions/download-artifact` | `outputs` on the check that writes the files, and `inputs` with `from` on a check in the same file that reads them. Refer to [Pass files between checks](/chainguard/checks/variations-services-caches/#pass-files-between-checks). A run keeps no files that you can download. |
-| `actions/cache`, or the caching in a setup action, such as `actions/setup-go` | `environment.caches`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Use `gobuild` and `gomod` for Go build output and downloaded modules, `python` for pip and uv, and `java` for Maven and Gradle. A check that uses a cache runs as `root`, the default, or as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
+| `actions/cache`, or the caching in a setup action, such as `actions/setup-go` | `environment.caches`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Use `gobuild` and `gomod` for Go build output and downloaded modules, `python` for pip and uv, `java` for Maven and Gradle, and `cargo` for Cargo. A check that uses a cache runs as `root`, the default, or as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
 | `jobs.<job_id>.services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). To run a container image instead, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). |
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |
