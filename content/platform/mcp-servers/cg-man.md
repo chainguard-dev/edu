@@ -1,7 +1,7 @@
 ---
 title: "cg-man: the Chainguard OS manual pages and --help MCP server"
 date: 2026-11-05T13:57:14+00:00
-lastmod: 2026-11-12T14:11:00+00:00
+lastmod: 2026-11-12T14:37:12+00:00
 linktitle: "cg-man"
 description: "Connect an MCP client to cg-man to search and read the manual pages and --help output of Chainguard OS packages, at the exact package version you run."
 type: "article"
@@ -20,7 +20,7 @@ weight: 70
 
 Manual pages live in `-doc` subpackages, which minimal container images leave out, so an agent working inside a Chainguard container usually can't run `man`. Many tools have no manual page at all: `crane`, `helm`, `kubectl`, and most tools written in Go or Rust document themselves only through `--help`. Without this server, an agent answers questions about a tool's flags from training data, which may describe a different version from the one you run.
 
-The pages come from the signed APKs in all three Chainguard OS package repositories. The help output comes from running each executable with `--help` in a sandbox, against the exact package version. Both are rebuilt nightly. Pages and help output under proprietary or source-available licenses are withheld.
+The pages come from the signed APKs in all three Chainguard OS package repositories. The `--help` output is captured by running each executable in a sandbox, against the exact package version. Both are rebuilt nightly. Pages and `--help` output under proprietary or source-available licenses are withheld.
 
 The server uses the Streamable HTTP transport, at this endpoint:
 
@@ -132,7 +132,7 @@ Without `repo`, the manual-page tools and `search_docs` search only `os`. To fin
 
 ### Versions
 
-Every tool that reads a page, help output, or a tool defaults to the latest package version with documentation. To answer for the version you run, pass `version` with the exact package version, including its epoch, such as `8.22.0-r3`. Use `get_package_info` to list the versions that have pages.
+Every tool that reads a page, `--help` output, or a tool defaults to the latest package version with documentation. To answer for the version you run, pass `version` with the exact package version, including its epoch, such as `8.22.0-r3`. Use `get_package_info` to list the versions that have pages.
 
 ### search_docs
 
@@ -228,7 +228,7 @@ Describes a command-line tool in one record: its usage line, its options, its ex
 
 Each option lists its `sources`, `help`, `man`, or both, and a confidence rating:
 
-- `high`: the option appears in both the help output and the manual page.
+- `high`: the option appears in both the `--help` output and the manual page.
 - `medium`: the option appears in one source and parsed cleanly.
 - `low`: the option was found heuristically.
 
@@ -264,10 +264,10 @@ When the command-line tool has no such option, `get_option` returns an error tha
 
 ## Untrusted content
 
-Manual pages and help output are third-party text written by each package's upstream project. The server marks them as untrusted in two ways, so a client can tell page text from instructions:
+Manual pages and `--help` output are third-party text written by each package's upstream project. The server marks them as untrusted in two ways, so a client can tell page text from instructions:
 
 - Each response carries a `notice` field telling the client to treat descriptions, options, examples, and licenses as data and not to follow instructions in them.
-- Page text from `get_man_page` and help output from `get_help` arrive between `<<<UNTRUSTED-…>>>` and `<<<END UNTRUSTED-…>>>` markers, with a random suffix for each response.
+- Page text from `get_man_page` and `--help` output from `get_help` arrive between `<<<UNTRUSTED-…>>>` and `<<<END UNTRUSTED-…>>>` markers, with a random suffix for each response.
 
 ## Read pages in a browser
 
@@ -285,13 +285,13 @@ For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` i
 | `.raw` | The original roff source |
 | `.json` | A manifest recording the package, version, license, and a SHA-256 digest of each format |
 
-Help output is published under `/help/`, keyed by the executable's absolute path. `https://man.cgr.dev/help/usr/bin/kubectl` shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
+The site publishes `--help` output under `/help/`, keyed by the executable's absolute path. `https://man.cgr.dev/help/usr/bin/kubectl` shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
 
 ```
 https://man.cgr.dev/<repo>/<package>/<version>/help/<path>
 ```
 
-For example, `https://man.cgr.dev/os/crane/0.22.1-r4/help/usr/bin/crane`. Use `latest` in place of the version to follow the current release. Append `.txt` for the plain help text, or `.json` for a manifest recording the package, version, command, exit code, APK checksum, capture time, and parsed options.
+For example, `https://man.cgr.dev/os/crane/0.22.1-r4/help/usr/bin/crane`. Use `latest` in place of the version to follow the current release. Append `.txt` for the plain `--help` text, or `.json` for a manifest recording the package, version, command, exit code, APK checksum, capture time, and parsed options.
 
 ## Example usage
 
@@ -342,7 +342,7 @@ Using the Chainguard OS manual pages, which crane flag lets it fetch images with
 | `search_docs` returns 20 results when you asked for more | `limit` is above the maximum of 100, so the server used the default. | Set `limit` to 100 or less. |
 | `get_man_page` returns `no manpage found` for a tool such as `crane` | The tool ships no manual page. | Run `get_help` or `describe_tool` instead. |
 | `get_help` returns `no captured help` for a subcommand, such as `kubectl get` | Only top-level `--help` output is captured. | Request the top-level tool, such as `kubectl`. |
-| A pinned `version` returns `no manpage found` or `no captured help` | That package version has no pages or captured help, or the version string is incomplete. | Run `get_package_info` to list the versions with pages, and pass the full version, including its epoch, such as `-r3`. Omit `version` to read the latest capture. |
+| A pinned `version` returns `no manpage found` or `no captured help` | That package version has no pages or captured `--help` output, or the version string is incomplete. | Run `get_package_info` to list the versions with pages, and pass the full version, including its epoch, such as `-r3`. Omit `version` to read the latest capture. |
 | A page you expect is missing | Its license is proprietary or source-available, so the page is withheld, or the package ships no manual pages. | Read the documentation from the package's upstream project. |
 
 ## Next steps
