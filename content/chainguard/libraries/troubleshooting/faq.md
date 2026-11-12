@@ -26,8 +26,9 @@ toc: true
 The following video focuses on Chainguard's built-from-source model: when a
 rebuilt package is available, Chainguard serves it with verifiable provenance
 and SBOMs. Not every package or version can be built immediately, so the
-[Chainguard Repository](/chainguard/chainguard-repository/) also supports an
-optional, policy-governed upstream fallback. When enabled, Chainguard-built
+[Chainguard Repository](/chainguard/chainguard-repository/) also includes a
+policy-governed upstream fallback, on by default for new entitlements. When
+enabled, Chainguard-built
 packages are preferred, while eligible upstream packages are subject to
 configurable controls such as a cooldown period and malware and greyware
 scanning. Packages identified as malicious are blocked.

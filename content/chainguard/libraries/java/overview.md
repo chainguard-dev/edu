@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-09T17:42:18+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -265,11 +265,12 @@ for details.
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for Java supports an optional built-in fallback to
+Chainguard Libraries for Java includes a built-in, policy-governed fallback to
 a set of upstream public Maven repositories, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
+Repository](/chainguard/chainguard-repository/overview/). New Java entitlements have
+upstream fallback on by default. The endpoint always serves Chainguard-built packages
+first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period. To serve only Chainguard-built packages, set the entitlement policy to Chainguard-only, as described in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
