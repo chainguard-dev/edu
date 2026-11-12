@@ -1,7 +1,7 @@
 ---
-title: "cg-man: the Chainguard OS manual pages and help MCP server"
+title: "cg-man: the Chainguard OS manual pages and --help MCP server"
 date: 2026-11-05T13:57:14+00:00
-lastmod: 2026-11-12T13:08:00+00:00
+lastmod: 2026-11-12T14:11:00+00:00
 linktitle: "cg-man"
 description: "Connect an MCP client to cg-man to search and read the manual pages and --help output of Chainguard OS packages, at the exact package version you run."
 type: "article"
