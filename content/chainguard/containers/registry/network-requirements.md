@@ -10,7 +10,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-12T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -31,6 +31,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | cgr.dev                 | 443  | HTTPS    | v4      | Main container image registry         |
 | console.chainguard.dev  | 443  | HTTPS    | v4      | Chainguard dashboard                  |
 | data.chainguard.dev     | 443  | HTTPS    | v4      | Console API endpoint                  |
+| token.chainguard.dev    | 443  | HTTPS    | v4      | Console login callback, reached by the browser that completes the login |
 | console-api.enforce.dev | 443  | HTTPS    | v4      | Registry API endpoint                 |
 | enforce.dev             | 443  | HTTPS    | v4      | Registry authentication               |
 | dl.enforce.dev          | 443  | HTTPS    | v4      | `chainctl` downloads                  |
