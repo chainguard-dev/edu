@@ -14,8 +14,9 @@ toc: true
 {{< beta feature="Repositories in Chainguard Libraries" access="a small group of organizations that Chainguard enrolls" >}}
 
 The commands on this page work only after Chainguard enrolls your
-organization, and they don't appear in the `chainctl` help yet. If your
-organization isn't enrolled, `chainctl` returns the following error:
+organization. Update `chainctl` to the latest release before you start;
+earlier releases do not show these commands. If your organization isn't
+enrolled, `chainctl` returns the following error:
 
 ```text
 Libraries repositories are not available for this organization.
