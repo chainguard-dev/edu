@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-11-10T17:44:41+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -162,7 +162,7 @@ Your teammates don't need a Chainguard account to get checks on their pull reque
 | Role | In Chainguard Checks | In Chainguard Workspaces | Inside a session |
 | ---- | -------------------- | ------------------------ | ---------------- |
 | `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. | `chainctl checks` commands work as the teammate. The Chainguard MCP servers don't, because the role doesn't include the `mcp.tool.call` capability. |
-| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. | Neither the Chainguard MCP servers nor the `chainctl checks` commands that look up a run, such as `status` and `logs`, work. |
+| `limited_owner` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens sessions. Also manages your organization's billing and invites or removes members. | `chainctl checks` commands and the Chainguard MCP servers work. |
 | `mcp.tool_user` | Nothing. | Nothing. | Adds `mcp.tool.call`, so the Chainguard MCP servers work. |
 
 Inside a session, a teammate's Chainguard identity can't do more than their role allows, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session). For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
@@ -189,7 +189,7 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 
 ### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
 
-If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
 
 An organization you created with a personal email address can't create invites, so you can't add teammates to it.
 

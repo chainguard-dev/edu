@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-10T18:15:59+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -251,12 +251,8 @@ For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-c
 
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
-The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
+The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
 
 To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
-
-- Read the results on the pull request, as described in [How results appear](/chainguard/checks/github/#how-results-appear), and rerun checks with **Re-run** on GitHub.
-- Don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results.
-- To run checks before you push, use a Workspaces session with `chainctl develop check`, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+No one in a Starter organization has the `owner` role. To join one, ask the person who created it to invite you with the `limited_owner` role, as described in [Add a teammate to a Starter organization](/get-started/checks-and-workspaces/set-up/#add-a-teammate-to-a-starter-organization).
