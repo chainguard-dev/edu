@@ -4,7 +4,7 @@ type: "article"
 linktitle: "WordPress"
 description: "Learn how to deploy WordPress using Chainguard's security-hardened container image with reduced vulnerabilities and distroless runtime options"
 date: 2024-07-19T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ aliases:
 - /chainguard/containers/getting-started/wordpress/
 ---
 
-Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress) is a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress). It includes a [distroless](/chainguard/containers/concepts/getting-started-distroless/) variant for production use that removes shells, package managers, and other unnecessary components. The image ships with the latest PHP and WordPress versions and all required PHP extensions.
+Chainguard's [WordPress container image](https://images.chainguard.dev/directory/image/wordpress/overview) is a drop-in replacement for the official [WordPress FPM-Alpine image](https://hub.docker.com/_/wordpress). It includes a [distroless](/chainguard/containers/concepts/getting-started-distroless/) variant for production use that removes shells, package managers, and other unnecessary components. The image ships with the latest PHP and WordPress versions and all required PHP extensions.
 
 This guide covers three ways to use the WordPress Chainguard Container to build and run WordPress projects.
 
@@ -135,8 +135,8 @@ volumes:
 This Docker Compose file defines three services: `app`, `nginx`, and `mariadb`:
 
 - The `app` service builds a local image using the included `Dockerfile`, which copies WordPress source files from `/usr/src/wordpress` into the document root and renames `wp-config-docker.php` to `wp-config.php`. That config file reads database credentials from environment variables at runtime. The `document-root` volume is shared between `app` and `nginx`.
-- The `nginx` service uses the [Chainguard nginx Container](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), configured to serve the WordPress application on port 8000.
-- The `mariadb` service uses the [Chainguard MariaDB Container](https://images.chainguard.dev/directory/image/mariadb/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-wordpress), configured with the environment variables needed to create the WordPress database.
+- The `nginx` service uses the [Chainguard nginx Container](https://images.chainguard.dev/directory/image/nginx/overview), configured to serve the WordPress application on port 8000.
+- The `mariadb` service uses the [Chainguard MariaDB Container](https://images.chainguard.dev/directory/image/mariadb/overview), configured with the environment variables needed to create the WordPress database.
 
 The environment variables are stored in a `.env` file in the same directory. To view them, run:
 

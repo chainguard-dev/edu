@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl images helm add-chart"
 slug: chainctl_images_helm_add-chart
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_add-chart/
@@ -25,8 +25,25 @@ Charts are looked up by name in the community catalog by default. To add a chart
 from the iamguarded catalog, prefix the name with "iamguarded-charts/".
 
 The chart's image dependencies are read from a single chart tag. By default the
-newest non-FIPS tag is used; pass --tag to inspect a specific chart version
-instead (including a FIPS variant).
+newest non-FIPS tag is used; pass --fips to use the newest FIPS tag instead, or
+--tag to inspect a specific chart version. --fips and --tag can't be combined.
+
+Every image the chart requires is always added. By default every optional image
+is added as well; pass --optional-images to add only the optional images you
+name. Names are catalog repo names (e.g. "nginx") and must belong to the chart.
+Use --dry-run to see which of a chart's images are required and which are
+optional.
+
+To add only the required images, pass the special value "none"
+(--optional-images none). It can't be combined with image names. On a plan
+with an image allowance, "none" currently needs a free slot for every image in
+the chart, even though only the required images are added.
+
+On a plan with an image allowance (per-image, Starter or Team), every image that
+is added is entitled, and each one the organization doesn't already hold uses a
+slot. Use --dry-run to list the repositories that would be created. A
+chart whose metadata lists no image dependencies is refused with an entitlement
+error.
 
 Examples:
   # Add the argo-cd community chart and all of its image dependencies to an organization
@@ -34,6 +51,15 @@ Examples:
 
   # Add a specific version of the argo-cd chart
   chainctl images helm add-chart argo-cd --tag 9.5.20 --parent my-org
+
+  # Add the newest FIPS version of the argo-cd chart
+  chainctl images helm add-chart argo-cd --fips --parent my-org
+
+  # Add the argo-cd chart's required images plus only the redis optional image
+  chainctl images helm add-chart argo-cd --optional-images redis --parent my-org
+
+  # Add the argo-cd chart with only its required images
+  chainctl images helm add-chart argo-cd --optional-images none --parent my-org
 
   # Add the redis iamguarded chart and all of its image dependencies to an organization
   chainctl images helm add-chart iamguarded-charts/redis --parent my-org
@@ -45,9 +71,11 @@ chainctl images helm add-chart CHART [flags]
 ### Options
 
 ```
-      --dry-run         Dry-run mode: don't create repos, only show what would change.
-      --parent string   The organization to add the chart and its images to.
-      --tag string      The chart tag to inspect for image dependencies. Defaults to the newest non-FIPS tag.
+      --dry-run                   Dry-run mode: don't create repos, only show what would change.
+      --fips                      Default to the newest FIPS tag of the chart.
+      --optional-images strings   The chart's optional images to add, by repo name. Required images are always added. Defaults to all optional images; pass "none" to add only the required images.
+      --parent string             The organization to add the chart and its images to.
+      --tag string                The chart tag to inspect for image dependencies. Defaults to the newest non-FIPS tag.
 ```
 
 ### Options inherited from parent commands

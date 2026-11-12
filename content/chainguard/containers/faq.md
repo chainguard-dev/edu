@@ -4,7 +4,7 @@ linktitle: "FAQ"
 type: "article"
 description: "Chainguard container FAQs: why they have zero CVEs, how they compare to DockerHub, what makes them more secure, pricing, and enterprise deployment best practices"
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "FAQ"]
 images: []
@@ -18,7 +18,7 @@ aliases:
 - /chainguard/containers/concepts/can-anybody-build-containers/
 ---
 
-Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.
+Learn answers to your questions about [Chainguard Containers](https://www.chainguard.dev/chainguard-images). Chainguard provides container images designed with security as the primary focus, featuring zero known CVEs, minimal attack surface, and built-in SBOMs for every image.
 
 ## Which Linux distribution is used as base for Chainguard Containers?
 
@@ -32,7 +32,7 @@ The [Google distroless](https://github.com/GoogleContainerTools/distroless) imag
 
 There are currently over a thousand Chainguard Containers available, which are segmented as **Free** or **Production**. You can read more about this in the [next question](#what-options-do-i-have-to-use-chainguard-containers).
 
-Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-faq) or within the [Chainguard Console](https://console.chainguard.dev/).
+Chainguard's container images are primarily available from [the Chainguard registry](/chainguard/containers/registry/overview/), but a selection of Free images is also available on [Docker Hub](https://hub.docker.com/u/chainguard). You can find the complete list of available Chainguard Containers in our public [Containers Directory](https://images.chainguard.dev/) or within the [Chainguard Console](https://console.chainguard.dev/).
 
 ## What options do I have to use Chainguard Containers?
 
@@ -40,7 +40,7 @@ You can get free Chainguard Containers for your organization. You can also upgra
 
 Free | Production
 -------|-----------------------
-Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for pricing
+Free for everyone, anywhere | [Contact us](https://www.chainguard.dev/contact) for pricing
 Latest versions | Major and minor versions
 Community support | Enterprise SLAs
 [Developer docs](/chainguard/containers/) | Customer support
@@ -59,7 +59,7 @@ SBOMs provide visibility into the software you depend on. They can allow automat
 
 ## Who maintains Chainguard Containers?
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) is officially maintained by [Chainguard](https://chainguard.dev) engineers.
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images) is officially maintained by [Chainguard](https://chainguard.dev) engineers.
 
 ## Can anybody build Chainguard Containers themselves?
 
@@ -103,7 +103,7 @@ Chainguard is not responsible for CVEs in software you add on top of base images
 
 ## Do I need to authenticate into Chainguard to use Chainguard Containers?
 
-Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of version updates, breaking changes, or critical security updates.
+Logging in is optional if you are only using Free containers. That being said, there are benefits for all users who authenticate to Chainguard's registry, as Chainguard provides notifications of breaking changes and critical security updates.
 
 To learn how to authenticate into Chainguard's registry, you can review our [authentication documentation](/chainguard/containers/registry/authenticating/) . You can read more about the thought process behind authentication in our blog post, [Scaling Chainguard Containers with a growing catalog and proactive security updates](https://www.chainguard.dev/unchained/scaling-chainguard-images-with-a-growing-catalog-and-proactive-security-updates).
 

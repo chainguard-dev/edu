@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Guide on how to use the wolfictl tool to create, update, and manage security advisories"
 date: 2024-08-05T20:23:51+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -22,7 +22,7 @@ toc: true
 
 > **Note**: This document is deprecated as of June 2025.
 
-Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) page to alert users about the status of vulnerabilities found in Chainguard Containers. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool developed for working with the [Wolfi un-distro](https://github.com/wolfi-dev/).
+Chainguard operates its own [Security Advisories](https://images.chainguard.dev/security/) page to alert users about the status of vulnerabilities found in Chainguard Containers. To maintain this database, we use [`wolfictl`](https://github.com/wolfi-dev/wolfictl/), a tool developed for working with the [Wolfi un-distro](https://github.com/wolfi-dev/).
 
 In this guide, you will walk through using `wolfictl` to create an advisory for a vulnerable package. You’ll also learn how to update this advisory as more information about the vulnerability is disclosed over time. To follow along, you will need to have [`git`](https://git-scm.com/) and the [Go programming language](https://go.dev/dl/) installed on your machine.
 
@@ -136,6 +136,7 @@ First, you will be asked to enter the package in which the CVE was found. For th
 * `detection` (Under investigation)
 * `true-positive-determination` (Affected)
 * `fixed` (Fixed)
+* `patched` (Patched)
 * `false-positive-determination` (Not affected)
 * `fix-not-planned` (Fix not planned)
 * `pending-upstream-fix` (Pending upstream fix)
@@ -187,4 +188,4 @@ The same process can be followed for other status updates, whether you wish to m
 In this guide, you learned how to use the `wolfictl` tool to interact with Chainguard’s Security Advisories feed. You used `wolfictl` to explore existing advisories, and also created and updated a new security advisory. The steps shown in this guide allowed you to make local changes to your advisory feed. If you wish to contribute to the open source Wolfi OS advisory feed, please read through our [How To Patch CVEs](
 https://github.com/wolfi-dev/os/blob/main/HOW_TO_PATCH_CVES.md) guide and our [How Chainguard issues Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-chainguard-issues/) article first.
 
-Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-managing-advisories) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/).
+Be sure to routinely check [our Security Advisories page](https://images.chainguard.dev/security/) when your scanners pick up new CVEs in your images. If you want to learn more about how you can interpret a security advisory and what its status means for your security, read our [article on using advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/).

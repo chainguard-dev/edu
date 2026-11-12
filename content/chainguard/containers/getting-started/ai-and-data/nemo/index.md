@@ -7,7 +7,7 @@ aliases:
 - /chainguard/containers/getting-started/nemo
 description: "Learn how to use Chainguard's NeMo container image for conversational AI with enhanced security, minimal CVEs, and GPU acceleration support"
 date: 2024-05-16T08:00:00+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ weight: 10
 toc: true
 ---
 
-Chainguard's [NeMo container image](https://images.chainguard.dev/directory/image/nemo/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nemo) provides a security-hardened environment for NVIDIA's [NeMo](https://github.com/NVIDIA/NeMo) deep learning framework with minimal vulnerabilities compared to traditional AI/ML containers. NeMo enables building conversational AI models through module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. Built for [CUDA 12](https://developer.nvidia.com/about-cuda) GPU acceleration, this lightweight container maintains full NeMo functionality while significantly reducing security risks for both training and production inference workloads.
+Chainguard's [NeMo container image](https://images.chainguard.dev/directory/image/nemo/overview) provides a security-hardened environment for NVIDIA's [NeMo](https://github.com/NVIDIA/NeMo) deep learning framework with minimal vulnerabilities compared to traditional AI/ML containers. NeMo enables building conversational AI models through module collections for Automatic Speech Recognition (ASR), Natural Language Processing (NLP), and Text-to-Speech (TTS) tasks. Built for [CUDA 12](https://developer.nvidia.com/about-cuda) GPU acceleration, this lightweight container maintains full NeMo functionality while significantly reducing security risks for both training and production inference workloads.
 
 {{< details "What is Deep Learning?" >}}
 {{< blurb/deep-learning >}}

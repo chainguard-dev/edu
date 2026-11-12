@@ -1,13 +1,6 @@
 {{ define "main" }}
 <div class="row flex-md-nowrap">
-  <div class="leftnav-container">
-    <div class="board-background leftnav">
-      <nav id="sidebar-default" aria-label="Main navigation">
-        {{ partial "sidebar/docs-menu.html" . }}
-      </nav>
-      {{ partial "sidebar/nav-bottom.html" }}
-    </div>
-  </div>
+  {{ partial "sidebar/primary-nav.html" . }}
   <div class="center-content index-html flex-shrink-1">
     <main class="docs-content">
       <div class="hero-section">
@@ -42,7 +35,7 @@
               </a>
             </div>
             <div>
-              <a href="{{ "chainguard/libraries/introduction/overview/" | relURL }}" class="a--original">
+              <a href="{{ "chainguard/libraries/introduction/" | relURL }}" class="a--original">
                 <div class="card-background image-card card-gradient-magenta">
                   <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="48 48 96 96" fill="none">
                     <path d="M86.4 67.2V48H48V86.4H67.2V67.2H86.4Z" fill="#FFFFFF"/>
@@ -57,7 +50,7 @@
               </a>
             </div>
             <div>
-              <a href="https://courses.chainguard.dev/?utm_source=skilljar&utm_medium=referral&utm_campaign=FY25-DevRel-Skilljar" class="a--original" target="_blank">
+              <a href="https://courses.chainguard.dev/" class="a--original" target="_blank">
                 <div class="card-background image-card card-gradient-green">
                   <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 70 70" fill="none">
                     <rect x="0" y="14" width="70" height="14" fill="#FFFFFF"/>
@@ -144,7 +137,7 @@
             </a>
           </div>
           <div class="basics-card">
-            <a href="{{ "chainguard/libraries/java/overview/" | relURL }}">
+            <a href="{{ "chainguard/libraries/java/" | relURL }}">
               <div style="display: flex; gap: 12px;">
                 <div class="d-block">
                   <div class="form-check-input">
@@ -255,7 +248,7 @@
   <div class="footer-cta-container">
     <div class="footer-cta-content">
       <h2 class="footer-cta-title">Want to learn more about Chainguard?</h2>
-      <a href="https://www.chainguard.dev/contact?utm_source=cg-academy" class="footer-cta-button">
+      <a href="https://www.chainguard.dev/contact" class="footer-cta-button">
         Contact us
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="footer-cta-arrow">
           <path d="M12.8 6.4L12.8 3.2L9.6 3.2L9.6 6.4L12.8 6.4Z" fill="#6226FB"/>

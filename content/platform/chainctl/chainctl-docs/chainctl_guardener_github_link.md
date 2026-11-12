@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl guardener github link"
 slug: chainctl_guardener_github_link
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_link/
@@ -30,7 +30,7 @@ chainctl guardener github link [flags]
 
 ```
       --github-org string   GitHub account login to link (an organization, or your own user).
-      --parent string       Name or UIDP of the Chainguard group to link to. Prompts interactively if omitted.
+      --parent string       Name or UIDP of the Chainguard group to link to. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --port int            Local loopback port for the GitHub OAuth callback. (default 8989)
 ```
 

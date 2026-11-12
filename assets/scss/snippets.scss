@@ -118,6 +118,49 @@
   top: 2px;
 }
 
-.bi-files-opposite::before {
-  content: var(--copy-icon-opposite-url);
+#notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 8px 12px;
+  background: var(--primary-1);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  opacity: 0;
+  pointer-events: none;
+
+  .bi {
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  @media (max-width: $MobileLayoutWidth) {
+    bottom: 16px;
+    left: 50dvw;
+    right: auto;
+    translate: -50% 0;
+    width: max-content;
+    max-width: calc(100dvw - 32px);
+  }
+}
+
+.notification-toast {
+  animation: toast 2s linear;
+}
+
+@keyframes toast {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+  }
 }

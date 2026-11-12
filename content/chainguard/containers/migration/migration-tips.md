@@ -7,7 +7,7 @@ linktitle: "Migration tips"
 type: "article"
 description: "This guide outlines a number of tips and strategies to keep in mind for when your organization begins migrating to Chainguard Containers."
 date: 2025-05-29T12:56:52-00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -200,7 +200,7 @@ docker run -it cgr.dev/chainguard/python:latest-dev echo "in a shell"
 /usr/bin/python: can't open file '//echo': [Errno 2] No such file or directory
 ```
 
-Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrations-overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
+Other images, such as our [WordPress container images](https://images.chainguard.dev/directory/image/wordpress/overview), will have a different entrypoint behavior in their `-dev` variant to allow for customization and to facilitate migration from other base images. It's important to always read the image's documentation to understand how the entrypoint works, and if there are any major differences from other images you may be used to work with.
 
 ## Containers don't run as root by default
 
@@ -246,4 +246,4 @@ In some cases you may have Docker builds that copy in binaries to run agents or 
 
 ## Learn more
 
-For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. Chainguard Academy also hosts a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.
+For more resources on migrating to Chainguard Containers, please refer to our [Containers migration documentation](/chainguard/containers/migration/). In particular, our [Migration overview](/chainguard/containers/migration/migrations-overview/) may be of interest. We also have a number of [Compatibility resources](/chainguard/containers/migration/compatibility/) and [Migration guides](/chainguard/containers/migration/migration-guides/) for specific platforms and tools.

@@ -23,7 +23,7 @@ jobs:
 
     steps:
     - name: 'Github Actions Runner'
-      uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+      uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
       with:
         egress-policy: audit
 
@@ -51,12 +51,16 @@ jobs:
         echo "Package mappings updated successfully"
         ls -lh data/package-mappings.yaml
 
+    # This image only redirects edu.chainguard.dev to www.chainguard.dev/docs.
+    # nginx.conf puts https://www.chainguard.dev/docs in front of each target
+    # in the redirect map, so the map is built from root paths, at the edu base
+    # URL rather than the /docs/ default.
     - name: npm run build
-      run: npm run build
+      run: npm run build -- -b https://edu.chainguard.dev/
 
     - name: Authenticate to Google Cloud
       id: auth
-      uses: step-security/google-github-auth@775fc4c80760272ef389c9f9f8d98de7db0c170d # v3.0.2
+      uses: chainguard-actions/google-github-actions-auth@bd3bbd8882ee8311ef35685ad3c341584e23b4d5 # v3.0.0
       with:
         token_format: 'access_token'
         project_id: '${{ secrets.PROJECT_ID }}'
@@ -65,7 +69,7 @@ jobs:
 
     - name: Docker Auth
       id: docker-auth
-      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+      uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
       with:
         username: 'oauth2accesstoken'
         password: '${{ steps.auth.outputs.access_token }}'
@@ -81,7 +85,9 @@ jobs:
     # Attempt to deploy the terraform configuration
     - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
       with:
-        terraform_version: '1.10.x'
+        # serverless-gclb's variable validations rely on short-circuit
+        # evaluation of || and &&, which arrived in Terraform 1.12.
+        terraform_version: '1.17.x'
     - env:
         TF_VAR_image: '${{ secrets.REGISTRY_URL }}/${{ secrets.PROJECT_ID }}/${{ secrets.REPOSITORY }}/${{ secrets.SERVICE }}:${{ github.sha }}'
         TF_VAR_project_id: ${{ secrets.PROJECT_ID }}
@@ -92,7 +98,7 @@ jobs:
         terraform apply -auto-approve
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+      uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48

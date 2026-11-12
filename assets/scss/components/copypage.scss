@@ -39,11 +39,11 @@
 
   &.copy-success {
     svg {
-      stroke: var(--secondary-2);
+      stroke: var(--active-link-color);
     }
 
     .copy-btn-text {
-      color: var(--secondary-2);
+      color: var(--active-link-color);
     }
   }
 }
@@ -76,7 +76,7 @@
     border-top-color: var(--tooltip-background);
   }
 
-  &.show {
+  .copy-success + & {
     opacity: 1;
     transform: translateX(-50%) scale(1);
   }

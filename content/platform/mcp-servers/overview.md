@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "The four Chainguard MCP servers that expose live product data — images, packages, version history, and platform APIs — to any MCP-compatible client."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-11-12T13:08:00+00:00
 draft: false
 tags: ["MCP", "Overview"]
 images: []
@@ -28,7 +28,7 @@ In a [Chainguard Workspaces](/chainguard/workspaces/overview/) session, Claude C
 
 ## Chainguard's MCP servers
 
-Chainguard's MCP servers fall into two groups. Four return live product data, and two serve specific content: documentation and agent skills.
+Chainguard's MCP servers fall into two groups. Four return live product data, and three serve specific content: documentation, manual pages, and agent skills.
 
 ### Product data servers
 
@@ -44,6 +44,10 @@ These servers return live product data, such as an image tag's manifest and SBOM
 ### AI Docs MCP server
 
 The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: guides, security references, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents, and upstream images to the Chainguard images that replace them. It has no live image data; for that, use `cg-oci`. You can also run it locally from a container image, or download its documentation as a single file. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
+
+### cg-man MCP server
+
+The [`cg-man` MCP server](/platform/mcp-servers/cg-man/), at `https://man.cgr.dev/mcp`, serves the manual pages that Chainguard OS packages ship, and the `--help` output of their executables, at the exact package version you run. An AI tool can search the pages, read one, read a tool's `--help` output, look up a single option or exit code, and follow cross-references. It's public and needs no sign-in, and its tools request long results with `offset` and `limit` rather than a cursor, so the Authentication and Pagination sections that follow don't apply to it. For connection steps and the tool reference, refer to its own page.
 
 ### Public Skills MCP server
 

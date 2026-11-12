@@ -27,7 +27,7 @@
       {{- if $i }},{{ end }}
       {
         "title": {{ $page.Title | jsonify }},
-        "path": {{ $page.RelPermalink | jsonify }},
+        "path": {{ (partial "page-link-target.html" $page).RelPermalink | jsonify }},
         "section": {{ $page.Section | jsonify }},
         "description": {{ $page.Description | default $page.Summary | truncate 200 | jsonify }},
         "lastModified": {{ $page.Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }}
@@ -48,7 +48,7 @@
           {{- if $i }},{{ end }}
           {
             "title": {{ $page.Title | jsonify }},
-            "path": {{ $page.RelPermalink | jsonify }},
+            "path": {{ (partial "page-link-target.html" $page).RelPermalink | jsonify }},
             "description": {{ $page.Description | default $page.Summary | truncate 150 | jsonify }},
             "tags": {{ $page.Params.tags | jsonify }},
             "readingTime": {{ $page.ReadingTime }},

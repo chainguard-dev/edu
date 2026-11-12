@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 type: "article"
 description: "How to recover a container that fails to start under Guarded Entrypoint, what the wrapper's exit codes mean, and how a refused build appears in chainctl."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T19:24:54+00:00
+lastmod: 2026-10-23T15:51:13+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Troubleshooting", "Debugging"]
 images: []
@@ -143,11 +143,13 @@ The text after the digest is the reason. It is one of the following:
 | Reason | Meaning |
 | --- | --- |
 | `the environment sets GUARDED_DISABLE` | The image's environment sets `GUARDED_DISABLE`. The detail says where it is set. |
-| `the listed wrapper version does not read every GUARDED_* setting` | The repo's `contents.packages` pins `guarded-entrypoint` or `guarded-entrypoint-fips` to a release that is too old for the repo's settings. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
+| `the listed wrapper version does not read every GUARDED_* setting` | This reason applies only when the repo's `contents.packages` lists a version of `guarded-entrypoint` or `guarded-entrypoint-fips`, and that version is too old for the repo's settings. A version that you list overrides the version that Chainguard installs for that repo. A repo that sets `truststore` needs a newer release than a repo that sets only the other fields. The detail names the first release that reads them all. |
+| `the wrapper version Chainguard installs does not read every GUARDED_* setting` | The repo lists no wrapper version, or lists `guarded-entrypoint` or `guarded-entrypoint-fips` without a version, so the version that Chainguard installs applies. That version is older than the repo's settings need. |
 
 The tags named in the message aren't rebuilt until you resolve the refusal. A tag that isn't rebuilt doesn't receive package updates, including CVE fixes, until then. To resolve it, do one of the following:
 
-* For the wrapper version reason, remove the `guarded-entrypoint` or `guarded-entrypoint-fips` pin from the repo's `contents.packages` list.
+* If the reason names the listed wrapper version, raise the version in `contents.packages` to the release in the detail or later. You can also remove the `guarded-entrypoint` or `guarded-entrypoint-fips` entry, so that the version that Chainguard installs applies. If that version is also too old, the build is refused for the second reason.
+* If the reason names the wrapper version that Chainguard installs, contact Chainguard customer support. Only Chainguard can raise that version.
 * Turn off Guarded Entrypoint for the repo. Refer to [Turn off Guarded Entrypoint](/chainguard/containers/custom-assembly/guarded-entrypoint/overview/#turn-off-guarded-entrypoint).
 * With Custom Assembly Overlays, bind the overlay that sets `guarded_entrypoint` only to the tags that Chainguard doesn't refuse.
 

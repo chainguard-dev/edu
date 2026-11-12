@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:40:18+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -23,6 +23,7 @@ This page describes common problems with Chainguard Checks and how to fix them. 
 If a pull request shows no **Chainguard Checks (presubmit)** check at all, Chainguard Checks didn't start a run for it. Confirm the following:
 
 - The Chainguard App is installed on the GitHub account that owns the repository, with access to the repository, and that account is linked to your Chainguard organization. Running `chainctl develop init` links the account when you sign up. A GitHub account can be linked to only one Chainguard organization at a time.
+- The installation has accepted the Chainguard App's current permissions. When the App asks for more permissions, GitHub keeps an existing installation on its earlier ones until an owner of the account accepts the request, and Chainguard Checks may not report until then. To review a pending request, open the installation's settings page, which `chainctl guardener github status --parent` with your organization's name lists in its `SETTINGS` column.
 - The repository has a `.chainguard/ci.yaml` file or a `.chainguard/ci/` directory at its root, on the pull request's branch or its base branch. A file named `ci.yml` doesn't count.
 - The configuration has presubmit checks. Checks with only `trigger: postsubmit` run after merging, not on pull requests. A pull request that changes every check to `trigger: postsubmit` still gets a summary check, which fails with **Run creation failed**, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request). It gets no checks only if each of the base branch's presubmit checks is limited by `when.changed` to files that no longer exist.
 - Chainguard Checks is turned on for your organization, either with `chainctl develop init` or by your Chainguard account team. Pull requests opened or updated before then get no checks, so push a new commit to the pull request to start a run. If `chainctl develop init` failed, refer to [chainctl develop init fails](/chainguard/workspaces/troubleshooting/#chainctl-develop-init-fails).
@@ -54,7 +55,7 @@ The following table lists the most common causes, grouped by the key or file the
 | A check's name has a character that isn't allowed, or doesn't start and end with a letter or digit. | Rename the check. Unless the character is `.` or `/`, the error for a character that isn't allowed says only that the name must fit the 128-character limit, even when the name is short. Refer to [Check names](/chainguard/checks/configuration/#check-names). |
 | Two checks in the same file have names that differ only in case, such as `Test` and `test`. | Rename one of them. |
 | A check's full name, such as `ci/test`, is longer than 128 characters. | Shorten the check's name, or the file's. |
-| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`, or runs as `root` in an environment with a cache other than `gobuild`. | Run the check as `root` with only `gobuild`, set `user: build`, or give the check an environment without the cache. Refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types). |
+| A check's environment names a cache under `caches`, and the check runs as an account other than `root` or `build`. | Run the check as `root`, the default, or set `user: build`, or give the check an environment without the cache. Refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types). |
 | A check sets a variable that its cache sets, such as `GOCACHE`. | Remove the variable from the check's `vars`. |
 | A check's `docs` names a Markdown file that doesn't exist beside the check's file in `.chainguard/ci/`, or that's larger than 1 MiB. | Add or shorten the file. The single-file layout doesn't support `docs`. Refer to [Describe a check](/chainguard/checks/configuration/#describe-a-check). |
 | `.chainguard/ci/resources.yaml` doesn't define a class named `default`. | Add a `default` class. Refer to [Define your own resource classes](/chainguard/checks/configuration/#define-your-own-resource-classes). |
@@ -250,12 +251,8 @@ For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-c
 
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
-The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
+The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
 
 To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
-
-- Read the results on the pull request, as described in [How results appear](/chainguard/checks/github/#how-results-appear), and rerun checks with **Re-run** on GitHub.
-- Don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results.
-- To run checks before you push, use a Workspaces session with `chainctl develop check`, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+No one in a Starter organization has the `owner` role. To join one, ask the person who created it to invite you with the `limited_owner` role, as described in [Add a teammate to a Starter organization](/get-started/checks-and-workspaces/set-up/#add-a-teammate-to-a-starter-organization).

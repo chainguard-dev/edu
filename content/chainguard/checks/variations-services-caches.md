@@ -4,7 +4,7 @@ linktitle: "Variations, services, and caches"
 description: "Run a Chainguard Checks check once per variation, pass files between checks, check out another repository, start services such as a database or Docker, run checks as another user, and reuse Go build output with caches."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-11-12T15:35:48+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Reference"]
 images: []
@@ -314,7 +314,7 @@ checks:
 
 For images from another registry, such as Docker Hub, add its hosts, as described in [Find the hosts a check needs](/chainguard/checks/migrate-from-github-actions/#find-the-hosts-a-check-needs).
 
-The Docker daemon needs root, so a check that uses the service must run as `root`, the default, and not as [another user](#run-as-another-user). A check that runs as `root` can still use the Go build cache, as described in [Build caches](#build-caches).
+The Docker daemon needs root, so a check that uses the service must run as `root`, the default, and not as [another user](#run-as-another-user). A check that runs as `root` can still use [caches](#cache-types).
 
 ## Run as another user {#run-as-another-user}
 
@@ -354,13 +354,15 @@ By default, each check starts with nothing from earlier runs, so a Go check comp
 
 <span id="build-caches"></span>
 
-Each key under `caches` is a cache type. During the beta, three types store files from earlier runs:
+Each key under `caches` is a cache type. During the beta, the following types store files from earlier runs:
 
 | Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
 | ---- | -------------- | ----------------- | -------------------------------- |
 | `gobuild` | Go build output | `go` or a `go-<version>` package | `GOCACHE`, and `-count=1` added to `GOFLAGS` |
 | `gomod` | Downloaded Go modules | `go` or a `go-<version>` package | `GOMODCACHE` |
 | `python` | Packages that pip and uv download | `python` or a `python-<version>` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
+| `java` | Files that Maven and Gradle download, in `~/.m2/repository` and `~/.gradle/caches/modules-2/files-2.1` | An `openjdk-<version>` package | None |
+| `cargo` | Crates and Git dependencies that Cargo downloads, and the build output in `target/` in the check's `workdir` | `rust` or a `rust-<version>` package | `CARGO_HOME`, set to `/home/build/.cargo` |
 
 The `node` and `directory` types pass validation, but they store nothing during the beta.
 
@@ -376,7 +378,6 @@ environment:
 checks:
   test:
     cmd: go test ./...
-    user: build
     trigger: [presubmit, postsubmit]
     network:
       egress: [proxy.golang.org, sum.golang.org]
@@ -385,10 +386,12 @@ checks:
 A cache does nothing until your default branch defines cache pools, as described in [Set up cache pools](#set-up-cache-pools). Caches work as follows:
 
 - Each type needs the packages that the table lists in the environment's `packages`.
-- Every check in an environment that names a cache must run as `root` or `build`. A check that runs as `root`, the default, needs an environment whose only cache is `gobuild`, and can still use services that need root, such as [Docker](#run-docker). A check with `user: build`, as in the example, runs its commands as an unprivileged account, as described in [Run as another user](#run-as-another-user), and can use any cache. In the directory layout, give checks that run as any other account an environment without caches.
+- Every check in an environment that names a cache must run as `root`, the default, or as `build`. Keep `root` unless the check needs an unprivileged account: with `user: build`, your repository's files belong to `root`, so a check that writes into them fails, and `git` refuses to work in `/work`, as described in [Run as another user](#run-as-another-user). In the directory layout, give checks that run as any other account an environment without caches.
 - Chainguard Checks sets the variables that the table lists, so don't set them in `vars`.
 - With `gobuild`, Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
 - With `gomod`, Go reuses downloaded modules but downloads any that the cache doesn't have, and with `python`, pip and uv do the same, so keep the hosts that your tools download from in `egress`.
+- With `java`, Maven can build from the cache alone once it holds every file the build needs. Gradle still asks its repositories for each file's checksum, so keep them in `egress` for Gradle builds. The cache doesn't store the Gradle wrapper's distributions.
+- With `cargo`, Chainguard Checks restores `target/` as one saved copy, rather than merging files from several runs, because Cargo can't rebuild correctly from a mix of builds. Only the `target/` directory in the check's `workdir` is cached, not one in a nested workspace. A check can't set `CARGO_HOME` or `CARGO_TARGET_DIR`, because the cache depends on Cargo keeping its files where Chainguard Checks expects them.
 - A [planner](#compute-variations-during-a-run) can't name a cache. Name the cache on the checks it plans instead.
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
 
@@ -405,7 +408,6 @@ environment:
 checks:
   e2e:
     cmd: go test ./e2e/...
-    user: build
 ```
 
 A keyed cache works as follows:

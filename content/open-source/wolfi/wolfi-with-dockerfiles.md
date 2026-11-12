@@ -4,7 +4,7 @@ linktitle: "Wolfi images with Dockerfiles"
 type: "article"
 description: "This tutorial demonstrates how to build a Wolfi Python image from scratch, using a Dockerfile workflow."
 date: 2022-12-19T08:49:31+00:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Wolfi", "Procedural"]
 images: []
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     main()
 ```
 
-You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi-wolfi-with-dockerfiles) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-wolfi-wolfi-with-dockerfiles) image to build a Python image from scratch, using Wolfi apks.
+You'll notice that there's already a Dockerfile in that directory, but it uses the [Python Chainguard image](https://images.chainguard.dev/directory/image/python/overview) in a multi-stage build. In the next step, we'll replace that with a new Dockerfile that uses the [Wolfi-base](https://images.chainguard.dev/directory/image/wolfi-base/overview) image to build a Python image from scratch, using Wolfi apks.
 
 ## Step 2: Creating the Dockerfile
 
@@ -215,4 +215,4 @@ In this tutorial, we've demonstrated how to build a Python image from scratch us
 
 If your application runtime requires system dependencies that are not already included within a distroless variant available in our [images directory](https://images.chainguard.dev), you can still use a builder image (identified by the `-dev` suffix) or the `wolfi-base` image in a standard Dockerfile to build a suitable runtime. These images come with `apk` and a shell, allowing for further customization based on your application's requirements.
 
-If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for alternative options.
+If you can't find an image that is a good match for your use case, or if your build has dependencies that cannot be met with the regular catalog, [get in touch with us](https://www.chainguard.dev/contact) for alternative options.

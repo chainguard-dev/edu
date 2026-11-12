@@ -336,7 +336,10 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/platform/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/). For GitHub
+Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.python.pull` role.
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.
@@ -479,11 +482,12 @@ to delete a specific pull token using its ID `45a0c61ea6fd97...`:
 chainctl iam identities delete 45a0c61ea6fd97...
 ```
 
-Use the identifier or name of your organization `example` and the `--expired`
-flag to remove all expired pull tokens:
+Use the `--expired` flag with the identifier or name of your organization,
+`example` in this sample, to remove all expired static identities, including
+expired pull tokens:
 
 ```shell
-chainctl iam ids rm --expired
+chainctl iam ids rm --expired --parent=example
 ```
 
 <a id="entitlement"></a>

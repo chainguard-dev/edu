@@ -249,8 +249,8 @@ def test_results_carry_the_page_url(index):
     """A caller asking for a guide should get a link they can open."""
     result = index.search(PYTHON_GUIDE_TITLE)[0]
     assert result["url"] == (
-        "https://edu.chainguard.dev/chainguard/containers/migration"
-        "/migration-guides/migrating-python/"
+        "https://www.chainguard.dev/docs/chainguard/containers/migration"
+        "/migration-guides/migrating-python"
     )
 
 
@@ -269,28 +269,29 @@ def test_image_in_a_query_matches_container_in_a_title(index):
     [
         # These exercise page_url(), a pure function, so a moved page cannot
         # fail the test — but pick paths that exist so the examples stay
-        # legible. All four verified HTTP 200 on the live site, 2026-09-10.
+        # legible. Each expected URL matched the canonical link that the
+        # chainguard-docs origin served for that page, 2026-10-28.
         (
             "chainguard/containers/migration/migration-guides/python.md",
-            "https://edu.chainguard.dev/chainguard/containers/migration"
-            "/migration-guides/python/",
+            "https://www.chainguard.dev/docs/chainguard/containers/migration"
+            "/migration-guides/python",
         ),
         # Branch bundle: pages named _index.md serve at their directory.
         (
             "platform/administration/cloudevents/_index.md",
-            "https://edu.chainguard.dev/platform/administration/cloudevents/",
+            "https://www.chainguard.dev/docs/platform/administration/cloudevents",
         ),
         # Leaf bundle: pages named index.md serve at the directory too, so
         # appending '/index/' 404s. Around one in eight pages is one of these.
         (
             "chainguard/containers/security-and-compliance"
             "/retrieve-image-sboms/index.md",
-            "https://edu.chainguard.dev/chainguard/containers"
-            "/security-and-compliance/retrieve-image-sboms/",
+            "https://www.chainguard.dev/docs/chainguard/containers"
+            "/security-and-compliance/retrieve-image-sboms",
         ),
-        ("ai-docs-security.md", "https://edu.chainguard.dev/ai-docs-security/"),
-        ("_index.md", "https://edu.chainguard.dev/"),
-        ("index.md", "https://edu.chainguard.dev/"),
+        ("ai-docs-security.md", "https://www.chainguard.dev/docs/ai-docs-security"),
+        ("_index.md", "https://www.chainguard.dev/docs"),
+        ("index.md", "https://www.chainguard.dev/docs"),
     ],
 )
 def test_page_url_mapping(source_path, expected):
@@ -301,7 +302,7 @@ def test_search_docs_output_shows_the_url(monkeypatch, index):
     """The rendered tool response, not just the internal result dict."""
     monkeypatch.setattr(mcp_server, "docs_index", index)
     output = mcp_server.search_docs(PYTHON_GUIDE_TITLE, max_results=1)
-    assert "https://edu.chainguard.dev/chainguard/containers/migration" in output
+    assert "https://www.chainguard.dev/docs/chainguard/containers/migration" in output
 
 
 def test_title_match_outranks_an_incidental_body_mention(index):

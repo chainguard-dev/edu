@@ -6,7 +6,7 @@ aliases:
 type: "article"
 description: "When a container or version isn't available to you: how to identify which situation you're in, what to do about each, and when to open a support request."
 date: 2026-09-02T00:00:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-12T13:44:29+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -46,7 +46,7 @@ Chainguard builds the image, but your organization hasn't added it yet. What you
 
 **Catalog customers.** A Catalog subscription covers the whole catalog, but only a subset of images is loaded into your organization's registry at any time. Administrators add more as teams need them. If you have the `owner` role, you can add the image yourself from the Console: go to **Images**, then click **Add image** on the **Organization** tab, or **Add to org** on the **Chainguard catalog** tab. The image appears in your catalog after a few minutes.
 
-Self-serve adds require a role with the `repo (create, list, update)` capabilities, and the `registry.entitlement (list)` capability is useful for understanding what your organization is entitled to. The `owner` role is the only built-in role that carries all of them. For the full walkthrough and the role details, see [Chainguard container catalog pricing](/chainguard/containers/reference/pricing/) and [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+Self-serve adds require a role with the `repo.create`, `repo.list`, and `repo.update` capabilities, and the `registry.entitlements.list` capability is useful for understanding what your organization is entitled to. The `owner` role is the only built-in role that carries all of them. For the full walkthrough and the role details, see [Chainguard container catalog pricing](/chainguard/containers/reference/pricing/) and [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 If you don't have the `owner` role, ask an administrator in your organization to add the image.
 
@@ -111,7 +111,7 @@ That combination explains most missing-version reports. If you need `7.79.2` and
 Two related points follow from how tags float:
 
 * A newer epoch tag supersedes the previous one. Once `1.14.5-r4` exists, `1.14.5-r3` stops being updated. Epoch tags aren't a locking mechanism.
-* To list what's actually maintained for an image, run `chainctl image repo list --repo=$IMAGE -o json | jq -r '.items[].activeTags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
+* To list what's actually maintained for an image, run `chainctl image repo list --repo=$IMAGE -o json | jq -r '.items[].active_tags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
 
 ### Pin to a specific build with a digest
 

@@ -54,7 +54,21 @@ go env -w GOSUMDB=off
 
 The Go module proxy remains authenticated over TLS, and `go.sum` continues to pin the module bytes after the first successful fetch.
 
-Do not use `GOPRIVATE` for this configuration. `GOPRIVATE` also sets `GONOPROXY`, which causes Go to bypass Chainguard. `GONOSUMCHECK` is not a current Go configuration variable and should not be used.
+Do not set `GOPRIVATE` or `GONOPROXY` to `*` or to broad patterns that match public modules. Go fetches any module path that matches `GONOPROXY` (which `GOPRIVATE` also sets) directly from its source repository, bypassing Chainguard. Scope these variables to your own private module paths only, as described in [Private modules](#private-modules). `GONOSUMCHECK` is not a current Go configuration variable and should not be used.
+
+## Private modules
+
+Chainguard Libraries for Go resolves modules through the public Go module proxy and does not fetch from source repositories. A module that lives in a private repository, such as an internal company package, is not available through Chainguard and returns `404 Not Found`.
+
+To use Chainguard for public modules while continuing to fetch private modules directly from your own repositories, set `GONOPROXY` to the module path prefixes of your private modules:
+
+```bash
+go env -w GOPROXY=https://libraries.cgr.dev/go
+go env -w GONOSUMDB='*'
+go env -w GONOPROXY='github.com/example-org/*'
+```
+
+With this configuration, Go fetches modules matching `github.com/example-org/*` directly from the repository using your existing Git credentials, and requests every other module through Chainguard. `GOPRIVATE='github.com/example-org/*'` has the same effect. Keep the pattern as narrow as your private module paths, because matching modules are not subject to Chainguard controls.
 
 ## Upstream fallback
 

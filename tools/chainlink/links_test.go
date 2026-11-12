@@ -90,22 +90,22 @@ func TestCheckWithRedirects(t *testing.T) {
 
 			// Create URL
 			u, _ := url.Parse(ts.URL + tc.path)
-			
+
 			// Create and check link
 			l := link{URL: u, RawURL: u.String()}
 			checked.Links[u.String()] = l
-			
+
 			// Run check
 			l.check()
-			
+
 			// Get result
 			result := checked.Links[u.String()]
-			
+
 			// Verify status code
 			if result.Status != tc.expectedStatus {
 				t.Errorf("expected status %d, got %d", tc.expectedStatus, result.Status)
 			}
-			
+
 			// Verify final URL
 			if tc.expectFinalURL && result.FinalURL == "" {
 				t.Errorf("expected final URL to be set, but it wasn't")
@@ -113,7 +113,7 @@ func TestCheckWithRedirects(t *testing.T) {
 			if !tc.expectFinalURL && result.FinalURL != "" {
 				t.Errorf("expected final URL to be empty, but got %s", result.FinalURL)
 			}
-			
+
 			// Verify redirect path
 			if tc.expectRedirectPath && len(result.RedirectPath) == 0 {
 				t.Errorf("expected redirect path to be set, but it wasn't")
@@ -248,7 +248,7 @@ func TestTrailingSlashFallback(t *testing.T) {
 	}
 }
 func TestFallbackStrategies(t *testing.T) {
-	// Create a test server that simulates various problematic scenarios  
+	// Create a test server that simulates various problematic scenarios
 	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case "/no-head-support":
@@ -310,6 +310,74 @@ func TestFallbackStrategies(t *testing.T) {
 			// Verify status code
 			if result.Status != tc.expectedStatus {
 				t.Errorf("expected status %d, got %d", tc.expectedStatus, result.Status)
+			}
+		})
+	}
+}
+
+func TestParseURLBasePath(t *testing.T) {
+	originalHostname, originalScheme, originalBasePath := hostname, scheme, basePath
+	t.Cleanup(func() {
+		hostname, scheme, basePath = originalHostname, originalScheme, originalBasePath
+	})
+	hostname = "www.chainguard.dev"
+	scheme = "https"
+
+	tests := []struct {
+		name     string
+		basePath string
+		rawURL   string
+		expected string
+	}{
+		{
+			name:     "No base path leaves a relative link as it was",
+			basePath: "",
+			rawURL:   "/platform/chainctl/",
+			expected: "https://www.chainguard.dev/platform/chainctl/",
+		},
+		{
+			name:     "Base path is prepended and the trailing slash removed",
+			basePath: "/docs",
+			rawURL:   "/platform/chainctl/",
+			expected: "https://www.chainguard.dev/docs/platform/chainctl",
+		},
+		{
+			name:     "A trailing slash on the base path is ignored",
+			basePath: "/docs/",
+			rawURL:   "/platform/chainctl/",
+			expected: "https://www.chainguard.dev/docs/platform/chainctl",
+		},
+		{
+			name:     "A query and fragment are kept",
+			basePath: "/docs",
+			rawURL:   "/platform/chainctl/?tab=linux#install",
+			expected: "https://www.chainguard.dev/docs/platform/chainctl?tab=linux#install",
+		},
+		{
+			name:     "A file path keeps its name",
+			basePath: "/docs",
+			rawURL:   "/downloads/chainguard-complete-docs.md",
+			expected: "https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md",
+		},
+		{
+			name:     "An absolute URL is not changed",
+			basePath: "/docs",
+			rawURL:   "https://github.com/chainguard-dev/edu/",
+			expected: "https://github.com/chainguard-dev/edu/",
+		},
+	}
+
+	for _, tc := range tests {
+		t.Run(tc.name, func(t *testing.T) {
+			basePath = tc.basePath
+			l := link{RawURL: tc.rawURL}
+
+			u, err := l.parseURL()
+			if err != nil {
+				t.Fatalf("parseURL(%q) returned an error: %v", tc.rawURL, err)
+			}
+			if u.String() != tc.expected {
+				t.Errorf("parseURL(%q) = %q, want %q", tc.rawURL, u.String(), tc.expected)
 			}
 		})
 	}

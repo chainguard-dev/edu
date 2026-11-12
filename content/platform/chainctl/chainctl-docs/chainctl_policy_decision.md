@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl policy decision"
 slug: chainctl_policy_decision
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision/
@@ -16,7 +16,7 @@ Inspect policy decisions.
 ### Synopsis
 
 A policy decision records the outcome of evaluating one policy
-against one image digest at pull time. Decisions are recorded for both
+against one artifact at pull time. Decisions are recorded for both
 enforced and dry-run policies, so you can review what a policy blocked,
 or would have blocked, before promoting it to enforce mode.
 

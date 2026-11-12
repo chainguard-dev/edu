@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-10-28T19:01:36+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -19,7 +19,7 @@ Guardener acts on your GitHub repositories on behalf of your Chainguard organiza
 
 For a first-time walkthrough, refer to [Getting started](/chainguard/guardener/github/getting-started/). This page is the fuller reference for managing connections over time.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## How connections work
 
@@ -73,10 +73,10 @@ Run `chainctl guardener github link`, passing the GitHub organization login and 
 ```shell
 chainctl guardener github link \
   --github-org <github-org-login> \
-  --group <organization-name>
+  --parent <organization-name>
 ```
 
-If you omit `--group`, `chainctl` prompts you to select from the Chainguard organizations you have access to.
+If you omit `--parent`, `chainctl` prompts you to select from the Chainguard organizations you have access to.
 
 A browser window opens to authorize with GitHub; completing it proves that you own the GitHub organization. On success, `chainctl` prints the linked organization and its installation ID:
 
@@ -93,7 +93,7 @@ If the browser flow cannot use its default local port (8989), pass a different o
 List the connections for your Chainguard organization:
 
 ```shell
-chainctl guardener github status --group <organization-name>
+chainctl guardener github status --parent <organization-name>
 ```
 
 The linked GitHub organization should appear in the output, as described in the next section.
@@ -103,26 +103,38 @@ The linked GitHub organization should appear in the output, as described in the 
 `chainctl guardener github status` lists every GitHub organization linked to a Chainguard organization:
 
 ```
-Repository visibility scope: PUBLIC (default; public repositories only)
-
-ORGANIZATION  INSTALLATION ID  SETTINGS
-example-org   12345678         https://github.com/settings/installations/12345678
+GROUP        ORGANIZATION  INSTALLATION ID  SETTINGS
+example.com  example-org   12345678         https://github.com/settings/installations/12345678
 ```
 
+- **GROUP** — the name of the Chainguard organization that the GitHub organization is linked to.
 - **ORGANIZATION** — the GitHub organization (or user) login for the connection.
 - **INSTALLATION ID** — GitHub's identifier for the app installation backing the connection.
 - **SETTINGS** — the GitHub settings page for the installation, where a GitHub owner can review its permissions and repository access.
 
 ### Repository visibility scope
 
-Above the connection list, `status` prints the organization's **repository visibility scope**, which controls which repositories Guardener responds to across all of the organization's connections:
+Each Chainguard organization has a **repository visibility scope**, which controls which repositories Guardener responds to across all of the organization's connections:
 
 - **PUBLIC** (the default) — Guardener acts on public repositories only, even when the installation grants it access to private repositories.
 - **ALL** — Guardener acts on both public and private repositories.
 
-The visibility scope is managed by Chainguard. If you need Guardener to cover private repositories, contact Chainguard support to have your organization's scope updated.
+To check your organization's scope, run `chainctl guardener entitlement get`, passing your Chainguard organization name:
 
-> **Note:** Reading the visibility scope requires the `guardener.entitlement.list` capability. Without it, `status` still lists your connections and prints a warning that the scope was skipped.
+```shell
+chainctl guardener entitlement get --parent <organization-name>
+```
+
+The output shows your organization's group ID and its scope:
+
+```
+Group: 0123456789abcdef0123456789abcdef01234567
+Configured repository visibility scope: PUBLIC (default)
+```
+
+Reading the scope requires the `guardener.entitlement.list` capability on the organization.
+
+The visibility scope is managed by Chainguard. If you need Guardener to cover private repositories, contact Chainguard support to have your organization's scope updated.
 
 ## Changing which repositories are connected
 
@@ -140,11 +152,11 @@ Because a GitHub organization can be linked to only one Chainguard organization 
 ```shell
 chainctl guardener github unlink \
   --github-org <github-org-login> \
-  --group <old-organization>
+  --parent <old-organization>
 
 chainctl guardener github link \
   --github-org <github-org-login> \
-  --group <new-organization>
+  --parent <new-organization>
 ```
 
 The GitHub App installation is untouched by the move; only the Chainguard-side association changes.
@@ -156,12 +168,12 @@ To remove a connection, unlink the GitHub organization:
 ```shell
 chainctl guardener github unlink \
   --github-org <github-org-login> \
-  --group <organization-name>
+  --parent <organization-name>
 ```
 
 Unlinking accepts either side's authority:
 
-- **Chainguard credentials.** When you pass `--group` and hold the `guardener.association.manage` capability on that organization, the unlink completes with no browser involved.
+- **Chainguard credentials.** When you pass `--parent` and hold the `guardener.association.manage` capability on that organization, the unlink completes with no browser involved.
 - **GitHub ownership.** Otherwise — including when you have lost access to the Chainguard organization — `chainctl` falls back to the GitHub authorization flow, and proving that you own the GitHub organization is sufficient. You must still be logged in to Chainguard (`chainctl auth login`), but no access to the linked organization is required.
 
 Unlinking removes only the Chainguard-side half of the connection: Guardener stops covering the organization's private repositories and group-scoped operations, but features enabled on public repositories keep working for as long as the app remains installed. To stop Guardener entirely, also uninstall the Chainguard App from your GitHub organization's **Settings → GitHub Apps** page. Uninstalling the app without unlinking also stops Guardener, but leaves a dangling association behind; prefer unlinking first.

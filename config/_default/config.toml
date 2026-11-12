@@ -1,4 +1,7 @@
-baseURL = "https://edu.chainguard.dev/"
+# The address the docs are served at. Local runs (npm run start) serve them
+# under /docs/ too. The Cloud Run image that redirects edu.chainguard.dev
+# builds with its own base URL; see .github/workflows/cloud-run.yaml.
+baseURL = "https://www.chainguard.dev/docs/"
 canonifyURLs = false
 disableAliases = false
 disableHugoGeneratorInject = true

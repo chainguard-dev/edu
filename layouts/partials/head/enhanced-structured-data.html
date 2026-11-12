@@ -65,7 +65,7 @@
     {
       "@type": "WebPage",
       "name": {{ $page.Title }},
-      "url": {{ $page.Permalink }}
+      "url": {{ (partial "page-link-target.html" $page).Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],
@@ -122,7 +122,7 @@
     {
       "@type": "WebPage",
       "name": {{ $page.Title }},
-      "url": {{ $page.Permalink }}
+      "url": {{ (partial "page-link-target.html" $page).Permalink }}
     }{{ if lt $index (sub (len $related) 1) }},{{ end }}
     {{ end }}
   ],
@@ -223,7 +223,7 @@
   },
   "provider": {
     "@type": "Organization",
-    "name": "Chainguard Academy",
+    "name": "Chainguard Docs",
     "url": {{ printf "%q" (strings.TrimSuffix "/" site.Home.Permalink) | safeJS }}
   },
   "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" }},

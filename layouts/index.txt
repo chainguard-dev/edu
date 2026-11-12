@@ -1,4 +1,4 @@
-# Chainguard Academy
+# Chainguard Docs
 
 > Documentation, tutorials, and resources for Chainguard products and software supply chain security.
 {{ range .Site.RegularPages.GroupBy "Section" -}}

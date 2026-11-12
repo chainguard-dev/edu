@@ -70,7 +70,8 @@ a.btn:focus {
   text-decoration: none;
 }
 
-:focus-visible {
+:focus-visible,
+.btn:focus-visible {
   outline: 2px solid var(--focus-ring-color);
   outline-offset: 2px;
 }

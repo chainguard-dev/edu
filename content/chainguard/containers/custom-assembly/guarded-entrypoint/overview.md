@@ -229,7 +229,7 @@ chainctl images overlays attach \
   --overlay startup \
   --repo $TAG_REPO \
   --parent $ORGANIZATION \
-  --all
+  --all-tags
 ```
 
 For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).

@@ -44,13 +44,14 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+      uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
       with:
         egress-policy: block
         allowed-endpoints: >
-          api.github.com:443
           *.pkg.dev:443
           *.r2.cloudflarestorage.com:443
+          actions.enforce.dev:443
+          api.github.com:443
           apk.cgr.dev:443
           cgr.dev:443
           dl.google.com:443
@@ -62,24 +63,23 @@ jobs:
           iamcredentials.googleapis.com:443
           oauth2.googleapis.com:443
           objects.githubusercontent.com:443
-          release-assets.githubusercontent.com:443
           pypi.org:443
           raw.githubusercontent.com:443
           rekor.sigstore.dev:443
+          release-assets.githubusercontent.com:443
           run.googleapis.com:443
-          us-central1-run.googleapis.com:443
-          sts.googleapis.com:443
           storage.googleapis.com:443
+          sts.googleapis.com:443
           timestamp.sigstore.dev:443
           tuf-repo-cdn.sigstore.dev:443
-
+          us-central1-run.googleapis.com:443
     - name: Checkout edu repository
       uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         persist-credentials: false  # No git write occurs in this workflow; outputs go to GCS/GHCR
 
     - name: Authenticate to Google Cloud
-      uses: step-security/google-github-auth@775fc4c80760272ef389c9f9f8d98de7db0c170d # v3.0.2
+      uses: chainguard-actions/google-github-actions-auth@bd3bbd8882ee8311ef35685ad3c341584e23b4d5 # v3.0.0
       with:
         workload_identity_provider: "projects/456977358484/locations/global/workloadIdentityPools/chainguard-academy/providers/chainguard-edu"
         service_account: "github-chainguard-academy@chainguard-academy.iam.gserviceaccount.com"
@@ -88,7 +88,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@aa5489c8933f4cc7a4f7d45035b3b1440c9c10db # v3.0.1
 
     - name: Set up Python
-      uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
       with:
         python-version: '3.10'
 
@@ -178,7 +178,7 @@ jobs:
 
     - name: Login to GHCR
       if: github.ref == 'refs/heads/main'
-      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+      uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -341,7 +341,7 @@ jobs:
         retention-days: 1
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+      uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48
@@ -356,7 +356,7 @@ jobs:
         SLACK_MESSAGE: |
           For detailed logs: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-  # Refresh the copy of the bundle that edu.chainguard.dev actually serves.
+  # Refresh the copy of the bundle that www.chainguard.dev/docs actually serves.
   # Hugo publishes static/downloads/ straight from git, so the served download
   # only changes when a commit lands -- see DOCS-158.
   publish-bundle:
@@ -376,19 +376,19 @@ jobs:
 
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+      uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
       with:
         egress-policy: block
         allowed-endpoints: >
           *.githubapp.com:443
+          actions.enforce.dev:443
           api.github.com:443
-          edu.chainguard.dev:443
           github.com:443
           hooks.slack.com:443
           objects.githubusercontent.com:443
           octo-sts.dev:443
           release-assets.githubusercontent.com:443
-
+          www.chainguard.dev:443
     - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
       id: octo-sts
       with:
@@ -456,7 +456,7 @@ jobs:
         body: |
           Recompiled `static/downloads/chainguard-complete-docs.md`, the bundle
           served at
-          <https://edu.chainguard.dev/downloads/chainguard-complete-docs.md>.
+          <https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md>.
 
           Opened only when the compiled content changed, ignoring the embedded
           `_Compiled on:_` timestamp. Merging this is what refreshes the public
@@ -471,7 +471,7 @@ jobs:
         # A pull request that nobody merges leaves the download stale, which is
         # how it went five months without a refresh (DOCS-158). Fail loudly
         # after two weeks of grace.
-        served_date=$(curl -sS https://edu.chainguard.dev/downloads/chainguard-complete-docs.md \
+        served_date=$(curl -sS https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md \
           | grep -m1 '^_Compiled on: ' | sed -E 's/^_Compiled on: ([0-9-]+).*/\1/')
 
         if [ -z "$served_date" ]; then
@@ -489,7 +489,7 @@ jobs:
         fi
 
     - name: Post failure notice to Slack
-      uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+      uses: chainguard-actions/rtCamp-action-slack-notify@0aa974ffa7b70fef9dbfa9542fe07276b68ab674 # v2.4.0
       if: ${{ failure() }}
       env:
         SLACK_ICON: http://github.com/chainguard-dev.png?size=48

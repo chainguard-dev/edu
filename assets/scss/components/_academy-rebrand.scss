@@ -1,202 +1,6 @@
 // Chainguard Academy Rebrand - October 2025
 // Following the Chainguard Brand System from Figma
 
-// Top Navigation Bar (www style)
-.top-nav-bar {
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-
-  @media (prefers-color-scheme: dark) {
-    background: rgba(6, 6, 10, 0.98);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-:root[data-dark-mode] .top-nav-bar {
-  background: rgba(6, 6, 10, 0.98);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.top-nav-container {
-  width: 1512px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  height: 64px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-nav-left {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-
-.top-nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #0d161c;
-  font-weight: 600;
-  font-size: 18px;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--primary-1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: #fff;
-  }
-}
-
-:root[data-dark-mode] .top-nav-logo {
-  color: #fff;
-}
-
-.top-nav-logo-img {
-  width: 32px;
-  height: 32px;
-  display: block;
-  transition: transform 0.2s ease;
-
-  .top-nav-logo:hover & {
-    transform: scale(1.05);
-  }
-
-  // In dark mode, invert the logo to white
-  @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
-  }
-}
-
-:root[data-dark-mode] .top-nav-logo-img {
-  filter: brightness(0) invert(1);
-}
-
-.top-nav-brand {
-  font-family: $titleFont;
-}
-
-.top-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-
-  a {
-    text-decoration: none;
-    color: #0d161c;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-    position: relative;
-
-    &:hover {
-      color: var(--primary-1);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--primary-1);
-      transform: scaleX(0);
-      transition: transform 0.2s ease;
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    a {
-      color: #e8e8ed;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
-  }
-}
-
-:root[data-dark-mode] .top-nav-links a {
-  color: #e8e8ed;
-}
-
-.top-nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.top-nav-login {
-  text-decoration: none;
-  color: #0d161c;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: rgba(98, 38, 240, 0.08);
-    color: var(--primary-1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: #e8e8ed;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-  }
-}
-
-:root[data-dark-mode] .top-nav-login {
-  color: #e8e8ed;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-.top-nav-cta {
-  text-decoration: none;
-  background: var(--primary-1);
-  color: white !important;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
-
-  &:hover {
-    background: #7c4dff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(98, 38, 240, 0.3);
-  }
-}
-
-// Mobile menu toggle for top nav
-@media (max-width: 1024px) {
-  .top-nav-left {
-    gap: 16px;
-  }
-}
-
 // Hero Section
 .hero-section {
   text-align: center;
@@ -265,33 +69,8 @@
 }
 
 // Colorful Accent Bars
-.accent-bar {
-  height: 6px;
-  border-radius: 3px;
-  flex: 1;
-  max-width: 120px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.accent-bar-purple {
-  background: linear-gradient(90deg, var(--primary-1), #7c4dff);
-}
-
-.accent-bar-magenta {
-  background: linear-gradient(90deg, var(--secondary-2), #ff006e);
-}
-
 .accent-bar-cyan {
   background: linear-gradient(90deg, var(--primary-2), #00d9ff);
-}
-
-.accent-bar-lime {
-  background: linear-gradient(90deg, var(--tertiary-1), #76ff03);
 }
 
 // Enhanced Section Titles
@@ -452,14 +231,11 @@
 
 // Caption Title Enhancement
 .caption-title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.3;
   transition: color 0.2s ease;
 }
 
 .card-container > div:hover .caption-title {
-  color: var(--primary-1);
+  color: var(--active-link-color);
 }
 
 // Dark Mode Enhancements
@@ -468,40 +244,9 @@
     opacity: 0.3;
   }
 
-  .accent-bar:hover {
-    box-shadow: 0 4px 16px rgba(98, 38, 240, 0.4);
-  }
-
   .basics-card:hover {
     box-shadow: 0 8px 32px rgba(0, 160, 235, 0.2);
   }
-
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
-}
-
-// Animated Gradient Background (subtle)
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-// Add subtle animation to accent bars
-.accent-bar {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
 }
 
 // Footer CTA Section (Homepage only)
@@ -673,7 +418,6 @@
     rgba(98, 38, 240, 0.05),
     rgba(0, 160, 235, 0.04)
   );
-  text-decoration: none;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
   // Brand accent down the leading edge, matching the section title bars.
@@ -691,7 +435,6 @@
     transform: translateY(-2px);
     border-color: var(--primary-1);
     box-shadow: 0 8px 24px rgba(98, 38, 240, 0.12);
-    text-decoration: none;
 
     .landing-callout-cta svg {
       transform: translateX(4px);

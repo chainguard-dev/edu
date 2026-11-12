@@ -1,13 +1,17 @@
-## Chaindocs
-This tool is designed to help with docs maintenance for Chainguard Academy. It provides functionality to audit documentation articles, check for deprecated content, and generate reports based on analytics data.
+# Chaindocs
+
+This tool is designed to help with docs maintenance for Chainguard Docs. It provides functionality to audit documentation articles, check for deprecated content, and generate reports based on analytics data.
 
 ## Installation
+
 You can use the included `make` command to create a chaindocs container. This will land you in a container with the chaindocs tool installed, where you can run the commands listed in the Usage section.
 
-From the root of the Academy repository, run:
+From the root of the edu repository, run:
+
 ```shell
 make chaindocs
 ```
+
 You'll get output similar to this:
 
 ```shell
@@ -34,7 +38,7 @@ docker run --rm \
 -e CONTENT_DIR=/app/content \
 -it --entrypoint /bin/sh \
 chaindocs.local
-/app $ 
+/app $
 
 ```
 
@@ -47,12 +51,14 @@ You can now run the `chaindocs` command from within the container:
 The `CONTENT_DIR` environment variable is set to `/app/content`, which is where the documentation content is located.
 
 ### Manual Installation
+
 If you prefer to install chaindocs manually, you can do so by following these steps - this will require a PHP 8.2+ environment.
 
 ```shell
 cd tools/chaindocs
 composer install
 ```
+
 ## Usage
 
 ### Audit Summary
@@ -88,16 +94,19 @@ To get only deprecated articles from the csv, ordered by number of views:
 ### Export audit csv
 
 Invalid
+
 ```shell
 ./chaindocs audit report --invalid output=audit.csv
 ```
 
 Deprecated
+
 ```shell
 ./chaindocs audit report --deprecated output=audit.csv
 ```
 
 Deprecated from CSV list, ordered by number of views
+
 ```shell
 ./chaindocs audit report --topcontent data=input.csv output=audit.csv
 ```

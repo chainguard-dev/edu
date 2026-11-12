@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Install the Chainguard App and link your Chainguard organization to your GitHub organization to start using Guardener."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-15T14:26:56+00:00
+lastmod: 2026-10-28T19:01:36+00:00
 draft: false
 aliases:
 - /chainguard/guardener/getting-started/
@@ -25,17 +25,17 @@ This guide walks you through everything you need to start using Guardener on you
 
 Once the app is installed, Guardener can respond on your public repositories. Linking connects that activity to your Chainguard organization and unlocks the features that require one, such as private repository coverage — there is no separate entitlement step.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Prerequisites
 
 Before you begin, make sure you have the following:
 
-- **`chainctl` installed and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`.
+- **`chainctl` installed, up to date, and authenticated.** If you haven't installed it yet, follow the [chainctl installation guide](/platform/chainctl-usage/how-to-install-chainctl/), then run `chainctl auth login`. If you already have `chainctl`, [update it to the latest version](/platform/chainctl-usage/chainctl-version-update/) — older versions might not include the `chainctl guardener` commands.
 - **A Chainguard organization** where you are an owner, or where you otherwise hold the `guardener.association.manage` capability. This capability is required to link a GitHub organization to your Chainguard group. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 - **Owner (admin) access to the GitHub organization** you want to link. Installing the app and authorizing the link both require GitHub organization ownership.
 
-The `chainctl guardener` commands identify your Chainguard organization by its group name — you don't need to look up a group ID. Pass the name with `--group`, or omit the flag entirely and `chainctl` will prompt you to select from the organizations you have access to.
+The `chainctl guardener` commands identify your Chainguard organization by its group name — you don't need to look up a group ID. Pass the name with `--parent`. If you omit it, `chainctl guardener github link` prompts you to select from the organizations you have access to.
 
 ## Step 1: Install the Chainguard App
 
@@ -69,10 +69,10 @@ Run `chainctl guardener github link`, passing your GitHub organization login and
 ```shell
 chainctl guardener github link \
   --github-org <github-org-login> \
-  --group <group-name>
+  --parent <group-name>
 ```
 
-If you omit `--group`, `chainctl` prompts you to select the Chainguard organization to link.
+If you omit `--parent`, `chainctl` prompts you to select the Chainguard organization to link.
 
 A browser window opens to authorize with GitHub. This step proves that you own the GitHub organization. The Chainguard App must already be installed on the organization (refer to [Step 1](#step-1-install-the-chainguard-app)) for the link to succeed.
 
@@ -94,10 +94,10 @@ To remove the association between a GitHub organization and a Chainguard group, 
 ```shell
 chainctl guardener github unlink \
   --github-org <github-org-login> \
-  --group <group-name>
+  --parent <group-name>
 ```
 
-When you pass `--group` and hold the `guardener.association.manage` capability on that group, the organization is unlinked using your Chainguard credentials with no browser involved. Otherwise, `chainctl` falls back to the GitHub authorization flow to prove you own the organization. Either way, you must be logged in to Chainguard.
+When you pass `--parent` and hold the `guardener.association.manage` capability on that group, the organization is unlinked using your Chainguard credentials with no browser involved. Otherwise, `chainctl` falls back to the GitHub authorization flow to prove you own the organization. Either way, you must be logged in to Chainguard.
 
 Unlinking stops Guardener's Chainguard-connected features, such as private repository coverage; features enabled on public repositories keep working while the app is installed. To fully remove Guardener, also uninstall the Chainguard App from your GitHub organization settings.
 

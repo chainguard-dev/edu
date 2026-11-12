@@ -5,7 +5,7 @@ lead: "Chainguard documentation for AI tools, through an MCP server or a downloa
 description: "Search Chainguard documentation from an AI tool or other MCP client, or download the compiled documentation bundle"
 type: "article"
 date: 2026-01-02T21:00:00+00:00
-lastmod: 2026-09-30T14:05:59+00:00
+lastmod: 2026-10-16T13:40:15+00:00
 draft: false
 images: []
 menu:
@@ -355,7 +355,7 @@ The documentation bundle is one Markdown file holding every page on this site, p
 Download the bundle directly. It refreshes nightly.
 
 ```bash
-curl -LO https://edu.chainguard.dev/downloads/chainguard-complete-docs.md
+curl -LO https://www.chainguard.dev/docs/downloads/chainguard-complete-docs.md
 ```
 
 ### Extract the bundle from the container image

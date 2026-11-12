@@ -4,7 +4,7 @@ linktitle: "Inspect and run checks"
 description: "Read a pull request's Chainguard Checks results and logs from your terminal, run checks on a pushed commit without a pull request, and find the checks that take the most time or fail most often."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Procedural"]
 images: []
@@ -15,7 +15,7 @@ toc: true
 weight: 55
 ---
 
-The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
+The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/). To see `chainctl checks failures` in use, with Claude Code fixing the failure it reports, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
@@ -76,8 +76,6 @@ A run you start this way differs from a pull request run in the following ways:
 - Its `when.changed` conditions compare the commit with where it branched from the remote's default branch, or with its parent if the commit is on that branch. To compare it with another commit, add `--base` with that commit.
 - It has no pull request, trigger, or labels. If a check's `when` expression reads any `context` field, the command names the check and doesn't start a run. To run other checks, select one with `--check`.
 - A check with a workload `identity` fails, because only pull request runs and runs after merging get identities.
-
-In a Starter organization, don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results, so open a pull request instead.
 
 ### Read a run you started
 

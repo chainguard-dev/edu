@@ -5,6 +5,16 @@
 # only Python + pre-commit. Hooks run on changed files only (see the
 # pre-commit CI workflow's --from-ref/--to-ref); the repo carries a backlog of
 # pre-existing lint errors that are fixed opportunistically as files are touched.
+
+# Pin the Node that pre-commit downloads for the eslint and markdownlint hooks.
+# Unpinned, pre-commit asks nodeenv for the latest release, and nodeenv crashes
+# parsing a pre-release version string ("ValueError: invalid literal for int()
+# ... '0-alpha'"). pre-commit won't use a Node installed under the home
+# directory (nvm, for example), so most contributors hit the download. Keep
+# the major version in step with .nvmrc; nothing updates this pin automatically.
+default_language_version:
+  node: 22.23.4
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
@@ -62,7 +72,7 @@ repos:
   # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
   # + annotations); the hooks give the same checks locally on changed files.
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: c92afdf2c6ca336aaa8f39e2bd8d48f62dbd8e1f  # frozen: v1.31.1
+    rev: 06a39750ec31860bb44f2acf67182c40016cd1e7  # frozen: v1.32.0
     hooks:
       - id: zizmor # auto-loads .github/zizmor.yml
 
@@ -147,7 +157,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 7ab6b7f5c5befd162fb5ddddc4af4c1b4fbfe11d  # frozen: v10.13.0
+    rev: 28bccd32cd8c825b0d0913b486f8ef0f56bfb08a  # frozen: v10.14.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
@@ -158,7 +168,7 @@ repos:
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: 916ad0aaa108c64d294101002066f530ea170b10  # frozen: v0.23.3
+    rev: 341e2a331ba578029e66c2e01183e7a6b5ca9ab4  # frozen: v0.24.0
     hooks:
       - id: markdownlint-cli2
         # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra

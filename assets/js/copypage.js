@@ -1,42 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
   const copyButton = document.querySelector(".copy-page-btn");
-  const tooltip = document.querySelector(".copy-tooltip");
-
   if (!copyButton) return;
 
+  const article = copyButton.closest("main.docs-content");
+  const textElement = copyButton.querySelector(".copy-btn-text");
+  const originalText = textElement.textContent;
+  let resetTimer;
+
   copyButton.addEventListener("click", async function() {
-    const content = await getPageAsMarkdown();
+    const content = getPageAsMarkdown(article);
 
-    if (content && await copyToClipboard(content)) {
-      // Show success state
-      copyButton.classList.add("copy-success");
-      tooltip.classList.add("show");
-
-      // Update button text
-      const textElement = copyButton.querySelector(".copy-btn-text");
-      const originalText = textElement ? textElement.textContent : "";
-      if (textElement) {
-        textElement.textContent = "Copied to clipboard!";
-      }
-
-      // Reset after 2 seconds
-      setTimeout(() => {
-        copyButton.classList.remove("copy-success");
-        tooltip.classList.remove("show");
-        if (textElement) {
-          textElement.textContent = originalText;
-        }
-      }, 2000);
+    try {
+      await navigator.clipboard.writeText(content);
+    } catch (err) {
+      console.error("Failed to copy page:", err);
+      return;
     }
+
+    copyButton.classList.add("copy-success");
+    textElement.textContent = "Copied to clipboard!";
+
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      copyButton.classList.remove("copy-success");
+      textElement.textContent = originalText;
+    }, 2000);
   });
 });
 
-async function getPageAsMarkdown() {
-  const article = document.querySelector("main.docs-content");
-  if (!article) return "";
-
+function getPageAsMarkdown(article) {
   // Get page title
-  const title = document.querySelector("h1")?.textContent || document.title;
+  const title = article.querySelector("h1")?.textContent || document.title;
 
   // Get page description
   const description = document.querySelector("meta[name=\"description\"]")?.content || "";
@@ -202,28 +196,4 @@ function processTable(table) {
   }
 
   return markdown;
-}
-
-async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    return true;
-  } catch {
-    // Fallback for older browsers
-    const textArea = document.createElement("textarea");
-    textArea.value = text;
-    textArea.style.position = "absolute";
-    textArea.style.left = "-9999px";
-    document.body.appendChild(textArea);
-    textArea.select();
-
-    try {
-      document.execCommand("copy");
-      document.body.removeChild(textArea);
-      return true;
-    } catch {
-      document.body.removeChild(textArea);
-      return false;
-    }
-  }
 }

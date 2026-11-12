@@ -9,7 +9,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Keycloak user."
 type: "article"
 date: 2024-03-26T08:48:45+00:00
-lastmod: 2026-10-08T13:39:28+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -26,7 +26,7 @@ To complete this guide, you will need the following.
 
 * `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
-* A Keycloak deployment. [Keycloak](https://www.keycloak.org/) is an Open Source identity provider which Chainguard provides as an [image](https://images.chainguard.dev/directory/image/keycloak/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-administration-iam-organizations-identity-examples-keycloak-identity)
+* A Keycloak deployment. [Keycloak](https://www.keycloak.org/) is an Open Source identity provider which Chainguard provides as an [image](https://images.chainguard.dev/directory/image/keycloak/versions)
 
 ## Creating Terraform files
 
@@ -125,7 +125,7 @@ output "keycloak-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role.
+The section after that looks up the `viewer` role. The `viewer` role can pull container images but not Chainguard Libraries. To pull libraries, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 ```hcl
 data "chainguard_role" "viewer" {
@@ -253,7 +253,7 @@ To authenticate with `chainctl` you will need to generate a new token with Keycl
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```hcl
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```

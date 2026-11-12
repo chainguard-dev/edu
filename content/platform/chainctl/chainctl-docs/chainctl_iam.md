@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl iam"
 slug: chainctl_iam
 url: /platform/chainctl/chainctl-docs/chainctl_iam/
@@ -32,6 +32,7 @@ IAM related commands for the Chainguard platform.
 
 * [chainctl](/platform/chainctl/chainctl-docs/chainctl/)	 - Chainguard Control
 * [chainctl iam account-associations](/platform/chainctl/chainctl-docs/chainctl_iam_account-associations/)	 - Configure and manage cloud provider account associations.
+* [chainctl iam auth-policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/)	 - Manage how long a sign-in to an organization lasts.
 * [chainctl iam external-group-role-mappings](/platform/chainctl/chainctl-docs/chainctl_iam_external-group-role-mappings/)	 - Manage IdP group-to-role mappings (also available under 'iam identity-providers group-mappings').
 * [chainctl iam folders](/platform/chainctl/chainctl-docs/chainctl_iam_folders/)	 - IAM folders interactions.
 * [chainctl iam identities](/platform/chainctl/chainctl-docs/chainctl_iam_identities/)	 - Identity management.

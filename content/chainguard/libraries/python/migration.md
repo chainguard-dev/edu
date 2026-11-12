@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-21T14:31:29+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -94,7 +94,7 @@ Learn more about creating and managing pull tokens in the [Libraries access docu
 
 {{< tab title="Python keyring" >}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. For GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.python.pull` role. The keyring provider requires pip 23.1 or later.
 
 Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
@@ -281,7 +281,11 @@ default = true
 
 When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
 
-Setting `default = true` on the Chainguard index replaces PyPI as uv's default index. Without it, uv appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match` it can resolve packages from PyPI even when Chainguard serves them. This bypasses Chainguard malware blocking and cooldown. If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
+Choose the index order based on whether your project prefers latest-major or remediated packages. For strict Chainguard preference with PyPI as a fallback, use uv's default `first-index` strategy, list the Chainguard indexes in your preferred order, and configure PyPI as the lowest-priority default index. See [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for both layouts and a complete example.
+
+Do not mark a Chainguard index as `default = true` when PyPI is explicitly listed as a regular index: the default index is lowest priority, so PyPI can be checked first and provide shared packages. Mark the PyPI fallback as `default = true` instead.
+
+If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
@@ -385,7 +389,7 @@ Run the following command to auto-detect and update the lockfile in the current 
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify the lockfile when running the command. For example:
 
@@ -548,7 +552,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="python" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 

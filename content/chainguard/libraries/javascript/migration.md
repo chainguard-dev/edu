@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-22T18:45:02+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -204,6 +204,9 @@ identities](/platform/administration/assumable-ids/assumable-ids/) are the
 recommended approach. Rather than managing a static token, an assumable identity
 lets your CI/CD workload authenticate directly with Chainguard using its own
 platform identity; no long-lived credentials to rotate or accidentally expose.
+To set one up for GitHub Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.javascript.pull` role.
 
 Once configured, authenticate and write the registry configuration in your
 pipeline. For example, in a GitHub Actions workflow using npm:
@@ -425,7 +428,7 @@ Run the command in the directory containing the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
@@ -712,7 +715,7 @@ chainctl libraries verify ./node_modules
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="javascript" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 

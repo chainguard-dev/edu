@@ -16,7 +16,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Node.js applications to Chainguard Containers for reduced vulnerabilities, smaller image sizes, and automated security patching"
 date: 2024-05-09T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -24,7 +24,7 @@ weight: 30
 toc: true
 ---
 
-Chainguard's Node.js container images offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), they include only the packages your application needs, which keeps both the attack surface and the image size small. Daily automated builds ensure your applications always have the latest security patches without manual intervention. For current CVE data on each image and tag, see the [Node entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node).
+Chainguard's Node.js container images offer a streamlined migration path for applications seeking enhanced security posture through minimal, distroless design. Built on [Wolfi](/open-source/wolfi/), they include only the packages your application needs, which keeps both the attack surface and the image size small. Daily automated builds ensure your applications always have the latest security patches without manual intervention. For current CVE data on each image and tag, see the [Node entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/node/overview).
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -43,7 +43,7 @@ Chainguard Containers base.
 
 ## Node.js Chainguard Containers
 
-The [Node.js](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node) images come in two main
+The [Node.js](https://images.chainguard.dev/directory/image/node/overview) images come in two main
 flavors; runtime images intended for production usage and builder images intended for use in the
 build-step of multi-stage builds. The builder images are distinguished by the `-dev` suffix (e.g.,
 `latest-dev`).
@@ -255,7 +255,7 @@ To build an image with a Dockerfile like this, your organization would need to h
 
 ## Additional resources
 
-- The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-node)
+- The [Node.js image documentation](https://images.chainguard.dev/directory/image/node/overview)
 contains full details on our images, including usage documentation, provenance and security
 advisories.
 

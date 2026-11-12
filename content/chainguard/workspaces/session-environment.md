@@ -4,7 +4,7 @@ linktitle: "Session environment"
 description: "Choose the packages, tools, and network access a Chainguard Workspaces session gets, from your repository's .chainguard/develop.yaml or .chainguard/ci.yaml file, a file of your own, or the default environment."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T14:35:40+00:00
+lastmod: 2026-11-12T14:46:46+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Configuration", "Reference"]
 images: []
@@ -94,7 +94,7 @@ The file accepts only the following keys:
 | `from` | No | A check file directly in `.chainguard/ci/`, such as `.chainguard/ci/go.yaml`, or an environment file in `.chainguard/ci/env/`, such as `.chainguard/ci/env/go.yaml`. It can't name `.chainguard/ci.yaml`, `.chainguard/ci/resources.yaml`, or `.chainguard/ci/identities.yaml`. Sessions take only the file's top-level `environment`, or the environment file that it names. They don't start that environment's `services` or mount its caches other than `gobuild`, as described in [Start with a warm Go build cache](#start-with-a-warm-go-build-cache). |
 | `environment` | Unless you set `from` | Without `from`, the session's environment, in the [same format](/chainguard/checks/configuration/#environment) as a Chainguard Checks file, except that it can't name `services` or any cache other than `gobuild`. With `from`, only `packages` to add and `vars` to set, which replace any variables with the same name. |
 | `resources` | No | The session's size: `cpus`, `memory`, and `disk` together, or a resource class. Refer to [Resources](#resources). |
-| `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. `chainctl` 0.2.382 or earlier refuses this key in a session opened from a local directory. |
+| `shell` | No | The shell that the session's terminals run: a program name on the session's `PATH`, such as `zsh`, or an absolute path, such as `/bin/zsh`, with no arguments. Without it, the shell is `bash`. The session's environment must include the shell's package. If the session can't find the shell, it starts `bash`. |
 
 Keep the following in mind when you write the file:
 
@@ -122,7 +122,7 @@ checks:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format.
+A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format, and to [Chainguard Checks examples](/chainguard/checks/examples/) for complete files for common kinds of projects.
 
 Keep the following in mind when you write the file for sessions:
 
@@ -205,12 +205,16 @@ A session's network access depends on its environment:
 | The default environment | The open internet |
 | A `.chainguard/develop.yaml` file | The open internet |
 | A file's top-level `environment`, with no check selected | The open internet |
-| A check with no `network` key, selected with `--check` or named `develop` | The open internet |
-| A check with `network.egress`, selected with `--check` or named `develop` | Only the hosts in `egress` |
+| A check that you pass with `--check`, or the file's check named `develop`, with no `network` key | The open internet |
+| A check that you pass with `--check`, or the file's check named `develop`, with `network.egress` | Only the hosts in `egress` |
 
 That's different from Chainguard Checks, where a check with no `network` key has no network access at all. In a session, only an `egress` list restricts the network.
 
 A session never reaches cloud metadata endpoints, loopback addresses, or private IP ranges, whatever its environment allows.
+
+An `egress` list allows the addresses that its hostnames resolve to, so a session can also reach other services at those addresses, such as sites behind the same CDN. Refer to [How egress matches a host](/get-started/checks-and-workspaces/how-it-works/#how-egress-matches-a-host).
+
+Like a check, a session intercepts HTTPS connections, with a certificate authority that Chainguard creates for the session's VM and keeps when the session resumes. The VM's system certificate bundle, `/etc/ssl/certs/ca-certificates.crt`, trusts that certificate authority, and the session sets `SSL_CERT_FILE`, `REQUESTS_CA_BUNDLE`, `PIP_CERT`, `CURL_CA_BUNDLE`, `NODE_EXTRA_CA_CERTS`, and `HEX_CACERTS_PATH` to the bundle, so most tools work without changes. A tool that keeps its own list of trusted certificates and doesn't read these variables rejects the intercepted connections with a certificate error. Point it at the system bundle. For other causes of a certificate error, refer to [the Troubleshooting guide](/chainguard/workspaces/troubleshooting/#a-tool-in-a-session-fails-with-a-certificate-error). For details on how interception works, refer to [Network](/get-started/checks-and-workspaces/how-it-works/#network).
 
 When a session tries to reach a host outside its `egress` list, Chainguard refuses the connection and the session keeps running. A check can declare `policy: destroy` to stop its VM on a refused connection instead, but in a session, `destroy` is treated as `deny`.
 
@@ -223,7 +227,7 @@ By default, each session has 4 vCPUs, 16 GB of memory, and a 50 GB disk, and run
 | Environment | Where the size comes from |
 | ----------- | ------------------------- |
 | A `.chainguard/develop.yaml` file | The file's `resources` key, not the one in the file that `from` names |
-| A check, selected with `--check` or named `develop` | The first of these that sets `resources`: the check, the check's file, and, in the directory layout, `.chainguard/ci/env/default.yaml`. If none does, the default size, unless your repository has a `.chainguard/ci/resources.yaml` file, which gives the session its `default` class |
+| A check that you pass with `--check`, or the file's check named `develop` | The first of these that sets `resources`: the check, the check's file, and, in the directory layout, `.chainguard/ci/env/default.yaml`. If none does, the default size, unless your repository has a `.chainguard/ci/resources.yaml` file, which gives the session its `default` class |
 | A file's top-level `environment`, with no check selected | The file's top-level `resources` key |
 | The default environment or a generated one | Always the default size |
 

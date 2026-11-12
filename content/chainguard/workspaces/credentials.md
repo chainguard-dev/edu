@@ -4,7 +4,7 @@ linktitle: "Session credentials"
 description: "Learn how a Chainguard Workspaces session reaches GitHub, Claude, and Chainguard without holding credentials, and how to approve, review, and revoke what it can reach."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T14:50:35+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Security", "Configuration"]
 images: []
@@ -200,6 +200,6 @@ If you connect your GitHub account, the sessions you create afterward act on Git
 
 The identity reaches the Chainguard API, `chainctl checks`, and the `cg-apk` and `cg-versions` MCP servers that every session includes. Whatever a grant carries, the session can't change anything through the Chainguard API except Chainguard Checks runs, and it can only list packages on `apk.cgr.dev`. Other MCP servers get no credential, and pulls from `cgr.dev` use the session's `cgr.dev` credential.
 
-Most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, within your own permissions, and a pull request records a rerun as your request. In a Starter organization, the `limited_owner` role can't list Chainguard Checks runs, so `chainctl checks` commands that look up a run, including `status`, `logs`, and `rerun`, don't work for that role, in a session or on your laptop. The `chainctl checks top`, `chainctl checks trends`, and `chainctl checks accept-terms` commands work only on your laptop.
+Most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, within your own permissions, and a pull request records a rerun as your request. The `chainctl checks top`, `chainctl checks trends`, and `chainctl checks accept-terms` commands work only on your laptop.
 
 To turn off a session's Chainguard identity, run `chainctl develop creds` with `--revoke chainguard` or `--source chainguard=off`, pass `--with none`, or turn it off on the **Credentials** screen. To turn it back on, use `--with chainguard`. To stop it for every session at once, delete the `chainctl-develop` identity from your organization. Tokens that sessions already hold keep working until they expire.

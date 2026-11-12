@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl guardener entitlement get"
 slug: chainctl_guardener_entitlement_get
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_entitlement_get/
@@ -32,7 +32,7 @@ chainctl guardener entitlement get [flags]
 ### Options
 
 ```
-      --parent string   Name or UIDP of the Chainguard group. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
 ```
 
 ### Options inherited from parent commands

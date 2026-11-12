@@ -6,7 +6,7 @@ lead: ""
 description: "An overview of how to verify your organization and the implications"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 draft: false
 tags: ["Chainguard Console", "Conceptual"]
 images: []
@@ -29,7 +29,7 @@ Verifying your organization lets you:
 - Log in through your [custom identity provider](/platform/administration/custom-idps/custom-idps/) by entering your organization name. This works in `chainctl`, the Chainguard Console, and the [Terraform provider](/platform/administration/terraform-provider/), so users don't need your identity provider's ID.
 - [Request new container images](/chainguard/containers/reference/request-resources/) in the Chainguard Console.
 
-Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Starter](/chainguard/containers/reference/catalog-starter/).
 
 ## Check whether your organization is verified
 

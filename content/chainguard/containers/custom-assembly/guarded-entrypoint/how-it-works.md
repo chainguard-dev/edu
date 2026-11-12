@@ -4,7 +4,7 @@ linktitle: "How it works"
 type: "article"
 description: "What the Guarded Entrypoint wrapper does at container start: secret references, fail mode, the Java truststore, preflight checks, command override, and variable expansion."
 date: 2026-10-06T17:41:00+00:00
-lastmod: 2026-10-21T19:07:22+00:00
+lastmod: 2026-10-23T15:59:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Custom Assembly", "Conceptual", "Reference"]
 images: []
@@ -289,7 +289,7 @@ Images whose entrypoint is an init system that must run as PID 1, such as system
 
 ### Refused builds
 
-Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the repo pins the wrapper package to a release that is too old for the repo's settings. The build then fails with a message that names the reason.
+Chainguard refuses to build a wrapped image in two cases. The image's environment sets `GUARDED_DISABLE`, or the wrapper version is too old for the repo's settings. The build then fails with a message that names the reason.
 
 <!-- TODO: when the generated lists of supported and refused entrypoints are published, add a sentence here linking to them. -->
 

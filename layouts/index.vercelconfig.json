@@ -28,7 +28,31 @@ The other routes reproduce production nginx, in the order nginx applies them:
 Routes stop at the first match, except the noindex route, which continues to
 the next one. The other response headers come from vercel.json, which Vercel
 applies to every response, redirects included.
+
+A preview build (HUGO_PARAMS_EMULATEWWW, set by scripts/build-vercel.sh) is
+served the way production is served behind www.chainguard.dev. In production,
+www removes a trailing slash with a 308, then rewrites /docs/<path> to /<path>
+on the chainguard-docs project, which serves its files from its root. A
+preview has nothing in front of it, so build-vercel.sh puts its files under
+/docs/ instead, and this template:
+
+- puts /docs in front of every route pattern below, so each route matches
+  the path a reader requests;
+- adds two routes ahead of them: / goes to the docs home, because Vercel's PR
+  comments link to the preview's root, and a trailing slash is removed with a
+  308, as www does.
+
+A path outside /docs has no file, so it answers 404, as www does for the docs.
+A page that loads a file from the host root, such as /fonts/x.woff2, fails on
+the preview as it would in production.
 */ -}}
+{{- $basePath := strings.TrimSuffix "/" site.Home.RelPermalink -}}
+{{- /* Where the files are served: under the base path on a preview, at the
+       host root in production. */ -}}
+{{- $servedPath := "" -}}
+{{- if site.Params.emulatewww -}}
+{{- $servedPath = $basePath -}}
+{{- end -}}
 {{- $routes := slice -}}
 {{- if not site.Params.indexable -}}
 {{- $routes = $routes | append (dict
@@ -36,16 +60,23 @@ applies to every response, redirects included.
   "headers" (dict "X-Robots-Tag" "noindex")
   "continue" true) -}}
 {{- end -}}
+{{- if $servedPath -}}
+{{- $routes = $routes | append
+  (dict "src" `^/$` "status" 308 "headers" (dict "Location" $servedPath))
+  (dict "src" (printf `^(%s(/.*)?)/$` $servedPath) "status" 308 "headers" (dict "Location" "$1")) -}}
+{{- end -}}
 {{- range partial "redirect-rules.html" . -}}
+{{- if and $servedPath (not (strings.HasPrefix .regex "^/")) -}}
+{{- errorf "index.vercelconfig.json: redirect rule %q doesn't start with ^/, so it can't be served under %s" .regex $servedPath -}}
+{{- end -}}
 {{- $routes = $routes | append (dict
-  "src" .regex
+  "src" (printf "^%s%s" $servedPath (strings.TrimPrefix "^" .regex))
   "caseSensitive" .caseSensitive
   "status" 301
   "headers" (dict "Location" .target)) -}}
 {{- end -}}
-{{- $basePath := strings.TrimSuffix "/" site.Home.RelPermalink -}}
 {{- $routes = $routes | append
-  (dict "src" `^([^.]*[^/])$` "status" 301 "headers" (dict "Location" (printf "%s$1/" $basePath)))
+  (dict "src" (printf `^%s([^.]*[^/])$` $servedPath) "status" 301 "headers" (dict "Location" (printf "%s$1/" $basePath)))
   (dict "handle" "filesystem")
   (dict "src" `^(.+)\.md/?$` "dest" "$1/index.md" "check" true)
   (dict "handle" "error")

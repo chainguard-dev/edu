@@ -728,6 +728,15 @@
             "description": "filename is a human-readable label for the document, supplied by the\nclient at creation time.",
             "type": "string"
           },
+          "findingCounts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentFindingCounts"
+              }
+            ],
+            "description": "finding_counts summarizes the document's cgp_ids: how many have a\nChainguard fix and how many were already known. Set only on List, when\nArgosDocumentFilter.include_finding_counts asks for it and the page is\nbounded; unset otherwise, or when the counts couldn't be read.",
+            "readOnly": true
+          },
           "id": {
             "description": "id is the UIDP of the document, a child of an organization (root group).",
             "type": "string"
@@ -759,6 +768,26 @@
           "STATUS_FALSE_POSITIVE"
         ],
         "type": "string"
+      },
+      "chainguard.platform.argos.ArgosDocumentCGPStats": {
+        "properties": {
+          "duplicate": {
+            "description": "duplicate counts identifiers whose record was published strictly before\nthe earliest referencing document's created_at.",
+            "format": "int64",
+            "type": "string"
+          },
+          "novel": {
+            "description": "novel counts every resolved identifier that is not a duplicate,\nincluding records with no published time.",
+            "format": "int64",
+            "type": "string"
+          },
+          "unresolved": {
+            "description": "unresolved counts identifiers with no served record; they count in no\nother field of ArgosDocumentStats.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.argos.ArgosDocumentFileBinding": {
         "description": "ArgosDocumentFileBinding is one archive file joined to its per-file\nanalysis outcome. Deliberately filename-keyed: the platform-internal\ncontent digest is NOT exposed here, since an unsalted digest of\ncustomer-authored content would let any org reader test whether exact\ncandidate content was uploaded (a content-membership oracle bypassing\nthe gated plaintext path).",
@@ -801,6 +830,22 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.argos.ArgosDocumentFindingCounts": {
+        "description": "ArgosDocumentFindingCounts summarizes the CGP identifiers a document\nresolved to. The total is the length of the document's cgp_ids, including\nidentifiers with no served record, which count in neither field.",
+        "properties": {
+          "alreadyKnown": {
+            "description": "already_known counts identifiers whose record was published before the\ndocument was created.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "fixAvailable": {
+            "description": "fix_available counts identifiers whose record has any fixed version,\nupstream or a Chainguard rebuild, as chainctl counts it. Field 1 was\npatched, a narrower rule.",
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosDocumentList": {
         "properties": {
           "items": {
@@ -823,6 +868,67 @@
             "description": "Total number of documents matching the filter. Optional; provided for\nUI pagination.",
             "format": "int64",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosDocumentPatchStats": {
+        "properties": {
+          "byStatus": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "by_status counts identifiers keyed by PatchStatus name (see\nargos_osv.platform.proto), PATCH_STATUS_UNSPECIFIED included, so its\nvalues sum to fix_available + no_fix.",
+            "type": "object"
+          },
+          "fixAvailable": {
+            "description": "fix_available counts identifiers whose record has any fixed version.",
+            "format": "int64",
+            "type": "string"
+          },
+          "noFix": {
+            "description": "no_fix counts identifiers whose record has no fixed version.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosDocumentStats": {
+        "description": "ArgosDocumentStats holds totals only; it lists no documents or\nidentifiers. Each CGP identifier counts once however many documents\nresolved to it.",
+        "properties": {
+          "cgps": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentCGPStats"
+              }
+            ],
+            "description": "cgps classifies the distinct CGP identifiers the documents resolved to."
+          },
+          "findings": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "findings counts file bindings keyed by ArgosDocumentFileBinding.Status\nname.",
+            "type": "object"
+          },
+          "patches": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentPatchStats"
+              }
+            ],
+            "description": "patches summarizes the patch state of identifiers with a served record."
+          },
+          "submissions": {
+            "additionalProperties": {
+              "format": "int64",
+              "type": "string"
+            },
+            "description": "submissions counts documents keyed by ArgosDocument.Status name.",
+            "type": "object"
           }
         },
         "type": "object"
@@ -852,6 +958,28 @@
           },
           "pem": {
             "description": "pem is the PEM-encoded SubjectPublicKeyInfo of the org's RSA-OAEP-3072\nkey. Use it client-side to wrap a fresh per-document AES-256 key, then\ninclude the wrapped key + AES-GCM ciphertext in the CreateArgosDocument\npayload.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosPartners.CreateMitigationBody": {
+        "properties": {
+          "cweId": {
+            "description": "cwe_id is optional. When set it must be on both the vulnerability and\nthe method.",
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "method": {
+            "description": "method is the mitigation method's display name.",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
+          },
+          "vulnId": {
             "type": "string"
           }
         },
@@ -891,6 +1019,20 @@
               "type": "string"
             },
             "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.ArgosPartners.UpdateMitigationBody": {
+        "properties": {
+          "cweId": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
           }
         },
         "type": "object"
@@ -958,6 +1100,64 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.argos.Disclosure": {
+        "description": "Disclosure is where a record stands in Chainguard's coordinated disclosure:\nwhether it can be disclosed yet, through which channel, and when.\n\nIt is identical for every recipient of the record: no field here varies by\ncaller. A record with no recorded disclosure is NOT_ELIGIBLE. Fields that\nhave not been set are absent.",
+        "properties": {
+          "credited_vuln_id": {
+            "description": "credited_vuln_id is a CVE or GHSA issued after the disclosure that\ncredits it, set only at DISCLOSED.",
+            "type": "string"
+          },
+          "disclosed_at": {
+            "description": "disclosed_at is when the disclosure happened, set at DISCLOSED.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure.Status"
+              }
+            ],
+            "description": "status is where the record stands."
+          },
+          "target_date": {
+            "description": "target_date is the planned disclosure date, set at SELECTED.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure.Type"
+              }
+            ],
+            "description": "type is the disclosure channel, set from ELIGIBLE onward."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Disclosure.Status": {
+        "default": "STATUS_UNSPECIFIED",
+        "description": "Status is the disclosure state of the record. Values serialize as bare\nwords, such as \"DISCLOSED\".\n\n - NOT_ELIGIBLE: NOT_ELIGIBLE: the record cannot be disclosed yet.\n - ELIGIBLE: ELIGIBLE: the record can be disclosed through the channel in type.\n - SELECTED: SELECTED: a target date has been set.\n - DISCLOSED: DISCLOSED: the disclosure has happened.",
+        "enum": [
+          "STATUS_UNSPECIFIED",
+          "NOT_ELIGIBLE",
+          "ELIGIBLE",
+          "SELECTED",
+          "DISCLOSED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.argos.Disclosure.Type": {
+        "default": "TYPE_UNSPECIFIED",
+        "description": "Type is the disclosure channel.\n\n - AKRITES: AKRITES: disclosed through Akrites, while upstream is still vulnerable.\n - CHAINGUARD: CHAINGUARD: disclosed on chainguard-dev/athena, once fixed upstream.",
+        "enum": [
+          "TYPE_UNSPECIFIED",
+          "AKRITES",
+          "CHAINGUARD"
+        ],
+        "type": "string"
       },
       "chainguard.platform.argos.DumpOSVMetadata": {
         "description": "DumpOSVMetadata is the first message in a Dump stream, carrying archive\nprovenance. Subsequent messages carry raw tar.gz chunks via DumpOSVResponse.",
@@ -1142,6 +1342,21 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ListMitigationsResponse": {
+        "properties": {
+          "mitigations": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is empty on the last page.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.argos.MinimalOSVRecord": {
         "description": "MinimalOSVRecord is the abbreviated vuln entry returned by QueryBatch,\nmatching the OSV spec's batch response (id + modified only); callers\nfollow up with GetVuln for full detail.",
         "properties": {
@@ -1151,6 +1366,42 @@
           "modified": {
             "format": "date-time",
             "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Mitigation": {
+        "properties": {
+          "createTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "cweId": {
+            "description": "cwe_id is empty or of the form CWE-79.",
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "method": {
+            "description": "method is the mitigation method's display name.",
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.MitigationStatus"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "vulnId": {
+            "type": "string"
+          },
+          "withdrawn": {
+            "type": "boolean"
           }
         },
         "type": "object"
@@ -1172,6 +1423,17 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.argos.MitigationStatus": {
+        "default": "MITIGATION_STATUS_UNSPECIFIED",
+        "description": " - MITIGATION_STATUS_DECLINED: DECLINED: the partner chose not to act.\n - MITIGATION_STATUS_FAILED: FAILED: the partner tried and could not.",
+        "enum": [
+          "MITIGATION_STATUS_UNSPECIFIED",
+          "MITIGATION_STATUS_DECLINED",
+          "MITIGATION_STATUS_MITIGATED",
+          "MITIGATION_STATUS_FAILED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.argos.OSVQueryBatchRequest": {
         "properties": {
@@ -1385,6 +1647,9 @@
       },
       "chainguard.platform.argos.Range": {
         "properties": {
+          "database_specific": {
+            "$ref": "#/components/schemas/chainguard.platform.argos.RangeDatabaseSpecific"
+          },
           "events": {
             "items": {
               "$ref": "#/components/schemas/chainguard.platform.argos.Event"
@@ -1410,6 +1675,15 @@
           "GIT"
         ],
         "type": "string"
+      },
+      "chainguard.platform.argos.RangeDatabaseSpecific": {
+        "properties": {
+          "fix_status": {
+            "description": "\"fix_found\", \"no_fix_found\" or \"not_confirmed\".",
+            "type": "string"
+          }
+        },
+        "type": "object"
       },
       "chainguard.platform.argos.Reference": {
         "description": "Reference is one OSV-spec references[] entry: a typed, record-level URL\n(https://ossf.github.io/osv-schema/#references-field). Chainguard emits\nFIX-typed references naming the verified upstream fix commit — the exact\ncommit, validated by tag ancestry in the named repository, behind the\nrecord's highest fixed boundary. A reference is record-level and carries\nno binding to any affected range or version, per the OSV spec.",
@@ -1509,6 +1783,14 @@
       "chainguard.platform.argos.TopLevelDatabaseSpecific": {
         "description": "TopLevelDatabaseSpecific is the Chainguard-defined content for the OSV-spec\ntop-level database_specific field: a JSON object holding additional\ninformation about the vulnerability as defined by the database from which\nthe record was obtained. Unlike the per-Affected DatabaseSpecific, this\napplies to the whole vulnerability record.",
         "properties": {
+          "disclosure": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Disclosure"
+              }
+            ],
+            "description": "disclosure is the record's coordinated-disclosure state."
+          },
           "embargo": {
             "allOf": [
               {
@@ -1569,6 +1851,9 @@
             "type": "array"
           }
         },
+        "type": "object"
+      },
+      "chainguard.platform.argos.WithdrawMitigationResponse": {
         "type": "object"
       },
       "chainguard.platform.auth.HeadlessSession": {
@@ -2044,6 +2329,10 @@
         "properties": {
           "eligible": {
             "description": "eligible reports whether the domain of the caller's email address may\ncreate a self-serve Starter organization. A personal-mail domain can be\neligible: unverified_starter is then set too, and the organization the\ncaller creates is unverified. Such a domain stays ineligible for\nLookupGroup and RequestGroupAccess, so read unverified_starter before\noffering those flows.",
+            "type": "boolean"
+          },
+          "existingOrganization": {
+            "description": "existing_organization reports that a verified organization already exists\nfor the caller's email domain, so the caller should request access to it\nrather than create a new Starter organization. It is a bare signal: the\ncaller has already proven a verified email on the domain, and no detail\nidentifying the organization is returned.",
             "type": "boolean"
           },
           "unverifiedStarter": {
@@ -2666,7 +2955,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.iam.IdentityProvider.OIDC.CorrelationRule"
               }
             ],
-            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Immutable after the\nidentity provider is created (enforced server-side): a different rule\nrequires creating a new identity provider. Updates that restate the\ncurrent rule (or leave it unset) are a no-op — a read-modify-write client\nmay echo the field back safely; updates that change it are rejected."
+            "description": "Selects how OIDC logins are matched to SCIM-provisioned users. Unset\nselects CORRELATION_RULE_SUB_EQUALS_EXTERNAL_ID. Choose it before\nprovisioning users: an update cannot change it (enforced server-side),\nand a later change requires Chainguard support. Updates that restate the\ncurrent rule (or leave it unset) are a no-op — a read-modify-write client\nmay echo the field back safely; updates that change it are rejected."
           },
           "groupsClaim": {
             "description": "groups_claim is the name of the OIDC token claim containing group memberships.\nRequired for IdP group-based role mapping.",
@@ -3285,7 +3574,8 @@
           "GUARDENER",
           "MICROVM",
           "SKILLS",
-          "SANDBOX"
+          "SANDBOX",
+          "CGRUSER"
         ],
         "type": "string"
       },
@@ -3621,7 +3911,7 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
         "enum": [
           "UNKNOWN",
           "JAVA",
@@ -3635,7 +3925,9 @@
           "GO",
           "GO_ATHENA",
           "RUBY",
-          "RUBY_ATHENA"
+          "RUBY_ATHENA",
+          "RUST",
+          "RUST_ATHENA"
         ],
         "type": "string"
       },
@@ -3669,6 +3961,14 @@
               }
             ],
             "description": "source indicates how this entitlement was provisioned."
+          },
+          "tiers": {
+            "description": "tiers is the set of serving tiers this entitlement grants, sorted by\nvalue name. It decides which versions are served. A grant with no stored\nset reports the set serving falls back to.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Tier"
+            },
+            "readOnly": true,
+            "type": "array"
           }
         },
         "type": "object"
@@ -4424,6 +4724,227 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.libraries.RemoteRegistries.ReorderBody": {
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem whose entries to reorder."
+          },
+          "names": {
+            "description": "names lists every entry's name once, first to last.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "ecosystem",
+          "names"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistries.UpdateBody": {
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem of the entry."
+          },
+          "enabled": {
+            "description": "enabled turns the entry on or off. It is the only part of an entry that\ncan change.",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "ecosystem",
+          "enabled"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistry": {
+        "description": "RemoteRegistry is one entry in a repository's upstream list.",
+        "properties": {
+          "baseUrl": {
+            "description": "base_url is the upstream registry's URL. It is fixed by Chainguard.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem the entry serves.",
+            "readOnly": true
+          },
+          "enabled": {
+            "description": "enabled reports whether the entry is tried.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "name": {
+            "description": "name is the canonical name of the upstream registry, for example npmjs.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "precedence": {
+            "description": "precedence is the entry's place in the order entries are tried; lower is\ntried first.",
+            "format": "int32",
+            "readOnly": true,
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RemoteRegistryList": {
+        "description": "RemoteRegistryList is a repository's upstream list for one ecosystem.\nUpstream fallback is on only when both entitled_to_upstream and\nany_enabled are true.",
+        "properties": {
+          "anyEnabled": {
+            "description": "any_enabled reports whether at least one entry is enabled.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "entitledToUpstream": {
+            "description": "entitled_to_upstream reports whether the organization's Libraries\nentitlement includes upstream packages for the ecosystem.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "items": {
+            "description": "items are the entries in the order they are tried.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistry"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.Repositories.CreateBody": {
+        "properties": {
+          "name": {
+            "description": "name is the repository name: lowercase letters, digits and hyphens,\nstarting with a letter, at most 63 characters. It cannot be changed\nlater.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.libraries.Repository": {
+        "description": "Repository is a Libraries repository of an org.",
+        "properties": {
+          "createTime": {
+            "description": "create_time is when the repository was created. Unset for the default\nrepository.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the UIDP of the repository's folder, or of the org for the default\nrepository. Empty while the folder does not exist yet.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "isDefault": {
+            "description": "is_default reports whether this is the org's default repository.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "name": {
+            "description": "name is the repository name. It never changes. The default repository is\nnamed \"default\".",
+            "readOnly": true,
+            "type": "string"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the org.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryState"
+              }
+            ],
+            "description": "state is where the repository is in its lifecycle. A READY repository\nserves. A FOLDER_MISSING repository may still serve until Delete removes\nit; the API returns no URLs for it.",
+            "readOnly": true
+          },
+          "updateTime": {
+            "description": "update_time is when the repository last changed state. Unset for the\ndefault repository.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "urls": {
+            "description": "urls are the repository's URLs, one per ecosystem the org is entitled\nto. The list is empty for a FOLDER_MISSING repository.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryURL"
+            },
+            "readOnly": true,
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RepositoryList": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.libraries.RepositoryState": {
+        "default": "REPOSITORY_STATE_UNSPECIFIED",
+        "description": "RepositoryState is the lifecycle state of a repository. Every state counts\ntoward the org's repository limit.\n\n - REPOSITORY_STATE_CREATING: CREATING: the name is reserved and the folder does not exist yet.\n - REPOSITORY_STATE_PROVISIONING: PROVISIONING: the folder exists and the upstream list is being seeded.\n - REPOSITORY_STATE_READY: READY: the repository serves.\n - REPOSITORY_STATE_DELETING: DELETING: the repository and its folder are being removed.\n - REPOSITORY_STATE_FOLDER_MISSING: FOLDER_MISSING: the repository's folder was deleted outside this API. The\nAPI returns no URLs for it, it may still serve until Delete removes it,\nand it holds its plan slot until then.",
+        "enum": [
+          "REPOSITORY_STATE_UNSPECIFIED",
+          "REPOSITORY_STATE_CREATING",
+          "REPOSITORY_STATE_PROVISIONING",
+          "REPOSITORY_STATE_READY",
+          "REPOSITORY_STATE_DELETING",
+          "REPOSITORY_STATE_FOLDER_MISSING"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.libraries.RepositoryURL": {
+        "description": "RepositoryURL is the URL a client uses to pull one ecosystem's packages\nfrom a repository.",
+        "properties": {
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Ecosystem"
+              }
+            ],
+            "description": "ecosystem is the language ecosystem served at url.",
+            "readOnly": true
+          },
+          "serving": {
+            "description": "serving is true while the ecosystem's repository routes serve in this\nenvironment, so a client can reach url. It follows the environment's\nrepository route switches. The default repository's URLs always serve.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "url": {
+            "description": "url is the base URL to configure in the ecosystem's client.",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.ResolutionCache.SetOptOutBody": {
         "properties": {
           "ecosystem": {
@@ -4507,6 +5028,10 @@
           },
           "registry": {
             "description": "registry within the ecosystem; empty is the default registry.",
+            "type": "string"
+          },
+          "repository": {
+            "description": "repository is the folder UIDP of the repository the entry was recorded\nthrough, and governs serving there only. Empty is the default repository,\nthe ecosystem's legacy URL.",
             "type": "string"
           },
           "tier": {
@@ -5140,6 +5665,11 @@
             "readOnly": true,
             "type": "string"
           },
+          "resourceType": {
+            "description": "The versioned resource type of the evaluated artifact, the\nsupported_resource_type of the evaluated policy, such as\n\"libraries.chainguard.dev/PythonPackage@v1\".",
+            "readOnly": true,
+            "type": "string"
+          },
           "result": {
             "allOf": [
               {
@@ -5360,8 +5890,8 @@
             "readOnly": true
           },
           "supportedResourceType": {
-            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
+            "description": "Required on CreatePolicy: a request that sets neither this field nor the\ndeprecated supported_resource_types is rejected with InvalidArgument.\n\nImmutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RubyPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -5421,8 +5951,8 @@
             "readOnly": true
           },
           "supportedResourceType": {
-            "description": "Immutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
-            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1",
+            "description": "Required on CreatePolicy: a request that sets neither this field nor the\ndeprecated supported_resource_types is rejected with InvalidArgument.\n\nImmutable: set at creation and cannot be changed on update. A policy's\nname and supported_resource_type together identify it, so changing the\ntype would move the policy into a different identity.",
+            "title": "The resource type this policy supports.\nThe value is a Chainguard API resource type with a version suffix\n(e.g. \"registry.chainguard.dev/Repo@v1\"). The type determines which\ninput document the policy expression is evaluated against, and the\nversion which revision of it.\nSupported resource types:\n  - registry.chainguard.dev/Repo@v1\n  - libraries.chainguard.dev/JavaPackage@v1\n  - libraries.chainguard.dev/NPMPackage@v1\n  - libraries.chainguard.dev/PythonPackage@v1\n  - libraries.chainguard.dev/GoPackage@v1\n  - libraries.chainguard.dev/DotNetPackage@v1\n  - libraries.chainguard.dev/RubyPackage@v1\n  - libraries.chainguard.dev/RustPackage@v1",
             "type": "string"
           },
           "supportedResourceTypes": {
@@ -6190,10 +6720,65 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.registry.ChartSyncStatus": {
+        "description": "ChartSyncStatus is the sync state of a chart repo. Like SyncStatus it\ndescribes the repo, not a tag; only missing_images depends on the tag.",
+        "properties": {
+          "createTime": {
+            "description": "When the chart repo's key was queued, as in SyncStatus.create_time. Set\nwhen the workqueue reports a queued time for the key; today that is\nQUEUED and FAILED. Unset for AWAITING_IMAGES and SYNCED, which do not read\nthe key.",
+            "format": "date-time",
+            "type": "string"
+          },
+          "missingImages": {
+            "description": "The required images the organization has no repo for. Set only for\nAWAITING_IMAGES.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ChartSyncStatus.MissingImage"
+            },
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.registry.ChartSyncStatus.Status"
+          },
+          "tag": {
+            "description": "The tag whose chart-lock the missing-image check read.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ChartSyncStatus.MissingImage": {
+        "properties": {
+          "name": {
+            "description": "The catalog repo name, e.g. \"nginx\".",
+            "type": "string"
+          },
+          "sourceRepoId": {
+            "description": "The catalog repo UIDP.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.ChartSyncStatus.Status": {
+        "default": "UNKNOWN",
+        "description": " - UNKNOWN: Same name and number as SyncStatus.Status.\nprotolint:disable:next ENUM_FIELD_NAMES_ZERO_VALUE_END_WITH\n - QUEUED: The chart repo is queued to sync. Same name and number as\nSyncStatus.Status.\n - IN_PROGRESS: The chart repo is syncing. Same name and number as SyncStatus.Status.\n - FAILED: The chart repo's sync failed. Same name and number as\nSyncStatus.Status.\n - AWAITING_IMAGES: A required image has no repo in the organization syncing from its\ncatalog repo; see missing_images.\n - SYNCED: The chart repo is not queued and holds at least one tag.",
+        "enum": [
+          "UNKNOWN",
+          "QUEUED",
+          "IN_PROGRESS",
+          "FAILED",
+          "AWAITING_IMAGES",
+          "SYNCED"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.registry.Charts.AddChartBody": {
         "properties": {
           "dryRun": {
             "description": "If true, return what would change but don't create anything.",
+            "type": "boolean"
+          },
+          "fips": {
+            "description": "If true, default to the newest FIPS tag in the source repo instead of the\nnewest non-FIPS tag. Mutually exclusive with tag; setting both is rejected\nwith INVALID_ARGUMENT.",
             "type": "boolean"
           },
           "images": {
@@ -6208,7 +6793,7 @@
             "type": "string"
           },
           "tag": {
-            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest tag in the source repo when empty.",
+            "description": "The tag of the source chart to inspect for image dependencies. Defaults to\nthe newest non-FIPS tag in the source repo when empty, or the newest FIPS\ntag when fips is set. Mutually exclusive with fips.",
             "type": "string"
           }
         },
@@ -6870,6 +7455,16 @@
           },
           "uniqueTags": {
             "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.registry.GetStorageQuotaResponse": {
+        "properties": {
+          "storageBytesQuota": {
+            "description": "Effective storage cap in bytes. Omitted when no live storage grant exists;\n0 forbids storage growth and -1 is unlimited. Usage is not included.",
+            "format": "int64",
+            "type": "string"
           }
         },
         "type": "object"
@@ -9409,6 +10004,7 @@
             }
           },
           {
+            "explode": true,
             "in": "query",
             "name": "cves",
             "schema": {
@@ -9416,7 +10012,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -9512,6 +10109,7 @@
           },
           {
             "description": "A list of exact ids of vulns to fetch metadata for.\nThis is restricted to 1000 unique ids per request.",
+            "explode": true,
             "in": "query",
             "name": "ids",
             "schema": {
@@ -9519,7 +10117,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
@@ -9623,6 +10222,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -9630,7 +10230,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "query is a prefix match on package_name (e.g. \"bash\" matches \"bash\",\n\"bash-completion\", etc.). When empty, all packages are returned.",
@@ -9758,6 +10359,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -9765,7 +10367,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "A name to filter by.",
@@ -10016,6 +10619,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -10023,7 +10627,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) returns documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
@@ -10109,6 +10714,22 @@
               "format": "date-time",
               "type": "string"
             }
+          },
+          {
+            "description": "cgp_id returns documents whose analysis resolved to this CGP identifier.\nEmpty means no filter; an unmatched value returns nothing.",
+            "in": "query",
+            "name": "cgpId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "include_finding_counts sets finding_counts on each returned document.\nIt needs an explicit page_size between 1 and 200: an unset page_size\nlists unpaged, so the flag is ignored and finding_counts stays unset,\nwith no error.",
+            "in": "query",
+            "name": "includeFindingCounts",
+            "schema": {
+              "type": "boolean"
+            }
           }
         ],
         "responses": {
@@ -10134,6 +10755,139 @@
           }
         },
         "summary": "List",
+        "tags": [
+          "ArgosDocuments"
+        ]
+      }
+    },
+    "/argos/v1/documents/stats": {
+      "get": {
+        "description": "Stats returns organization-wide totals over the documents matching the\nrequest: submissions, per-file findings, the CGP identifiers they\nresolved to, and those identifiers' patch state. Returns\nRESOURCE_EXHAUSTED when the documents reference more than 50,000 CGP\nidentifiers, and UNAVAILABLE when the identifiers' records can't be read.",
+        "operationId": "ArgosDocuments_Stats",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) counts documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "default": "STATUS_UNSPECIFIED",
+              "enum": [
+                "STATUS_UNSPECIFIED",
+                "STATUS_PENDING",
+                "STATUS_READY",
+                "STATUS_FAILED",
+                "STATUS_FALSE_POSITIVE"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "created_since counts documents created at or after the given time.",
+            "in": "query",
+            "name": "createdSince",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "finding_status, when set, counts only file bindings in this state, and\ntakes CGP identifiers from those bindings alone, dropping identifiers\nattached only at the document level. Unset counts every binding.\n\n - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file.",
+            "in": "query",
+            "name": "findingStatus",
+            "schema": {
+              "default": "STATUS_UNSPECIFIED",
+              "enum": [
+                "STATUS_UNSPECIFIED",
+                "STATUS_PENDING",
+                "STATUS_ANALYZED",
+                "STATUS_FAILED"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "patch_filter restricts the cgps and patches totals; submissions and\nfindings are unaffected.\n\n - PATCH_FILTER_UNSPECIFIED: No restriction.\n - PATCH_FILTER_FIX_AVAILABLE: Only identifiers whose record has a fixed version.\n - PATCH_FILTER_NO_FIX: Only identifiers whose record has no fixed version.",
+            "in": "query",
+            "name": "patchFilter",
+            "schema": {
+              "default": "PATCH_FILTER_UNSPECIFIED",
+              "enum": [
+                "PATCH_FILTER_UNSPECIFIED",
+                "PATCH_FILTER_FIX_AVAILABLE",
+                "PATCH_FILTER_NO_FIX"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentStats"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Stats",
         "tags": [
           "ArgosDocuments"
         ]
@@ -10326,7 +11080,7 @@
             }
           },
           {
-            "description": "package is an optional exact ecosystem/name filter (v1: exact match).",
+            "description": "package is replaced by ecosystem and package_name; the server never\napplied it.",
             "in": "query",
             "name": "package",
             "schema": {
@@ -10334,7 +11088,7 @@
             }
           },
           {
-            "description": "version is an optional version filter.",
+            "description": "version keeps records whose affected range for package_name contains it,\nor that were fixed at it. It requires package_name, and total_count is\nunset when it is given.",
             "in": "query",
             "name": "version",
             "schema": {
@@ -10362,6 +11116,64 @@
             "name": "updatedSince",
             "schema": {
               "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "has_fix keeps records with (true) or without (false) any fixed version,\nupstream or a Chainguard rebuild, as chainctl counts it. Field 7 was\nhas_chainguard_fix, a narrower rule.",
+            "in": "query",
+            "name": "hasFix",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ecosystem keeps records with an affected package in this ecosystem,\ncompared ignoring case.",
+            "in": "query",
+            "name": "ecosystem",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "package_name keeps records with an affected package of exactly this name.",
+            "in": "query",
+            "name": "packageName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "embargo_ends_after keeps records whose public embargo end is at or after\nit, rounded up to the microsecond. With embargo_ends_before it forms the\nwindow [after, before); alone it is a lower bound. A record without an\nembargo end never matches. Send the same bounds on every page: the page\ntoken does not carry them.",
+            "in": "query",
+            "name": "embargoEndsAfter",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "embargo_ends_before keeps records whose public embargo end is before it,\nrounded up to the microsecond; with embargo_ends_after it must still be\nafter it. Alone it is an upper bound.",
+            "in": "query",
+            "name": "embargoEndsBefore",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "description": "order_by orders the list; unspecified is CGP ID order. Under an order,\ntotal_count counts matching records as a filtered list does, and\npage_token must come from a page under the same order.\n\n - VULN_ORDER_BY_UNSPECIFIED: CGP ID order.\n - VULN_ORDER_BY_MODIFIED_ASC: Oldest last change first, ties by ascending CGP ID.\n - VULN_ORDER_BY_MODIFIED_DESC: Newest last change first, ties by descending CGP ID.\n - VULN_ORDER_BY_PUBLISHED_ASC: Earliest published first, ties by ascending CGP ID.\n - VULN_ORDER_BY_PUBLISHED_DESC: Latest published first, ties by descending CGP ID.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "default": "VULN_ORDER_BY_UNSPECIFIED",
+              "enum": [
+                "VULN_ORDER_BY_UNSPECIFIED",
+                "VULN_ORDER_BY_MODIFIED_ASC",
+                "VULN_ORDER_BY_MODIFIED_DESC",
+                "VULN_ORDER_BY_PUBLISHED_ASC",
+                "VULN_ORDER_BY_PUBLISHED_DESC"
+              ],
               "type": "string"
             }
           }
@@ -10762,6 +11574,284 @@
         ]
       }
     },
+    "/argos/v1/partners/{partnerId}/mitigations": {
+      "get": {
+        "description": "ListMitigations returns the partner's live mitigations, optionally for\none vulnerability.",
+        "operationId": "ArgosPartners_ListMitigations",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "vuln_id empty lists every vulnerability's mitigations.",
+            "in": "query",
+            "name": "vulnId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.ListMitigationsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Mitigations",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "post": {
+        "description": "CreateMitigation reports how the partner handled a vulnerability. The\npartner must hold an approved capability for method, and method must map\nto one of the vulnerability's CWEs. A vulnerability the partner cannot\nsee is NOT_FOUND.",
+        "operationId": "ArgosPartners_CreateMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.CreateMitigationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      }
+    },
+    "/argos/v1/partners/{partnerId}/mitigations/{id}": {
+      "delete": {
+        "description": "WithdrawMitigation withdraws a live mitigation. It needs no approved\ncapability for the method, so a partner can always pull a report.",
+        "operationId": "ArgosPartners_WithdrawMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.WithdrawMitigationResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Withdraw Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "get": {
+        "description": "GetMitigation returns one of the partner's mitigations, withdrawn or not.",
+        "operationId": "ArgosPartners_GetMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "put": {
+        "description": "UpdateMitigation replaces a live mitigation's cwe_id, status and details\nunder the same checks as CreateMitigation.",
+        "operationId": "ArgosPartners_UpdateMitigation",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.UpdateMitigationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.Mitigation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update Mitigation",
+        "tags": [
+          "ArgosPartners"
+        ]
+      }
+    },
     "/argos/v1/vex/documents/{ecosystem}/{package}": {
       "get": {
         "description": "GetDocument returns the per-package OpenVEX document, verbatim as\npublished to the feed.",
@@ -11018,6 +12108,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -11025,7 +12116,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -11440,6 +12532,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -11447,7 +12540,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "identity_provider_uidp filters to a specific IdentityProvider.",
@@ -11860,6 +12954,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -11867,7 +12962,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "name is the exact name of the record.",
@@ -12211,6 +13307,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -12218,7 +13315,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "id is unique identifier to look up.",
@@ -12550,6 +13648,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -12557,7 +13656,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13001,6 +14101,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -13008,7 +14109,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13307,6 +14409,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -13314,7 +14417,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13762,7 +14866,8 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13780,12 +14885,15 @@
                   "GO",
                   "GO_ATHENA",
                   "RUBY",
-                  "RUBY_ATHENA"
+                  "RUBY_ATHENA",
+                  "RUST",
+                  "RUST_ATHENA"
                 ],
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "A string to search artifacts by. If empty, all artifacts\nfrom the given ecosystem will be returned.",
@@ -13821,6 +14929,7 @@
           },
           {
             "description": "The source types to include: artifacts with at least one version of a\nlisted source type are returned, and version-derived fields reflect only\nthose versions. If empty, the default Chainguard-built view is returned\n(internal and remediated versions; upstream-only artifacts hidden).\nVersions whose origin is unknown match no listed type: they appear only\nin the default view and when every source type is listed.\nCannot be combined with include_upstream, remediated, or cuda_version.\n\n - SOURCE_TYPE_UNSPECIFIED: Unspecified or unknown origin.\n - SOURCE_TYPE_INTERNAL: A Chainguard-built internal version.\n - SOURCE_TYPE_INTERNAL_REMEDIATED: A remediated rebuild of a version.\n - SOURCE_TYPE_UPSTREAM_REGISTRY: A version mirrored from its upstream registry.",
+            "explode": true,
             "in": "query",
             "name": "sourceTypes",
             "schema": {
@@ -13834,7 +14943,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "The maximum number of artifacts to return per request.\nThe service may return fewer than this value.",
@@ -13896,7 +15006,8 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -13914,12 +15025,15 @@
                   "GO",
                   "GO_ATHENA",
                   "RUBY",
-                  "RUBY_ATHENA"
+                  "RUBY_ATHENA",
+                  "RUST",
+                  "RUST_ATHENA"
                 ],
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -13974,6 +15088,7 @@
           },
           {
             "description": "The source types to include. If empty, the default Chainguard-built view\nis returned (internal and remediated versions). Versions whose origin is\nunknown match no listed type: they appear only in the default view and\nwhen every source type is listed. Cannot be combined with\ninclude_upstream.\n\n - SOURCE_TYPE_UNSPECIFIED: Unspecified or unknown origin.\n - SOURCE_TYPE_INTERNAL: A Chainguard-built internal version.\n - SOURCE_TYPE_INTERNAL_REMEDIATED: A remediated rebuild of a version.\n - SOURCE_TYPE_UPSTREAM_REGISTRY: A version mirrored from its upstream registry.",
+            "explode": true,
             "in": "query",
             "name": "sourceTypes",
             "schema": {
@@ -13987,7 +15102,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14057,6 +15173,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -14064,7 +15181,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14350,7 +15468,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -14368,7 +15486,9 @@
                 "GO",
                 "GO_ATHENA",
                 "RUBY",
-                "RUBY_ATHENA"
+                "RUBY_ATHENA",
+                "RUST",
+                "RUST_ATHENA"
               ],
               "type": "string"
             }
@@ -14461,7 +15581,8 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "explode": true,
             "in": "query",
             "name": "ecosystems",
             "schema": {
@@ -14479,12 +15600,15 @@
                   "GO",
                   "GO_ATHENA",
                   "RUBY",
-                  "RUBY_ATHENA"
+                  "RUBY_ATHENA",
+                  "RUST",
+                  "RUST_ATHENA"
                 ],
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14839,6 +15963,7 @@
           },
           {
             "description": "The source types to include. If empty, defaults to all.",
+            "explode": true,
             "in": "query",
             "name": "sourceTypes",
             "schema": {
@@ -14852,7 +15977,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -14914,6 +16040,7 @@
           },
           {
             "description": "The source types to include. If empty, defaults to all.",
+            "explode": true,
             "in": "query",
             "name": "sourceTypes",
             "schema": {
@@ -14927,7 +16054,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -15197,7 +16325,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -15215,7 +16343,9 @@
                 "GO",
                 "GO_ATHENA",
                 "RUBY",
-                "RUBY_ATHENA"
+                "RUBY_ATHENA",
+                "RUST",
+                "RUST_ATHENA"
               ],
               "type": "string"
             }
@@ -15424,6 +16554,425 @@
         ]
       }
     },
+    "/libraries/v1/remote_registries/{parentId}/{repository}": {
+      "get": {
+        "description": "List returns the repository's entries for the ecosystem in the order they\nare tried, and the two parts of its effective upstream fallback.",
+        "operationId": "RemoteRegistries_List",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "ecosystem is the language ecosystem whose entries to list.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "in": "query",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "default": "UNKNOWN",
+              "enum": [
+                "UNKNOWN",
+                "JAVA",
+                "PYTHON",
+                "JAVASCRIPT",
+                "JAVA_ATHENA",
+                "PYTHON_ATHENA",
+                "JAVASCRIPT_ATHENA",
+                "DOTNET",
+                "DOTNET_ATHENA",
+                "GO",
+                "GO_ATHENA",
+                "RUBY",
+                "RUBY_ATHENA",
+                "RUST",
+                "RUST_ATHENA"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/remote_registries/{parentId}/{repository}/{name}": {
+      "patch": {
+        "description": "Update turns one entry on or off. Turning every entry of an ecosystem off\nturns upstream fallback off for that repository and ecosystem.",
+        "operationId": "RemoteRegistries_Update",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the canonical name of the entry.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistries.UpdateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Update",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/remote_registries/{parentId}/{repository}:reorder": {
+      "post": {
+        "description": "Reorder sets the order the repository's entries for the ecosystem are\ntried in. It takes every entry's name exactly once.",
+        "operationId": "RemoteRegistries_Reorder",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "repository is the name of a named repository of the organization.",
+            "in": "path",
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistries.ReorderBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RemoteRegistryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Reorder",
+        "tags": [
+          "LibrariesRemoteRegistries"
+        ]
+      }
+    },
+    "/libraries/v1/repositories/{parentId}": {
+      "get": {
+        "description": "List returns the default repository first, then every named repository\nof the org ordered by name, in every state.",
+        "operationId": "Repositories_List",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.RepositoryList"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      },
+      "post": {
+        "description": "Create makes a named repository under the org. It refuses when the org\nhas no Libraries entitlement at its root for an ecosystem repositories\nserve (JavaScript, Java, Python, Go or .NET), when the org's plan has no\nroom for another repository, and when a folder with the name already\nexists under the org and backs no repository. Creating a repository that\nalready exists returns it, unless its folder is missing, when Create\nrefuses with FailedPrecondition FOLDER_MISSING.",
+        "operationId": "Repositories_Create",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org. The org must be a root group.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.Repositories.CreateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      }
+    },
+    "/libraries/v1/repositories/{parentId}/{name}": {
+      "delete": {
+        "description": "Delete removes a named repository, its folder and its upstream entries.\nWithout force it refuses while pull tokens or Libraries policy bindings\nexist at the folder, and names them; with force it removes them and the\npull tokens' role bindings. It always refuses, naming them, while image\nrepositories, identities that are not pull tokens or role bindings of\nsuch identities exist under the folder. Once Delete has removed the\nfolder, the Libraries policy bindings scoped to it go with the\nrepository; while the folder is already gone, a binding refuses without\nforce and the repository stays DELETING. When the folder cannot be\ndeleted, the repository stays DELETING and running Delete again finishes\nit. The default repository cannot be deleted.",
+        "operationId": "Repositories_Delete",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the repository name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "force removes the pull tokens, their role bindings and the Libraries\npolicy bindings at the repository's folder along with it. Bindings\nscoped to a folder Delete has removed go with it whatever force says.",
+            "in": "query",
+            "name": "force",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      },
+      "get": {
+        "description": "Get returns one repository by name. The name \"default\" returns the\ndefault repository.",
+        "operationId": "Repositories_Get",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the org.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name is the repository name.",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.Repository"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get",
+        "tags": [
+          "LibrariesRepositories"
+        ]
+      }
+    },
     "/libraries/v1/resolutioncache/{parentId}/entries": {
       "get": {
         "description": "List pages through the org's resolution cache entries.",
@@ -15440,7 +16989,7 @@
             }
           },
           {
-            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.",
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -15458,7 +17007,9 @@
                 "GO",
                 "GO_ATHENA",
                 "RUBY",
-                "RUBY_ATHENA"
+                "RUBY_ATHENA",
+                "RUST",
+                "RUST_ATHENA"
               ],
               "type": "string"
             }
@@ -15819,6 +17370,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -15826,7 +17378,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.",
@@ -15860,6 +17413,14 @@
             "schema": {
               "format": "int32",
               "type": "integer"
+            }
+          },
+          {
+            "description": "Only return bindings of this policy (UIDP).\nEmpty returns bindings of every policy.\nNote: Changing policy between pages invalidates the page token.",
+            "in": "query",
+            "name": "policy",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -16074,6 +17635,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -16081,7 +17643,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Only return decisions for this policy id.",
@@ -16223,6 +17786,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "description": "Only return decisions whose resource_type equals this value.\nThe value takes the versioned form Decision.resource_type takes\n(e.g. \"libraries.chainguard.dev/PythonPackage@v1\") and matches exactly.\nA value without an \"@\u003cversion\u003e\" suffix is rejected with\nINVALID_ARGUMENT. A well-formed type that no decision carries returns\nan empty list.\nEmpty returns decisions of every type.\nNote: Changing resource_type between pages invalidates the page token.",
+            "in": "query",
+            "name": "resourceType",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -16291,6 +17862,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -16298,7 +17870,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.",
@@ -16494,6 +18067,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -16501,7 +18075,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Maximum number of results to return per page.",
@@ -16538,9 +18113,17 @@
             }
           },
           {
-            "description": "name is the exact name of the policy to filter by.",
+            "description": "name is the exact name of the policy to filter by.\nNote: Changing name between pages invalidates the page token.",
             "in": "query",
             "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only return policies whose supported_resource_type equals this value.\nThe value takes the versioned form Policy.supported_resource_type takes\n(e.g. \"registry.chainguard.dev/Repo@v1\") and matches exactly. A value\nwithout an \"@\u003cversion\u003e\" suffix is rejected with INVALID_ARGUMENT. A\nwell-formed type that no policy declares returns an empty list.\nEmpty returns policies of every type.\nNote: Changing supported_resource_type between pages invalidates the page\ntoken.",
+            "in": "query",
+            "name": "supportedResourceType",
             "schema": {
               "type": "string"
             }
@@ -16802,6 +18385,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -16809,7 +18393,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
@@ -16913,6 +18498,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -16920,7 +18506,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "use to choose reports started after this time.\ndefaults to 1 day ago.",
@@ -16993,6 +18580,7 @@
         "parameters": [
           {
             "description": "image_repo_ids are the UIDPs of the image repos to look up\nchart-image bindings for. At least one id is required. Every id must\nbe a descendant of one of the caller's authorized CAP_REPO_LIST\nscopes; ids outside the caller's scope return INVALID_ARGUMENT.",
+            "explode": true,
             "in": "query",
             "name": "imageRepoIds",
             "schema": {
@@ -17000,7 +18588,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -17561,6 +19150,50 @@
         ]
       }
     },
+    "/registry/v1/entitlements/{parent}:storageQuota": {
+      "get": {
+        "description": "GetStorageQuota is a machine-to-machine admission read that avoids\nAPI-layer catalog and usage fan-out. UIs and chainctl should use\nGetOrganizationEntitlements for the consolidated limits and usage surface.",
+        "operationId": "Entitlements_GetStorageQuota",
+        "parameters": [
+          {
+            "description": "A root organization UIDP. Folders are not accepted.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.GetStorageQuotaResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Storage Quota",
+        "tags": [
+          "RegistryEntitlements"
+        ]
+      }
+    },
     "/registry/v1/entitlements/{parent}:summary": {
       "get": {
         "description": "Summary provides a group-level summary of entitlements.",
@@ -17697,6 +19330,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -17704,7 +19338,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "in": "query",
@@ -17863,6 +19498,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -17870,7 +19506,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "name is the exact name of the record.",
@@ -18842,6 +20479,66 @@
         ]
       }
     },
+    "/registry/v1/repos/{repoId}:chartSyncStatus": {
+      "get": {
+        "description": "GetChartSyncStatus reports whether a chart repo the organization added is\nwaiting on image repos, queued, syncing, failed, or synced, and which\nrequired images have no repo in the organization.",
+        "operationId": "Charts_GetChartSyncStatus",
+        "parameters": [
+          {
+            "description": "The UIDP of the chart repo in the organization's chart folder.",
+            "in": "path",
+            "name": "repoId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "The chart tag whose chart-lock decides which images are required.\nDefaults to the newest non-FIPS tag of the chart's source, or the newest\nFIPS tag when fips is set, as in AddChart. Mutually exclusive with fips.",
+            "in": "query",
+            "name": "tag",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "If true, default to the newest FIPS tag instead of the newest non-FIPS\ntag. Mutually exclusive with tag; setting both is rejected with\nINVALID_ARGUMENT.",
+            "in": "query",
+            "name": "fips",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.registry.ChartSyncStatus"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Chart Sync Status",
+        "tags": [
+          "Charts"
+        ]
+      }
+    },
     "/registry/v1/repos/{repoId}:checkPolicies": {
       "post": {
         "operationId": "Policies_CheckPolicies",
@@ -19231,6 +20928,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -19238,7 +20936,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "The unique name of the Tag to list.",
@@ -20017,6 +21716,7 @@
         "operationId": "SecurityTokenService_Exchange2",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -20024,7 +21724,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -20043,6 +21744,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -20050,7 +21752,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -20062,6 +21765,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -20069,7 +21773,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -20085,6 +21790,14 @@
             "name": "task",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -20119,6 +21832,7 @@
         "operationId": "SecurityTokenService_Exchange",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -20126,7 +21840,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -20145,6 +21860,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -20152,7 +21868,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -20164,6 +21881,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -20171,7 +21889,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -20187,6 +21906,14 @@
             "name": "task",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -20223,6 +21950,7 @@
         "operationId": "SecurityTokenService_ExchangeRefreshToken",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -20230,7 +21958,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -20242,6 +21971,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -20249,10 +21979,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -20260,7 +21992,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -20336,6 +22069,7 @@
         "operationId": "Advisories_List",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "advisoryIds",
             "schema": {
@@ -20343,9 +22077,11 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
+            "explode": true,
             "in": "query",
             "name": "legacyAdvisoryIds",
             "schema": {
@@ -20353,7 +22089,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "id is the exact UID of the record.",
@@ -20397,6 +22134,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -20404,10 +22142,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "artifact_type filters by artifact type",
+            "explode": true,
             "in": "query",
             "name": "artifactType",
             "schema": {
@@ -20415,10 +22155,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "artifact filters by artifact name",
+            "explode": true,
             "in": "query",
             "name": "artifactName",
             "schema": {
@@ -20426,10 +22168,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "component_name filters by component name",
+            "explode": true,
             "in": "query",
             "name": "componentName",
             "schema": {
@@ -20437,10 +22181,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "component_type filters by component type",
+            "explode": true,
             "in": "query",
             "name": "componentType",
             "schema": {
@@ -20448,10 +22194,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "component_location filters by component locations (IE ./PKGINFO)",
+            "explode": true,
             "in": "query",
             "name": "componentLocation",
             "schema": {
@@ -20459,10 +22207,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "aliases filters by alias name (CVE, GHSA, etc.)",
+            "explode": true,
             "in": "query",
             "name": "aliases",
             "schema": {
@@ -20470,10 +22220,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "artifact_architecture filters by architecture (e.g., x86_64, aarch64)",
+            "explode": true,
             "in": "query",
             "name": "artifactArchitecture",
             "schema": {
@@ -20481,7 +22233,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Pagination",
@@ -20501,6 +22254,7 @@
           },
           {
             "description": "event_statuses filters by event review status (e.g., PENDING, REQUEST_CHANGES)\nWhen specified, only advisories containing at least one event with any of the provided\nstatuses will be returned. This is useful for review workflows where users need to see\nonly events requiring action.",
+            "explode": true,
             "in": "query",
             "name": "eventStatuses",
             "schema": {
@@ -20515,10 +22269,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "event_author filters by event author email\nWhen specified, only advisories containing at least one event created by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "explode": true,
             "in": "query",
             "name": "eventAuthor",
             "schema": {
@@ -20526,10 +22282,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "event_reviewer filters by event reviewer email\nWhen specified, only advisories containing at least one event reviewed by the specified\nauthor will be returned. This enables users to find their own events or events from\nspecific team members.",
+            "explode": true,
             "in": "query",
             "name": "eventReviewer",
             "schema": {
@@ -20537,10 +22295,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "event_types filters by event type\nWhen specified, only advisories containing at least one event of any of the provided\ntypes will be returned.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "explode": true,
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -20560,7 +22320,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "order_by specifies the sort order for results\nDefault: ID_ASC\nThis field affects the order of advisories returned, which is particularly useful\nfor pagination and review workflows.\n\n - ORDER_BY_UNSPECIFIED: Default sort order\n - ID_ASC: Sort by ID in ascending order\n - ID_DESC: Sort by ID in descending order\n - CREATED_AT_ASC: Sort by creation time in ascending order (oldest first)\n - CREATED_AT_DESC: Sort by creation time in descending order (newest first)\n - ALIASES_ASC: Sort by aliases to group related advisories in ascending order\n - ALIASES_DESC: Sort by aliases to group related advisories in descending order\n - UPDATED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - UPDATED_AT_DESC: Sort by update time in descending order (newest first)\n - DELETED_AT_ASC: Sort by delete time in ascending order (oldest first)\n - DELETED_AT_DESC: Sort by delete time in descending order (newest first)",
@@ -20586,6 +22347,7 @@
           },
           {
             "description": "exclude_event_author filters out advisories where any event was created by the specified author\nWhen specified, advisories containing events by this author will be excluded from results.\nThis is useful for review workflows where users want to see all pending events except their own,\nenabling them to review others' work without seeing their own submissions.",
+            "explode": true,
             "in": "query",
             "name": "excludeEventAuthor",
             "schema": {
@@ -20593,7 +22355,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "latest_event_type filters out advisories where the _most recent approved event_ is\nof the given type. This is useful to find advisories which are currently detected,\nfixed, patched, etc.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
@@ -20958,6 +22721,7 @@
           },
           {
             "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
             "in": "query",
             "name": "uidp.ids",
             "schema": {
@@ -20965,10 +22729,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "advisory_ids filters by CGA ID (e.g., CGA-xvgw-cvr7-9g2q).",
+            "explode": true,
             "in": "query",
             "name": "advisoryIds",
             "schema": {
@@ -20976,10 +22742,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "aliases filters by vulnerability alias (CVE, GHSA, etc.).",
+            "explode": true,
             "in": "query",
             "name": "aliases",
             "schema": {
@@ -20987,7 +22755,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "origin filters by origin package, including subpackages. It cannot be\ncombined with artifact_names.",
@@ -20999,6 +22768,7 @@
           },
           {
             "description": "artifact_names filters by package name.",
+            "explode": true,
             "in": "query",
             "name": "artifactNames",
             "schema": {
@@ -21006,7 +22776,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "advisory_created_since_time filters to advisories created after this time.",
@@ -21028,6 +22799,7 @@
           },
           {
             "description": "authors filters by event author email.",
+            "explode": true,
             "in": "query",
             "name": "authors",
             "schema": {
@@ -21035,7 +22807,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "created_since_time filters to events created after this time.",
@@ -21074,6 +22847,7 @@
           },
           {
             "description": "event_types matches events of any of the given types, ANDed with the\nother event-level filters on the same event. UNSPECIFIED and unknown\nvalues are rejected with InvalidArgument. Servers that predate this field\nignore it and return events of every type.\n\n - EVENT_TYPE_FILTER_UNSPECIFIED: Default/unspecified\n - EVENT_TYPE_FILTER_DETECTION: Detection event\n - EVENT_TYPE_FILTER_TRUE_POSITIVE_DETERMINATION: True positive determination\n - EVENT_TYPE_FILTER_FIXED: Fixed event\n - EVENT_TYPE_FILTER_FALSE_POSITIVE_DETERMINATION: False positive determination\n - EVENT_TYPE_FILTER_ANALYSIS_NOT_PLANNED: Analysis not planned\n - EVENT_TYPE_FILTER_FIX_NOT_PLANNED: Fix not planned\n - EVENT_TYPE_FILTER_PENDING_UPSTREAM_FIX: Pending upstream fix\n - EVENT_TYPE_FILTER_PATCHED: Patched event\n - EVENT_TYPE_FILTER_COMPONENT_LOCATION_CHANGED: Component location changed event",
+            "explode": true,
             "in": "query",
             "name": "eventTypes",
             "schema": {
@@ -21093,7 +22867,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -21339,6 +23114,14 @@
     {
       "description": "LibraryPolicyBlockEvents lists per-package block events recorded when a pull\nis withheld. Writes are performed internally by the serve layer and are not\nexposed in the public API.",
       "name": "LibraryPolicyBlockEvents"
+    },
+    {
+      "description": "Libraries Remote Registries API",
+      "name": "LibrariesRemoteRegistries"
+    },
+    {
+      "description": "Libraries Repositories API",
+      "name": "LibrariesRepositories"
     },
     {
       "description": "Libraries Resolution Cache API",

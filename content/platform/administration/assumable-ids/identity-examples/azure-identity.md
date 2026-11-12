@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by an Azure workload using a managed identity."
 type: "article"
 date: 2026-05-15T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -124,6 +124,8 @@ Run this `chainctl` command to create the identity and bind it to the
 `registry.pull` role. Substitute `<tenant-id>` with the tenant ID you
 retrieved earlier, `<principal-id>` with the managed identity's principal ID,
 and `<client-id>` with the application's client ID.
+
+To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 ```shell
 chainctl iam id create azure-identity \

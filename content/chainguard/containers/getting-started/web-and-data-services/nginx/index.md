@@ -7,7 +7,7 @@ aliases:
 - /chainguard/containers/getting-started/nginx
 description: "Learn how to deploy nginx web server using Chainguard's security-hardened container image with minimal vulnerabilities and distroless runtime"
 date: 2023-01-09T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -18,7 +18,7 @@ weight: 30
 toc: true
 ---
 
-Chainguard's nginx container images provide a security-hardened foundation for web server deployments. Available in both development (`:latest-dev`) and production (`:latest`) variants, these images maintain full nginx functionality while reducing attack surface. The production variant uses a distroless approach, removing shells and package managers to enhance security for production workloads. For current CVE data on each image and tag, see the [nginx entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
+Chainguard's nginx container images provide a security-hardened foundation for web server deployments. Available in both development (`:latest-dev`) and production (`:latest`) variants, these images maintain full nginx functionality while reducing attack surface. The production variant uses a distroless approach, removing shells and package managers to enhance security for production workloads. For current CVE data on each image and tag, see the [nginx entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/nginx/overview).
 
 In this tutorial, we will create a local demo website using nginx to serve static HTML content to a local port on your machine. Then we will use the nginx Chainguard Container to build and execute the demo in a lightweight containerized environment.
 
@@ -80,7 +80,7 @@ The following HTML file displays a graphic of Linky alongside a fun octopus fact
 
 <h1>nginx Demo Website</h1>
 
-<h2>from the <a href="https://edu.chainguard.dev/" target="_blank">Chainguard Academy</a></h2>
+<h2>from <a href="https://www.chainguard.dev/docs" target="_blank">Chainguard Docs</a></h2>
 
 <img src="linky.png" class="corners" width="250px">
 
@@ -105,7 +105,7 @@ Copy the following code to your `stylesheet.css` file.
 
 ```CSS
 /*
-Chainguard Academy nginx Demo Website
+Chainguard Docs nginx Demo Website
 */
 
 body {
@@ -282,6 +282,6 @@ docker container stop nginxcontainer
 
 ## Advanced usage
 
-In this demo, we did not copy the configuration file into the container image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Container Overview](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-nginx).
+In this demo, we did not copy the configuration file into the container image built from the Dockerfile. This is because the default configuration file in the image was sufficient for the scope of this demo. If you wish to use a custom configuration file, you must ensure that file paths, ports, and other system-specific settings are configured to match the container environment. You can find more information about making these changes at the [Chainguard nginx Container Overview](https://images.chainguard.dev/directory/image/nginx/overview).
 
 {{< blurb/images-advanced image="nginx" >}}

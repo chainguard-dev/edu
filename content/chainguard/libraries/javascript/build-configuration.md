@@ -107,7 +107,7 @@ Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/
 `update-hashes` fetches checksums from Chainguard Libraries,
 which requires authentication. Where it fetches from depends on your environment: some setups authenticate directly to `libraries.cgr.dev`, but if your build routes through a repository manager configured as a pull-through proxy for Chainguard Libraries, point `update-hashes` there instead with `--registry-url` so it validates against the same source your build used.
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 Authenticating to `libraries.cgr.dev` directly:
 
@@ -148,8 +148,11 @@ dependency tree in your lockfile, so you adopt it with `chainctl libraries
 remediate` after your project is configured to use the Chainguard registry and a
 lockfile exists.
 
-> **Note**: Running `chainctl libraries remediate` requires the
-> `libraries.javascript.pull` permission or the Owner role.
+> **Note**: With a regular `chainctl auth login`, `chainctl libraries remediate` creates a
+> pull token, which requires the `libraries.javascript.pull_token_creator` role or the
+> `owner` role. With only the `libraries.javascript.pull` role, sign in with
+> `chainctl auth login --audience=libraries.cgr.dev` first, or pass a libraries-scoped token
+> with `--token`.
 
 First, preview the available remediations:
 
@@ -425,7 +428,7 @@ For CI/CD, prefer an assumable identity when using this command. Expand the foll
 
 {{< details "Configure npm in CI and headless environments" >}}
 
-Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. Authenticate the workload first, then run a job similar to the following:
+Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. To set one up for GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.javascript.pull` role. Authenticate the workload first, then run a job similar to the following:
 
 ```yaml
 permissions:

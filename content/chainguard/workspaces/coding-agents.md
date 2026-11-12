@@ -4,7 +4,7 @@ linktitle: "Use Claude Code"
 description: "Run Claude Code in a Chainguard Workspaces session with your own Claude credential, keep it working while you're away, and run several agents in parallel."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-20T14:20:52+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Workspaces", "AI", "Procedural"]
 images: []
@@ -15,7 +15,7 @@ toc: true
 weight: 60
 ---
 
-A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session.
+A Chainguard Workspaces session is a place for a coding agent to work with less risk to your laptop. The agent runs in the session's VM, which holds no long-lived credentials, and it reaches Claude with your own Claude credential, which stays outside the VM. This page explains how to run Claude Code in a session, and how to let an agent on your laptop work in one.
 
 Claude Code is the only coding agent that sessions supply a model credential for. You can install other coding agents in a session, but sessions don't send them a credential. Every session writes a guide that any agent can read, as described in [The session's guide for agents](#the-sessions-guide-for-agents).
 
@@ -124,8 +124,6 @@ Follow these rules when the `run-ci` command exists, which means you're working 
 - If a check fails, run `chainctl checks failures OWNER/REPO#NUMBER --parent $ORGANIZATION` to see why. For more of a check's log, run `chainctl checks logs OWNER/REPO#NUMBER --check CHECK --errors --parent $ORGANIZATION`. Fix the change and push again.
 ```
 
-In a Starter organization, the `limited_owner` role can't look up Chainguard Checks runs, so `chainctl checks status`, `chainctl checks logs`, and the other commands that read a run don't work for it, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
-
 ### Choose a model
 
 A session doesn't set a model, so Claude Code starts with its default model unless your repository's `.claude/settings.json` sets one. To use another model, start Claude Code with `claude --model`, or run `/model` in Claude Code.
@@ -134,7 +132,7 @@ With Vertex AI, Claude Code's default model might not be enabled in your Google 
 
 ### MCP servers in a session {#mcp-servers-in-a-session}
 
-Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner` and `mcp.tool_user` roles do. The `limited_owner` role that `chainctl develop init` gives you doesn't include it, and neither do the `viewer` and `sandbox.user` roles. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
+Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner`, `editor`, `viewer`, `limited_owner`, and `mcp.tool_user` roles do. The `sandbox.user` role doesn't include it. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
 
 Claude Code also loads the `https://` MCP servers in your repository's `.mcp.json` without asking you to approve each one. The session adds no credential to their requests.
 
@@ -244,10 +242,31 @@ chainctl develop --new --name fix-cache --parent $ORGANIZATION
 
 Run each command in its own terminal. Each agent works on its own branch in its own session, and pushes its work when it's done.
 
+## Work in a session from an agent on your laptop {#work-in-a-session-from-an-agent-on-your-laptop}
+
+Instead of running Claude Code in a session, you can keep it on your laptop and let it work in a session through the `chainctl develop mcp` MCP server. With the server's tools, the agent can run commands and read and edit files in a session without attaching to it, copy files between your laptop and the session, and create, list, and delete your sessions.
+
+Only the agent's commands run in the session. The agent itself runs on your laptop, with your laptop's files, credentials, and settings, so this way doesn't keep the agent away from your laptop.
+
+To add the server to Claude Code, run the following command on your laptop:
+
+```shell
+claude mcp add develop -- chainctl develop mcp --parent $ORGANIZATION
+```
+
+Each tool, except the ones that create and list sessions, takes a session by its name or short ID in that organization. The server's tools differ from `chainctl` commands in the following ways:
+
+- The server never prompts. When a `chainctl develop` command would ask you to choose, such as between two sessions, the tool fails and lists the choices.
+- The agent must read a file with the server's `read` tool before it writes or edits the file, and the server refuses the change if the file changed after that read.
+- For a long build or test, the agent should run the command in the background with the `exec` tool's `run_in_background` option, then wait for it with the `wait` tool, so the other tools keep working. If the agent runs `chainctl develop exec` in its shell instead, the session is held until the command finishes, and the server's tools wait for it.
+- Deleting a session needs its full name a second time, and it can't be undone. Changes in the session that weren't pushed are lost.
+
+When the agent starts the server, the server sends it instructions for the tools, including a reminder to commit and push regularly. The tools change between `chainctl` releases. To find the ones that your release serves, run `chainctl develop mcp --help`. For the command itself, refer to [`chainctl develop mcp`](/chainguard/workspaces/chainctl-develop-reference/#chainctl-develop-mcp).
+
 ## Check the agent's work before it pushes
 
 If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can run them in the session with `run-ci`, and the [session's guide for agents](#the-sessions-guide-for-agents) tells it how. You can also ask it to run `run-ci` before it pushes, or run the same checks from your laptop with `chainctl develop check`. For both commands, their exit codes, and the checks they skip, refer to [Run checks before you push](/chainguard/checks/run-checks/).
 
 Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 
-A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.
+A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows. To walk the whole loop once, from Claude Code's change through a failing check and its fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).

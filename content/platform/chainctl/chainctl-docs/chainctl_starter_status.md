@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl starter status"
 slug: chainctl_starter_status
 url: /platform/chainctl/chainctl-docs/chainctl_starter_status/
@@ -11,16 +11,21 @@ toc: true
 ---
 ## chainctl starter status
 
-Show catalog starter organization status, quota, and image readiness.
+Show Chainguard Starter organization status, quota, and image readiness.
 
 ### Synopsis
 
-Show the status of your catalog starter organization.
+Show the status of your Chainguard Starter organization.
 
-Reports the registry path, account provisioning status, image quota
-usage, and per-image readiness — INITIALIZING until the catalog
-syncer has both created the repo and mirrored at least one tag, READY
-afterwards.
+Reports the registry path, the Chainguard Libraries host, account
+provisioning status, image quota usage, and per-image readiness —
+INITIALIZING until the catalog syncer has both created the repo and
+mirrored at least one tag, READY afterwards.
+
+The registry path names an organization by its domain, or by its ID when
+it has no verified domain, as for a personal email address. The
+Chainguard Libraries host is a separate address, the one a package
+manager pulls from.
 
 Use this command to check whether a newly-added image is pullable yet,
 or to confirm your starter org has finished provisioning before
@@ -28,6 +33,12 @@ running 'chainctl starter add-images'.
 
 ```
 chainctl starter status [flags]
+```
+
+### Options
+
+```
+      --parent string   The name, path or ID of the Starter, Team or customer organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands
@@ -47,5 +58,5 @@ chainctl starter status [flags]
 
 ### SEE ALSO
 
-* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage catalog starter organizations
+* [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage Chainguard Starter organizations
 

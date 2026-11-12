@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-10-22T13:47:36+00:00
+lastmod: 2026-11-04T00:00:00+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -45,6 +45,8 @@ To check the binary's signature before you run it, [install a pinned version wit
 ### Install `chainctl` with Homebrew
 
 The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` formula in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
+
+The formula also installs `docker-credential-cgr`, a symlink to `chainctl` in Homebrew's `bin` directory, so the Docker credential helper is on your `PATH` as soon as the install finishes. The formula doesn't change your Docker configuration, so Docker doesn't use the helper yet. To add the helper to your Docker configuration, run `chainctl auth configure-docker`, as described in [Configure a Docker credential helper](#configure-a-docker-credential-helper).
 
 On macOS, Homebrew needs the Xcode Command Line Tools to install `chainctl`. The Homebrew installer sets them up, so most Macs already have them. If `brew` reports `No developer tools installed`, install the tools and then run the `brew install` command again:
 
@@ -238,7 +240,7 @@ chainctl auth configure-docker
 
 This will:
 
-* Create a link for `docker-credential-cgr` in the same directory as `chainctl`.
+* Create a link for `docker-credential-cgr` in the same directory as the `chainctl` on your `PATH`. If a file named `docker-credential-cgr` already exists there, as it does after a Homebrew install, the command leaves it in place.
 * Update your Docker config file to call `docker-credential-cgr` when an auth token is needed. A browser window will open when the token needs to be refreshed.
 
 {{< note >}}

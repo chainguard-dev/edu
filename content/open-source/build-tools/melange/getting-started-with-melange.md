@@ -7,7 +7,7 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
@@ -44,7 +44,7 @@ You should now be able to build apks for all architectures supported by melange.
 
 ## 1 — Downloading the melange image
 
-The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-build-tools-melange-getting-started-with-melange) with Docker. Start by pulling the melange image into your local system:
+The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions) with Docker. Start by pulling the melange image into your local system:
 
 ```shell
 docker pull cgr.dev/chainguard/melange:latest

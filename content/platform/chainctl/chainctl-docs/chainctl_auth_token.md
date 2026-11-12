@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl auth token"
 slug: chainctl_auth_token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_token/
@@ -18,7 +18,8 @@ Print the local Chainguard Token.
 Print the local Chainguard Token.
 
 With --capabilities and/or --scope, print a token narrowed to that access
-instead of the cached one.
+instead of the cached one. The narrowed token is kept and reused for the same
+narrowing until shortly before it expires; logging out removes it.
 
 With --delegate, mint a grant for a delegate (see "chainctl iam identities
 create delegate"): a token whose only audience is the delegation audience the

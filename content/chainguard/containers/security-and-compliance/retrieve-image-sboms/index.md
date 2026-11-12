@@ -13,7 +13,7 @@ aliases:
 type: "article"
 description: "How to get SBOM for container images: Chainguard provides Software Bill of Materials for every image - retrieve with Cosign for complete supply chain transparency"
 date: 2023-11-17T11:07:52+02:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "SBOM"]
 images: []
@@ -45,7 +45,7 @@ To retrieve an attestation via Cosign, you'll need the following installed on yo
 
 Cosign includes a `download attestation` command that allows you to retrieve a Chainguard Container's attestation over the command line. Different types of attestations are referenced by their **predicate type**. To authenticate these statements and verify the authenticity of the software producer, you can use [`cosign verify-attestation`](/open-source/sigstore/cosign/how-to-verify-file-signatures-with-cosign/).
 
-This example command downloads the SPDX attestation for Chainguard's [php image](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms):
+This example command downloads the SPDX attestation for Chainguard's [php image](https://images.chainguard.dev/directory/image/php/overview):
 
 ```shell
 cosign download attestation \
@@ -191,6 +191,6 @@ Because packages appear as standard components and provenance is kept in externa
 
 ## Learn more
 
-We provide provenance information for every Chainguard Container in their respective [details pages](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures.
+We provide provenance information for every Chainguard Container in their respective [details pages](https://images.chainguard.dev/directory). After reaching the **Overview** for the image of your choice, navigate to the **Provenance** tab for information on how to retrieve the image's attestations, as well as how to verify the image's attestations and signatures.
 
-For example, if you're looking for the provenance information of the Python image, you can navigate to the [Python provenance information page](https://images.chainguard.dev/directory/image/python/provenance?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-retrieve-image-sboms).
+For example, if you're looking for the provenance information of the Python image, you can navigate to the [Python provenance information page](https://images.chainguard.dev/directory/image/python/provenance).

@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "The life cycle of Chainguard-issued Security Advisories"
 date: 2024-07-26T18:09:12+00:00
-lastmod: 2026-10-01T14:31:17+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -34,7 +34,7 @@ On this page, learn about [how to access Security Advisories](#accessing-securit
 
 ### In the Chainguard images directory
 
-Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-chainguard-issues) on the container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
+Chainguard publishes its security advisories to a dedicated [Security Advisories page](https://images.chainguard.dev/security/) on the container images Directory. There, you can find a complete listing of CVEs found in various Chainguard Containers, including their CVE ID, affected packages, and vulnerability status. Each advisory is built from the metadata associated with a security vulnerability.
 
 ### Programmatic access
 
@@ -122,6 +122,11 @@ Rarely, a vulnerability is found in a package but there is no current status upd
 <td>Fixed</td>
 <td>A patch has been applied to the affected package and the vulnerability is no longer present.</td>
 <td>fixed</td>
+</tr>
+<tr>
+<td>Patched</td>
+<td>The affected package was patched with Chainguard libraries and the vulnerability is no longer present.</td>
+<td>patched</td>
 </tr>
 <tr>
 <td>Fix not planned</td>

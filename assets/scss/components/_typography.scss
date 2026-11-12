@@ -1,10 +1,9 @@
-// Typography for Chainguard Academy
+// Typography for Chainguard Docs
 // Aligned with marketing site aesthetics, tuned for long-form documentation.
 // Bare element rules set the type scale; the `.content`-scoped block below
 // sets the reading rhythm inside articles and wins on specificity.
 
 // Font weight variables for consistency
-$font-light: 300;
 $font-normal: 400;
 $font-medium: 500;
 $font-semibold: 600;
@@ -50,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--body-color);
     margin-top: 0;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 
     + p {
         margin-top: 0.75rem;
@@ -143,7 +142,7 @@ a {
     position: relative;
 
     &:hover {
-        color: var(--secondary-2);
+        color: var(--active-link-color);
         text-decoration: underline;
         text-decoration-thickness: 2px;
     }
@@ -183,31 +182,31 @@ ul, ol {
 
 // Blockquotes
 blockquote {
+    display: flex;
     font-family: $TextFont;
     font-size: $text-lg;
-    font-style: italic;
     line-height: $leading-relaxed;
     color: var(--body-color);
     opacity: 0.9;
-    border-left: 4px solid var(--primary-1);
-    padding-left: 1.5rem;
+    background: var(--blockquote-background);
+    border-left: 2px solid var(--blockquote-border);
+    border-radius: 0 4px 4px 0;
+    padding: 24px;
     margin: 2rem 0;
 
-    p {
+    &::before {
+        content: var(--info-icon-url);
+        position: relative;
+        top: 2px;
+        margin-right: 14px;
+    }
+
+    > p:last-child {
         margin-bottom: 0;
     }
 
-    cite {
-        display: block;
-        font-size: $text-sm;
-        font-style: normal;
-        font-weight: $font-medium;
-        margin-top: 1rem;
-        opacity: 0.8;
-
-        &::before {
-            content: "— ";
-        }
+    p a {
+        color: var(--blockquote-link-color) !important;
     }
 }
 
@@ -330,33 +329,14 @@ small, .text-sm {
     font-size: $text-lg;
 }
 
-// Extra large text
-.text-xl {
-    font-size: $text-xl;
-}
-
 // Text alignment utilities
 .text-left { text-align: left; }
 .text-center { text-align: center; }
-.text-right { text-align: right; }
 .text-justify { text-align: justify; }
 
 // Text transform utilities
 .uppercase { text-transform: uppercase; }
-.lowercase { text-transform: lowercase; }
 .capitalize { text-transform: capitalize; }
-
-// Font weight utilities
-.font-light { font-weight: $font-light; }
-.font-normal { font-weight: $font-normal; }
-.font-medium { font-weight: $font-medium; }
-.font-semibold { font-weight: $font-semibold; }
-.font-bold { font-weight: $font-bold; }
-
-// Letter spacing utilities
-.tracking-tight { letter-spacing: -0.05em; }
-.tracking-normal { letter-spacing: 0; }
-.tracking-wide { letter-spacing: 0.05em; }
 
 // Responsive typography adjustments
 @media (max-width: 768px) {

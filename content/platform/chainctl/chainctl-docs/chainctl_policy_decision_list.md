@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -15,18 +15,20 @@ List policy decisions.
 
 ### Synopsis
 
-List recorded policy decisions to see which image digests a policy
-allowed or denied at pull time.
+List recorded policy decisions to see which artifacts (image digests
+or library package PURLs) a policy allowed or denied at pull time.
 
-Each decision shows the repository, the digest, the policy that
-evaluated it, the mode, the outcome, and when it was pulled.
+Each decision shows the repository, the artifact ID, the resource type,
+the policy that evaluated it, the mode, the outcome, and when it was
+pulled.
 
 Decisions are scoped to one organization: pass --parent, or omit it to
 use your configured default group, or (with no default configured) the
 single organization you can access — you are prompted when several are
 available. Within that scope, filter by --repo for a single repository,
-by --policy for a single policy, by --mode or --result for a subset of
-outcomes, and by --since for a time window.
+by --policy for a single policy, by --resource-type for one resource
+type, by --mode or --result for a subset of outcomes, and by --since for
+a time window.
 
 Decisions are listed most recent first. By default the 20 most recent
 are shown; use --limit (1-100) to change how many are returned.
@@ -34,8 +36,8 @@ are shown; use --limit (1-100) to change how many are returned.
 For a multi-arch image the ARTIFACT ID column may show the index digest,
 while pulls are enforced against the per-platform child manifest; run
 "chainctl policy check" to find the child digest an override must
-target. The table view shows the artifact in short form; -o json returns
-the full value.
+target. The table view shortens artifact IDs that are digests, but not
+artifact IDs that are package PURLs; -o json returns the full value.
 
 Use --show-decision-details to print each decision as an expanded
 block, grouped by artifact. Every verdict is rendered so a
@@ -49,7 +51,7 @@ per decision) and a string "totalCount"; read .items[] rather than
 treating the output as a top-level array.
 
 ```
-chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--show-decision-details] [--show-artifact-ids] [--output=json|table] [flags]
+chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--resource-type TYPE] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--show-decision-details] [--show-artifact-ids] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -63,6 +65,9 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
   
   # List what the cooldown policy would have blocked in the last day
   chainctl policy decision list --parent=engineering --policy=cooldown --result=DENIED --since=1d
+  
+  # List only the decisions for Python packages
+  chainctl policy decision list --parent=engineering --resource-type=Python
   
   # List all decisions recorded for a single repository
   chainctl policy decision list --parent=engineering --repo=nginx
@@ -92,7 +97,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
       --parent string           The name or id of the organization to list decisions for.
       --policy string           Only show decisions for this policy (name or UIDP).
       --repo string             Only show decisions for this repository.
-      --resource-type string    Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
+      --resource-type string    Only show decisions for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type). Also picks which policy a --policy name refers to.
       --result string           Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
       --show-artifact-ids       Print the unique full artifact IDs from the result set, one per line.
       --show-decision-details   Print each decision as an expanded block that lists every reason line-by-line.

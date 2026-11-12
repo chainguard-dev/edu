@@ -4,7 +4,7 @@ linktitle: "GitHub App overview"
 description: "Guardener secures and maintains your repositories through the Chainguard App, with capabilities you enable per repository with .chainguard/ configuration files."
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-10-22T17:35:01+00:00
+lastmod: 2026-10-23T21:07:45+00:00
 draft: false
 tags: ["GitHub", "Overview"]
 images: []
@@ -17,7 +17,7 @@ toc: true
 
 Guardener's GitHub capabilities run through the **Chainguard App**, a single hardened GitHub App that also backs other Chainguard products. Those capabilities are opt-in per repository through configuration files committed to a `.chainguard/` directory, so installing the app has no effect on a repository until you enable a capability.
 
-{{< beta feature="Guardener" access="organizations that have installed and linked the Chainguard App" >}}
+{{< note >}}Each Guardener capability has its own release stage, listed in [Optional Features](/chainguard/guardener/overview/#optional-features). The GitHub capabilities are available to organizations that have installed and linked the Chainguard App.{{< /note >}}
 
 ## Getting set up
 

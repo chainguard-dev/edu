@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud, AWS, Azure, or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-22T14:52:04+00:00
+lastmod: 2026-11-02T15:34:03+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -25,7 +25,7 @@ A check's VM holds no long-lived credentials. When a check uses a workload ident
 | --- | --- |
 | Google Cloud | `GOOGLE_APPLICATION_CREDENTIALS`, set to `/run/chainguard/identities/<identity>/adc.json`, a credential configuration that Google Cloud client libraries use without further setup. The tokens that code in the VM can read are sealed stand-ins. Chainguard Checks swaps in the real tokens only on requests to `sts.googleapis.com` and other `googleapis.com` subdomains, such as `storage.googleapis.com`. |
 | AWS | `AWS_WEB_IDENTITY_TOKEN_FILE`, `AWS_ROLE_ARN`, `AWS_ROLE_SESSION_NAME`, `AWS_REGION`, and `AWS_STS_REGIONAL_ENDPOINTS`, which AWS SDKs and the AWS CLI use without further setup. The token file holds a sealed stand-in. After the check exchanges it with AWS STS, the VM holds a placeholder secret key and a sealed session token, and Chainguard Checks signs each request to `amazonaws.com` and `api.aws` subdomains with the real credentials. It doesn't sign requests to endpoints that you run under those domains, such as API Gateway APIs, load balancers, and EC2 instances. Refer to [Use AWS](#use-aws). |
-| Azure | `AZURE_FEDERATED_TOKEN_FILE`, `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_AUTHORITY_HOST`, which the workload identity credential in Azure SDKs uses. The token file holds a sealed stand-in, and Chainguard Checks swaps in the real token only when the check signs in at `login.microsoftonline.com`. The access token that the check gets works only with Azure Resource Manager and Azure Container Registry. Refer to [Use Azure](#use-azure). |
+| Azure | `AZURE_FEDERATED_TOKEN_FILE`, `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_AUTHORITY_HOST`, which the workload identity credential in Azure SDKs uses. The token file holds a sealed stand-in, and Chainguard Checks swaps in the real token only when the check signs in at `login.microsoftonline.com`. The check can get access tokens for Azure Resource Manager, Azure Container Registry, and Azure Kubernetes Service (AKS) clusters that use Microsoft Entra authentication. Refer to [Use Azure](#use-azure). |
 | Chainguard | Nothing. Chainguard Checks adds a credential to the check's requests to each Chainguard host the identity lists, so the check doesn't sign in or need a credential file. |
 
 Code in the check can't read the real tokens, but it can use them: each request it sends to those hosts carries the identity's access. If that access lets the code create a credential, such as a Google Cloud service account key, that credential works outside the check until you delete it. Grant each identity only the access its checks need.
@@ -91,7 +91,7 @@ Merge an identity's definition before you use it. Chainguard Checks reads defini
 
 A check that uses an identity can't set `GOOGLE_APPLICATION_CREDENTIALS` in its `vars` or in its environment's `vars`. If it does, the whole run fails.
 
-### Identity keys
+### Identity keys {#identity-keys}
 
 Each identity has the following keys:
 
@@ -175,8 +175,8 @@ Chainguard Checks assigns the ID when it first runs checks on the repository, so
 
 To let a check assume an IAM role, set up AWS as follows:
 
-1. In IAM, add an OpenID Connect identity provider with the provider URL `https://issuer.enforce.dev` and an audience, such as `sts.amazonaws.com`. Use the same audience for the identity's `aws.audience`.
-1. Create a role for the check, with a trust policy that allows `sts:AssumeRoleWithWebIdentity` from that provider only when the token's audience and exact subject match, and grant the role only the permissions the check needs. Replace `<account>` with your AWS account ID, and `<repository-id>` and `<identity>` with your repository's ID and the identity's name, as described earlier:
+1. In IAM, add an OpenID Connect identity provider with the provider URL `https://issuer.enforce.dev` and an audience, such as `sts.amazonaws.com`. Use the same audience for the identity's `aws.audience`. An AWS account can have only one IAM OIDC provider for each URL, so if the account already has one for `https://issuer.enforce.dev`, add the audience to that provider instead.
+1. Create a role for the check, with a trust policy that allows `sts:AssumeRoleWithWebIdentity` from that provider only when the token's audience and exact subject match, and grant the role only the permissions the check needs. Replace `<account>` with your AWS account ID, and `<repository-id>` and `<identity>` with your repository's ID and the identity's name, as described earlier. In AWS GovCloud (US), the provider's ARN starts with `arn:aws-us-gov:` instead of `arn:aws:`.
 
     ```json
     {
@@ -218,10 +218,12 @@ To let a check assume an IAM role, set up AWS as follows:
             target_ref: refs/heads/main
     ```
 
+AWS can't match the token's `ref` claim, so a trust policy can't tell pull request runs from runs after merging. To keep a role away from pull requests, such as a role that deploys, give it its own identity with only `postsubmit` entries in [`allow`](#identity-keys).
+
 A check that uses the identity needs the following:
 
 - `network.egress` must list the region's STS host, such as `sts.us-east-1.amazonaws.com`, and each AWS endpoint the check calls.
-- The AWS CLI bundles its own certificate authorities, so set `AWS_CA_BUNDLE` to `/etc/ssl/certs/ca-certificates.crt` in the check's `vars`, which lets the CLI trust the VM's certificate authority.
+- Set `AWS_CA_BUNDLE` to `/etc/ssl/certs/ca-certificates.crt` in the check's `vars` to make sure the AWS CLI trusts the VM's certificate authority.
 - The check can't set the variables that Chainguard Checks sets, or `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`, `AWS_PROFILE`, `AWS_DEFAULT_PROFILE`, `AWS_CONFIG_FILE`, or `AWS_SHARED_CREDENTIALS_FILE`, which AWS SDKs read first.
 - AWS calls that return a credential that Chainguard Checks can't seal fail, such as CodeArtifact `GetAuthorizationToken`. Credentials from role chaining and from ECR `GetAuthorizationToken` work.
 
@@ -249,19 +251,67 @@ To let a check sign in as a Microsoft Entra application, set up Azure as follows
 1. Assign the application only the Azure roles the check needs.
 1. Declare the identity with the tenant ID, the application's client ID, and the audience:
 
-    ```yaml
-    azure:
-      tenant_id: 00000000-0000-0000-0000-000000000000
-      client_id: 11111111-1111-1111-1111-111111111111
-      audience: api://AzureADTokenExchange
+    ```yaml {title=".chainguard/ci/identities.yaml"}
+    version: 1
+    identities:
+      staging-azure:
+        description: Read the staging subscription's resource groups.
+        checks:
+          - azure.checks.inventory
+        audiences: [api://AzureADTokenExchange]
+        azure:
+          tenant_id: 00000000-0000-0000-0000-000000000000
+          client_id: 11111111-1111-1111-1111-111111111111
+          audience: api://AzureADTokenExchange
+        allow:
+          - run: presubmit
+            target_ref: refs/heads/main
     ```
 
 A check that uses the identity needs the following:
 
-- `network.egress` must list `login.microsoftonline.com` and each Azure endpoint the check calls, such as `management.azure.com`.
+- `network.egress` must list `login.microsoftonline.com` and each Azure endpoint the check calls. `az login` also calls `management.azure.com`, and Azure Container Registry redirects downloads to `*.blob.core.windows.net`, so list those hosts too when the check uses them.
 - Azure SDKs sign in through their workload identity credential. To sign in with the Azure CLI, run `az login --service-principal -u "$AZURE_CLIENT_ID" -t "$AZURE_TENANT_ID" --federated-token "$(cat "$AZURE_FEDERATED_TOKEN_FILE")"`.
 - The check can't set the variables that Chainguard Checks sets, or `AZURE_CLIENT_SECRET`, `AZURE_CLIENT_CERTIFICATE_PATH`, `AZURE_CLIENT_CERTIFICATE_PASSWORD`, `AZURE_USERNAME`, `AZURE_PASSWORD`, or `AZURE_TOKEN_CREDENTIALS`, which can select another credential first.
-- The access token works only with Azure Resource Manager, at `management.azure.com`, and with Azure Container Registry. Tokens for AKS clusters don't work, so a check can't reach a cluster through a kubeconfig.
+- The check can get access tokens only for Azure Resource Manager, Azure Container Registry, and AKS clusters. Requests for tokens for other resources, such as Microsoft Graph and Azure Key Vault, fail.
+- The identity works only in the Azure public cloud. Sign-ins to Azure Government and to Azure operated by 21Vianet fail.
+
+For example, the following check signs in with the Azure CLI and lists the resource groups that the application can read:
+
+```yaml {title=".chainguard/ci/azure.yaml"}
+version: 1
+environment:
+  packages: [az]
+checks:
+  inventory:
+    identity: staging-azure
+    script: |
+      az login --service-principal -u "$AZURE_CLIENT_ID" -t "$AZURE_TENANT_ID" --federated-token "$(cat "$AZURE_FEDERATED_TOKEN_FILE")" --output none
+      az group list --output table
+    vars:
+      AZURE_CORE_COLLECT_TELEMETRY: "no"
+    network:
+      egress: [login.microsoftonline.com, management.azure.com]
+```
+
+`AZURE_CORE_COLLECT_TELEMETRY` turns off the Azure CLI's usage reports, which it would otherwise send to a host the check can't reach.
+
+#### Reach an AKS cluster {#reach-an-aks-cluster}
+
+A check can use `kubectl` with an AKS cluster that uses Microsoft Entra authentication and has local accounts turned off. The check must get the cluster's kubeconfig from Azure itself, such as with `az aks get-credentials`, because Chainguard Checks trusts a cluster only after it sees the cluster in that response. A kubeconfig that the check reads from a file or a variable doesn't work.
+
+Add the cluster's API server host to `network.egress`, such as `*.hcp.eastus.azmk8s.io`. After `az login`, the following commands write the kubeconfig, replace its `kubelogin` sign-in with an access token from the Azure CLI, and list the cluster's namespaces. Replace `$RESOURCE_GROUP` and `$CLUSTER` with the cluster's resource group and name:
+
+```shell
+az aks get-credentials --resource-group "$RESOURCE_GROUP" --name "$CLUSTER" --file kubeconfig
+export KUBECONFIG="$PWD/kubeconfig"
+user=$(kubectl config view -o jsonpath='{.contexts[0].context.user}')
+kubectl config unset "users.$user.exec"
+kubectl config set-credentials "$user" --token="$(az account get-access-token --resource 6dae42f8-4368-4678-94ff-3960e28e3630 --query accessToken --output tsv)"
+kubectl get namespaces
+```
+
+`6dae42f8-4368-4678-94ff-3960e28e3630` is the Microsoft Entra application that every AKS cluster with Entra authentication accepts tokens for. The commands use a token from the Azure CLI because `kubelogin`, which the kubeconfig would otherwise run to sign in, isn't available as a package.
 
 ## Which runs get an identity {#which-runs-get-an-identity}
 
@@ -384,8 +434,10 @@ To take access back, change the place that grants it:
 | ------- | ------ | -------------------- |
 | A check from getting an identity | Remove the identity, the check's selector, or the `allow` rule from `identities.yaml` on the base branch, or on your default branch for runs after merging. | New runs, once the change merges. A running check loses the identity within about 10 minutes. |
 | Pull requests from some people from getting identities | In the `trust` section on your default branch, remove them from a group, or move identities to a higher ring. | New runs, once the change merges. A running check loses the identity within about 18 minutes. That includes up to three minutes for Chainguard Checks to see a change to an organization's or team's members on GitHub. |
-| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider, removing the AWS role's trust in the IAM OIDC provider, deleting the Microsoft Entra application's federated identity credential, or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A Google Cloud access token that a running check already has can keep working inside that check until it expires, for up to an hour. |
+| Every use of an identity, including runs after merging | On the provider, remove the roles granted to the identity's subject, or remove the provider's trust in it, such as by disabling the Google Cloud workload identity pool provider, removing the AWS role's trust in the IAM OIDC provider, deleting the Microsoft Entra application's federated identity credential, or deleting the Chainguard assumable identity. | The provider refuses new token exchanges. A running check keeps the credentials it already has until they expire or the run ends, at most two hours later. A Google Cloud access token lasts up to an hour, as does an AWS session by default, and deleting a federated identity credential doesn't end Microsoft Entra tokens already issued. To cut access off sooner, remove the role's permissions or revoke its active sessions in AWS IAM, or remove the application's Azure role assignments. |
 
-When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. A Google Cloud access token that the check already has works only inside the check, so it stops working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
+When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud, AWS, or Azure settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. The credentials that the check got through the identity work only inside the check, so they stop working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
+
+Revoking an identity doesn't revoke credentials that a check created with the identity's permissions, such as an AWS access key. Delete those on the provider.
 
 Chainguard Workspaces sessions don't use workload identities. To revoke what a session can reach, refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).

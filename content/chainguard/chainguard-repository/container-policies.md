@@ -7,7 +7,7 @@ linktitle: "Container pull policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-10-16T13:27:44+00:00
+lastmod: 2026-11-03T00:00:00+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -16,8 +16,6 @@ weight: 20
 ---
 
 Policies enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.
-
-{{< beta feature="Policies" >}}
 
 ## Definitions
 
@@ -898,7 +896,7 @@ Re-enable any binding whose parameters no longer match the policy's schema, supp
 
 ## Known issues
 
-Policies are in open beta, and we are continuously working to improve the experience. The items below are current limitations you may run into when working with overrides, along with the workaround for each.
+The following are current limitations you might run into when working with overrides, along with the workaround for each.
 
 ### An override/binding mutation is not effective immediately
 

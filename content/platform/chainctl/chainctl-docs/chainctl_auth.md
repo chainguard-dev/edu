@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl auth"
 slug: chainctl_auth
 url: /platform/chainctl/chainctl-docs/chainctl_auth/
@@ -34,11 +34,12 @@ Auth related commands for the Chainguard platform.
 * [chainctl auth configure](/platform/chainctl/chainctl-docs/chainctl_auth_configure/)	 - Configure a local tool to authenticate to Chainguard.
 * [chainctl auth configure-docker](/platform/chainctl/chainctl-docs/chainctl_auth_configure-docker/)	 - Configure a Docker credential helper
 * [chainctl auth configure-npm](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/)	 - Configure npm credentials for Chainguard Libraries for JavaScript
-* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed
+* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 * [chainctl auth delete-account](/platform/chainctl/chainctl-docs/chainctl_auth_delete-account/)	 - Permanently delete your user account.
 * [chainctl auth login](/platform/chainctl/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
 * [chainctl auth logout](/platform/chainctl/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
 * [chainctl auth pull-token](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/)	 - Create a pull token.
+* [chainctl auth sessions](/platform/chainctl/chainctl-docs/chainctl_auth_sessions/)	 - List and revoke your sign-in sessions.
 * [chainctl auth status](/platform/chainctl/chainctl-docs/chainctl_auth_status/)	 - Inspect the local Chainguard Token.
 * [chainctl auth token](/platform/chainctl/chainctl-docs/chainctl_auth_token/)	 - Print the local Chainguard Token.
 

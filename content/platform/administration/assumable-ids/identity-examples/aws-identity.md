@@ -8,7 +8,7 @@ lead: ""
 description: "Tutorial outlining how to create a Chainguard identity that can be assumed by an AWS user or role."
 type: "article"
 date: 2025-11-28T16:00:00+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -41,7 +41,7 @@ This guide outlines two methods for creating an identity that can be assumed by 
 
 ### CLI
 
-This example creates an identity for an IAM role and binds it to the `registry.pull` role. Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID, and `<role-name>` with the name of your IAM role.
+This example creates an identity for an IAM role and binds it to the `registry.pull` role. To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role). Replace `<identity-name>` with the name you'd like to give the identity, `<account-id>` with your AWS account ID, and `<role-name>` with the name of your IAM role.
 
 ```shell
 chainctl iam id create aws role <identity-name> --aws-account-id=<account-id> --aws-role-name=<role-name> --role=registry.pull
@@ -113,13 +113,13 @@ resource "chainguard_identity" "my_identity_name" {
   }
 }
 
-data "chainguard_roles" "registry_pull" {
+data "chainguard_role" "registry_pull" {
   name = "registry.pull"
 }
 
 resource "chainguard_rolebinding" "my_identity_name_registry_pull" {
   identity = chainguard_identity.my_identity_name.id
-  role     = data.chainguard_roles.registry_pull.items[0].id
+  role     = data.chainguard_role.registry_pull.items[0].id
   group    = data.chainguard_group.org.id
 }
 

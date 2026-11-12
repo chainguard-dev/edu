@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-10-16T14:27:19+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -50,7 +50,7 @@ Before getting started:
 * Ensure your organization is entitled to Chainguard Libraries. To add an
   entitlement for an ecosystem, contact your Chainguard account team.
 
-Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
+Chainguard Libraries are also included in the self-serve plans. A Chainguard Starter organization can pull Java, Python, JavaScript, .NET, and Go packages, without CVE-remediated versions. Chainguard Team adds the remediated versions. Refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 ## Step 1: Choose your access method
 
@@ -248,7 +248,7 @@ After setup, you can verify which dependencies were built from source by Chaingu
 chainctl libraries verify /path/to/artifact
 ```
 
-> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+{{% blurb/libraries-verify-permissions %}}
 
 For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
 

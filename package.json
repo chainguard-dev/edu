@@ -1,6 +1,6 @@
 {
-  "name": "chainguard-academy-theme",
-  "description": "Chainguard Academy",
+  "name": "chainguard-docs-theme",
+  "description": "Chainguard Docs",
   "version": "0.4.3",
   "engines": {
     "node": ">=22"
@@ -40,32 +40,37 @@
     "@ai-sdk/provider-utils": ">=4.0.33 <4.0.41",
     "smol-toml": "1.9.0",
     "katex": "~0.18.2",
-    "undici": "~7.29.1",
-    "markdown-it": "^15.0.3"
+    "undici": "~7.30.1",
+    "markdown-it": "^15.0.3",
+    "re2js": "~2.8.7"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@fullhuman/postcss-purgecss": "^8.0",
     "autoprefixer": "^10.6",
     "bootstrap": "^5.3",
-    "eslint": "^10.13.0",
-    "globals": "^17.13.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
     "highlight.js": "^11.12",
-    "hugo-extended": "^0.168.0",
+    "hugo-extended": "^0.169.0",
     "instant.page": "^5.2",
     "lazysizes": "^5.3",
-    "markdownlint-cli2": "^0.23.3",
+    "markdownlint-cli2": "^0.24.0",
     "postcss": "^8.5",
     "postcss-cli": "^12.0",
-    "sass-embedded": "^1.105.2",
+    "sass-embedded": "^1.107.1",
     "shx": "^0.4",
     "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0"
   },
   "dependencies": {
-    "@docsearch/css": "^5.1.2",
-    "@docsearch/js": "^5.1.2",
-    "@scalar/api-reference": "^1.75.0",
+    "@docsearch/css": "^5.2.0",
+    "@docsearch/js": "^5.2.0",
+    "@scalar/api-reference": "^1.76.4",
     "bootstrap-icons": "^1.13.2"
+  },
+  "allowScripts": {
+    "hugo-extended": true,
+    "vue-demi": true
   }
 }

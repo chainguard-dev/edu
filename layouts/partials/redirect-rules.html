@@ -43,6 +43,12 @@ The order:
    length of the unescaped alias.
 
 3. Regex rules from data/redirects.yaml, in file order.
+
+4. One rule per section landing page, which sends the page's own URL to the
+   section that shows it (see partials/landing-section.html). The rule
+   matches that URL alone, so the page bundle's images and Markdown copy
+   below it still load. It comes last, so a hand-written rule for the page
+   wins: /open-source/wolfi/overview goes to www.chainguard.dev instead.
 */ -}}
 {{- $escapeRegex := `([.+*?()|\[\]{}^$\\])` -}}
 {{- $handWritten := hugo.Data.redirects.rules -}}
@@ -61,12 +67,14 @@ The order:
 {{- $aliasRules := slice -}}
 {{- $basePath := strings.TrimSuffix "/" site.Home.RelPermalink -}}
 {{- range $p := site.Pages -}}
-{{- $target := strings.TrimSuffix "/" $p.RelPermalink -}}
+{{- $ownPath := strings.TrimPrefix $basePath (strings.TrimSuffix "/" $p.RelPermalink) -}}
+{{- /* A landing page's aliases go straight to its section, in one hop. */ -}}
+{{- $target := strings.TrimSuffix "/" (partial "page-link-target.html" $p).RelPermalink -}}
 {{- range $p.Aliases -}}
 {{- $alias := strings.TrimSuffix "/" . -}}
-{{- /* An alias naming the page's own path must not redirect. Aliases never
-       carry the base path, so compare against the target without it. */ -}}
-{{- if ne $alias (strings.TrimPrefix $basePath $target) -}}
+{{- /* An alias naming the page's own path, or its target's, must not
+       redirect. Aliases never carry the base path, so compare without it. */ -}}
+{{- if and (ne $alias $ownPath) (ne $alias (strings.TrimPrefix $basePath $target)) -}}
 {{- $aliasRules = $aliasRules | append (dict
   "regex" (printf "^%s(/.*)?$" (replaceRE $escapeRegex `\$1` $alias))
   "caseSensitive" true
@@ -87,6 +95,17 @@ The order:
   "caseSensitive" true
   "path" ""
   "target" (partial "site-path.html" $rule.to)) -}}
+{{- end -}}
+{{- end -}}
+
+{{- range $p := site.Pages -}}
+{{- with $section := partial "landing-section.html" $p -}}
+{{- $path := strings.TrimPrefix $basePath (strings.TrimSuffix "/" $p.RelPermalink) -}}
+{{- $rules = $rules | append (dict
+  "regex" (printf "^%s/?$" (replaceRE $escapeRegex `\$1` $path))
+  "caseSensitive" true
+  "path" ""
+  "target" (strings.TrimSuffix "/" $section.RelPermalink)) -}}
 {{- end -}}
 {{- end -}}
 

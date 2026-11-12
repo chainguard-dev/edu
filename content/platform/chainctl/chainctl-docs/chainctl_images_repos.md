@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl images repos"
 slug: chainctl_images_repos
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos/
@@ -34,6 +34,7 @@ Image repo related commands for the Chainguard platform.
 * [chainctl images repos build](/platform/chainctl/chainctl-docs/chainctl_images_repos_build/)	 - Manage custom image builds
 * [chainctl images repos create](/platform/chainctl/chainctl-docs/chainctl_images_repos_create/)	 - Create an image repository.
 * [chainctl images repos delete](/platform/chainctl/chainctl-docs/chainctl_images_repos_delete/)	 - Remove an image repository.
+* [chainctl images repos delete-image](/platform/chainctl/chainctl-docs/chainctl_images_repos_delete-image/)	 - Delete one image from a customer image repository and release its storage.
 * [chainctl images repos list](/platform/chainctl/chainctl-docs/chainctl_images_repos_list/)	 - List image repositories.
 * [chainctl images repos update](/platform/chainctl/chainctl-docs/chainctl_images_repos_update/)	 - Update image repositories.
 

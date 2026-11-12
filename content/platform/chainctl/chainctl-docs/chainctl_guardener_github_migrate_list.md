@@ -1,5 +1,5 @@
 ---
-date: 2026-10-22T17:36:19Z
+date: 2026-11-11T10:22:55Z
 title: "chainctl guardener github migrate list"
 slug: chainctl_guardener_github_migrate_list
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_github_migrate_list/
@@ -33,7 +33,7 @@ chainctl guardener github migrate list [flags]
 ```
       --limit int       The most migrations to list. (default 20)
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group whose migrations to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --repo string     Only list migrations of this repository (a github.com URL or "owner/repo").
 ```
 

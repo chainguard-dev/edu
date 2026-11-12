@@ -4,7 +4,7 @@ linktitle: "chainctl checks reference"
 description: "Reference for the chainctl checks commands that inspect pull request runs, start and rerun checks, summarize check history, and validate your Chainguard Checks configuration."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-20T15:35:02+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Checks", "chainctl", "Reference"]
 images: []
@@ -17,9 +17,7 @@ weight: 65
 
 The `chainctl checks` commands read your pull requests' results from your terminal, start and rerun checks, summarize your checks' history, and validate your configuration. This page lists each command's arguments, flags, exit codes, and JSON output. For examples of the commands in use, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
 
-{{% blurb/hidden-chainctl-commands %}}
-
-For example, run `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+The generated [`chainctl checks` reference](/platform/chainctl/chainctl-docs/chainctl_checks/) has the help text of the latest `chainctl` release. If this page and the generated reference disagree about a command's flags, the generated reference is right. To read the help for the version you have installed, add `--help` to any command, such as `chainctl checks status --help`. You can also type `chainctl ci` instead of `chainctl checks`. If your installation of `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `acme/app#123` for a pull request. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
@@ -43,16 +41,13 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 | [`chainctl checks trends`](#chainctl-checks-trends) | Shows how long checks take, hour by hour. |
 | [`chainctl checks validate`](#chainctl-checks-validate) | Finds problems in your configuration without running anything. |
 | [`chainctl checks explain`](#chainctl-checks-explain) | Prints each check as Chainguard Checks reads it. |
-| [`chainctl checks migrate`](#chainctl-checks-migrate) | Drafts a configuration from your GitHub Actions workflows. |
 | [`chainctl checks accept-terms`](#chainctl-checks-accept-terms) | Accepts the terms that Chainguard Checks is offered under. |
 
 ## Access and organization {#access-and-organization}
 
-Every command on this page except `validate`, `explain`, `migrate --dry`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
+Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. That role can start runs, with `chainctl checks run` or with `chainctl checks migrate` without `--dry`, but it can't read any run. Those runs use your allowance without showing you their results, so don't use either command in a Starter organization. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
-
-The `validate`, `explain`, and `migrate --dry` commands read only your local checkout, so they don't need a Chainguard account or network access.
+The `validate` and `explain` commands read only your local checkout, so they don't need a Chainguard account or network access.
 
 The commands that need a role take `--parent` with the name or ID of your Chainguard organization. Without `--parent`, `chainctl` uses the `CHAINCTL_SANDBOX_GROUP` environment variable, then the `default.group` value in your `chainctl` configuration. If neither is set, it asks you to choose an organization.
 
@@ -75,7 +70,7 @@ The `chainctl checks status -o json` command prints the run's full name in its `
 
 ## Output and exit codes {#output-and-exit-codes}
 
-To print JSON for a script or a coding agent, add `-o json`, which is short for `--output json`. Each command's section describes its JSON.
+To print JSON for a script or a coding agent, add `-o json`, which is short for `--output json`. Each command's section describes its JSON, and some show an example. The commands print each object on one line, and the examples add line breaks so that they're easier to read.
 
 On a terminal, commands that print your repository's output remove escape sequences and other control characters from it. To keep them, add `--raw` to a command that takes it. When the output isn't a terminal, such as when you pipe it to a file, the commands always print it as it is.
 
@@ -109,7 +104,38 @@ The output marks a failed advisory check as `(advisory)`, and shows the label th
 | `1` | The run finished and a blocking check didn't pass, or the command failed. |
 | `2` | Chainguard Checks created no run for the `REF`. |
 
-With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `revision`, `pull_request`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
+With `-o json`, the command prints one object, the final one with `--watch`. It has the run's `run`, `repository`, `repository_id`, `revision`, `pull_request`, `trigger`, `phase`, and `outcome`, and `failed`, which is `true` when the command exits with `1`. Its `checks` list has each check's `workflow`, `check`, `phase`, and `outcome`, plus `exit_code`, `advisory`, and `request_label` when they apply. When there's no run, the object's `status` is `no platform verdict`.
+
+For example, for a pull request run whose `test` check failed and whose `vet` check passed, the command prints the following and exits with `1`:
+
+```json
+{
+  "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+  "repository": "github.com/acme/app",
+  "revision": "3e9b7c1d5a2f8e40b6c3d9a1f7e2b5c8d0a4f613",
+  "pull_request": "https://github.com/acme/app/pull/123",
+  "repository_id": "5e8a1c3f7b2d9e046a1f8c3b7d2e5a90",
+  "trigger": "presubmit",
+  "phase": "DONE",
+  "outcome": "FAILED",
+  "failed": true,
+  "checks": [
+    {
+      "workflow": "ci",
+      "check": "test",
+      "phase": "DONE",
+      "outcome": "FAILED",
+      "exit_code": 1
+    },
+    {
+      "workflow": "ci",
+      "check": "vet",
+      "phase": "DONE",
+      "outcome": "PASSED"
+    }
+  ]
+}
+```
 
 ### chainctl checks failures {#chainctl-checks-failures}
 
@@ -135,7 +161,64 @@ chainctl checks failures acme/app#123 --parent $ORGANIZATION
 
 The output starts with the run's name, then its status and how many of its checks failed, passed, and didn't run. The command exits with `0` when it shows failures, so use `chainctl checks status` to test whether a run passed.
 
-With `-o json`, the command prints one object with the run's name in `target`, its `phase` and `outcome`, the `counts` of checks that `passed`, `failed`, haven't finished (`running`), or didn't run (`not_run`), a `failed` list, and `truncated`, which is `true` when the command shortened or left out part of the output to fit `--budget`. Each failed check has its `check`, `outcome`, `exit_code`, the `step` that failed, and `quotes` from its log. Each quote has its `text` and the `log_ranges` it came from. When the log has output before the quote, the quote's `more` field is the `chainctl checks logs` command that reads that output. A check with no record of why it failed has no quotes, and its own `more` field is the command that reads the end of its log. With `--not-run`, the object also has a `not_run` list.
+With `-o json`, the command prints one object with the run's name in `target`, its `phase` and `outcome`, the `counts` of checks that `passed`, `failed`, haven't finished (`running`), or didn't run (`not_run`), a `failed` list, and `truncated`, which is `true` when the command shortened or left out part of the output to fit `--budget`. The `budget_bytes` and `used_bytes` fields give the budget and how much of it the output used. Each failed check has its `workflow`, `check`, `attempt`, `outcome`, and `exit_code`, the `step` that failed, with its `command`, and `quotes` from its log. Each quote has its `text` and the `log_ranges` it came from. When the log has output before the quote, the quote's `more` field is the `chainctl checks logs` command that reads that output. A check with no record of why it failed has no quotes, and its own `more` field is the command that reads the end of its log. With `--not-run`, the object also has a `not_run` list.
+
+For the same run, the command prints the following:
+
+```json
+{
+  "target": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+  "phase": "DONE",
+  "outcome": "FAILED",
+  "counts": {
+    "passed": 1,
+    "failed": 1,
+    "not_run": 0,
+    "running": 0
+  },
+  "failed": [
+    {
+      "workflow_run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63/workflowRuns/c6d3f8a2-1e7b-4c09-b5a4-8d2e6f1a9c37",
+      "workflow": "ci",
+      "check": "test",
+      "attempt": 1,
+      "outcome": "FAILED",
+      "exit_code": 1,
+      "step": {
+        "index": 0,
+        "name": "step 0",
+        "outcome": "FAILED",
+        "exit_code": 1,
+        "command": "sh -e -c \"echo \\\"this check fails on purpose, for a docs example\\\"\\nexit 1\\n\"",
+        "command_bytes": 77,
+        "working_directory": "/work"
+      },
+      "quotes": [
+        {
+          "process": {
+            "program": "sh",
+            "exit_code": 1,
+            "provenance": "guest-attested"
+          },
+          "text": "this check fails on purpose, for a docs example\n",
+          "log_ranges": [
+            [
+              390,
+              438
+            ]
+          ],
+          "log_digest": "sha256:bfad8ff122de69c3dccc9c912a673a76ab886429797975db1ec95b7728a4d217",
+          "omitted_bytes": 0,
+          "not_retained_bytes": 0
+        }
+      ]
+    }
+  ],
+  "budget_bytes": 8192,
+  "used_bytes": 1011,
+  "truncated": false
+}
+```
 
 ### chainctl checks logs {#chainctl-checks-logs}
 
@@ -214,7 +297,47 @@ For example:
 chainctl checks attempts acme/app#123 --check test --parent $ORGANIZATION
 ```
 
-To read one attempt's log or events, pass its number to `--attempt` in `chainctl checks logs` or `chainctl checks events`. With `-o json`, the command prints one object with the check's `workflow_run`, `workflow`, and `check`, and its `attempts` as the API returns them.
+To read one attempt's log or events, pass its number to `--attempt` in `chainctl checks logs` or `chainctl checks events`. With `-o json`, the command prints one object with the check's `workflow_run`, `workflow`, and `check`, and its `attempts` as the API returns them. Unlike the other commands' JSON, each attempt's keys are in camel case, such as `exitCode`, and its values have a prefix, such as `OUTCOME_FAILED`. The following example, for the same run's `test` check, leaves out most of the attempt's fields, such as its resources and log streams:
+
+```json
+{
+  "workflow_run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63/workflowRuns/c6d3f8a2-1e7b-4c09-b5a4-8d2e6f1a9c37",
+  "workflow": "ci",
+  "check": "test",
+  "attempts": [
+    {
+      "number": 1,
+      "reason": "ATTEMPT_REASON_FIRST",
+      "phase": "DONE",
+      "outcome": "OUTCOME_FAILED",
+      "exitCode": 1,
+      "createTime": "2026-11-04T16:58:48.148040047Z",
+      "startTime": "2026-11-04T16:58:48.148207797Z",
+      "endTime": "2026-11-04T16:58:59.623444185Z",
+      "timings": {
+        "slot": "0.052962567s",
+        "boot": "2.061895718s",
+        "provision": "7.539728472s",
+        "steps": "0.186034422s"
+      },
+      "steps": [
+        {
+          "name": "step 0",
+          "outcome": "OUTCOME_FAILED",
+          "exitCode": 1,
+          "argv": [
+            "sh",
+            "-e",
+            "-c",
+            "echo \"this check fails on purpose, for a docs example\"\nexit 1\n"
+          ],
+          "workingDirectory": "/work"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ### chainctl checks events {#chainctl-checks-events}
 
@@ -286,6 +409,33 @@ chainctl checks list --repo acme/app --ref main --outcome failed --parent $ORGAN
 The output has one row for each run, with the columns `RUN`, `CREATED`, `REPOSITORY`, `REF`, `COMMIT`, `PR`, `TRIGGER`, and `STATUS`. The `RUN` column is the run's ID. For a pull request run, `COMMIT` is the head of the pull request, and `PR` is the pull request's URL. `COMMIT` shows the start of the commit's SHA, so to name the commit in another command, use the full SHA in the `revision` field of the `-o json` output. A run started with `chainctl checks run` has `-` under both `REF` and `PR`. The `STATUS` column shows `queued`, `running`, or `cancelling` until the run finishes, then its outcome, such as `passed`.
 
 With `-o json`, the command prints a list with one object for each run, with its `run`, `create_time`, `repository`, `ref`, `revision`, `pull_request`, `trigger`, `phase`, `outcome`, and `cancel_requested`. The command leaves out fields that have no value, such as `outcome` for a run that hasn't finished.
+
+For example, for a repository's last two pull request runs, the command prints the following. They're pull request runs, so they have no `ref`, and no one asked to cancel them, so they have no `cancel_requested`:
+
+```json
+[
+  {
+    "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/4b7e2d19-5c3a-4f86-9e1d-7a0c5b2f8e63",
+    "create_time": "2026-11-04T16:58:47Z",
+    "repository": "github.com/acme/app",
+    "revision": "3e9b7c1d5a2f8e40b6c3d9a1f7e2b5c8d0a4f613",
+    "pull_request": "https://github.com/acme/app/pull/123",
+    "trigger": "presubmit",
+    "phase": "DONE",
+    "outcome": "FAILED"
+  },
+  {
+    "run": "instances/9f2c41d7e8a3b6c05d1e7f4a2b8c9d0e3f6a1b5c/runs/e1a84c07-3d92-4b5f-a6c8-0f2d7b9e4a15",
+    "create_time": "2026-11-02T16:23:21Z",
+    "repository": "github.com/acme/app",
+    "revision": "a7f2e5c8b1d4093e6a2c7f5b8d1e4a9c3f6b0d27",
+    "pull_request": "https://github.com/acme/app/pull/122",
+    "trigger": "presubmit",
+    "phase": "DONE",
+    "outcome": "PASSED"
+  }
+]
+```
 
 ## Start and stop runs {#start-and-stop-runs}
 
@@ -465,27 +615,6 @@ chainctl checks explain [DIR] [--raw]
 | `--raw` | Prints check names, commands, and other text from your repository as they are, including escape sequences, even on a terminal. |
 
 If Chainguard Checks would refuse the configuration, the command prints each problem with its file and position, and exits with `1`. With `-o json`, it prints the resolved configuration, or the problems when it's refused.
-
-### chainctl checks migrate {#chainctl-checks-migrate}
-
-Drafts a `.chainguard/ci/migrated.yaml` file from your repository's GitHub Actions workflows that run on `pull_request`. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/) for how to review the draft.
-
-```
-chainctl checks migrate [PATH] [--dry]
-```
-
-`PATH` is a local clone whose `origin` remote is on github.com, the current directory by default. The `--dry` flag drafts the file and prints it, followed by a list of what the draft carried over, flagged, and ignored, without running anything.
-
-Without `--dry`, the command also tests the draft by running its checks in your organization, up to six times. These runs need a role, as described in [Access and organization](#access-and-organization), and use your organization's Checks allowance like any other run. In the first run, each check that has no `egress` list can reach any host by name, so that the command can draft its list. Chainguard Checks still refuses connections to IP addresses, private ranges, and metadata endpoints. During the beta, use `--dry` to avoid these runs.
-
-For example, to write the draft to its file:
-
-```shell
-mkdir -p .chainguard/ci
-chainctl checks migrate --dry -o json | jq -r .document > .chainguard/ci/migrated.yaml
-```
-
-With `-o json`, the command prints one object with the `repository`, `revision`, the draft's `path`, the number of `jobs` it drafted, the draft itself in `document`, and the `ledger` of what it carried over, flagged, and ignored.
 
 ### chainctl checks accept-terms {#chainctl-checks-accept-terms}
 
