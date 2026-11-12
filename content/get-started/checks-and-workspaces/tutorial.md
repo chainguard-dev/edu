@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Fix a failing check with Claude Code in a Chainguard Workspaces session"
 date: 2026-11-12T15:30:50+00:00
-lastmod: 2026-11-12T15:30:50+00:00
+lastmod: 2026-11-12T16:11:13+00:00
 linktitle: "Tutorial: Fix a failing check"
 description: "Walk the whole loop of Chainguard Checks and Chainguard Workspaces: let Claude Code change a small Go project in a session, run the checks with run-ci, open a pull request, read a failing check with chainctl checks failures, and have Claude Code fix it."
 type: "article"
@@ -100,7 +100,7 @@ chainctl develop --parent $ORGANIZATION
 
 `chainctl` creates a session, uploads your branch, and opens a shell in the session. Its output includes lines similar to the following:
 
-```
+```output
 Creating a session for . (checkout of https://github.com/acme/hello at 1efc76b9f6c4) from its own .chainguard/ci.yaml, as Ada Lovelace <ada@example.com> …
 Created acme/hello/quiet-harbor (fa101f50)
   claude: served from your Claude login held by Chainguard (ada@example.com), attached or not
@@ -153,7 +153,7 @@ run-ci
 
 The `run-ci` command runs each check in `.chainguard/ci.yaml` against the files in `/work`, including changes you haven't committed. The output looks similar to the following:
 
-```
+```output
 run-ci: checks vet, test (advisory: the gate runs the verdict on push)
 ── vet[0]: go vet ./...
 ── vet[0]: exit 0 (180ms)
@@ -197,7 +197,7 @@ chainctl checks failures
 
 The command finds the pull request's latest run for the commit you're on, and prints each failed check with the end of its output:
 
-```
+```output
 Run: instances/<organization-id>/runs/<run-id>
 Status: failed; 1 failed, 1 passed, 0 did not run
 
