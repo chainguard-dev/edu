@@ -1,10 +1,10 @@
 ---
-title: "Temporary anonymous registry (lockers.cgruser.dev)"
-linktitle: "Temporary registry"
+title: "Chainguard Lockers (lockers.cgruser.dev)"
+linktitle: "Lockers"
 type: "article"
-description: "Push and pull temporary container images with no account, no login, and no configuration. Images expire automatically."
+description: "Chainguard Lockers is a free anonymous registry for temporary container images. Push and pull with no account, no login, and no configuration. Images expire automatically."
 date: 2026-10-21T12:00:00+00:00
-lastmod: 2026-10-21T12:00:00+00:00
+lastmod: 2026-11-13T12:00:00+00:00
 draft: false
 images: []
 tags: ["Registry"]
@@ -15,7 +15,7 @@ weight: 40
 toc: true
 ---
 
-`lockers.cgruser.dev` is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
+Chainguard Lockers (`lockers.cgruser.dev`) is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
 
 > **This service is experimental.** It has no SLA, its hostname may change, and anything on it can disappear at any time. Never use it for production images, and never push anything secret: everything on this registry is publicly readable, writable, and deletable by anyone.
 
@@ -27,7 +27,7 @@ Standard OCI clients just work, because there is no auth to configure:
 # Something to push
 cat > Dockerfile <<'DOCKERFILE'
 FROM cgr.dev/chainguard/busybox:latest
-CMD ["echo", "hello from the temporary registry"]
+CMD ["echo", "hello from Lockers"]
 DOCKERFILE
 
 # Pick a random name once so build, push, and pull all agree
@@ -77,14 +77,14 @@ IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
 crane copy cgr.dev/chainguard/busybox:latest "$IMAGE"
 
 # A fresh local cluster, no registry configuration anywhere
-kind create cluster --name tmp-demo
+kind create cluster --name lockers-demo
 
 # A pod that pulls it; note: no imagePullSecrets
 kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tmp-registry-demo
+  name: lockers-demo
 spec:
   restartPolicy: Never
   containers:
@@ -96,10 +96,10 @@ EOF
 The kubelet pulls the image anonymously and the pod runs:
 
 ```
-$ kubectl describe pod tmp-registry-demo | grep Pulled
+$ kubectl describe pod lockers-demo | grep Pulled
   Normal  Pulled  1s  kubelet  Successfully pulled image "lockers.cgruser.dev/.../hello:1h" in 1.722s
 
-$ kubectl delete pod tmp-registry-demo && kind delete cluster --name tmp-demo
+$ kubectl delete pod lockers-demo && kind delete cluster --name lockers-demo
 ```
 
 The same applies to any cluster that can reach the internet: hand it the image reference and it pulls, no secrets required.
@@ -117,6 +117,6 @@ The same applies to any cluster that can reach the internet: hand it the image r
 - **Every response carries a warning.** The registry sends an [OCI `Warning` header](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#warnings) reminding you that content is anonymous and unreviewed; clients like crane display it on every push and pull.
 - **Content is not scanned or endorsed by Chainguard.** Treat anything you pull from this registry exactly as you would a file from an unknown stranger, because that is what it is.
 
-## What this registry is not
+## What Lockers is not
 
-The temporary registry is entirely separate from [Chainguard's main registry](/chainguard/containers/registry/overview/) at `cgr.dev`, and has no connection to Chainguard accounts or images. If you need secure, minimal, signed images with real support, that is what [Chainguard Containers](/chainguard/containers/overview/) are for.
+Lockers is entirely separate from [Chainguard's main registry](/chainguard/containers/registry/overview/) at `cgr.dev`, and has no connection to Chainguard accounts or images. If you need secure, minimal, signed images with real support, that is what [Chainguard Containers](/chainguard/containers/overview/) are for.
