@@ -128,8 +128,13 @@ This is the organization's default repository. Its upstream fallback follows the
 
 ## Turn upstream fallback on or off
 
-Each new repository starts with one upstream registry for JavaScript: the
-public npm Registry, listed as `npmjs`, enabled.
+Every repository lists the public npm Registry as `npmjs`. If your
+organization's Libraries entitlement includes upstream fallback, a new
+repository starts with `npmjs` enabled. If it doesn't, `npmjs` starts disabled,
+upstream fallback stays off whatever the list says, and `describe` shows
+`Upstream fallback: off (the organization's Libraries entitlement does not include upstream packages, and every upstream registry is disabled)`.
+Enabling `npmjs` turns upstream fallback on only when your entitlement
+includes it.
 
 To view a repository's upstream registries, run the following command:
 
@@ -162,8 +167,7 @@ builds, and returns HTTP `404` for packages that Chainguard hasn't built. With
 upstream fallback on, the repository serves both.
 
 You can enable, disable, and reorder the upstream registries that Chainguard
-provides. You can't add your own registries. Starter organizations can't change
-the list.
+provides. You can't add your own registries.
 
 The default repository has no upstream list of its own. Its upstream fallback
 follows your organization's Libraries entitlement. If you run `upstreams list`
@@ -204,7 +208,7 @@ To point npm at a repository and write a pull token in one step, run the
 following command:
 
 ```shell
-chainctl auth configure npm --pull-token --parent example.com/prod --repo-name prod
+chainctl auth configure npm --pull-token --parent example.com/prod
 ```
 
 The command writes a `.npmrc` file that contains the following lines:
