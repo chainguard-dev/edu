@@ -26,6 +26,7 @@ To complete this guide, you need the following:
 * An Entra ID account with Global Administrator or Application Administrator permissions. Without these, you can't register applications or assign users to them.
 * An Entra ID P1 or P2 license. The **Automatic** provisioning mode this guide uses requires one.
 * A workforce Entra ID tenant. External ID (CIAM) tenants use a different application model, and this guide doesn't cover them.
+* Access to the Chainguard hosts listed in [Network requirements](/chainguard/containers/registry/network-requirements/), if your network restricts outbound traffic. Users can't log in to the Console without it.
 
 ## Register the Entra ID application for SSO
 
