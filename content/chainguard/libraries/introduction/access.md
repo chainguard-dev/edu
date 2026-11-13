@@ -141,20 +141,16 @@ Build tools get session tokens from `chainctl` in the following ways:
 
   Run the commands again when the token expires.
 
-To reduce how often you need to log in again on a workstation, install the
-[token refresh
-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/):
+You don't need a background service to keep session tokens current. When a
+cached token expires, `chainctl auth token` renews it from the cached refresh
+token. The Python keyring provider runs that command, so it gets the renewed
+token too. A token that was already copied into a file or an environment
+variable, such as `.npmrc`, the NuGet configuration file, or
+`CHAINGUARD_JAVA_TOKEN`, doesn't update, so re-run the command that wrote it.
 
-```shell
-chainctl auth configure-refresh-service install --audience=libraries.cgr.dev
-```
-
-The refresh service renews the `libraries.cgr.dev` token in the `chainctl`
-token cache, which the Python keyring provider and `chainctl auth token` read.
-It only renews a token that's already in the cache, so log in with `chainctl
-auth login --audience=libraries.cgr.dev` first. It doesn't update a token that
-was already copied into a file or an environment variable, such as `.npmrc`,
-the NuGet configuration file, or `CHAINGUARD_JAVA_TOKEN`.
+If you installed the token refresh service in the past, it's deprecated, and
+you can remove it with [`chainctl auth configure-refresh-service
+uninstall`](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/).
 
 <a id="credential-guidelines"></a>
 
