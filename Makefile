@@ -5,9 +5,9 @@ arch := $(shell uname -m)
 apko-build:
 	docker run --rm -v $$PWD:/work -it cgr.dev/chainguard/apko:latest build \
 	--arch              $(arch) \
-	/work/$(cfg) academy.local /work/academy.tar
-	docker load < academy.tar
-	rm academy.tar
+	/work/$(cfg) docs.local /work/docs.tar
+	docker load < docs.tar
+	rm docs.tar
 
 dev-container:
 ifeq ("$(arch)","x86_64")
@@ -18,7 +18,7 @@ ifeq ("$(arch)","x86_64")
 	-v $$PWD:/home/inky/ \
 	-p 8080:8080 -p 1313:1313 \
 	-it --user root \
-	academy.local:latest-amd64
+	docs.local:latest-amd64
 else
 	docker run --rm \
 	-v $$PWD/config/entrypoint.sh:/entrypoint.sh \
@@ -27,7 +27,7 @@ else
 	-v $$PWD:/home/inky/ \
 	-p 8080:8080 -p 1313:1313 \
 	-it --user root \
-	academy.local:latest-$(arch)
+	docs.local:latest-$(arch)
 endif
 
 chaindocs:

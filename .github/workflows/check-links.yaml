@@ -1,4 +1,4 @@
-name: Check links on Academy
+name: Check links on Chainguard Docs
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - name: 'Github Actions Runner'
-        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: audit
 
@@ -75,21 +75,26 @@ jobs:
       - name: Create/Update GitHub Issue
         env:
           GH_TOKEN: ${{ github.token }}
+          ISSUE_TITLE: "[chainlink] check links in the docs"
         run: |
+          # Before the docs moved to www.chainguard.dev/docs, the issue was
+          # titled "[chainlink] check links on edu.chainguard.dev". Match that
+          # title too, so the next run renames the issue instead of opening a
+          # second one.
           existing=$(gh issue list --json number,title |\
-            jq -r '.[] | select(.title == "[chainlink] check links on edu.chainguard.dev") | .number')
+            jq -r --arg title "$ISSUE_TITLE" '.[] | select(.title == $title or .title == "[chainlink] check links on edu.chainguard.dev") | .number')
           if [ -z "${existing}" ]; then
             gh issue create \
-              --title "[chainlink] check links on edu.chainguard.dev" \
+              --title "$ISSUE_TITLE" \
               --assignee SharpRake,s-stumbo \
               --label automated \
               --body-file issue-body.txt
           else
-            gh issue edit "$existing" --body-file issue-body.txt
+            gh issue edit "$existing" --title "$ISSUE_TITLE" --body-file issue-body.txt
           fi
 
       - name: Post failure notice to Slack
-        uses: step-security/action-slack-notify@e4cdee14a905d9da46ba47ad9309704407d8cd79 # v2.4.0
+        uses: chainguard-actions/rtCamp-action-slack-notify@bf512f517ddbc637a545627d27bf7453b3e48452 # v2.4.1
         if: ${{ failure() }}
         env:
           SLACK_ICON: http://github.com/chainguard-dev.png?size=48

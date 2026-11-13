@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -65,6 +65,24 @@ counts entries Chainguard built from source, so a package that is simply not
 built from source is not a defect, and gating a build on the percentage is not
 the intended use. Per-entry results are available with "-o json --detailed".
 
+A NuGet package (.nupkg) is verified by the Chainguard package signature it
+carries: an author signature under Chainguard's code-signing certificate, with a
+timestamp, made for that exact package. The check reads only the package, so it
+needs no token and no network. A remote reference to a .nupkg (remote: or
+jfrog:) is downloaded and then checked the same way, with no Chainguard token.
+A jfrog: download reads its API key from ARTIFACT_API_KEY or, if that is unset,
+JFROG_API_KEY. A directory of .nupkg files is checked the same way, package by
+package, and so is a NuGet global packages folder (~/.nuget/packages, or any
+folder with its layout). In a global packages folder, the .nupkg NuGet keeps for
+each package is checked, and then the files NuGet extracted beside it are
+compared with the package's contents. A file that is missing, changed, or not in
+the package makes the package not verified. NuGet's own files (.nupkg.metadata
+and the .sha512 hash) are not compared, and a nuspec or IntelliSense XML file
+that the restore left out is not counted as missing. A package with no .nupkg
+kept, such as one restored from a fallback folder, is reported as unchecked. A
+folder that also holds other artifacts outside its package directories is
+checked as a plain directory, so that every artifact in it is checked.
+
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
@@ -90,6 +108,12 @@ chainctl libraries verify [path...] [flags]
   # Analyze a local Python virtual environment
   chainctl libraries verify ./venv/
 
+  # Analyze a NuGet package
+  chainctl libraries verify Newtonsoft.Json.13.0.3.nupkg
+
+  # Analyze the NuGet packages restored to the global packages folder
+  chainctl libraries verify ~/.nuget/packages
+
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
 
@@ -102,6 +126,10 @@ chainctl libraries verify [path...] [flags]
   # Analyze remote artifact
   chainctl libraries verify remote:example.com/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
 
+  # Analyze a NuGet package in a JFrog repository (reads ARTIFACT_API_KEY,
+  # or JFROG_API_KEY if that is unset)
+  chainctl libraries verify jfrog:example.jfrog.io/artifactory/nuget-remote/polysharp.1.15.0.nupkg
+
   # Verify a lockfile without installing anything
   chainctl libraries verify package-lock.json
   chainctl libraries verify pnpm-lock.yaml
@@ -109,12 +137,15 @@ chainctl libraries verify [path...] [flags]
   # Per-entry results for machine consumption
   chainctl libraries verify package-lock.json -o json --detailed
 
-  # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
-  chainctl libraries verify "$(npm config get cache)"
+  # Verify npm cache (auto-detected by _cacache/index-v5/ structure). Ask npm
+  # from your home directory: inside an untrusted project, its configuration
+  # can choose which npm runs.
+  chainctl libraries verify "$(cd ~ && npm config get cache)"
 
   # Verify pnpm store (auto-detected; supports pnpm 10+ index dirs and the
-  # pnpm 11 SQLite index, and the versioned path reported by newer pnpm)
-  chainctl libraries verify "$(pnpm store path)"
+  # pnpm 11 SQLite index, and the versioned path reported by newer pnpm).
+  # Ask pnpm from your home directory, as with npm.
+  chainctl libraries verify "$(cd ~ && pnpm store path)"
 
   # Verify Yarn Classic (v1.x) cache
   chainctl libraries verify yarn:

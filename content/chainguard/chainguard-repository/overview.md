@@ -8,7 +8,7 @@ lead: "The Chainguard Repository is a single, policy-aware endpoint for all arti
 description: "Chainguard Repository overview"
 type: "article"
 date: 2026-03-16T08:48:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 weight: 10
 ---
@@ -43,14 +43,14 @@ See each artifact type's documentation for authentication and configuration deta
 
 The Chainguard Repository includes a policy engine that lets you define rules governing which artifacts can be consumed and under what conditions. Policies can be configured in the Chainguard Console or with `chainctl`, and are enforced automatically across your environment.
 
-For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
+For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the policy-governed fallback to public registries. Available policies include:
 
-* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.
-* **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown is configurable (0 to 3650 days) with a default of 7 days. It is applied globally across all packages to prevent dependency resolution errors.
+* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry. New Libraries entitlements have upstream fallback on by default.
+* **Cooldown**: Block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown only applies when upstream fallback is enabled. It then applies to Chainguard-built and upstream packages alike, to prevent dependency resolution errors. The cooldown defaults to 7 days, and your plan sets the range you can configure, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
 All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
-> **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
+> **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and applies to Chainguard-built and upstream packages alike, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
 Refer to [Libraries policies](/chainguard/chainguard-repository/library-policies/) for more information.
 

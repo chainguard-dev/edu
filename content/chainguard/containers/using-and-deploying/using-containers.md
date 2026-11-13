@@ -11,7 +11,7 @@ type: "article"
 description: "Learn how to use Chainguard Containers in your applications, including pulling images, extending base images, and migrating from traditional container images"
 lead: "Chainguard Containers provides more secure, minimal base images that work with standard container tools like Docker and Kubernetes, making migration straightforward while improving security posture."
 date: 2022-09-01T08:49:31+00:00
-lastmod: 2026-10-08T14:39:07+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -25,7 +25,7 @@ In this guide, you'll find general instructions on how to get started using Chai
 
 ## Quickstart: Using Chainguard Containers
 
-To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, refer to [Node](https://images.chainguard.dev/directory/image/node/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images)).
+To get up and running with Chainguard Containers, you can use `docker` commands to pull and run images. For each specific image, you'll find this guidance on its overview page (for example, refer to [Node](https://images.chainguard.dev/directory/image/node/overview), [Python](https://images.chainguard.dev/directory/image/python/overview), or [NGINX](https://images.chainguard.dev/directory/image/nginx/overview)).
 
 ### Pulling a Chainguard Container
 
@@ -49,7 +49,7 @@ You can also add a relevant tag that you have access to. In the case of the publ
 docker pull cgr.dev/chainguard/git:latest
 ```
 
-You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Containers Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images).
+You may use tags to pull a specific version of a software like Git, or programming language version in a catalog you have access to. The Chainguard Containers Directory has tag history pages for each image, for example, the [Git Image Tags History](https://images.chainguard.dev/directory/image/git/versions), [PHP Image Tags History](https://images.chainguard.dev/directory/image/php/versions), and [JDK Image Tags History](https://images.chainguard.dev/directory/image/jdk/versions).
 
 You can learn about the Chainguard Containers tags history in our guide about [Using the Tag History API](/chainguard/containers/reference/using-the-tag-history-api/).
 
@@ -91,9 +91,9 @@ Specifying the platform will ensure that you're using the desired container imag
 
 ### Running a Chainguard Container
 
-You can run a Chainguard container image with the `docker run` command. Note that because Chainguard's container images are minimalist, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
+You can run a Chainguard container image with the `docker run` command. Note that because Chainguard's container images are minimalist, most of them ship without a shell or package manager. If you would like a shell, you can often use the development image, which is tagged as `:latest-dev`. For example, [Python](https://images.chainguard.dev/directory/image/python/overview) has its development variant at `cgr.dev/chainguard/python:latest-dev`. Otherwise, you can work with Chainguard Containers in way similar to other images.
 
-Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images) to check its version.
+Let's run the [Cosign Chainguard Container](https://images.chainguard.dev/directory/image/cosign/overview) to check its version.
 
 ```sh
 docker run --rm -t cgr.dev/chainguard/cosign:latest version
@@ -119,7 +119,7 @@ Compiler:      gc
 Platform:      linux/arm64
 ```
 
-If you would like to review a filesystem, you can use the [wolfi-base image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-how-to-use-chainguard-images):
+If you would like to review a filesystem, you can use the [wolfi-base image](https://images.chainguard.dev/directory/image/wolfi-base/overview):
 
 ```sh
 docker run -it cgr.dev/chainguard/wolfi-base

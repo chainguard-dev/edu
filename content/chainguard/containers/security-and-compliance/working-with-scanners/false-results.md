@@ -14,7 +14,7 @@ description: "An overview of the formation of false positive and false negative 
 lead: "An overview of the formation of false positive and false negative vulnerability results in container image scanners"
 type: "article"
 date: 2023-09-14T16:59:04+00:00
-lastmod: 2026-10-15T14:26:56+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 contributors: ["Michelle McAveety"]
 draft: false
 tags: ["CVE", "Overview", "Conceptual"]
@@ -50,11 +50,11 @@ Due to the complexity of cross-referencing image components against databases, s
 
 Vulnerability scanners may be unable to consistently detect container components, causing the results of scans to be incomplete or inaccurate. Scanners often rely on package managers and package metadata to catalog the parts of a container. If a scanner cannot collect complete information about package metadata the results of the scan may not reflect the true contents of the image. For example, if a package in a container is not tracked by a package manager, it may go undetected, so vulnerabilities contained within are not reported.
 
-For an in-depth discussion of how scanners fail to collect certain information, we encourage you to check out our [blog post on "Software Dark Matter"](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+For an in-depth discussion of how scanners fail to collect certain information, we encourage you to check out our [blog post on "Software Dark Matter"](https://www.chainguard.dev/unchained/software-dark-matter-is-the-enemy-of-software-transparency).
 
 ### Program scope
 
-Some reported vulnerabilities may be falsely positive because they are detected outside of the scope of your container images. For example, a container may have packages in it which have vulnerabilities, though the [specific vulnerable functions](https://www.chainguard.dev/unchained/stemming-the-tide-of-false-positive-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) may not be called or reachable by your images. As a result, these vulnerabilities may pop up in your scans despite your program not interacting with their vulnerable sources.
+Some reported vulnerabilities may be falsely positive because they are detected outside of the scope of your container images. For example, a container may have packages in it which have vulnerabilities, though the [specific vulnerable functions](https://www.chainguard.dev/unchained/stemming-the-tide-of-false-positive-vulnerabilities) may not be called or reachable by your images. As a result, these vulnerabilities may pop up in your scans despite your program not interacting with their vulnerable sources.
 
 It is worth noting that these false positive vulnerabilities could impact you if other vulnerabilities are leveraged to access them, so they are not negligible. However, such a situation arises infrequently as a result of the exploitation of other vulnerabilities, which are first in a line of defense.
 
@@ -120,7 +120,7 @@ Unfortunately, there is no single way to stop false positives and false negative
 
 An SBOM, or [Software bill of materials](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom), is a helpful document that catalogs the packages and components of your software in a machine-readable format. Using an SBOM can improve your vulnerability scans as package information is stored in one place, so scanners don't have to hunt down and risk missing component information throughout your software. There are [different ways to generate an SBOM](https://www.chainguard.dev/supply-chain-security-101/what-is-an-sbom) in order to improve their comprehensiveness and utility.
 
-To address the inconsistencies caused by software vendors using proprietary version naming schemes, adopting the [purl specification](https://github.com/package-url/purl-spec) can help. A purl, or package URL, aims to standardize versioning by outlining a convention that incorporates pertinent package information in every identifier. Using purls can [reduce the number of false positives which surface](https://www.chainguard.dev/unchained/a-purl-of-wisdom-on-sboms-and-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) by making it easier for scanners to align version information between data sources.
+To address the inconsistencies caused by software vendors using proprietary version naming schemes, adopting the [purl specification](https://github.com/package-url/purl-spec) can help. A purl, or package URL, aims to standardize versioning by outlining a convention that incorporates pertinent package information in every identifier. Using purls can [reduce the number of false positives which surface](https://www.chainguard.dev/unchained/a-purl-of-wisdom-on-sboms-and-vulnerabilities) by making it easier for scanners to align version information between data sources.
 
 [Vulnerability Exploitability eXchange (VEX) [PDF]](https://www.cisa.gov/sites/default/files/2023-01/VEX_Use_Cases_Aprill2022.pdf) documents can provide helpful insight about the status of software vulnerabilities in a product. VEX documents allow developers to report the exploitability status of a vulnerability in a product through the use of identifiers. Using VEX can streamline the triage and remediation process by making it simpler to determine when action is needed for a given vulnerability.
 
@@ -130,11 +130,11 @@ One way to leverage VEX documents is through [OpenVEX](https://github.com/openve
 
 A primary cause of large vulnerability counts reported in scanners is the dead weight caused by unnecessary dependencies. Many popular container images contain hundreds of packages, each with their own potential to introduce vulnerabilities, both true and false positives. Having so much noise to sift through draws out the vulnerability management process.
 
-[Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard's container images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
+[Chainguard Containers](https://www.chainguard.dev/chainguard-images), built on the [Wolfi un-distro](/open-source/wolfi/), can help you reduce your CVE count dramatically by keeping things minimal. By bundling only what is necessary to run the image, Chainguard's container images are hardened and lightweight in comparison to their counterparts. To learn more about how Chainguard Containers can help you achieve low (or zero!) CVEs in your containers, check out our [documentation](/chainguard/containers/overview/).
 
 ### Updating and rebuilding images
 
-Updating your container images to utilize recent stable package releases can help reduce the number of vulnerabilities found in your images. Research from [Chainguard Labs](https://www.chainguard.dev/labs?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) has shown that [popular container images accumulate about one CVE per day](https://www.chainguard.dev/unchained/enforce-against-vulnerability-sprawl-with-up-to-date-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) when not updated. In many cases, updating packages and rebuilding your images to incorporate them can readily resolve numerous vulnerabilities with released fixes. This may resolve false positive vulnerabilities outside of your program scope, allowing you to focus on the true positives which still remain.
+Updating your container images to utilize recent stable package releases can help reduce the number of vulnerabilities found in your images. Research from [Chainguard Labs](https://www.chainguard.dev/labs) has shown that [popular container images accumulate about one CVE per day](https://www.chainguard.dev/unchained/enforce-against-vulnerability-sprawl-with-up-to-date-images) when not updated. In many cases, updating packages and rebuilding your images to incorporate them can readily resolve numerous vulnerabilities with released fixes. This may resolve false positive vulnerabilities outside of your program scope, allowing you to focus on the true positives which still remain.
 
 ## Learn more
 
@@ -142,4 +142,4 @@ With false results mixed into your scans, triaging and addressing true positive 
 
 In this article, you learned how false results from your vulnerability scanners can occur, and how they can impact your development workflow. Additionally, you explored various ways you can improve the accuracy of your scanner through the application of tools like VEX, rebuilding your images, and choosing a base image suitable for your applications.
 
-To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+To learn more about reducing false positives and negatives in your images, you can check out our [collection of articles on SBOMs and VEX](/open-source/sbom/), read about [selecting a base image](https://www.chainguard.dev/supply-chain-security-101/selecting-a-base-container-image) for your applications, or discover how Chainguard Containers can help you [reach zero CVEs in your containers](https://www.chainguard.dev/chainguard-images).

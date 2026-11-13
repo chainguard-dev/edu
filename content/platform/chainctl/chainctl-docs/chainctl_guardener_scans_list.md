@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl guardener scans list"
 slug: chainctl_guardener_scans_list
 url: /platform/chainctl/chainctl-docs/chainctl_guardener_scans_list/
@@ -31,7 +31,7 @@ chainctl guardener scans list [flags]
 
 ```
   -o, --output string   Output format: table or json. (default "table")
-      --parent string   Name or UIDP of the Chainguard group whose scans to list. Prompts interactively if omitted.
+      --parent string   Name or UIDP of the Chainguard group whose scans to list. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP). Prompts interactively if neither is set.
       --repo string     Only list scans of this repository (a github.com URL or "owner/repo").
 ```
 

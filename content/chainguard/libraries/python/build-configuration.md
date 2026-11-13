@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-10-30T19:27:59+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -175,7 +175,7 @@ Run the command in your project directory to auto-detect the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify a lockfile path directly:
 

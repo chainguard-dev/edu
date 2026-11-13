@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop mcp"
 slug: chainctl_develop_mcp
 url: /platform/chainctl/chainctl-docs/chainctl_develop_mcp/
@@ -15,11 +15,11 @@ Serve tools for development sessions to an MCP client over stdio.
 
 ### Synopsis
 
-Serve the develop session tools over the Model Context Protocol on stdin and stdout, for an agent such as Claude Code to read, edit and run commands in your sessions:
+Serve the develop session tools over the Model Context Protocol on stdin and stdout, for an agent such as Claude Code to manage your sessions and read, edit and run commands in them:
 
   claude mcp add develop -- chainctl develop mcp
 
-The tools are exec, wait, kill, read, write and edit. Each takes a session parameter, a session name or short id, resolved in --parent as the other develop verbs resolve it. Paths are absolute in the guest or relative to /work. write and edit refuse a file that changed since this server last read it. Sessions are created, listed and deleted with the other develop verbs.
+The tools are exec, wait, kill, read, write, edit, upload (a file from this machine) and download (a file to this machine); service_start, service_list and service_stop (long-lived processes, in a session with agent contexts); session_create, session_list, session_rename, session_extend and session_delete; and question_list, question_get, question_answer and question_dismiss (the questions agents in your sessions ask, answered as you). A session parameter is a session name or short id, resolved in --parent as the other develop verbs resolve it. Paths are absolute in the guest or relative to /work. write and edit refuse a file that changed since this server last read it. session_delete takes the session's full name again in confirm_name. Nothing is asked on the terminal: a choice the verbs would prompt for fails with the candidates instead.
 
 Run long builds and tests with the exec tool's run_in_background, then wait for them: the command runs detached in the guest, so the server's other calls go on beside it. A 'chainctl develop exec' from Bash instead holds the guest for the whole command, and another API replica's calls queue behind it.
 

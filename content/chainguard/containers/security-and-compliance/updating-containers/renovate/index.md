@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-10-15T14:26:56+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -638,7 +638,7 @@ DEBUG: found labels in manifest (repository=local)
          "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
          "org.opencontainers.image.created": "2024-12-04T19:55:37Z",
          "org.opencontainers.image.source": "https://github.com/chainguard-images/images-private/tree/main/images/static",
-         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-renovate",
+         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview",
          "org.opencontainers.image.vendor": "Chainguard"
        }
 ```

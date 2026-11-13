@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Workspaces, including sign-up failures, permission errors, sessions that won't open, Claude Code errors, failed pushes, and usage limits."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-10-22T12:51:41+00:00
+lastmod: 2026-11-10T18:15:59+00:00
 draft: false
 tags: ["Chainguard Workspaces", "Troubleshooting"]
 images: []
@@ -30,7 +30,7 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 If `chainctl develop init` stops with an error, find its message in the following list. Replace `$ORGANIZATION` with the name of your Chainguard organization.
 
-- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with Google, GitHub, or an email address and password, using a verified email address. To sign in with a password, first run `chainctl config set default.social-login email`, as described in [Sign up with chainctl develop init](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init). A GitLab sign-in can't create a Starter organization. If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
+- `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with Google, GitHub, GitLab, or an email address and password, using a verified email address. To sign in with a password, first run `chainctl config set default.social-login email`, as described in [Sign up with chainctl develop init](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init). If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access`, which emails your request to everyone with the `owner` or `limited_owner` role in it. The link in that email invites you with the `viewer` role, which can't open sessions, so to use Chainguard Workspaces, ask for an invite with a role that can, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 - `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent $ORGANIZATION`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
 - `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent $ORGANIZATION`.
@@ -239,6 +239,14 @@ curl -s "http://github/.chainguard/access?repo=$OWNER/$REPO"
 ```
 
 On your laptop, `chainctl develop github status` shows which accounts the checkout in your current directory still needs the app installed on.
+
+## A tool in a session fails with a certificate error {#a-tool-in-a-session-fails-with-a-certificate-error}
+
+If HTTPS requests from a session fail with a certificate error, such as `self-signed certificate in certificate chain` or `PKIX path building failed`, the tool that made the request doesn't trust the certificate authority that the session uses for its HTTPS connections. Refer to [Network access](/chainguard/workspaces/session-environment/#network-access). This happens in the following cases:
+
+- The tool keeps its own list of trusted certificates and ignores `SSL_CERT_FILE` and the other variables that the session sets. Point the tool at the system bundle, `/etc/ssl/certs/ca-certificates.crt`, which includes the certificate authority.
+- `SSL_CERT_FILE`, or another variable that names a certificate bundle, names a different file, because a script or your shell configuration sets it. Unset the variable, or make sure that the file it names includes the certificate authority.
+- The tool pins the host's certificate. A session has no setting that exempts a host, so the tool can't connect to that host from a session.
 
 ## A session runs out of space or memory {#a-session-runs-out-of-space-or-memory}
 

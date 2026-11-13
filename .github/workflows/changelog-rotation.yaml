@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Github Actions Runner
-        uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -96,7 +96,7 @@ jobs:
           cat > issue-body.md <<'EOF'
           It's your week on the changelog rotation. The page is
           [`content/chainguard/changelog.md`](https://github.com/chainguard-dev/edu/blob/main/content/chainguard/changelog.md),
-          published at <https://edu.chainguard.dev/chainguard/changelog/>.
+          published at <https://www.chainguard.dev/docs/chainguard/changelog>.
 
           ## What to do
 

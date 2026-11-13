@@ -4,7 +4,7 @@ linktitle: "chainctl develop reference"
 description: "Reference for the chainctl develop commands that open and manage Chainguard Workspaces sessions, with their flags, output formats, exit codes, and the roles they need."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-10-22T12:51:41+00:00
+lastmod: 2026-11-12T13:41:48+00:00
 draft: false
 tags: ["Chainguard Workspaces", "chainctl", "Reference"]
 images: []
@@ -17,9 +17,7 @@ weight: 65
 
 The `chainctl develop` command opens and manages Chainguard Workspaces sessions. This page lists each `chainctl develop` command, with its flags, output formats, exit codes, and the roles it needs. For how the commands fit together, refer to [Manage sessions](/chainguard/workspaces/manage-sessions/).
 
-{{% blurb/hidden-chainctl-commands %}}
-
-To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`. If `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+The generated [`chainctl develop` reference](/platform/chainctl/chainctl-docs/chainctl_develop/) has the help text of the latest `chainctl` release. If this page and the generated reference disagree about a command's flags, the generated reference is right. To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`. If your installation of `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
 
@@ -32,6 +30,8 @@ The examples on this page use `$ORGANIZATION` for the name of your Chainguard or
 | [`chainctl develop rename`](#chainctl-develop-rename) | Renames a session. |
 | [`chainctl develop delete`](#chainctl-develop-delete) | Deletes a session. |
 | [`chainctl develop check`](#chainctl-develop-check) | Runs your repository's checks in a session. |
+| [`chainctl develop exec`](#chainctl-develop-exec) | Runs one command in a session. |
+| [`chainctl develop mcp`](#chainctl-develop-mcp) | Serves tools for your sessions to a coding agent on your laptop. |
 | [`chainctl develop creds`](#chainctl-develop-creds) | Shows or changes what a session can reach. |
 | [`chainctl develop github`](#chainctl-develop-github) | Connects your GitHub account to the sessions you create. |
 | [`chainctl develop claude`](#chainctl-develop-claude) | Lets Chainguard hold a Claude login for your sessions. |
@@ -137,7 +137,7 @@ This example deletes `app/scratch` without asking:
 chainctl develop delete app/scratch --yes --parent $ORGANIZATION
 ```
 
-## chainctl develop check
+## chainctl develop check {#chainctl-develop-check}
 
 Runs the checks in a session's working tree, in the session's own environment, and streams each step's output to your terminal. If the session is parked, `chainctl` resumes it first. The command uses the same runner as the `run-ci` command in a session.
 
@@ -157,6 +157,52 @@ chainctl develop check app/quiet-harbor --check test --parent $ORGANIZATION
 ```
 
 For which checks the command skips, and how its result compares with a pull request's, refer to [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+
+## chainctl develop exec {#chainctl-develop-exec}
+
+Runs one command in a session, without a terminal, and exits with the command's exit code. If the session is parked, `chainctl` resumes it first.
+
+```
+chainctl develop exec SESSION [-i] [--cwd DIR] [--timeout DURATION] -- CMD [ARGS...]
+```
+
+The command runs as you give it, without a shell, so for pipes or other shell syntax, run `sh -c '...'`. Its standard output and standard error reach your terminal unchanged. For a session opened from a local directory, attach to it once before you use `exec`, so that its files are synced.
+
+| Flag | Description |
+| ---- | ----------- |
+| `-i`, `--stdin` | Sends your standard input to the command, up to 16 MiB. Without it, the command's standard input is empty. |
+| `--cwd` | The directory the command runs in: an absolute path, or a path relative to `/work`. Defaults to `/work`. |
+| `--timeout` | Stops the command after this long, such as `10m`, and exits with `124`. Without it, or with `0`, the command has no time limit. |
+
+Stopping `chainctl`, such as with Control+C, stops the command too. While the command runs, other `exec` calls and MCP tools that use the session wait for it, so for a long build that an agent runs, use the MCP server's background option, described in [`chainctl develop mcp`](#chainctl-develop-mcp).
+
+This example runs the tests in `app/quiet-harbor`:
+
+```shell
+chainctl develop exec app/quiet-harbor --parent $ORGANIZATION -- go test ./...
+```
+
+This example copies `notes.md` from your laptop into the session's `/work` directory:
+
+```shell
+chainctl develop exec app/quiet-harbor -i --parent $ORGANIZATION -- sh -c 'cat > notes.md' < notes.md
+```
+
+## chainctl develop mcp {#chainctl-develop-mcp}
+
+Serves tools for your sessions to a coding agent on your laptop, such as Claude Code, over the Model Context Protocol (MCP). With them, the agent can run commands and read and edit files in a session without attaching to it.
+
+```
+chainctl develop mcp
+```
+
+The server talks to the agent on standard input and standard output, so the agent starts it. To add it to Claude Code, run the following command:
+
+```shell
+claude mcp add develop -- chainctl develop mcp
+```
+
+Each tool takes a session, by name or short ID, and finds it as other `chainctl develop` commands do, in the organization that `--parent` names. Paths are absolute in the session, or relative to `/work`. An agent can run a long build or test in the background and wait for it, so the server's other tools keep working in the meantime. The tools change between `chainctl` releases. To find the ones that your release serves, run `chainctl develop mcp --help`.
 
 ## chainctl develop creds
 
@@ -311,6 +357,7 @@ A detached session that Chainguard keeps running because it's busy can be `attac
 | ------- | --------- |
 | `chainctl develop` | When you exit the session's shell, such as with `exit`, the shell's exit status. Otherwise, `0` when you detach and `1` when the command fails. |
 | `chainctl develop check` | `0` when every check passes, and `1` when a check fails or the checks can't run. |
+| `chainctl develop exec` | The command's exit code. `124` when `--timeout` stopped the command, and `255` when `chainctl` can't tell how the command ended, such as when it can't reach the session. |
 | Every other command | `0` when the command succeeds, and `1` when it fails. |
 
 ## Roles {#roles}
@@ -319,13 +366,13 @@ What you can do with `chainctl develop` depends on your role in the session's or
 
 | Commands | Roles |
 | -------- | ----- |
-| `chainctl develop`, `list`, `rename`, `delete`, `check`, `creds`, `github`, `claude`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
+| `chainctl develop`, `list`, `rename`, `delete`, `check`, `exec`, `mcp`, `creds`, `github`, `claude`, and `policy describe` | `owner`, `limited_owner`, or `sandbox.user` |
 | `accept-terms` | `owner` or `limited_owner` |
 | `list --all` and `policy set` | `owner` |
 
 The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with an invite, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+In a session, your role also limits what your Chainguard identity can do. For example, the Chainguard MCP servers need the `mcp.tool.call` capability, which the `sandbox.user` role doesn't include. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
 ## Environment variables and configuration
 

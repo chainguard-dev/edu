@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-10-27T14:11:46+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -48,7 +48,7 @@ Before you begin, you'll need:
 
 You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
 
-Once your organization is entitled to JavaScript, enable upstream fallback, which includes a default 7-day cooldown, by running:
+New JavaScript entitlements have upstream fallback on by default, with a default 7-day cooldown. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
@@ -428,7 +428,7 @@ Run the command in the directory containing the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
@@ -715,7 +715,7 @@ chainctl libraries verify ./node_modules
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="javascript" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 

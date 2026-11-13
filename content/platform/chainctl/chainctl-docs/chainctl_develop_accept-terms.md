@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop accept-terms"
 slug: chainctl_develop_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_develop_accept-terms/
@@ -22,9 +22,16 @@ An organization owner runs this once per organization. Re-running after
 acceptance is a no-op. --parent names the organization; without it, the
 default.group config value is used, or you pick one.
 
-By continuing, you agree that your use of Chainguard Workspaces is subject to the Secured Platform Terms (https://www.chainguard.dev/legal/secure-platform-terms) as a Secured Platform Offering.
+For a Starter organization, it prints what the Starter plan includes before
+the terms, even with --yes.
 
-Chainguard Workspaces is a Technology Preview as described in the Chainguard Master Service and License Agreement (chainguard.dev/legal/master-service-and-license-agreement). Technology Previews are pre-release features, are provided "AS IS" without warranty of any kind, and are not recommended for production use. Do not use a Technology Preview to process Personal Data or any data subject to legal or regulatory compliance requirements unless specifically authorized. Chainguard may modify, suspend, or discontinue a Technology Preview at any time without notice. If you are accepting on behalf of an organization, you represent that you have authority to bind that organization to the Secured Platform Terms and the Master Service and License Agreement.
+By purchasing or subscribing to any products, services or other offerings ("Selected Offerings") that Chainguard, Inc. ("Chainguard") sells through its self-service purchase functionality ("Chainguard Self-Service"), you agree:
+
+(a) to be bound by Chainguard's Master Service and License Agreement (https://www.chainguard.dev/legal/master-service-and-license-agreement), unless a separate and binding agreement between you and Chainguard is in effect and governs the Selected Offerings, in which case that agreement applies, (in either case, the "Agreement");
+(b) the applicable descriptions and related terms for the Selected Offerings available at Product and Services Offerings (https://www.chainguard.dev/legal/offerings-overview);
+(c) Selected Offerings made by you via Chainguard Self-Service constitutes an Order under the Agreement, the payment for which will be processed by our third party payment processor in accordance with Chainguard's Privacy Notice (https://www.chainguard.dev/legal/privacy-notice). Chainguard does not store your financial account information on our systems; however, we may have access to, and retain, subscriber information we receive from through our third-party payment processors.
+
+If Customer does not agree to these terms, Customer may not access or use any Product, Service, or Technology Preview.
 
 Where an interactive terminal isn't available, pass --yes.
 

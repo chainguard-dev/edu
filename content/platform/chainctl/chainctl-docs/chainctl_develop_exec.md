@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop exec"
 slug: chainctl_develop_exec
 url: /platform/chainctl/chainctl-docs/chainctl_develop_exec/
@@ -19,7 +19,7 @@ Run one command in a session's guest without a terminal and exit with its exit c
 
 CMD and its arguments run as given, with no shell; pass sh -c '...' for one. The command runs in --cwd, /work by default. With -i (--stdin) this process's stdin, read to its end (at most 16 MiB), is the command's stdin; without it the command's stdin is empty, so a shell loop's input is never consumed. The command's stdout and stderr arrive on this process's stdout and stderr, byte for byte.
 
-The exit code is the command's, 124 when --timeout killed it, and 255 when the command's outcome is unknown: the session could not be found or reached, or the call was refused or cut off. Interrupting this process, or --timeout passing, kills the command's process group; anything it started with setsid keeps running. A parked session is resumed first, and a session busy with another client's call on another API replica is waited for, up to 10 minutes. A directory session whose tree has not synced yet is refused: attach to it once to sync it. The command holds the session's guest until it exits, so a long one delays other clients' calls; for a long build an agent drives, prefer 'chainctl develop mcp' and its exec tool's run_in_background. The command's output is the guest's, byte for byte, terminal escapes included, as with ssh.
+The exit code is the command's, 124 when --timeout killed it, and 255 when the command's outcome is unknown: the session could not be found or reached, or the call was refused or cut off. Interrupting this process, or --timeout passing, kills the command's process group; anything it started with setsid keeps running. A parked session is resumed first; a session still starting is waited for, up to 5 minutes, and refused with the server's reason when its start keeps failing; and a session busy with another client's call on another API replica is waited for, up to 10 minutes. --timeout counts those waits too: when it passes before the command has started, nothing runs, and the exit code is still 124. A directory session whose tree has not synced yet is refused: attach to it once to sync it. The command holds the session's guest until it exits, so a long one delays other clients' calls; for a long build an agent drives, prefer 'chainctl develop mcp' and its exec tool's run_in_background. The command's output is the guest's, byte for byte, terminal escapes included, as with ssh.
 
 ```
 chainctl develop exec SESSION [-i] [--cwd DIR] [--timeout D] -- CMD [ARGS...]
@@ -34,9 +34,9 @@ chainctl develop exec SESSION [-i] [--cwd DIR] [--timeout D] -- CMD [ARGS...]
   # A shell pipeline, with a time limit
   chainctl develop exec 3f9a2c1e --timeout 10m -- sh -c 'make 2>&1 | tail -n 50'
 
-  # Copy a file in, and back out
-  chainctl develop exec 3f9a2c1e -i -- sh -c 'cat > notes.md' < notes.md
-  chainctl develop exec 3f9a2c1e -- cat notes.md > notes.md
+  # Copy a directory in, and back out (for one file, use 'chainctl develop cp')
+  tar cf - docs | chainctl develop exec 3f9a2c1e -i -- tar xf -
+  chainctl develop exec 3f9a2c1e -- tar cf - docs | tar xf -
 ```
 
 ### Options

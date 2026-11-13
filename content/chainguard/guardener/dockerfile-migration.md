@@ -26,9 +26,7 @@ Unlike Guardener's [Hardened Actions](/chainguard/guardener/github/actions-secur
 
 ## Prerequisites
 
-While Dockerfile migration is in beta, your organization needs to join the waitlist. Chainguard will notify you once registration becomes available. You can sign up on [the Guardener landing page](https://www.chainguard.dev/guardener).
-
-You also need the following:
+You need the following:
 
 - `chainctl` installed on your local machine. Refer to our [installation guide](/platform/chainctl-usage/how-to-install-chainctl/) to set this up if you haven't already done so. If you already have `chainctl`, [update it to the latest version](/platform/chainctl-usage/chainctl-version-update/) — older versions might not include the `chainctl agent dockerfile` commands or their current flags.
 - [Docker installed](https://docs.docker.com/engine/install/) and running locally.

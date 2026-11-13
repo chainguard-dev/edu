@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop github login"
 slug: chainctl_develop_github_login
 url: /platform/chainctl/chainctl-docs/chainctl_develop_github_login/
@@ -15,7 +15,7 @@ Connect your GitHub account to development sessions.
 
 ### Synopsis
 
-Open a browser to authorize the sandbox plane's develop GitHub App as your GitHub account, and hand the authorization to the sandbox plane: the sessions you create from then on act on GitHub as you, in every group whose policy does not ban it. Logging in does not depend on any group's policy, and changes no existing session. An earlier connection is replaced. If the App is not installed on your own account, how to install it is printed: sessions reach only repositories where it is installed. An owner of an organization installs it there, and a member can request it; pushing to your own repositories and forks needs it on your own account. An organization that requires SAML single sign-on needs an active single sign-on session in the browser first.
+Open a browser to authorize the sandbox plane's develop GitHub App as your GitHub account, and hand the authorization to the sandbox plane: your sessions act on GitHub as you from their next request, those created before the login included, in every group whose policy does not ban it. Logging in does not depend on any group's policy. An earlier connection is replaced. If the App is not installed on your own account, how to install it is printed: sessions reach only repositories where it is installed. An owner of an organization installs it there, and a member can request it; pushing to your own repositories and forks needs it on your own account. An organization that requires SAML single sign-on needs an active single sign-on session in the browser first.
 
 ```
 chainctl develop github login [--port PORT] [--output=json]

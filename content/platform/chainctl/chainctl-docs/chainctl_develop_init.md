@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop init"
 slug: chainctl_develop_init
 url: /platform/chainctl/chainctl-docs/chainctl_develop_init/
@@ -36,7 +36,9 @@ This command is interactive. It will:
        personal email address you name it yourself, at a prompt or with
        --name, and its registry and package paths use its ID instead of
        the name. Pass --parent to pick the organization yourself.
-    3. Ask you to accept the terms Checks and Workspaces are offered under.
+    3. Ask you to accept the terms Checks and Workspaces are offered under,
+       after showing what the Starter plan includes when the organization
+       is a Starter organization.
     4. Link a GitHub account to your organization: your own GitHub user by
        default, or a GitHub organization you own. When the Chainguard GitHub
        App is not installed on it, offer to open the page that installs it,

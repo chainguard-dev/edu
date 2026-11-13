@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /platform/chainctl/chainctl-docs/chainctl_auth_login/
@@ -14,7 +14,7 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
+chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--output=id|json|none|table]
 ```
 
 ### Examples
@@ -22,9 +22,6 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ```
   # Default auth login flow:
   chainctl auth login
-  
-  # Refreshing a token within a Kubernetes context:
-  chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
   
   # Headless login using --org-name
   chainctl auth login --headless --org-name my-org
@@ -42,11 +39,9 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
       --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string        Use an explicit passed identity token or token path.
       --invite-code string           Registration invite code.
+      --open-url                     In --headless mode, also open the device-flow URL in a browser after printing it. Overrides auth.headless.open-url when set explicitly.
       --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
-      --refresh                      Enable auto refresh of the Chainguard token (for workloads).
-      --refresh-all                  Refresh every cached token, discovered from the local token cache instead of --audience (implies --refresh-only). Re-evaluated on each refresh cycle, so tokens created after startup are picked up without a restart.
-      --refresh-only                 Only refresh existing tokens, skip initial token creation (implies --refresh). Must authenticate separately.
       --social-login string          Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
 ```

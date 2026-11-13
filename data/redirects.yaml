@@ -2,34 +2,49 @@
 # as removed sections, subtrees sent to another host, and section roots that
 # must match only themselves.
 #
-# layouts/partials/redirect-rules.html turns these into both the production
-# nginx map (public/_aliases, included by nginx.conf) and the Vercel preview's
-# routing table (public/vercel-config.json), so the two cannot drift apart.
-#
-# Every generated alias rule is matched before any rule here, so a rule here
-# only wins where no alias matches the same URL. To send one page of a moved
-# section somewhere else, add an "aliases:" entry on the destination page
-# instead: alias rules are sorted longest first and will outrank the section.
+# layouts/partials/redirect-rules.html combines these with every page alias
+# into one ordered list. The build renders that list as the Vercel routing
+# table for www.chainguard.dev/docs and its previews (public/vercel-config.json)
+# and as the nginx map for edu.chainguard.dev (public/_aliases, included by
+# nginx.conf), so the two cannot drift apart.
 #
 # Each rule has "to", the target, and one of:
+#   path   an exact path, matched case-insensitively (nginx map semantics)
 #   regex  a PCRE pattern matched case-sensitively against the request path
 #          with the query string removed; "$1" in "to" is its first group
-#   path   an exact path, matched case-insensitively (nginx map semantics)
 #
-# Rules are tried in order and the first match wins. The query string is
-# carried over to the target.
+# The list is tried in this order, and the first match wins:
+#   1. "path" rules from this file
+#   2. page aliases, longest first
+#   3. "regex" rules from this file, in file order
+#   4. section landing pages
+#
+# So a "path" rule beats every alias, and a "regex" rule only wins where no
+# alias matches the same URL. To send one page of a moved section somewhere
+# else, add an "aliases:" entry on the destination page rather than a regex
+# rule: aliases are sorted longest first and will outrank the section.
+#
+# The query string is carried over to the target.
 
 rules:
 
   # individual URL redirects here
   - regex: '^/chainguard/chainguard-enforce/chainctl-docs/how-to-install-chainctl(.+)?$'
-    to: '/chainguard/chainguard-enforce/how-to-install-chainctl$1'
-  - regex: '^/chainguard/chainguard-enforce/chainctl-docs(.+)?$'
-    to: '/chainguard/chainctl$1'
+    to: '/platform/chainctl-usage/how-to-install-chainctl$1'
+  # Old chainctl reference pages used two layouts, chainctl-docs/<command>
+  # and chainctl-docs/chainctl-docs/<command>. Both go to the command's page
+  # in the current reference, and the bare directories go to the chainctl
+  # landing page.
+  - regex: '^/chainguard/chainguard-enforce/chainctl-docs(/chainctl-docs)?/?$'
+    to: '/platform/chainctl/'
+  - regex: '^/chainguard/chainguard-enforce/chainctl-docs/chainctl-docs(/.+)$'
+    to: '/platform/chainctl/chainctl-docs$1'
+  - regex: '^/chainguard/chainguard-enforce/chainctl-docs(/.+)$'
+    to: '/platform/chainctl/chainctl-docs$1'
   - regex: '^/chainguard/chainguard-enforce/chainguard-enforce-kubernetes/chainguard-enforce-events(.+)?$'
-    to: '/chainguard/administration/cloudevents/events-reference$1'
+    to: '/platform/administration/cloudevents/events-reference$1'
   - regex: '^/chainguard/chainguard-enforce/chainguard-enforce-events(.+)?$'
-    to: '/chainguard/administration/cloudevents/events-reference$1'
+    to: '/platform/administration/cloudevents/events-reference$1'
   # chainctl reference docs moved from /chainguard/chainctl/ to /platform/chainctl/.
   # The "(/.*)?" bound matches the chainctl subtree only, so this does NOT also
   # swallow /chainguard/chainctl-usage/... (which has its own aliases above).
@@ -95,17 +110,48 @@ rules:
   - regex: '^/chainguard/containers/registry/pull-through-guides/artifactory/?$'
     to: '/chainguard/containers/registry/pull-through-guides/artifactory-containers-pull-through/'
   - regex: '^/software-security/secure-software-development/considerations-for-image-updates/(.+)?$'
-    to: '/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/'
+    to: '/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/'
   - regex: '^/chainguard/chainguard-images/considerations-for-image-updates/(.+)?$'
-    to: '/chainguard/chainguard-images/recommended-practices/considerations-for-image-updates/'
+    to: '/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/'
   - regex: '^/chainguard/chainguard-enforce/authentication/custom-idps/(.+)?$'
     to: '/chainguard/administration/custom-idps/custom-idps/'
   - regex: '^/chainguard/chainguard-enforce/reference/events/(.+)?$'
-    to: '/chainguard/administration/cloudevents/events-reference/'
+    to: '/platform/administration/cloudevents/events-reference/'
   - regex: '^/chainguard/chainguard-images/getting-started/istio(.+)?$'
-    to: 'https://images.chainguard.dev/directory/image/istio-pilot/overview/'
+    to: 'https://images.chainguard.dev/directory/image/istio-pilot/overview'
   - regex: '^/chainguard/network-requirements/(.+)?$'
     to: '/chainguard/administration/network-requirements/'
+
+  # The old Enforce iam-groups and cloudevents pages, one rule each. Their
+  # directory rules below can only keep a page's name, and these pages were
+  # renamed or merged after the move, so those rules take two redirects to
+  # reach them.
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/?$'
+    to: '/platform/administration/iam-organizations/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/how-to-manage-iam-groups-in-chainguard-enforce/?$'
+    to: '/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/overview-of-enforce-iam-model/?$'
+    to: '/platform/administration/iam-organizations/overview-of-chainguard-iam-model/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/verified-orgs/?$'
+    to: '/platform/administration/iam-organizations/verified-orgs/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/rolebinding-terraform-gh/?$'
+    to: '/platform/administration/iam-organizations/roles-role-bindings/rolebinding-terraform-gh/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/rolebinding-with-terraform(/rolebinding-terraform-gh)?/?$'
+    to: '/platform/administration/iam-organizations/roles-role-bindings/rolebinding-terraform-gh/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/enforce-bitbucket-identity/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/bitbucket-identity/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/enforce-buildkite-identity/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/buildkite-identity/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/enforce-github-identity/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/github-identity/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/enforce-gitlab-identity/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/gitlab-identity/'
+  - regex: '^/chainguard/chainguard-enforce/iam-groups/identity-examples/enforce-jenkins-identity/?$'
+    to: '/platform/administration/assumable-ids/identity-examples/jenkins-terraform/'
+  - regex: '^/chainguard/chainguard-enforce/cloudevents(/create-github-issues|/create-jira-issues|/create-slack-alerts)?/?$'
+    to: '/platform/administration/cloudevents/'
 
   # complete content directory redirects here
   - regex: '^/chainguard/chainguard-enforce/events/(.+)$'
@@ -113,11 +159,9 @@ rules:
   - regex: '^/chainguard/chainguard-enforce/cloudevents/(.+)$'
     to: '/chainguard/administration/cloudevents/$1'
   - regex: '^/chainguard/chainguard-images/registry/(.+)?$'
-    to: '/chainguard/chainguard-registry/'
+    to: '/chainguard/containers/registry/'
   - regex: '^/chainguard/chainguard-enforce/iam-groups/(.+)?$'
     to: '/chainguard/administration/iam-groups/$1'
-  - regex: '^/chainguard/chainguard-enforce/cloudevents/(.+)?$'
-    to: '/chainguard/administration/cloudevents/$1'
   - regex: '^/chainguard/chainguard-enforce/authentication/identity-examples/(.+)?$'
     to: '/chainguard/administration/iam-groups/identity-examples/'
   # This pointed at a vulnerability comparison page, which was removed
@@ -132,19 +176,19 @@ rules:
 
   # getting-started docs redirects
   - regex: '^/chainguard/chainguard-images/reference/go/getting-started-go/(.+)?$'
-    to: '/chainguard/containers/getting-started/go/'
+    to: '/chainguard/containers/getting-started/languages-and-runtimes/go/'
   - regex: '^/chainguard/chainguard-images/reference/mariadb/getting-started-mariadb/(.+)?$'
-    to: '/chainguard/containers/getting-started/mariadb/'
+    to: '/chainguard/containers/getting-started/web-and-data-services/mariadb/'
   - regex: '^/chainguard/chainguard-images/reference/node/getting-started-node/(.+)?$'
-    to: '/chainguard/containers/getting-started/node/'
+    to: '/chainguard/containers/getting-started/languages-and-runtimes/node/'
   - regex: '^/chainguard/chainguard-images/reference/php/getting-started-php/(.+)?$'
-    to: '/chainguard/containers/getting-started/php/'
+    to: '/chainguard/containers/getting-started/languages-and-runtimes/php/'
   - regex: '^/chainguard/chainguard-images/reference/postgres/getting-started-postgres/(.+)?$'
-    to: '/chainguard/containers/getting-started/postgres/'
+    to: '/chainguard/containers/getting-started/web-and-data-services/postgres/'
   - regex: '^/chainguard/chainguard-images/reference/python/getting-started-python/(.+)?$'
-    to: '/chainguard/containers/getting-started/python/'
+    to: '/chainguard/containers/getting-started/languages-and-runtimes/python/'
   - regex: '^/chainguard/chainguard-images/reference/ruby/getting-started-ruby/(.+)?$'
-    to: '/chainguard/containers/getting-started/ruby/'
+    to: '/chainguard/containers/getting-started/languages-and-runtimes/ruby/'
   # reference docs redirects - images
   - regex: '^/chainguard/chainguard-images/reference/(.+)/image_specs/?$'
     to: 'https://images.chainguard.dev/directory/image/$1/specifications'

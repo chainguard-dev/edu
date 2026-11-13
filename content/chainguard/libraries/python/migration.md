@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-10-30T13:13:17+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -60,7 +60,7 @@ Before you begin, you need:
 
 If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
 
-Once your organization is entitled to Python, enable upstream fallback by running the following command:
+New Python entitlements have upstream fallback on by default. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -129,7 +129,7 @@ Keep the index name and `UV_INDEX_*` variable names aligned, and set `authentica
 
 How you configure the index depends on your environment. Follow the instructions that match your setup.
 
-The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
+The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
 
 ### Direct access
 
@@ -391,7 +391,7 @@ Run the following command to auto-detect and update the lockfile in the current 
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify the lockfile when running the command. For example:
 
@@ -554,7 +554,7 @@ chainctl libraries verify --detailed $(poetry env info --path)
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="python" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 

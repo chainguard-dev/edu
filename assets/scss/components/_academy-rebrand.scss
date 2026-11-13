@@ -1,202 +1,6 @@
 // Chainguard Academy Rebrand - October 2025
 // Following the Chainguard Brand System from Figma
 
-// Top Navigation Bar (www style)
-.top-nav-bar {
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-
-  @media (prefers-color-scheme: dark) {
-    background: rgba(6, 6, 10, 0.98);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-  }
-}
-
-:root[data-dark-mode] .top-nav-bar {
-  background: rgba(6, 6, 10, 0.98);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-.top-nav-container {
-  width: 1512px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 32px;
-  display: flex;
-  height: 64px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.top-nav-left {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-
-.top-nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #0d161c;
-  font-weight: 600;
-  font-size: 18px;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: var(--primary-1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: #fff;
-  }
-}
-
-:root[data-dark-mode] .top-nav-logo {
-  color: #fff;
-}
-
-.top-nav-logo-img {
-  width: 32px;
-  height: 32px;
-  display: block;
-  transition: transform 0.2s ease;
-
-  .top-nav-logo:hover & {
-    transform: scale(1.05);
-  }
-
-  // In dark mode, invert the logo to white
-  @media (prefers-color-scheme: dark) {
-    filter: brightness(0) invert(1);
-  }
-}
-
-:root[data-dark-mode] .top-nav-logo-img {
-  filter: brightness(0) invert(1);
-}
-
-.top-nav-brand {
-  font-family: $titleFont;
-}
-
-.top-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-
-  a {
-    text-decoration: none;
-    color: #0d161c;
-    font-size: 15px;
-    font-weight: 500;
-    transition: color 0.2s ease;
-    position: relative;
-
-    &:hover {
-      color: var(--primary-1);
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--primary-1);
-      transform: scaleX(0);
-      transition: transform 0.2s ease;
-    }
-
-    &:hover::after {
-      transform: scaleX(1);
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    a {
-      color: #e8e8ed;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
-  }
-}
-
-:root[data-dark-mode] .top-nav-links a {
-  color: #e8e8ed;
-}
-
-.top-nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.top-nav-login {
-  text-decoration: none;
-  color: #0d161c;
-  font-size: 15px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background: rgba(98, 38, 240, 0.08);
-    color: var(--primary-1);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    color: #e8e8ed;
-
-    &:hover {
-      background: rgba(255, 255, 255, 0.1);
-    }
-  }
-}
-
-:root[data-dark-mode] .top-nav-login {
-  color: #e8e8ed;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-}
-
-.top-nav-cta {
-  text-decoration: none;
-  background: var(--primary-1);
-  color: white !important;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px 24px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
-
-  &:hover {
-    background: #7c4dff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(98, 38, 240, 0.3);
-  }
-}
-
-// Mobile menu toggle for top nav
-@media (max-width: 1024px) {
-  .top-nav-left {
-    gap: 16px;
-  }
-}
-
 // Hero Section
 .hero-section {
   text-align: center;
@@ -237,7 +41,7 @@
     left: 0;
     right: 0;
     height: 12px;
-    background: linear-gradient(90deg, var(--secondary-2), var(--primary-2));
+    background: var(--primary-2);
     opacity: 0.2;
     z-index: -1;
   }
@@ -265,33 +69,8 @@
 }
 
 // Colorful Accent Bars
-.accent-bar {
-  height: 6px;
-  border-radius: 3px;
-  flex: 1;
-  max-width: 120px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-}
-
-.accent-bar-purple {
-  background: linear-gradient(90deg, var(--primary-1), #7c4dff);
-}
-
-.accent-bar-magenta {
-  background: linear-gradient(90deg, var(--secondary-2), #ff006e);
-}
-
-.accent-bar-cyan {
-  background: linear-gradient(90deg, var(--primary-2), #00d9ff);
-}
-
-.accent-bar-lime {
-  background: linear-gradient(90deg, var(--tertiary-1), #76ff03);
+.accent-bar-blurple {
+  background: var(--primary-1);
 }
 
 // Enhanced Section Titles
@@ -300,7 +79,7 @@
   font-size: 42px;
   font-weight: 700;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   color: var(--center-title-color);
   margin-bottom: 24px;
 
@@ -323,32 +102,13 @@
 }
 
 .section-description {
-  font-size: 18px;
-  line-height: 1.6;
   color: var(--caption-color);
-  margin-bottom: 48px;
 }
 
 // Enhanced Cards with Bold Style
 .card-background {
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-1), var(--primary-2), var(--secondary-2), var(--tertiary-1));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover::before {
-    opacity: 1;
-  }
 }
 
 // Flat Card Backgrounds
@@ -368,7 +128,7 @@
 }
 
 .card-gradient-purple {
-  background: #6226FB !important;
+  background: var(--primary-1) !important;
   border: none !important;
 }
 
@@ -387,13 +147,32 @@
   }
 
   .card-gradient-purple {
-    background: #6226FB !important;
+    background: var(--primary-1) !important;
+  }
+}
+
+.card-background.image-card {
+  transition: background-color 150ms ease;
+}
+
+.card-container > div:hover {
+  .card-gradient-magenta {
+    background: #A10099 !important;
+  }
+
+  .card-gradient-green {
+    background: #108000 !important;
+  }
+
+  .card-gradient-purple {
+    background: var(--primary-hover) !important;
   }
 }
 
 // Enhanced Basics Cards
 .basics-card {
   position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
 
   &::before {
@@ -409,9 +188,7 @@
   }
 
   &:hover {
-    transform: translateX(8px);
-    border-color: var(--primary-1);
-    box-shadow: 0 8px 24px rgba(98, 38, 240, 0.12);
+    border-color: var(--card-hover-border);
 
     &::before {
       opacity: 1;
@@ -429,8 +206,13 @@
 }
 
 .basics-card:hover .form-check-input {
-  background: linear-gradient(135deg, var(--primary-1), var(--primary-2));
-  transform: scale(1.1);
+  background: var(--primary-hover);
+}
+
+:root[data-dark-mode] {
+  .basics-card:hover .form-check-input {
+    background: var(--primary-1);
+  }
 }
 
 // Bold Featured Cards
@@ -441,25 +223,16 @@
     width: 112px;
     height: 112px;
     flex-shrink: 0;
-    transition: transform 0.3s ease, filter 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: scale(1.1);
-    filter: drop-shadow(0 8px 16px rgba(98, 38, 240, 0.3));
   }
 }
 
 // Caption Title Enhancement
 .caption-title {
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.3;
   transition: color 0.2s ease;
 }
 
 .card-container > div:hover .caption-title {
-  color: var(--primary-1);
+  color: var(--active-link-color);
 }
 
 // Dark Mode Enhancements
@@ -467,46 +240,11 @@
   .hero-highlight::after {
     opacity: 0.3;
   }
-
-  .accent-bar:hover {
-    box-shadow: 0 4px 16px rgba(98, 38, 240, 0.4);
-  }
-
-  .basics-card:hover {
-    box-shadow: 0 8px 32px rgba(0, 160, 235, 0.2);
-  }
-
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .form-check-input {
-    background: linear-gradient(135deg, #FD2BF2, #e202e0);
-  }
-}
-
-// Animated Gradient Background (subtle)
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-// Add subtle animation to accent bars
-.accent-bar {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
 }
 
 // Footer CTA Section (Homepage only)
 .footer-cta-section {
-  background: #6226FB;
+  background: var(--primary-1);
   padding: 96px 48px;
   position: relative;
   overflow: hidden;
@@ -560,30 +298,22 @@
   gap: 12px;
   padding: 16px 32px;
   background: #FFF;
-  color: #6226FB !important;
+  color: var(--primary-1) !important;
   font-size: 18px;
   font-weight: 600;
   border-radius: 4px;
   text-decoration: none;
   transition: all 0.3s ease;
   align-self: flex-start;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
     background: #f5f5f5;
-
-    .footer-cta-arrow {
-      transform: translateX(4px);
-    }
   }
 }
 
 .footer-cta-arrow {
   width: 16px;
   height: 16px;
-  transition: transform 0.3s ease;
 }
 
 .footer-cta-decoration {
@@ -615,7 +345,7 @@
 
 // Dark mode adjustments
 :root[data-dark-mode] .footer-cta-section {
-  background: #6226FB;
+  background: var(--primary-1);
 }
 
 // Sidebar Contact Button (matching footer style)
@@ -625,7 +355,7 @@
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
-  background: #6226FB;
+  background: var(--primary-1);
   color: #FFF !important;
   font-family: $titleFont;
   font-size: 16px;
@@ -634,23 +364,15 @@
   text-decoration: none;
   width: 100%;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
 
   svg {
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-    transition: transform 0.3s ease;
   }
 
   &:hover {
-    background: #7c4dff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(98, 38, 240, 0.3);
-
-    svg {
-      transform: translateX(4px);
-    }
+    background: var(--primary-hover);
   }
 }
 
@@ -668,13 +390,8 @@
   padding: 28px 32px;
   border: 1px solid var(--basics-card-border);
   border-radius: 12px;
-  background: linear-gradient(
-    90deg,
-    rgba(98, 38, 240, 0.05),
-    rgba(0, 160, 235, 0.04)
-  );
-  text-decoration: none;
-  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #F8F6FE;
+  transition: border-color 0.3s ease;
 
   // Brand accent down the leading edge, matching the section title bars.
   &::before {
@@ -684,18 +401,11 @@
     top: 0;
     bottom: 0;
     width: 4px;
-    background: linear-gradient(180deg, var(--primary-1), var(--primary-2));
+    background: var(--primary-1);
   }
 
   &:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary-1);
-    box-shadow: 0 8px 24px rgba(98, 38, 240, 0.12);
-    text-decoration: none;
-
-    .landing-callout-cta svg {
-      transform: translateX(4px);
-    }
+    border-color: var(--card-hover-border);
   }
 
   @media (max-width: 768px) {
@@ -739,24 +449,11 @@
   font-weight: 600;
   white-space: nowrap;
   color: var(--primary-1);
-
-  svg {
-    transition: transform 0.3s ease;
-  }
 }
 
 :root[data-dark-mode] {
   .landing-callout {
-    background: linear-gradient(
-      90deg,
-      rgba(98, 38, 240, 0.18),
-      rgba(0, 160, 235, 0.08)
-    );
-
-    &:hover {
-      border-color: var(--primary-2);
-      box-shadow: 0 8px 32px rgba(0, 160, 235, 0.2);
-    }
+    background: #14003D;
   }
 
   // Blurple is too dark to read on the dark background; use the lighter tint.

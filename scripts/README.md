@@ -134,3 +134,34 @@ run the script's tests, which don't need `chainctl`:
 ```bash
 python3 -m unittest discover -s scripts/checks-examples -v
 ```
+
+## chainctl reference flags
+
+`chainctl-references/check_flags.py` compares the hand-written
+`chainctl checks` and `chainctl develop` references with the generated
+chainctl reference, which AutoDocs builds from `chainctl`'s own help. The
+generated pages are the authority on each command's flags, so run the
+script after an AutoDocs update that changes those commands:
+
+```bash
+python3 scripts/chainctl-references/check_flags.py
+```
+
+It reports a command directly under `chainctl checks` or
+`chainctl develop` that has no section on its page, a flag in a command's
+help that its page doesn't document, and a flag a command section
+documents that no command's help lists. A flag counts as documented when
+it's in inline code in the command's section or in the page's shared
+sections, or in the section's synopsis, the fenced block with no
+language. Flags that appear only in examples don't count.
+
+`chainctl-references/flags.toml` names the pages to check and the flags
+that the pages leave out on purpose, each with its reason. The script
+exits with status 1 when it finds drift, and 2 when an ignore entry
+matches nothing. It reads only files in the repository, so it needs no
+`chainctl` and no network. No CI job runs it. Python 3.11 or later is
+required, for `tomllib`. To run its tests:
+
+```bash
+python3 -m unittest discover -s scripts/chainctl-references -v
+```

@@ -8,9 +8,9 @@
 #   argos.*            partner program roles
 #   gulfstream         a single controller capability
 #   signing.*          experimental; every sigstore.* capability is deprecated
-#   advisories.*       no Academy docs for authoring advisories through the API
+#   advisories.*       no docs for authoring advisories through the API
 #   libraries.go.*, libraries.dotnet.*, libraries.ruby.*
-#                      no Academy docs for these ecosystems yet
+#                      no docs for these ecosystems yet
 roles = [
     "owner",
     "editor",
@@ -40,12 +40,23 @@ roles = [
     "actions.viewer",
 ]
 
-# Resources that documented roles grant but the page leaves out. owner holds
-# capabilities on these, but Academy doesn't document the ecosystems yet.
+# Resources that documented roles grant but the page leaves out, because the
+# docs don't cover the product or feature yet.
 omitted_resources = [
+    # Library ecosystems that owner holds capabilities on.
     "libraries.dotnet",
     "libraries.go",
     "libraries.ruby",
+    "libraries.rust",
+    # Baddie Hunter intake API (harness.v1alpha1).
+    "harness.hunts",
+    "harness.uploads",
+    # SCIM group provisioning, which waits on /Groups reaching GA.
+    "identity_providers.scim.groups",
+    # Private customer registries (oci.v2alpha1), enrolled by Chainguard.
+    "registry",
+    # Named Chainguard Libraries repositories, each a folder under the org.
+    "repositories",
 ]
 
 # The Purpose column, one entry per resource. A resource is a capability name
@@ -58,8 +69,10 @@ omitted_resources = [
 "advisories" = "View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images"
 "apk" = "Manage APK packages in the registry"
 "apk.blobs" = "Download APK package binary content"
+"auth_policies" = "View and change the organization's [authentication policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/), which sets how long a sign-in to the organization lasts"
 "billing" = "Manage the organization's billing and payment method"
 "build_report" = "Access detailed build and scan reports for images and packages"
+"entitlements" = "View the organization's plan and its product limits"
 "group_invites" = "Send and manage invitations to join Chainguard organization"
 "groups" = "Manage organization and hierarchical structures"
 "guardener.actions" = "Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request"
@@ -82,7 +95,6 @@ omitted_resources = [
 "libraries.policy.binding" = "Apply Chainguard Libraries policies to the organization"
 "libraries.policy.block_event" = "View the library pulls a policy blocked"
 "libraries.python" = "Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/)"
-"libraries.remote_registries" = "Configure the upstream registries the organization's virtual repositories pull from"
 "libraries.request_groups" = "Request library versions for Chainguard to build, and track those requests"
 "libraries.request_groups.items" = "Edit the individual libraries in a draft build request"
 "libraries.storage_usage" = "View how much storage the organization's uploaded libraries use in each ecosystem"
@@ -96,6 +108,7 @@ omitted_resources = [
 "policies.policy" = "View and manage image pull policies, such as blocking end-of-life images"
 "record_signatures" = "View cryptographic signature verification records"
 "referrers" = "View the signatures, attestations, and other artifacts attached to an image"
+"registry.charts" = "Add a catalog [Helm chart](/get-started/self-serve/helm-charts/) and the images it needs to the organization"
 "registry.deployments" = "View the Helm charts associated with a container repository"
 "registry.entitlements" = "View registry access entitlements and permissions"
 "registry.entitlements.images" = "Add, remove, and swap the images in the organization's registry entitlement"

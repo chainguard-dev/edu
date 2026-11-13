@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl checks rerun"
 slug: chainctl_checks_rerun
 url: /platform/chainctl/chainctl-docs/chainctl_checks_rerun/
@@ -23,12 +23,14 @@ For a postsubmit Run the platform started for a pushed branch, a fresh Run of th
 
 A Run created with `chainctl checks run` is run again with that command.
 
-With --output json the API's answer is printed: the new Run for a postsubmit Run, and for a pull request the Run whose checks are rerun. Under --watch the fresh Run is followed to its final status instead.
+With --workflow or --failed, only some workflows of a pull request's Run are rerun, each as its next attempt in the same Run, which is then running again: --workflow names one workflow, and --failed reruns every finished workflow that did not pass, leaving those still running alone. An attempt runs the same merge of the head onto the base as the attempt before it, so when the base has moved on, update the pull request's branch instead. The Run must be the pull request's newest. A postsubmit or cron Run is rerun whole, without either flag.
+
+With --output json the API's answer is printed: the new Run for a postsubmit Run, for a pull request the Run whose checks are rerun, and with --workflow or --failed the list of new attempts. Under --watch the fresh Run is followed to its final status instead.
 
 With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed. For a pull request whose checks are a single WorkflowRun, --watch cannot follow them and the command exits 0 once the rerun is asked for.
 
 ```
-chainctl checks rerun REF [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
+chainctl checks rerun REF [--workflow WORKFLOW | --failed] [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
 ```
 
 ### Examples
@@ -36,6 +38,12 @@ chainctl checks rerun REF [--watch] [--sandbox-url URL] [--parent ORGANIZATION_N
 ```
   # Rerun a flaky check on a pull request, and wait for the result
   chainctl checks rerun acme/app#123 --watch
+
+  # Rerun only the go-test workflow of a pull request, and wait for the Run
+  chainctl checks rerun acme/app#123 --workflow go-test --watch
+
+  # Rerun every workflow of a pull request that failed
+  chainctl checks rerun acme/app#123 --failed
 
   # Rerun this checkout's HEAD
   chainctl checks rerun .
@@ -47,10 +55,12 @@ chainctl checks rerun REF [--watch] [--sandbox-url URL] [--parent ORGANIZATION_N
 ### Options
 
 ```
+      --failed               Rerun only the pull request Run's finished workflows that did not pass.
       --parent string        The organization or folder (name or ID) the Runs are in. Defaults to $CHAINCTL_SANDBOX_GROUP, then the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --sandbox-url string   URL of the sandbox control plane serving the WorkflowRuns API. Overridden by $CHAINCTL_WORKFLOWRUNS_URL. (default "https://workflowruns.chainbox.dev")
       --token string         Bearer token for the sandbox host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
       --watch                Wait until the fresh Run finishes, printing its checks whenever they change.
+      --workflow string      Rerun only this workflow of a pull request's Run, as a new attempt in the same Run.
 ```
 
 ### Options inherited from parent commands

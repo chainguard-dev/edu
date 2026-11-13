@@ -1,10 +1,10 @@
 ---
 title: "Chainguard MCP Servers"
 linktitle: "MCP Servers"
-description: "Connect an MCP client to Chainguard's live product data — container images, Wolfi packages, upstream version history, and platform APIs — and to Chainguard documentation."
+description: "Connect an MCP client to Chainguard's live product data — container images, Wolfi packages, upstream version history, and platform APIs — and to Chainguard documentation and Chainguard OS manual pages."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-09-16T00:00:00+00:00
+lastmod: 2026-11-05T13:57:14+00:00
 draft: false
 images: []
 weight: 90

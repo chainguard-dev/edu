@@ -24,7 +24,7 @@ jobs:
     name: Action lint
     runs-on: ubuntu-latest
     steps:
-      - uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: block
           allowed-endpoints: >
@@ -48,7 +48,7 @@ jobs:
           echo "files=${yamls[*]}" >> "${GITHUB_OUTPUT}"
 
       - name: Action lint
-        uses: step-security/action-actionlint@b2b21b6e020989da8beae86d6c3a1291c46d45d5 # v1.76.0
+        uses: chainguard-actions/reviewdog-action-actionlint@99dba8c2ec008638f2e6b9ab4b7b14fd80913b17 # v1.84.1
         env:
           # Keep these shellcheck settings in sync with the actionlint
           # pre-commit hook in .pre-commit-config.yaml (its

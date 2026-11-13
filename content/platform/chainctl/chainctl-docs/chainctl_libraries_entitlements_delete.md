@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl libraries entitlements delete"
 slug: chainctl_libraries_entitlements_delete
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_delete/

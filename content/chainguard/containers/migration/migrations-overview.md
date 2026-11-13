@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Key differences, a recommended rollout strategy, and troubleshooting guidance for moving existing container workloads to Chainguard Containers."
 date: 2024-07-22T12:56:52-00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -147,7 +147,7 @@ The move to a distroless workflow can be confusing for both individual developer
 
 ### Troubleshooting resources
 
-To help with troubleshooting issues that can occur, Chainguard Academy has a guide on [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/).
+To help with troubleshooting issues that can occur, we have a guide on [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/).
 
 Lastly, you might also find help in the [Chainguard Containers FAQs](/chainguard/containers/faq/).
 
@@ -157,7 +157,7 @@ Once you have worked through the [sample application port](/chainguard/container
 
 To automate Dockerfile migration, [Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.
 
-Chainguard Academy groups the rest of its migration material into three sets:
+The rest of our migration material falls into three sets:
 
 * **[Migration guides](/chainguard/containers/migration/migration-guides/)** — language- and platform-specific guidance for Python, Node, PHP, .NET, Go, and Java.
 * **[Compatibility guides](/chainguard/containers/migration/compatibility/)** — what changes when moving from Alpine, Debian, Red Hat, or Ubuntu.

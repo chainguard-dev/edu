@@ -1,4 +1,4 @@
-<div id="app" data-spec-url="{{ .Get "spec-url" }}"></div>
+<div id="app" data-spec-url="{{ partial "site-path.html" (.Get "spec-url") }}"></div>
 {{ $css := resources.Get "css/vendor/scalar/style.css" | fingerprint "sha512" -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">
 <style>

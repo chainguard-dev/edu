@@ -4,7 +4,7 @@ linktitle: "Authenticate"
 type: "article"
 description: "A guide on authenticating to Chainguard's registry to get container images"
 date: 2023-03-21T15:10:16+00:00
-lastmod: 2026-10-29T18:20:09+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 tags: ["Chainguard Containers", "Registry"]
 draft: false
 images: []
@@ -57,7 +57,7 @@ If the pull fails, refer to [Troubleshoot registry authentication errors](/chain
 
 ## Signing up
 
-You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). This creates your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+You can register a Chainguard account through our [sign up form](https://console.chainguard.dev/auth/login). This creates your account and a [Chainguard IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). If you already have an account, you can log in through the [login page](https://console.chainguard.dev/auth/login).
 
 For more details on signing in, you can review our [sign in guidance](/platform/administration/iam-organizations/how-to-manage-iam-organizations-in-chainguard/#logging-in). If your organization is interested in (or already using) custom identity providers like Okta, you can read [how to authenticate to Chainguard with custom identity providers](/platform/administration/custom-idps/custom-idps/).
 
@@ -153,8 +153,22 @@ chainctl iam identity delete <identity UUID>
 ```
 
 {{< note >}}
-On [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Catalog Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+On [Chainguard Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
 {{< /note >}}
+
+An expired pull token stops working, but its identity stays in your organization until you delete it. `chainctl iam identities list` leaves expired identities out, so add `--expired` to list only those:
+
+```sh
+chainctl iam identities list --expired
+```
+
+To delete every expired static identity in your organization at once, including expired pull tokens, run:
+
+```sh
+chainctl iam identities delete --expired --parent=<organization>
+```
+
+On Starter, this command fails for the same reason as a single delete.
 
 ### Managing pull tokens in the Chainguard Console
 
@@ -176,7 +190,7 @@ If the Console won't let you create a pull token, your role is missing a capabil
 You can configure authentication with OIDC-aware CI platforms like GitHub Actions.
 
 {{< note >}}
-This approach requires an assumable identity, which [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Catalog Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+This approach requires an assumable identity, which [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 {{< /note >}}
 
 First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:

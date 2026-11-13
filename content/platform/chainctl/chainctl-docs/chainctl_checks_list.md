@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl checks list"
 slug: chainctl_checks_list
 url: /platform/chainctl/chainctl-docs/chainctl_checks_list/
@@ -23,7 +23,7 @@ over at most the 500 newest Runs the other filters match; a Run that
 has not finished matches no outcome.
 
 ```
-chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--repo REPO] [--ref REF] [--trigger presubmit|postsubmit] [--outcome OUTCOME] [--limit N] [--output=json|table]
+chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--repo REPO] [--ref REF] [--trigger presubmit|postsubmit|merge_queue] [--outcome OUTCOME] [--limit N] [--output=json|table]
 ```
 
 ### Examples
@@ -46,7 +46,7 @@ chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZAT
       --repo string          Only Runs of this repository: owner/repo for GitHub, or host/path.
       --sandbox-url string   URL of the sandbox control plane serving the WorkflowRuns API. Overridden by $CHAINCTL_WORKFLOWRUNS_URL. (default "https://workflowruns.chainbox.dev")
       --token string         Bearer token for the sandbox host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
-      --trigger string       Only Runs of this trigger: presubmit or postsubmit.
+      --trigger string       Only Runs of this trigger: presubmit, postsubmit, or merge_queue.
 ```
 
 ### Options inherited from parent commands

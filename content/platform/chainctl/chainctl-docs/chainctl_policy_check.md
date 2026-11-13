@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl policy check"
 slug: chainctl_policy_check
 url: /platform/chainctl/chainctl-docs/chainctl_policy_check/
@@ -18,7 +18,7 @@ Check an image against active policies.
 Evaluate an image against any active policies and print the
 result for each.
 
-Exit status is non-zero if any policy returned DENIED or ERROR, regardless
+Exit status is non-zero if any policy returned BLOCKED or ERROR, regardless
 of the policy's mode, so this command is suitable for use in CI.
 
 ```

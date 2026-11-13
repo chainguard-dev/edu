@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate PHP applications to Chainguard Containers for enhanced security, reduced CVEs, and support for both FPM and CLI workloads"
 date: 2024-04-04T15:56:52-07:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -18,13 +18,13 @@ weight: 40
 toc: true
 ---
 
-Chainguard's PHP container images provide enhanced security for PHP applications through minimal, purpose-built images that reduce attack surface. Based on [Wolfi](/open-source/wolfi/), they include only the packages your application needs, while maintaining full compatibility with PHP workloads. Daily automated builds deliver the latest security patches without manual intervention. For current CVE data on each PHP image and tag, see the [PHP entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/php/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php).
+Chainguard's PHP container images provide enhanced security for PHP applications through minimal, purpose-built images that reduce attack surface. Based on [Wolfi](/open-source/wolfi/), they include only the packages your application needs, while maintaining full compatibility with PHP workloads. Daily automated builds deliver the latest security patches without manual intervention. For current CVE data on each PHP image and tag, see the [PHP entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/php/overview).
 
 This article will assist you in the process of migrating your existing PHP Dockerfiles to leverage the benefits of Chainguard Containers, including a smaller attack surface and a more secure application footprint.
 
 ## PHP Chainguard Containers
 
-Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) image designed for Laravel applications.
+Chainguard offers multiple PHP images and variants catering to distinct use cases. In addition to the regular PHP image that includes CLI and FPM variants, we offer a dedicated [Laravel](https://images.chainguard.dev/directory/image/laravel/overview) image designed for Laravel applications.
 
 Each variant comes in two flavors: a minimal runtime image (distroless) and a development variant distinguished by the `-dev` suffix (e.g., `latest-dev`).
 
@@ -130,7 +130,7 @@ Our [PHP getting started](/chainguard/containers/getting-started/languages-and-r
 
 ## Migrating PHP web applications to use Chainguard Containers
 
-For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [nginx image](https://images.chainguard.dev/directory/image/nginx/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) and an optional database for a traditional LEMP setup.
+For PHP web applications that serve content through a web server, you should use the `latest-fpm` and `latest-fpm-dev` variants of our PHP image. Combine it with our [nginx image](https://images.chainguard.dev/directory/image/nginx/overview) and an optional database for a traditional LEMP setup.
 
 The overall migration process is essentially the same as described in the previous section, with the difference that you won't set up application entry points, since these images run as services. Your Dockerfile may require additional steps to set up front-end dependencies, initialize databases, and perform any additional tasks needed for the application to run through a web server.
 
@@ -213,7 +213,7 @@ http {
 
 ## Migrating Laravel applications to use Chainguard Containers
 
-Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
+Chainguard has a dedicated [Laravel image](https://images.chainguard.dev/directory/image/laravel/overview) designed for applications built on top of the [Laravel](https://laravel.com) PHP Framework. This image is based on the `php:latest-fpm` variant, with additional extensions required by Laravel. Migration should follow the same steps described in previous sections, with the `laravel:latest-dev` variant as builder and `laravel:latest` as the distroless variant of this image.
 
 In addition to including extensions required by Laravel by default, the image includes a **laravel** system user that facilitates running `composer` and `artisan` commands from a host environment, which enables users to create and develop Laravel applications with the `-dev` variant of this image. Check the section on [Developing Laravel applications](#developing-laravel-applications) for more information on how to use the development variant of the Laravel image for development environments.
 
@@ -301,6 +301,6 @@ The preview should be live at `localhost:8000`.
 
 ## Additional resources
 
-Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-php) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](/chainguard/containers/getting-started/web-and-data-services/mariadb/).
+Our [PHP image documentation](https://images.chainguard.dev/directory/image/php/versions) covers details about all PHP image variants, including the list of available tags for both development and production images. For another example of a LEMP setup using MariaDB, check our guide on [Getting started with the MariaDB Chainguard Container](/chainguard/containers/getting-started/web-and-data-services/mariadb/).
 
 The [Debugging distroless](/chainguard/containers/troubleshooting/debugging-distroless-images/) guide contains important information for debugging issues with distroless images. You can also refer to the [Verifying containers](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) resource for details around provenance, SBOMs, and image signatures.

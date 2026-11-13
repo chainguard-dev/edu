@@ -34,36 +34,14 @@
     height: 1.5em !important;
 }
 
-// LIGHT MODE - No filters, show original purple color
-html:not([data-dark-mode]) img[src="/logos/linky-flat.svg"],
+// Linky logo (.logo-purple): purple in light mode, inverted to white in dark mode.
+// darkmode-init.js sets data-dark-mode from the OS preference, so no media query is needed.
 html:not([data-dark-mode]) .logo-purple {
     filter: none !important;
 }
 
-// DARK MODE - Invert purple to white
-html[data-dark-mode] img[src="/logos/linky-flat.svg"],
 html[data-dark-mode] .logo-purple {
     filter: brightness(0) invert(1) !important;
-}
-
-// Override for automatic detection
-@media (prefers-color-scheme: light) {
-    img[src="/logos/linky-flat.svg"],
-    .logo-purple {
-        filter: none !important;
-    }
-
-    html[data-dark-mode="true"] img[src="/logos/linky-flat-white.svg"],
-    html[data-dark-mode="true"] .logo-purple {
-        filter: brightness(0) invert(1) !important;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    html:not([data-dark-mode="false"]) img[src="/logos/linky-flat-white.svg"],
-    html:not([data-dark-mode="false"]) .logo-purple {
-        filter: brightness(0) invert(1) !important;
-    }
 }
 
 // Fix sidebar overflow issues on mobile only
@@ -189,10 +167,6 @@ html[data-dark-mode] .logo-purple {
     margin-bottom: 12px;
 }
 
-.article h2 {
-    margin-top: 64px;
-}
-
 .board-background {
     background-color: var(--board-background-color);
 }
@@ -210,13 +184,10 @@ html[data-dark-mode] .logo-purple {
     border: 1px solid rgba(13, 22, 28, 0.1);
     border-radius: 12px;
     width: 100%;
-    box-shadow: 0 1px 3px rgba(13, 22, 28, 0.05);
     transition: all 0.2s ease;
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(98, 38, 240, 0.12);
-        border-color: rgba(98, 38, 240, 0.2);
+        border-color: var(--card-hover-border);
     }
 }
 
@@ -224,13 +195,6 @@ html[data-dark-mode] .logo-purple {
 :root[data-dark-mode] .card-background {
     background: #0d0d14;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-
-    &:hover {
-        box-shadow: 0 4px 12px rgba(0, 160, 235, 0.15);
-        border-color: rgba(0, 160, 235, 0.3);
-        transform: translateY(-2px);
-    }
 }
 
 .form-check-input {
@@ -351,12 +315,9 @@ h2[id^="chainctl"] {
     align-items: center;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
     &:hover {
         text-decoration: none;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
         background-color: var(--watch-btn-hover-background) !important;
     }
 }
@@ -440,8 +401,6 @@ h2[id^="chainctl"] {
     &:hover {
         background-color: var(--primary-1);
         color: white !important;
-        transform: translateY(-1px);
-        box-shadow: 0 2px 8px rgba(98, 38, 240, 0.2);
     }
 }
 
@@ -1057,11 +1016,6 @@ header .search-container {
     &:hover {
         border-color: var(--primary-1);
         background-color: rgba(122, 69, 251, 0.04);
-        transform: translateX(2px);
-    }
-
-    &.docs-navigation-button-previous:hover {
-        transform: translateX(-2px);
     }
 }
 
@@ -1379,25 +1333,15 @@ header .search-container {
     text-decoration: underline;
 }
 
+.home .docs-content.docs-content a {
+    text-decoration: none;
+}
+
 [data-dark-mode] .docs-content.docs-content {
     a.sl-block,
     a.sl-link {
         color: var(--article-link-secondary-color);
     }
-}
-
-h4,
-.h4 {
-    font-family: $titleFont;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 112%;
-    letter-spacing: -0.02em;
-}
-
-blockquote p a {
-    color: var(--blockquote-link-color) !important;
 }
 
 .note,

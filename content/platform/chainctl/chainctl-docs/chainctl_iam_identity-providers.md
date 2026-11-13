@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl iam identity-providers"
 slug: chainctl_iam_identity-providers
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers/
@@ -36,6 +36,7 @@ customer managed identity provider management
 * [chainctl iam identity-providers describe](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_describe/)	 - Describe an identity provider.
 * [chainctl iam identity-providers group-mappings](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_group-mappings/)	 - Manage IdP group-to-role mappings for an identity provider.
 * [chainctl iam identity-providers list](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_list/)	 - List identity providers.
+* [chainctl iam identity-providers reset-correlation-rule](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_reset-correlation-rule/)	 - Change an identity provider's correlation rule, unlinking its SCIM-provisioned users.
 * [chainctl iam identity-providers scim](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim/)	 - Manage SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers update](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_update/)	 - Update an identity provider
 

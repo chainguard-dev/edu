@@ -1,6 +1,7 @@
 <!-- Auto collapsible section menu -->
 {{ $currentPage := . -}}
 {{ $section := $currentPage.Section -}}
+{{ $landingSections := partialCached "landing-section-map.html" "all" -}}
 <div class="d-flex flex-column">
   {{- $showFlexSearch := .Site.Params.options.flexSearch }}
   {{- if $showFlexSearch }}
@@ -11,11 +12,11 @@
 
   <div class="search-container">
     <div class="navbar-title-padding">
-      <a class="navbar-title" href="https://www.chainguard.dev?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement" target="_blank" rel="noopener" style="text-decoration: none;">
-        <img style="margin-bottom:.25em;height:1.5em;display:block" src="{{ "logos/linky-flat.svg" | relURL }}" alt="Chainguard Linky">
+      <a class="navbar-title" href="https://www.chainguard.dev" target="_blank" rel="noopener" style="text-decoration: none;">
+        <img class="logo-purple" style="margin-bottom:.25em;height:1.5em;display:block" src="{{ "logos/linky-flat.svg" | relURL }}" alt="Chainguard Linky">
       </a>
       <a class="navbar-title" href="{{ site.Home.RelPermalink }}" style="text-decoration: none;">
-        <span class="block">Chainguard Academy</span>
+        <span class="block">Chainguard Docs</span>
       </a>
     </div>
     <div class="doks-search position-relative flex-grow-1">
@@ -35,7 +36,7 @@
   <div class="show" id="section-{{ md5 .RelPermalink }}">
     <ul class="btn-toggle-nav list-unstyled fw-normal small">
       {{ range where (where .Pages ".Params.unlisted" "!=" "true") ".Params.preview" "!=" true }}
-      {{ partial "sidebar/menu-item.html" (dict "page" . "currentPage" $currentPage "top" true) }}
+      {{ partial "sidebar/menu-item.html" (dict "page" . "currentPage" $currentPage "top" true "landingSections" $landingSections) }}
       {{ end }}
 
       {{/* Section cross-links: extra top-level nav entries pointing at a canonical page in another section. */}}

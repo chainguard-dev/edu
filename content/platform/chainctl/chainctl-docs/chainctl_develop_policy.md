@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop policy"
 slug: chainctl_develop_policy
 url: /platform/chainctl/chainctl-docs/chainctl_develop_policy/
@@ -22,7 +22,7 @@ The group's policy applies to every development session in it. org_github is wha
 
 org_github_push_beyond_session (on by default) is whether, under bound, the App may push to a repository other than the session's own when a binding grants it; off refuses every such push, leaving the session's own repository the only one the App pushes to.
 
-user_github (allowed by default) is whether sessions may act on GitHub as their owner. A session acts as its owner when the owner has connected a GitHub account (chainctl develop github login) and the group allows it when the session is created: every git and gh request it makes is then served with the owner's own GitHub account, through the sandbox plane's develop GitHub App (chainctl develop github status names it), not the App that runs CI, whatever its github source and bindings say. Set it to false to ban this: new sessions use the github source and bindings, and sessions already acting as their owner have their GitHub requests refused until they are replaced. The policy can only allow or ban; it never makes an owner act on GitHub as themselves, and allowing it again changes no existing session.
+user_github (allowed by default) is whether sessions may act on GitHub as their owner. While the group allows it and the owner has connected a GitHub account (chainctl develop github login), every git and gh request a session makes is served with the owner's own GitHub account, through the sandbox plane's develop GitHub App (chainctl develop github status names it), not the App that runs CI, whatever its github source and bindings say; this is decided on each request, so it reaches sessions created before the login too. Set it to false to ban this: sessions created acting as their owner have their GitHub requests refused while the ban stands, and every other session uses its github source and bindings from its next request. The policy can only allow or ban; it never makes an owner act on GitHub as themselves. Allowing it again takes effect on every session at its next request.
 
 Any session owner in the group can read the policy. Changing it takes the permission to list every owner's sessions in the group; sessions see a change at their next request.
 

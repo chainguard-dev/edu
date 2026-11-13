@@ -2,18 +2,19 @@
 @use "hugo:vars" as hugo;
 
 :root {
-    --primary-1: #6226f0; // blurple (primary brand color)
+    --primary-1: #6226fb; // blurple (primary brand color)
+    --primary-hover: #3200af; // blurple dark
     --primary-2: #c0a8fd; // blurple (40)
     --primary-3: #0d161c; // ink (dark text)
     --primary-3-border: #0d161c1F;
-    --secondary-1: #fdd5ff; // light fuschia
-    --secondary-2: #e202e0; // fuschia (secondary brand color)
+    --secondary-1: #fddffc; // light fuschia
+    --secondary-2: #fd2bf2; // fuschia (secondary brand color)
     --secondary-3: #f1ecfe;  // light blurple
     --secondary-3-border: #f1ecfe2E;
     --tertiary-1: #44fd2b;   // lime
-    --tertiary-2: #04bd13;   // lime (text)
-    --tertiary-3: #fd3d04;   // solar
-    --tertiary-4: #f6044d;   // solar (text)
+    --tertiary-2: #108000;   // lime (text)
+    --tertiary-3: #fd3964;   // solar
+    --tertiary-4: #d40555;   // solar (text)
     --desaturated-primary-3: #1a1f24; // desaturated ink
     --desaturated-secondary-1: #c593f8; // desaturated blurple
 }
@@ -23,25 +24,34 @@
 
     --a-original-color: inherit;
     --active-element-background: #f3f3f3;
-    --active-element-shadow: var(--secondary-2);
-    --active-link-color: var(--secondary-2);
+    --active-element-shadow: var(--primary-1);
+    --active-link-color: var(--primary-1);
+    --alert-danger-accent: #d40555; // solar dark
+    --alert-danger-background: #fef6f6; // solar air
+    --alert-info-accent: var(--primary-1);
+    --alert-info-background: var(--secondary-3-border);
+    --alert-success-accent: #108000; // lime dark
+    --alert-success-background: #f2fdf2; // lime air
+    --alert-warning-accent: #b45309; // amber, console-ui warning
+    --alert-warning-background: #fffbeb; // amber 50
     --article-link-color: var(--primary-1);
     --article-link-secondary-color: var(--primary-2);
     --basics-card-background: inherit;
     --basics-card-border: var(--primary-3-border);
     --blockquote-background: var(--secondary-3-border);
-    --blockquote-link-color: var(--tertiary-3);
-    --blockquote-border: var(--secondary-2);
-    --blockquote-color: var(--secondary-1);
+    --blockquote-link-color: var(--primary-1);
+    --blockquote-border: var(--primary-1);
     --board-background-color: #FFF;
     --body-background: #FFF;
     --body-color: var(--primary-3);
     --body-table-color: inherit;
     --bs-table-bg: inherit;
+    --button-secondary-color: var(--primary-1);
     --caption-color: var(--primary-3);
     --caption-title-color: var(--primary-3);
     --card-background-0: var(--primary-2);
     --card-background-1: var(--secondary-2);
+    --card-hover-border: var(--primary-1);
     --center-title-color: var(--primary-3);
     --code-color: #818b981f;
     --contact-us-button-background: var(--primary-1);
@@ -62,10 +72,10 @@
     --footer-link-hover-color: var(--primary-1);
     --footer-muted-color: var(--primary-3);
     --footer-title-color: var(--primary-3);
-    --form-check-input-background: var(--secondary-2);
+    --form-check-input-background: var(--primary-1);
     --form-check-input-checked-background: inherit;
     --form-check-input-checked-border: inherit;
-    --form-check-input-color: var(--secondary-1);
+    --form-check-input-color: #fff;
     --form-check-input-focus-border: inherit;
     --header-background: #FFF;
     --header-logo-background: var(--primary-1);
@@ -76,7 +86,7 @@
     --navbar-contact-border: var(--secondary-3);
     --navbar-contact-color: var(--primary-1);
     --note-deprecated: var(--tertiary-4);
-    --note-notice: var(--secondary-2);
+    --note-notice: var(--primary-1);
     --note-warning: var(--tertiary-3);
     --note-cta: var(--secondary-1);
     --note-cta-background: var(--primary-1);
@@ -95,6 +105,7 @@
     --segmented-button-background: #F5F5FB;
     --segmented-button-checked: var(--primary-1);
     --segmented-button-color: #8C8C8C;
+    --selection-background: var(--secondary-3);
     --severity-search-background: #F3F3F3;
     --severity-search-border: var(--primary-1);
     --sidebar-bottom-item-color: var(--primary-3);
@@ -148,24 +159,33 @@
     --a-original-color: #c5c5c5;
     --active-element-background: #ffffff29;
     --active-element-shadow: var(--primary-2);
-    --active-link-color: var(--secondary-1);
+    --active-link-color: var(--primary-2);
+    --alert-danger-accent: #fd3964; // solar
+    --alert-danger-background: rgba(253, 57, 100, 0.08);
+    --alert-info-accent: var(--primary-2);
+    --alert-info-background: var(--secondary-3-border);
+    --alert-success-accent: #44fd2b; // lime
+    --alert-success-background: rgba(68, 253, 43, 0.08);
+    --alert-warning-accent: #ffa726; // amber, console-ui dark warning
+    --alert-warning-background: rgba(255, 167, 38, 0.08);
     --article-link-color: var(--primary-2);
     --article-link-secondary-color: var(--primary-1);
     --basics-card-background: var(--desaturated-primary-3);
     --basics-card-border: var(--secondary-3-border);
     --blockquote-background: var(--secondary-3-border);
     --blockquote-border: var(--primary-1);
-    --blockquote-color: #fff;
     --blockquote-link-color: var(--primary-2);
     --board-background-color: #0d0d14;
     --body-background: #06060a;
     --body-color: #e8e8ed;
     --body-table-color: inherit;
     --bs-table-bg: inherit;
+    --button-secondary-color: var(--primary-2);
     --caption-color: #e8e8ed;
     --caption-title-color: #fff;
-    --card-background-0: rgba(98, 38, 240, 0.15); // Muted blurple
+    --card-background-0: rgba(98, 38, 251, 0.15); // Muted blurple
     --card-background-1: rgba(0, 160, 235, 0.10); // Muted aqua
+    --card-hover-border: var(--primary-2);
     --center-title-color: #fff;
     --code-color: #1a1a24;
     --contact-us-button-background: var(--primary-1);
@@ -202,7 +222,7 @@
     --note-cta-background: var(--primary-1);
     --note-cta-link: var(--primary-2);
     --note-deprecated: var(--tertiary-2);
-    --note-notice: var(--tertiary-1);
+    --note-notice: var(--primary-2);
     --note-warning: var(--tertiary-3);
     --offcanvas-close-color: #fff;
     --page-link-active-color: var(--primary-2);
@@ -218,6 +238,7 @@
     --segmented-button-background: #1a1a24;
     --segmented-button-checked: var(--primary-1);
     --segmented-button-color: #8C8C8C;
+    --selection-background: #3200af;
     --severity-search-background: #1a1a24;
     --sidebar-bottom-item-color: #c5c5c5;
     --sidebar-bottom-item-hover-color: var(--primary-2);

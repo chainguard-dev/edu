@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl libraries go upload"
 slug: chainctl_libraries_go_upload
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_go_upload/
@@ -44,7 +44,7 @@ role. Credentials are resolved in this order:
 
 If a token was minted before the push capability was granted it still
 carries the old capability set; refresh it with
-'chainctl auth login --audience <host> --refresh'.
+'chainctl auth login --audience <host>'.
 
 Consumers resolve uploaded versions with GOPROXY=<ecosystems-url>/go.
 Versions published this way never appear in sum.golang.org, so consumers

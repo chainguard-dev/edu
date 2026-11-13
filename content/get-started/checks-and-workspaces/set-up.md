@@ -4,7 +4,7 @@ linktitle: "Set up Checks and Workspaces"
 description: "How Chainguard Checks and Chainguard Workspaces work together, and how to sign up for both with chainctl develop init and give teammates access."
 type: "article"
 date: 2026-10-13T00:00:00+00:00
-lastmod: 2026-10-22T12:51:41+00:00
+lastmod: 2026-11-12T15:31:43+00:00
 draft: false
 tags: ["Chainguard Checks", "Chainguard Workspaces", "Getting Started", "Procedural"]
 images: []
@@ -33,6 +33,8 @@ A typical loop uses both products:
 2. Run `run-ci` in the session to run your repository's checks against the change. Refer to [Run checks before you push](/chainguard/checks/run-checks/).
 3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
 4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+To walk this loop once with a small project, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ## Prerequisites {#prerequisites}
 
@@ -72,7 +74,7 @@ Installing the app doesn't change your repositories. Chainguard Checks runs only
 
 The `chainctl develop init` command signs you in, creates a free [Starter organization](#what-a-starter-organization-includes) if you don't have one, and turns on Chainguard Checks and Chainguard Workspaces. Each product gets its own free monthly allowance, which resets on the first day of each month (UTC). For what each allowance includes, refer to Availability and limits for [Chainguard Checks](/chainguard/checks/overview/#availability-and-limits) and for [Chainguard Workspaces](/chainguard/workspaces/overview/#availability-and-limits).
 
-To create an organization, sign in with a Google account, a GitHub account, or an email address and password. A GitLab sign-in can't create one. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub, that's your GitHub account's verified primary email address, and other addresses on the account don't count.
+To create an organization, sign in with a Google account, a GitHub account, a GitLab account, or an email address and password. The email address you sign in with decides how the organization is named and whether you can invite teammates to it. If you sign in with GitHub or GitLab, that's the account's verified primary email address, and other addresses on the account don't count.
 
 - With a work email address, the organization is named after your email domain, and you can invite teammates whose addresses are in that domain.
 - With a personal email address, such as a Gmail address, you name the organization yourself, at a prompt or with `--name`, and the name can't contain a dot. The organization's registry and package paths use its ID instead of its name, and it can't invite anyone.
@@ -109,7 +111,7 @@ If `chainctl develop init` stops with an error, refer to [`chainctl develop init
 
 ### What a Starter organization includes {#what-a-starter-organization-includes}
 
-An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images through Chainguard Catalog Starter.
+An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images. For all of the Starter plan's limits, and for upgrading to Chainguard Team, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
 The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
 
@@ -162,7 +164,7 @@ Your teammates don't need a Chainguard account to get checks on their pull reque
 | Role | In Chainguard Checks | In Chainguard Workspaces | Inside a session |
 | ---- | -------------------- | ------------------------ | ---------------- |
 | `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. | `chainctl checks` commands work as the teammate. The Chainguard MCP servers don't, because the role doesn't include the `mcp.tool.call` capability. |
-| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. | Neither the Chainguard MCP servers nor the `chainctl checks` commands that look up a run, such as `status` and `logs`, work. |
+| `limited_owner` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens sessions. Also manages your organization's billing and invites or removes members. | `chainctl checks` commands and the Chainguard MCP servers work. |
 | `mcp.tool_user` | Nothing. | Nothing. | Adds `mcp.tool.call`, so the Chainguard MCP servers work. |
 
 Inside a session, a teammate's Chainguard identity can't do more than their role allows, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session). For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
@@ -189,7 +191,7 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 
 ### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
 
-If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
 
 An organization you created with a personal email address can't create invites, so you can't add teammates to it.
 
@@ -209,6 +211,7 @@ The link in that email invites the coworker with the `viewer` role, which can't 
 
 ## Next steps {#next-steps}
 
+- [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/): walk the whole loop once, with a small Go project.
 - [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
 - [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
 - [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.

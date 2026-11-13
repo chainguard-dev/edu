@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl auth configure-refresh-service"
 slug: chainctl_auth_configure-refresh-service
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/
@@ -11,12 +11,16 @@ toc: true
 ---
 ## chainctl auth configure-refresh-service
 
-Manage a background service that keeps Chainguard tokens refreshed
+Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 
 ### Synopsis
 
 Manage a user-level background service that keeps Chainguard tokens refreshed
 by periodically running 'chainctl auth login --refresh-only'.
+
+Deprecated: tokens renew on demand from the cached refresh token, so no
+background service is needed. 'install' warns; use 'uninstall' to remove a
+service installed earlier.
 
 The service manager is selected automatically for your operating system:
 systemd (Linux) or launchd (macOS). By default every cached token is
@@ -40,6 +44,5 @@ refreshed; specific audiences can be selected at install time instead.
 ### SEE ALSO
 
 * [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth configure-refresh-service install](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/)	 - Install a background service for automatic token refresh
 * [chainctl auth configure-refresh-service uninstall](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/)	 - Uninstall the background token-refresh service
 

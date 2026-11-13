@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl checks"
 slug: chainctl_checks
 url: /platform/chainctl/chainctl-docs/chainctl_checks/
@@ -40,7 +40,7 @@ Inspect and manage a repository's Checks on the Chainguard sandbox plane.
 * [chainctl checks failures](/platform/chainctl/chainctl-docs/chainctl_checks_failures/)	 - Show why a Run's checks failed.
 * [chainctl checks list](/platform/chainctl/chainctl-docs/chainctl_checks_list/)	 - List Runs.
 * [chainctl checks logs](/platform/chainctl/chainctl-docs/chainctl_checks_logs/)	 - Print a check's log.
-* [chainctl checks migrate](/platform/chainctl/chainctl-docs/chainctl_checks_migrate/)	 - Draft a .chainguard/ci/migrated.yaml from a repository's GitHub Actions presubmits and prove it on the sandbox plane.
+* [chainctl checks mcp](/platform/chainctl/chainctl-docs/chainctl_checks_mcp/)	 - Serve the checks verbs as tools to an MCP client over stdio.
 * [chainctl checks rerun](/platform/chainctl/chainctl-docs/chainctl_checks_rerun/)	 - Rerun a pull request's checks, or a finished postsubmit Run.
 * [chainctl checks run](/platform/chainctl/chainctl-docs/chainctl_checks_run/)	 - Run a commit's checks on the sandbox plane, advisory.
 * [chainctl checks stats](/platform/chainctl/chainctl-docs/chainctl_checks_stats/)	 - Summarize the outcomes of the instance's newest runs and their checks.

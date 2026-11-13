@@ -101,6 +101,30 @@ blocks = [
     { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/identities.yaml" },
 ]
 
+[[group]]
+reason = "The gallery's image.yaml uses the docker service from Run Docker."
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/docker/docker.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/image.yaml" },
+]
+
+[[group]]
+reason = "The gallery's monorepo example: each check file names an environment in env/."
+blocks = [
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/env/go.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/env/node.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/api.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/web.yaml" },
+]
+
+[[group]]
+reason = "The gallery's integration.yaml uses its redis service and the postgres service from Services."
+blocks = [
+    { page = "chainguard/checks/variations-services-caches.md", title = ".chainguard/ci/services/postgres/postgres.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/services/redis/redis.yaml" },
+    { page = "chainguard/checks/examples.md", title = ".chainguard/ci/integration.yaml" },
+]
+
 # Blocks that can't be validated: excerpts, and files the validator doesn't read.
 
 [[group]]
@@ -111,10 +135,13 @@ blocks = [
     { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/deploy.yaml" },
 ]
 
-[[skip]]
-page = "chainguard/checks/identity-and-trust.md"
-contains = "tenant_id: 00000000"
-reason = "Excerpt: only the identity's `azure` mapping."
+[[group]]
+reason = "identities.yaml declares staging-azure for the inventory check in azure.yaml after it, in the directory layout."
+stubs = ["env-default"]
+blocks = [
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/identities.yaml", contains = "staging-azure" },
+    { page = "chainguard/checks/identity-and-trust.md", title = ".chainguard/ci/azure.yaml" },
+]
 
 [[skip]]
 page = "chainguard/checks/github.md"

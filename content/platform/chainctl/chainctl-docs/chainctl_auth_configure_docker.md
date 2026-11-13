@@ -1,5 +1,5 @@
 ---
-date: 2026-10-28T16:22:54Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl auth configure docker"
 slug: chainctl_auth_configure_docker
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_docker/
@@ -29,10 +29,11 @@ chainctl auth configure docker [flags]
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --parent string              The IAM organization or folder with which the pull-token identity is associated.
       --pull-token                 Whether to register a pull token that can pull images
+      --registered                 Also configure the registered registry in platform.registered-registry
       --save                       If true with --pull-token, save the pull token to the Docker config
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --sts-http1-downgrade        Downgrade STS requests to HTTP/1.x
-      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands

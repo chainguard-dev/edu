@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-10-27T14:15:00+00:00
+lastmod: 2026-11-09T17:08:42+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -107,7 +107,7 @@ Learn more in the [JavaScript migration guide](/chainguard/libraries/javascript/
 `update-hashes` fetches checksums from Chainguard Libraries,
 which requires authentication. Where it fetches from depends on your environment: some setups authenticate directly to `libraries.cgr.dev`, but if your build routes through a repository manager configured as a pull-through proxy for Chainguard Libraries, point `update-hashes` there instead with `--registry-url` so it validates against the same source your build used.
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 Authenticating to `libraries.cgr.dev` directly:
 
@@ -148,8 +148,11 @@ dependency tree in your lockfile, so you adopt it with `chainctl libraries
 remediate` after your project is configured to use the Chainguard registry and a
 lockfile exists.
 
-> **Note**: Running `chainctl libraries remediate` requires the
-> `libraries.javascript.pull` permission or the Owner role.
+> **Note**: With a regular `chainctl auth login`, `chainctl libraries remediate` creates a
+> pull token, which requires the `libraries.javascript.pull_token_creator` role or the
+> `owner` role. With only the `libraries.javascript.pull` role, sign in with
+> `chainctl auth login --audience=libraries.cgr.dev` first, or pass a libraries-scoped token
+> with `--token`.
 
 First, preview the available remediations:
 
@@ -411,9 +414,11 @@ directory:
 chainctl auth configure-npm
 ```
 
-[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 By default, this command writes a short-lived, session-backed bearer token. The token expires during a typical work session, and a later `npm install` or `npm ping` fails with an authentication error even though nothing in your configuration changed. Re-run `chainctl auth configure-npm` to refresh the token, or create longer-lived credentials with `chainctl auth configure-npm --pull-token` (use `--ttl` to set the lifetime).
+
+The session token is written as an `_authToken` entry. With `--pull-token`, the command creates a [pull token](/chainguard/libraries/introduction/access/#pull-token) and writes it as base64-encoded basic authentication in an `_auth` entry. Passing `--parent`, `--ttl`, or `--name` without `--pull-token` also creates a pull token. For help choosing between the two, see [Choose an authentication method](/chainguard/libraries/introduction/access/#choose-auth).
 
 For CI/CD, prefer an assumable identity when using this command. Expand the following to learn more:
 
