@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop github"
 slug: chainctl_develop_github
 url: /platform/chainctl/chainctl-docs/chainctl_develop_github/
@@ -15,7 +15,7 @@ Connect your GitHub account to development sessions.
 
 ### Synopsis
 
-Connect your GitHub account once with login, and the sessions you create from then on act on GitHub as you: every git and gh request such a session makes is served with your own GitHub account, through the sandbox plane's develop GitHub App (status names it; it is not the App that runs CI), as far as the App's permissions, its installations, and your own access allow. That holds in every group whose policy does not ban it (user_github, see chainctl develop policy); a group that bans it creates sessions that use their github source and bindings instead. A session keeps the GitHub identity it was created with: logging in or out never changes an existing session's, and a session that acts as you refuses git and gh requests after you log out. The connection refreshes itself until you log out or GitHub revokes it.
+Connect your GitHub account once with login, and your sessions act on GitHub as you, those created before the login included: every git and gh request such a session makes is served with your own GitHub account, through the sandbox plane's develop GitHub App (status names it; it is not the App that runs CI), as far as the App's permissions, its installations, and your own access allow. That holds in every group whose policy does not ban it (user_github, see chainctl develop policy); in a group that bans it, sessions use their github source and bindings instead. Whose account serves a request is decided on each request: a session created after the login keeps acting as you and refuses git and gh requests after you log out, and one created before it goes back to its github source and bindings. The connection refreshes itself until you log out or GitHub revokes it.
 
 No token is written to this machine or shown: the control plane keeps the account's authorization, sealed, and hands it to no one but the requests your own sessions make.
 

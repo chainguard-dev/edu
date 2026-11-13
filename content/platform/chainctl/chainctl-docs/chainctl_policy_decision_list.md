@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -16,7 +16,7 @@ List policy decisions.
 ### Synopsis
 
 List recorded policy decisions to see which artifacts (image digests
-or library package PURLs) a policy allowed or denied at pull time.
+or library package PURLs) a policy allowed or blocked at pull time.
 
 Each decision shows the repository, the artifact ID, the resource type,
 the policy that evaluated it, the mode, the outcome, and when it was
@@ -64,7 +64,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
   chainctl policy decision list --parent=engineering
   
   # List what the cooldown policy would have blocked in the last day
-  chainctl policy decision list --parent=engineering --policy=cooldown --result=DENIED --since=1d
+  chainctl policy decision list --parent=engineering --policy=cooldown --result=BLOCKED --since=1d
   
   # List only the decisions for Python packages
   chainctl policy decision list --parent=engineering --resource-type=Python
@@ -98,7 +98,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
       --policy string           Only show decisions for this policy (name or UIDP).
       --repo string             Only show decisions for this repository.
       --resource-type string    Only show decisions for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type). Also picks which policy a --policy name refers to.
-      --result string           Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
+      --result string           Only show decisions with this outcome (ALLOWED, BLOCKED, or ERROR; DENIED and the RESULT_ prefixed value from -o json are also accepted).
       --show-artifact-ids       Print the unique full artifact IDs from the result set, one per line.
       --show-decision-details   Print each decision as an expanded block that lists every reason line-by-line.
       --since string            Only show decisions pulled within a window given as a positive whole number of days followed by d, e.g. 7d.
