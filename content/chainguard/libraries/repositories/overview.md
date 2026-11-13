@@ -146,6 +146,10 @@ The command prints `Disabled upstream registry npmjs for JAVASCRIPT in
 repository prod.` and a warning that upstream fallback is now off for
 JavaScript.
 
+A change to upstream fallback takes effect within about a minute, because the
+service caches resolved package versions for one minute, so a pull right after
+you disable `npmjs` can still return the upstream version.
+
 To turn upstream fallback on again, enable `npmjs`:
 
 ```shell
@@ -262,13 +266,14 @@ configured for request`.
 
 The following table shows what a client receives from a repository URL. In the
 examples, `prod` has upstream fallback off and `dev` has it on. Chainguard
-builds `lodash` but doesn't build `leftpad`.
+builds `lodash`. For a package that Chainguard doesn't build but the npm
+Registry hosts, the examples use `five`.
 
 | Request | Response |
 | --- | --- |
 | `npm install lodash` on `prod` or `dev` | Installs the package |
-| `npm install leftpad` on `prod` | HTTP `404` |
-| `npm install leftpad` on `dev` | Installs the package |
+| `npm install five` on `prod` | HTTP `404` |
+| `npm install five` on `dev` | Installs the package |
 | Any request without credentials | HTTP `401` |
 | A request to a repository that doesn't exist | HTTP `403` |
 | A request from an organization that isn't enrolled | HTTP `403` |
