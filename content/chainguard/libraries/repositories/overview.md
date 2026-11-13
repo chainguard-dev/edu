@@ -167,7 +167,8 @@ builds, and returns HTTP `404` for packages that Chainguard hasn't built. With
 upstream fallback on, the repository serves both.
 
 You can enable, disable, and reorder the upstream registries that Chainguard
-provides. You can't add your own registries.
+provides. You can't add your own registries. On the Starter plan, you can
+disable an upstream registry but not enable or reorder one.
 
 The default repository has no upstream list of its own. Its upstream fallback
 follows your organization's Libraries entitlement. If you run `upstreams list`
