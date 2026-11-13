@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop github logout"
 slug: chainctl_develop_github_logout
 url: /platform/chainctl/chainctl-docs/chainctl_develop_github_logout/
@@ -15,7 +15,7 @@ Disconnect your GitHub account from development sessions.
 
 ### Synopsis
 
-Disconnect your GitHub account: the sandbox plane forgets its authorization and asks GitHub to revoke the token it held. Sessions that act on GitHub as you then refuse git and gh requests until you log in again, and the sessions you create meanwhile use their github source and bindings. Allowed whatever the group's policy says.
+Disconnect your GitHub account: the sandbox plane forgets its authorization and asks GitHub to revoke the token it held. Sessions created acting on GitHub as you then refuse git and gh requests until you log in again; your other sessions, and those you create meanwhile, use their github source and bindings. Allowed whatever the group's policy says.
 
 ```
 chainctl develop github logout
