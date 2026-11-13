@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-11-12T13:56:30+00:00
+lastmod: 2026-11-13T14:58:54+00:00
 draft: false
 aliases:
 - /chainguard/guardener/actions-security/
@@ -127,7 +127,7 @@ migrate:
 ```
 
 - `ignore.files` — workflow files (under `.github/workflows/`) to skip.
-- `ignore.actions` — upstream actions to leave untouched.
+- `ignore.actions` — actions to leave untouched. Upstream names, such as `actions/checkout`, skip migration. Chainguard names, such as `chainguard-actions/actions-checkout`, skip [upgrades](#keep-chainguard-actions-pins-up-to-date).
 
 ## Keep Chainguard Actions pins up to date
 
@@ -142,13 +142,14 @@ migrate:
     enabled: true
 ```
 
-Upgrades are off by default, and they run only when `migrate.enabled` is also `true`. They run on the `migrate.period` schedule and with each [on-demand migration](#run-an-on-demand-migration), and they skip anything that `migrate.ignore` excludes. With only `upgrade.enabled: true`, Guardener allows every update type and waits three days before it uses a new version.
+Upgrades are off by default, and they run only when `migrate.enabled` is also `true`. They run on the `migrate.period` schedule and with each [on-demand migration](#run-an-on-demand-migration). They skip the workflow files in `migrate.ignore.files` and the actions in `migrate.ignore.actions`. To keep an action out of upgrades with `migrate.ignore.actions`, list its Chainguard name, such as `chainguard-actions/actions-checkout`, because an upstream name such as `actions/checkout` doesn't match it. With only `upgrade.enabled: true`, Guardener allows every update type and waits three days before it uses a new version.
 
 ### How Guardener picks a new version
 
 Guardener reads versions from the Chainguard Actions catalog rather than from upstream tags. For each pin, it picks the newest version that meets all of these conditions:
 
-- It's later than the version the pin uses now, and it isn't a prerelease.
+- It's later than the version the pin uses now. For a SHA pin, a newer build of the same version also counts.
+- It isn't a prerelease, and the catalog has a commit SHA for it.
 - No [ignore rule](#skip-upgrades-with-ignore-rules) skips it.
 - Its [cooldown](#set-the-cooldown) has ended.
 
@@ -162,7 +163,11 @@ Each pin keeps its form. A SHA pin gets a new SHA, and a tag pin gets a new tag:
 | Tag pin | `chainguard-actions/actions-checkout@v4.2.2` | `chainguard-actions/actions-checkout@v7.0.1` |
 | Floating tag pin | `chainguard-actions/actions-checkout@v4` | `chainguard-actions/actions-checkout@v6` |
 
-A floating tag, such as `v4`, moves to each new release in its major version. A pin on a floating tag stays on a floating tag and never becomes a pin on a single release. A SHA pin with a `# v4` comment moves to the newest build of `v4`, or to a later floating tag such as `# v6`. A tag pin on `@v4` already gets each new build of `v4` through the tag, so it moves only to a later major version's tag.
+A floating tag, such as `v4`, moves to each new release in its major version. A tag pin on a floating tag stays on a floating tag and never becomes a pin on a single release. A SHA pin with a `# v4` comment usually stays on a floating tag too: it moves to the newest build of `v4`, or to a later floating tag such as `# v6`.
+
+Guardener finds a SHA pin's version from its SHA, not its comment. It uses the comment only when the comment names one of the versions listed with that SHA, or when the catalog no longer lists the SHA. So if the catalog lists a `# v4` pin's SHA only under a single release, such as `v4.2.2`, Guardener treats the line as a pin on that release and moves it to the newest release, such as `# v7.0.1`.
+
+A tag pin on `@v4` already gets each new build of `v4` through the tag, so it moves only to a later major version's tag.
 
 Guardener doesn't check whether an upgrade changes an action's inputs or behavior. Major versions can include breaking changes, so read the release notes for each major upgrade before you merge the pull request.
 
@@ -200,7 +205,7 @@ The cooldown starts at the later of two dates: the date the Chainguard Actions c
 
 ### Skip upgrades with ignore rules
 
-The `upgrade.ignore` list uses the same format as Dependabot's `ignore` option, so you can copy rules from your `dependabot.yml` file. This example skips major upgrades for every action and skips all upgrades for `chainguard-actions/actions-cache`:
+The `upgrade.ignore` list uses the same format as Dependabot's `ignore` option, so you can copy rules from your `dependabot.yml` file. Rules match an action's Chainguard name, so change any upstream name in a copied rule, such as `actions/checkout`, to its Chainguard name, `chainguard-actions/actions-checkout`. This example skips major upgrades for every action and skips all upgrades for `chainguard-actions/actions-cache`:
 
 ```yaml
 enabled: true
@@ -223,7 +228,7 @@ Guardener doesn't support Dependabot's `versions` field in ignore rules.
 
 ### Fix invalid upgrade settings
 
-A mistake in `migrate.upgrade` turns off upgrades for the repository, but nothing else. Migrations and pull request recommendations keep running, and the migration pull request names the setting that turned off upgrades. If the mistake leaves nothing to migrate or upgrade, Guardener [closes the migration pull request](#enable-automated-migration-pull-requests) and names the setting in its closing comment. If the repository has no migration pull request, Guardener doesn't report the mistake, so check `.chainguard/actions.yaml` when expected upgrades don't appear.
+A mistake in `migrate.upgrade` turns off upgrades for the repository, but nothing else. Migrations and pull request recommendations keep running, and the migration pull request says why upgrades are off. It names the setting or, for a value of the wrong type, its line in `.chainguard/actions.yaml`. If the mistake leaves nothing to migrate or upgrade, Guardener [closes the migration pull request](#enable-automated-migration-pull-requests) and gives the reason in its closing comment. If there's nothing to migrate and no open migration pull request, Guardener has nowhere to report the mistake, so check `.chainguard/actions.yaml` when expected upgrades don't appear.
 
 These count as mistakes:
 
@@ -233,6 +238,8 @@ These count as mistakes:
 - An update type other than the three listed in [Skip upgrades with ignore rules](#skip-upgrades-with-ignore-rules)
 - A `versions` field in an ignore rule
 - Any other key under `migrate.upgrade` or `migrate.upgrade.cooldown`, such as a misspelled `default-days` or Dependabot's `semver-major-days`
+
+A value of the wrong type for `upgrade.enabled` itself, such as `ture`, doesn't count as a mistake. Guardener treats upgrades as not turned on, so they stay off without a note in the pull request.
 
 Guardener ignores Dependabot's cooldown `include` and `exclude` lists. Without them, the cooldown applies to every action.
 
@@ -258,7 +265,11 @@ For Renovate, add a `packageRules` entry that turns off updates for packages und
 Guardener doesn't upgrade these pins:
 
 - A SHA pin that Guardener can't match to a version, because the catalog no longer lists its SHA and it has no version comment.
+- A step with no version, such as `uses: chainguard-actions/actions-checkout`, or with a reference that isn't a version, such as `@main`.
+- Pins outside the workflow files. Guardener reads only `.yml` and `.yaml` files directly in `.github/workflows/`, so it doesn't upgrade pins in composite actions, such as `.github/actions/<name>/action.yml`.
 - Pins in a repository that has a GitHub workflow lockfile (`.github/workflows/actions.lock`). Migrations in these repositories work as before.
+
+When Guardener upgrades a pin, it keeps only the version in the line's comment. Other comment text, as in `# v4.2.2 (pinned by dependabot)`, is dropped.
 
 ## Configuration reference
 
