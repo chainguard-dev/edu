@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -137,12 +137,15 @@ chainctl libraries verify [path...] [flags]
   # Per-entry results for machine consumption
   chainctl libraries verify package-lock.json -o json --detailed
 
-  # Verify npm cache (auto-detected by _cacache/index-v5/ structure)
-  chainctl libraries verify "$(npm config get cache)"
+  # Verify npm cache (auto-detected by _cacache/index-v5/ structure). Ask npm
+  # from your home directory: inside an untrusted project, its configuration
+  # can choose which npm runs.
+  chainctl libraries verify "$(cd ~ && npm config get cache)"
 
   # Verify pnpm store (auto-detected; supports pnpm 10+ index dirs and the
-  # pnpm 11 SQLite index, and the versioned path reported by newer pnpm)
-  chainctl libraries verify "$(pnpm store path)"
+  # pnpm 11 SQLite index, and the versioned path reported by newer pnpm).
+  # Ask pnpm from your home directory, as with npm.
+  chainctl libraries verify "$(cd ~ && pnpm store path)"
 
   # Verify Yarn Classic (v1.x) cache
   chainctl libraries verify yarn:

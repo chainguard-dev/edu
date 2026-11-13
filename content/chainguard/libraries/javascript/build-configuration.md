@@ -414,14 +414,16 @@ directory:
 chainctl auth configure-npm
 ```
 
-[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 By default, this command writes a short-lived, session-backed bearer token. The token expires during a typical work session, and a later `npm install` or `npm ping` fails with an authentication error even though nothing in your configuration changed. Re-run `chainctl auth configure-npm` to refresh the token, or create longer-lived credentials with `chainctl auth configure-npm --pull-token` (use `--ttl` to set the lifetime).
 
+The session token is written as an `_authToken` entry. With `--pull-token`, the command creates a [pull token](/chainguard/libraries/introduction/access/#pull-token) and writes it as base64-encoded basic authentication in an `_auth` entry. Passing `--parent`, `--ttl`, or `--name` without `--pull-token` also creates a pull token. For help choosing between the two, see [Choose an authentication method](/chainguard/libraries/introduction/access/#choose-auth).
+
 If your organization uses a named repository, pass `--parent` with the
-repository path, such as `example.com/prod`, and `--repo-name` with the repository
-name. The command then points npm at the repository URL instead of the default
-`https://libraries.cgr.dev/javascript/`. Repositories are in beta; refer to
+repository path, such as `example.com/prod`. The command then points npm at the
+repository URL instead of the default `https://libraries.cgr.dev/javascript/`.
+Repositories are in beta; refer to
 [Repositories](/chainguard/libraries/repositories/overview/).
 
 For CI/CD, prefer an assumable identity when using this command. Expand the following to learn more:

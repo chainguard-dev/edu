@@ -9489,11 +9489,12 @@
       },
       "chainguard.platform.policies.v1.Result": {
         "default": "RESULT_UNSPECIFIED",
-        "description": "The outcome of a policy evaluation.\n\n - RESULT_ALLOWED: The artifact satisfied the policy.\n - RESULT_DENIED: The artifact violated the policy.\n - RESULT_ERROR: The policy could not be evaluated.",
+        "description": "- RESULT_ALLOWED: The artifact satisfied the policy.\n - RESULT_DENIED: Use RESULT_BLOCKED. Declared before its alias so that JSON, stored values\nand events keep carrying this name: the first name declared for a number\nis the one encoders write.\n - RESULT_BLOCKED: The artifact violated the policy.\n - RESULT_ERROR: The policy could not be evaluated.",
         "enum": [
           "RESULT_UNSPECIFIED",
           "RESULT_ALLOWED",
           "RESULT_DENIED",
+          "RESULT_BLOCKED",
           "RESULT_ERROR"
         ],
         "type": "string"
@@ -27384,7 +27385,7 @@
             }
           },
           {
-            "description": "Only return decisions with this outcome.\n\n - RESULT_ALLOWED: The artifact satisfied the policy.\n - RESULT_DENIED: The artifact violated the policy.\n - RESULT_ERROR: The policy could not be evaluated.",
+            "description": "Only return decisions with this outcome.\n\n - RESULT_ALLOWED: The artifact satisfied the policy.\n - RESULT_DENIED: Use RESULT_BLOCKED. Declared before its alias so that JSON, stored values\nand events keep carrying this name: the first name declared for a number\nis the one encoders write.\n - RESULT_BLOCKED: The artifact violated the policy.\n - RESULT_ERROR: The policy could not be evaluated.",
             "in": "query",
             "name": "result",
             "schema": {
@@ -27393,6 +27394,7 @@
                 "RESULT_UNSPECIFIED",
                 "RESULT_ALLOWED",
                 "RESULT_DENIED",
+                "RESULT_BLOCKED",
                 "RESULT_ERROR"
               ],
               "type": "string"

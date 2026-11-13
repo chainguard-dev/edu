@@ -78,7 +78,7 @@ https://libraries.cgr.dev/javascript/
 
 The URL does not expose a browsable directory structure.
 
-The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
+The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when upstream fallback is on, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
 
 Even with upstream fallback enabled, the repository does not include every package from npm. Packages may be unavailable when:
 
@@ -217,11 +217,13 @@ Replace `PACKAGE` and `VERSION` with the package name and version (for example, 
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for JavaScript supports an optional built-in fallback to
+Chainguard Libraries for JavaScript includes a built-in, policy-governed fallback to
 the upstream npm Registry, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New JavaScript entitlements
+have upstream fallback on by default. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 

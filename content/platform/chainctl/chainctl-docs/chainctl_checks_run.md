@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl checks run"
 slug: chainctl_checks_run
 url: /platform/chainctl/chainctl-docs/chainctl_checks_run/
@@ -23,12 +23,12 @@ The plan has no event context: no trigger, labels or pull request. A check whose
 
 --check restricts the Run to one check and what it needs, and runs it even when it runs only on request; --workflow names its workflow when two have a check of that name. --request satisfies a check's `when: {requested: true}` gate, as a `ci/run:` label does on a pull request; it may be repeated.
 
-The Run is advisory: it is never a pull request's checks or a commit's verdict, so `chainctl checks status` on the commit still reports what the platform ran. Follow the Run by its name, or pass --watch to wait for it. With --output json the Run is printed as the API returns it, or under --watch its final status.
+The Run is advisory: it is never a pull request's checks or a commit's verdict, so `chainctl checks status` on the commit still reports what the platform ran. Follow the Run by its name, or pass --watch to wait for it, or --follow to print its checks' logs as they run (only --check's log when it is given) and then the Run's verdict. With --output json the Run is printed as the API returns it, or under --watch its final status; --follow prints no JSON.
 
-With --watch the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed.
+With --watch or --follow the command exits 1 when the Run is done and its verdict did not pass, or when the command fails (including when it is interrupted); 0 when it passed.
 
 ```
-chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK]... [--git-remote NAME] [--base REV] [--watch] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
+chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK]... [--git-remote NAME] [--base REV] [--watch | --follow] [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json]
 ```
 
 ### Examples
@@ -40,6 +40,9 @@ chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK
   # Just one check, and wait for it
   chainctl checks run . --check test --workflow go --watch
 
+  # Just one check, printing its log as it runs
+  chainctl checks run . --check test --follow
+
   # A fork checkout: plan upstream, with an on-request check
   chainctl checks run . --request e2e-full --git-remote upstream
 ```
@@ -49,6 +52,7 @@ chainctl checks run [DIR] [--check CHECK [--workflow WORKFLOW]] [--request CHECK
 ```
       --base string           The commit when.changed gates are measured from. Defaults to HEAD's merge base with the remote's default branch, or HEAD's parent on that branch.
       --check string          Run only this check and the checks it needs.
+      --follow                Print the log of --check, or of every check, as it runs, then the Run's verdict.
       --git-remote string     The checkout's remote whose github.com repository to plan. Defaults to origin.
       --parent string         The organization or folder (name or ID) the Runs are in. Defaults to $CHAINCTL_SANDBOX_GROUP, then the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
       --request stringArray   Satisfy this check's when: {requested: true} gate, as a ci/run: label does on a pull request. Repeatable.

@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-07T00:00:00+00:00
+lastmod: 2026-11-12T19:21:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -26,8 +26,9 @@ toc: true
 The following video focuses on Chainguard's built-from-source model: when a
 rebuilt package is available, Chainguard serves it with verifiable provenance
 and SBOMs. Not every package or version can be built immediately, so the
-[Chainguard Repository](/chainguard/chainguard-repository/) also supports an
-optional, policy-governed upstream fallback. When enabled, Chainguard-built
+[Chainguard Repository](/chainguard/chainguard-repository/) also includes a
+policy-governed upstream fallback, on by default for new entitlements. When
+enabled, Chainguard-built
 packages are preferred, while eligible upstream packages are subject to
 configurable controls such as a cooldown period and malware and greyware
 scanning. Packages identified as malicious are blocked.
@@ -127,7 +128,7 @@ of the software supply chain for libraries across different language ecosystems:
   proposed mechanism would not publish source code. Chainguard Libraries replace other repositories and the use of Chainguard Libraries, based on
   building from the original source, would have prevented an attack using this approach
 * Refer also to [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
-  [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
+  [_Oversecured_ blog post](https://oversecured.com/blog/introducing-mavengate-a-supply-chain-attack-method-for-java-and-android-applications),
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
@@ -247,6 +248,35 @@ though a version appears in the public registry.
 
 For more details on the errors you may see when a package is blocked for these reasons,
 see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+## Why might `chainctl libraries verify` report 0% coverage?
+
+There are a few reasons why `chainctl libraries verify` might report 0% coverage:
+
+* Missing .package-lock.json: If `.package-lock.json` is not present in the directory, the directory is not recognized as an npm tree and verification will not run.
+* The packages you are verifying come from Chainguard's upstream fallback. Packages that Chainguard did not build show as not verified. These packages can be found via the Console or `chainctl libraries packages`.
+* Fat or shaded JAR: For Java, a 0% coverage result is [expected when verifying a fat JAR, uber JAR, or shaded JAR](/chainguard/libraries/policies-and-security/verification#why-might-i-see-0-coverage-when-verifying-java-artifacts).
+* Insufficient role or missing credentials: With a regular `chainctl auth login`, the command requires the pull token creator role (for example, for JavaScript: `libraries.javascript.pull_token_creator`), or the owner role, because it creates a pull token internally. If you only have the pull role for an ecosystem, you must pass a libraries-scoped token explicitly. For example:
+
+```bash
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify ./node_modules
+```
+
+Without this, a pull-only role will report 0% coverage even after login.
+
+* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example:
+
+```bash
+chainctl libraries verify --parent <your-organization> ./node_modules
+```
+
+Or set a default organization first:
+
+```bash
+chainctl config set default.group <your-organization>
+```
 
 ## What are Chibbies?
 

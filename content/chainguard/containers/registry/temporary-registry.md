@@ -1,5 +1,5 @@
 ---
-title: "Temporary anonymous registry (tmp.cgruser.dev)"
+title: "Temporary anonymous registry (lockers.cgruser.dev)"
 linktitle: "Temporary registry"
 type: "article"
 description: "Push and pull temporary container images with no account, no login, and no configuration. Images expire automatically."
@@ -15,7 +15,7 @@ weight: 40
 toc: true
 ---
 
-`tmp.cgruser.dev` is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
+`lockers.cgruser.dev` is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
 
 > **This service is experimental.** It has no SLA, its hostname may change, and anything on it can disappear at any time. Never use it for production images, and never push anything secret: everything on this registry is publicly readable, writable, and deletable by anyone.
 
@@ -31,7 +31,7 @@ CMD ["echo", "hello from the temporary registry"]
 DOCKERFILE
 
 # Pick a random name once so build, push, and pull all agree
-IMAGE="tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/demo:1h"
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/demo:1h"
 
 docker build -t "$IMAGE" .
 docker push "$IMAGE"
@@ -44,7 +44,7 @@ Or skip the build entirely and copy an existing image with [crane](https://githu
 
 ```sh
 crane copy cgr.dev/chainguard/busybox:latest \
-  "tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/busybox:30m"
+  "lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/busybox:30m"
 ```
 
 ## The tag is the time-to-live
@@ -73,7 +73,7 @@ Because pulls are anonymous, a cluster needs no `imagePullSecrets` and no regist
 
 ```sh
 # Push something to a random repository name
-IMAGE="tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
 crane copy cgr.dev/chainguard/busybox:latest "$IMAGE"
 
 # A fresh local cluster, no registry configuration anywhere
@@ -97,7 +97,7 @@ The kubelet pulls the image anonymously and the pod runs:
 
 ```
 $ kubectl describe pod tmp-registry-demo | grep Pulled
-  Normal  Pulled  1s  kubelet  Successfully pulled image "tmp.cgruser.dev/.../hello:1h" in 1.722s
+  Normal  Pulled  1s  kubelet  Successfully pulled image "lockers.cgruser.dev/.../hello:1h" in 1.722s
 
 $ kubectl delete pod tmp-registry-demo && kind delete cluster --name tmp-demo
 ```
@@ -109,7 +109,7 @@ The same applies to any cluster that can reach the internet: hand it the image r
 - **Everything is public and anonymous.** Anyone can pull, overwrite, or delete any tag. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters:
 
   ```sh
-  docker pull tmp.cgruser.dev/<name>/demo@sha256:<digest>
+  docker pull lockers.cgruser.dev/<name>/demo@sha256:<digest>
   ```
 
 - **Repositories cannot be listed.** There is no catalog endpoint, so content is only reachable by someone who knows the name. Tag listing works within a repository you already know.

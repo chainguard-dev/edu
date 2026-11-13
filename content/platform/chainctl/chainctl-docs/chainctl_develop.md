@@ -1,5 +1,5 @@
 ---
-date: 2026-11-11T10:22:55Z
+date: 2026-11-12T21:48:09Z
 title: "chainctl develop"
 slug: chainctl_develop
 url: /platform/chainctl/chainctl-docs/chainctl_develop/
@@ -110,6 +110,7 @@ chainctl develop [DIR|REPO|SESSION] [flags]
 * [chainctl develop accept-terms](/platform/chainctl/chainctl-docs/chainctl_develop_accept-terms/)	 - Accept the terms Workspaces is offered under.
 * [chainctl develop check](/platform/chainctl/chainctl-docs/chainctl_develop_check/)	 - Run the repository's checks inside a development session.
 * [chainctl develop claude](/platform/chainctl/chainctl-docs/chainctl_develop_claude/)	 - Let the sandbox plane hold a Claude login for your development sessions.
+* [chainctl develop cp](/platform/chainctl/chainctl-docs/chainctl_develop_cp/)	 - Copy a file into or out of a development session.
 * [chainctl develop creds](/platform/chainctl/chainctl-docs/chainctl_develop_creds/)	 - Show or change a development session's credentials.
 * [chainctl develop delete](/platform/chainctl/chainctl-docs/chainctl_develop_delete/)	 - Delete a development session.
 * [chainctl develop exec](/platform/chainctl/chainctl-docs/chainctl_develop_exec/)	 - Run a command in a development session.
@@ -118,5 +119,6 @@ chainctl develop [DIR|REPO|SESSION] [flags]
 * [chainctl develop list](/platform/chainctl/chainctl-docs/chainctl_develop_list/)	 - List your live development sessions in the group.
 * [chainctl develop mcp](/platform/chainctl/chainctl-docs/chainctl_develop_mcp/)	 - Serve tools for development sessions to an MCP client over stdio.
 * [chainctl develop policy](/platform/chainctl/chainctl-docs/chainctl_develop_policy/)	 - Show or change the group's policy for development sessions.
+* [chainctl develop questions](/platform/chainctl/chainctl-docs/chainctl_develop_questions/)	 - List and answer the questions agents in your development sessions ask.
 * [chainctl develop rename](/platform/chainctl/chainctl-docs/chainctl_develop_rename/)	 - Rename a development session.
 

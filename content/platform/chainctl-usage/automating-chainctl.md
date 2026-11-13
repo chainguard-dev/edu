@@ -176,7 +176,7 @@ while IFS=',' read -r EMAIL ROLE; do
   chainctl iam invite create "$ORG" \
     --role="$ROLE" \
     --email="$EMAIL" \
-    --ttl=7d \
+    --ttl=168h \
     --single-use
 done < "$CSV_FILE"
 ```

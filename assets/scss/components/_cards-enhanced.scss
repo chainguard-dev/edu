@@ -6,14 +6,11 @@
     background: var(--body-background);
     border: 1px solid rgba(20, 0, 61, 0.08);
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
     overflow: hidden;
 
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-        border-color: var(--primary-1);
+        border-color: var(--card-hover-border);
     }
 
     .card-header {
@@ -39,12 +36,6 @@
     .card {
         background: var(--board-background-color);
         border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: none;
-
-        &:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-            border-color: var(--primary-2);
-        }
 
         .card-header,
         .card-footer {

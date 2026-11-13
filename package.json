@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@fullhuman/postcss-purgecss": "^8.0",
+    "@fullhuman/postcss-purgecss": "^9.1",
     "autoprefixer": "^10.6",
     "bootstrap": "^5.3",
     "eslint": "^10.14.0",
@@ -58,7 +58,7 @@
     "markdownlint-cli2": "^0.24.0",
     "postcss": "^8.5",
     "postcss-cli": "^12.0",
-    "sass-embedded": "^1.107.1",
+    "sass-embedded": "^1.108.1",
     "shx": "^0.4",
     "stylelint": "^17.16.0",
     "stylelint-config-standard-scss": "^17.0.0"
@@ -66,7 +66,7 @@
   "dependencies": {
     "@docsearch/css": "^5.2.0",
     "@docsearch/js": "^5.2.0",
-    "@scalar/api-reference": "^1.76.4",
+    "@scalar/api-reference": "^1.77.0",
     "bootstrap-icons": "^1.13.2"
   },
   "allowScripts": {

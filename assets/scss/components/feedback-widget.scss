@@ -41,11 +41,10 @@
       background: var(--watch-btn-hover-background);
       border-color: var(--primary-1);
       color: var(--primary-1);
-      transform: translateY(-1px);
     }
 
     &:active {
-      transform: translateY(0) scale(0.98);
+      transform: scale(0.98);
     }
 
     &.feedback-selected {
@@ -141,11 +140,12 @@
       color: #fff;
 
       &:hover {
-        transform: translateY(-1px);
+        background: var(--primary-hover);
+        border-color: var(--primary-hover);
       }
 
       &:active {
-        transform: translateY(0) scale(0.98);
+        transform: scale(0.98);
       }
 
       &:disabled {
