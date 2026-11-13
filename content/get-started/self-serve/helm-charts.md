@@ -4,7 +4,7 @@ linktitle: "Self-serve Helm charts"
 description: "Provision Chainguard Helm charts and their required images from the Chainguard Console as a Catalog customer"
 type: "article"
 date: 2026-08-06T00:00:01+00:00
-lastmod: 2026-11-10T19:57:45+00:00
+lastmod: 2026-11-12T00:00:00+00:00
 draft: false
 weight: 20
 toc: true
@@ -18,15 +18,16 @@ This capability is available to Catalog customers whose plan includes the APPLIC
 
 ## Add a chart in the Chainguard Console
 
-To add Helm charts to your organization from the Console, complete the following steps:
+To add a Helm chart to your organization from the Console, complete the following steps:
 
 1. In the Chainguard Console, go to the **Helm charts** section in the sidebar.
 1. Review the available charts. Charts already enabled for your organization are marked.
-1. Select one or more charts to add. The Console checks whether your organization already has the container images each chart requires, then lists any missing images by name.
-1. Optional: If your organization is entitled to FIPS images, select the FIPS option to add FIPS variants where they are available.
-1. Confirm your selection to add the charts and their required images to your organization.
+1. Find the chart you want to add and click **Add to org** in its row. You can add one chart at a time.
+1. The dialog that opens lists the images the chart requires, along with any optional images. Choose the optional images you want to add.
+1. Optional: If your organization is entitled to FIPS images, select **Use FIPS-validated images** to add FIPS variants where they are available.
+1. Click **Add chart and images** to add the chart and its images to your organization.
 
-Provisioning runs in the background. The Console shows in-progress and completion states while it adds the charts and images, which can take some time to finish. If a chart doesn't appear, see [Troubleshoot a chart that doesn't appear](#troubleshoot-a-chart-that-doesnt-appear).
+Provisioning runs in the background. The Console shows in-progress and completion states while it adds the chart and images, which can take some time to finish. If a chart doesn't appear, refer to [Troubleshoot a chart that doesn't appear](#troubleshoot-a-chart-that-doesnt-appear).
 
 ## Add a chart with `chainctl`
 

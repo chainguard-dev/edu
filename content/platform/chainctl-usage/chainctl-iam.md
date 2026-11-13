@@ -92,11 +92,11 @@ This command can also create and delete invites by replacing `list` with `create
 To create a new invite, use create, like in this example that defines a role, an email address to tie the invite to, the valid length of the invitation, and that it can only be used once:
 
 ```shell
-chainctl iam invite create ORGANIZATION_NAME
---role=viewer
---email=sandra@organization.dev
---ttl=7d
---single-use
+chainctl iam invite create ORGANIZATION_NAME \
+  --role=viewer \
+  --email=sandra@organization.dev \
+  --ttl=168h \
+  --single-use
 ```
 
 ## List organizations
