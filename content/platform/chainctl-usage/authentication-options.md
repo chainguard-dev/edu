@@ -78,19 +78,21 @@ To authenticate with a specific default identity provider, pass the `--social-lo
 chainctl auth login --social-login github
 ```
 
-You can also set a default provider in your configuration with the `default.social-login` setting. See [Manage your chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/).
+You can also set a default provider in your configuration with the `default.social-login` setting. For details, refer to [Manage your chainctl configuration](/platform/chainctl-usage/manage-chainctl-config/).
 
-> Note: If your organization has configured a custom identity provider, authenticate with `--org-name` or `--identity-provider` instead. See [custom identity providers](/platform/administration/custom-idps/custom-idps/).
+{{< note >}}
+If your organization has configured a custom identity provider, authenticate with `--org-name` or `--identity-provider` instead. For details, refer to [Custom identity providers](/platform/administration/custom-idps/custom-idps/).
+{{< /note >}}
 
-Which provider you authenticate with also determines who manages your multi-factor authentication. To move it to a new device, see [Change or reset your MFA device](/get-started/mfa-devices/).
+Which provider you authenticate with also determines who manages your multi-factor authentication. To move it to a new device, refer to [Change or reset your MFA device](/get-started/mfa-devices/).
 
 ## Assumable identities for CI/CD
 
-Assumable identities let automation tools like GitHub Actions or AWS Lambda connect to and manage Chainguard resources without interactive login. See the [guide on assumable identities](/platform/administration/assumable-ids/assumable-ids/).
+Assumable identities let automation tools like GitHub Actions or AWS Lambda connect to and manage Chainguard resources without interactive login. For details, refer to [Overview of assumable identities](/platform/administration/assumable-ids/assumable-ids/).
 
 ## Pull tokens
 
-Pull tokens are ideal for pulling images and libraries and can be long-lived. You can create them in the Chainguard Console or with `chainctl`. See [authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token).
+Pull tokens are ideal for pulling images and libraries and can be long-lived. You can create them in the Chainguard Console or with `chainctl`. For details, refer to [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token).
 
 A pull token is a pair of values that most tools consume as a username and a password. `chainctl` labels that pair differently in each output format, so refer to [pull token output formats and credential names](/platform/chainctl-usage/pull-token-output/) to map the labels to each other.
 
@@ -114,22 +116,24 @@ If it shows `mode: headless`, either complete the login at the printed URL or [r
 
 ### Login hangs or fails behind a TLS-inspecting proxy
 
-Corporate proxies that decrypt and inspect TLS traffic, such as Netskope or Zscaler, can break `chainctl` login. The login might wait indefinitely, or fail with an error such as `context deadline exceeded`, `missing selected ALPN property`, or `timed out validating the new token`. Run the command with `--log-level=debug` to see which request fails.
+Corporate proxies that decrypt and inspect TLS traffic, such as Netskope or Zscaler, can break `chainctl` login. The `chainctl` CLI reaches the Chainguard API over gRPC, which requires HTTP/2, and its gRPC client rejects any connection that doesn't negotiate HTTP/2 during the TLS handshake. Many inspecting proxies don't, so `chainctl` fails where browsers and other HTTPS clients fall back to HTTP/1.1 and keep working.
+
+The login might wait indefinitely, or fail with an error such as `context deadline exceeded`, `missing selected ALPN property`, or `timed out validating the new token`. Run the command with `--log-level=debug` to find the request that fails.
 
 Ask your network administrator to exempt these hosts from TLS inspection:
 
 * `issuer.enforce.dev` and `console-api.enforce.dev`, which every login needs
 * `auth.chainguard.dev` and `chainguard.us.auth0.com`, which social login also needs
 
-For the full list of hosts that Chainguard tools use, see [Network requirements](/chainguard/containers/registry/network-requirements/).
+For the full list of hosts that Chainguard tools use, refer to [Network requirements](/chainguard/containers/registry/network-requirements/).
 
-If the proxy mishandles HTTP/2, downgrade the login's STS requests to HTTP/1.x:
+Until the exemption is in place, you can log in by downgrading the login's STS requests to HTTP/1.x and skipping the check of the new token:
 
 ```sh
-chainctl auth login --sts-http1-downgrade
+chainctl auth login --sts-http1-downgrade --validate=false
 ```
 
-This flag affects only STS requests. Other `chainctl` commands still need encrypted HTTP/2 through the proxy, so treat the flag as a workaround until your network administrator adds the exemption.
+The `--sts-http1-downgrade` flag affects only the STS token exchange. After the exchange, `chainctl` validates the new token over gRPC, so with the downgrade flag alone the login can still hang or fail with `timed out validating the new token`. Other `chainctl` commands also need HTTP/2 through the proxy, so treat these flags as a workaround until your network administrator adds the exemption.
 
 ### Organization not found or not verified
 
@@ -139,4 +143,4 @@ If login fails with an error that the organization is "not found, is not verifie
 chainctl auth login --org-name=example.com
 ```
 
-If your organization uses a custom identity provider, you can pass its ID with `--identity-provider` instead. See [custom identity providers](/platform/administration/custom-idps/custom-idps/).
+If your organization uses a custom identity provider, you can pass its ID with `--identity-provider` instead. For details, refer to [Custom identity providers](/platform/administration/custom-idps/custom-idps/).
