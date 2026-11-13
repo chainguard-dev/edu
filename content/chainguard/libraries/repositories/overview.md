@@ -11,15 +11,9 @@ weight: 10
 toc: true
 ---
 
-{{< beta feature="Repositories in Chainguard Libraries" access="a small group of organizations that Chainguard enrolls" >}}
+{{< beta feature="Repositories in Chainguard Libraries" >}}
 
-The commands on this page work only after Chainguard enrolls your
-organization. Update `chainctl` to the latest release before you start. If
-your organization isn't enrolled, `chainctl` returns the following error:
-
-```text
-Libraries repositories are not available for this organization.
-```
+Update `chainctl` to the latest release before you start.
 
 ## How repositories work
 
@@ -60,6 +54,13 @@ The number of repositories you can create depends on your plan:
 | Starter | The default repository only |
 | Team | The default repository and one named repository |
 | Enterprise | The default repository and as many named repositories as you need |
+
+If you run `chainctl libraries repos create` in a Starter organization,
+`chainctl` returns the following message:
+
+```text
+Starter plans include only the default repository; upgrade to Team for more.
+```
 
 ## Create a repository
 
@@ -276,7 +277,6 @@ Registry hosts, the examples use `five`.
 | `npm install five` on `dev` | Installs the package |
 | Any request without credentials | HTTP `401` |
 | A request to a repository that doesn't exist | HTTP `403` |
-| A request from an organization that isn't enrolled | HTTP `403` |
 | A repository-bound token used on another repository or on the default repository | HTTP `403` |
 
 ## Delete a repository
