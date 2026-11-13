@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-11-12 02:14:27_
+_Compiled on: 2026-11-13 02:12:51_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -1560,14 +1560,14 @@ See each artifact type's documentation for authentication and configuration deta
 
 The Chainguard Repository includes a policy engine that lets you define rules governing which artifacts can be consumed and under what conditions. Policies can be configured in the Chainguard Console or with `chainctl`, and are enforced automatically across your environment.
 
-For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the optional fallback to public registries. Available policies include:
+For language dependencies, policies apply to both Chainguard-built packages and upstream packages served via the policy-governed fallback to public registries. Available policies include:
 
-* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry.
-* **Cooldown**: When upstream fallback is enabled, block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown defaults to 7 days, and your plan sets the range you can configure, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). It is applied globally across all packages to prevent dependency resolution errors.
+* **Upstream fallback**: Control whether packages not yet built by Chainguard can be sourced from the upstream public registry. New Libraries entitlements have upstream fallback on by default.
+* **Cooldown**: Block newly published package versions for a defined period before they can be pulled, giving the security community time to detect threats. The cooldown only applies when upstream fallback is enabled. It then applies to Chainguard-built and upstream packages alike, to prevent dependency resolution errors. The cooldown defaults to 7 days, and your plan sets the range you can configure, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
 All upstream packages are checked against public malware identifier feeds, and any package with a known malware idenitifier is blocked before being served.
 
-> **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and is applied globally across your organization, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
+> **Note**: With fallback enabled, Chainguard's malware and greyware scanning covers upstream packages, which addresses the primary risk a cooldown period is meant to mitigate. A cooldown period can still add a small buffer against issues the broader community surfaces after publication and applies to Chainguard-built and upstream packages alike, but it also adds operational complexity and can introduce breakage. Choose a cooldown policy based on your own risk tolerance and priorities.
 
 Refer to [Libraries policies](/chainguard/chainguard-repository/library-policies/) for more information.
 
@@ -1606,7 +1606,7 @@ _Path: chainguard/chainguard-repository/library-policies.md_
 
 Chainguard Libraries policies enable you to filter and restrict package versions pulled through Chainguard Repository.
 
-Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. These policies apply to all packages pulled through Chainguard Repository. The [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) must be enabled for an ecosystem in order to use policies.
+Policies can delay newly published upstream packages, block specific packages or versions, and allow deliberate exceptions to an otherwise denied package. Policies apply to an ecosystem and are evaluated when packages are pulled. Users with the Owner role can create, enable, disable, and list library policies. Policies only take effect for an ecosystem when [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for it. They then apply to all packages pulled through Chainguard Repository, Chainguard-built and upstream alike.
 
 One custom policy per ecosystem can be enabled at a time. This policy should include all the rules you need, which may include a cooldown period, package block rules, and any overrides.
 
@@ -1623,7 +1623,7 @@ This page uses the following terms:
 
 Chainguard Libraries supports the following types of policies:
 
-* **Cooldown**: Delays upstream newly published package versions for a set number of days after the upstream registry publish date. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
+* **Cooldown**: Delays newly published package versions for a set number of days after the upstream registry publish date. The cooldown only applies when upstream fallback is enabled, and then to Chainguard-built and upstream packages alike. Cooldowns end at 00:00 UTC, as described in [When a version becomes available](#when-a-version-becomes-available).
 * **Block**: Deny a package or version outright. Use a block rule when your organization never wants to allow a package or version.
 * **Override**: Permit a package or version that would otherwise be denied by a cooldown policy or malware and greyware blocking. Use an override when you need a specific, deliberate exception.
     * An override policy takes precedence over a block policy.
@@ -1698,7 +1698,7 @@ Prior to `chainctl` version 0.2.291, cooldown policies were enabled via the `cha
 
 ## Cooldown policies
 
-The default cooldown period is 7 days. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows.
+The default cooldown period is 7 days. It applies only when upstream fallback is enabled for the ecosystem, and then to Chainguard-built and upstream packages alike. You cannot change the default policy, but you can create and enable a new policy to replace the default, within the range your plan allows.
 
 > **Note**: While a version is inside the cooldown window, Chainguard withholds it from the package's metadata, not only from installs. The version does not appear in version listings, and metadata such as its publish time is absent. Only a request for the exact version returns the block reason. Automated tooling that reads version metadata to decide whether a fix is available can misread a withheld version as one that does not exist. For how this surfaces in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
@@ -5917,7 +5917,7 @@ Before you begin, you need:
 
 If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
 
-Once your organization is entitled to Python, enable upstream fallback by running the following command:
+New Python entitlements have upstream fallback on by default. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -5986,7 +5986,7 @@ Keep the index name and `UV_INDEX_*` variable names aligned, and set `authentica
 
 How you configure the index depends on your environment. Follow the instructions that match your setup.
 
-The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
+The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
 
 ### Direct access
 
@@ -6533,8 +6533,8 @@ URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
 Repository](/chainguard/libraries/javascript/overview/), which provides a
-single endpoint for Python package retrieval and supports protected upstream
-fallback when configured for your organization. This allows builds to prefer
+single endpoint for Python package retrieval and includes protected upstream
+fallback, which is on by default for new entitlements. This allows builds to prefer
 Chainguard-built packages first while still covering packages or wheel files
 that Chainguard does not currently serve directly. Configure this endpoint
 [globally through a repository
@@ -7011,11 +7011,13 @@ specifically for each package, version, and file.
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for Python supports an optional built-in fallback to
+Chainguard Libraries for Python includes a built-in, policy-governed fallback to
 the upstream PyPI index, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New Python entitlements
+have upstream fallback on by default. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
 
@@ -8537,31 +8539,46 @@ We will attempt to rebuild any libraries that meet the [licensing and source ava
 
 ## Upstream fallback and controls
 
-Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
+Chainguard Libraries include a protected upstream fallback, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/).
 
-By default, the Chainguard library endpoints serve
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+New entitlements have upstream fallback on by default for every ecosystem that has
+an upstream registry. The endpoint serves Chainguard-built packages first and serves
+eligible upstream packages only when Chainguard hasn't built the requested version.
+Upstream packages are subject to additional security controls before being served.
+
+To see the policy on each of your entitlements, run
+`chainctl libraries entitlements list`. To change it, follow the steps in the next
+section.
 
 > Note: When using `chainctl` to configure upstream fallback or cooldown duration, it can take up to 30 minutes for the repository changes to take effect.
 
 ### Enable the upstream repository
 
-Upstream fallback and the cooldown period are separate settings, and you can change each one without changing the other:
+Two settings control how the repository serves packages:
 
 * Your **entitlement** controls whether the repository serves upstream packages. Use the [`chainctl
   libraries entitlements`
   command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) to change it.
 * A **library policy** controls the cooldown period. Use the `chainctl libraries policy` command to change it.
 
-When you enable upstream fallback, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to Chainguard-built packages and upstream packages alike. When upstream fallback is off, the repository serves only Chainguard-built packages and no cooldown applies to them.
 
-For example, the following command adds the npm upstream fallback policy to your
-JavaScript entitlement:
+When upstream fallback is on, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
+
+New entitlements already have upstream fallback on. If yours is off, or you want
+to switch an entitlement to Chainguard-only, change the entitlement policy. For
+example, the following command turns on upstream fallback for your JavaScript
+entitlement:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
+```
+
+To serve only Chainguard-built packages, set the policy to `CHAINGUARD` instead:
+
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD
 ```
 
 To change the cooldown, create a library policy and enable it for the ecosystem. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). For example, on a plan that allows it, the following commands disable the cooldown for JavaScript:
@@ -8579,8 +8596,8 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 
 The following options are available:
 
-* **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled**: Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **Upstream fallback on (default for new entitlements)**: Chainguard-built packages are served first. Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **No upstream fallback**: Only Chainguard-built packages are served, and the cooldown does not apply. Set the entitlement policy to `CHAINGUARD` to choose this option.
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
@@ -8659,11 +8676,11 @@ curl -s \
 
 ### Cooldown period
 
-When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
+When upstream fallback is enabled, package versions are subject to a cooldown period from their upstream publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
-A library policy sets the cooldown, separately from the upstream fallback setting. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
+A library policy sets the cooldown. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
-The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to both Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window. When upstream fallback is off, no cooldown applies to the Chainguard-built packages the repository serves.
 
 If a requested package version falls within the cooldown period, the package manager reports it as blocked: npm returns a `403` with the reason, and other package managers return a not-found error. The version is also withheld from the package's metadata, so it does not appear in version listings until the cooldown passes. The package becomes available once it has passed the cooldown period and cleared malware scanning. For how blocks surface in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
@@ -8901,8 +8918,8 @@ direct access.
 #### Artifact manager
 
 If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
-the configuration. This option is recommended for organizations with multiple
-teams, and provides centralized access controls and consistent uptime.
+the configuration. This option suits organizations with multiple teams, and
+provides centralized access controls and consistent uptime.
 
 #### Direct access
 
@@ -8911,17 +8928,30 @@ configuration. This option allows for faster initial setup, but it does not
 allow for global configuration. It requires configuration per project and
 workstation, which creates more overhead as you scale across teams and projects.
 
-Both approaches require pull tokens for authentication; refer to [Pull token
-characteristics and use](#pull-token-characteristics-and-use) for more information.
+An artifact manager authenticates to Chainguard Libraries with a pull token.
+For direct access, you can use a session token or a pull token.
+
+<a id="choose-auth"></a>
+
+### Choose an authentication method
+
+Chainguard Libraries supports both short-lived credentials and long-lived pull
+tokens. Chainguard recommends short-lived credentials where your tools and
+workflows support them, because they expire on their own and are tied to a
+person or workload. Pull tokens work with every build tool and artifact
+manager.
+
+| Option | How it works | Lifetime | Good fit |
+| --- | --- | --- | --- |
+| Session token with a `chainctl` helper (recommended) | Chainguard provides authentication helpers that retrieve a token using `chainctl`. Helpers are available for Python ([Python keyring provider](#python-keyring)), JavaScript ([`chainctl auth configure-npm`](/chainguard/libraries/javascript/build-configuration/)), and .NET ([`chainctl auth configure nuget`](/chainguard/libraries/dotnet/build-configuration/)). | Up to one hour | Workstations with direct access, with the use of a `chainctl` helper |
+| Session token from `chainctl auth token` | You supply the token to your build tool as a password, and get a new one when it expires. | Up to one hour | Scripts and short sessions with build tools that have no helper |
+| Assumable identity (recommended for CI/CD) | Your CI/CD platform exchanges its OIDC token for a Chainguard token. See [assumable identities](/platform/administration/assumable-ids/assumable-ids/). | Up to one hour | CI/CD platforms that support OIDC, such as GitHub Actions |
+| [Pull token](#pull-token) | A username and password for an identity that can only pull. Store it in a secrets manager or password manager and load it from [environment variables](#env). | The TTL you set, 30 days by default and up to 365 days | Any build tool, artifact managers, CI/CD platforms without OIDC, and teams that share one credential |
+
+For guidance that applies to every option, see [Credential
+guidelines](#credential-guidelines).
 
 A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
-
-{{< note >}}
-For Python users, the [Chainguard keyring
-provider](/chainguard/libraries/introduction/access/#python-keyring-provider)
-uses short-lived credentials and is the preferred method where your
-environment supports it.
-{{< /note >}}
 
 ### Initial authentication
 
@@ -8943,6 +8973,89 @@ and a token:
 Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
+
+<a id="session-tokens"></a>
+
+## Session tokens and pull tokens
+
+Chainguard Libraries accepts two kinds of credentials:
+
+- **Session token**: a token from your own `chainctl` login, scoped to
+  `libraries.cgr.dev`. It's valid for up to one hour, pulls are associated with
+  your user, and you can end the session with [`chainctl auth sessions
+  revoke`](/platform/chainctl/chainctl-docs/chainctl_auth_sessions_revoke/).
+  Getting one needs no permissions beyond pull access, and every machine that
+  uses it needs `chainctl`.
+- **Pull token**: a username and password for a separate identity that holds
+  only a pull role. It works in any tool that supports basic authentication and
+  doesn't need `chainctl`, but it stays valid until its TTL ends or you delete
+  it. Creating one requires a `pull_token_creator` role. For details, see
+  [Creating pull tokens for libraries](#pull-token).
+
+Build tools get session tokens from `chainctl` in the following ways:
+
+- The [Python keyring provider](#python-keyring) runs `chainctl auth token
+  --audience=libraries.cgr.dev` each time pip or uv needs credentials, so no
+  token is written to your configuration files.
+- [`chainctl auth
+  configure-npm`](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/)
+  writes your session token to the project `.npmrc`. Re-run the command when
+  the token expires.
+- [`chainctl auth configure
+  nuget`](/chainguard/libraries/dotnet/build-configuration/) writes your session
+  token to the NuGet configuration file. Re-run the command when the token
+  expires.
+- Other build tools, such as Maven, Gradle, and Go, accept a session token in
+  place of a pull token. Use `_token` as the username and the output of
+  [`chainctl auth
+  token`](/platform/chainctl/chainctl-docs/chainctl_auth_token/) as the
+  password. For example, set the environment variables that the [Java build
+  configuration](/chainguard/libraries/java/build-configuration/) uses:
+
+  ```shell
+  export CHAINGUARD_JAVA_IDENTITY_ID=_token
+  export CHAINGUARD_JAVA_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+  ```
+
+  Run the commands again when the token expires.
+
+To reduce how often you need to log in again on a workstation, install the
+[token refresh
+service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/):
+
+```shell
+chainctl auth configure-refresh-service install --audience=libraries.cgr.dev
+```
+
+The refresh service renews the `libraries.cgr.dev` token in the `chainctl`
+token cache, which the Python keyring provider and `chainctl auth token` read.
+It only renews a token that's already in the cache, so log in with `chainctl
+auth login --audience=libraries.cgr.dev` first. It doesn't update a token that
+was already copied into a file or an environment variable, such as `.npmrc`,
+the NuGet configuration file, or `CHAINGUARD_JAVA_TOKEN`.
+
+<a id="credential-guidelines"></a>
+
+### Credential guidelines
+
+Follow these guidelines for whichever option you choose:
+
+- Commit the registry URL to your project, but do not commit credentials. Keep
+  authentication lines, such as `_auth` and `_authToken` entries in `.npmrc`,
+  out of version control.
+- Prefer short-lived credentials where your build tools and workflows support
+  them.
+- Store pull tokens in a secrets manager or password manager, and load them
+  from [environment variables](#env) instead of writing them into configuration
+  files. A team can share one pull token this way.
+- Set the shortest pull token TTL that fits how often you can rotate it,
+  replace the token before it expires, and [delete expired
+  tokens](#pull-token-management).
+- Limit who can create pull tokens, so you know where each one is used.
+- Give CI/CD pipelines and other automated workloads, such as AI agents that
+  run outside a workstation, their own credential, ideally an assumable
+  identity, instead of an engineer's session token or a team's shared pull
+  token.
 
 <a id="pull-token"></a>
 
@@ -9037,8 +9150,8 @@ The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
 credential set. It is therefore suitable for use in any service application,
 such as a repository manager or a build tool that is not tied to a specific
-user. You can also use the token as an individual for your development with
-direct access to Chainguard Libraries.
+user. For individual development with direct access, prefer a [session
+token](#session-tokens) where your build tool supports it.
 
 To use the pull token in another environment, supply the username and password
 for basic authentication. Note that the actual returned values are much longer.
@@ -9217,7 +9330,11 @@ pip install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
 
 Once the keyring package is installed, when you request to install packages from
 Chainguard Libraries for Python, the keyring automatically retrieves short-lived
-credentials for you, using `chainctl`.
+credentials for you, using `chainctl`. The keyring requires `chainctl` to be
+installed and logged in on the same machine. It holds the token in memory only,
+and it works only for requests that go directly to `libraries.cgr.dev`, not
+through an artifact manager. To reduce how often you need to log in again, pair
+it with the [token refresh service](#session-tokens).
 
 To use the keyring with a project `uv`, install the keyring:
 
@@ -9354,20 +9471,24 @@ An entitlement grants your organization access to a Chainguard Libraries
 ecosystem. To add or remove an entitlement, contact your Chainguard account
 team.
 
-Once your organization is entitled to an ecosystem, you can enable upstream
-fallback and list your entitlements yourself with [`chainctl libraries
-entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+Once your organization is entitled to an ecosystem, you can list your
+entitlements and change their upstream fallback policy yourself with [`chainctl
+libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
 ### Enable upstream fallback
 
-To enable upstream fallback for an entitled ecosystem, use the `--policy` flag:
+New entitlements have [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
+on by default. To turn on upstream fallback for an entitlement that has it off,
+use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the upstream fallback policy on an existing entitlement, rerun the
-command with the new `--policy` value.
+To change the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value. For example, `--policy=CHAINGUARD` serves
+only Chainguard-built packages.
 
 ### List entitlements
 
@@ -9411,9 +9532,10 @@ this pattern.
 Chainguard Libraries for Java, JavaScript, and Python are rebuilt from verified
 source in an isolated build environment, making them malware-resistant by
 design. When a package is available as a Chainguard-built library, that rebuilt
-package is served first. When you use the [upstream
+package is served first. With [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-the same ecosystem endpoint can also serve eligible upstream packages that
+which is on by default for new entitlements, the same ecosystem endpoint can
+also serve eligible upstream packages that
 Chainguard has not yet built, subject to configurable policy controls such as
 cooldown and malware scanning. This gives your engineers drop-in replacements
 for the packages they already use, with no breaking changes.
@@ -9518,7 +9640,7 @@ Once you have a pull token, you can configure your build tool. Configuration
 steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
-If you [configure upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), the same ecosystem endpoint can serve both:
+With [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), which is on by default for new entitlements, the same ecosystem endpoint can serve both:
 
 * Libraries rebuilt from source by Chainguard, and
 * Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
@@ -9620,10 +9742,10 @@ Check out minimal example projects for
 
 <a id="upstream-note"></a>
 
-> **Note on upstream fallback**: The upstream fallback is
-> available as an opt-in setting for both repository manager or direct access
-> approaches, and is turned off by default. Learn more about upstream
-> fallback policy and controls in the [Libraries
+> **Note on upstream fallback**: Upstream fallback works with both the
+> repository manager and direct access approaches, and new entitlements have it
+> on by default. To check yours, run `chainctl libraries entitlements list`.
+> Learn more about upstream fallback policy and controls in the [Libraries
 > overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 ## Step 4: Verify your libraries
@@ -10226,7 +10348,7 @@ Before you begin, you need:
 
 You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Java with [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) enabled. To add an entitlement for your organization, contact your Chainguard account team.
 
-Once your organization is entitled to Java, enable upstream fallback, which includes a default 7-day cooldown, by running the following command:
+New Java entitlements have upstream fallback on by default, with a default 7-day cooldown. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVA --policy=CHAINGUARD_AND_UPSTREAM
@@ -10316,7 +10438,7 @@ The command returns an HTML page listing repository directories. If credentials 
 
 ## Step 3: Configure repository access
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 ### Direct access
 
@@ -11051,11 +11173,12 @@ for details.
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for Java supports an optional built-in fallback to
+Chainguard Libraries for Java includes a built-in, policy-governed fallback to
 a set of upstream public Maven repositories, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period.
+Repository](/chainguard/chainguard-repository/overview/). New Java entitlements have
+upstream fallback on by default. The endpoint always serves Chainguard-built packages
+first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period. To serve only Chainguard-built packages, set the entitlement policy to Chainguard-only, as described in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
 
@@ -11666,7 +11789,7 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. It serves Chainguard-built artifacts first. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
@@ -12624,7 +12747,7 @@ Before you begin, you'll need:
 
 You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
 
-Once your organization is entitled to JavaScript, enable upstream fallback, which includes a default 7-day cooldown, by running:
+New JavaScript entitlements have upstream fallback on by default, with a default 7-day cooldown. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
@@ -13455,7 +13578,7 @@ https://libraries.cgr.dev/javascript/
 
 The URL does not expose a browsable directory structure.
 
-The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
+The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when upstream fallback is on, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
 
 Even with upstream fallback enabled, the repository does not include every package from npm. Packages may be unavailable when:
 
@@ -13594,11 +13717,13 @@ Replace `PACKAGE` and `VERSION` with the package name and version (for example, 
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for JavaScript supports an optional built-in fallback to
+Chainguard Libraries for JavaScript includes a built-in, policy-governed fallback to
 the upstream npm Registry, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New JavaScript entitlements
+have upstream fallback on by default. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
@@ -14655,9 +14780,11 @@ directory:
 chainctl auth configure-npm
 ```
 
-[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and base64-encoded credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
+[This command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) writes a project-level `.npmrc` with the registry URL and credentials. It also prints the equivalent `npm config set` commands for use in CI or other environments where you need to configure `.npmrc` manually. If this command returns an error, ensure that you are using the [latest version of `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 By default, this command writes a short-lived, session-backed bearer token. The token expires during a typical work session, and a later `npm install` or `npm ping` fails with an authentication error even though nothing in your configuration changed. Re-run `chainctl auth configure-npm` to refresh the token, or create longer-lived credentials with `chainctl auth configure-npm --pull-token` (use `--ttl` to set the lifetime).
+
+The session token is written as an `_authToken` entry. With `--pull-token`, the command creates a [pull token](/chainguard/libraries/introduction/access/#pull-token) and writes it as base64-encoded basic authentication in an `_auth` entry. Passing `--parent`, `--ttl`, or `--name` without `--pull-token` also creates a pull token. For help choosing between the two, see [Choose an authentication method](/chainguard/libraries/introduction/access/#choose-auth).
 
 For CI/CD, prefer an assumable identity when using this command. Expand the following to learn more:
 
@@ -15559,8 +15686,9 @@ _Path: chainguard/libraries/troubleshooting/faq.md_
 The following video focuses on Chainguard's built-from-source model: when a
 rebuilt package is available, Chainguard serves it with verifiable provenance
 and SBOMs. Not every package or version can be built immediately, so the
-[Chainguard Repository](/chainguard/chainguard-repository/) also supports an
-optional, policy-governed upstream fallback. When enabled, Chainguard-built
+[Chainguard Repository](/chainguard/chainguard-repository/) also includes a
+policy-governed upstream fallback, on by default for new entitlements. When
+enabled, Chainguard-built
 packages are preferred, while eligible upstream packages are subject to
 configurable controls such as a cooldown period and malware and greyware
 scanning. Packages identified as malicious are blocked.
@@ -15780,6 +15908,35 @@ though a version appears in the public registry.
 
 For more details on the errors you may see when a package is blocked for these reasons,
 see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+## Why might `chainctl libraries verify` report 0% coverage?
+
+There are a few reasons why `chainctl libraries verify` might report 0% coverage:
+
+* Missing .package-lock.json: If `.package-lock.json` is not present in the directory, the directory is not recognized as an npm tree and verification will not run.
+* The packages you are verifying come from Chainguard's upstream fallback. Packages that Chainguard did not build show as not verified. These packages can be found via the Console or `chainctl libraries packages`.
+* Fat or shaded JAR: For Java, a 0% coverage result is [expected when verifying a fat JAR, uber JAR, or shaded JAR](/chainguard/libraries/policies-and-security/verification#why-might-i-see-0-coverage-when-verifying-java-artifacts).
+* Insufficient role or missing credentials: With a regular `chainctl auth login`, the command requires the pull token creator role (for example, for JavaScript: `libraries.javascript.pull_token_creator`), or the owner role, because it creates a pull token internally. If you only have the pull role for an ecosystem, you must pass a libraries-scoped token explicitly. For example:
+
+```bash
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify ./node_modules
+```
+
+Without this, a pull-only role will report 0% coverage even after login.
+
+* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example:
+
+```bash
+chainctl libraries verify --parent <your-organization> ./node_modules
+```
+
+Or set a default organization first:
+
+```bash
+chainctl config set default.group <your-organization>
+```
 
 ## What are Chibbies?
 
@@ -21998,7 +22155,7 @@ This model is best suited for organizations that use many different Chainguard i
 
 Organizations that have signed up for Catalog Pricing can add container images through [Chainguard's Self-Serve Catalog Experience](http://chainguard.dev/unchained/introducing-the-self-serve-catalog-experience). This allows customers to independently add Chainguard Containers to their organization's catalog directly within the console, without needing to file support tickets or wait for Chainguard to provision resources manually.
 
-In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo (create, list, update)` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlement (list)` capability in order to understand their organization's registry access entitlements.
+In order for a user to add images to their organization through the Self-Serve Experience, they must be bound to a role with the `repo.create`, `repo.list`, and `repo.update` capabilities. Additionally, it may be helpful for users working with the Self-Serve Experience to have the `registry.entitlements.list` capability in order to understand their organization's registry access entitlements.
 
 The only built-in role with all of these capabilities is the `owner` role. Users intending to work with the self-serve catalog experience should be bound to the `owner` role or a custom role with the appropriate capabilities. Refer to our documentation [Roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/) for more details.
 
@@ -30274,7 +30431,7 @@ The following packages are included in the `wolfi-base:latest` Chainguard Contai
 ### chainguard-base
 
 *Paid Container* \
-In addition to the functionality of the `wolfi-base` Chainguard Container, [`chainguard-base`](https://images.chainguard.dev/directory/image/chainguard-base/versions) reports as being a Chainguard Container, which scanners use to determine what security feeds to reference for vulnerabilities. Additionally, the `chainguard-base` container image provides access to vulnerability remediation SLAs to ensure your containers are always up-to-date with the latest releases and patches.
+The [`chainguard-base`](https://images.chainguard.dev/directory/image/chainguard-base/versions) Chainguard Container is built on [Chainguard OS](/chainguard/chainguard-os/) instead of Wolfi. To learn how the two differ, refer to the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi). In addition to the functionality of the `wolfi-base` Chainguard Container, `chainguard-base` reports as being a Chainguard Container, which scanners use to determine what security feeds to reference for vulnerabilities. Additionally, the `chainguard-base` container image provides access to vulnerability remediation SLAs to ensure your containers are always up-to-date with the latest releases and patches.
 
 The following packages are included in the `chainguard-base:latest` Chainguard Container:
 
@@ -33604,7 +33761,7 @@ container images as part of your Java development workflow.
 ### Overview of Chainguard's package repositories
 _Path: chainguard/containers/building-and-modifying/packages/package-model.md_
 
-Chainguard's container images are built using packages from the Wolfi and Chainguard OS Linux distributions. If you need to extend or customize an image, it can be useful to access these packages directly.
+Chainguard's container images are built using packages from one of two Linux distributions: Free container images use Wolfi, and Production container images use Chainguard OS. To learn how the two differ, refer to the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi). If you need to extend or customize an image, it can be useful to access these packages directly.
 
 Chainguard offers curated package repositories to support containerized workloads and simplify dependency management. These repositories ensure you can access trusted packages — whether building custom container images, working with Chainguard OS, or using Chainguard Containers in production.
 
@@ -40459,7 +40616,7 @@ Chainguard builds the image, but your organization hasn't added it yet. What you
 
 **Catalog customers.** A Catalog subscription covers the whole catalog, but only a subset of images is loaded into your organization's registry at any time. Administrators add more as teams need them. If you have the `owner` role, you can add the image yourself from the Console: go to **Images**, then click **Add image** on the **Organization** tab, or **Add to org** on the **Chainguard catalog** tab. The image appears in your catalog after a few minutes.
 
-Self-serve adds require a role with the `repo (create, list, update)` capabilities, and the `registry.entitlement (list)` capability is useful for understanding what your organization is entitled to. The `owner` role is the only built-in role that carries all of them. For the full walkthrough and the role details, see [Chainguard container catalog pricing](/chainguard/containers/reference/pricing/) and [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
+Self-serve adds require a role with the `repo.create`, `repo.list`, and `repo.update` capabilities, and the `registry.entitlements.list` capability is useful for understanding what your organization is entitled to. The `owner` role is the only built-in role that carries all of them. For the full walkthrough and the role details, see [Chainguard container catalog pricing](/chainguard/containers/reference/pricing/) and [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
 If you don't have the `owner` role, ask an administrator in your organization to add the image.
 
@@ -41421,10 +41578,10 @@ Many of the endpoints for Chainguard products require support for the encrypted 
 
 ---
 
-### Temporary anonymous registry (tmp.cgruser.dev)
+### Temporary anonymous registry (lockers.cgruser.dev)
 _Path: chainguard/containers/registry/temporary-registry.md_
 
-`tmp.cgruser.dev` is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
+`lockers.cgruser.dev` is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
 
 > **This service is experimental.** It has no SLA, its hostname may change, and anything on it can disappear at any time. Never use it for production images, and never push anything secret: everything on this registry is publicly readable, writable, and deletable by anyone.
 
@@ -41440,7 +41597,7 @@ CMD ["echo", "hello from the temporary registry"]
 DOCKERFILE
 
 # Pick a random name once so build, push, and pull all agree
-IMAGE="tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/demo:1h"
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/demo:1h"
 
 docker build -t "$IMAGE" .
 docker push "$IMAGE"
@@ -41453,7 +41610,7 @@ Or skip the build entirely and copy an existing image with [crane](https://githu
 
 ```sh
 crane copy cgr.dev/chainguard/busybox:latest \
-  "tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/busybox:30m"
+  "lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/busybox:30m"
 ```
 
 ## The tag is the time-to-live
@@ -41482,7 +41639,7 @@ Because pulls are anonymous, a cluster needs no `imagePullSecrets` and no regist
 
 ```sh
 # Push something to a random repository name
-IMAGE="tmp.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/hello:1h"
 crane copy cgr.dev/chainguard/busybox:latest "$IMAGE"
 
 # A fresh local cluster, no registry configuration anywhere
@@ -41506,7 +41663,7 @@ The kubelet pulls the image anonymously and the pod runs:
 
 ```
 $ kubectl describe pod tmp-registry-demo | grep Pulled
-  Normal  Pulled  1s  kubelet  Successfully pulled image "tmp.cgruser.dev/.../hello:1h" in 1.722s
+  Normal  Pulled  1s  kubelet  Successfully pulled image "lockers.cgruser.dev/.../hello:1h" in 1.722s
 
 $ kubectl delete pod tmp-registry-demo && kind delete cluster --name tmp-demo
 ```
@@ -41518,7 +41675,7 @@ The same applies to any cluster that can reach the internet: hand it the image r
 - **Everything is public and anonymous.** Anyone can pull, overwrite, or delete any tag. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters:
 
   ```sh
-  docker pull tmp.cgruser.dev/<name>/demo@sha256:<digest>
+  docker pull lockers.cgruser.dev/<name>/demo@sha256:<digest>
   ```
 
 - **Repositories cannot be listed.** There is no catalog endpoint, so content is only reachable by someone who knows the name. Tag listing works within a repository you already know.
@@ -43880,7 +44037,7 @@ checks:
       egress: [proxy.golang.org, sum.golang.org]
 ```
 
-A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format.
+A session opened on this repository installs the packages listed under `environment`. In the session, `run-ci` runs the `vet` and `test` checks against your working tree. Refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/) for the full file format, and to [Chainguard Checks examples](/chainguard/checks/examples/) for complete files for common kinds of projects.
 
 Keep the following in mind when you write the file for sessions:
 
@@ -44718,7 +44875,7 @@ What you can do with `chainctl develop` depends on your role in the session's or
 
 The `limited_owner` role is the one that `chainctl develop init` gives the person who creates a Starter organization. No one in a Starter organization has the `owner` role, so no one there can run `list --all` or `policy set`. On their own, other roles, such as `editor` and `viewer`, can't open or manage sessions. To run `chainctl develop init --parent` on an organization you already belong to, you need the `owner` or `limited_owner` role in it. An organization owner can grant the `sandbox.user` role with an invite, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-In a session, your role also limits what your Chainguard identity can do. The `limited_owner` role doesn't include `mcp.tool.call` or `sandbox.run.list`, so the Chainguard MCP servers and the `chainctl checks` commands that look up a run don't work for it. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
+In a session, your role also limits what your Chainguard identity can do. For example, the Chainguard MCP servers need the `mcp.tool.call` capability, which the `sandbox.user` role doesn't include. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
 ## Environment variables and configuration
 
@@ -44980,8 +45137,6 @@ Follow these rules when the `run-ci` command exists, which means you're working 
 - If a check fails, run `chainctl checks failures OWNER/REPO#NUMBER --parent $ORGANIZATION` to see why. For more of a check's log, run `chainctl checks logs OWNER/REPO#NUMBER --check CHECK --errors --parent $ORGANIZATION`. Fix the change and push again.
 ```
 
-In a Starter organization, the `limited_owner` role can't look up Chainguard Checks runs, so `chainctl checks status`, `chainctl checks logs`, and the other commands that read a run don't work for it, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
-
 ### Choose a model
 
 A session doesn't set a model, so Claude Code starts with its default model unless your repository's `.claude/settings.json` sets one. To use another model, start Claude Code with `claude --model`, or run `/model` in Claude Code.
@@ -44990,7 +45145,7 @@ With Vertex AI, Claude Code's default model might not be enabled in your Google 
 
 ### MCP servers in a session {#mcp-servers-in-a-session}
 
-Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner` and `mcp.tool_user` roles do. The `limited_owner` role that `chainctl develop init` gives you doesn't include it, and neither do the `viewer` and `sandbox.user` roles. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
+Every session configures two Chainguard MCP servers for Claude Code: [`cg-apk`](/platform/mcp-servers/cg-apk/) and [`cg-versions`](/platform/mcp-servers/cg-versions/). They act as you through your Chainguard identity in the session, so they need no browser sign-in. They work only while that identity does, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and only if you hold the `mcp.tool.call` capability in the session's organization, as the `owner`, `editor`, `viewer`, `limited_owner`, and `mcp.tool_user` roles do. The `sandbox.user` role doesn't include it. An MCP server with the same name in your repository's `.mcp.json` replaces either one.
 
 Claude Code also loads the `https://` MCP servers in your repository's `.mcp.json` without asking you to approve each one. The session adds no credential to their requests.
 
@@ -45127,7 +45282,7 @@ If your repository has a `.chainguard/ci.yaml` file with checks, Claude Code can
 
 Both commands run the checks in the session's own environment, against its working tree as it is now, and skip checks that only a pull request can run. A pass in the session doesn't cover those checks, so have the agent report any skipped checks along with its result.
 
-A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows.
+A pass predicts that the pull request's checks will pass, but only [Chainguard Checks](/chainguard/checks/overview/), which runs each check in a fresh VM, decides what GitHub shows. To walk the whole loop once, from Claude Code's change through a failing check and its fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ---
 
@@ -45599,7 +45754,7 @@ If you connect your GitHub account, the sessions you create afterward act on Git
 
 The identity reaches the Chainguard API, `chainctl checks`, and the `cg-apk` and `cg-versions` MCP servers that every session includes. Whatever a grant carries, the session can't change anything through the Chainguard API except Chainguard Checks runs, and it can only list packages on `apk.cgr.dev`. Other MCP servers get no credential, and pulls from `cgr.dev` use the session's `cgr.dev` credential.
 
-Most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, within your own permissions, and a pull request records a rerun as your request. In a Starter organization, the `limited_owner` role can't list Chainguard Checks runs, so `chainctl checks` commands that look up a run, including `status`, `logs`, and `rerun`, don't work for that role, in a session or on your laptop. The `chainctl checks top`, `chainctl checks trends`, and `chainctl checks accept-terms` commands work only on your laptop.
+Most `chainctl checks` commands, such as `status`, `logs`, and `rerun`, work in the session as you, within your own permissions, and a pull request records a rerun as your request. The `chainctl checks top`, `chainctl checks trends`, and `chainctl checks accept-terms` commands work only on your laptop.
 
 To turn off a session's Chainguard identity, run `chainctl develop creds` with `--revoke chainguard` or `--source chainguard=off`, pass `--with none`, or turn it off on the **Credentials** screen. To turn it back on, use `--with chainguard`. To stop it for every session at once, delete the `chainctl-develop` identity from your organization. Tokens that sessions already hold keep working until they expire.
 
@@ -46848,7 +47003,7 @@ Commit the file to the repository's default branch. The push that adds or change
 ### Chainguard OS FAQs
 _Path: chainguard/chainguard-os/faq.md_
 
-This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's production container images and enterprise features.
+This FAQ addresses common questions about [Chainguard OS](/chainguard/chainguard-os/), the security-focused operating system that powers Chainguard's Production container images and enterprise features.
 
 ## What is Chainguard OS?
 
@@ -46856,11 +47011,22 @@ Chainguard OS is a minimal, hardened Linux-based operating system designed for s
 
 ## What is the relationship between Chainguard OS and Wolfi?
 
-Wolfi refers to the OS of Chainguard’s [free tier container images](/chainguard/containers/concepts/container-categories/#free-containers).
+Wolfi is the open source core of Chainguard OS, and Chainguard builds and maintains both. Wolfi is the distribution behind Chainguard's [Free container images](/chainguard/containers/concepts/container-categories/#free-containers). Chainguard OS builds on Wolfi and adds packages and enterprise features, such as FIPS-validated packages and the EOL Grace Period. It's the distribution behind [Production container images](/chainguard/containers/concepts/container-categories/#production-containers) and Chainguard's other products.
 
-Chainguard OS refers to the production-grade distribution that powers all other Chainguard products.
+The two work the same way. Both use the apk package format, and both are rolling releases: neither has major OS versions, and packages update continuously as upstream projects publish new releases. They differ in who can access them and what Chainguard commits to:
 
-Please note that mixing and matching content across Wolfi and Chainguard OS is not supported.
+| Feature | Wolfi | Chainguard OS |
+|---|---|---|
+| Container images | Free containers, such as `wolfi-base` | Production containers, such as `chainguard-base` |
+| Package repository | The public Wolfi repository, `https://apk.cgr.dev/chainguard`, which doesn't require authentication | Your organization's Private APK Repository, `https://apk.cgr.dev/$ORGANIZATION_ID`, which requires authentication |
+| Vulnerability remediation SLAs | No | Yes |
+| End-of-life (EOL) support | Updates stop when upstream support ends | Updates continue for an additional period under the [EOL Grace Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) |
+| FIPS-validated packages | No | Yes |
+| How scanners identify the OS | As Wolfi | As Chainguard, so scanners use Chainguard's security feed |
+
+Don't mix packages from Wolfi and Chainguard OS in the same container image. Chainguard doesn't support images that combine them.
+
+To compare the `wolfi-base` and `chainguard-base` images in more detail, refer to [Choosing a base container](/chainguard/containers/concepts/choosing-a-base-container/).
 
 ## What are the core principles behind Chainguard OS?
 
@@ -46895,7 +47061,7 @@ Chainguard OS is designed specifically for more secure and containerized applica
 ### Overview of Chainguard OS
 _Path: chainguard/chainguard-os/overview.md_
 
-Chainguard OS provides a more secure operating system that powers all Chainguard container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface.
+Chainguard OS provides a more secure operating system that powers Chainguard's Production container images, built specifically to address modern supply chain security challenges. Unlike traditional Linux distributions designed for general-purpose computing, Chainguard OS focuses exclusively on container workloads, enabling faster security updates and significantly reduced attack surface. Chainguard's Free container images run on Wolfi, the open source distribution that Chainguard OS builds on. To learn how the two differ, refer to the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi).
 
 Chainguard OS adheres to four key principles:
 
@@ -47657,9 +47823,7 @@ The examples on this page use `acme/app#123` for a pull request. Replace `$ORGAN
 
 ## Access and organization {#access-and-organization}
 
-Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
-
-If you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead. That role can start runs with `chainctl checks run`, but it can't read any run. Those runs use your allowance without showing you their results, so don't use that command in a Starter organization. Read the results on GitHub instead, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
+Every command on this page except `validate`, `explain`, and `accept-terms` needs the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, the commands fail with `permission denied`. To get a role, refer to [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
 The `validate` and `explain` commands read only your local checkout, so they don't need a Chainguard account or network access.
 
@@ -49007,6 +49171,8 @@ To find mistakes in your configuration without running anything, run `chainctl c
 
 ## More examples
 
+For Java with Maven, Rust, container image builds, monorepos, and checks that use Postgres and Redis, refer to [Chainguard Checks examples](/chainguard/checks/examples/).
+
 ### Node.js
 
 This file installs Node.js 22 and npm, installs dependencies, and runs the tests:
@@ -49243,7 +49409,7 @@ Your teammates don't need a Chainguard account to get checks on their pull reque
 ### Use Chainguard Checks on GitHub
 _Path: chainguard/checks/github.md_
 
-Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, how to read them with the GitHub API, and how to use them to protect your branches.
+Chainguard Checks runs on your GitHub repositories through the Chainguard App and reports its results as GitHub checks. This page explains when Chainguard Checks runs, how its results appear on GitHub, how to read them with the GitHub API, and how to use them to protect your branches. To watch a pull request's checks pass, fail, and pass again after a fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ## When Checks runs {#when-checks-runs}
 
@@ -49310,7 +49476,7 @@ For each check that couldn't be executed, the reason appears under **Errors:** a
 
 ## Read results with the GitHub API {#read-results-with-the-github-api}
 
-A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs, so it also works if you have the `limited_owner` role in a Starter organization. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
+A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
 
 Results appear on the pull request's head commit, not on the merge commit that Chainguard Checks tests. List the head commit's check runs by name. Filtering by app alone isn't enough, because the Chainguard App also reports checks for other Chainguard products, such as Guardener. These commands use the GitHub CLI. Replace `$OWNER/$REPO` with your repository and `$NUMBER` with the pull request's number:
 
@@ -49827,7 +49993,7 @@ By default, each check starts with nothing from earlier runs, so a Go check comp
 
 <span id="build-caches"></span>
 
-Each key under `caches` is a cache type. During the beta, four types store files from earlier runs:
+Each key under `caches` is a cache type. During the beta, the following types store files from earlier runs:
 
 | Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
 | ---- | -------------- | ----------------- | -------------------------------- |
@@ -49835,6 +50001,7 @@ Each key under `caches` is a cache type. During the beta, four types store files
 | `gomod` | Downloaded Go modules | `go` or a `go-<version>` package | `GOMODCACHE` |
 | `python` | Packages that pip and uv download | `python` or a `python-<version>` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
 | `java` | Files that Maven and Gradle download, in `~/.m2/repository` and `~/.gradle/caches/modules-2/files-2.1` | An `openjdk-<version>` package | None |
+| `cargo` | Crates and Git dependencies that Cargo downloads, and the build output in `target/` in the check's `workdir` | `rust` or a `rust-<version>` package | `CARGO_HOME`, set to `/home/build/.cargo` |
 
 The `node` and `directory` types pass validation, but they store nothing during the beta.
 
@@ -49863,6 +50030,7 @@ A cache does nothing until your default branch defines cache pools, as described
 - With `gobuild`, Chainguard Checks adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests, and only build output is reused.
 - With `gomod`, Go reuses downloaded modules but downloads any that the cache doesn't have, and with `python`, pip and uv do the same, so keep the hosts that your tools download from in `egress`.
 - With `java`, Maven can build from the cache alone once it holds every file the build needs. Gradle still asks its repositories for each file's checksum, so keep them in `egress` for Gradle builds. The cache doesn't store the Gradle wrapper's distributions.
+- With `cargo`, Chainguard Checks restores `target/` as one saved copy, rather than merging files from several runs, because Cargo can't rebuild correctly from a mix of builds. Only the `target/` directory in the check's `workdir` is cached, not one in a nested workspace. A check can't set `CARGO_HOME` or `CARGO_TARGET_DIR`, because the cache depends on Cargo keeping its files where Chainguard Checks expects them.
 - A [planner](#compute-variations-during-a-run) can't name a cache. Name the cache on the checks it plans instead.
 - A cache fills only from checks that pass. To fill the cache that pull requests start from, run the check after merging too, with `trigger: [presubmit, postsubmit]`.
 
@@ -49959,7 +50127,7 @@ A pool fills and empties as follows:
 ### Inspect and run checks with chainctl
 _Path: chainguard/checks/inspect-and-run-checks.md_
 
-The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/).
+The `chainctl checks` commands read your checks' results from your terminal, so you or a coding agent can find out why a check failed without opening GitHub. This page explains how to inspect a pull request's runs, how to run checks on a pushed commit without opening a pull request, and how to find the checks that take the most time or fail most often. For every command and flag, refer to the [`chainctl checks` command reference](/chainguard/checks/chainctl-checks-reference/). To see `chainctl checks failures` in use, with Claude Code fixing the failure it reports, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 These commands need a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access).
 
@@ -50021,8 +50189,6 @@ A run you start this way differs from a pull request run in the following ways:
 - It has no pull request, trigger, or labels. If a check's `when` expression reads any `context` field, the command names the check and doesn't start a run. To run other checks, select one with `--check`.
 - A check with a workload `identity` fails, because only pull request runs and runs after merging get identities.
 
-In a Starter organization, don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results, so open a pull request instead.
-
 ### Read a run you started
 
 To read a run you started, pass its ID, or the start of it, to `chainctl checks status` or the other commands that read runs. The ID is the part after `/runs/` in the run's name. Replace `$RUN_ID` with the ID:
@@ -50068,7 +50234,7 @@ The command prints a table of each repository's runs by outcome, and a table of 
 ### Run checks before you push with Chainguard Workspaces
 _Path: chainguard/checks/run-checks.md_
 
-Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/).
+Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/). For `run-ci` in the whole loop, from a change through a failing pull request and its fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
 
 ## Run checks in a Workspaces session {#run-checks-in-a-workspaces-session}
 
@@ -50614,6 +50780,231 @@ Chainguard Workspaces sessions don't use workload identities. To revoke what a s
 
 ---
 
+### Chainguard Checks examples
+_Path: chainguard/checks/examples.md_
+
+This page gives complete Chainguard Checks configurations for common kinds of projects. Copy the one closest to your project, then change its packages, commands, and network access to match. Each example passes `chainctl checks validate`. For what each key does, refer to the [Chainguard Checks configuration reference](/chainguard/checks/configuration/), and for services and caches, refer to [Variations, inputs, services, and caches](/chainguard/checks/variations-services-caches/).
+
+Keep the following in mind when you adapt an example:
+
+- A check reaches only the hosts in its `network.egress` list. If your build downloads from somewhere else, such as a private package registry, add that host. Refer to [Find the hosts a check needs](/chainguard/checks/migrate-from-github-actions/#find-the-hosts-a-check-needs).
+- A cache does nothing until your default branch's `.chainguard/ci/identities.yaml` file defines cache pools, as described in [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools). The examples that use caches also run after merging, with `trigger: [presubmit, postsubmit]`, so that runs on your default branch fill the cache that pull requests start from.
+- Chainguard Workspaces sessions can use these files for their packages, but they don't start services or mount caches other than `gobuild`. Refer to [Configure a Chainguard Workspaces session's environment](/chainguard/workspaces/session-environment/).
+
+## Java with Maven {#java-with-maven}
+
+This file installs a JDK and Maven, and runs the build's tests with `mvn verify`:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [openjdk-21-default-jdk, maven-3.9]
+  caches:
+    java: {}
+checks:
+  test:
+    cmd: mvn --batch-mode verify
+    trigger: [presubmit, postsubmit]
+    network:
+      egress: [repo.maven.apache.org]
+```
+
+The example works as follows:
+
+- `openjdk-21-default-jdk` installs OpenJDK 21 and sets `JAVA_HOME`, which Maven needs. For another Java version, use its package, such as `openjdk-25-default-jdk`.
+- `--batch-mode` keeps Maven's download progress out of the check's log.
+- Maven downloads plugins and dependencies from Maven Central, `repo.maven.apache.org`. Add any other repositories that your `pom.xml` or `settings.xml` names.
+- The `java` cache keeps the files that Maven downloads, so later runs download only new ones. For Gradle builds, which still ask each repository for checksums, refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types).
+
+## Rust {#rust}
+
+This file installs a Rust toolchain and runs the project's tests:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [rust-1.99, build-base]
+  caches:
+    cargo: {}
+checks:
+  test:
+    cmd: cargo test --locked
+    trigger: [presubmit, postsubmit]
+    network:
+      egress: [index.crates.io, static.crates.io]
+```
+
+The example works as follows:
+
+- `rust-1.99` installs `rustc` and `cargo`. Choose the package for the Rust version your project uses. Chainguard Checks installs the toolchain from the package, not with `rustup`.
+- `build-base` installs a C compiler and linker, which `rustc` uses to link binaries, and which crates with C code need.
+- `--locked` makes the check fail if `Cargo.lock` doesn't match `Cargo.toml`, so commit `Cargo.lock`.
+- Cargo reads the crates.io index from `index.crates.io` and downloads crates from `static.crates.io`.
+- The `cargo` cache keeps downloaded crates and the build output in `target/`, so later runs rebuild only what changed. Refer to [Cache types](/chainguard/checks/variations-services-caches/#cache-types).
+
+## Build a container image {#build-a-container-image}
+
+To build an image from your repository's `Dockerfile`, run the Docker daemon as a service. This example uses the directory layout, with the `docker` service from [Run Docker](/chainguard/checks/variations-services-caches/#run-docker) in `.chainguard/ci/services/docker/`. Copy both of that section's files, `docker.yaml` and `docker.sh`. Then add a check file that uses the service:
+
+```yaml {title=".chainguard/ci/image.yaml"}
+version: 1
+environment:
+  services: [docker]
+checks:
+  build:
+    script: |
+      docker build --tag example:ci .
+      docker run --rm example:ci
+    network:
+      egress:
+        - cgr.dev
+        - 9236a389bd48b984df91adc1bc924620.r2.cloudflarestorage.com
+```
+
+The check builds the image and then runs it once, so a container that can't start fails the check. The check appears on pull requests as `presubmit / image / build`.
+
+The two hosts in `egress` serve images from `cgr.dev`, such as a `FROM cgr.dev/chainguard/wolfi-base` line in your `Dockerfile`. If your `Dockerfile` pulls from another registry or downloads files while it builds, add those hosts too. The Docker daemon needs root, so a check that uses the service must run as `root`, the default.
+
+## A monorepo {#a-monorepo}
+
+In a repository that holds several projects, give each project its own check file, and run each check only when its project changes. This example has a Go service in `services/api/` and a Node.js application in `web/`, and uses the directory layout:
+
+```text
+.chainguard/ci/
+├── api.yaml
+├── web.yaml
+└── env/
+    ├── go.yaml
+    └── node.yaml
+```
+
+Each project's environment goes in its own file in `env/`:
+
+```yaml {title=".chainguard/ci/env/go.yaml"}
+version: 1
+environment:
+  packages: [go]
+  caches:
+    gobuild: {}
+    gomod: {}
+```
+
+```yaml {title=".chainguard/ci/env/node.yaml"}
+version: 1
+environment:
+  packages: [nodejs-22, npm]
+```
+
+Each check file names its environment, the project's directory, and the files that should run it:
+
+```yaml {title=".chainguard/ci/api.yaml"}
+version: 1
+checks:
+  test:
+    environment: go
+    cmd: go test ./...
+    workdir: services/api
+    trigger: [presubmit, postsubmit]
+    when:
+      changed: ["services/api/**", ".chainguard/ci/api.yaml", ".chainguard/ci/env/go.yaml"]
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+```yaml {title=".chainguard/ci/web.yaml"}
+version: 1
+checks:
+  test:
+    environment: node
+    workdir: web
+    steps:
+      - name: install
+        cmd: npm ci
+      - name: test
+        cmd: npm test
+    when:
+      changed: ["web/**", ".chainguard/ci/web.yaml", ".chainguard/ci/env/node.yaml"]
+    network:
+      egress: [registry.npmjs.org]
+```
+
+The example works as follows:
+
+- The checks appear on pull requests as `presubmit / api / test` and `presubmit / web / test`, so each project's result is separate.
+- `workdir` runs each check's commands in its project's directory, relative to the repository's root.
+- `when.changed` runs a check only when a pull request changes a file that matches one of its patterns. Each list includes the check's own configuration files, so a change to a check runs it. Refer to [Run when files change](/chainguard/checks/configuration/#run-when-files-change).
+- Every check names its environment, so the directory needs no `env/default.yaml`.
+- Only the Go check runs after merging, because only its environment has caches to fill.
+
+## Postgres and Redis {#postgres-and-redis}
+
+A check can start several services, such as a database and a cache, before its commands run. This example runs a Go project's integration tests against Postgres and Redis, in the directory layout:
+
+```text
+.chainguard/ci/
+├── integration.yaml
+└── services/
+    ├── postgres/
+    │   ├── postgres.yaml
+    │   └── postgres.sh
+    └── redis/
+        ├── redis.yaml
+        └── redis.sh
+```
+
+For the `postgres` service, copy both files from [Services](/chainguard/checks/variations-services-caches/#services). Define the `redis` service beside it:
+
+```yaml {title=".chainguard/ci/services/redis/redis.yaml"}
+version: 1
+name: redis
+packages: [busybox, redis-8.8, redis-cli-8.8]
+cmd: [sh, ./redis.sh]
+timeout: 60s
+exports:
+  REDIS_URL: redis://127.0.0.1:6379
+```
+
+The script starts Redis without saving data to disk, waits until it answers, prints `::service-ready::`, and then waits on Redis:
+
+```shell {title=".chainguard/ci/services/redis/redis.sh"}
+#!/bin/sh
+set -eu
+redis-server --bind 127.0.0.1 --port 6379 --save "" --appendonly no &
+daemon=$!
+trap 'kill "$daemon" 2>/dev/null || true' EXIT
+trap 'exit 1' HUP INT TERM
+until redis-cli -h 127.0.0.1 -p 6379 ping >/dev/null 2>&1; do
+  kill -0 "$daemon" 2>/dev/null || exit 1
+  sleep 0.1
+done
+printf '\n::service-ready::\n'
+wait "$daemon"
+exit 1
+```
+
+The check names both services in its environment:
+
+```yaml {title=".chainguard/ci/integration.yaml"}
+version: 1
+environment:
+  packages: [go]
+  services: [postgres, redis]
+checks:
+  integration:
+    cmd: go test ./integration/...
+    network:
+      egress: [proxy.golang.org, sum.golang.org]
+```
+
+The example works as follows:
+
+- The check's commands start after both services print `::service-ready::`.
+- The services' `exports` give the check's commands `PGHOST`, `PGUSER`, and `REDIS_URL`, so your tests can read their connection details from the environment.
+- Both services listen on `127.0.0.1`, inside the check's VM, so the check needs no `egress` entry to reach them. Its `egress` list covers only the Go module downloads.
+- The `redis-8.8` and `redis-cli-8.8` packages come from Chainguard's Extra Packages repository. Keep the two packages on the same version.
+
+---
+
 ### Troubleshoot Chainguard Checks
 _Path: chainguard/checks/troubleshooting.md_
 
@@ -50852,15 +51243,11 @@ For a run you started with [`chainctl checks run`](/chainguard/checks/chainctl-c
 
 ## The Details link or a chainctl checks command says you don't have access {#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access}
 
-The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner` or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
+The **Details** link on a check opens the run on a page that Chainguard hosts, where you sign in with your Chainguard account. To open the run page, or to read or rerun runs with `chainctl checks` commands such as `status`, `logs`, and `rerun`, you need the `owner`, `limited_owner`, or `sandbox.user` role in the Chainguard organization linked to the repository's GitHub account. Without one of these roles, `chainctl checks` fails with `permission denied`.
 
 To get these roles, ask an owner of your organization, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
 
-During the beta, if you created a Starter organization with `chainctl develop init`, you have the `limited_owner` role instead, which can't open the run page or read runs, and you can't grant the `sandbox.user` role. In that case, do the following:
-
-- Read the results on the pull request, as described in [How results appear](/chainguard/checks/github/#how-results-appear), and rerun checks with **Re-run** on GitHub.
-- Don't use `chainctl checks run`. Your role can start runs, which use your allowance, but can't read their results.
-- To run checks before you push, use a Workspaces session with `chainctl develop check`, as described in [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
+No one in a Starter organization has the `owner` role. To join one, ask the person who created it to invite you with the `limited_owner` role, as described in [Add a teammate to a Starter organization](/get-started/checks-and-workspaces/set-up/#add-a-teammate-to-a-starter-organization).
 
 ---
 
@@ -50906,7 +51293,7 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `actions/checkout` with `repository` | `inputs` with `git`, for a public repository on github.com. Refer to [Check out another repository](/chainguard/checks/variations-services-caches/#check-out-another-repository). |
 | `actions/checkout` with `submodules` or `lfs` | No equivalent. Submodule directories are empty, and Git LFS files hold their pointer files. |
 | `actions/upload-artifact` and `actions/download-artifact` | `outputs` on the check that writes the files, and `inputs` with `from` on a check in the same file that reads them. Refer to [Pass files between checks](/chainguard/checks/variations-services-caches/#pass-files-between-checks). A run keeps no files that you can download. |
-| `actions/cache`, or the caching in a setup action, such as `actions/setup-go` | `environment.caches`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Use `gobuild` and `gomod` for Go build output and downloaded modules, `python` for pip and uv, and `java` for Maven and Gradle. A check that uses a cache runs as `root`, the default, or as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
+| `actions/cache`, or the caching in a setup action, such as `actions/setup-go` | `environment.caches`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Use `gobuild` and `gomod` for Go build output and downloaded modules, `python` for pip and uv, `java` for Maven and Gradle, and `cargo` for Cargo. A check that uses a cache runs as `root`, the default, or as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
 | `jobs.<job_id>.services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). To run a container image instead, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). |
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |
@@ -56869,7 +57256,7 @@ Congratulations! You have signed a container with Cosign through GitHub Actions 
 ### Wolfi overview
 _Path: open-source/wolfi/overview.md_
 
-Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard's container images are built on Wolfi.
+Wolfi is a Linux _undistro_ built for containers. It uses the apk package format, builds every package from source, and relies on the container runtime to provide the kernel. Chainguard's Free container images are built on Wolfi, and Production container images are built on [Chainguard OS](/chainguard/chainguard-os/). To learn how the two differ, refer to the [Chainguard OS FAQ](/chainguard/chainguard-os/faq/#what-is-the-relationship-between-chainguard-os-and-wolfi).
 
 To learn what Wolfi is and why Chainguard built it, read [What is Wolfi?](https://www.chainguard.dev/supply-chain-security-101/wolfi-overview) in Supply Chain Security 101. The pages in this section show you how to work with Wolfi.
 
@@ -62280,9 +62667,9 @@ This guide outlines the following built-in roles provided by Chainguard:
 * **Administrative Roles:**
     * `owner`: Full administrative access with all capabilities
     * `editor`: `viewer` access plus creating, updating, and deleting container repositories, editing Custom Assembly overlays, drafting library build requests, and managing event subscriptions
-    * `viewer`: Read-only access across all resources, **can** pull images, and can run Guardener sessions
-    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
-    * `console_viewer`: Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, or view legal terms
+    * `viewer`: Read-only access across all resources, **can** pull images, can run Guardener sessions, and can call tools on Chainguard MCP servers
+    * `limited_owner`: Owner of a Starter organization, with `viewer` access plus pull tokens, library access, adding catalog images and Helm charts to the organization, invites limited to the organization's email domain, removing members, billing, and turning on Chainguard Checks and Chainguard Workspaces
+    * `console_viewer`: Read-only access across all resources and **cannot** pull images or APK packages, run Guardener sessions, call tools on Chainguard MCP servers, or view legal terms
 * **Registry and Container Roles:**
     * `registry.pull`: Container image access
     * `registry.pull_token_creator`: Chainguard registry token management with additional repository capabilities
@@ -62317,79 +62704,83 @@ For example, the `apk.pull` role grants `list` access for APK packages and group
 
 ## Chainguard role capabilities
 
-The following table maps Chainguard resources to the built-in roles that have permissions for them. Each row represents a specific resource type (like `apk`, `repo`, `identity`, etc.), describes its purpose, and lists which actions each built-in role has on that resource.
+The following table maps Chainguard capabilities to the built-in roles that hold them. Each row covers one resource, such as `repo` or `identity`. The first column lists the full name of every capability on that resource, and the last column lists the actions each built-in role holds on it.
+
+A capability's name is its resource and its action, joined by a dot. For example, `registry.entitlements.images.add` is the `add` action on the `registry.entitlements.images` resource. Use these full names when you [create a custom role](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-custom-roles) that grants only the capabilities a task needs, as in [Create a role for managing image entitlements](#create-a-role-for-managing-image-entitlements).
 
 <div style="overflow-x: auto;">
 
-| Resource | Purpose | Roles with access to this resource |
+| Capabilities | Purpose | Roles with access to this resource |
 |------------|---------|---------------------------|
-| `account_associations` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `actions` | View the [Chainguard Actions](/chainguard/actions/overview/) catalog | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`actions.viewer` (list)</li></ul> |
-| `advisories` | View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `apk` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (create, delete, list)</li><li>`sandbox.user` (list)</li></ul> |
-| `apk.blobs` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`apk.pull` (get)</li><li>`apk.push` (get)</li></ul> |
-| `billing` | Manage the organization's billing and payment method | <ul><li>`owner` (manage)</li><li>`limited_owner` (manage)</li></ul> |
-| `build_report` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `group_invites` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li></ul> |
-| `groups` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, rename, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, rename)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, list)</li><li>`registry.editor` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li><li>`sandbox.user` (list)</li></ul> |
-| `guardener.actions` | Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
-| `guardener.association` | View and manage the GitHub organizations connected through [the Chainguard App](/chainguard/guardener/github/app-connections/) | <ul><li>`owner` (list, manage)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, manage)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list, manage)</li></ul> |
-| `guardener.dfc` | Convert Dockerfiles to use Chainguard images with [Guardener](/chainguard/guardener/dockerfile-migration/) | <ul><li>`owner` (convert)</li><li>`editor` (convert)</li><li>`viewer` (convert)</li><li>`limited_owner` (convert)</li><li>`guardener.user` (convert)</li><li>`guardener.admin` (convert)</li></ul> |
-| `guardener.entitlement` | View the organization's Guardener settings, such as which repositories Guardener can access | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `guardener.images` | Request and view [container image migrations](/chainguard/guardener/github/image-migration/) for a repository | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
-| `guardener.scan` | View the dependency scans Guardener runs on connected repositories | <ul><li>`owner` (get, list)</li><li>`editor` (get, list)</li><li>`viewer` (get, list)</li><li>`limited_owner` (get, list)</li><li>`console_viewer` (get, list)</li><li>`guardener.user` (get, list)</li><li>`guardener.admin` (get, list)</li></ul> |
-| `identity` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
-| `identity_providers` | Configure [custom identity providers](/platform/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `identity_providers.scim` | Turn on [SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/) for a custom identity provider and manage its tokens | <ul><li>`owner` (manage)</li></ul> |
-| `identity_providers.scim.users` | View the users a custom identity provider provisioned through SCIM | <ul><li>`owner` (list)</li></ul> |
-| `libraries.artifacts` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.aws_marketplace.subscriptions` | Manage Chainguard Libraries subscriptions bought through AWS Marketplace | <ul><li>`owner` (create, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.cache` | View and clear the organization's Chainguard Libraries resolution cache | <ul><li>`owner` (invalidate, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.entitlements` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (list)</li></ul> |
-| `libraries.java` | Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | <ul><li>`owner` (create, list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (create, list)</li></ul> |
-| `libraries.javascript` | Access Chainguard Libraries for JavaScript | <ul><li>`owner` (create, list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (create, list)</li></ul> |
-| `libraries.policy` | Create and manage the cooldown and malware policies applied to upstream library pulls | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.policy.binding` | Apply Chainguard Libraries policies to the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.policy.block_event` | View the library pulls a policy blocked | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.python` | Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | <ul><li>`owner` (create, list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (create, list)</li></ul> |
-| `libraries.remote_registries` | Configure the upstream registries the organization's virtual repositories pull from | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.request_groups` | Request library versions for Chainguard to build, and track those requests | <ul><li>`owner` (create, delete, list, submit, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `libraries.request_groups.items` | Edit the individual libraries in a draft build request | <ul><li>`owner` (update)</li><li>`editor` (update)</li></ul> |
-| `libraries.storage_usage` | View how much storage the organization's uploaded libraries use in each ecosystem | <ul><li>`owner` (get)</li></ul> |
-| `manifest` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `manifest.metadata` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `mcp.tool` | Call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/) | <ul><li>`owner` (call)</li><li>`mcp.tool_user` (call)</li></ul> |
-| `packages.entitlements` | View which tier of Chainguard OS Packages the organization is entitled to, base or FIPS | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `policies.binding` | Turn image pull policies on for the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `policies.decision` | View the allow and block decisions image pull policies made | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `policies.override` | Exempt a specific image from policy enforcement | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `policies.policy` | View and manage image pull policies, such as blocking end-of-life images | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `record_signatures` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `referrers` | View the signatures, attestations, and other artifacts attached to an image | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `registry.deployments` | View the Helm charts associated with a container repository | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `registry.entitlements` | View registry access entitlements and permissions | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `registry.entitlements.images` | Add, remove, and swap the images in the organization's registry entitlement | <ul><li>`owner` (add, remove, swap)</li><li>`limited_owner` (add)</li></ul> |
-| `registry.overlays` | View and edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/) | <ul><li>`owner` (edit, list)</li><li>`editor` (edit, list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.editor` (edit, list)</li></ul> |
-| `registry.settings` | View the organization's registry settings, such as whether unique tags and the End-of-Life Grace Period are on by default | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `repo` | Create and manage container repositories (including [Custom Assembly](/chainguard/containers/custom-assembly/) resources) | <ul><li>`owner` (check_policies, create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (create, delete, list, update)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `repo.blobs` | Download container image binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`registry.push` (get)</li><li>`registry.editor` (get)</li><li>`guardener.user` (get)</li><li>`guardener.admin` (get)</li></ul> |
-| `role_bindings` | [Assign roles to identities](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
-| `roles` | Create, modify, and manage [custom Chainguard IAM roles](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
-| `sandbox.identity` | Create the [Chainguard identity a Workspaces session acts through](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and define and use shared session identities | <ul><li>`owner` (admin, create, use)</li><li>`sandbox.user` (create)</li><li>`sandbox.identity.user` (use)</li></ul> |
-| `sandbox.run` | Start, view, and cancel [Chainguard Checks](/chainguard/checks/overview/) runs | <ul><li>`owner` (cancel, create, list)</li><li>`limited_owner` (cancel, create)</li><li>`sandbox.user` (cancel, create, list)</li></ul> |
-| `sandbox.session` | Open [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and list every user's sessions in the organization | <ul><li>`owner` (create, list)</li><li>`limited_owner` (create)</li><li>`sandbox.user` (create)</li></ul> |
-| `sboms` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `skills` | View the [Chainguard Agent Skills](/chainguard/agent-skills/overview/) catalog and publish skills | <ul><li>`owner` (list, publish)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `skills.entitlements` | Manage which Chainguard Agent Skills the organization can access | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `skills.harden` | Submit, track, and cancel [skill hardening](/chainguard/agent-skills/skill-hardening/) jobs | <ul><li>`owner` (cancel, read, write)</li></ul> |
-| `subscriptions` | Manage [CloudEvent](/platform/administration/cloudevents/events-reference/) subscriptions for notifications and automation | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `tag` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `telemetry.containers` | View the container images that connected repositories use, as Guardener observes them | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
-| `terms` | View and accept the legal terms a Chainguard product requires before you can use it | <ul><li>`owner` (accept, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (accept, list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (accept, list)</li></ul> |
-| `version` | View version information across all resources and assets | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `vuln` | Create vulnerability reports and assessments | <ul><li>`owner` (create)</li></ul> |
-| `vuln_report` | Manage detailed vulnerability assessments for specific resources | <ul><li>`owner` (create, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
-| `vuln_reports` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `account_associations.create`<br>`account_associations.delete`<br>`account_associations.list`<br>`account_associations.update` | Link cloud provider accounts to organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `actions.list` | View the [Chainguard Actions](/chainguard/actions/overview/) catalog | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`actions.viewer` (list)</li></ul> |
+| `advisories.list` | View [security advisories](/chainguard/containers/security-and-compliance/security-advisories/) for the packages in Chainguard images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `apk.create`<br>`apk.delete`<br>`apk.list` | Manage APK packages in the registry | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (create, delete, list)</li><li>`sandbox.user` (list)</li></ul> |
+| `apk.blobs.get` | Download APK package binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`apk.pull` (get)</li><li>`apk.push` (get)</li></ul> |
+| `auth_policies.list`<br>`auth_policies.update` | View and change the organization's [authentication policy](/platform/chainctl/chainctl-docs/chainctl_iam_auth-policy/), which sets how long a sign-in to the organization lasts | <ul><li>`owner` (list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `billing.manage` | Manage the organization's billing and payment method | <ul><li>`owner` (manage)</li><li>`limited_owner` (manage)</li></ul> |
+| `build_report.list` | Access detailed build and scan reports for images and packages | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `entitlements.get` | View the organization's plan and its product limits | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`console_viewer` (get)</li></ul> |
+| `group_invites.create`<br>`group_invites.delete`<br>`group_invites.list` | Send and manage invitations to join Chainguard organization | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li></ul> |
+| `groups.create`<br>`groups.delete`<br>`groups.list`<br>`groups.rename`<br>`groups.update` | Manage organization and hierarchical structures | <ul><li>`owner` (create, delete, list, rename, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, rename)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, list)</li><li>`registry.editor` (list)</li><li>`apk.pull` (list)</li><li>`apk.push` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li><li>`sandbox.user` (list)</li></ul> |
+| `guardener.actions.migrate` | Have Guardener migrate a repository's GitHub Actions to Chainguard Actions by opening a pull request | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
+| `guardener.association.list`<br>`guardener.association.manage` | View and manage the GitHub organizations connected through [the Chainguard App](/chainguard/guardener/github/app-connections/) | <ul><li>`owner` (list, manage)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list, manage)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list, manage)</li></ul> |
+| `guardener.dfc.convert` | Convert Dockerfiles to use Chainguard images with [Guardener](/chainguard/guardener/dockerfile-migration/) | <ul><li>`owner` (convert)</li><li>`editor` (convert)</li><li>`viewer` (convert)</li><li>`limited_owner` (convert)</li><li>`guardener.user` (convert)</li><li>`guardener.admin` (convert)</li></ul> |
+| `guardener.entitlement.list` | View the organization's Guardener settings, such as which repositories Guardener can access | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `guardener.images.migrate` | Request and view [container image migrations](/chainguard/guardener/github/image-migration/) for a repository | <ul><li>`owner` (migrate)</li><li>`editor` (migrate)</li><li>`viewer` (migrate)</li><li>`limited_owner` (migrate)</li><li>`guardener.user` (migrate)</li><li>`guardener.admin` (migrate)</li></ul> |
+| `guardener.scan.get`<br>`guardener.scan.list` | View the dependency scans Guardener runs on connected repositories | <ul><li>`owner` (get, list)</li><li>`editor` (get, list)</li><li>`viewer` (get, list)</li><li>`limited_owner` (get, list)</li><li>`console_viewer` (get, list)</li><li>`guardener.user` (get, list)</li><li>`guardener.admin` (get, list)</li></ul> |
+| `identity.create`<br>`identity.delete`<br>`identity.list`<br>`identity.update` | Create and manage user identities, service accounts, and pull tokens | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `identity_providers.create`<br>`identity_providers.delete`<br>`identity_providers.list`<br>`identity_providers.update` | Configure [custom identity providers](/platform/administration/custom-idps/custom-idps/) (OIDC, SAML) for authentication | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `identity_providers.scim.manage` | Turn on [SCIM provisioning](/platform/administration/custom-idps/scim-provisioning/scim-overview/) for a custom identity provider and manage its tokens | <ul><li>`owner` (manage)</li></ul> |
+| `identity_providers.scim.users.list` | View the users a custom identity provider provisioned through SCIM | <ul><li>`owner` (list)</li></ul> |
+| `libraries.artifacts.list` | View Chainguard Library artifact metadata and information | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.aws_marketplace.subscriptions.create`<br>`libraries.aws_marketplace.subscriptions.list`<br>`libraries.aws_marketplace.subscriptions.update` | Manage Chainguard Libraries subscriptions bought through AWS Marketplace | <ul><li>`owner` (create, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.cache.invalidate`<br>`libraries.cache.list` | View and clear the organization's Chainguard Libraries resolution cache | <ul><li>`owner` (invalidate, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.entitlements.create`<br>`libraries.entitlements.delete`<br>`libraries.entitlements.list` | Manage access permissions for Chainguard Libraries | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (list)</li></ul> |
+| `libraries.java.create`<br>`libraries.java.list` | Access [Chainguard Libraries for Java](/chainguard/libraries/java/overview/) | <ul><li>`owner` (create, list)</li><li>`limited_owner` (list)</li><li>`libraries.java.pull` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.java.push` (create, list)</li></ul> |
+| `libraries.javascript.create`<br>`libraries.javascript.list` | Access Chainguard Libraries for JavaScript | <ul><li>`owner` (create, list)</li><li>`limited_owner` (list)</li><li>`libraries.javascript.pull` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li><li>`libraries.javascript.push` (create, list)</li></ul> |
+| `libraries.policy.create`<br>`libraries.policy.delete`<br>`libraries.policy.list`<br>`libraries.policy.update` | Create and manage the cooldown and malware policies applied to upstream library pulls | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.policy.binding.create`<br>`libraries.policy.binding.delete`<br>`libraries.policy.binding.list`<br>`libraries.policy.binding.update` | Apply Chainguard Libraries policies to the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.policy.block_event.list` | View the library pulls a policy blocked | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.python.create`<br>`libraries.python.list` | Access [Chainguard Libraries for Python](/chainguard/libraries/python/overview/) | <ul><li>`owner` (create, list)</li><li>`limited_owner` (list)</li><li>`libraries.python.pull` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.python.push` (create, list)</li></ul> |
+| `libraries.request_groups.create`<br>`libraries.request_groups.delete`<br>`libraries.request_groups.list`<br>`libraries.request_groups.submit`<br>`libraries.request_groups.update` | Request library versions for Chainguard to build, and track those requests | <ul><li>`owner` (create, delete, list, submit, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `libraries.request_groups.items.update` | Edit the individual libraries in a draft build request | <ul><li>`owner` (update)</li><li>`editor` (update)</li></ul> |
+| `libraries.storage_usage.get` | View how much storage the organization's uploaded libraries use in each ecosystem | <ul><li>`owner` (get)</li></ul> |
+| `manifest.create`<br>`manifest.delete`<br>`manifest.list`<br>`manifest.update` | Access and manage container image manifests | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `manifest.metadata.list` | View container image manifest metadata and attestations | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `mcp.tool.call` | Call tools on [Chainguard MCP servers](/platform/mcp-servers/overview/) | <ul><li>`owner` (call)</li><li>`editor` (call)</li><li>`viewer` (call)</li><li>`limited_owner` (call)</li><li>`mcp.tool_user` (call)</li></ul> |
+| `packages.entitlements.list` | View which tier of Chainguard OS Packages the organization is entitled to, base or FIPS | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.binding.create`<br>`policies.binding.delete`<br>`policies.binding.list`<br>`policies.binding.update` | Turn image pull policies on for the organization | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.decision.list` | View the allow and block decisions image pull policies made | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.override.create`<br>`policies.override.delete`<br>`policies.override.list` | Exempt a specific image from policy enforcement | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `policies.policy.create`<br>`policies.policy.delete`<br>`policies.policy.list`<br>`policies.policy.update` | View and manage image pull policies, such as blocking end-of-life images | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `record_signatures.list` | View cryptographic signature verification records | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `referrers.list` | View the signatures, attestations, and other artifacts attached to an image | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `registry.charts.add` | Add a catalog [Helm chart](/get-started/self-serve/helm-charts/) and the images it needs to the organization | <ul><li>`owner` (add)</li><li>`limited_owner` (add)</li></ul> |
+| `registry.deployments.list` | View the Helm charts associated with a container repository | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `registry.entitlements.list` | View registry access entitlements and permissions | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `registry.entitlements.images.add`<br>`registry.entitlements.images.remove`<br>`registry.entitlements.images.swap` | Add, remove, and swap the images in the organization's registry entitlement | <ul><li>`owner` (add, remove, swap)</li><li>`limited_owner` (add)</li></ul> |
+| `registry.overlays.edit`<br>`registry.overlays.list` | View and edit [Custom Assembly overlays](/chainguard/containers/custom-assembly/overlays/) | <ul><li>`owner` (edit, list)</li><li>`editor` (edit, list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.editor` (edit, list)</li></ul> |
+| `registry.settings.list` | View the organization's registry settings, such as whether unique tags and the End-of-Life Grace Period are on by default | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `repo.check_policies`<br>`repo.create`<br>`repo.delete`<br>`repo.list`<br>`repo.update` | Create and manage container repositories (including [Custom Assembly](/chainguard/containers/custom-assembly/) resources) | <ul><li>`owner` (check_policies, create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (create, delete, list, update)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `repo.blobs.get` | Download container image binary content | <ul><li>`owner` (get)</li><li>`editor` (get)</li><li>`viewer` (get)</li><li>`limited_owner` (get)</li><li>`registry.pull` (get)</li><li>`registry.pull_token_creator` (get)</li><li>`registry.push` (get)</li><li>`registry.editor` (get)</li><li>`guardener.user` (get)</li><li>`guardener.admin` (get)</li></ul> |
+| `role_bindings.create`<br>`role_bindings.delete`<br>`role_bindings.list`<br>`role_bindings.update` | [Assign roles to identities](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings) (users and service accounts) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (create, delete, list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (create)</li><li>`libraries.java.pull_token_creator` (create)</li><li>`libraries.python.pull_token_creator` (create)</li><li>`libraries.javascript.pull_token_creator` (create)</li></ul> |
+| `roles.create`<br>`roles.delete`<br>`roles.list`<br>`roles.update` | Create, modify, and manage [custom Chainguard IAM roles](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/) | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`libraries.java.pull_token_creator` (list)</li><li>`libraries.python.pull_token_creator` (list)</li><li>`libraries.javascript.pull_token_creator` (list)</li></ul> |
+| `sandbox.identity.admin`<br>`sandbox.identity.create`<br>`sandbox.identity.use` | Create the [Chainguard identity a Workspaces session acts through](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session), and define and use shared session identities | <ul><li>`owner` (admin, create, use)</li><li>`sandbox.user` (create)</li><li>`sandbox.identity.user` (use)</li></ul> |
+| `sandbox.run.cancel`<br>`sandbox.run.create`<br>`sandbox.run.list` | Start, view, and cancel [Chainguard Checks](/chainguard/checks/overview/) runs | <ul><li>`owner` (cancel, create, list)</li><li>`limited_owner` (cancel, create, list)</li><li>`sandbox.user` (cancel, create, list)</li></ul> |
+| `sandbox.session.create`<br>`sandbox.session.list` | Open [Chainguard Workspaces](/chainguard/workspaces/overview/) sessions, and list every user's sessions in the organization | <ul><li>`owner` (create, list)</li><li>`limited_owner` (create)</li><li>`sandbox.user` (create)</li></ul> |
+| `sboms.list` | Access Software Bill of Materials for packages and images | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `skills.list`<br>`skills.publish` | View the [Chainguard Agent Skills](/chainguard/agent-skills/overview/) catalog and publish skills | <ul><li>`owner` (list, publish)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `skills.entitlements.create`<br>`skills.entitlements.delete`<br>`skills.entitlements.list` | Manage which Chainguard Agent Skills the organization can access | <ul><li>`owner` (create, delete, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `skills.harden.cancel`<br>`skills.harden.read`<br>`skills.harden.write` | Submit, track, and cancel [skill hardening](/chainguard/agent-skills/skill-hardening/) jobs | <ul><li>`owner` (cancel, read, write)</li></ul> |
+| `subscriptions.create`<br>`subscriptions.delete`<br>`subscriptions.list`<br>`subscriptions.update` | Manage [CloudEvent](/platform/administration/cloudevents/events-reference/) subscriptions for notifications and automation | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (create, delete, list, update)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `tag.create`<br>`tag.delete`<br>`tag.list`<br>`tag.update` | Manage Chainguard container image tags | <ul><li>`owner` (create, delete, list, update)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (create, delete, list, update)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `telemetry.containers.list` | View the container images that connected repositories use, as Guardener observes them | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
+| `terms.accept`<br>`terms.list` | View and accept the legal terms a Chainguard product requires before you can use it | <ul><li>`owner` (accept, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (accept, list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (accept, list)</li></ul> |
+| `version.list` | View version information across all resources and assets | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `vuln.create` | Create vulnerability reports and assessments | <ul><li>`owner` (create)</li></ul> |
+| `vuln_report.create`<br>`vuln_report.list` | Manage detailed vulnerability assessments for specific resources | <ul><li>`owner` (create, list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li></ul> |
+| `vuln_reports.list` | View high-level vulnerability report summaries | <ul><li>`owner` (list)</li><li>`editor` (list)</li><li>`viewer` (list)</li><li>`limited_owner` (list)</li><li>`console_viewer` (list)</li><li>`registry.pull` (list)</li><li>`registry.pull_token_creator` (list)</li><li>`registry.push` (list)</li><li>`registry.editor` (list)</li><li>`guardener.user` (list)</li><li>`guardener.admin` (list)</li></ul> |
 
 </div>
 
@@ -62404,7 +62795,7 @@ The following table compares the general abilities of the built-in roles describ
 | `owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `editor` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `viewer` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
-| `limited_owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
+| `limited_owner` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | `console_viewer` | ✕ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull` | ✅ | ✅ | ✅ | ✕ | ✕ | ✕ |
 | `registry.pull_token_creator` | ✅ | ✅ | ✅ | ✅ | ✅ | ✕ |
@@ -62434,7 +62825,7 @@ The following table compares the general abilities of the built-in roles describ
 
 * **Pull Images/List Tags/Repos/View SBOMs**: These capabilities refer to container registry operations relating to the `manifest`, `repo`, `tag`, and `sboms` resources
 * **APK Pull**: The `apk.pull` role is specialized for APK package management, not container operations
-* **Console Viewer**: Has the same broad `list` access as `viewer`, but can't pull blobs (`apk.blobs`, `repo.blobs`), view legal terms (`terms`), run Guardener conversions or migrations (`guardener.dfc`, `guardener.actions`, `guardener.images`), or list the GitHub organizations connected through the Chainguard App (`guardener.association`). This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
+* **Console Viewer**: Has the same broad `list` access as `viewer`, but can't pull blobs (`apk.blobs`, `repo.blobs`), view legal terms (`terms`), run Guardener conversions or migrations (`guardener.dfc`, `guardener.actions`, `guardener.images`), call tools on Chainguard MCP servers (`mcp.tool`), or list the GitHub organizations connected through the Chainguard App (`guardener.association`). This makes it a safe role for inviting team members who need Console visibility without the ability to pull images or APKs.
 
 ### Pull token creator roles
 
@@ -62450,6 +62841,33 @@ For example, the `libraries.*.pull_token_creator` roles are focused on their res
 These roles are able to create pull tokens because of the `identity.create` capability. However, none of these roles have the `identity.list` capability, meaning that they aren't able to view the pull tokens they've created.
 
 The reason for this is that Chainguard doesn't distinguish pull token identities from other [assumable identities](/platform/administration/assumable-ids/assumable-ids/) at the IAM level. If these roles also had the `identity.list` capability, they would be able to view **all** the identities in that scope. By not including `identity.list` among their capabilities, the pull token creator roles have a more limited scope, as intended.
+
+## Create a role for managing image entitlements {#create-a-role-for-managing-image-entitlements}
+
+An organization's registry entitlement lists the Chainguard Containers it can use. Of the built-in roles, only `owner` can add, remove, and swap the images in it, and `limited_owner` can add them. To let someone manage the entitlement without the rest of the `owner` role, create a custom role with only the capabilities the task needs.
+
+Which capabilities you need depends on your organization's plan:
+
+* **Per-image plans:** The entitlement holds each image individually, and the `registry.entitlements.images` capabilities control which images it holds.
+* **Catalog Pricing:** The entitlement already covers every image in your catalog, so you don't change it. Adding an image to your organization creates a repository instead, which needs the `repo` capabilities described in [Self-serve catalog experience](/chainguard/containers/reference/pricing/#self-serve-catalog-experience).
+
+On a per-image plan, the following command creates a role that can manage the entitlement with the [`chainctl images entitlements`](/platform/chainctl/chainctl-docs/chainctl_images_entitlements/) commands. Replace `$ORGANIZATION` with the name of your organization. Creating a custom role requires the `owner` role:
+
+```shell
+chainctl iam roles create entitlement-manager \
+  --parent=$ORGANIZATION \
+  --capabilities=groups.list,registry.entitlements.list,registry.entitlements.images.add,registry.entitlements.images.remove,registry.entitlements.images.swap
+```
+
+The role includes these capabilities:
+
+* `groups.list`: Lets the commands find your organization when you pass `--parent`.
+* `registry.entitlements.list`: Lets `chainctl images entitlements list` show the entitlement and the images it holds.
+* `registry.entitlements.images.add`, `registry.entitlements.images.remove`, and `registry.entitlements.images.swap`: Let `add-image`, `remove-image`, and `swap-image` change the images. Each image that `remove-image` or `swap-image` takes out counts against your organization's 30-day swap quota.
+
+To let the role add images but not remove or swap them, leave out `registry.entitlements.images.remove` and `registry.entitlements.images.swap`.
+
+To give the role to a user, create a role-binding, as described in [Managing role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-role-bindings).
 
 ## Learn more
 
@@ -66173,7 +66591,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pulled from
-Ce-Time: 2026-11-09T19:57:46.896791484Z
+Ce-Time: 2026-11-11T10:23:08.770451378Z
 Ce-Type: dev.chainguard.registry.pull.v1
 Content-Length: 789
 Content-Type: application/json
@@ -66204,7 +66622,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pulled",
     "type": "Type determines whether the object being pulled is a manifest or blob",
     "user_agent": "The user-agent of the client who pulled",
-    "when": "2026-11-09T19:57:46.895563"
+    "when": "2026-11-11T10:23:08.769284"
   }
 }
 
@@ -66227,7 +66645,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: cgr.dev
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository being pushed to
-Ce-Time: 2026-11-09T19:57:46.895844314Z
+Ce-Time: 2026-11-11T10:23:08.769605473Z
 Ce-Type: dev.chainguard.registry.push.v1
 Content-Length: 707
 Content-Type: application/json
@@ -66256,7 +66674,7 @@ User-Agent: Chainguard Enforce
     "tag": "The tag of the image being pushed",
     "type": "Type determines whether the object being pushed is a manifest or blob",
     "user_agent": "The user-agent of the client who pushed",
-    "when": "2026-11-09T19:57:46.895531"
+    "when": "2026-11-11T10:23:08.769249"
   }
 }
 
@@ -66279,7 +66697,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/auth/v1/register
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP
-Ce-Time: 2026-11-09T19:57:46.916472297Z
+Ce-Time: 2026-11-11T10:23:08.791547516Z
 Ce-Type: dev.chainguard.api.auth.registered.v1
 Content-Length: 154
 Content-Type: application/json
@@ -66319,7 +66737,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription
-Ce-Time: 2026-11-09T19:57:46.912733499Z
+Ce-Time: 2026-11-11T10:23:08.789144508Z
 Ce-Type: dev.chainguard.api.events.subscription.created.v1
 Content-Length: 152
 Content-Type: application/json
@@ -66357,7 +66775,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/events/v1/subscriptions
 Ce-Specversion: 1.0
 Ce-Subject: UIDP identifier of the subscription to delete
-Ce-Time: 2026-11-09T19:57:46.912957469Z
+Ce-Time: 2026-11-11T10:23:08.789323033Z
 Ce-Type: dev.chainguard.api.events.subscription.deleted.v1
 Content-Length: 119
 Content-Type: application/json
@@ -66396,7 +66814,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.900825951Z
+Ce-Time: 2026-11-11T10:23:08.77801511Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -66437,7 +66855,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.901111148Z
+Ce-Time: 2026-11-11T10:23:08.778193515Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -66474,7 +66892,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.901362484Z
+Ce-Time: 2026-11-11T10:23:08.778328919Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -66522,7 +66940,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.914623113Z
+Ce-Time: 2026-11-11T10:23:08.790463164Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -66568,7 +66986,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.914836515Z
+Ce-Time: 2026-11-11T10:23:08.790704235Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -66614,7 +67032,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/account_associations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-09T19:57:46.915024527Z
+Ce-Time: 2026-11-11T10:23:08.790958147Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -66653,7 +67071,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-09T19:57:46.915973961Z
+Ce-Time: 2026-11-11T10:23:08.785552304Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -66693,7 +67111,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/group_invites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.916219217Z
+Ce-Time: 2026-11-11T10:23:08.785837001Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66732,7 +67150,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.917355064Z
+Ce-Time: 2026-11-11T10:23:08.805089019Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -66771,7 +67189,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.917544388Z
+Ce-Time: 2026-11-11T10:23:08.80530909Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -66810,7 +67228,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.917713545Z
+Ce-Time: 2026-11-11T10:23:08.805498623Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66849,7 +67267,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-09T19:57:46.902063831Z
+Ce-Time: 2026-11-11T10:23:08.804518762Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -66892,7 +67310,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-09T19:57:46.902397465Z
+Ce-Time: 2026-11-11T10:23:08.804673391Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -66932,7 +67350,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.902689006Z
+Ce-Time: 2026-11-11T10:23:08.804795042Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -66971,7 +67389,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-09T19:57:46.918013125Z
+Ce-Time: 2026-11-11T10:23:08.786139762Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -67014,7 +67432,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-09T19:57:46.918233431Z
+Ce-Time: 2026-11-11T10:23:08.786395625Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -67054,7 +67472,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-09T19:57:46.918418291Z
+Ce-Time: 2026-11-11T10:23:08.786578111Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -67091,7 +67509,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.918602799Z
+Ce-Time: 2026-11-11T10:23:08.786767805Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -67131,7 +67549,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.918804394Z
+Ce-Time: 2026-11-11T10:23:08.78695593Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -67175,7 +67593,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.918999045Z
+Ce-Time: 2026-11-11T10:23:08.787130448Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -67214,7 +67632,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.919180322Z
+Ce-Time: 2026-11-11T10:23:08.787321213Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -67255,7 +67673,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-09T19:57:46.920356517Z
+Ce-Time: 2026-11-11T10:23:08.798986548Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -67297,7 +67715,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings/batch
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-09T19:57:46.920569296Z
+Ce-Time: 2026-11-11T10:23:08.799204978Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -67340,7 +67758,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-09T19:57:46.920741292Z
+Ce-Time: 2026-11-11T10:23:08.799426913Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -67379,7 +67797,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/rolebindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-09T19:57:46.920938216Z
+Ce-Time: 2026-11-11T10:23:08.799621847Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -67418,7 +67836,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.905075116Z
+Ce-Time: 2026-11-11T10:23:08.805729814Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67457,7 +67875,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.905275199Z
+Ce-Time: 2026-11-11T10:23:08.805953933Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67496,7 +67914,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-09T19:57:46.905500856Z
+Ce-Time: 2026-11-11T10:23:08.80611053Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -67535,7 +67953,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-09T19:57:46.927682427Z
+Ce-Time: 2026-11-11T10:23:08.791223299Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -67578,7 +67996,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the destination organization
-Ce-Time: 2026-11-09T19:57:46.913233443Z
+Ce-Time: 2026-11-11T10:23:08.771709624Z
 Ce-Type: dev.chainguard.api.platform.registry.chart.added.v1
 Content-Length: 208
 Content-Type: application/json
@@ -67623,7 +68041,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.905925109Z
+Ce-Time: 2026-11-11T10:23:08.784426814Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -67665,7 +68083,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.907964904Z
+Ce-Time: 2026-11-11T10:23:08.78461274Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -67707,7 +68125,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.908180834Z
+Ce-Time: 2026-11-11T10:23:08.784781353Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -67744,7 +68162,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-09T19:57:46.908360191Z
+Ce-Time: 2026-11-11T10:23:08.784928541Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -67783,7 +68201,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-09T19:57:46.90855485Z
+Ce-Time: 2026-11-11T10:23:08.785071242Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.updated.v1
 Content-Length: 197
 Content-Type: application/json
@@ -67822,7 +68240,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-09T19:57:46.908708544Z
+Ce-Time: 2026-11-11T10:23:08.785170053Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -67861,7 +68279,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-09T19:57:46.929538698Z
+Ce-Time: 2026-11-11T10:23:08.796213801Z
 Ce-Type: dev.chainguard.api.policies.bindings.created.v1
 Content-Length: 245
 Content-Type: application/json
@@ -67905,7 +68323,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-09T19:57:46.929780683Z
+Ce-Time: 2026-11-11T10:23:08.796484353Z
 Ce-Type: dev.chainguard.api.policies.bindings.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -67949,7 +68367,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/bindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the binding
-Ce-Time: 2026-11-09T19:57:46.93000702Z
+Ce-Time: 2026-11-11T10:23:08.796691647Z
 Ce-Type: dev.chainguard.api.policies.bindings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -67988,7 +68406,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-09T19:57:46.930242949Z
+Ce-Time: 2026-11-11T10:23:08.796871476Z
 Ce-Type: dev.chainguard.api.policies.overrides.created.v1
 Content-Length: 303
 Content-Type: application/json
@@ -68030,7 +68448,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/overrides
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the override
-Ce-Time: 2026-11-09T19:57:46.930450439Z
+Ce-Time: 2026-11-11T10:23:08.797114036Z
 Ce-Type: dev.chainguard.api.policies.overrides.deleted.v1
 Content-Length: 94
 Content-Type: application/json
@@ -68069,7 +68487,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-09T19:57:46.928891116Z
+Ce-Time: 2026-11-11T10:23:08.795420561Z
 Ce-Type: dev.chainguard.api.policies.policies.created.v1
 Content-Length: 337
 Content-Type: application/json
@@ -68113,7 +68531,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-09T19:57:46.929142564Z
+Ce-Time: 2026-11-11T10:23:08.795726746Z
 Ce-Type: dev.chainguard.api.policies.policies.updated.v1
 Content-Length: 337
 Content-Type: application/json
@@ -68157,7 +68575,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/policies/v1/policies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the policy
-Ce-Time: 2026-11-09T19:57:46.929307273Z
+Ce-Time: 2026-11-11T10:23:08.795969921Z
 Ce-Type: dev.chainguard.api.policies.policies.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68196,7 +68614,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.897362471Z
+Ce-Time: 2026-11-11T10:23:08.778634192Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -68242,7 +68660,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-09T19:57:46.897620495Z
+Ce-Time: 2026-11-11T10:23:08.778842303Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -68279,7 +68697,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.897881926Z
+Ce-Time: 2026-11-11T10:23:08.779002907Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -68327,7 +68745,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the root organization the policy governs
-Ce-Time: 2026-11-09T19:57:46.919459911Z
+Ce-Time: 2026-11-11T10:23:08.787593949Z
 Ce-Type: dev.chainguard.api.iam.auth_policies.updated.v1
 Content-Length: 347
 Content-Type: application/json
@@ -68377,7 +68795,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/authPolicies
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the root organization the validation is for
-Ce-Time: 2026-11-09T19:57:46.919797146Z
+Ce-Time: 2026-11-11T10:23:08.787895127Z
 Ce-Type: dev.chainguard.api.iam.auth_policies.validation.started.v1
 Content-Length: 145
 Content-Type: application/json
@@ -68418,7 +68836,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.922679431Z
+Ce-Time: 2026-11-11T10:23:08.770956834Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -68459,7 +68877,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.923001658Z
+Ce-Time: 2026-11-11T10:23:08.771227978Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -68496,7 +68914,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.923291567Z
+Ce-Time: 2026-11-11T10:23:08.771465929Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -68544,7 +68962,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-09T19:57:46.923607115Z
+Ce-Time: 2026-11-11T10:23:08.789506727Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -68584,7 +69002,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.923862186Z
+Ce-Time: 2026-11-11T10:23:08.789643899Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68623,7 +69041,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.915268423Z
+Ce-Time: 2026-11-11T10:23:08.80210729Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68660,7 +69078,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.915502224Z
+Ce-Time: 2026-11-11T10:23:08.802473933Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -68699,7 +69117,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.915715034Z
+Ce-Time: 2026-11-11T10:23:08.802937795Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -68740,7 +69158,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-09T19:57:46.928005286Z
+Ce-Time: 2026-11-11T10:23:08.803526604Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -68783,7 +69201,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.928227703Z
+Ce-Time: 2026-11-11T10:23:08.803755859Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -68820,7 +69238,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-09T19:57:46.928417739Z
+Ce-Time: 2026-11-11T10:23:08.803873991Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -68860,7 +69278,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-09T19:57:46.92862287Z
+Ce-Time: 2026-11-11T10:23:08.804003315Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -68900,7 +69318,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-09T19:57:46.898328673Z
+Ce-Time: 2026-11-11T10:23:08.791936024Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -68943,7 +69361,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-09T19:57:46.898633093Z
+Ce-Time: 2026-11-11T10:23:08.792192968Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -68983,7 +69401,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-09T19:57:46.898842487Z
+Ce-Time: 2026-11-11T10:23:08.792430999Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -69020,7 +69438,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.899178602Z
+Ce-Time: 2026-11-11T10:23:08.792650021Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -69060,7 +69478,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.8994584Z
+Ce-Time: 2026-11-11T10:23:08.792816026Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -69104,7 +69522,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.899805785Z
+Ce-Time: 2026-11-11T10:23:08.793026993Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -69143,7 +69561,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.900101518Z
+Ce-Time: 2026-11-11T10:23:08.793233159Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -69182,7 +69600,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.900359149Z
+Ce-Time: 2026-11-11T10:23:08.793442413Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.correlation_rule.reset.v1
 Content-Length: 419
 Content-Type: application/json
@@ -69219,6 +69637,55 @@ User-Agent: Chainguard Enforce
 
 ```
 
+### Method: RemoveManualBindings
+
+#### Example HTTP Headers
+
+```
+POST / HTTP/1.1
+Host: console-api.enforce.dev
+Accept-Encoding: gzip
+Authorization: Bearer oidctoken
+Ce-Audience: customer
+Ce-Group: UID of parent group
+Ce-Id: cloudevent generated UUID
+Ce-Source: https://console-api.enforce.dev/iam/v2/identityProviders
+Ce-Specversion: 1.0
+Ce-Subject: UIDP of the identity provider
+Ce-Time: 2026-11-11T10:23:08.793783327Z
+Ce-Type: dev.chainguard.api.iam.identity_providers.manual_bindings.removed.v1
+Content-Length: 355
+Content-Type: application/json
+User-Agent: Chainguard Enforce
+
+```
+
+#### Example HTTP Body
+
+```json
+{
+  "actor": {
+    "subject": "identity that triggered the event"
+  },
+  "body": {
+    "identity_provider_uid": "UIDP of the identity provider",
+    "removals": [
+      {
+        "binding": {
+          "binding_class": 1,
+          "group_uid": "UIDP of the group where the binding applied",
+          "role_uid": "UIDP of the role",
+          "uid": "UIDP of the removed role binding"
+        },
+        "identity_uid": "UIDP of the person's identity",
+        "outcome": 2
+      }
+    ]
+  }
+}
+
+```
+
 ## Service: v2 - RoleBindingsService
 
 ### Method: CreateRoleBinding
@@ -69236,7 +69703,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-09T19:57:46.90315976Z
+Ce-Time: 2026-11-11T10:23:08.789798184Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -69278,7 +69745,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-09T19:57:46.903449501Z
+Ce-Time: 2026-11-11T10:23:08.789944028Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -69315,7 +69782,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-09T19:57:46.903700397Z
+Ce-Time: 2026-11-11T10:23:08.790057199Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -69358,7 +69825,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-09T19:57:46.903975779Z
+Ce-Time: 2026-11-11T10:23:08.790168811Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -69399,7 +69866,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.926173324Z
+Ce-Time: 2026-11-11T10:23:08.772002465Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69438,7 +69905,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.926407901Z
+Ce-Time: 2026-11-11T10:23:08.772244032Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69477,7 +69944,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-09T19:57:46.926623023Z
+Ce-Time: 2026-11-11T10:23:08.77242647Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -69516,7 +69983,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-09T19:57:46.925286622Z
+Ce-Time: 2026-11-11T10:23:08.804935447Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -69559,7 +70026,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.909136652Z
+Ce-Time: 2026-11-11T10:23:08.797423181Z
 Ce-Type: dev.chainguard.api.iam.account_associations.created.v1
 Content-Length: 385
 Content-Type: application/json
@@ -69605,7 +70072,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the group whose associations will be deleted
-Ce-Time: 2026-11-09T19:57:46.909354342Z
+Ce-Time: 2026-11-11T10:23:08.797631939Z
 Ce-Type: dev.chainguard.api.iam.account_associations.deleted.v1
 Content-Length: 129
 Content-Type: application/json
@@ -69642,7 +70109,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/accountAssociations
 Ce-Specversion: 1.0
 Ce-Subject: UIDP with which this account information is associated
-Ce-Time: 2026-11-09T19:57:46.90951206Z
+Ce-Time: 2026-11-11T10:23:08.79785989Z
 Ce-Type: dev.chainguard.api.iam.account_associations.updated.v1
 Content-Length: 336
 Content-Type: application/json
@@ -69690,7 +70157,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.909734566Z
+Ce-Time: 2026-11-11T10:23:08.788169679Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.created.v1
 Content-Length: 290
 Content-Type: application/json
@@ -69731,7 +70198,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the mapping
-Ce-Time: 2026-11-09T19:57:46.910110157Z
+Ce-Time: 2026-11-11T10:23:08.788378909Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.v1
 Content-Length: 93
 Content-Type: application/json
@@ -69768,7 +70235,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/externalGroupRoleMappings:batchDelete
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.910278498Z
+Ce-Time: 2026-11-11T10:23:08.788497417Z
 Ce-Type: dev.chainguard.api.iam.external_group_role_mappings.deleted.batch.v1
 Content-Length: 346
 Content-Type: application/json
@@ -69816,7 +70283,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this invite resides
-Ce-Time: 2026-11-09T19:57:46.92559249Z
+Ce-Time: 2026-11-11T10:23:08.794222549Z
 Ce-Type: dev.chainguard.api.iam.group_invite.created.v1
 Content-Length: 145
 Content-Type: application/json
@@ -69856,7 +70323,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groupInvites
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.925854065Z
+Ce-Time: 2026-11-11T10:23:08.794428003Z
 Ce-Type: dev.chainguard.api.iam.group_invite.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -69895,7 +70362,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.9269784Z
+Ce-Time: 2026-11-11T10:23:08.788689038Z
 Ce-Type: dev.chainguard.api.iam.group.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -69932,7 +70399,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.927217937Z
+Ce-Time: 2026-11-11T10:23:08.788835891Z
 Ce-Type: dev.chainguard.api.iam.group.created.v1
 Content-Length: 169
 Content-Type: application/json
@@ -69971,7 +70438,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/groups
 Ce-Specversion: 1.0
 Ce-Subject: group UIDP under which this group resides
-Ce-Time: 2026-11-09T19:57:46.927430067Z
+Ce-Time: 2026-11-11T10:23:08.789002368Z
 Ce-Type: dev.chainguard.api.iam.group.updated.v1
 Content-Length: 169
 Content-Type: application/json
@@ -70012,7 +70479,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity
-Ce-Time: 2026-11-09T19:57:46.924196149Z
+Ce-Time: 2026-11-11T10:23:08.77503518Z
 Ce-Type: dev.chainguard.api.iam.identity.created.v1
 Content-Length: 329
 Content-Type: application/json
@@ -70055,7 +70522,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the record
-Ce-Time: 2026-11-09T19:57:46.924443821Z
+Ce-Time: 2026-11-11T10:23:08.775388663Z
 Ce-Type: dev.chainguard.api.iam.identity.deleted.v1
 Content-Length: 92
 Content-Type: application/json
@@ -70092,7 +70559,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities
 Ce-Specversion: 1.0
 Ce-Subject: The unique identifier of this specific identity
-Ce-Time: 2026-11-09T19:57:46.924669478Z
+Ce-Time: 2026-11-11T10:23:08.775622654Z
 Ce-Type: dev.chainguard.api.iam.identity.updated.v1
 Content-Length: 245
 Content-Type: application/json
@@ -70132,7 +70599,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identities:updateIdentityMetadata
 Ce-Specversion: 1.0
 Ce-Subject: The caller's identity UID
-Ce-Time: 2026-11-09T19:57:46.92491899Z
+Ce-Time: 2026-11-11T10:23:08.775869709Z
 Ce-Type: dev.chainguard.api.iam.identity.metadata.updated.v1
 Content-Length: 135
 Content-Type: application/json
@@ -70172,7 +70639,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of identity provider
-Ce-Time: 2026-11-09T19:57:46.921203534Z
+Ce-Time: 2026-11-11T10:23:08.772694798Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.created.v1
 Content-Length: 378
 Content-Type: application/json
@@ -70215,7 +70682,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: The UIDP of the IAM group to nest this identity provider under
-Ce-Time: 2026-11-09T19:57:46.921419736Z
+Ce-Time: 2026-11-11T10:23:08.772912092Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.updated.v1
 Content-Length: 279
 Content-Type: application/json
@@ -70255,7 +70722,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the IdP
-Ce-Time: 2026-11-09T19:57:46.921612556Z
+Ce-Time: 2026-11-11T10:23:08.773069185Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.deleted.v1
 Content-Length: 89
 Content-Type: application/json
@@ -70292,7 +70759,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.92176357Z
+Ce-Time: 2026-11-11T10:23:08.773310648Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.generated.v1
 Content-Length: 250
 Content-Type: application/json
@@ -70332,7 +70799,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.921974364Z
+Ce-Time: 2026-11-11T10:23:08.774118193Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.regenerated.v1
 Content-Length: 319
 Content-Type: application/json
@@ -70376,7 +70843,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.922175743Z
+Ce-Time: 2026-11-11T10:23:08.774412809Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_token.revoked.v1
 Content-Length: 189
 Content-Type: application/json
@@ -70415,7 +70882,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/identityProviders
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the identity provider
-Ce-Time: 2026-11-09T19:57:46.922361795Z
+Ce-Time: 2026-11-11T10:23:08.774669793Z
 Ce-Type: dev.chainguard.api.iam.identity_providers.scim_enabled.updated.v1
 Content-Length: 187
 Content-Type: application/json
@@ -70456,7 +70923,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the repository the image was deleted from
-Ce-Time: 2026-11-09T19:57:46.920079079Z
+Ce-Time: 2026-11-11T10:23:08.798203604Z
 Ce-Type: dev.chainguard.api.platform.registry.image.deleted.v1
 Content-Length: 258
 Content-Type: application/json
@@ -70501,7 +70968,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-09T19:57:46.913533536Z
+Ce-Time: 2026-11-11T10:23:08.777226678Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.created.v1
 Content-Length: 449
 Content-Type: application/json
@@ -70556,7 +71023,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay binding
-Ce-Time: 2026-11-09T19:57:46.913735554Z
+Ce-Time: 2026-11-11T10:23:08.777508567Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.updated.v1
 Content-Length: 449
 Content-Type: application/json
@@ -70611,7 +71078,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlayBindings
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay binding
-Ce-Time: 2026-11-09T19:57:46.914292118Z
+Ce-Time: 2026-11-11T10:23:08.77770606Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay_binding.deleted.v1
 Content-Length: 120
 Content-Type: application/json
@@ -70650,7 +71117,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-09T19:57:46.91174194Z
+Ce-Time: 2026-11-11T10:23:08.783719929Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.created.v1
 Content-Length: 224
 Content-Type: application/json
@@ -70695,7 +71162,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this overlay
-Ce-Time: 2026-11-09T19:57:46.912423543Z
+Ce-Time: 2026-11-11T10:23:08.783879054Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.updated.v1
 Content-Length: 224
 Content-Type: application/json
@@ -70740,7 +71207,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/overlays
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of the deleted overlay
-Ce-Time: 2026-11-09T19:57:46.912576214Z
+Ce-Time: 2026-11-11T10:23:08.784032827Z
 Ce-Type: dev.chainguard.api.platform.registry.overlay.deleted.v1
 Content-Length: 112
 Content-Type: application/json
@@ -70779,7 +71246,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.910605165Z
+Ce-Time: 2026-11-11T10:23:08.776396045Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.created.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70821,7 +71288,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.910800041Z
+Ce-Time: 2026-11-11T10:23:08.77669871Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70863,7 +71330,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.91096975Z
+Ce-Time: 2026-11-11T10:23:08.776862691Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.deleted.v1
 Content-Length: 116
 Content-Type: application/json
@@ -70900,7 +71367,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/repos
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific repository
-Ce-Time: 2026-11-09T19:57:46.911115388Z
+Ce-Time: 2026-11-11T10:23:08.776998239Z
 Ce-Type: dev.chainguard.api.platform.registry.repo.updated.v1
 Content-Length: 243
 Content-Type: application/json
@@ -70944,7 +71411,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the Role to bind
-Ce-Time: 2026-11-09T19:57:46.904171198Z
+Ce-Time: 2026-11-11T10:23:08.77949669Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.v1
 Content-Length: 261
 Content-Type: application/json
@@ -70986,7 +71453,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of the record
-Ce-Time: 2026-11-09T19:57:46.904310541Z
+Ce-Time: 2026-11-11T10:23:08.780072572Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.deleted.v1
 Content-Length: 91
 Content-Type: application/json
@@ -71023,7 +71490,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings:batchCreate
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding, under a parent group UIDP
-Ce-Time: 2026-11-09T19:57:46.904438397Z
+Ce-Time: 2026-11-11T10:23:08.781733045Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.created.batch.v1
 Content-Length: 220
 Content-Type: application/json
@@ -71066,7 +71533,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roleBindings
 Ce-Specversion: 1.0
 Ce-Subject: UID of this role binding
-Ce-Time: 2026-11-09T19:57:46.904568868Z
+Ce-Time: 2026-11-11T10:23:08.78342308Z
 Ce-Type: dev.chainguard.api.iam.rolebindings.updated.v1
 Content-Length: 173
 Content-Type: application/json
@@ -71107,7 +71574,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.916764198Z
+Ce-Time: 2026-11-11T10:23:08.794696107Z
 Ce-Type: dev.chainguard.api.iam.roles.created.v1
 Content-Length: 159
 Content-Type: application/json
@@ -71146,7 +71613,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role under the group
-Ce-Time: 2026-11-09T19:57:46.916979072Z
+Ce-Time: 2026-11-11T10:23:08.794905273Z
 Ce-Type: dev.chainguard.api.iam.roles.updated.v1
 Content-Length: 159
 Content-Type: application/json
@@ -71185,7 +71652,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/roles
 Ce-Specversion: 1.0
 Ce-Subject: UIDP of the role to delete
-Ce-Time: 2026-11-09T19:57:46.917145317Z
+Ce-Time: 2026-11-11T10:23:08.795085111Z
 Ce-Type: dev.chainguard.api.iam.roles.deleted.v1
 Content-Length: 101
 Content-Type: application/json
@@ -71224,7 +71691,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-09T19:57:46.911326479Z
+Ce-Time: 2026-11-11T10:23:08.798546183Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.created.v1
 Content-Length: 197
 Content-Type: application/json
@@ -71263,7 +71730,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/registry/v2beta1/tags
 Ce-Specversion: 1.0
 Ce-Subject: The identifier of this specific tag
-Ce-Time: 2026-11-09T19:57:46.911495324Z
+Ce-Time: 2026-11-11T10:23:08.798760965Z
 Ce-Type: dev.chainguard.api.platform.registry.tag.deleted.v1
 Content-Length: 109
 Content-Type: application/json
@@ -71302,7 +71769,7 @@ Ce-Id: cloudevent generated UUID
 Ce-Source: https://console-api.enforce.dev/iam/v2beta1/terms
 Ce-Specversion: 1.0
 Ce-Subject: Chainguard UIDP of the organization
-Ce-Time: 2026-11-09T19:57:46.904755824Z
+Ce-Time: 2026-11-11T10:23:08.804266994Z
 Ce-Type: dev.chainguard.api.iam.terms.accepted.v1
 Content-Length: 159
 Content-Type: application/json
@@ -73717,7 +74184,7 @@ The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.ch
 
 ### cg-man MCP server
 
-The [`cg-man` MCP server](/platform/mcp-servers/cg-man/), at `https://man.cgr.dev/mcp`, serves the manual pages that Chainguard OS packages ship, at the exact package version you run. An AI tool can search the pages, read one, look up a single option or exit code, and follow cross-references. It's public and needs no sign-in, and its tools request long results with `offset` and `limit` rather than a cursor, so the Authentication and Pagination sections that follow don't apply to it. For connection steps and the tool reference, refer to its own page.
+The [`cg-man` MCP server](/platform/mcp-servers/cg-man/), at `https://man.cgr.dev/mcp`, serves the manual pages that Chainguard OS packages ship, and the `--help` output of their executables, at the exact package version you run. An AI tool can search the pages, read one, read a tool's `--help` output, look up a single option or exit code, and follow cross-references. It's public and needs no sign-in, and its tools request long results with `offset` and `limit` rather than a cursor, so the Authentication and Pagination sections that follow don't apply to it. For connection steps and the tool reference, refer to its own page.
 
 ### Public Skills MCP server
 
@@ -74586,14 +75053,14 @@ Show me every Python 3.9 release and where it came from.
 
 ---
 
-### cg-man: the Chainguard OS manual pages MCP server
+### cg-man: the Chainguard OS manual pages and --help MCP server
 _Path: platform/mcp-servers/cg-man.md_
 
-`cg-man` gives an AI tool the manual pages that Chainguard OS packages ship. A client can search the pages, read one at the exact package version you run, look up a single option or exit code, and follow a page's cross-references to the package that provides them. Each answer records the package and version it came from.
+`cg-man` gives an AI tool the manual pages that Chainguard OS packages ship, and the `--help` output of the executables in them. A client can search the pages, read one at the exact package version you run, read a tool's `--help` output, look up a single option or exit code, and follow a page's cross-references to the package that provides them. Each answer records the package and version it came from.
 
-Manual pages live in `-doc` subpackages, which minimal container images leave out, so an agent working inside a Chainguard container usually can't run `man`. Without this server, an agent answers questions about a tool's flags from training data, which may describe a different version from the one you run.
+Manual pages live in `-doc` subpackages, which minimal container images leave out, so an agent working inside a Chainguard container usually can't run `man`. Many tools have no manual page at all: `crane`, `helm`, `kubectl`, and most tools written in Go or Rust document themselves only through `--help`. Without this server, an agent answers questions about a tool's flags from training data, which may describe a different version from the one you run.
 
-The pages come from the signed APKs in all three Chainguard OS package repositories, and the corpus is rebuilt nightly. Pages under proprietary or source-available licenses are withheld.
+The pages come from the signed APKs in all three Chainguard OS package repositories. The `--help` output is captured by running each executable in a sandbox, against the exact package version. Both are rebuilt nightly. Pages and `--help` output under proprietary or source-available licenses are withheld.
 
 The server uses the Streamable HTTP transport, at this endpoint:
 
@@ -74680,7 +75147,7 @@ Any client that supports a remote Streamable HTTP MCP server can connect to the 
 
 ## Tool reference
 
-Five tools work with manual pages directly, and two answer questions about a command-line tool's options and exit codes.
+Five tools work with manual pages directly, and one returns `--help` output. Two more answer questions about a command-line tool's options and exit codes, drawing on both sources.
 
 | Tool | Required parameters | Returns | Example prompt |
 | ----- | ----- | ----- | ----- |
@@ -74689,6 +75156,7 @@ Five tools work with manual pages directly, and two answer questions about a com
 | `resolve_xref` | `name` | The package that provides a cross-referenced page | "Which page does crypto(7) in the OpenSSL docs point to?" |
 | `list_package_docs` | `package` | Every page a package ships | "What manual pages does the curl package include?" |
 | `get_package_info` | `package` | The package versions that have pages | "Which curl versions have documentation?" |
+| `get_help` | `name` or `path` | What an executable prints for `--help` | "Show me kubectl's help output" |
 | `describe_tool` | `name` or `path` | A tool's usage, options, exit codes, and examples | "What does curl exit code 7 mean?" |
 | `get_option` | `tool`, `flag` | One option's spellings, argument, and description | "What does tar's --zstd option do?" |
 
@@ -74700,11 +75168,11 @@ Chainguard OS packages come from three repositories, and most tools accept a `re
 - `enterprise-packages`
 - `extra-packages`: the [Extra Packages repository](/chainguard/containers/building-and-modifying/packages/package-model/#extra-packages)
 
-Without `repo`, a lookup searches only `os`. To find or read a page from an enterprise package, such as an OpenJDK distribution, pass `repo` as `enterprise-packages`.
+Without `repo`, the manual-page tools and `search_docs` search only `os`. To find or read a page from an enterprise package, such as an OpenJDK distribution, pass `repo` as `enterprise-packages`. `get_help`, `describe_tool`, and `get_option` search all three repositories unless you pass `repo`.
 
 ### Versions
 
-Every tool that reads a page or a tool defaults to the latest package version with documentation. To answer for the version you run, pass `version` with the exact package version, including its epoch, such as `8.22.0-r3`. Use `get_package_info` to list the versions that have pages.
+Every tool that reads a page, `--help` output, or a tool defaults to the latest package version with documentation. To answer for the version you run, pass `version` with the exact package version, including its epoch, such as `8.22.0-r3`. Use `get_package_info` to list the versions that have pages.
 
 ### search_docs
 
@@ -74717,6 +75185,8 @@ Searches manual pages by name or by what they do. Like `apropos`, it matches pag
 | `limit` | integer | no | Maximum results (default 20, maximum 100) |
 
 Each result carries a `chainguard-docs://` URI that addresses the page at its exact version. A client can read that URI as an MCP resource, which returns the page as Markdown.
+
+The response also lists executables with captured `--help` output whose name or usage line matches the query, in a separate `help` list. A tool with no manual page, such as `crane`, appears only there.
 
 ### get_man_page
 
@@ -74772,9 +75242,37 @@ Lists the versions of a package that have documentation, with the number of page
 | `package` | string | yes | Package name, such as `curl` |
 | `repo` | string | no | Repository to search |
 
+### get_help
+
+Fetches what an executable printed when it ran with `--help`. This is the only documentation for many tools, including `crane`, `helm`, and `kubectl`.
+
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `name` | string | no | Executable name, such as `kubectl` |
+| `path` | string | no | Absolute executable path, such as `/usr/bin/kubectl` |
+| `package` | string | no | The package that ships the executable, when more than one does |
+| `version` | string | no | Exact package version (default: latest) |
+| `repo` | string | no | Repository to search (default: all three) |
+| `offset` | integer | no | First line to return |
+| `limit` | integer | no | Lines to return (default 40, maximum 400) |
+
+Pass either `name` or `path`. The response records the package, version, and command that produced the output, and when it was captured. It also reports `totalLines` and, when more lines remain, the `nextOffset` to request next.
+
+Several packages often ship the same executable: `ffmpeg` comes from more than 10 packages across the three repositories. `get_help` picks one by default, in this order: the package whose name matches the executable, then the newest version stream named after it, then the first alphabetically. The response lists the rest under `otherProviders`, and you can pass `package` to read one of them.
+
+Only top-level `--help` output is captured, so `get_help` has nothing for a subcommand such as `kubectl get`. Each nightly run captures the latest version of every package, on x86_64. Help captured for an earlier version stays available.
+
 ### describe_tool
 
-Describes a command-line tool in one record: its usage line, its options, its exit codes, and the examples from its manual page. Each option records its source and a confidence rating.
+Describes a command-line tool in one record: its usage line, its options, its exit codes, and the examples from its manual page. The options are merged from the tool's `--help` output and its manual page.
+
+Each option lists its `sources`, `help`, `man`, or both, and a confidence rating:
+
+- `high`: the option appears in both the `--help` output and the manual page.
+- `medium`: the option appears in one source and parsed cleanly.
+- `low`: the option was found heuristically.
+
+Exit codes and examples come only from manual pages, so a tool documented only by `--help` returns its usage line and options.
 
 | Parameter | Type | Required | Description |
 | ----- | ----- | ----- | ----- |
@@ -74792,7 +75290,7 @@ Pass either `name` or `path`. The examples come from the manual page and haven't
 
 ### get_option
 
-Looks up one option of a command-line tool: its spellings, its argument, its description, and the source it came from.
+Looks up one option of a command-line tool: its spellings, its argument, its description, and its sources, with the same confidence rating as `describe_tool`.
 
 | Parameter | Type | Required | Description |
 | ----- | ----- | ----- | ----- |
@@ -74806,10 +75304,10 @@ When the command-line tool has no such option, `get_option` returns an error tha
 
 ## Untrusted content
 
-Manual pages are third-party text written by each package's upstream project. The server marks them as untrusted in two ways, so a client can tell page text from instructions:
+Manual pages and `--help` output are third-party text written by each package's upstream project. The server marks them as untrusted in two ways, so a client can tell page text from instructions:
 
 - Each response carries a `notice` field telling the client to treat descriptions, options, examples, and licenses as data and not to follow instructions in them.
-- Page text from `get_man_page` arrives between `<<<UNTRUSTED-…>>>` and `<<<END UNTRUSTED-…>>>` markers, with a random suffix for each response.
+- Page text from `get_man_page` and `--help` output from `get_help` arrive between `<<<UNTRUSTED-…>>>` and `<<<END UNTRUSTED-…>>>` markers, with a random suffix for each response.
 
 ## Read pages in a browser
 
@@ -74826,6 +75324,14 @@ For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` i
 | `.md` | Markdown |
 | `.raw` | The original roff source |
 | `.json` | A manifest recording the package, version, license, and a SHA-256 digest of each format |
+
+The site publishes `--help` output under `/help/`, keyed by the executable's absolute path. `https://man.cgr.dev/help/usr/bin/kubectl` shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
+
+```
+https://man.cgr.dev/<repo>/<package>/<version>/help/<path>
+```
+
+For example, `https://man.cgr.dev/os/crane/0.22.1-r4/help/usr/bin/crane`. Use `latest` in place of the version to follow the current release. Append `.txt` for the plain `--help` text, or `.json` for a manifest recording the package, version, command, exit code, APK checksum, capture time, and parsed options.
 
 ## Example usage
 
@@ -74855,6 +75361,18 @@ In Chainguard OS, what does curl exit code 7 mean?
 ● Exit code 7 means "Failed to connect to host."
 ```
 
+```Prompt
+Using the Chainguard OS manual pages, which crane flag lets it fetch images without TLS, and which package and version is that answer from?
+```
+
+```output
+  Called cg-man (ctrl+o to expand)
+
+● The flag is --insecure, which allows image references to be fetched
+  without TLS. This is from the crane package, version 0.22.1-r4 (sourced
+  from its --help output, since crane has no manual page).
+```
+
 ## Troubleshooting
 
 | Symptom | What it means | What to do |
@@ -74862,7 +75380,9 @@ In Chainguard OS, what does curl exit code 7 mean?
 | `get_man_page` returns `no manpage found` for a page that exists | The page is in `enterprise-packages` or `extra-packages`, and the lookup searched only `os`. | Pass `repo`, or run `search_docs` with `repo` to find the page first. |
 | `search_docs` returns nothing | The query matched no page or package name, and no page description contains every word. Page bodies aren't searched. | Try fewer words, or search for the package name. |
 | `search_docs` returns 20 results when you asked for more | `limit` is above the maximum of 100, so the server used the default. | Set `limit` to 100 or less. |
-| A pinned `version` returns `no manpage found` | That package version has no pages, or the version string is incomplete. | Run `get_package_info` to list the versions with pages, and pass the full version, including its epoch, such as `-r3`. |
+| `get_man_page` returns `no manpage found` for a tool such as `crane` | The tool ships no manual page. | Run `get_help` or `describe_tool` instead. |
+| `get_help` returns `no captured help` for a subcommand, such as `kubectl get` | Only top-level `--help` output is captured. | Request the top-level tool, such as `kubectl`. |
+| A pinned `version` returns `no manpage found` or `no captured help` | That package version has no pages or captured `--help` output, or the version string is incomplete. | Run `get_package_info` to list the versions with pages, and pass the full version, including its epoch, such as `-r3`. Omit `version` to read the latest capture. |
 | A page you expect is missing | Its license is proprietary or source-available, so the page is withheld, or the package ships no manual pages. | Read the documentation from the package's upstream project. |
 
 ## Next steps
@@ -78711,12 +79231,12 @@ cluster (sometimes even a specially provisioned EKS cluster for images such as
 [eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview)).
 
 On top of this, software is constantly going End-of-Life (EOL). When software
-is no longer supported upstream, we will cease updating it in Wolfi (refer to [Wolfi
-Packages in chainguard
-Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#wolfi-packages-in-chainguard-containers)).
-Customers benefit from an extended [EOL grace
+is no longer supported upstream, we will cease updating it in Wolfi (refer to [Maintaining Wolfi
+packages in Chainguard
+Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#maintaining-wolfi-packages-in-chainguard-containers)).
+Customers benefit from an extended [EOL Grace
 Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/)
-with Chainguard OS where we continue to build old versions).
+with Chainguard OS, where we continue to build old versions.
 
 The result is a relentless, orchestrated flow of updates — ensuring our
 software remains secure, current, and reliable.
@@ -80024,7 +80544,7 @@ over at most the 500 newest Runs the other filters match; a Run that
 has not finished matches no outcome.
 
 ```
-chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--repo REPO] [--ref REF] [--trigger presubmit|postsubmit] [--outcome OUTCOME] [--limit N] [--output=json|table]
+chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--repo REPO] [--ref REF] [--trigger presubmit|postsubmit|merge_queue] [--outcome OUTCOME] [--limit N] [--output=json|table]
 ```
 
 ### Examples
@@ -80047,7 +80567,7 @@ chainctl checks list [--sandbox-url URL] [--parent ORGANIZATION_NAME | ORGANIZAT
       --repo string          Only Runs of this repository: owner/repo for GitHub, or host/path.
       --sandbox-url string   URL of the sandbox control plane serving the WorkflowRuns API. Overridden by $CHAINCTL_WORKFLOWRUNS_URL. (default "https://workflowruns.chainbox.dev")
       --token string         Bearer token for the sandbox host. Overrides $CHAINCTL_AUTH_TOKEN and the chainctl session. Prefer passing it via the environment to keep it out of shell history.
-      --trigger string       Only Runs of this trigger: presubmit or postsubmit.
+      --trigger string       Only Runs of this trigger: presubmit, postsubmit, or merge_queue.
 ```
 
 ### Options inherited from parent commands
@@ -80424,9 +80944,10 @@ Add catalog images to your Chainguard Starter organization.
 
 Add catalog images to your Chainguard Starter organization.
 
-The target organization is the Starter or Team org the caller's
-identity is bound to — auto-discovered. An account bound to more than
-one names it with --parent; otherwise its Starter org is used.
+The target organization is the Starter, Team or customer org the
+caller's identity is bound to — auto-discovered. An account bound to
+more than one names it with --parent; otherwise its Starter org is used,
+else its Team org, else its customer org.
 
 Images are resolved against the catalog by exact name match. The server
 picks the active starter entitlement that has remaining capacity. The
@@ -80439,7 +80960,7 @@ chainctl starter add-images IMAGE_NAME [IMAGE_NAME ...] [flags]
 ### Options
 
 ```
-      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
+      --parent string   The name, path or ID of the Starter, Team or customer organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands
@@ -81353,7 +81874,7 @@ chainctl libraries entitlements create --parent=PARENT --ecosystems=LANGUAGE1,LA
 ```
       --ecosystems strings   The language ecosystems to entitle to the parent org.
       --parent string        The name or id of the org to create an entitlement for.
-      --policy string        The policy to apply to the entitlement (chainguard, chainguard_and_upstream). Defaults to the ecosystem's default: chainguard_and_upstream for go and dotnet, chainguard otherwise.
+      --policy string        The policy to apply to the entitlement (chainguard, chainguard_and_upstream). Defaults to chainguard_and_upstream.
 ```
 
 ### Options inherited from parent commands
@@ -84564,9 +85085,22 @@ built from source is not a defect, and gating a build on the percentage is not
 the intended use. Per-entry results are available with "-o json --detailed".
 
 A NuGet package (.nupkg) is verified by the Chainguard package signature it
-carries: an author signature under Chainguard's code-signing certificate, with
-a timestamp, made for that exact package. The check reads only the package, so
-it needs no token and no network.
+carries: an author signature under Chainguard's code-signing certificate, with a
+timestamp, made for that exact package. The check reads only the package, so it
+needs no token and no network. A remote reference to a .nupkg (remote: or
+jfrog:) is downloaded and then checked the same way, with no Chainguard token.
+A jfrog: download reads its API key from ARTIFACT_API_KEY or, if that is unset,
+JFROG_API_KEY. A directory of .nupkg files is checked the same way, package by
+package, and so is a NuGet global packages folder (~/.nuget/packages, or any
+folder with its layout). In a global packages folder, the .nupkg NuGet keeps for
+each package is checked, and then the files NuGet extracted beside it are
+compared with the package's contents. A file that is missing, changed, or not in
+the package makes the package not verified. NuGet's own files (.nupkg.metadata
+and the .sha512 hash) are not compared, and a nuspec or IntelliSense XML file
+that the restore left out is not counted as missing. A package with no .nupkg
+kept, such as one restored from a fallback folder, is reported as unchecked. A
+folder that also holds other artifacts outside its package directories is
+checked as a plain directory, so that every artifact in it is checked.
 
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
@@ -84593,6 +85127,12 @@ chainctl libraries verify [path...] [flags]
   # Analyze a local Python virtual environment
   chainctl libraries verify ./venv/
 
+  # Analyze a NuGet package
+  chainctl libraries verify Newtonsoft.Json.13.0.3.nupkg
+
+  # Analyze the NuGet packages restored to the global packages folder
+  chainctl libraries verify ~/.nuget/packages
+
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar
 
@@ -84604,6 +85144,10 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze remote artifact
   chainctl libraries verify remote:example.com/maven2/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar
+
+  # Analyze a NuGet package in a JFrog repository (reads ARTIFACT_API_KEY,
+  # or JFROG_API_KEY if that is unset)
+  chainctl libraries verify jfrog:example.jfrog.io/artifactory/nuget-remote/polysharp.1.15.0.nupkg
 
   # Verify a lockfile without installing anything
   chainctl libraries verify package-lock.json
@@ -85079,7 +85623,7 @@ Auth related commands for the Chainguard platform.
 * [chainctl auth configure](/platform/chainctl/chainctl-docs/chainctl_auth_configure/)	 - Configure a local tool to authenticate to Chainguard.
 * [chainctl auth configure-docker](/platform/chainctl/chainctl-docs/chainctl_auth_configure-docker/)	 - Configure a Docker credential helper
 * [chainctl auth configure-npm](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/)	 - Configure npm credentials for Chainguard Libraries for JavaScript
-* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed
+* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 * [chainctl auth delete-account](/platform/chainctl/chainctl-docs/chainctl_auth_delete-account/)	 - Permanently delete your user account.
 * [chainctl auth login](/platform/chainctl/chainctl-docs/chainctl_auth_login/)	 - Login to the Chainguard platform.
 * [chainctl auth logout](/platform/chainctl/chainctl-docs/chainctl_auth_logout/)	 - Logout from the Chainguard platform.
@@ -85118,6 +85662,7 @@ Manage SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers scim disable](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_disable/)	 - Disable SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers scim enable](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_enable/)	 - Enable SCIM provisioning for an identity provider.
 * [chainctl iam identity-providers scim groups](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_groups/)	 - Inspect the SCIM-provisioned groups of an identity provider.
+* [chainctl iam identity-providers scim manual-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings/)	 - Find and remove manual role bindings that SCIM now supersedes.
 * [chainctl iam identity-providers scim token](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_token/)	 - Manage the SCIM provisioning bearer token for an identity provider.
 * [chainctl iam identity-providers scim users](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_users/)	 - Inspect the SCIM-provisioned users of an identity provider.
 
@@ -85170,7 +85715,7 @@ chainctl auth configure-refresh-service uninstall [flags]
 
 ### SEE ALSO
 
-* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed
+* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 
 ---
 
@@ -85492,7 +86037,7 @@ chainctl auth pull-token [flags]
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, python, python_athena, javascript_athena, go_athena, rust, go, rust_athena, java, javascript, dotnet, dotnet_athena, ruby_athena, java_athena, ruby. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -85528,7 +86073,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_list.md_
 List all pull-tokens
 
 ```
-chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|java|java_athena|dotnet_athena|rust|rust_athena|dotnet|go|ruby|javascript_athena|ruby_athena|python|javascript|python_athena|go_athena}] [flags]
+chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--repository={oci|apk|python|python_athena|javascript_athena|go_athena|rust|go|rust_athena|java|javascript|dotnet|dotnet_athena|ruby_athena|java_athena|ruby}] [flags]
 ```
 
 ### Examples
@@ -85555,7 +86100,7 @@ chainctl auth pull-token list [--parent=PARENT] [--expired=true|false] [--reposi
 ```
       --expired             If true return only expired pull tokens.
       --parent string       The IAM organization or folder with which the pull-token identity is associated.
-      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena
+      --repository string   The repository type to list pull tokens for. Must be one of: oci, apk, python, python_athena, javascript_athena, go_athena, rust, go, rust_athena, java, javascript, dotnet, dotnet_athena, ruby_athena, java_athena, ruby
 ```
 
 ### Options inherited from parent commands
@@ -86193,12 +86738,16 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service.m
 
 ## chainctl auth configure-refresh-service
 
-Manage a background service that keeps Chainguard tokens refreshed
+Manage a background service that keeps Chainguard tokens refreshed (deprecated)
 
 ### Synopsis
 
 Manage a user-level background service that keeps Chainguard tokens refreshed
 by periodically running 'chainctl auth login --refresh-only'.
+
+Deprecated: tokens renew on demand from the cached refresh token, so no
+background service is needed. 'install' warns; use 'uninstall' to remove a
+service installed earlier.
 
 The service manager is selected automatically for your operating system:
 systemd (Linux) or launchd (macOS). By default every cached token is
@@ -86222,7 +86771,6 @@ refreshed; specific audiences can be selected at install time instead.
 ### SEE ALSO
 
 * [chainctl auth](/platform/chainctl/chainctl-docs/chainctl_auth/)	 - Auth related commands for the Chainguard platform.
-* [chainctl auth configure-refresh-service install](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install/)	 - Install a background service for automatic token refresh
 * [chainctl auth configure-refresh-service uninstall](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/)	 - Uninstall the background token-refresh service
 
 ---
@@ -87080,66 +87628,6 @@ Show your organization's plan, limits, and usage.
 
 ---
 
-### chainctl auth configure-refresh-service install
-_Path: platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_install.md_
-
-## chainctl auth configure-refresh-service install
-
-Install a background service for automatic token refresh
-
-### Synopsis
-
-Install (or update) a user-level service that refreshes Chainguard tokens
-in the background.
-
-By default the service refreshes every cached token: the audiences to refresh
-are discovered by scanning the local token cache on each refresh cycle, so
-tokens created later are picked up without restarting the service.
-
-With --audience, the service refreshes only the given audiences instead.
-
-Rerunning install updates the existing service in place.
-
-```
-chainctl auth configure-refresh-service install [flags]
-```
-
-### Examples
-
-```
-  # Install (or update) the token refresh service.
-  chainctl auth configure-refresh-service install
-  
-  # Refresh only specific audiences.
-  chainctl auth configure-refresh-service install --audience=libraries.cgr.dev --audience=apk.cgr.dev
-```
-
-### Options
-
-```
-      --audience stringArray   Audience to refresh (can be specified multiple times). Defaults to refreshing every cached token.
-```
-
-### Options inherited from parent commands
-
-```
-      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
-      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
-      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
-      --force-color        Force color output even when stdout is not a TTY.
-  -h, --help               Help for chainctl
-      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
-      --log-level string   Set the log level (debug, info) (default "ERROR")
-  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
-  -v, --v int              Set the log verbosity level.
-```
-
-### SEE ALSO
-
-* [chainctl auth configure-refresh-service](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service/)	 - Manage a background service that keeps Chainguard tokens refreshed
-
----
-
 ### chainctl images repos list
 _Path: platform/chainctl/chainctl-docs/chainctl_images_repos_list.md_
 
@@ -87190,18 +87678,20 @@ List policy decisions.
 
 ### Synopsis
 
-List recorded policy decisions to see which image digests a policy
-allowed or denied at pull time.
+List recorded policy decisions to see which artifacts (image digests
+or library package PURLs) a policy allowed or denied at pull time.
 
-Each decision shows the repository, the digest, the policy that
-evaluated it, the mode, the outcome, and when it was pulled.
+Each decision shows the repository, the artifact ID, the resource type,
+the policy that evaluated it, the mode, the outcome, and when it was
+pulled.
 
 Decisions are scoped to one organization: pass --parent, or omit it to
 use your configured default group, or (with no default configured) the
 single organization you can access — you are prompted when several are
 available. Within that scope, filter by --repo for a single repository,
-by --policy for a single policy, by --mode or --result for a subset of
-outcomes, and by --since for a time window.
+by --policy for a single policy, by --resource-type for one resource
+type, by --mode or --result for a subset of outcomes, and by --since for
+a time window.
 
 Decisions are listed most recent first. By default the 20 most recent
 are shown; use --limit (1-100) to change how many are returned.
@@ -87209,8 +87699,8 @@ are shown; use --limit (1-100) to change how many are returned.
 For a multi-arch image the ARTIFACT ID column may show the index digest,
 while pulls are enforced against the per-platform child manifest; run
 "chainctl policy check" to find the child digest an override must
-target. The table view shows the artifact in short form; -o json returns
-the full value.
+target. The table view shortens artifact IDs that are digests, but not
+artifact IDs that are package PURLs; -o json returns the full value.
 
 Use --show-decision-details to print each decision as an expanded
 block, grouped by artifact. Every verdict is rendered so a
@@ -87224,7 +87714,7 @@ per decision) and a string "totalCount"; read .items[] rather than
 treating the output as a top-level array.
 
 ```
-chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--show-decision-details] [--show-artifact-ids] [--output=json|table] [flags]
+chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFACT] [--policy POLICY] [--resource-type TYPE] [--mode MODE] [--result RESULT] [--since Nd] [--limit N] [--show-decision-details] [--show-artifact-ids] [--output=json|table] [flags]
 ```
 
 ### Examples
@@ -87238,6 +87728,9 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
   
   # List what the cooldown policy would have blocked in the last day
   chainctl policy decision list --parent=engineering --policy=cooldown --result=DENIED --since=1d
+  
+  # List only the decisions for Python packages
+  chainctl policy decision list --parent=engineering --resource-type=Python
   
   # List all decisions recorded for a single repository
   chainctl policy decision list --parent=engineering --repo=nginx
@@ -87267,7 +87760,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
       --parent string           The name or id of the organization to list decisions for.
       --policy string           Only show decisions for this policy (name or UIDP).
       --repo string             Only show decisions for this repository.
-      --resource-type string    Resource type used to disambiguate a policy referenced by name (shorthand: Repo, Python, Java, Javascript; or a full type). Ignored when the policy is given by UIDP.
+      --resource-type string    Only show decisions for this resource type (shorthand: Repo, Python, Java, Javascript; or a full type). Also picks which policy a --policy name refers to.
       --result string           Only show decisions with this outcome (ALLOWED, DENIED, or ERROR; the RESULT_ prefixed value from -o json is also accepted).
       --show-artifact-ids       Print the unique full artifact IDs from the result set, one per line.
       --show-decision-details   Print each decision as an expanded block that lists every reason line-by-line.
@@ -87771,6 +88264,76 @@ chainctl iam identity-providers scim token revoke IDENTITY_PROVIDER [--yes] [fla
 ### SEE ALSO
 
 * [chainctl iam identity-providers scim token](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_token/)	 - Manage the SCIM provisioning bearer token for an identity provider.
+
+---
+
+### chainctl iam identity-providers scim manual-bindings list
+_Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings_list.md_
+
+## chainctl iam identity-providers scim manual-bindings list
+
+List the manual role bindings that SCIM supersedes, by class.
+
+### Synopsis
+
+List the SCIM-provisioned people of an identity provider who hold role bindings assigned directly, with each binding's class and the SCIM role and group that supersede it. Nothing is changed. If the identity provider is omitted, the single identity provider in your organization is used, or you are prompted to choose.
+
+Each manual role binding held by a person SCIM provisions is sorted into one class.
+
+A, duplicate: a SCIM-managed binding already grants the same role at the same scope. Removing it changes nothing.
+
+B, covered: SCIM-managed bindings at the same scope or a parent scope already include every capability of the role. Removing it changes nothing in practice.
+
+C, not covered: anything else. Removing it takes access away.
+
+Never classified, and never removed: the owner and support roles, and people with no current SCIM link (including links made under a replaced correlation rule). They are listed only with --include-excluded.
+
+```
+chainctl iam identity-providers scim manual-bindings list [IDENTITY_PROVIDER] [--output=json|table] [flags]
+```
+
+### Examples
+
+```
+  # List every manual binding SCIM supersedes
+  chainctl iam identity-providers scim manual-bindings list my-idp
+  
+  # Show only the bindings whose removal would take access away
+  chainctl iam identity-providers scim manual-bindings list my-idp --class C
+  
+  # Include the bindings that are never removed, and why
+  chainctl iam identity-providers scim manual-bindings list my-idp --include-excluded
+  
+  # Show only the owner and support bindings
+  chainctl iam identity-providers scim manual-bindings list my-idp --exclusion privileged
+```
+
+### Options
+
+```
+      --class strings       Only bindings of these classes: A, B, C (or duplicate, covered, not-covered). Default: all.
+      --exclusion strings   Only excluded bindings with these reasons: privileged, no-scim-link. Implies --include-excluded.
+      --include-excluded    Also list the bindings that are never classified or removed, with the reason.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl iam identity-providers scim manual-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings/)	 - Find and remove manual role bindings that SCIM now supersedes.
 
 ---
 
@@ -90151,6 +90714,50 @@ chainctl libraries policy binding create --policy POLICY [--parent ORGANIZATION_
 
 ---
 
+### chainctl iam identity-providers scim manual-bindings
+_Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings.md_
+
+## chainctl iam identity-providers scim manual-bindings
+
+Find and remove manual role bindings that SCIM now supersedes.
+
+### Synopsis
+
+After an organization moves to SCIM, the role bindings assigned directly before the move stay in place beside the ones SCIM grants, so a person's access is the union of both. These commands show which manual bindings SCIM has made redundant and remove them in bulk, always from a plan you have reviewed.
+
+Each manual role binding held by a person SCIM provisions is sorted into one class.
+
+A, duplicate: a SCIM-managed binding already grants the same role at the same scope. Removing it changes nothing.
+
+B, covered: SCIM-managed bindings at the same scope or a parent scope already include every capability of the role. Removing it changes nothing in practice.
+
+C, not covered: anything else. Removing it takes access away.
+
+Never classified, and never removed: the owner and support roles, and people with no current SCIM link (including links made under a replaced correlation rule). They are listed only with --include-excluded.
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl iam identity-providers scim](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim/)	 - Manage SCIM provisioning for an identity provider.
+* [chainctl iam identity-providers scim manual-bindings list](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings_list/)	 - List the manual role bindings that SCIM supersedes, by class.
+* [chainctl iam identity-providers scim manual-bindings remove](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings_remove/)	 - Remove the manual role bindings that SCIM supersedes, after a reviewed plan.
+
+---
+
 ### chainctl skills registry publish
 _Path: platform/chainctl/chainctl-docs/chainctl_skills_registry_publish.md_
 
@@ -90255,7 +90862,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_login.md_
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
+chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--output=id|json|none|table]
 ```
 
 ### Examples
@@ -90263,9 +90870,6 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ```
   # Default auth login flow:
   chainctl auth login
-  
-  # Refreshing a token within a Kubernetes context:
-  chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
   
   # Headless login using --org-name
   chainctl auth login --headless --org-name my-org
@@ -90286,9 +90890,6 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
       --open-url                     In --headless mode, also open the device-flow URL in a browser after printing it. Overrides auth.headless.open-url when set explicitly.
       --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
-      --refresh                      Enable auto refresh of the Chainguard token (for workloads).
-      --refresh-all                  Refresh every cached token, discovered from the local token cache instead of --audience (implies --refresh-only). Re-evaluated on each refresh cycle, so tokens created after startup are picked up without a restart.
-      --refresh-only                 Only refresh existing tokens, skip initial token creation (implies --refresh). Must authenticate separately.
       --social-login string          Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
 ```
@@ -91658,6 +92259,85 @@ chainctl iam identity-providers group-mappings list IDENTITY_PROVIDER [flags]
 
 ---
 
+### chainctl images helm status
+_Path: platform/chainctl/chainctl-docs/chainctl_images_helm_status.md_
+
+## chainctl images helm status
+
+Show the sync status of a Helm chart added to an organization.
+
+### Synopsis
+
+Show the sync status of a Helm chart added to an organization.
+
+The status is one of:
+
+  AWAITING_IMAGES  An image the chart requires has no repository in the
+                   organization. The missing images are listed; add them with
+                   chainctl images helm add-chart.
+  QUEUED           The chart is queued to sync.
+  IN_PROGRESS      The chart is syncing.
+  FAILED           The chart's sync failed.
+  SYNCED           The chart is not queued and holds at least one version.
+
+The required images are read from a single chart version. By default the newest
+non-FIPS version is checked; pass --fips to check the newest FIPS version, or
+--tag to check a specific version. --fips and --tag can't be combined. Every
+other part of the status describes the chart repository, not one version.
+
+CHART accepts either a bare chart name (with --parent) or a full OCI reference
+without a tag.
+
+```
+chainctl images helm status CHART [flags]
+```
+
+### Examples
+
+```
+
+# Status of the flux chart in my-org
+chainctl images helm status flux --parent my-org/charts
+
+# Check the images a specific chart version requires
+chainctl images helm status flux --parent my-org/charts --tag 2.18.4
+
+# Check the images the newest FIPS version requires
+chainctl images helm status cgr.dev/my-org/charts/flux --fips
+
+# JSON output
+chainctl images helm status flux --parent my-org/charts -o json
+```
+
+### Options
+
+```
+      --fips            Check the images the newest FIPS version requires.
+      --parent string   Group path where the chart lives (e.g. my-org/charts or my-org/iamguarded-charts). Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --tag string      The chart version whose required images to check. Defaults to the newest non-FIPS version.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl images helm](/platform/chainctl/chainctl-docs/chainctl_images_helm/)	 - Helm chart related commands
+
+---
+
 ### chainctl images helm
 _Path: platform/chainctl/chainctl-docs/chainctl_images_helm.md_
 
@@ -91686,6 +92366,7 @@ Helm chart related commands
 * [chainctl images helm add-chart](/platform/chainctl/chainctl-docs/chainctl_images_helm_add-chart/)	 - Add a Chainguard Helm chart and its image dependencies to an organization.
 * [chainctl images helm history](/platform/chainctl/chainctl-docs/chainctl_images_helm_history/)	 - Show digest history for a Chainguard Helm chart tag.
 * [chainctl images helm refs](/platform/chainctl/chainctl-docs/chainctl_images_helm_refs/)	 - List image references pinned in a Chainguard Helm chart
+* [chainctl images helm status](/platform/chainctl/chainctl-docs/chainctl_images_helm_status/)	 - Show the sync status of a Helm chart added to an organization.
 * [chainctl images helm values](/platform/chainctl/chainctl-docs/chainctl_images_helm_values/)	 - Generate relocation overrides for a Chainguard Helm chart
 
 ---
@@ -91916,7 +92597,7 @@ Inspect policy decisions.
 ### Synopsis
 
 A policy decision records the outcome of evaluating one policy
-against one image digest at pull time. Decisions are recorded for both
+against one artifact at pull time. Decisions are recorded for both
 enforced and dry-run policies, so you can review what a policy blocked,
 or would have blocked, before promoting it to enforce mode.
 
@@ -92094,7 +92775,7 @@ _Path: platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create.md_
 Create a pull token.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|java_athena|dotnet_athena|rust|rust_athena|dotnet|go|ruby|javascript_athena|ruby_athena|python|javascript|python_athena|go_athena}[,...] | --repository=all] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|python|python_athena|javascript_athena|go_athena|rust|go|rust_athena|java|javascript|dotnet|dotnet_athena|ruby_athena|java_athena|ruby}[,...] | --repository=all] [flags]
 ```
 
 ### Examples
@@ -92128,7 +92809,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, java_athena, dotnet_athena, rust, rust_athena, dotnet, go, ruby, javascript_athena, ruby_athena, python, javascript, python_athena, go_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, python, python_athena, javascript_athena, go_athena, rust, go, rust_athena, java, javascript, dotnet, dotnet_athena, ruby_athena, java_athena, ruby. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
@@ -92967,7 +93648,7 @@ chainctl starter status [flags]
 ### Options
 
 ```
-      --parent string   The name, path or ID of the Starter or Team organization, when your account is bound to more than one.
+      --parent string   The name, path or ID of the Starter, Team or customer organization, when your account is bound to more than one.
 ```
 
 ### Options inherited from parent commands
@@ -93158,6 +93839,79 @@ Skills registry related commands.
 * [chainctl skills validate](/platform/chainctl/chainctl-docs/chainctl_skills_validate/)	 - Check a local skill directory's format (not its authenticity) without making network calls.
 * [chainctl skills verify](/platform/chainctl/chainctl-docs/chainctl_skills_verify/)	 - Verify that Chainguard signed a published skill.
 * [chainctl skills versions](/platform/chainctl/chainctl-docs/chainctl_skills_versions/)	 - List all published versions (tags) for a skill.
+
+---
+
+### chainctl iam identity-providers scim manual-bindings remove
+_Path: platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings_remove.md_
+
+## chainctl iam identity-providers scim manual-bindings remove
+
+Remove the manual role bindings that SCIM supersedes, after a reviewed plan.
+
+### Synopsis
+
+Remove the role bindings assigned directly that SCIM now supersedes. The command first asks the API for a plan: exactly the bindings that would be removed for the selected classes. It prints the plan and, only after you confirm (or pass --yes), removes exactly that set; if anything changed since the plan, nothing is removed and the command asks you to run it again. With --dry-run it prints the plan for the first batch and stops; later batches are planned only after this one is removed.
+
+By default classes A and B are removed, which changes no one's access. Class C takes access away and is removed only with --include-uncovered (or --class C); confirming it names how many people lose access. Owner and support bindings and people with no current SCIM link are never touched, and the last owner assigned directly cannot be removed while SCIM is on. A large selection is handled in batches, each planned and confirmed in turn.
+
+Each manual role binding held by a person SCIM provisions is sorted into one class.
+
+A, duplicate: a SCIM-managed binding already grants the same role at the same scope. Removing it changes nothing.
+
+B, covered: SCIM-managed bindings at the same scope or a parent scope already include every capability of the role. Removing it changes nothing in practice.
+
+C, not covered: anything else. Removing it takes access away.
+
+Never classified, and never removed: the owner and support roles, and people with no current SCIM link (including links made under a replaced correlation rule). They are listed only with --include-excluded.
+
+```
+chainctl iam identity-providers scim manual-bindings remove [IDENTITY_PROVIDER] [--class A,B] [--include-uncovered] [--dry-run] [--yes] [--output=json|table] [flags]
+```
+
+### Examples
+
+```
+  # Show what would be removed, changing nothing
+  chainctl iam identity-providers scim manual-bindings remove my-idp --dry-run
+  
+  # Review the plan and remove duplicates and covered bindings
+  chainctl iam identity-providers scim manual-bindings remove my-idp
+  
+  # Remove without prompting, for a script that has reviewed the --dry-run output
+  chainctl iam identity-providers scim manual-bindings remove my-idp --yes
+  
+  # Also remove the bindings SCIM does not cover, taking that access away
+  chainctl iam identity-providers scim manual-bindings remove my-idp --include-uncovered
+```
+
+### Options
+
+```
+      --class strings       Classes to remove: A, B, C (or duplicate, covered, not-covered). Default: A,B.
+      --dry-run             Print the plan for the first batch without removing anything.
+      --include-uncovered   Also remove class C, the bindings SCIM does not cover (not covered). This takes access away.
+  -y, --yes                 Skip confirmation prompts.
+```
+
+### Options inherited from parent commands
+
+```
+      --api string         The url of the Chainguard platform API. (default "https://console-api.enforce.dev")
+      --audience string    The Chainguard token audience to request. (default "https://console-api.enforce.dev")
+      --config string      A specific chainctl config file. Uses CHAINCTL_CONFIG environment variable if a file is not passed explicitly.
+      --console string     The url of the Chainguard platform Console. (default "https://console.chainguard.dev")
+      --force-color        Force color output even when stdout is not a TTY.
+  -h, --help               Help for chainctl
+      --issuer string      The url of the Chainguard STS endpoint. (default "https://issuer.enforce.dev")
+      --log-level string   Set the log level (debug, info) (default "ERROR")
+  -o, --output string      Output format. One of: [csv, env, go-template, id, json, markdown, none, table, terse, tree, wide]
+  -v, --v int              Set the log verbosity level.
+```
+
+### SEE ALSO
+
+* [chainctl iam identity-providers scim manual-bindings](/platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_manual-bindings/)	 - Find and remove manual role bindings that SCIM now supersedes.
 
 ---
 
@@ -93878,7 +94632,7 @@ role. Credentials are resolved in this order:
 
 If a token was minted before the push capability was granted it still
 carries the old capability set; refresh it with
-'chainctl auth login --audience <host> --refresh'.
+'chainctl auth login --audience <host>'.
 
 Consumers resolve uploaded versions with GOPROXY=<ecosystems-url>/go.
 Versions published this way never appear in sum.golang.org, so consumers
@@ -94078,7 +94832,7 @@ images added, the next command to run, and the error, if any. An
 already-in-org outcome also carries "organizations", the organizations
 the identity belongs to, "identity", the email it signed in with, and
 "hint", what to do instead. Its next command is 'chainctl starter status'
-when one of those organizations is a Starter organization, and none
+when that command would find exactly one organization to show, and none
 otherwise.
 
 Exit codes:
@@ -96342,6 +97096,8 @@ A typical loop uses both products:
 3. Push the change and open a pull request. Chainguard Checks runs the same checks and reports the result on the pull request.
 4. If a check fails, read why from the session with `chainctl checks failures`, fix the change, and push again. Refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
 
+To walk this loop once with a small project, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
+
 ## Prerequisites {#prerequisites}
 
 Before you begin, make sure you have the following:
@@ -96470,7 +97226,7 @@ Your teammates don't need a Chainguard account to get checks on their pull reque
 | Role | In Chainguard Checks | In Chainguard Workspaces | Inside a session |
 | ---- | -------------------- | ------------------------ | ---------------- |
 | `sandbox.user` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens and manages the teammate's own sessions, and runs checks in them. | `chainctl checks` commands work as the teammate. The Chainguard MCP servers don't, because the role doesn't include the `mcp.tool.call` capability. |
-| `limited_owner` | Starts runs with `chainctl checks run`, but can't open the run page or read runs. | Opens sessions. Also manages your organization's billing and invites or removes members. | Neither the Chainguard MCP servers nor the `chainctl checks` commands that look up a run, such as `status` and `logs`, work. |
+| `limited_owner` | Opens the run page, and reads, reruns, and cancels runs with `chainctl checks`. | Opens sessions. Also manages your organization's billing and invites or removes members. | `chainctl checks` commands and the Chainguard MCP servers work. |
 | `mcp.tool_user` | Nothing. | Nothing. | Adds `mcp.tool.call`, so the Chainguard MCP servers work. |
 
 Inside a session, a teammate's Chainguard identity can't do more than their role allows, as described in [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session). For more about roles, refer to [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
@@ -96497,7 +97253,7 @@ Your teammate can then install `chainctl`, as described in [Install or update ch
 
 ### Add a teammate to a Starter organization {#add-a-teammate-to-a-starter-organization}
 
-If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role, and members read Chainguard Checks results on GitHub instead of on the run page. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
+If you created your organization with `chainctl develop init`, it's a Starter organization, and you have the `limited_owner` role rather than `owner`. You can't create role-bindings for other users, so you can't grant the `sandbox.user` role. An invite can give only a role whose permissions you also have, and of those roles, only `limited_owner` can open sessions.
 
 An organization you created with a personal email address can't create invites, so you can't add teammates to it.
 
@@ -96517,9 +97273,256 @@ The link in that email invites the coworker with the `viewer` role, which can't 
 
 ## Next steps {#next-steps}
 
+- [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/): walk the whole loop once, with a small Go project.
 - [Get started with Chainguard Checks](/chainguard/checks/getting-started/#step-2-add-a-configuration-file-to-your-repository): add a `.chainguard/ci.yaml` file and see your first checks run.
 - [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session): open your first session.
 - [Use Claude Code in a session](/chainguard/workspaces/coding-agents/): work with a coding agent in a session.
+
+---
+
+### Tutorial: Fix a failing check with Claude Code in a Chainguard Workspaces session
+_Path: get-started/checks-and-workspaces/tutorial.md_
+
+Chainguard Checks and Chainguard Workspaces are built to work together: a coding agent changes your code in a Workspaces session, `run-ci` runs your checks against the change before you push, and Chainguard Checks runs the same checks on the pull request. When a check fails, the agent reads why from the session and fixes it.
+
+In this tutorial, you walk that loop once with a small Go project. You open a session, let Claude Code add a function, check the change with `run-ci`, and open a pull request whose checks pass. Then you break a test on purpose, push without running `run-ci`, read the failure from the session with `chainctl checks failures`, and let Claude Code fix it.
+
+{{< beta feature="Each product" >}}
+
+## Before you begin {#before-you-begin}
+
+You need the following:
+
+- A Chainguard organization with Chainguard Checks and Chainguard Workspaces turned on, `chainctl` 0.2.391 or later, and the Chainguard App installed on the GitHub account that owns your repository. Refer to [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/).
+- A new, empty repository on github.com that you can push to, such as `acme/hello`, and a clone of it on your laptop. If you installed the Chainguard App on selected repositories only, add this one.
+- A Claude account for Claude Code. If Chainguard doesn't hold a Claude login for you, `chainctl` offers to set one up when you open the session, as described in [Get started with Chainguard Workspaces](/chainguard/workspaces/getting-started/#step-2-open-a-session).
+
+You don't need Go on your laptop. The checks and the session install it.
+
+In the commands on this page, replace `$ORGANIZATION` with the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
+
+## Step 1: Create the project {#step-1-create-the-project}
+
+In your clone, create a Go module with one function and its test. Create a `go.mod` file:
+
+```text {title="go.mod"}
+module github.com/acme/hello
+
+go 1.24
+```
+
+Create a `hello.go` file:
+
+```go {title="hello.go"}
+// Package hello builds greetings.
+package hello
+
+// Greeting returns a greeting for name.
+func Greeting(name string) string {
+    return "Hello, " + name + "!"
+}
+```
+
+Create a `hello_test.go` file:
+
+```go {title="hello_test.go"}
+package hello
+
+import "testing"
+
+func TestGreeting(t *testing.T) {
+    if got := Greeting("Ada"); got != "Hello, Ada!" {
+        t.Errorf("Greeting(\"Ada\") = %q, want %q", got, "Hello, Ada!")
+    }
+}
+```
+
+Then create the file that defines your checks:
+
+```yaml {title=".chainguard/ci.yaml"}
+version: 1
+environment:
+  packages: [go, git, claude]
+checks:
+  vet:
+    cmd: go vet ./...
+  test:
+    cmd: go test ./...
+```
+
+The file defines two checks, `vet` and `test`, which Chainguard Checks runs on every pull request. A Workspaces session uses the same `environment`, so its `packages` give the session Go, Git, and Claude Code. The project has no dependencies, so neither check needs network access.
+
+Commit the files and push them to your repository's default branch:
+
+```shell
+git add .
+git commit -m "Add the hello project"
+git push origin main
+```
+
+## Step 2: Open a session {#step-2-open-a-session}
+
+Create a branch for your change, then open a session from your clone:
+
+```shell
+git switch -c add-farewell
+chainctl develop --parent $ORGANIZATION
+```
+
+`chainctl` creates a session, uploads your branch, and opens a shell in the session. Its output includes lines similar to the following:
+
+```output
+Creating a session for . (checkout of https://github.com/acme/hello at 1efc76b9f6c4) from its own .chainguard/ci.yaml, as Ada Lovelace <ada@example.com> …
+Created acme/hello/quiet-harbor (fa101f50)
+  claude: served from your Claude login held by Chainguard (ada@example.com), attached or not
+Syncing . as a delta over https://github.com/acme/hello@ceab2476db62 …
+Attached to acme/hello/quiet-harbor [running] · github, claude, cgr.dev · Ctrl+] detach  ~? help
+```
+
+The session's environment comes from your `.chainguard/ci.yaml` file, and the `claude:` line names the Claude login that Claude Code uses in the session. Your files are in `/work`, on your `add-farewell` branch.
+
+## Step 3: Ask Claude Code for a change {#step-3-ask-claude-code-for-a-change}
+
+In the session, start Claude Code:
+
+```shell
+claude
+```
+
+Ask it for a small change, such as the following:
+
+```
+Add a Farewell function to hello.go that returns "Goodbye, <name>!", and a test for it in hello_test.go, in the same style as Greeting and its test.
+```
+
+Claude Code asks before it runs commands or edits files, depending on its [permission mode](/chainguard/workspaces/coding-agents/#choose-a-permission-mode). Its edits vary from run to run, but the change looks similar to the following:
+
+```go
+// Farewell returns a farewell for name.
+func Farewell(name string) string {
+    return "Goodbye, " + name + "!"
+}
+```
+
+```go
+func TestFarewell(t *testing.T) {
+    if got := Farewell("Ada"); got != "Goodbye, Ada!" {
+        t.Errorf("Farewell(\"Ada\") = %q, want %q", got, "Goodbye, Ada!")
+    }
+}
+```
+
+When Claude Code finishes, exit it with `/exit`.
+
+## Step 4: Check the change and open a pull request {#step-4-check-the-change-and-open-a-pull-request}
+
+Run your checks against the change in the session:
+
+```shell
+run-ci
+```
+
+The `run-ci` command runs each check in `.chainguard/ci.yaml` against the files in `/work`, including changes you haven't committed. The output looks similar to the following:
+
+```output
+run-ci: checks vet, test (advisory: the gate runs the verdict on push)
+── vet[0]: go vet ./...
+── vet[0]: exit 0 (180ms)
+── test[0]: go test ./...
+ok      github.com/acme/hello    (cached)
+── test[0]: exit 0 (177ms)
+PASS in 521ms
+```
+
+Commit the change and push your branch:
+
+```shell
+git add hello.go hello_test.go
+git commit -m "Add Farewell"
+git push origin add-farewell
+```
+
+The Chainguard App adds the credential for the push, so you don't sign in to GitHub in the session. The push prints a link for creating a pull request on GitHub. Open the link in your browser, and create the pull request.
+
+Chainguard Checks runs `vet` and `test` on the pull request, each in a fresh VM. When they finish, the **Chainguard Checks (presubmit)** check on the pull request reads **All 2 check(s) passed**. For what else the pull request shows, refer to [How results appear](/chainguard/checks/github/#how-results-appear).
+
+## Step 5: Make a check fail {#step-5-make-a-check-fail}
+
+To see what happens when a check fails, change `Greeting` so that its test fails, and push the change without running `run-ci`. In the session, change the `!` in `Greeting` to a period:
+
+```shell
+sed -i 's/"Hello, " + name + "!"/"Hello, " + name + "."/' hello.go
+git commit -am "Change the greeting punctuation"
+git push origin add-farewell
+```
+
+The `sed` command matches only `Greeting`'s string, not `Farewell`'s. The push updates the pull request, and Chainguard Checks runs the checks again. This time, **Chainguard Checks (presubmit)** reads **1 of 2 check(s) failed**, and names `ci / test` as the check that failed.
+
+## Step 6: Read the failure and fix it {#step-6-read-the-failure-and-fix-it}
+
+In the session, read why the check failed:
+
+```shell
+chainctl checks failures
+```
+
+The command finds the pull request's latest run for the commit you're on, and prints each failed check with the end of its output:
+
+```output
+Run: instances/<organization-id>/runs/<run-id>
+Status: failed; 1 failed, 1 passed, 0 did not run
+
+=== check "test" in workflow "ci": failed (exit 1), attempt 1 ===
+step 0 "step 0": failed (exit 1)
+  command: go test ./...
+  working directory: /work
+  process go: exit 1 (guest-attested; the last 148 B of its output, log bytes 390-538)
+  > --- FAIL: TestGreeting (0.00s)
+  >     hello_test.go:7: Greeting("Ada") = "Hello, Ada.", want "Hello, Ada!"
+  > FAIL
+  > FAIL    github.com/acme/hello    0.001s
+  > FAIL
+```
+
+The command works while you're attached to the session, because the session gets its Chainguard credential from your attached terminal. For its options, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
+
+Claude Code can read the same output. Start it again with `claude`, and ask it to fix the failure:
+
+```
+The checks on my pull request failed. Run chainctl checks failures to see why, then fix the code so the checks pass. Do not change the tests.
+```
+
+Claude Code runs `chainctl checks failures`, finds the test that failed, and changes the period in `Greeting` back to `!`. It may run `run-ci` to confirm the fix, and point out that the fix undoes your last commit.
+
+## Step 7: Push the fix {#step-7-push-the-fix}
+
+Run the checks in the session, then commit and push the fix:
+
+```shell
+run-ci
+git commit -am "Restore the greeting punctuation"
+git push origin add-farewell
+```
+
+Chainguard Checks runs the checks again, and **Chainguard Checks (presubmit)** reads **All 2 check(s) passed**.
+
+## Step 8: Clean up {#step-8-clean-up}
+
+To leave the session, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to detach. On your laptop, find the session's name, and delete the session:
+
+```shell
+chainctl develop list --parent $ORGANIZATION
+chainctl develop delete acme/hello/quiet-harbor --parent $ORGANIZATION
+```
+
+The `delete` command asks you to confirm, then destroys the session's VM and its snapshot. Anything you didn't push is gone. Then close the pull request on GitHub, or merge it, and delete the repository if you don't need it.
+
+## Next steps {#next-steps}
+
+- [Run checks before you push](/chainguard/checks/run-checks/): what `run-ci` covers, and how it differs from a pull request run.
+- [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/): read runs, logs, and history from your terminal or an agent.
+- [Use Claude Code in a Chainguard Workspaces session](/chainguard/workspaces/coding-agents/): permission modes, keeping Claude Code working while you're away, and running agents in parallel.
+- [Chainguard Checks configuration reference](/chainguard/checks/configuration/): write checks for your own project.
 
 ---
 
