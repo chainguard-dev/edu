@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -101,7 +101,7 @@ Existing JavaScript lockfiles usually contain upstream integrity hashes. Because
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
-If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
 
@@ -226,5 +226,11 @@ subject to additional security controls before being served. To serve only
 Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
+
+The `https://libraries.cgr.dev/javascript/` URL is your organization's default
+repository. To use a different upstream fallback setting for some builds, such
+as a CI repository that serves only Chainguard-built packages, you can create a
+named repository with its own URL. Repositories are in beta. Refer to
+[Repositories](/chainguard/libraries/repositories/overview/).
 
 > Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.

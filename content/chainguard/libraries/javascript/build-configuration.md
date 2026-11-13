@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for JavaScript on your workstation"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-11-09T17:08:42+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
@@ -419,6 +419,12 @@ chainctl auth configure-npm
 By default, this command writes a short-lived, session-backed bearer token. The token expires during a typical work session, and a later `npm install` or `npm ping` fails with an authentication error even though nothing in your configuration changed. Re-run `chainctl auth configure-npm` to refresh the token, or create longer-lived credentials with `chainctl auth configure-npm --pull-token` (use `--ttl` to set the lifetime).
 
 The session token is written as an `_authToken` entry. With `--pull-token`, the command creates a [pull token](/chainguard/libraries/introduction/access/#pull-token) and writes it as base64-encoded basic authentication in an `_auth` entry. Passing `--parent`, `--ttl`, or `--name` without `--pull-token` also creates a pull token. For help choosing between the two, see [Choose an authentication method](/chainguard/libraries/introduction/access/#choose-auth).
+
+If your organization uses a named repository, pass `--parent` with the
+repository path, such as `example.com/prod`. The command then points npm at the
+repository URL instead of the default `https://libraries.cgr.dev/javascript/`.
+Repositories are in beta; refer to
+[Repositories](/chainguard/libraries/repositories/overview/).
 
 For CI/CD, prefer an assumable identity when using this command. Expand the following to learn more:
 
