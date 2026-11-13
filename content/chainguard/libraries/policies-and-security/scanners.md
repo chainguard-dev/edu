@@ -87,6 +87,7 @@ Libraries are provided in the following sections.
 | Amazon Inspector | ✓ | ✓ |
 | Anchore Enterprise | ✓ | ✓ |
 | Grype | ✓ | ✓ |
+| JFrog Xray |  | Partial |
 | Trivy | ✓ | ✓ |
 | Upwind | ✓ | ✓ |
 | Wiz | ✓ | ✓ |
@@ -180,6 +181,14 @@ For additional guidance for Grype users, refer to our guide [Using Grype
 to Scan Software
 Artifacts](/chainguard/containers/security-and-compliance/working-with-scanners/grype-tutorial/)
 and the [official documentation](https://github.com/anchore/grype).
+
+### JFrog Xray
+
+[JFrog Xray](https://jfrog.com/xray/) scans artifacts stored in JFrog Artifactory against its vulnerability database. It recognizes Chainguard Libraries for Java by component name and version, so base-version vulnerability and license policies apply as they do for upstream Maven artifacts.
+
+Xray does not currently recognize remediated `-0.cgr.N` builds as containing CVE fixes. A dependency resolved to a remediated version is still matched against the base-version advisory, so Xray may continue to flag it even when the underlying fix is applied. Chainguard Libraries for Python are not supported.
+
+Xray processes VEX through CycloneDX VEX workflows generated inside the platform and does not import external vendor VEX feeds, including the Chainguard [public VEX feed](/chainguard/libraries/policies-and-security/cve-remediation/#vex). To suppress findings on remediated versions, pair Xray with a scanner that consumes the Chainguard VEX feed, such as [Grype](#grype) or [Trivy](#trivy).
 
 ### Trivy
 
