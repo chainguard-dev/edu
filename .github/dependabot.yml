@@ -61,6 +61,19 @@ updates:
       - "dependencies"
       - "security"
     groups:
+      # stylelint-config-standard-scss declares stylelint as a peer
+      # dependency, so a stylelint major bump on its own fails `npm ci`.
+      # Grouping every update type keeps the two packages in one PR.
+      # Dependabot uses the first group that matches, so this group
+      # must stay above the catch-all npm group.
+      stylelint:
+        patterns:
+          - "stylelint"
+          - "stylelint-*"
+        update-types:
+          - "major"
+          - "minor"
+          - "patch"
       npm:
         update-types:
           - "minor"
