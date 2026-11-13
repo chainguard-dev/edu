@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@fullhuman/postcss-purgecss": "^8.0",
+    "@fullhuman/postcss-purgecss": "^9.1",
     "autoprefixer": "^10.6",
     "bootstrap": "^5.3",
     "eslint": "^10.14.0",
