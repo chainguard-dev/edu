@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl iam identities create aws"
 slug: chainctl_iam_identities_create_aws
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws/
@@ -31,6 +31,6 @@ Create a new identity for an AWS IAM resource.
 ### SEE ALSO
 
 * [chainctl iam identities create](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create/)	 - Create a new identity.
-* [chainctl iam identities create aws role](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/)	 - 
-* [chainctl iam identities create aws user](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_user/)	 - 
+* [chainctl iam identities create aws role](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/)	 - Create a new identity for an AWS IAM role.
+* [chainctl iam identities create aws user](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_user/)	 - Create a new identity for an AWS IAM user.
 

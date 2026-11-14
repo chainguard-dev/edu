@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl auth configure-refresh-service uninstall"
 slug: chainctl_auth_configure-refresh-service_uninstall
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/

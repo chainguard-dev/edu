@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl images overlays update-binding"
 slug: chainctl_images_overlays_update-binding
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_update-binding/

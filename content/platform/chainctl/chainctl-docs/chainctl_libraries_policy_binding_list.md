@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl libraries policy binding list"
 slug: chainctl_libraries_policy_binding_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_policy_binding_list/
@@ -15,7 +15,7 @@ List Libraries policy bindings.
 
 ### Synopsis
 
-List active Libraries policy bindings to see which policies are enabled and in which mode.
+List the Libraries policy bindings on an organization, folder or repository to see which policies are enabled there and in which mode. Use --recursive to also list the bindings on every folder and repository under it.
 
 ```
 chainctl libraries policy binding list [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--output=json|table] [flags]
@@ -24,7 +24,8 @@ chainctl libraries policy binding list [--parent ORGANIZATION_NAME | ORGANIZATIO
 ### Options
 
 ```
-      --parent string   The name or id of the organization to list bindings for.
+      --parent string   The name, path or id of the organization, folder or repository to list bindings for.
+      --recursive       Also list the bindings on every folder and repository under --parent.
 ```
 
 ### Options inherited from parent commands

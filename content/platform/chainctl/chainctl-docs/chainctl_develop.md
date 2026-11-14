@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl develop"
 slug: chainctl_develop
 url: /platform/chainctl/chainctl-docs/chainctl_develop/
@@ -78,16 +78,18 @@ chainctl develop [DIR|REPO|SESSION] [flags]
 ### Options
 
 ```
-      --cache               Mount read-only build caches. --cache=true implies --new; defaults to $CHAINCTL_DEVELOP_CACHE for new sessions.
-      --check string        Use this CI check's environment. Implies --new.
-      --env string          Environment: YAML file, default, or generate (generate requires a local directory). Implies --new.
-      --git-remote string   Git remote to use for a local directory; '-' uploads without a repository.
-      --keep string         After detach: keep running for a duration (e.g. 8h, max 24h), always (never pause), or park (pause after the idle window, even if busy). always/park imply --new.
-      --name string         Name for a new session, shown as <repo>/<name>. Implies --new.
-      --new                 Create a new session instead of resuming one.
-      --non-interactive     Disable prompts; fail if a session or group choice is ambiguous.
-      --parent string       Organization or folder name/ID (defaults to $CHAINCTL_SANDBOX_GROUP, then default.group).
-      --with stringArray    Grant access (repeatable, comma-separated): claude, cgr.dev, chainguard, gcp, aws, azure, github:OWNER/REPO[+push], github:OWNER/*, github:*, all (excludes cloud providers), or none (own repository only).
+      --cache                Mount read-only build caches. --cache=true implies --new; defaults to $CHAINCTL_DEVELOP_CACHE for new sessions.
+      --check string         Use this CI check's environment. Implies --new.
+      --env string           Environment: YAML file, default, or generate (generate requires a local directory). Implies --new.
+      --git-remote string    Git remote to use for a local directory; '-' uploads without a repository.
+      --keep string          After detach: keep running for a duration (e.g. 8h, max 24h), always (never pause), or park (pause after the idle window, even if busy). always/park imply --new.
+  -k, --kmod stringArray     Request NAME[=PARAMS] when creating a session; repeatable. Implies --new.
+      --kmod-loader string   Module loader for a new session (platform). Implies --new.
+      --name string          Name for a new session, shown as <repo>/<name>. Implies --new.
+      --new                  Create a new session instead of resuming one.
+      --non-interactive      Disable prompts; fail if a session or group choice is ambiguous.
+      --parent string        Organization or folder name/ID (defaults to $CHAINCTL_SANDBOX_GROUP, then default.group).
+      --with stringArray     Grant access (repeatable, comma-separated): claude, cgr.dev, chainguard, gcp, aws, azure, github:OWNER/REPO[+push], github:OWNER/*, github:*, all (excludes cloud providers), or none (own repository only).
 ```
 
 ### Options inherited from parent commands
