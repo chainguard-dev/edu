@@ -55,7 +55,7 @@ To learn more about how Chainguard approaches FIPS, refer to the [Chainguard FIP
 
 ### Drop-in compatibility
 
-Chainguard EKS add-ons are designed as direct replacements for the corresponding AWS-managed components. They use the same Helm-based deployment workflow as any other EKS add-on, and they accept the configuration values of AWS's own add-ons in the same shape. Some defaults differ from AWS's, and replacing an AWS add-on that's already installed takes a few adoption settings. For details, refer to [Configure Chainguard EKS add-ons](#configure-chainguard-eks-add-ons).
+Chainguard EKS add-ons are designed as direct replacements for the corresponding AWS-managed components. They use the same Helm-based deployment workflow as any other EKS add-on, and all but the Amazon VPC CNI add-on accept the configuration values of AWS's own add-ons in the same shape. Some defaults differ from AWS's, and replacing an AWS add-on that's already installed takes a few adoption settings. For details, refer to [Configure Chainguard EKS add-ons](#configure-chainguard-eks-add-ons).
 
 Chainguard EKS add-ons are available through AWS Marketplace and can be found through the AWS Console. There's no manual setup, you don't need a Chainguard account to subscribe, and billing is consolidated with your existing AWS bill.
 
@@ -103,15 +103,16 @@ You can pass configuration values to a Chainguard EKS add-on the same way you do
 
 Each schema starts from the schema of AWS's own add-on for the same component, so the settings you pass to AWS's add-on work here in the same shape, with the exceptions listed for each add-on later on this page. The schemas also check values more strictly than AWS's do. Most values that Kubernetes would reject fail when you create or update the add-on, rather than when EKS applies it.
 
-The following table lists each Chainguard EKS add-on's name in EKS, alongside the name of AWS's own add-on for the same component:
+The following table lists each Chainguard EKS add-on's name in EKS, the name of AWS's own add-on for the same component, and the first Chainguard version with a configuration schema. Earlier versions reject configuration values:
 
-| Component | Chainguard EKS add-on name | AWS's own add-on name |
-| -------- | ------------- | ------------- |
-| kube-proxy | `chainguard_kube-proxy-fips` | `kube-proxy` |
-| CoreDNS | `chainguard_coredns-fips` | `coredns` |
-| Amazon VPC CNI | `chainguard_aws-vpc-cni-fips` | `vpc-cni` |
-| Amazon EBS CSI Driver | `chainguard_aws-ebs-csi-driver-fips` | `aws-ebs-csi-driver` |
-| Amazon EFS CSI Driver | `chainguard_aws-efs-csi-driver-fips` | `aws-efs-csi-driver` |
+| Component | Chainguard EKS add-on name | AWS's own add-on name | First version with a schema |
+| -------- | ------------- | ------------- | ------------- |
+| kube-proxy | `chainguard_kube-proxy-fips` | `kube-proxy` | `v0.0.10009020261109-eksbuild.1` |
+| CoreDNS | `chainguard_coredns-fips` | `coredns` | `v1.50.10000020261102-eksbuild.1` |
+| Amazon EBS CSI Driver | `chainguard_aws-ebs-csi-driver-fips` | `aws-ebs-csi-driver` | `v2.67.10002020261101-eksbuild.1` |
+| Amazon EFS CSI Driver | `chainguard_aws-efs-csi-driver-fips` | `aws-efs-csi-driver` | `v4.5.10003020261031-eksbuild.1` |
+
+The Amazon VPC CNI add-on doesn't accept configuration values yet.
 
 ### View an add-on's configuration schema
 
@@ -278,21 +279,6 @@ To match AWS's first four defaults, pass the following values:
 ```
 
 You can't remove the chart's 100m CPU limit. To come close to AWS's `resources`, set AWS's memory limit and requests, and set `limits.cpu` above what CoreDNS uses.
-
-### Amazon VPC CNI
-
-The schema accepts the settings of AWS's own VPC CNI add-on (`v1.22.4-eksbuild.5` and `v1.23.2-eksbuild.3`), with these exceptions:
-
-| Setting | Why the schema leaves it out |
-| -------- | ------------- |
-| `env.CLUSTER_ENDPOINT` | The add-on sets it to your cluster's API server endpoint. |
-| `env.ANNOTATE_POD_IP` | It adds a permission to the `aws-node` ClusterRole. |
-| `minReadySeconds` | The chart doesn't read it. |
-| `env.ENABLE_V6_EGRESS`, `env.ENABLE_V4_EGRESS`, `env.DISABLE_POD_V6`, and `init.env.ENABLE_V6_EGRESS` | IPv6 settings aren't supported. |
-
-`extraEnv`, `extraVolumes`, and `extraVolumeMounts`, which AWS's schema leaves untyped, accept only the fields of their Kubernetes types.
-
-The VPC CNI add-on doesn't need adoption settings. It always selects `aws-node` pods by `k8s-app: aws-node`, as AWS's own add-on does.
 
 ### Amazon EBS CSI Driver
 
