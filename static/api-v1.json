@@ -1814,6 +1814,11 @@
         "properties": {
           "capabilities": {
             "$ref": "#/components/schemas/chainguard.platform.argos.RequestedCapabilities"
+          },
+          "partnerId": {
+            "description": "partner_id is the UIDP of the partner organization, echoed from the\nrequest.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -2012,6 +2017,11 @@
           },
           "onboardingQuestions": {
             "$ref": "#/components/schemas/chainguard.platform.events.IdentityMetadata.OnboardingQuestions"
+          },
+          "signupRoute": {
+            "description": "Output only. The route a self-serve signup takes, decided by the server\nfrom the caller's email domain and the organizations already on it, and\npassed through to Chainguard's customer systems. Empty when the signup is\nnot self-serve, when the caller is not on a trusted email IdP, or when the\nroute cannot be decided.",
+            "readOnly": true,
+            "type": "string"
           },
           "updatesOptIn": {
             "description": "Whether the user has opted to receive updates from Chainguard.",
@@ -11177,6 +11187,14 @@
               ],
               "type": "string"
             }
+          },
+          {
+            "description": "cgp_id_prefix keeps records whose CGP ID starts with it, compared\nignoring case. It holds at most 18 ASCII letters, digits and hyphens.\nSend the same prefix on every page: the page token does not carry it.",
+            "in": "query",
+            "name": "cgpIdPrefix",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -11430,7 +11448,7 @@
     },
     "/argos/v1/partners/{partnerId}/capabilities": {
       "delete": {
-        "description": "DeleteCapabilities removes the named capabilities and interests from the\npartner, ignoring names it does not hold, and returns what remains. No\napproval is required.",
+        "description": "DeleteCapabilities removes the named capabilities and interests from the\npartner, ignoring names it does not hold, and returns what remains. No\napproval is required. Each call emits an internal audit event naming the\nactor and the partner only.",
         "operationId": "ArgosPartners_DeleteCapabilities",
         "parameters": [
           {
@@ -11523,7 +11541,7 @@
         ]
       },
       "put": {
-        "description": "UpdateCapabilities overwrites the partner's requested capabilities and\ninterests. A requested capability keeps an approved state, moves\nrejected back to pending, and is otherwise pending; one not requested is\nremoved without approval (but audited). Interests are replaced outright.",
+        "description": "UpdateCapabilities overwrites the partner's requested capabilities and\ninterests. A requested capability keeps an approved state, moves\nrejected back to pending, and is otherwise pending; one not requested is\nremoved without approval. Interests are replaced outright. Each call\nemits an internal audit event naming the actor and the partner only.",
         "operationId": "ArgosPartners_UpdateCapabilities",
         "parameters": [
           {
@@ -16318,7 +16336,7 @@
         "operationId": "LibraryPolicyBindings_ListBindings",
         "parameters": [
           {
-            "description": "The org (parent) to scope bindings to.",
+            "description": "The group (organization or folder) whose bindings to return. Only\nbindings created directly on this group are returned unless\ninclude_descendants is set.",
             "in": "query",
             "name": "parentId",
             "schema": {
@@ -16378,6 +16396,14 @@
             "name": "pageToken",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Also return bindings on every folder and repository under parent_id.\nHas no effect when parent_id is empty.",
+            "in": "query",
+            "name": "includeDescendants",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -16866,7 +16892,7 @@
     },
     "/libraries/v1/repositories/{parentId}/{name}": {
       "delete": {
-        "description": "Delete removes a named repository, its folder and its upstream entries.\nWithout force it refuses while pull tokens or Libraries policy bindings\nexist at the folder, and names them; with force it removes them and the\npull tokens' role bindings. It always refuses, naming them, while image\nrepositories, identities that are not pull tokens or role bindings of\nsuch identities exist under the folder. Once Delete has removed the\nfolder, the Libraries policy bindings scoped to it go with the\nrepository; while the folder is already gone, a binding refuses without\nforce and the repository stays DELETING. When the folder cannot be\ndeleted, the repository stays DELETING and running Delete again finishes\nit. The default repository cannot be deleted.",
+        "description": "Delete removes a named repository, its folder and its upstream entries.\nWithout force it refuses while pull tokens, Libraries policy bindings or\nLibraries policies exist at the folder, and names them; with force it\nremoves them and the pull tokens' role bindings. It always refuses,\nnaming them, while image repositories, identities that are not pull\ntokens or role bindings of such identities exist under the folder, or\nwhile a binding outside the folder uses one of its Libraries policies.\nOnce Delete has removed the folder, the Libraries policy bindings scoped\nto it go with the repository; while the folder is already gone, a binding\nrefuses without force and the repository stays DELETING. When the folder\ncannot be deleted, the repository stays DELETING and running Delete again\nfinishes it. The default repository cannot be deleted.",
         "operationId": "Repositories_Delete",
         "parameters": [
           {
@@ -16888,7 +16914,7 @@
             }
           },
           {
-            "description": "force removes the pull tokens, their role bindings and the Libraries\npolicy bindings at the repository's folder along with it. Bindings\nscoped to a folder Delete has removed go with it whatever force says.",
+            "description": "force removes the pull tokens, their role bindings, the Libraries policy\nbindings and the Libraries policies at the repository's folder along\nwith it. Bindings scoped to a folder Delete has removed go with it\nwhatever force says.",
             "in": "query",
             "name": "force",
             "schema": {

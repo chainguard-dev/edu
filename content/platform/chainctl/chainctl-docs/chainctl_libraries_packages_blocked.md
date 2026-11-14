@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl libraries packages blocked"
 slug: chainctl_libraries_packages_blocked
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/

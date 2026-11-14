@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl iam identities create gitlab"
 slug: chainctl_iam_identities_create_gitlab
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_gitlab/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl iam identities create gitlab
 
-
+Create a new identity for GitLab CI pipelines.
 
 ```
 chainctl iam identities create gitlab NAME --project-path=GITLAB-GROUP/GITLAB-PROJECT --ref-type={tag|branch} [--ref=REF] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]

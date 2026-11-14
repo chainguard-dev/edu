@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl iam auth-policy update"
 slug: chainctl_iam_auth-policy_update
 url: /platform/chainctl/chainctl-docs/chainctl_iam_auth-policy_update/
@@ -20,7 +20,7 @@ Update how long a sign-in to an organization lasts.
 --session-duration sets how long a sign-in to the organization lasts before
 its members must sign in again: from 1h to 90d, as a number of days (30d) or
 hours (12h). --session-duration=default returns to Chainguard's default,
-currently 20h.
+currently 30d.
 
 The length runs from sign-in. At 30d or less, a session lasts that long from
 sign-in, and using it does not extend it. Above 30d, a session lasts while it

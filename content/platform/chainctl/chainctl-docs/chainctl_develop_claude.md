@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-13T20:36:51Z
 title: "chainctl develop claude"
 slug: chainctl_develop_claude
 url: /platform/chainctl/chainctl-docs/chainctl_develop_claude/
