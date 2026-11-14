@@ -13,8 +13,6 @@ toc: true
 
 {{< beta feature="Repositories in Chainguard Libraries" >}}
 
-Update `chainctl` to the latest release before you start.
-
 ## How repositories work
 
 Chainguard Libraries gives your organization one URL per ecosystem, such as
@@ -22,16 +20,16 @@ Chainguard Libraries gives your organization one URL per ecosystem, such as
 packages that Chainguard builds from source. If your organization turned on
 [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-it also serves packages from the public registry, such as the npm Registry,
-that Chainguard hasn't built.
+it also serves packages from the public registry, such as the public npm
+registry, that Chainguard hasn't built.
 
 These URLs are your organization's *default repository*. If you don't create
-any other repository, nothing changes: the URLs keep working exactly as they
-do today.
+any other repository, nothing changes: the URLs keep working as before.
 
 A *repository* is an additional, named set of URLs in the same organization.
-Each repository has its own upstream fallback setting. In this beta, only
-JavaScript serves repository URLs. A common setup uses two repositories:
+Each repository has its own upstream fallback setting. In this beta, Chainguard
+Libraries serves repository URLs only for JavaScript. A common setup uses two
+repositories:
 
 * A `prod` repository with upstream fallback off, so CI installs only packages
   that Chainguard builds.
@@ -44,6 +42,10 @@ organization name and `prod` is the repository name:
 ```text
 https://libraries.cgr.dev/javascript/~/example.com/prod/
 ```
+
+To manage repositories, update `chainctl` to the latest release. For
+instructions, refer to [How to install
+`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
 
 ## Plan limits
 
@@ -64,11 +66,10 @@ Starter plans include only the default repository; upgrade to Team for more.
 
 ## Create a repository
 
-To create a repository named `prod` in the `example.com` organization, run the
-following command:
+To create a repository named `prod`, run the following command:
 
 ```shell
-chainctl libraries repos create prod --parent example.com
+chainctl libraries repos create prod
 ```
 
 The output shows the repository URL:
@@ -84,7 +85,7 @@ repository: `chainctl` prints that the existing repository is ready and shows
 its URL.
 
 A repository can't use the name of a folder that already exists in the
-organization. `chainctl` refuses the name rather than turn the existing folder
+organization. `chainctl` returns an error instead of turning the existing folder
 into a repository.
 
 ## View repositories
@@ -92,7 +93,7 @@ into a repository.
 To list the repositories in an organization, run the following command:
 
 ```shell
-chainctl libraries repos list --parent example.com
+chainctl libraries repos list
 ```
 
 The output is a table with the `NAME`, `CREATED`, and `STATE` columns. The
@@ -102,7 +103,7 @@ repository. A repository that's working shows the state `ready`.
 To view the details of one repository, pass its name:
 
 ```shell
-chainctl libraries repos describe prod --parent example.com
+chainctl libraries repos describe prod
 ```
 
 The output shows the repository's state, its creation time, the URL for each
@@ -110,14 +111,15 @@ ecosystem, and its upstream fallback setting: either `Upstream fallback: on`
 or `Upstream fallback: off (every upstream registry is disabled)`.
 
 The output also lists URLs for Java, Python, Go, and .NET, marked
-`(not serving yet)`. In this beta, only JavaScript serves repository URLs.
+`(not serving yet)`. In this beta, Chainguard Libraries serves repository URLs
+only for JavaScript.
 A request to a repository URL for another ecosystem returns HTTP `503` with a
 message such as `Libraries repositories are not available for java yet.`
 
 To view the default repository, omit the name:
 
 ```shell
-chainctl libraries repos describe --parent example.com
+chainctl libraries repos describe
 ```
 
 The output shows the default repository's URLs and the following line:
@@ -128,13 +130,12 @@ This is the organization's default repository. Its upstream fallback follows the
 
 ## Turn upstream fallback on or off
 
-Every repository lists the public npm Registry as `npmjs`. If your
-organization's Libraries entitlement includes upstream fallback, a new
-repository starts with `npmjs` enabled. If it doesn't, `npmjs` starts disabled,
-upstream fallback stays off whatever the list says, and `describe` shows
-`Upstream fallback: off (the organization's Libraries entitlement does not include upstream packages, and every upstream registry is disabled)`.
-Enabling `npmjs` turns upstream fallback on only when your entitlement
-includes it.
+Every repository lists the public npm registry as `npmjs`. A new repository
+starts with `npmjs` enabled if your organization's Libraries entitlement
+includes upstream fallback, and disabled if it doesn't.
+
+Without that entitlement, upstream fallback stays off even if you enable
+`npmjs`, and `describe` says so.
 
 To view a repository's upstream registries, run the following command:
 
@@ -152,9 +153,9 @@ The command prints `Disabled upstream registry npmjs for JAVASCRIPT in
 repository prod.` and a warning that upstream fallback is now off for
 JavaScript.
 
-A change to upstream fallback takes effect within about a minute, because the
-service caches resolved package versions for one minute, so a pull right after
-you disable `npmjs` can still return the upstream version.
+A change to upstream fallback takes effect within about a minute. Chainguard
+Libraries caches resolved package versions for one minute, so a pull right
+after you disable `npmjs` can still return the upstream version.
 
 To turn upstream fallback on again, enable `npmjs`:
 
@@ -195,7 +196,7 @@ command:
 chainctl auth pull-token create --repository=javascript --parent example.com/prod --name ci-prod
 ```
 
-For more about pull tokens, see [Chainguard Libraries
+For more information about pull tokens, refer to [Chainguard Libraries
 access](/chainguard/libraries/introduction/access/).
 
 ## Configure JavaScript clients
@@ -246,9 +247,10 @@ registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
 always-auth=true
 ```
 
-Yarn Classic doesn't send a credential keyed to `//libraries.cgr.dev/javascript/`
-to a repository URL. With that key, the request fails with HTTP `401`, which
-Yarn Classic reports as `Couldn't find package`.
+Yarn Classic doesn't send a credential keyed to
+`//libraries.cgr.dev/javascript/` to a repository URL. With that key, the
+request fails with HTTP `401`, which Yarn Classic reports as `Couldn't find
+package`.
 
 ### Yarn
 
@@ -272,15 +274,15 @@ configured for request`.
 
 The following table shows what a client receives from a repository URL. In the
 examples, `prod` has upstream fallback off and `dev` has it on. Chainguard
-builds `lodash`. For a package that Chainguard doesn't build but the npm
-Registry hosts, the examples use `five`.
+builds `lodash`. For a package that Chainguard doesn't build but the public npm
+registry hosts, the examples use `five`.
 
 | Request | Response |
 | --- | --- |
 | `npm install lodash` on `prod` or `dev` | Installs the package |
 | `npm install five` on `prod` | HTTP `404` |
 | `npm install five` on `dev` | Installs the package |
-| Any request without credentials | HTTP `401` |
+| A request without credentials | HTTP `401` |
 | A request to a repository that doesn't exist | HTTP `403` |
 | A repository-bound token used on another repository or on the default repository | HTTP `403` |
 
@@ -289,13 +291,13 @@ Registry hosts, the examples use `five`.
 To delete the `dev` repository, run the following command:
 
 ```shell
-chainctl libraries repos delete dev --parent example.com
+chainctl libraries repos delete dev
 ```
 
 The command asks you to confirm. To skip the confirmation, pass `--yes`.
 
 If pull tokens or policy bindings still reference the repository, `chainctl`
-refuses to delete it and names them, for example:
+returns an error that names them, for example:
 
 ```text
 Repository dev has 1 pull token (ci-dev). Delete them first or pass --force.
@@ -310,13 +312,14 @@ NAME` to remove the repository.
 
 ## Policies and access
 
-A repository uses its organization's [policies](/chainguard/chainguard-repository/library-policies/),
-including malware blocking and cooldown. There are no per-repository policies
-in this beta.
+A repository uses its organization's
+[policies](/chainguard/chainguard-repository/library-policies/), including
+malware blocking and cooldown. There are no per-repository policies in this
+beta.
 
-An identity bound at a repository can only pull packages from it. To create or
-delete repositories, or to change their upstream registries, an identity needs
-repository permissions at the organization.
+An identity bound at a repository can pull packages only from that repository.
+To create or delete repositories, or to change their upstream registries, an
+identity needs repository permissions at the organization.
 
 ## Lockfiles
 
