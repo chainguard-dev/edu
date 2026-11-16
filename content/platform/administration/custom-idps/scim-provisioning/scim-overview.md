@@ -5,7 +5,7 @@ lead: ""
 description: "How SCIM provisioning to the Chainguard platform behaves, and how to manage the provisioning connection over its lifetime."
 type: "article"
 date: 2026-08-14T00:00:00+00:00
-lastmod: 2026-10-15T00:00:00+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Conceptual", "Procedural"]
 images: []
@@ -39,6 +39,7 @@ Provisioning behaves the same way for every provider:
 
 The provider guides share the following prerequisites:
 
+* An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 * A custom identity provider already configured for login to Chainguard. If you haven't set one up yet, refer to our guide on [using custom identity providers](/platform/administration/custom-idps/custom-idps/).
 * An IAM role that can manage identity providers in your organization, such as the owner role.
 * At least one owner in your organization who can sign in and whose owner role is assigned directly, not through SCIM or a group mapping. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Group mappings don't count: Chainguard grants their roles per session at login, which an IdP outage would interrupt. Organizations that manage access through groups often have only their creator as a directly assigned owner, so consider assigning a second owner directly before you enable SCIM.

@@ -5,7 +5,7 @@ lead: ""
 description: "How to map groups from a custom identity provider to Chainguard roles so access follows group membership."
 type: "article"
 date: 2026-07-01T08:48:45+00:00
-lastmod: 2026-10-15T00:00:00+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -24,6 +24,7 @@ Steps 2 and 3 outline how to use `chainctl` to point Chainguard at a groups clai
 
 To complete this guide, you need the following:
 
+- An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 - A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers and role-bindings in your organization, such as the `owner` role.
 - [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
