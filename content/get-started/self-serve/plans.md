@@ -1,7 +1,7 @@
 ---
 title: "Chainguard plans"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-10T18:15:59+00:00
+lastmod: 2026-11-17T15:48:14+00:00
 linktitle: "Plans"
 description: "Compare the Chainguard Starter and Chainguard Team self-serve plans, including the limits that apply to each"
 type: "article"
@@ -25,7 +25,7 @@ The following table lists what each self-serve plan includes:
 | | Chainguard Starter | Chainguard Team |
 | --- | --- | --- |
 | **Chainguard Containers** | | |
-| Catalog images | 5 application, base, or AI images | 5 application, base, or AI images |
+| Catalog images | 5 application, base, or AI images | 5 application, base, or AI images, plus every other application, base, and AI image at its latest build |
 | Image swaps | None | 1 per rolling 30 days |
 | Helm charts | Charts for your images | Charts for your images |
 | Image egress | 100 GiB a month | 1 TiB a month |
@@ -54,6 +54,8 @@ Chainguard counts Starter usage against the limits for image egress and package 
 Chainguard doesn't yet refuse Team requests past the image egress, package pull, and pull-token limits.
 
 FIPS, developer-tool, and commercial images need an Enterprise plan.
+
+On Team, the 5 images you pick come with every build. Every other application, base, and AI image in the catalog comes at its latest build only: the build its `latest` tag points to, or `latest-dev` for the development variant, plus any build that one replaced in the last 14 days. A version tag such as `python:3.12` is refused, even when it points to the newest 3.12 build, because a later Python version exists. To pull a specific version, make the image one of your picks. To add one of these images, refer to [Add a catalog image outside your picks](/get-started/self-serve/upgrade-team/#add-a-catalog-image-outside-your-picks).
 
 On Starter, a newly published package version stays unavailable for 7 days, and you can't override the cooldown for a package. For how the Libraries cooldown limits work, refer to [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 

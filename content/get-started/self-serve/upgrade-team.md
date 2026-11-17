@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-10T18:15:59+00:00
+lastmod: 2026-11-17T15:48:14+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -58,6 +58,7 @@ Your organization keeps its name, members, and images, and gets the following:
 
 * **Team limits.** Refer to [Plan limits](/get-started/self-serve/plans/#plan-limits) for the full list.
 * **The `owner` role for you.** The person who completes checkout is made an owner of the organization, as long as they still have the `owner` or `limited_owner` role when the upgrade completes. Other members keep their roles. Consider giving the `owner` role to a second person, so the organization doesn't depend on a single person.
+* **The rest of the catalog at its latest build.** Besides your 5 picks, you can add any other application, base, or AI image and pull its latest build. Refer to [Add a catalog image outside your picks](#add-a-catalog-image-outside-your-picks).
 * **Image swaps.** You can replace an image you chose with another one, once in a rolling 30 days.
 * **Invitations outside your email domain.** You can invite anyone, with any role you hold yourself.
 * **CVE-remediated Chainguard Libraries versions.**
@@ -68,6 +69,34 @@ After the upgrade, `chainctl starter status` and `chainctl starter add-images` w
 Team pull tokens are limited to 7 days, a limit Chainguard doesn't enforce yet. For CI pipelines, use a CI identity instead; refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 If you created your organization with a personal email address, its Checks and Workspaces compute stops at the included amount rather than being metered past it.
+
+## Add a catalog image outside your picks
+
+On Team, you can add any application, base, or AI image from the catalog without using one of your 5 picks. You can pull its latest build, through the `latest` tag or `latest-dev` for the development variant, and any build that the latest one replaced in the last 14 days. Version tags such as `python:3.12` are refused. To pull every version of an image, make it one of your picks, which keep every build. FIPS, developer-tool, and commercial images need an Enterprise plan.
+
+1. Find the image's ID in the catalog. The `--name` flag matches every image whose name contains the text, so select the exact name. This example finds `python`:
+
+    ```shell
+    chainctl images catalog --name python -o json | jq -r '.[] | select(.name == "python") | .id'
+    ```
+
+1. Create a repository in your organization that syncs from the image. Replace `$ORGANIZATION` with your organization's name or ID, and `<image-id>` with the ID from the previous step:
+
+    ```shell
+    chainctl images repos create python --parent $ORGANIZATION --source <image-id>
+    ```
+
+1. When the repository has synced, pull the image's latest build:
+
+    ```shell
+    docker pull cgr.dev/$ORGANIZATION/python:latest
+    ```
+
+A pull of an earlier build, or of a version tag such as `python:3.12`, returns an error like the following:
+
+```output
+DENIED: Team plan does not include earlier builds of catalog images outside your picked images; pull the image's latest build. Upgrade: https://www.chainguard.dev/pricing or run: chainctl plans update --plan enterprise
+```
 
 ## How Team is billed
 
