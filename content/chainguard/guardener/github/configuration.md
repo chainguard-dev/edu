@@ -4,7 +4,7 @@ linktitle: "Configuration"
 description: "Understand Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-11-17T18:01:18+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -84,6 +84,8 @@ Configuration committed directly to a repository takes precedence over the organ
 - A feature that is configured in neither place stays disabled for the repository.
 
 This lets you set a baseline for the whole organization and override it only where a specific repository needs different behavior.
+
+Guardener doesn't merge the keys of the two files. A repository file replaces the org-level file for its feature entirely, so it must repeat every org-level setting that the repository still needs. For example, if your org-level `images.yaml` sets [`external_registry`](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), a repository with its own `images.yaml` must set `external_registry` too.
 
 > **Note:** Guardener reads the org-level configuration from the default branch (that is, `main`) of the `.github` repository, just as it does for per-repository configuration.
 
