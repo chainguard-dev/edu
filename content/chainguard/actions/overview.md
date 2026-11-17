@@ -4,7 +4,7 @@ linktitle: "Actions overview"
 description: "Learn how Chainguard Actions provides hardened drop-in replacements for popular GitHub Actions to protect your CI/CD pipelines from supply chain attacks."
 type: "article"
 date: 2026-06-18T00:00:00+00:00
-lastmod: 2026-10-13T13:59:25+00:00
+lastmod: 2026-11-12T13:58:51+00:00
 draft: false
 tags: ["Chainguard Actions", "Overview"]
 menu:
@@ -179,7 +179,7 @@ Pin to the commit SHA that a version tag resolves to, and keep the tag as a comm
 
 ## Choose how to reference an action
 
-Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
+Pin to a commit SHA, and pair the pin with a tool that updates it, such as Dependabot, Renovate, or Guardener:
 
 ```yaml
 - uses: chainguard-actions/actions-checkout@<sha> # v4
@@ -188,6 +188,8 @@ Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
 A commit SHA is the only immutable reference in the catalog. Tags are mutable by design, and not just the floating major version. Chainguard re-hardens published versions in place and moves the tag when it does, including fully qualified patch tags, so a single upstream release can be re-hardened several times with the same tag pointing somewhere new each time. Both `@v4` and `@v4.3.1` resolve to whatever was published most recently.
 
 Pinning on its own isn't enough, though. A pin with no tooling behind it is the one configuration that strands you: you stay on that build, and stop receiving re-hardening, until someone updates the SHA by hand. Dependabot and Renovate both track a pinned SHA against its tag and open a pull request when the tag moves, so you receive every re-hardening as a change your own CI validates before it reaches a live workflow. That gives you more control than a mutable tag does, and costs you nothing in freshness.
+
+If Guardener already opens migration pull requests for the repository, it can keep your pins current too. [Turn on upgrades](/chainguard/guardener/github/actions-security/#keep-chainguard-actions-pins-up-to-date), and Guardener moves each pin to a newer build or version in its migration pull request. Use one tool to update Chainguard Actions pins, because two tools open pull requests for the same upgrades.
 
 Pinning is also the standard Chainguard applies to the actions it hardens. The `unpinned-uses` check fails any `uses:` reference on a tag, so if you run an actions linter against your own repository, referencing a hardened action by tag will register a finding.
 
