@@ -5,7 +5,7 @@ lead: ""
 description: "How to create, update, and delete a custom identity provider in the Chainguard Console, map IdP groups to roles, and set up SCIM provisioning."
 type: "article"
 date: 2026-10-21T08:48:45+00:00
-lastmod: 2026-10-21T08:48:45+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -20,6 +20,7 @@ The Console manages one identity provider per organization. If you need more tha
 
 To follow this guide, you need the following:
 
+- An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 - An OIDC application registered with your identity provider, and its issuer URL, client ID, and client secret. To register one, follow the guide for your provider, such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), up to the step where you configure Chainguard. For any other provider, follow the [generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide).
 - A role in your Chainguard organization with the identity provider capabilities, such as the `owner` role. Setting up SCIM also requires the `identity_providers.scim.manage` capability. Without the required capability, the Console shows the matching buttons as unavailable.
 

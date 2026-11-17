@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-11-02T13:27:14+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -99,6 +99,8 @@ In each of these cases, the Chainguard Console redirects you to an external iden
 Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
 ## Setup and administration
+
+Custom identity providers, SCIM provisioning, and group role mappings aren't included in the Chainguard Starter and Chainguard Team plans. Refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
