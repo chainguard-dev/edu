@@ -19,8 +19,6 @@ The `chainctl develop` command opens and manages Chainguard Workspaces sessions.
 
 The generated [`chainctl develop` reference](/platform/chainctl/chainctl-docs/chainctl_develop/) has the help text of the latest `chainctl` release. If this page and the generated reference disagree about a command's flags, the generated reference is right. To read the help for the version you have installed, run `chainctl develop --help`, or add `--help` to any command on this page. You can shorten `chainctl develop` to `chainctl dev`. If your installation of `chainctl` doesn't recognize a command or flag on this page, [update chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
-The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
-
 ## Commands
 
 | Command | What it does |
@@ -86,7 +84,7 @@ The `--name`, `--env`, `--check`, `--cache`, `--keep always`, and `--keep park` 
 In a checkout of a repository named `app`, this example opens a new session named `app/scratch` with the default environment:
 
 ```shell
-chainctl develop --env default --name scratch --parent $ORGANIZATION
+chainctl develop --env default --name scratch
 ```
 
 ## chainctl develop list
@@ -116,7 +114,7 @@ chainctl develop rename SESSION NAME [-o json]
 This example renames `app/quiet-harbor` to `app/tests`:
 
 ```shell
-chainctl develop rename app/quiet-harbor tests --parent $ORGANIZATION
+chainctl develop rename app/quiet-harbor tests
 ```
 
 ## chainctl develop delete
@@ -134,7 +132,7 @@ chainctl develop delete SESSION [--yes] [-o json]
 This example deletes `app/scratch` without asking:
 
 ```shell
-chainctl develop delete app/scratch --yes --parent $ORGANIZATION
+chainctl develop delete app/scratch --yes
 ```
 
 ## chainctl develop check {#chainctl-develop-check}
@@ -153,7 +151,7 @@ chainctl develop check SESSION [--check CHECK] [-o json]
 This example runs the `test` check in `app/quiet-harbor`:
 
 ```shell
-chainctl develop check app/quiet-harbor --check test --parent $ORGANIZATION
+chainctl develop check app/quiet-harbor --check test
 ```
 
 For which checks the command skips, and how its result compares with a pull request's, refer to [Run checks in a session from your laptop](/chainguard/checks/run-checks/#run-checks-in-a-session-from-your-laptop).
@@ -179,13 +177,13 @@ Stopping `chainctl`, such as with Control+C, stops the command too. While the co
 This example runs the tests in `app/quiet-harbor`:
 
 ```shell
-chainctl develop exec app/quiet-harbor --parent $ORGANIZATION -- go test ./...
+chainctl develop exec app/quiet-harbor -- go test ./...
 ```
 
 This example copies `notes.md` from your laptop into the session's `/work` directory:
 
 ```shell
-chainctl develop exec app/quiet-harbor -i --parent $ORGANIZATION -- sh -c 'cat > notes.md' < notes.md
+chainctl develop exec app/quiet-harbor -i -- sh -c 'cat > notes.md' < notes.md
 ```
 
 ## chainctl develop mcp {#chainctl-develop-mcp}
@@ -225,7 +223,7 @@ To add access, run `chainctl develop SESSION --with ENTRY` instead. Refer to [Re
 This example takes back a session's access to `cgr.dev`:
 
 ```shell
-chainctl develop creds app/quiet-harbor --revoke cgr.dev --parent $ORGANIZATION
+chainctl develop creds app/quiet-harbor --revoke cgr.dev
 ```
 
 ## chainctl develop github
@@ -274,7 +272,7 @@ The `describe` command, with the aliases `desc` and `get`, shows the policy, its
 This example limits the Chainguard App to each session's own repository:
 
 ```shell
-chainctl develop policy set --org-github session --parent $ORGANIZATION
+chainctl develop policy set --org-github session
 ```
 
 ## chainctl develop init {#chainctl-develop-init}
@@ -308,10 +306,10 @@ chainctl develop accept-terms [--parent ORGANIZATION] [--yes]
 | ---- | ----------- |
 | `--yes` | Accepts the terms without asking, such as where no interactive terminal is available. Passing it means you agree to the statement in `chainctl develop accept-terms --help`, which the command also prints. |
 
-An organization that already has Workspaces through your Chainguard account team must accept the terms before anyone can open new sessions in it. Running `chainctl develop init --parent $ORGANIZATION` accepts them, turns on Checks, and keeps the allowance your account team arranged. To accept only the Workspaces terms, run `chainctl develop accept-terms` instead:
+An organization that already has Workspaces through your Chainguard account team must accept the terms before anyone can open new sessions in it. Running `chainctl develop init --parent ORGANIZATION` accepts them, turns on Checks, and keeps the allowance your account team arranged. To accept only the Workspaces terms, run `chainctl develop accept-terms` instead:
 
 ```shell
-chainctl develop accept-terms --parent $ORGANIZATION
+chainctl develop accept-terms
 ```
 
 If you accept only the Workspaces terms and your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.

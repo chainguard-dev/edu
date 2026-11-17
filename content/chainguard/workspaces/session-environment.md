@@ -51,7 +51,7 @@ The default environment is a general-purpose shell with the following packages:
 The default environment reaches the open internet. To open a session on the default environment even when your repository has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, pass `--env default`:
 
 ```shell
-chainctl develop --env default --parent $ORGANIZATION
+chainctl develop --env default
 ```
 
 The default environment doesn't include language toolchains. To add one to the current session, install it with `apk`. This example installs Python 3.13:
@@ -155,7 +155,7 @@ The `develop` check sets the session's network access. It has no command, which 
 To open a session with the file, pass its path with `--env`:
 
 ```shell
-chainctl develop --env ./session-env.yaml --parent $ORGANIZATION
+chainctl develop --env ./session-env.yaml
 ```
 
 The session shows the file's contents in `/etc/chainguard/session.yaml`.
@@ -165,7 +165,7 @@ The session shows the file's contents in `/etc/chainguard/session.yaml`.
 If your repository has neither a `.chainguard/develop.yaml` nor a `.chainguard/ci.yaml` file, `chainctl` can generate an environment from your directory's toolchain files, such as `go.mod` or `package.json`. To try it, pass `--env generate`:
 
 ```shell
-chainctl develop --env generate --parent $ORGANIZATION
+chainctl develop --env generate
 ```
 
 To generate the environment, `chainctl` uploads your directory to an AI agent that Chainguard hosts. The generated environment starts from the default environment's packages, adds the toolchains your directory needs, such as `go-1.24` for a Go module, and reaches the open internet. If your repository already has a `.chainguard/develop.yaml` or `.chainguard/ci.yaml` file, `--env generate` ignores it and says so. The option works only with a local directory, not with a repository URL.
@@ -181,7 +181,7 @@ The generated environment applies to the new session only, and `chainctl` doesn'
 If your checks keep a Go build cache, a session can start with it, so `go build` and `go test` reuse what your checks already built on your default branch. To ask for the cache, open a session from a repository URL with `--cache`:
 
 ```shell
-chainctl develop github.com/acme/app --cache --parent $ORGANIZATION
+chainctl develop github.com/acme/app --cache
 ```
 
 The session mounts the Go build cache that your checks write after merging, as it was when the session started, and sets `GOCACHE` to it. Go can add to the cache in the session, but nothing the session builds goes back to your repository's cache. The session also adds `-count=1` to `GOFLAGS`, so `go test` always runs your tests instead of reporting cached results.
