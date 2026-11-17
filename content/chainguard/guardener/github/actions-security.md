@@ -4,7 +4,7 @@ linktitle: "Hardened Actions"
 description: "Configure Guardener to recommend and migrate your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-11-13T14:58:54+00:00
+lastmod: 2026-11-17T12:24:27+00:00
 draft: false
 aliases:
 - /chainguard/guardener/actions-security/
@@ -163,9 +163,9 @@ Each pin keeps its form. A SHA pin gets a new SHA, and a tag pin gets a new tag:
 | Tag pin | `chainguard-actions/actions-checkout@v4.2.2` | `chainguard-actions/actions-checkout@v7.0.1` |
 | Floating tag pin | `chainguard-actions/actions-checkout@v4` | `chainguard-actions/actions-checkout@v6` |
 
-A floating tag, such as `v4`, moves to each new release in its major version. A tag pin on a floating tag stays on a floating tag and never becomes a pin on a single release. A SHA pin with a `# v4` comment usually stays on a floating tag too: it moves to the newest build of `v4`, or to a later floating tag such as `# v6`.
+A floating tag, such as `v4`, moves to each new release in its major version. A tag pin on a floating tag stays on a floating tag and never becomes a pin on a single release. A SHA pin with a `# v4` comment stays on a floating tag too: it moves to the newest build of `v4`, or to a later floating tag such as `# v6`. This holds even when the catalog lists the pin's SHA only under a single release in `v4`, such as `v4.2.2`.
 
-Guardener finds a SHA pin's version from its SHA, not its comment. It uses the comment only when the comment names one of the versions listed with that SHA, or when the catalog no longer lists the SHA. So if the catalog lists a `# v4` pin's SHA only under a single release, such as `v4.2.2`, Guardener treats the line as a pin on that release and moves it to the newest release, such as `# v7.0.1`.
+Otherwise, Guardener finds a SHA pin's version from its SHA. It uses the comment to choose between versions that share the SHA, and when the catalog no longer lists the SHA. Guardener ignores a comment that doesn't match the SHA, such as `# v4` on a SHA that the catalog lists as `v7.0.1`, so a stale comment never moves a pin to an older version.
 
 A tag pin on `@v4` already gets each new build of `v4` through the tag, so it moves only to a later major version's tag.
 
@@ -280,7 +280,7 @@ When Guardener upgrades a pin, it keeps only the version in the line's comment. 
 | `migrate.period`         | `24h`   | How often the migration pull request is refreshed. Clamped to a minimum of one day. |
 | `migrate.version-strategy` | `exact` | Version selection when no exact equivalent exists. Set to `smallest-major-bump` to migrate older pins to the closest Chainguard-supplied major version. |
 | `migrate.ignore.files`   | —       | Glob patterns for workflow files to skip during migration.                          |
-| `migrate.ignore.actions` | —       | Glob patterns for upstream actions to skip during migration.                        |
+| `migrate.ignore.actions` | —       | Glob patterns for actions to skip. Upstream names skip migration, and Chainguard names skip upgrades. |
 | `migrate.upgrade.enabled` | `false` | Opts into upgrades of existing Chainguard Actions pins. Requires `migrate.enabled: true`. |
 | `migrate.upgrade.cooldown.default-days` | `3` | Whole days a new version waits before Guardener uses it, from 0 to 365. `0` turns off the cooldown. |
 | `migrate.upgrade.ignore` | — | Dependabot-style rules that skip upgrades by action name and update type. |
