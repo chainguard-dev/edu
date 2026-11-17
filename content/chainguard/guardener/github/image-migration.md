@@ -4,7 +4,7 @@ linktitle: "Container Image Migration"
 description: "Configure Guardener to open a pull request that replaces the container images a repository already uses with Chainguard container images."
 type: "article"
 date: 2026-10-08T02:59:03+00:00
-lastmod: 2026-10-23T04:48:59+00:00
+lastmod: 2026-11-17T18:01:18+00:00
 draft: false
 tags: ["GitHub", "Chainguard Containers", "Migration"]
 images: []
@@ -29,6 +29,7 @@ Before you enable Container Image Migration, make sure that:
 
 - The Chainguard App is installed with access to the repository, and your GitHub organization is linked to your Chainguard organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). You don't need to change the [repository visibility scope](/chainguard/guardener/github/app-connections/#repository-visibility-scope): unlike Image Suggestions, migration runs on private repositories even with the default `PUBLIC` scope.
 - Your Chainguard organization has the replacement images. Guardener doesn't add images for you. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
+- If you [use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), it has the replacement images and tags. Guardener checks tags only in your Chainguard organization.
 
 ## Enable Container Image Migration
 
@@ -69,6 +70,8 @@ Guardener keeps one image migration pull request per repository, separate from t
 - **Changed files**: every file that the pull request edits.
 - **Not migrated**: each reference that Guardener found and left unchanged, with the reason.
 
+When you [use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), the description also says that Guardener checked each tag in your Chainguard organization but can't read your registry. Before you merge, check that the tags are in your registry.
+
 Each run plans its changes against the latest commit on the default branch. If the migration pull request is open, Guardener updates it only when the planned changes differ from the ones it already has. After you merge or close the pull request, the next run opens a new one if there's anything left to change. Guardener never merges the pull request itself.
 
 Closing the pull request doesn't turn migration off. To stop migration for a repository, set `migrate.enabled: false`.
@@ -87,17 +90,24 @@ Migration reads Dockerfiles, YAML files, and JSON files across the whole reposit
 | YAML and JSON, such as Kubernetes manifests, Compose files, and Helm values | Each literal `image` value. Guardener doesn't read Helm chart templates. |
 | Terraform (`*.tf`, `*.tfvars`), shell scripts (`*.sh`), and Makefiles | Nothing. Guardener doesn't read these files. To find the images they use, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/). |
 
-Guardener chooses each replacement the same way as Image Suggestions. When Chainguard publishes a Federal Information Processing Standards (FIPS) variant of an image, Guardener prefers it unless you set `prefer_fips: false`. Guardener keeps the reference's tag when Chainguard maintains it. Otherwise, it uses the newest maintained version on the same minor version line or, failing that, in the same major version. If the version changes, check its release notes before you merge. When a reference has both a tag and a digest, the replacement is also pinned by digest.
+Guardener chooses each replacement the same way as Image Suggestions. When Chainguard publishes a Federal Information Processing Standards (FIPS) variant of an image, Guardener prefers it unless you set `prefer_fips: false`. Guardener keeps the reference's tag when Chainguard maintains it. Otherwise, it uses the newest maintained version on the same minor version line or, failing that, in the same major version. If the version changes, check its release notes before you merge. When a reference has both a tag and a digest, the replacement is also pinned by digest, unless you set `external_registry`.
+
+Two more `.chainguard/images.yaml` settings work the same way for migration as for Image Suggestions:
+
+- `external_registry` makes replacements name images in [your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry) instead of in `cgr.dev`. It also moves references to your organization on `cgr.dev` to your registry.
+- `swap_free_tier: true` [replaces free-tier images](/chainguard/guardener/github/image-suggestions/#replace-free-tier-images) under `cgr.dev/chainguard/` with your organization's images of the same name and tag.
 
 Guardener leaves a reference unchanged and lists it under **Not migrated** in the following cases:
 
-- Your Chainguard organization doesn't have the replacement image, or doesn't have a matching tag. After you add the image, the next run migrates the reference.
+- Your Chainguard organization doesn't have the replacement image, or doesn't have a matching tag. After you add the image, the next run migrates the reference. For a free-tier image, the pull request describes it as a free-tier image that is not in your Chainguard organization.
 - Chainguard doesn't publish an equivalent image.
 - The reference isn't one literal value on its own line. For example, it's assembled from a Dockerfile `ARG`, it's split across Helm `registry`, `repository`, and `tag` keys, or another image shares its line.
 - The Dockerfile build stage, or a stage built on it, runs commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction. Chainguard container images without a `-dev` suffix usually have no shell or package manager, so swapping only the image could break the build. To convert the whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
 - The Dockerfile build stage sets `CMD` without `ENTRYPOINT`. Many Chainguard container images set `ENTRYPOINT` to their runtime, so the command could change.
 - The reference has a tag that Chainguard doesn't maintain, and no maintained version is close enough to replace it, so the only replacement would be the `latest` tag.
 - The reference is pinned by digest without a tag, so there's no version to carry over.
+
+The two Dockerfile cases don't apply when the replacement is the same image, as when Guardener replaces a free-tier image or moves a reference to your own registry. The build stage keeps the packages, shell, and entry point it already has, so Guardener changes the reference.
 
 ## Exclude files and images
 
@@ -184,6 +194,8 @@ The following keys in `.chainguard/images.yaml` control migration:
 | `migrate.ignore.files` | list of glob patterns | None | Files that migration doesn't read. |
 | `migrate.ignore.images` | list of glob patterns | None | Image references that migration leaves unchanged. |
 | `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants, for both migration and Image Suggestions. |
+| `external_registry` | string | None | The registry path that holds your copies of your Chainguard container images. Replacements name images under this path, for both migration and Image Suggestions. Refer to [Use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry). |
+| `swap_free_tier` | boolean | `false` | Replaces references to `cgr.dev/chainguard/` free-tier images with your organization's images, for both migration and Image Suggestions. Refer to [Replace free-tier images](/chainguard/guardener/github/image-suggestions/#replace-free-tier-images). |
 
 The top-level `enabled` key controls Image Suggestions only. For more information, refer to the [Image Suggestions configuration reference](/chainguard/guardener/github/image-suggestions/#configuration-reference).
 
