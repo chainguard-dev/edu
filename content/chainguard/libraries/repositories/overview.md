@@ -168,8 +168,9 @@ builds, and returns HTTP `404` for packages that Chainguard hasn't built. With
 upstream fallback on, the repository serves both.
 
 You can enable, disable, and reorder the upstream registries that Chainguard
-provides. You can't add your own registries. On the Starter plan, you can
-disable an upstream registry but not enable or reorder one.
+provides. You can't add your own registries. If your organization downgrades
+to Starter and keeps a named repository, you can disable an upstream registry
+but not enable or reorder one.
 
 The default repository has no upstream list of its own. Its upstream fallback
 follows your organization's Libraries entitlement. If you run `upstreams list`
@@ -224,6 +225,29 @@ registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
 npm matches credentials by URL prefix, so the credential keyed to
 `//libraries.cgr.dev/javascript/` also covers the repository URL. If you run
 the command again, it keeps the repository URL.
+
+If the project already installed packages from the default repository, its
+`package-lock.json` pins every package to the default repository URL, for
+example:
+
+```json
+"resolved": "https://libraries.cgr.dev/javascript/lodash/-/lodash-4.17.21.tgz"
+```
+
+npm ignores `registry` for packages already in the lockfile and fetches each
+`resolved` URL as written, so every request still goes to the default
+repository. A pull token bound to the repository returns HTTP `403` there. An
+organization pull token works, but npm installs from the default repository,
+so the repository's upstream fallback setting never applies.
+
+To fix this, regenerate the lockfile once:
+
+```shell
+rm package-lock.json && npm install
+```
+
+After that, every `resolved` URL is under the repository URL, and `npm ci`
+pulls through the repository.
 
 ### pnpm
 
@@ -318,12 +342,18 @@ malware blocking and cooldown. There are no per-repository policies in this
 beta.
 
 An identity bound at a repository can pull packages only from that repository.
-To create or delete repositories, or to change their upstream registries, an
-identity needs repository permissions at the organization.
+To manage repositories, an identity needs the following capabilities at the
+organization:
 
-## Lockfiles
+| Action | Capability |
+| --- | --- |
+| Create a repository | `repositories.create` |
+| Delete a repository | `repositories.delete` |
+| Enable, disable, or reorder upstream registries | `repositories.update` |
+| List or describe repositories | `repositories.list` |
 
-Lockfiles that already contain repository URLs keep using those URLs.
+Only the `owner` role has the three write capabilities. The `viewer` and
+`editor` roles have `repositories.list` only.
 
 ## Not available in this beta
 
