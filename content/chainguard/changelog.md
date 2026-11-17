@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-11-09T00:00:00+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,88 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-16
+
+{{< changelog-label "Product Announcements" >}}
+
+### Project Theseus
+
+_Launched November 13, 2026._
+
+Project Theseus is a new Chainguard initiative to rebuild the core components of open source and eliminate entire classes of bugs, rather than patching the same kinds of vulnerabilities again and again. It's an experiment and a set of public repositories:
+
+- Each component's source is public on GitHub from the day Chainguard announces it.
+- Conformance results and performance comparisons follow as they're ready, along with formal proofs for the most critical pieces.
+- Chainguard's catalog of production images, and the packages behind them, shapes each component's design and serves as its test bed.
+
+The first component is [challoc](https://github.com/chainguard-dev/challoc), a memory allocator written in Rust, built to replace glibc malloc, jemalloc, tcmalloc, and mimalloc. Chainguard images don't change. For details, read [Introducing Project Theseus, starting with challoc](https://www.chainguard.dev/unchained/introducing-project-theseus-starting-with-challoc).
+
+### Athena's second wave of vulnerability disclosures
+
+_Launched November 12, 2026._
+
+Athena disclosed 12 more silent vulnerabilities, which upstream projects fixed without saying so. All 12 are in Java projects, across nine libraries, and two are critical authentication bypasses. Chainguard Libraries customers can get remediated versions from Chainguard Repository, published at the same time as the advisories:
+
+- Each advisory is in Chainguard's free, public VEX feed, with affected versions listed.
+- Each remediated version keeps the package coordinates your application already uses and adds a Chainguard version qualifier (`-0cgr.n`), so adopting it takes a lockfile change and a rebuild.
+
+For the full list, read [Athena's second wave](https://www.chainguard.dev/unchained/athenas-second-wave).
+
+### Chainguard Starter and Chainguard Team self-serve plans
+
+_Launched November 10, 2026._
+
+You can now sign up for Chainguard and start pulling images without talking to sales:
+
+- **Chainguard Starter** is free and needs no credit card. It gives a small team access to Chainguard Containers, Chainguard Libraries, and other Chainguard products, within usage limits.
+- **Chainguard Team** is a paid plan that raises most Starter limits and adds ticket support. You pay by card.
+
+Enterprise plans, which add features such as FIPS images, SSO, and custom policies, remain available by contract. To discuss one, [contact Chainguard](https://www.chainguard.dev/contact). To compare plans, refer to [Chainguard plans](/get-started/self-serve/plans/). For prices, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `dotnet:8` | 2026-11-10 | 2027-05-10 |
+| `dotnet:9` | 2026-11-10 | 2027-05-10 |
+| `helm:3` | 2026-11-11 | 2027-05-11 |
+| `cockroach:25.2` | 2026-11-12 | 2027-05-12 |
+| `cockroach-openssl:25.2` | 2026-11-12 | 2027-05-12 |
+| `pg_partman:14` | 2026-11-12 | 2027-05-12 |
+| `pgvector:14` | 2026-11-12 | 2027-05-12 |
+| `postgresql:14` | 2026-11-12 | 2027-05-12 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 25 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-route53-controller/versions"><code>aws-route53-controller</code></a></td><td>application +fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/grafana-pyroscope-fips/versions"><code>grafana-pyroscope-fips</code></a></td><td>fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-openvswitch-oshelm/versions"><code>openstack-openvswitch-oshelm</code></a></td><td>application +fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-k8s-node-gcp/versions"><code>chainguard-k8s-node-gcp</code></a></td><td>base</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dify-web/versions"><code>dify-web</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/k8s-node-collector/versions"><code>k8s-node-collector</code></a></td><td>application</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kata-monitor/versions"><code>kata-monitor</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kgateway-envoy-wrapper/versions"><code>kgateway-envoy-wrapper</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kgateway-sds/versions"><code>kgateway-sds</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/logstash-with-opensearch-syslog-output-plugins/versions"><code>logstash-with-opensearch-syslog-output-plugins</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/querybook/versions"><code>querybook</code></a></td><td>application +fips</td><td>2026-11-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gitaly-init-cgroups/versions"><code>gitaly-init-cgroups</code></a></td><td>application +fips</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/neuvector-registry-adapter/versions"><code>neuvector-registry-adapter</code></a></td><td>application +fips</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/oc-mirror/versions"><code>oc-mirror</code></a></td><td>application</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gosu-fips/versions"><code>gosu-fips</code></a></td><td>fips</td><td>2026-11-13</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-09
 
