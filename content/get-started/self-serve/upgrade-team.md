@@ -1,7 +1,7 @@
 ---
 title: "Upgrade to Chainguard Team"
 date: 2026-11-03T16:40:38+00:00
-lastmod: 2026-11-17T15:48:14+00:00
+lastmod: 2026-11-17T16:12:22+00:00
 linktitle: "Upgrade to Team"
 description: "Move a Chainguard Starter organization to the paid Chainguard Team plan with chainctl, pay by card, and manage or cancel the plan"
 type: "article"
@@ -80,10 +80,10 @@ On Team, you can add any application, base, or AI image from the catalog without
     chainctl images catalog --name python -o json | jq -r '.[] | select(.name == "python") | .id'
     ```
 
-1. Create a repository in your organization that syncs from the image. Replace `$ORGANIZATION` with your organization's name or ID, and `<image-id>` with the ID from the previous step:
+1. Create a repository in your organization that syncs from the image. Replace `$ORGANIZATION` with your organization's name or ID, and `$IMAGE_ID` with the ID from the previous step:
 
     ```shell
-    chainctl images repos create python --parent $ORGANIZATION --source <image-id>
+    chainctl images repos create python --parent $ORGANIZATION --source $IMAGE_ID
     ```
 
 1. When the repository has synced, pull the image's latest build:
