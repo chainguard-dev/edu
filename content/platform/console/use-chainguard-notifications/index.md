@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to configure Chainguard Notifications"
 lead: "A primer on how to configure Chainguard Notifications in the Chainguard Console"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-10-26T12:09:41+00:00
+lastmod: 2026-11-17T12:10:54+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -37,7 +37,12 @@ Some customers have access to email notifications. When enabled, you have contro
 
 ## Set up Slack for Chainguard Notifications
 
-Make sure you are logged into both the console and to your Slack workspace on the same machine before you begin. To perform this task, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization and a Slack account that can add apps to your Slack workspace and which has access to the Slack channels you plan to use.
+Before you begin, make sure you have the following:
+
+- A Chainguard Console account with the *owner* role for your organization.
+- A Slack account in your workspace that uses the same email address as your Console account. The connection looks up your Slack user by your Console email address, so it fails if no member of the workspace has that address.
+- Permission for that Slack account to add apps to the workspace, and membership in the Slack channels you plan to use.
+- An active sign-in to both the Console and your Slack workspace on the same machine.
 
 > For example, when you are trying to add the Chainguard Notifications app to Slack channels, the Slack account you are using will only be shown a list of public and private Slack channels the app has access to and your Slack user account is a member of. If you have a specific channel in mind for these notifications, make sure the Slack user establishing the connection has access to and is a member of that channel.
 
@@ -104,6 +109,20 @@ Chainguard Notifications use the following categories:
 - **Product announcements**: New Chainguard product features and announcements
 
 ## Troubleshooting FAQ - setting up Slack
+
+### Connecting Slack fails — check which email address you are using
+
+**Q:** I clicked **Connect Slack**, selected my workspace, and clicked **Allow**, but the connection failed. Why?
+
+The most common cause is that no member of your Slack workspace has the email address you used to sign in to the Chainguard Console. The Console uses that email address to find your Slack user. If the lookup finds no match, the Console cancels the connection and removes the Chainguard Notifications app from the workspace.
+
+This happens even when you authorize the app with a different Slack account that you're signed in to. For example, if you sign in to the Console as you@gmail.com and to Slack as you@company.com, the connection fails.
+
+To fix it:
+
+1. Sign out of the Chainguard Console.
+1. Sign back in using the email address of your account in the Slack workspace.
+1. Connect Slack again.
 
 ### Channel seems to be missing — check if it is private
 
