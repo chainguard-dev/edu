@@ -1,7 +1,7 @@
 ---
 title: "cg-man: the Chainguard OS manual pages and --help MCP server"
 date: 2026-11-05T13:57:14+00:00
-lastmod: 2026-11-12T14:37:12+00:00
+lastmod: 2026-11-17T13:12:43+00:00
 linktitle: "cg-man"
 description: "Connect an MCP client to cg-man to search and read the manual pages and --help output of Chainguard OS packages, at the exact package version you run."
 type: "article"
@@ -277,7 +277,7 @@ The same pages are published at [man.cgr.dev](https://man.cgr.dev/), with no sig
 https://man.cgr.dev/<repo>/<package>/<version>/man<section>/<name>.<section>
 ```
 
-For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` in place of the version to follow the current release. To get another format, append one of these extensions to the page's address:
+For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1` addresses one version of `curl(1)`. Use `latest` in place of the version to follow the current release, as in the [latest `bash(1)` page](https://man.cgr.dev/os/bash/latest/man1/bash.1). To get another format, append one of these extensions to the page's address:
 
 | Extension | Returns |
 | ----- | ----- |
@@ -285,7 +285,7 @@ For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` i
 | `.raw` | The original roff source |
 | `.json` | A manifest recording the package, version, license, and a SHA-256 digest of each format |
 
-The site publishes `--help` output under `/help/`, keyed by the executable's absolute path. `https://man.cgr.dev/help/usr/bin/kubectl` shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
+The site publishes `--help` output in its [help index](https://man.cgr.dev/help/), under `/help/` and keyed by the executable's absolute path. The [`kubectl` help page](https://man.cgr.dev/help/usr/bin/kubectl), at `https://man.cgr.dev/help/usr/bin/kubectl`, shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
 
 ```
 https://man.cgr.dev/<repo>/<package>/<version>/help/<path>
