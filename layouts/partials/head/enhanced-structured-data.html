@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": {{ .Title }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "description": {{ .Description | default (partial "placeholders/strip.html" .Summary) | plainify | truncate 160 }},
   "totalTime": "PT{{ $readingTime }}M",
   "image": {{ with .Params.images }}{{ index . 0 | absURL }}{{ else }}{{ .Site.Params.schemaImage | absURL }}{{ end }},
   "author": {
@@ -83,7 +83,7 @@
   "@context": "https://schema.org",
   "@type": "TechArticle",
   "headline": {{ .Title }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "description": {{ .Description | default (partial "placeholders/strip.html" .Summary) | plainify | truncate 160 }},
   "keywords": {{ with .Params.tags }}{{ delimit . ", " }}{{ else }}""{{ end }},
   "wordCount": {{ .WordCount }},
   "timeRequired": "PT{{ $readingTime }}M",
@@ -144,7 +144,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "name": {{ .Title }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "description": {{ .Description | default (partial "placeholders/strip.html" .Summary) | plainify | truncate 160 }},
   "mainEntity": [
     {{ range $index, $qa := $questions }}
     {{ $parts := split $qa "</h" }}
@@ -185,7 +185,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": {{ $toolName }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "description": {{ .Description | default (partial "placeholders/strip.html" .Summary) | plainify | truncate 160 }},
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Linux, macOS, Windows",
   "offers": {
@@ -210,7 +210,7 @@
   "@context": "https://schema.org",
   "@type": "LearningResource",
   "name": {{ .Title }},
-  "description": {{ .Description | default .Summary | plainify | truncate 160 }},
+  "description": {{ .Description | default (partial "placeholders/strip.html" .Summary) | plainify | truncate 160 }},
   "learningResourceType": "Tutorial",
   "educationalLevel": "Professional",
   "timeRequired": "PT{{ $readingTime }}M",

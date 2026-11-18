@@ -9,7 +9,7 @@
     {{ with .Description }}
     <p class="text-muted small mb-0">{{ . | truncate 120 }}</p>
     {{ else }}
-      {{ with .Summary }}
+      {{ with partial "placeholders/strip.html" .Summary }}
       <p class="text-muted small mb-0">{{ . | plainify | truncate 120 }}</p>
       {{ end }}
     {{ end }}

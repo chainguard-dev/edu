@@ -85,7 +85,7 @@
       {{ end -}} -->
       {{ partial "notice.html" . }}
       <div class="mb-5"></div>
-      {{ .Content }}
+      {{ partial "placeholders/render.html" .Content }}
 
       {{/* Feedback Widget */}}
       {{ partial "feedback-widget.html" . }}

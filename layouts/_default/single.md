@@ -10,4 +10,4 @@ Tags: {{ delimit .Params.tags ", " }}
 {{ .Description }}
 {{- end }}
 
-{{ .RenderShortcodes }}
+{{ partial "placeholders/strip.html" .RenderShortcodes }}

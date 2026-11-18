@@ -1,0 +1,12 @@
+{{- /*
+Renders placeholder markers as styled <var> elements.
+
+Writers mark a placeholder as <^>NAME<^> in prose, inline code, or code
+blocks. Goldmark escapes the marker to &lt;^&gt;, and shortcodes that emit
+raw HTML can leave it as <^>, so the pattern matches both forms.
+
+Usage: {{ partial "placeholders/render.html" .Content }}
+*/ -}}
+{{- $marker := `(?:&lt;|<)\^(?:&gt;|>)` -}}
+{{- $pattern := printf `%s(.+?)%s` $marker $marker -}}
+{{- return (replaceRE $pattern `<var class="placeholder">$1</var>` . | safeHTML) -}}

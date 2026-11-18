@@ -232,6 +232,13 @@ pre {
     }
 }
 
+// Placeholders that writers mark as <^>NAME<^>, in inline code and code blocks.
+// Refer to layouts/partials/placeholders/render.html.
+var.placeholder {
+    font-style: italic;
+    color: var(--code-placeholder-color);
+}
+
 // Tables
 table {
     th {

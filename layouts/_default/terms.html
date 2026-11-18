@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-8">
     <h1 class="text-center">{{ .Title }}</h1>
-    <div class="text-center">{{ .Content }}</div>
+    <div class="text-center">{{ partial "placeholders/render.html" .Content }}</div>
     <div class="card-list">
       {{ range .Paginator.Pages }}
         <div class="card card-terms my-3">

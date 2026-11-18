@@ -31,7 +31,7 @@ Last Modified: {{ .Lastmod.Format "January 2, 2006" }}
 Tags: {{ delimit .Params.tags ", " }}
 {{- end }}
 
-{{ .RenderShortcodes }}
+{{ partial "placeholders/strip.html" .RenderShortcodes }}
 
 ---
 
