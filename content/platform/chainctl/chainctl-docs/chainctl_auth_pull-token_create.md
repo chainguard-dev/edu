@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl auth pull-token create"
 slug: chainctl_auth_pull-token_create
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
@@ -13,8 +13,21 @@ toc: true
 
 Create a pull token.
 
+### Synopsis
+
+Create a pull token, a long-lived credential for pulling from Chainguard
+in environments that cannot sign in.
+
+--repository is the kind of registry the token pulls from: oci, apk, or a
+library ecosystem such as javascript or java. --parent is where the token
+belongs. A token for an organization pulls from the organization's default
+Libraries repository and from every named repository in it. A token for one
+Libraries repository, created with --parent ORG/REPO, pulls only from that
+repository's URL, never from the default repository or another repository,
+and grants no right to change the repository.
+
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|dotnet|ruby|ruby_athena|rust|javascript|python_athena|javascript_athena|go|java_athena|python|dotnet_athena|go_athena|rust_athena}[,...] | --repository=all] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|java_athena|dotnet_athena|go|rust_athena|python_athena|javascript_athena|dotnet|go_athena|ruby_athena|rust|python|javascript|ruby}[,...] | --repository=all] [flags]
 ```
 
 ### Examples
@@ -36,7 +49,10 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
   chainctl auth pull-token create --ttl=24h
   
   # Create a pull token for a particular organization.
-  chainctl auth pull-token create --parent=my-org
+  chainctl auth pull-token create --parent=example.com
+  
+  # Create a pull token that pulls JavaScript packages only from the repository prod.
+  chainctl auth pull-token create --repository=javascript --parent=example.com/prod
   
   # Create a pull token with a description.
   chainctl auth pull-token create --description="CI builds for service-foo"
@@ -47,8 +63,8 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
 ```
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
-      --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, dotnet, ruby, ruby_athena, rust, javascript, python_athena, javascript_athena, go, java_athena, python, dotnet_athena, go_athena, rust_athena. "all" selects oci and apk. The token gets one role binding per repository type. (default "oci")
+      --parent string        Name or UIDP of the organization or folder the pull token belongs to. Pass ORG/REPO, such as example.com/prod, for a token that pulls only from one Libraries repository.
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, java_athena, dotnet_athena, go, rust_athena, python_athena, javascript_athena, dotnet, go_athena, ruby_athena, rust, python, javascript, ruby. "all" selects oci and apk. The token gets one role binding per repository type. This names the kind of registry, not a Libraries repository: pass that in --parent as ORG/REPO. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```

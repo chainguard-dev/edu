@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl libraries"
 slug: chainctl_libraries
 url: /platform/chainctl/chainctl-docs/chainctl_libraries/
@@ -12,6 +12,16 @@ toc: true
 ## chainctl libraries
 
 Ecosystem library related commands.
+
+### Synopsis
+
+Ecosystem library related commands.
+
+Your organization pulls libraries from its default repository: one URL per
+ecosystem, such as https://libraries.cgr.dev/javascript/. Creating named
+repositories does not change those URLs. A named repository has its own URL
+for each ecosystem and its own upstream fallback setting; see
+"chainctl libraries repos --help".
 
 ### Options inherited from parent commands
 
@@ -37,6 +47,7 @@ Ecosystem library related commands.
 * [chainctl libraries packages](/platform/chainctl/chainctl-docs/chainctl_libraries_packages/)	 - Inspect Libraries packages.
 * [chainctl libraries policy](/platform/chainctl/chainctl-docs/chainctl_libraries_policy/)	 - Manage Libraries policies.
 * [chainctl libraries remediate](/platform/chainctl/chainctl-docs/chainctl_libraries_remediate/)	 - Discover and apply Chainguard -cgr.N CVE remediations for a JavaScript project
+* [chainctl libraries repos](/platform/chainctl/chainctl-docs/chainctl_libraries_repos/)	 - Manage Libraries repositories.
 * [chainctl libraries storage](/platform/chainctl/chainctl-docs/chainctl_libraries_storage/)	 - Show the storage your organization's uploads use in Libraries.
 * [chainctl libraries update-hashes](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/)	 - Update lockfile integrity hashes with Chainguard Libraries checksums
 * [chainctl libraries verify](/platform/chainctl/chainctl-docs/chainctl_libraries_verify/)	 - A tool to analyze the use of Chainguard Libraries in various artifacts

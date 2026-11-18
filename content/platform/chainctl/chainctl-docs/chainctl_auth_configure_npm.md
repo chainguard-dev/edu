@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl auth configure npm"
 slug: chainctl_auth_configure_npm
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_npm/
@@ -29,6 +29,13 @@ auth credentials. Each run creates a new pull token. A Starter organization
 holds at most 5 unexpired pull tokens, and each run with --pull-token uses
 one until it expires; "chainctl auth pull-token list" shows them.
 
+With --repo-name, it points npm at a Libraries repository's URL instead of the
+organization's default repository. Pass ORG/REPO, or the repository name alone
+with --parent. A pull token created with --parent ORG/REPO pulls only from
+that repository's URL, never from the default repository or another
+repository. Run without --repo-name, the command keeps a repository URL that
+is already in .npmrc.
+
 ```
 chainctl auth configure npm [flags]
 ```
@@ -40,10 +47,16 @@ chainctl auth configure npm [flags]
   chainctl auth configure npm
   
   # Configure npm with a long-lived pull token for your organization.
-  chainctl auth configure npm --pull-token --parent=my-org
+  chainctl auth configure npm --pull-token --parent=example.com
   
   # Configure npm with a pull token that lasts for 24 hours.
-  chainctl auth configure npm --pull-token --parent=my-org --ttl=24h
+  chainctl auth configure npm --pull-token --parent=example.com --ttl=24h
+  
+  # Point npm at the repository prod of example.com, with a pull token that pulls only from it.
+  chainctl auth configure npm --parent=example.com/prod
+  
+  # Point npm at the repository prod of example.com with your current session's token.
+  chainctl auth configure npm --repo-name=example.com/prod
 ```
 
 ### Options
@@ -55,8 +68,9 @@ chainctl auth configure npm [flags]
       --identity-token string      Use an explicit passed identity token or token path.
       --name string                Optional name for the pull token. (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
-      --parent string              The IAM organization or folder with which the pull-token identity is associated.
+      --parent string              Name or UIDP of the organization the pull token belongs to. Pass ORG/REPO, such as example.com/prod, for a token that pulls only from one Libraries repository.
       --pull-token                 Whether to create a pull token for npm authentication. Setting --parent, --ttl or --name implies it.
+      --repo-name string           The Libraries repository to point npm at, instead of the organization's default repository: ORG/REPO, such as example.com/prod, or the repository name alone with --parent.
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --sts-http1-downgrade        Downgrade STS requests to HTTP/1.x
       --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)

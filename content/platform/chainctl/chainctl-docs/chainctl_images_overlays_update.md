@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl images overlays update"
 slug: chainctl_images_overlays_update
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_update/
@@ -21,7 +21,9 @@ Update a Custom Assembly overlay's name, configuration, or both.
 not merge with it. The --with-* flags merge into that replacement when
 --package or --file is also given; passed alone, they merge into the
 stored configuration instead, as "chainctl images repos build edit"
-merges them into a repo's current build config. Repos the overlay is
+merges them into a repo's current build config. Add
+--replace-certificates to have --with-certificates replace the stored
+custom certificates instead of appending to them. Repos the overlay is
 attached to are rebuilt with the new configuration. An update that would
 conflict with another overlay attached to the same tags is rejected.
 
@@ -40,6 +42,9 @@ chainctl images overlays update <UID|NAME> [flags]
 
   # Add custom CA certificates to an overlay's stored configuration
   chainctl images overlays update my-overlay --with-certificates ca-bundle.pem
+
+  # Replace an overlay's stored custom CA certificates with a new bundle
+  chainctl images overlays update my-overlay --with-certificates ca-bundle.pem --replace-certificates
 ```
 
 ### Options
@@ -48,6 +53,7 @@ chainctl images overlays update <UID|NAME> [flags]
   -f, --file chainctl images repos build    The name of the YAML file containing the overlay configuration, the same shape chainctl images repos build accepts. Replaces the stored config wholesale and takes precedence over --package.
       --name string                         New overlay name.
       --package strings                     Package to include (repeatable). Declares the FULL replacement set; the stored config is replaced wholesale.
+      --replace-certificates                Replace the stored custom certificates with the --with-certificates bundle instead of appending to them.
       --with-certificates strings           Comma separated list of files to read the custom certificates from.
       --with-runtime-keys strings           Comma separated list of files to read customer APK signing public keys from. Each file becomes a key in /etc/apk/keys named after the file's basename, which must match the filename referenced by the repository's APKINDEX signature (.SIGN.RSA256.<name>).
       --with-runtime-repositories strings   Comma separated list of runtime APK repository URLs to write to /etc/apk/repositories in the image.

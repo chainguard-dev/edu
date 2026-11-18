@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl checks status"
 slug: chainctl_checks_status
 url: /platform/chainctl/chainctl-docs/chainctl_checks_status/
@@ -24,7 +24,9 @@ only when the fold is done and did not pass, so a failing advisory check is
 shown as "(advisory)" and does not fail it. A Run still executing exits 0;
 pass --watch to wait for it to finish. A commit or pull request the platform
 created no Run for has no platform verdict, and status says so and exits 2: a
-Run a client created without an event is never its verdict. A check that runs only on request is
+Run a client created without an event is never its verdict. For a pull request
+or a checkout, it also lists what in the repository's Checks setup stops its
+Runs, and how to fix each. A check that runs only on request is
 shown with the pull request label that requests it, and the weakenings of
 base checks the change defers until after merge are listed under the table.
 When the Run's GitHub check completed with no Run in place of its result (a

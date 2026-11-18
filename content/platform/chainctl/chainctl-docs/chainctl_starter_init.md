@@ -1,5 +1,5 @@
 ---
-date: 2026-11-12T21:48:09Z
+date: 2026-11-17T20:29:50Z
 title: "chainctl starter init"
 slug: chainctl_starter_init
 url: /platform/chainctl/chainctl-docs/chainctl_starter_init/
@@ -76,6 +76,8 @@ Exit codes:
        organization was created also exits 7.
     8  The browser sign-in wasn't finished within 5 minutes. Run the same
        command again; the JSON's next field names it.
+    9  Self-serve signup isn't available for your organization. Contact
+       Chainguard.
 
 Authentication requirements:
 
