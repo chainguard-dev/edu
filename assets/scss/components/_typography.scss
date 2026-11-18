@@ -232,7 +232,7 @@ pre {
     }
 }
 
-// Placeholders that writers mark as <^>NAME<^>, in inline code and code blocks.
+// Placeholders that writers mark as [[NAME]], in inline code and code blocks.
 // Refer to layouts/partials/placeholders/render.html. The class isn't
 // .placeholder, because Bootstrap uses that name for loading skeletons.
 var.code-placeholder {

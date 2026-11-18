@@ -49,7 +49,7 @@ Every `chainctl develop` command accepts the following flags:
 
 ## Session arguments
 
-Commands that take a `<^>SESSION<^>` argument accept any of the following:
+Commands that take a `[[SESSION]]` argument accept any of the following:
 
 - The session's name, such as `app/quiet-harbor`, or the name with the repository's GitHub owner in front, such as `acme/app/quiet-harbor`, as `chainctl develop list` shows it.
 - The session's short ID, such as `3f9a2c1e`.
@@ -62,7 +62,7 @@ If several of your sessions match, `chainctl` asks which one you mean, or lists 
 Opens a session and attaches your terminal to its shell. If one of your sessions already matches the argument, `chainctl develop` returns to it instead, resuming it first if it's parked.
 
 ```
-chainctl develop [<^>DIR<^>|<^>REPO<^>|<^>SESSION<^>] [flags]
+chainctl develop [[[DIR]]|[[REPO]]|[[SESSION]]] [flags]
 ```
 
 The argument is a directory, a repository URL, or a session. Without one, `chainctl develop` uses the current directory. Refer to [How chainctl develop chooses a session](/chainguard/workspaces/manage-sessions/#how-chainctl-develop-chooses-a-session) for what each one opens.
@@ -108,7 +108,7 @@ For example output, refer to [List sessions](/chainguard/workspaces/manage-sessi
 Replaces the second part of a session's name. The repository part stays the same. Alias: `mv`.
 
 ```
-chainctl develop rename <^>SESSION<^> <^>NAME<^> [-o json]
+chainctl develop rename [[SESSION]] [[NAME]] [-o json]
 ```
 
 This example renames `app/quiet-harbor` to `app/tests`:
@@ -122,7 +122,7 @@ chainctl develop rename app/quiet-harbor tests
 Destroys a session's VM and its snapshot, after asking you to confirm. Anything in the session that you didn't push is lost. For an expired session, the command removes it from `chainctl develop list --expired` and frees its name. Alias: `rm`.
 
 ```
-chainctl develop delete <^>SESSION<^> [--yes] [-o json]
+chainctl develop delete [[SESSION]] [--yes] [-o json]
 ```
 
 | Flag | Description |
@@ -140,7 +140,7 @@ chainctl develop delete app/scratch --yes
 Runs the checks in a session's working tree, in the session's own environment, and streams each step's output to your terminal. If the session is parked, `chainctl` resumes it first. The command uses the same runner as the `run-ci` command in a session.
 
 ```
-chainctl develop check <^>SESSION<^> [--check <^>CHECK<^>] [-o json]
+chainctl develop check [[SESSION]] [--check [[CHECK]]] [-o json]
 ```
 
 | Flag | Description |
@@ -161,7 +161,7 @@ For which checks the command skips, and how its result compares with a pull requ
 Runs one command in a session, without a terminal, and exits with the command's exit code. If the session is parked, `chainctl` resumes it first.
 
 ```
-chainctl develop exec <^>SESSION<^> [-i] [--cwd <^>DIR<^>] [--timeout <^>DURATION<^>] -- <^>CMD<^> [<^>ARGS<^>...]
+chainctl develop exec [[SESSION]] [-i] [--cwd [[DIR]]] [--timeout [[DURATION]]] -- [[CMD]] [[[ARGS]]...]
 ```
 
 The command runs as you give it, without a shell, so for pipes or other shell syntax, run `sh -c '...'`. Its standard output and standard error reach your terminal unchanged. For a session opened from a local directory, attach to it once before you use `exec`, so that its files are synced.
@@ -207,7 +207,7 @@ Each tool takes a session, by name or short ID, and finds it as other `chainctl 
 Shows what a session can reach, or changes it.
 
 ```
-chainctl develop creds <^>SESSION<^> [--revoke <^>ENTRY<^>]... [--source <^>SERVICE<^>=<^>SOURCE<^>]... [--forget] [-o json|table]
+chainctl develop creds [[SESSION]] [--revoke [[ENTRY]]]... [--source [[SERVICE]]=[[SOURCE]]]... [--forget] [-o json|table]
 ```
 
 Without flags, the command lists each service's source and bindings, what your laptop remembers approving, what serves the session's laptop credentials right now, and the latest changes to the session's credentials.
@@ -218,7 +218,7 @@ Without flags, the command lists each service's source and bindings, what your l
 | `--source` | Sets where a service's credential comes from: `laptop`, `org`, `owner`, or `off`. Repeatable. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
-To add access, run `chainctl develop <^>SESSION<^> --with <^>ENTRY<^>` instead. Refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) for the entries and sources that each service takes.
+To add access, run `chainctl develop [[SESSION]] --with [[ENTRY]]` instead. Refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) for the entries and sources that each service takes.
 
 This example takes back a session's access to `cgr.dev`:
 
@@ -231,7 +231,7 @@ chainctl develop creds app/quiet-harbor --revoke cgr.dev
 Connects your GitHub account so that the sessions you create act on GitHub as you, through the Chainguard Develop GitHub App. Refer to [Let sessions act on GitHub as you](/chainguard/workspaces/github-as-you/).
 
 ```
-chainctl develop github login [--port <^>PORT<^>] [-o json]
+chainctl develop github login [--port [[PORT]]] [-o json]
 chainctl develop github logout
 chainctl develop github status [-o json|table]
 ```
@@ -280,7 +280,7 @@ chainctl develop policy set --org-github session
 Signs you in, creates a Chainguard Starter organization or picks one you belong to, and turns on Chainguard Checks and Chainguard Workspaces with a free monthly allowance. Run it in an interactive terminal.
 
 ```
-chainctl develop init [--parent <^>ORGANIZATION<^>] [--github-org <^>ACCOUNT<^>] [--name <^>NAME<^>] [--port <^>PORT<^>]
+chainctl develop init [--parent [[ORGANIZATION]]] [--github-org [[ACCOUNT]]] [--name [[NAME]]] [--port [[PORT]]]
 ```
 
 | Flag | Description |
@@ -299,14 +299,14 @@ For what the command asks as it runs, refer to [Sign up with chainctl develop in
 Accepts the Secured Platform Terms and the Master Service and License Agreement (MSLA) for an organization. Chainguard Workspaces refuses to open sessions in an organization until it accepts them. Someone with the `owner` or `limited_owner` role runs the command once, and running it again changes nothing.
 
 ```
-chainctl develop accept-terms [--parent <^>ORGANIZATION<^>] [--yes]
+chainctl develop accept-terms [--parent [[ORGANIZATION]]] [--yes]
 ```
 
 | Flag | Description |
 | ---- | ----------- |
 | `--yes` | Accepts the terms without asking, such as where no interactive terminal is available. Passing it means you agree to the statement in `chainctl develop accept-terms --help`, which the command also prints. |
 
-An organization that already has Workspaces through your Chainguard account team must accept the terms before anyone can open new sessions in it. Running `chainctl develop init --parent <^>ORGANIZATION<^>` accepts them, turns on Checks, and keeps the allowance your account team arranged. To accept only the Workspaces terms, run `chainctl develop accept-terms` instead:
+An organization that already has Workspaces through your Chainguard account team must accept the terms before anyone can open new sessions in it. Running `chainctl develop init --parent [[ORGANIZATION]]` accepts them, turns on Checks, and keeps the allowance your account team arranged. To accept only the Workspaces terms, run `chainctl develop accept-terms` instead:
 
 ```shell
 chainctl develop accept-terms

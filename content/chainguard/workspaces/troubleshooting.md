@@ -28,12 +28,12 @@ If `chainctl` reports that `develop` is an unknown command, or doesn't recognize
 
 ## chainctl develop init fails {#chainctl-develop-init-fails}
 
-If `chainctl develop init` stops with an error, find its message in the following list. Replace `<^>ORGANIZATION<^>` with the name of your Chainguard organization.
+If `chainctl develop init` stops with an error, find its message in the following list. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization.
 
 - `this identity is not eligible for a self-serve Starter organization`: run `chainctl develop init` again and, in your browser, sign in with Google, GitHub, GitLab, or an email address and password, using a verified email address. To sign in with a password, first run `chainctl config set default.social-login email`, as described in [Sign up with chainctl develop init](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init). If you already signed in one of those ways, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `unable to create self-serve organization`: most often, your email domain already has a Chainguard organization. Ask one of its owners to invite you. If that organization is on the Starter or Team plan, you can also run `chainctl starter request-access`, which emails your request to everyone with the `owner` or `limited_owner` role in it. The link in that email invites you with the `viewer` role, which can't open sessions, so to use Chainguard Workspaces, ask for an invite with a role that can, as described in [Give teammates access](/get-started/checks-and-workspaces/set-up/#give-teammates-access).
-- `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent <^>ORGANIZATION<^>`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
-- `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent <^>ORGANIZATION<^>`.
+- `you belong to several organizations, or none on the Starter or Team plan`, or `you already belong to an organization`: run the command again with `--parent [[ORGANIZATION]]`, and without `--name`, to choose the organization where you turn on Checks and Workspaces.
+- `missing: terms.accept`: turning on Checks and Workspaces takes the `terms.accept` capability, which the `owner` and `limited_owner` roles have. Ask someone with one of those roles to run `chainctl develop init --parent [[ORGANIZATION]]`.
 - `creating a Starter organization asks a few questions about you`, or `accepting the required legal agreements needs an interactive terminal`: run the command in an interactive terminal, without `--non-interactive`.
 - `This organization can't use self-serve Checks and Workspaces`, or `Checks and Workspaces were turned off for this organization`: [contact Chainguard](https://www.chainguard.dev/contact?utm=docs).
 - `you must own the GitHub account (organization or user)`: link your own GitHub user, or a GitHub organization where you're an owner.
@@ -43,8 +43,8 @@ If `chainctl develop init` stops with an error, find its message in the followin
 If `chainctl develop init` fails with a message that says the GitHub account or organization you chose is `already linked` to another Chainguard organization, you can't link it until that link is removed, because a GitHub account can be linked to only one Chainguard organization at a time. In an interactive terminal, `chainctl develop init` names the account and asks for a different one to link. To keep that account linked where it is, or outside an interactive terminal, do one of the following:
 
 - Run `chainctl develop init` again and link a different GitHub account. The command uses the organization it already created.
-- Use the organization that holds the link instead. Have one of its owners run `chainctl develop init --parent <^>ORGANIZATION<^>`, replacing `<^>ORGANIZATION<^>` with that organization's name.
-- If you own the GitHub account, unlink it from the other organization with `chainctl guardener github unlink --github-org <^>GITHUB_ACCOUNT<^>`, replacing `<^>GITHUB_ACCOUNT<^>` with the account's name, and then run `chainctl develop init` again. Unlinking stops Guardener for that account in the other organization.
+- Use the organization that holds the link instead. Have one of its owners run `chainctl develop init --parent [[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with that organization's name.
+- If you own the GitHub account, unlink it from the other organization with `chainctl guardener github unlink --github-org [[GITHUB_ACCOUNT]]`, replacing `[[GITHUB_ACCOUNT]]` with the account's name, and then run `chainctl develop init` again. Unlinking stops Guardener for that account in the other organization.
 
 For more about links, refer to [Managing Chainguard App connections](/chainguard/guardener/github/app-connections/#moving-a-github-organization-to-a-different-chainguard-organization).
 
@@ -56,10 +56,10 @@ The `chainctl develop list --all` and `chainctl develop policy set` commands nee
 
 ## Your organization isn't entitled to Chainguard Workspaces {#your-organization-isnt-entitled-to-chainguard-workspaces}
 
-If `chainctl develop` fails with a `PermissionDenied` error that says `this organization is not entitled to Chainguard Workspaces`, Checks and Workspaces aren't turned on for the organization. Have someone with the `owner` or `limited_owner` role turn them on with the following command, replacing `<^>ORGANIZATION<^>` with the name of your Chainguard organization:
+If `chainctl develop` fails with a `PermissionDenied` error that says `this organization is not entitled to Chainguard Workspaces`, Checks and Workspaces aren't turned on for the organization. Have someone with the `owner` or `limited_owner` role turn them on with the following command, replacing `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl develop init --parent <^>ORGANIZATION<^>
+chainctl develop init --parent [[ORGANIZATION]]
 ```
 
 If an owner turned them on a moment ago, wait a minute and try again.
@@ -145,10 +145,10 @@ If the error says that `claude in this session now uses` Vertex AI or the Anthro
 
 ### Claude is turned off for the session {#claude-is-turned-off-for-the-session}
 
-If the error says that `claude is turned off for this session`, the session's `claude` credential is turned off. Turn it back on with the command that the error names. Replace `<^>SESSION<^>` with the session's short ID, which the error includes:
+If the error says that `claude is turned off for this session`, the session's `claude` credential is turned off. Turn it back on with the command that the error names. Replace `[[SESSION]]` with the session's short ID, which the error includes:
 
 ```shell
-chainctl develop creds <^>SESSION<^> --source claude=laptop
+chainctl develop creds [[SESSION]] --source claude=laptop
 ```
 
 ### Your Claude login expired {#your-claude-login-expired}
@@ -163,10 +163,10 @@ If `chainctl` says `claude: nothing to send` when you attach, it found no Claude
 
 If Claude Code in the session reports that `claude in this session uses its owner's Claude login held by Chainguard, and none is usable now`, or `chainctl` says when you attach that `your Claude login held by Chainguard no longer works`, the login that Chainguard held for you ended, or you ran `chainctl develop claude logout`. Run `chainctl develop claude login`, and then attach to the session again.
 
-To use your laptop's credential in the session instead, switch its source to `laptop`. Replace `<^>SESSION<^>` with the session's short ID, which the error includes:
+To use your laptop's credential in the session instead, switch its source to `laptop`. Replace `[[SESSION]]` with the session's short ID, which the error includes:
 
 ```shell
-chainctl develop creds <^>SESSION<^> --source claude=laptop
+chainctl develop creds [[SESSION]] --source claude=laptop
 ```
 
 ### chainctl develop claude login fails {#chainctl-develop-claude-login-fails}
@@ -183,10 +183,10 @@ If `claude` isn't found in the session, the session's environment doesn't list i
 
 ## A push or fetch fails in the session {#a-push-or-fetch-fails-in-the-session}
 
-If `git push` or `git fetch` fails with a message that the org GitHub App can't serve the repository because it's not installed or not linked, the Chainguard App isn't installed on the GitHub account that owns the repository, or that account isn't linked to your organization. Install the app from the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new), selecting every account you work in. Then allow the repository, replacing `<^>OWNER<^>` and `<^>REPO<^>` with its owner and name:
+If `git push` or `git fetch` fails with a message that the org GitHub App can't serve the repository because it's not installed or not linked, the Chainguard App isn't installed on the GitHub account that owns the repository, or that account isn't linked to your organization. Install the app from the [Chainguard App installation page](https://github.com/apps/chainguard/installations/new), selecting every account you work in. Then allow the repository, replacing `[[OWNER]]` and `[[REPO]]` with its owner and name:
 
 ```shell
-chainctl develop --with github:<^>OWNER<^>/<^>REPO<^>
+chainctl develop --with github:[[OWNER]]/[[REPO]]
 ```
 
 If the message says the request isn't allowed for the session yet, that the session owner declined it, or that nobody answered within 60 seconds, the session asked for access beyond its defaults and nobody approved it. Approve it on your attached terminal when the prompt appears, or allow it ahead of time with `--with`. Refer to [Manage session credentials](/chainguard/workspaces/credentials/).
@@ -197,18 +197,18 @@ Pushing from the session over SSH doesn't work. The session rewrites only `https
 
 Commits that you make in a session aren't signed. If a GitHub rule requires signed commits on the branch that you push to, GitHub rejects the push. To get the commits onto that branch, push them to a branch that the rule doesn't cover, sign them on your laptop, and then merge them as you usually do:
 
-1. In the session, create a branch and push it, replacing `<^>BRANCH<^>` with a name that the rule doesn't cover:
+1. In the session, create a branch and push it, replacing `[[BRANCH]]` with a name that the rule doesn't cover:
 
    ```shell
-   git switch -c <^>BRANCH<^>
-   git push origin <^>BRANCH<^>
+   git switch -c [[BRANCH]]
+   git push origin [[BRANCH]]
    ```
 
 2. On your laptop, check out the branch, sign each of its commits, and push it again. If the session started from a branch other than `main`, replace `main` with that branch's name:
 
    ```shell
    git fetch origin
-   git switch <^>BRANCH<^>
+   git switch [[BRANCH]]
    git rebase --exec 'git commit --amend --no-edit -S' origin/main
    git push --force-with-lease
    ```
@@ -232,10 +232,10 @@ When you open a session from a repository URL, Chainguard checks that your accou
 
 On a terminal, `chainctl` offers to open the page where you make the fix, waits for you to press `Enter`, and then tries to create the session again.
 
-A session that you open on a directory isn't checked when you create it. Instead, `git fetch` or `git push` fails in the session with a message that begins `GitHub refused the push` or `GitHub refused the fetch` and names the cause and the fix. The fix takes effect at once, so retry the command after you make it. You don't need a new session. To check from inside a session whether your account reaches a repository, run the following command, replacing `<^>OWNER<^>` and `<^>REPO<^>` with the repository's owner and name:
+A session that you open on a directory isn't checked when you create it. Instead, `git fetch` or `git push` fails in the session with a message that begins `GitHub refused the push` or `GitHub refused the fetch` and names the cause and the fix. The fix takes effect at once, so retry the command after you make it. You don't need a new session. To check from inside a session whether your account reaches a repository, run the following command, replacing `[[OWNER]]` and `[[REPO]]` with the repository's owner and name:
 
 ```shell
-curl -s "http://github/.chainguard/access?repo=<^>OWNER<^>/<^>REPO<^>"
+curl -s "http://github/.chainguard/access?repo=[[OWNER]]/[[REPO]]"
 ```
 
 On your laptop, `chainctl develop github status` shows which accounts the checkout in your current directory still needs the app installed on.

@@ -27,7 +27,7 @@ hljs.registerLanguage("php", php);
 hljs.registerLanguage("python", python);
 hljs.registerLanguage("go", go);
 
-// Placeholders: Hugo renders <^>NAME<^> as <var class="code-placeholder">NAME</var>
+// Placeholders: Hugo renders [[NAME]] as <var class="code-placeholder">NAME</var>
 // (layouts/partials/placeholders/render.html). highlightElement() rebuilds a
 // block from its text, which drops those elements, so this plugin swaps each
 // one for sentinel characters before highlighting and wraps the text between

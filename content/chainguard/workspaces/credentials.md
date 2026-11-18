@@ -73,9 +73,9 @@ The `--with` flag accepts the following entries:
 
 | Entry | What it does |
 | ----- | ------------ |
-| `github:<^>OWNER<^>/<^>REPO<^>` | Allows fetching another repository. |
-| `github:<^>OWNER<^>/<^>REPO<^>+push` | Allows fetching and pushing to another repository. |
-| `github:<^>OWNER<^>/*` | Allows fetching every repository of a GitHub account or organization. |
+| `github:[[OWNER]]/[[REPO]]` | Allows fetching another repository. |
+| `github:[[OWNER]]/[[REPO]]+push` | Allows fetching and pushing to another repository. |
+| `github:[[OWNER]]/*` | Allows fetching every repository of a GitHub account or organization. |
 | `github:*` | Allows fetching any GitHub repository. |
 | `claude`, `chainguard` | Turns a default service back on. |
 | `cgr.dev` | Pulls from `cgr.dev` as you, with your laptop's `cgr.dev` login. |
@@ -136,8 +136,8 @@ To change a session's credentials, pass one or more of the following flags to `c
 
 | Flag | What it does |
 | ---- | ------------ |
-| `--revoke <^>ENTRY<^>` | Takes access back from the session and from your laptop's remembered approvals. `<^>ENTRY<^>` is `claude`, `cgr.dev`, `chainguard`, `github:<^>OWNER<^>/<^>REPO<^>`, or `github:<^>OWNER<^>/<^>REPO<^>+push`, which takes back only the push. |
-| `--source <^>SERVICE<^>=<^>SOURCE<^>` | Changes where a credential comes from. `<^>SOURCE<^>` is `laptop`, `org`, `owner`, or `off`. The `claude` service takes `laptop`, `owner`, or `off`, and takes `owner` only after you run `chainctl develop claude login` and only on a session that uses the Anthropic API. The `gcp` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
+| `--revoke [[ENTRY]]` | Takes access back from the session and from your laptop's remembered approvals. `[[ENTRY]]` is `claude`, `cgr.dev`, `chainguard`, `github:[[OWNER]]/[[REPO]]`, or `github:[[OWNER]]/[[REPO]]+push`, which takes back only the push. |
+| `--source [[SERVICE]]=[[SOURCE]]` | Changes where a credential comes from. `[[SOURCE]]` is `laptop`, `org`, `owner`, or `off`. The `claude` service takes `laptop`, `owner`, or `off`, and takes `owner` only after you run `chainctl develop claude login` and only on a session that uses the Anthropic API. The `gcp` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
 Changes to `github` have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
@@ -158,10 +158,10 @@ While you're attached, you can change a session's credentials without leaving it
 
 | Action | What it does |
 | ------ | ------------ |
-| **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:<^>OWNER<^>/<^>REPO<^>+push` or `cgr.dev`. |
+| **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:[[OWNER]]/[[REPO]]+push` or `cgr.dev`. |
 | **Revoke…** | Takes access back from the session and from your laptop's remembered approvals, as `chainctl develop creds --revoke` does. For `github`, you choose a repository, or only its push. |
 | **Set the source** | Changes where the credential comes from. For `claude` on the Anthropic API, you choose your laptop, your login held by Chainguard, or no credential. For `claude` on Vertex AI and for `gcp`, you choose your laptop or no credential. For `github` and `cgr.dev`, you choose your laptop, your organization, or no credential. For `chainguard`, you choose your delegated Chainguard identity, which you then approve with `y`, or no credential. |
-| **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `<^>CAP<^>[,<^>CAP<^>...] [in <^>GROUP<^>[,<^>GROUP<^>...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
+| **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `[[CAP]][,[[CAP]]...] [in [[GROUP]][,[[GROUP]]...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
 
 The `claude` screen also offers **Use Vertex AI…** or **Use Anthropic…**, as described in [Switch a session to another provider](/chainguard/workspaces/coding-agents/#switch-a-session-to-another-provider). For a session that acts on GitHub as you, the `github` screen shows your GitHub account and offers no actions. If the list has no `gcp`, the session can't use your Google Cloud credentials, as described in [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session).
 
