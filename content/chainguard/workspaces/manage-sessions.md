@@ -17,8 +17,6 @@ weight: 30
 
 A Chainguard Workspaces session lasts beyond a single terminal. You can detach from it and return later, keep it running while an agent works, run more than one terminal in it, copy text out of it, or open several sessions on the same repository. This page explains how to do each of these with `chainctl develop`.
 
-The examples on this page use `$ORGANIZATION` for the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
-
 ## How chainctl develop chooses a session {#how-chainctl-develop-chooses-a-session}
 
 The `chainctl develop` command takes one optional argument, which tells it what to open:
@@ -39,7 +37,7 @@ A session that you open on a directory is on one GitHub repository, and the sess
 To choose ahead of time, pass `--git-remote` with the name of a remote. This example opens a session on the repository that the `upstream` remote points to:
 
 ```shell
-chainctl develop --git-remote upstream --parent $ORGANIZATION
+chainctl develop --git-remote upstream
 ```
 
 If the directory's session is on a different repository than the remote you name, `chainctl develop` fails and tells you to add `--new`, as described in [Open more than one session](#open-more-than-one-session).
@@ -92,7 +90,7 @@ If your laptop sleeps or loses its network connection while you're attached, the
 To return to a session, run `chainctl develop` from the directory you opened it on, or pass the session's name or short ID from anywhere:
 
 ```shell
-chainctl develop app/quiet-harbor --parent $ORGANIZATION
+chainctl develop app/quiet-harbor
 ```
 
 If the session is parked, `chainctl` resumes it first, which usually takes a few seconds. If the session is still parking, such as right after you choose **Park now**, `chainctl` waits for the park to finish, as described in [Returning to a session takes several minutes](/chainguard/workspaces/troubleshooting/#returning-to-a-session-takes-several-minutes). The session's memory is restored along with its disk, so running processes, such as a build or an agent, continue where they stopped, and files in `/tmp`, which is held in memory, are still there.
@@ -121,7 +119,7 @@ To keep a session running whether or not it's busy, choose **Detach — keep run
 To decide ahead of time that a session keeps running when you detach, pass `--keep` with a duration of up to 24 hours when you open or return to it:
 
 ```shell
-chainctl develop --keep 8h --parent $ORGANIZATION
+chainctl develop --keep 8h
 ```
 
 With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**, and exiting the shell keeps the session running without asking. `chainctl` places the 8-hour hold when you attach as well as when you detach, so the hold applies while your laptop sleeps or is offline, counted from when you attached. If `chainctl` then exits without a detach, such as when it can't reconnect or another client takes over the session, it takes the hold back, and the session keeps running or parks as it would without `--keep`.
@@ -129,7 +127,7 @@ With `--keep 8h`, the menu's first option becomes **Detach — keep running 8h**
 For a long-running task, create a new session with `--keep always`. That session keeps running instead of parking when you detach, busy or not, until 7 days after you last detach from it:
 
 ```shell
-chainctl develop --keep always --name migration --parent $ORGANIZATION
+chainctl develop --keep always --name migration
 ```
 
 Because it doesn't park, a `--keep always` session can use up the monthly allowance in a few days. To stop it sooner, choose **Park now** in the session menu, or delete the session.
@@ -139,7 +137,7 @@ A session that you keep running still parks and resumes after 6 days, as describ
 To create a new session that parks about 10 minutes after you detach, busy or not, pass `--keep park`:
 
 ```shell
-chainctl develop --keep park --parent $ORGANIZATION
+chainctl develop --keep park
 ```
 
 Claude Code can keep working after you close the terminal. With a Claude login that Chainguard holds for you, it keeps working for as long as the session runs. Refer to [Keep Claude Code working while you're away](/chainguard/workspaces/coding-agents/#keep-claude-code-working-while-youre-away).
@@ -154,9 +152,9 @@ Work that waits without using the CPU or network, such as a script that waits on
 
 | Command | What it does |
 | ------- | ------------ |
-| `busy -- CMD [ARG...]` | Runs `CMD` and keeps the session busy until it exits. `busy` exits with `CMD`'s exit status. |
-| `busy --for DURATION [LABEL]` | Keeps the session busy for a duration, such as `90s`, `30m`, `2h`, or `1d`. |
-| `busy --clear [LABEL]` | Ends the `busy --for` hold with that label. |
+| `busy -- [[CMD]] [[[ARG]]...]` | Runs `[[CMD]]` and keeps the session busy until it exits. `busy` exits with `[[CMD]]`'s exit status. |
+| `busy --for [[DURATION]] [[[LABEL]]]` | Keeps the session busy for a duration, such as `90s`, `30m`, `2h`, or `1d`. |
+| `busy --clear [[[LABEL]]]` | Ends the `busy --for` hold with that label. |
 
 A label names a hold, so you can end one without the others. It has 1 to 32 lowercase letters, digits, and hyphens, and defaults to `busy`. For example, the following command keeps the session running until a release build finishes:
 
@@ -216,7 +214,7 @@ With the free monthly allowance, each user can have one session at a time, inclu
 If your organization's allowance includes more sessions, such as one arranged with your Chainguard account team, you can run several sessions on the same repository, for example to give each of several agents its own copy of the code. To open another session on a directory that already has one, pass `--new`, and optionally `--name` to choose the second part of its name:
 
 ```shell
-chainctl develop --new --name scratch --parent $ORGANIZATION
+chainctl develop --new --name scratch
 ```
 
 This command creates a session named `app/scratch`. Without `--name`, `chainctl` generates a name. Once a directory has several sessions, return to one by its name or short ID.
@@ -228,7 +226,7 @@ The `--name`, `--env`, `--check`, `--cache`, `--keep always`, and `--keep park` 
 To list your sessions, most recently used first, run `chainctl develop list`:
 
 ```shell
-chainctl develop list --parent $ORGANIZATION
+chainctl develop list
 ```
 
 The output shows each session's name, the branch checked out in it, its state, and when you last used it:
@@ -249,7 +247,7 @@ To list every user's sessions in the organization, with an `OWNER` column, pass 
 To rename a session, pass its current name or short ID and the new second part of its name. The repository part stays the same:
 
 ```shell
-chainctl develop rename app/quiet-harbor tests --parent $ORGANIZATION
+chainctl develop rename app/quiet-harbor tests
 ```
 
 This command renames the session to `app/tests`.
@@ -259,7 +257,7 @@ This command renames the session to `app/tests`.
 A parked session expires 5 days after it parks. Chainguard then discards its VM and snapshot, but the session stays in `chainctl develop list --expired`, and its name stays in use until you delete it. To delete a session, run `chainctl develop delete` with its name or short ID:
 
 ```shell
-chainctl develop delete app/scratch --parent $ORGANIZATION
+chainctl develop delete app/scratch
 ```
 
 The command asks you to confirm, then destroys the session's VM and its snapshot. Anything in the session that you didn't push is lost. To skip the confirmation, for example in a script, pass `--yes`.
@@ -271,7 +269,7 @@ To use `chainctl develop` without a terminal, for example from a script or a cod
 To create a session and print its details as JSON without attaching to it, pass `--output json`:
 
 ```shell
-chainctl develop --new --non-interactive --output json --parent $ORGANIZATION
+chainctl develop --new --non-interactive --output json
 ```
 
 The session's `/work` directory stays empty until you attach with `chainctl develop` from the same directory, which uploads it. Without a terminal, a session can't ask you to approve requests beyond its defaults, so it refuses them. To allow them ahead of time, pass `--with`, as described in [Manage session credentials](/chainguard/workspaces/credentials/).

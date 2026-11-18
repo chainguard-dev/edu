@@ -19,7 +19,7 @@
 {{ with .Description -}}
   <meta name="description" content="{{ . }}">
 {{ else -}}
-  {{ with .Summary | plainify -}}
+  {{ with partial "placeholders/strip.html" .Summary | plainify -}}
     <meta name="description" content="{{ . }}">
   {{ else -}}
     <meta name="description" content="{{ .Site.Params.description }}">

@@ -73,9 +73,9 @@ The `--with` flag accepts the following entries:
 
 | Entry | What it does |
 | ----- | ------------ |
-| `github:<owner>/<repo>` | Allows fetching another repository. |
-| `github:<owner>/<repo>+push` | Allows fetching and pushing to another repository. |
-| `github:<owner>/*` | Allows fetching every repository of a GitHub account or organization. |
+| `github:[[OWNER]]/[[REPO]]` | Allows fetching another repository. |
+| `github:[[OWNER]]/[[REPO]]+push` | Allows fetching and pushing to another repository. |
+| `github:[[OWNER]]/*` | Allows fetching every repository of a GitHub account or organization. |
 | `github:*` | Allows fetching any GitHub repository. |
 | `claude`, `chainguard` | Turns a default service back on. |
 | `cgr.dev` | Pulls from `cgr.dev` as you, with your laptop's `cgr.dev` login. |
@@ -86,7 +86,7 @@ The `--with` flag accepts the following entries:
 For example, this command lets the session push to a second repository, `acme/docs`, in addition to its own:
 
 ```shell
-chainctl develop --with github:acme/docs+push --parent $ORGANIZATION
+chainctl develop --with github:acme/docs+push
 ```
 
 Wildcard entries allow fetching only. To push to a repository, name it with `+push`. Under your organization's default GitHub policy, the Chainguard App doesn't serve wildcard entries, so they give access to public repositories only. To fetch a private repository, name it.
@@ -98,7 +98,7 @@ The `github` entries have no effect on a session that acts on GitHub as you, as 
 To let `gcloud` and the Google Cloud client libraries in a session act as you, run `gcloud auth application-default login` on your laptop. Then add `--with gcp` when you create a session or return to one. For example, this command turns on `gcp` for an existing session:
 
 ```shell
-chainctl develop app/quiet-harbor --with gcp --parent $ORGANIZATION
+chainctl develop app/quiet-harbor --with gcp
 ```
 
 While you're attached, you can also turn `gcp` on or off from the session menu: press `Ctrl+]`, choose **Credentials**, choose `gcp`, and then choose **Set the source**. The change can take up to 30 seconds to reach the session. If `chainctl` says that the session's guest `was booted without the wiring that lets it use your Google credentials`, or the **Credentials** screen has no `gcp`, the session was created before it could use your Google credentials, so it can't use them. Delete it and create a new one with `chainctl develop --new --with gcp`.
@@ -127,7 +127,7 @@ If you paste one of these credentials into a session, or sign in to a tool there
 To see what a session can reach, run `chainctl develop creds` with the session's name or short ID:
 
 ```shell
-chainctl develop creds app/quiet-harbor --parent $ORGANIZATION
+chainctl develop creds app/quiet-harbor
 ```
 
 The output lists each service with its source and any repositories bound to it, what your laptop remembers approving, whether a laptop is serving the session right now, and the most recent changes to the session's credentials.
@@ -136,8 +136,8 @@ To change a session's credentials, pass one or more of the following flags to `c
 
 | Flag | What it does |
 | ---- | ------------ |
-| `--revoke <entry>` | Takes access back from the session and from your laptop's remembered approvals. `<entry>` is `claude`, `cgr.dev`, `chainguard`, `github:<owner>/<repo>`, or `github:<owner>/<repo>+push`, which takes back only the push. |
-| `--source <service>=<source>` | Changes where a credential comes from. `<source>` is `laptop`, `org`, `owner`, or `off`. The `claude` service takes `laptop`, `owner`, or `off`, and takes `owner` only after you run `chainctl develop claude login` and only on a session that uses the Anthropic API. The `gcp` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
+| `--revoke [[ENTRY]]` | Takes access back from the session and from your laptop's remembered approvals. `[[ENTRY]]` is `claude`, `cgr.dev`, `chainguard`, `github:[[OWNER]]/[[REPO]]`, or `github:[[OWNER]]/[[REPO]]+push`, which takes back only the push. |
+| `--source [[SERVICE]]=[[SOURCE]]` | Changes where a credential comes from. `[[SOURCE]]` is `laptop`, `org`, `owner`, or `off`. The `claude` service takes `laptop`, `owner`, or `off`, and takes `owner` only after you run `chainctl develop claude login` and only on a session that uses the Anthropic API. The `gcp` service takes only `laptop` or `off`, and `chainguard` takes only `off`. To turn `chainguard` back on, use `--with chainguard`. |
 | `--forget` | Removes everything your laptop remembers for the session's repository, without changing the session. |
 
 Changes to `github` have no effect on a session that acts on GitHub as you, as described in [Controls that don't apply to a session that acts as you](/chainguard/workspaces/github-as-you/#controls-that-dont-apply-to-a-session-that-acts-as-you).
@@ -145,7 +145,7 @@ Changes to `github` have no effect on a session that acts on GitHub as you, as d
 For example, to let a session pull your organization's private images from `cgr.dev` as you, switch the `cgr.dev` credential to your laptop:
 
 ```shell
-chainctl develop creds app/quiet-harbor --source cgr.dev=laptop --parent $ORGANIZATION
+chainctl develop creds app/quiet-harbor --source cgr.dev=laptop
 ```
 
 Your laptop must have a `cgr.dev` login in its Docker credential helper, which you can set up as described in [Configure a Docker credential helper](/platform/chainctl-usage/how-to-install-chainctl/#configure-a-docker-credential-helper). The session can pull with it, but not push.
@@ -158,10 +158,10 @@ While you're attached, you can change a session's credentials without leaving it
 
 | Action | What it does |
 | ------ | ------------ |
-| **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:<owner>/<repo>+push` or `cgr.dev`. |
+| **Allow more…** | Adds access. It takes the same entries as `--with`, such as `github:[[OWNER]]/[[REPO]]+push` or `cgr.dev`. |
 | **Revoke…** | Takes access back from the session and from your laptop's remembered approvals, as `chainctl develop creds --revoke` does. For `github`, you choose a repository, or only its push. |
 | **Set the source** | Changes where the credential comes from. For `claude` on the Anthropic API, you choose your laptop, your login held by Chainguard, or no credential. For `claude` on Vertex AI and for `gcp`, you choose your laptop or no credential. For `github` and `cgr.dev`, you choose your laptop, your organization, or no credential. For `chainguard`, you choose your delegated Chainguard identity, which you then approve with `y`, or no credential. |
-| **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `CAP[,CAP...] [in GROUP[,GROUP...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
+| **Widen…** | Asks for more capabilities or groups for `chainguard`. Type them as `[[CAP]][,[[CAP]]...] [in [[GROUP]][,[[GROUP]]...]]`, and then press `y` to approve the wider scope, or `d` to approve only the default scope. |
 
 The `claude` screen also offers **Use Vertex AI…** or **Use Anthropic…**, as described in [Switch a session to another provider](/chainguard/workspaces/coding-agents/#switch-a-session-to-another-provider). For a session that acts on GitHub as you, the `github` screen shows your GitHub account and offers no actions. If the list has no `gcp`, the session can't use your Google Cloud credentials, as described in [Use your Google Cloud credentials in a session](#use-your-google-cloud-credentials-in-a-session).
 
@@ -172,7 +172,7 @@ When you attach, `chainctl` prints a line for each credential the session gets w
 Your organization's policy controls which repositories the Chainguard App serves to sessions. Any session owner can read it:
 
 ```shell
-chainctl develop policy describe --parent $ORGANIZATION
+chainctl develop policy describe
 ```
 
 To change the policy, you need permission to list every user's sessions in the organization, which the `owner` role includes. A Starter organization has no role that includes it, so its policy stays at the defaults. Pass one or more of the following flags to `chainctl develop policy set`:

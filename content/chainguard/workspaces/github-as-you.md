@@ -84,7 +84,7 @@ For a session that acts as you, `chainctl` doesn't ask you to approve GitHub req
 To ban sessions in an organization from acting as their owner, run the following command with the permissions described in [Set your organization's GitHub policy](/chainguard/workspaces/credentials/#set-your-organizations-github-policy):
 
 ```shell
-chainctl develop policy set --user-github=false --parent $ORGANIZATION
+chainctl develop policy set --user-github=false
 ```
 
-Replace `$ORGANIZATION` with the name of your Chainguard organization. New sessions in the organization then reach GitHub through their `github` source, as sessions do by default. Sessions that already act as their owner refuse GitHub requests while the ban is on. To lift the ban, set `--user-github=true`. Sessions created during the ban keep reaching GitHub through their `github` source after you lift it.
+New sessions in the organization then reach GitHub through their `github` source, as sessions do by default. Sessions that already act as their owner refuse GitHub requests while the ban is on. To lift the ban, set `--user-github=true`. Sessions created during the ban keep reaching GitHub through their `github` source after you lift it.

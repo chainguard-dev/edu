@@ -66,14 +66,12 @@ Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/ge
 
 ### Step 2: Open a session
 
-Change to your repository's directory, then run `chainctl develop`. Replace `$REPO_DIR` with the path to your local clone, and `$ORGANIZATION` with the name of your Chainguard organization:
+Change to your repository's directory, then run `chainctl develop`. Replace `[[REPO_DIR]]` with the path to your local clone:
 
 ```shell
-cd $REPO_DIR
-chainctl develop --parent $ORGANIZATION
+cd [[REPO_DIR]]
+chainctl develop
 ```
-
-If you belong to only one Chainguard organization, you can omit `--parent`.
 
 The first time you run the command in a directory, `chainctl` creates a session, syncs your directory into it, and attaches your terminal to a shell in the session. The session gets a name made of the repository name and two generated words, such as `app/quiet-harbor`, and a short ID, such as `3f9a2c1e`.
 
@@ -112,7 +110,7 @@ To detach, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to
 To return, run `chainctl develop` again from the same directory:
 
 ```shell
-chainctl develop --parent $ORGANIZATION
+chainctl develop
 ```
 
 Because the directory has exactly one session, `chainctl` reattaches to it, resuming it first if it parked. Your files, running processes, and shell are as you left them.
@@ -124,13 +122,13 @@ Your directory syncs into the session only the first time you attach. Changes yo
 A parked session expires 5 days after it parks, and until then it counts toward your session limit. With the free monthly allowance, you can have one session at a time, so delete it when you're done. First, list your sessions to find its name:
 
 ```shell
-chainctl develop list --parent $ORGANIZATION
+chainctl develop list
 ```
 
 Then delete the session by name. This example deletes `app/quiet-harbor`:
 
 ```shell
-chainctl develop delete app/quiet-harbor --parent $ORGANIZATION
+chainctl develop delete app/quiet-harbor
 ```
 
 The `delete` command asks you to confirm, then destroys the session's VM and its snapshot. Anything you didn't push is gone.

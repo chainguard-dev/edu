@@ -1,0 +1,12 @@
+{{- /*
+Renders placeholder markers as styled <var> elements.
+
+Writers mark a placeholder as [[NAME]] in prose, inline code, or code
+blocks. NAME is uppercase letters, digits, and underscores, such as
+[[ORGANIZATION]] or [[IDENTITY_ID]]. Requiring that form keeps the pattern
+clear of TOML table headers like [[tool.uv.index]] and bash tests like
+[[ -n $VAR ]].
+
+Usage: {{ partial "placeholders/render.html" .Content }}
+*/ -}}
+{{- return (replaceRE `\[\[([A-Z][A-Z0-9_]*)\]\]` `<var class="code-placeholder">$1</var>` . | safeHTML) -}}
