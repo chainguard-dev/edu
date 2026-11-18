@@ -27,14 +27,14 @@ hljs.registerLanguage("php", php);
 hljs.registerLanguage("python", python);
 hljs.registerLanguage("go", go);
 
-// Placeholders: Hugo renders <^>NAME<^> as <var class="placeholder">NAME</var>
+// Placeholders: Hugo renders <^>NAME<^> as <var class="code-placeholder">NAME</var>
 // (layouts/partials/placeholders/render.html). highlightElement() rebuilds a
 // block from its text, which drops those elements, so this plugin swaps each
 // one for sentinel characters before highlighting and wraps the text between
 // them in a new <var> afterward. The sentinels are Unicode private-use
 // characters, which don't appear in code samples.
-const PLACEHOLDER_START = "";
-const PLACEHOLDER_END = "";
+const PLACEHOLDER_START = "\uE000";
+const PLACEHOLDER_END = "\uE001";
 
 function restorePlaceholders(el) {
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
@@ -65,7 +65,7 @@ function restorePlaceholders(el) {
     range.setStart(start.node, start.offset + 1);
     range.setEnd(end.node, end.offset);
     const placeholder = document.createElement("var");
-    placeholder.className = "placeholder";
+    placeholder.className = "code-placeholder";
     placeholder.append(range.extractContents());
     range.insertNode(placeholder);
     start.node.deleteData(start.offset, 1);
@@ -78,7 +78,7 @@ hljs.addPlugin({
     // the after hook doesn't run for it, so leave those blocks as Hugo
     // rendered them.
     if (language && !hljs.getLanguage(language)) return;
-    el.querySelectorAll("var.placeholder").forEach((placeholder) => {
+    el.querySelectorAll("var.code-placeholder").forEach((placeholder) => {
       placeholder.replaceWith(PLACEHOLDER_START + placeholder.textContent + PLACEHOLDER_END);
     });
   },

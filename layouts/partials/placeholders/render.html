@@ -9,4 +9,4 @@ Usage: {{ partial "placeholders/render.html" .Content }}
 */ -}}
 {{- $marker := `(?:&lt;|<)\^(?:&gt;|>)` -}}
 {{- $pattern := printf `%s(.+?)%s` $marker $marker -}}
-{{- return (replaceRE $pattern `<var class="placeholder">$1</var>` . | safeHTML) -}}
+{{- return (replaceRE $pattern `<var class="code-placeholder">$1</var>` . | safeHTML) -}}
