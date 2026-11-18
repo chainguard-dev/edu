@@ -46,10 +46,10 @@ If Claude Code in the session reports that the token sent to the session expired
 
 ## Use Claude through Vertex AI {#use-claude-through-vertex-ai}
 
-To use Vertex AI, set your Google Cloud project in `chainctl`. You don't need to change your Claude Code settings. Replace `GCP_PROJECT` with your Google Cloud project ID:
+To use Vertex AI, set your Google Cloud project in `chainctl`. You don't need to change your Claude Code settings. Replace `<^>GCP_PROJECT<^>` with your Google Cloud project ID:
 
 ```shell
-chainctl config set develop.vertex.project GCP_PROJECT
+chainctl config set develop.vertex.project <^>GCP_PROJECT<^>
 ```
 
 New sessions then use Vertex AI in that project, as described in [How a session chooses its provider](#how-a-session-chooses-its-provider). The region defaults to `global`. To use another region, set `develop.vertex.region` the same way.
@@ -193,7 +193,7 @@ Chainguard sends the session's host short-lived access tokens from the login whe
 - A session that uses your laptop's credential by default switches to the login the next time you attach. A session whose `claude` source you set yourself keeps that source.
 - A session that uses Vertex AI never uses the login.
 
-When you attach to a session that uses the login, `chainctl` prints `claude: served from your Claude login held by Chainguard (EMAIL), attached or not`, where `EMAIL` is your Claude account's email address.
+When you attach to a session that uses the login, `chainctl` prints `claude: served from your Claude login held by Chainguard (<^>EMAIL<^>), attached or not`, where `<^>EMAIL<^>` is your Claude account's email address.
 
 If Chainguard holds no Claude login that works for you, and you attach to a session that uses the Claude login stored on your laptop, `chainctl` asks whether to let Chainguard hold one. Answer `y` to log in. If you answer `n`, `chainctl` doesn't ask again on that laptop. Without a terminal, it prints a reminder to run `chainctl develop claude login` instead.
 

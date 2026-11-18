@@ -152,9 +152,9 @@ Work that waits without using the CPU or network, such as a script that waits on
 
 | Command | What it does |
 | ------- | ------------ |
-| `busy -- CMD [ARG...]` | Runs `CMD` and keeps the session busy until it exits. `busy` exits with `CMD`'s exit status. |
-| `busy --for DURATION [LABEL]` | Keeps the session busy for a duration, such as `90s`, `30m`, `2h`, or `1d`. |
-| `busy --clear [LABEL]` | Ends the `busy --for` hold with that label. |
+| `busy -- <^>CMD<^> [<^>ARG<^>...]` | Runs `<^>CMD<^>` and keeps the session busy until it exits. `busy` exits with `<^>CMD<^>`'s exit status. |
+| `busy --for <^>DURATION<^> [<^>LABEL<^>]` | Keeps the session busy for a duration, such as `90s`, `30m`, `2h`, or `1d`. |
+| `busy --clear [<^>LABEL<^>]` | Ends the `busy --for` hold with that label. |
 
 A label names a hold, so you can end one without the others. It has 1 to 32 lowercase letters, digits, and hyphens, and defaults to `busy`. For example, the following command keeps the session running until a release build finishes:
 
