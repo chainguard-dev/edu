@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-11-17 02:15:08_
+_Compiled on: 2026-11-18 02:14:42_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -247,6 +247,88 @@ _Path: chainguard/changelog.md_
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-16
+
+{{< changelog-label "Product Announcements" >}}
+
+### Project Theseus
+
+_Launched November 13, 2026._
+
+Project Theseus is a new Chainguard initiative to rebuild the core components of open source and eliminate entire classes of bugs, rather than patching the same kinds of vulnerabilities again and again. It's an experiment and a set of public repositories:
+
+- Each component's source is public on GitHub from the day Chainguard announces it.
+- Conformance results and performance comparisons follow as they're ready, along with formal proofs for the most critical pieces.
+- Chainguard's catalog of production images, and the packages behind them, shapes each component's design and serves as its test bed.
+
+The first component is [challoc](https://github.com/chainguard-dev/challoc), a memory allocator written in Rust, built to replace glibc malloc, jemalloc, tcmalloc, and mimalloc. Chainguard images don't change. For details, read [Introducing Project Theseus, starting with challoc](https://www.chainguard.dev/unchained/introducing-project-theseus-starting-with-challoc).
+
+### Athena's second wave of vulnerability disclosures
+
+_Launched November 12, 2026._
+
+Athena disclosed 12 more silent vulnerabilities, which upstream projects fixed without saying so. All 12 are in Java projects, across nine libraries, and two are critical authentication bypasses. Chainguard Libraries customers can get remediated versions from Chainguard Repository, published at the same time as the advisories:
+
+- Each advisory is in Chainguard's free, public VEX feed, with affected versions listed.
+- Each remediated version keeps the package coordinates your application already uses and adds a Chainguard version qualifier (`-0cgr.n`), so adopting it takes a lockfile change and a rebuild.
+
+For the full list, read [Athena's second wave](https://www.chainguard.dev/unchained/athenas-second-wave).
+
+### Chainguard Starter and Chainguard Team self-serve plans
+
+_Launched November 10, 2026._
+
+You can now sign up for Chainguard and start pulling images without talking to sales:
+
+- **Chainguard Starter** is free and needs no credit card. It gives a small team access to Chainguard Containers, Chainguard Libraries, and other Chainguard products, within usage limits.
+- **Chainguard Team** is a paid plan that raises most Starter limits and adds ticket support. You pay by card.
+
+Enterprise plans, which add features such as FIPS images, SSO, and custom policies, remain available by contract. To discuss one, [contact Chainguard](https://www.chainguard.dev/contact). To compare plans, refer to [Chainguard plans](/get-started/self-serve/plans/). For prices, refer to the [Chainguard pricing page](https://www.chainguard.dev/pricing).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `dotnet:8` | 2026-11-10 | 2027-05-10 |
+| `dotnet:9` | 2026-11-10 | 2027-05-10 |
+| `helm:3` | 2026-11-11 | 2027-05-11 |
+| `cockroach:25.2` | 2026-11-12 | 2027-05-12 |
+| `cockroach-openssl:25.2` | 2026-11-12 | 2027-05-12 |
+| `pg_partman:14` | 2026-11-12 | 2027-05-12 |
+| `pgvector:14` | 2026-11-12 | 2027-05-12 |
+| `postgresql:14` | 2026-11-12 | 2027-05-12 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 25 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/aws-route53-controller/versions"><code>aws-route53-controller</code></a></td><td>application +fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/grafana-pyroscope-fips/versions"><code>grafana-pyroscope-fips</code></a></td><td>fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/openstack-openvswitch-oshelm/versions"><code>openstack-openvswitch-oshelm</code></a></td><td>application +fips</td><td>2026-11-09</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/chainguard-k8s-node-gcp/versions"><code>chainguard-k8s-node-gcp</code></a></td><td>base</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/dify-web/versions"><code>dify-web</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/k8s-node-collector/versions"><code>k8s-node-collector</code></a></td><td>application</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kata-monitor/versions"><code>kata-monitor</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kgateway-envoy-wrapper/versions"><code>kgateway-envoy-wrapper</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/kgateway-sds/versions"><code>kgateway-sds</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/logstash-with-opensearch-syslog-output-plugins/versions"><code>logstash-with-opensearch-syslog-output-plugins</code></a></td><td>application +fips</td><td>2026-11-10</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/querybook/versions"><code>querybook</code></a></td><td>application +fips</td><td>2026-11-11</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gitaly-init-cgroups/versions"><code>gitaly-init-cgroups</code></a></td><td>application +fips</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/neuvector-registry-adapter/versions"><code>neuvector-registry-adapter</code></a></td><td>application +fips</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/oc-mirror/versions"><code>oc-mirror</code></a></td><td>application</td><td>2026-11-12</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/gosu-fips/versions"><code>gosu-fips</code></a></td><td>fips</td><td>2026-11-13</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-09
 
@@ -12794,8 +12876,6 @@ _Path: chainguard/libraries/repositories/overview.md_
 
 {{< beta feature="Repositories in Chainguard Libraries" >}}
 
-Update `chainctl` to the latest release before you start.
-
 ## How repositories work
 
 Chainguard Libraries gives your organization one URL per ecosystem, such as
@@ -12803,16 +12883,16 @@ Chainguard Libraries gives your organization one URL per ecosystem, such as
 packages that Chainguard builds from source. If your organization turned on
 [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-it also serves packages from the public registry, such as the npm Registry,
-that Chainguard hasn't built.
+it also serves packages from the public registry, such as the public npm
+registry, that Chainguard hasn't built.
 
 These URLs are your organization's *default repository*. If you don't create
-any other repository, nothing changes: the URLs keep working exactly as they
-do today.
+any other repository, nothing changes: the URLs keep working as before.
 
 A *repository* is an additional, named set of URLs in the same organization.
-Each repository has its own upstream fallback setting. In this beta, only
-JavaScript serves repository URLs. A common setup uses two repositories:
+Each repository has its own upstream fallback setting. In this beta, Chainguard
+Libraries serves repository URLs only for JavaScript. A common setup uses two
+repositories:
 
 * A `prod` repository with upstream fallback off, so CI installs only packages
   that Chainguard builds.
@@ -12825,6 +12905,10 @@ organization name and `prod` is the repository name:
 ```text
 https://libraries.cgr.dev/javascript/~/example.com/prod/
 ```
+
+To manage repositories, update `chainctl` to the latest release. For
+instructions, refer to [How to install
+`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
 
 ## Plan limits
 
@@ -12845,11 +12929,10 @@ Starter plans include only the default repository; upgrade to Team for more.
 
 ## Create a repository
 
-To create a repository named `prod` in the `example.com` organization, run the
-following command:
+To create a repository named `prod`, run the following command:
 
 ```shell
-chainctl libraries repos create prod --parent example.com
+chainctl libraries repos create prod
 ```
 
 The output shows the repository URL:
@@ -12865,7 +12948,7 @@ repository: `chainctl` prints that the existing repository is ready and shows
 its URL.
 
 A repository can't use the name of a folder that already exists in the
-organization. `chainctl` refuses the name rather than turn the existing folder
+organization. `chainctl` returns an error instead of turning the existing folder
 into a repository.
 
 ## View repositories
@@ -12873,7 +12956,7 @@ into a repository.
 To list the repositories in an organization, run the following command:
 
 ```shell
-chainctl libraries repos list --parent example.com
+chainctl libraries repos list
 ```
 
 The output is a table with the `NAME`, `CREATED`, and `STATE` columns. The
@@ -12883,7 +12966,7 @@ repository. A repository that's working shows the state `ready`.
 To view the details of one repository, pass its name:
 
 ```shell
-chainctl libraries repos describe prod --parent example.com
+chainctl libraries repos describe prod
 ```
 
 The output shows the repository's state, its creation time, the URL for each
@@ -12891,14 +12974,15 @@ ecosystem, and its upstream fallback setting: either `Upstream fallback: on`
 or `Upstream fallback: off (every upstream registry is disabled)`.
 
 The output also lists URLs for Java, Python, Go, and .NET, marked
-`(not serving yet)`. In this beta, only JavaScript serves repository URLs.
+`(not serving yet)`. In this beta, Chainguard Libraries serves repository URLs
+only for JavaScript.
 A request to a repository URL for another ecosystem returns HTTP `503` with a
 message such as `Libraries repositories are not available for java yet.`
 
 To view the default repository, omit the name:
 
 ```shell
-chainctl libraries repos describe --parent example.com
+chainctl libraries repos describe
 ```
 
 The output shows the default repository's URLs and the following line:
@@ -12909,13 +12993,12 @@ This is the organization's default repository. Its upstream fallback follows the
 
 ## Turn upstream fallback on or off
 
-Every repository lists the public npm Registry as `npmjs`. If your
-organization's Libraries entitlement includes upstream fallback, a new
-repository starts with `npmjs` enabled. If it doesn't, `npmjs` starts disabled,
-upstream fallback stays off whatever the list says, and `describe` shows
-`Upstream fallback: off (the organization's Libraries entitlement does not include upstream packages, and every upstream registry is disabled)`.
-Enabling `npmjs` turns upstream fallback on only when your entitlement
-includes it.
+Every repository lists the public npm registry as `npmjs`. A new repository
+starts with `npmjs` enabled if your organization's Libraries entitlement
+includes upstream fallback, and disabled if it doesn't.
+
+Without that entitlement, upstream fallback stays off even if you enable
+`npmjs`, and `describe` says so.
 
 To view a repository's upstream registries, run the following command:
 
@@ -12933,9 +13016,9 @@ The command prints `Disabled upstream registry npmjs for JAVASCRIPT in
 repository prod.` and a warning that upstream fallback is now off for
 JavaScript.
 
-A change to upstream fallback takes effect within about a minute, because the
-service caches resolved package versions for one minute, so a pull right after
-you disable `npmjs` can still return the upstream version.
+A change to upstream fallback takes effect within about a minute. Chainguard
+Libraries caches resolved package versions for one minute, so a pull right
+after you disable `npmjs` can still return the upstream version.
 
 To turn upstream fallback on again, enable `npmjs`:
 
@@ -12948,8 +13031,9 @@ builds, and returns HTTP `404` for packages that Chainguard hasn't built. With
 upstream fallback on, the repository serves both.
 
 You can enable, disable, and reorder the upstream registries that Chainguard
-provides. You can't add your own registries. On the Starter plan, you can
-disable an upstream registry but not enable or reorder one.
+provides. You can't add your own registries. If your organization downgrades
+to Starter and keeps a named repository, you can disable an upstream registry
+but not enable or reorder one.
 
 The default repository has no upstream list of its own. Its upstream fallback
 follows your organization's Libraries entitlement. If you run `upstreams list`
@@ -12976,7 +13060,7 @@ command:
 chainctl auth pull-token create --repository=javascript --parent example.com/prod --name ci-prod
 ```
 
-For more about pull tokens, see [Chainguard Libraries
+For more information about pull tokens, refer to [Chainguard Libraries
 access](/chainguard/libraries/introduction/access/).
 
 ## Configure JavaScript clients
@@ -13005,6 +13089,29 @@ npm matches credentials by URL prefix, so the credential keyed to
 `//libraries.cgr.dev/javascript/` also covers the repository URL. If you run
 the command again, it keeps the repository URL.
 
+If the project already installed packages from the default repository, its
+`package-lock.json` pins every package to the default repository URL, for
+example:
+
+```json
+"resolved": "https://libraries.cgr.dev/javascript/lodash/-/lodash-4.17.21.tgz"
+```
+
+npm ignores `registry` for packages already in the lockfile and fetches each
+`resolved` URL as written, so every request still goes to the default
+repository. A pull token bound to the repository returns HTTP `403` there. An
+organization pull token works, but npm installs from the default repository,
+so the repository's upstream fallback setting never applies.
+
+To fix this, regenerate the lockfile once:
+
+```shell
+rm package-lock.json && npm install
+```
+
+After that, every `resolved` URL is under the repository URL, and `npm ci`
+pulls through the repository.
+
 ### pnpm
 
 In `.npmrc`, set `registry` to the repository URL and key the credential to
@@ -13027,9 +13134,10 @@ registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
 always-auth=true
 ```
 
-Yarn Classic doesn't send a credential keyed to `//libraries.cgr.dev/javascript/`
-to a repository URL. With that key, the request fails with HTTP `401`, which
-Yarn Classic reports as `Couldn't find package`.
+Yarn Classic doesn't send a credential keyed to
+`//libraries.cgr.dev/javascript/` to a repository URL. With that key, the
+request fails with HTTP `401`, which Yarn Classic reports as `Couldn't find
+package`.
 
 ### Yarn
 
@@ -13053,15 +13161,15 @@ configured for request`.
 
 The following table shows what a client receives from a repository URL. In the
 examples, `prod` has upstream fallback off and `dev` has it on. Chainguard
-builds `lodash`. For a package that Chainguard doesn't build but the npm
-Registry hosts, the examples use `five`.
+builds `lodash`. For a package that Chainguard doesn't build but the public npm
+registry hosts, the examples use `five`.
 
 | Request | Response |
 | --- | --- |
 | `npm install lodash` on `prod` or `dev` | Installs the package |
 | `npm install five` on `prod` | HTTP `404` |
 | `npm install five` on `dev` | Installs the package |
-| Any request without credentials | HTTP `401` |
+| A request without credentials | HTTP `401` |
 | A request to a repository that doesn't exist | HTTP `403` |
 | A repository-bound token used on another repository or on the default repository | HTTP `403` |
 
@@ -13070,13 +13178,13 @@ Registry hosts, the examples use `five`.
 To delete the `dev` repository, run the following command:
 
 ```shell
-chainctl libraries repos delete dev --parent example.com
+chainctl libraries repos delete dev
 ```
 
 The command asks you to confirm. To skip the confirmation, pass `--yes`.
 
 If pull tokens or policy bindings still reference the repository, `chainctl`
-refuses to delete it and names them, for example:
+returns an error that names them, for example:
 
 ```text
 Repository dev has 1 pull token (ci-dev). Delete them first or pass --force.
@@ -13091,17 +13199,24 @@ NAME` to remove the repository.
 
 ## Policies and access
 
-A repository uses its organization's [policies](/chainguard/chainguard-repository/library-policies/),
-including malware blocking and cooldown. There are no per-repository policies
-in this beta.
+A repository uses its organization's
+[policies](/chainguard/chainguard-repository/library-policies/), including
+malware blocking and cooldown. There are no per-repository policies in this
+beta.
 
-An identity bound at a repository can only pull packages from it. To create or
-delete repositories, or to change their upstream registries, an identity needs
-repository permissions at the organization.
+An identity bound at a repository can pull packages only from that repository.
+To manage repositories, an identity needs the following capabilities at the
+organization:
 
-## Lockfiles
+| Action | Capability |
+| --- | --- |
+| Create a repository | `repositories.create` |
+| Delete a repository | `repositories.delete` |
+| Enable, disable, or reorder upstream registries | `repositories.update` |
+| List or describe repositories | `repositories.list` |
 
-Lockfiles that already contain repository URLs keep using those URLs.
+Only the `owner` role has the three write capabilities. The `viewer` and
+`editor` roles have `repositories.list` only.
 
 ## Not available in this beta
 
@@ -44027,7 +44142,7 @@ Pin to the commit SHA that a version tag resolves to, and keep the tag as a comm
 
 ## Choose how to reference an action
 
-Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
+Pin to a commit SHA, and pair the pin with a tool that updates it, such as Dependabot, Renovate, or Guardener:
 
 ```yaml
 - uses: chainguard-actions/actions-checkout@<sha> # v4
@@ -44036,6 +44151,8 @@ Pin to a commit SHA, and pair the pin with Dependabot or Renovate:
 A commit SHA is the only immutable reference in the catalog. Tags are mutable by design, and not just the floating major version. Chainguard re-hardens published versions in place and moves the tag when it does, including fully qualified patch tags, so a single upstream release can be re-hardened several times with the same tag pointing somewhere new each time. Both `@v4` and `@v4.3.1` resolve to whatever was published most recently.
 
 Pinning on its own isn't enough, though. A pin with no tooling behind it is the one configuration that strands you: you stay on that build, and stop receiving re-hardening, until someone updates the SHA by hand. Dependabot and Renovate both track a pinned SHA against its tag and open a pull request when the tag moves, so you receive every re-hardening as a change your own CI validates before it reaches a live workflow. That gives you more control than a mutable tag does, and costs you nothing in freshness.
+
+If Guardener already opens migration pull requests for the repository, it can keep your pins current too. [Turn on upgrades](/chainguard/guardener/github/actions-security/#keep-chainguard-actions-pins-up-to-date), and Guardener moves each pin to a newer build or version in its migration pull request. Use one tool to update Chainguard Actions pins, because two tools open pull requests for the same upgrades.
 
 Pinning is also the standard Chainguard applies to the actions it hardens. The `unpinned-uses` check fails any `uses:` reference on a tag, so if you run an actions linter against your own repository, referencing a hardened action by tag will register a finding.
 
@@ -46490,7 +46607,7 @@ The Hardened Actions feature recommends and migrates your GitHub Actions to Chai
 Hardened Actions operates in two independent modes:
 
 - **Pull request recommendations** — non-blocking review comments that suggest hardened action alternatives, with one-click suggestion blocks.
-- **Automated migration pull requests** — a periodically maintained pull request that updates workflows across your repository. You can also [trigger this migration on demand](#run-an-on-demand-migration) with `chainctl` instead of waiting for the next scheduled run.
+- **Automated migration pull requests** — a periodically maintained pull request that updates workflows across your repository. You can also [trigger this migration on demand](#run-an-on-demand-migration) with `chainctl` instead of waiting for the next scheduled run. If you opt in, the same pull request also [upgrades the Chainguard Actions pins you already use](#keep-chainguard-actions-pins-up-to-date).
 
 You can enable either mode on its own or both together.
 
@@ -46518,6 +46635,8 @@ migrate:
 ```
 
 Guardener opens (and keeps updated) a single migration pull request on the cadence you set with `period`.
+
+When a later run finds nothing left to migrate or upgrade, for example after a new `migrate.ignore` entry excludes the remaining changes, Guardener closes the migration pull request with a comment that says why. Guardener leaves the pull request open if it has an assignee or the `skip:guardener` label, or if a lookup in the Chainguard Actions catalog failed during the run. Setting `migrate.enabled: false` doesn't close the pull request.
 
 ## Run an on-demand migration
 
@@ -46591,7 +46710,149 @@ migrate:
 ```
 
 - `ignore.files` — workflow files (under `.github/workflows/`) to skip.
-- `ignore.actions` — upstream actions to leave untouched.
+- `ignore.actions` — actions to leave untouched. Upstream names, such as `actions/checkout`, skip migration. Chainguard names, such as `chainguard-actions/actions-checkout`, skip [upgrades](#keep-chainguard-actions-pins-up-to-date).
+
+## Keep Chainguard Actions pins up to date
+
+After Guardener migrates a step to a hardened action, it doesn't change that step again, so the pin gets older as Chainguard publishes new versions. To have Guardener move your existing Chainguard Actions pins to newer versions, turn on upgrades in the `migrate` block:
+
+```yaml
+enabled: true
+migrate:
+  enabled: true
+  period: "168h"
+  upgrade:
+    enabled: true
+```
+
+Upgrades are off by default, and they run only when `migrate.enabled` is also `true`. They run on the `migrate.period` schedule and with each [on-demand migration](#run-an-on-demand-migration). They skip the workflow files in `migrate.ignore.files` and the actions in `migrate.ignore.actions`. To keep an action out of upgrades with `migrate.ignore.actions`, list its Chainguard name, such as `chainguard-actions/actions-checkout`, because an upstream name such as `actions/checkout` doesn't match it. With only `upgrade.enabled: true`, Guardener allows every update type and waits three days before it uses a new version.
+
+### How Guardener picks a new version
+
+Guardener reads versions from the Chainguard Actions catalog rather than from upstream tags. For each pin, it picks the newest version that meets all of these conditions:
+
+- It's later than the version the pin uses now. For a SHA pin, a newer build of the same version also counts.
+- It isn't a prerelease, and the catalog has a commit SHA for it.
+- No [ignore rule](#skip-upgrades-with-ignore-rules) skips it.
+- Its [cooldown](#set-the-cooldown) has ended.
+
+The newest version can be a new major version, as with Dependabot's default behavior. If no version meets the conditions, Guardener leaves the line unchanged.
+
+Each pin keeps its form. A SHA pin gets a new SHA, and a tag pin gets a new tag:
+
+| Pin form | Before | After |
+| -------- | ------ | ----- |
+| SHA pin | `chainguard-actions/actions-checkout@<sha> # v4.2.2` | `chainguard-actions/actions-checkout@<new-sha> # v7.0.1` |
+| Tag pin | `chainguard-actions/actions-checkout@v4.2.2` | `chainguard-actions/actions-checkout@v7.0.1` |
+| Floating tag pin | `chainguard-actions/actions-checkout@v4` | `chainguard-actions/actions-checkout@v6` |
+
+A floating tag, such as `v4`, moves to each new release in its major version. A tag pin on a floating tag stays on a floating tag and never becomes a pin on a single release. A SHA pin with a `# v4` comment stays on a floating tag too: it moves to the newest build of `v4`, or to a later floating tag such as `# v6`. This holds even when the catalog lists the pin's SHA only under a single release in `v4`, such as `v4.2.2`.
+
+Otherwise, Guardener finds a SHA pin's version from its SHA. It uses the comment to choose between versions that share the SHA, and when the catalog no longer lists the SHA. Guardener ignores a comment that doesn't match the SHA, such as `# v4` on a SHA that the catalog lists as `v7.0.1`, so a stale comment never moves a pin to an older version.
+
+A tag pin on `@v4` already gets each new build of `v4` through the tag, so it moves only to a later major version's tag.
+
+Guardener doesn't check whether an upgrade changes an action's inputs or behavior. Major versions can include breaking changes, so read the release notes for each major upgrade before you merge the pull request.
+
+### Review upgrades in the migration pull request
+
+Upgrades go into the same pull request as migrations, in a table that lists each action's current version, new version, and update type. The update type follows Dependabot's rules. For a pin on `4.2.2`:
+
+| New version | Update type |
+| ----------- | ----------- |
+| `4.2.3` | Patch |
+| `4.3.0` | Minor |
+| `5.0.0` or later | Major |
+
+A newer build of the same version counts as a patch, except for a SHA pin on a floating tag. There, a newer build counts as the largest change the tag allows: a minor for `# v4` and a patch for `# v4.3`. A rule that skips minor updates therefore also skips new builds of `v4`.
+
+When a later version passes its cooldown, Guardener updates the pull request instead of opening another one. A pull request that only upgrades pins is titled "Upgrade Chainguard GitHub Actions".
+
+### Set the cooldown
+
+A new version waits out a cooldown before Guardener uses it, which gives time for a bad release to be found and withdrawn. The default cooldown is three days, the same as Dependabot's. To change it, set `cooldown.default-days` to a whole number of days from 0 to 365:
+
+```yaml
+enabled: true
+migrate:
+  enabled: true
+  upgrade:
+    enabled: true
+    cooldown:
+      default-days: 7
+```
+
+A value of `0` turns off the cooldown. Guardener counts whole days in UTC. With a three-day cooldown, a version first listed on October 16 can be used from October 20.
+
+The cooldown starts at the later of two dates: the date the Chainguard Actions catalog first listed the version, and the date of the upstream commit it was built from. If upstream moves a tag to a newer commit, the cooldown starts again. A Chainguard rebuild of the same upstream code doesn't restart it.
+
+### Skip upgrades with ignore rules
+
+The `upgrade.ignore` list uses the same format as Dependabot's `ignore` option, so you can copy rules from your `dependabot.yml` file. Rules match an action's Chainguard name, so change any upstream name in a copied rule, such as `actions/checkout`, to its Chainguard name, `chainguard-actions/actions-checkout`. This example skips major upgrades for every action and skips all upgrades for `chainguard-actions/actions-cache`:
+
+```yaml
+enabled: true
+migrate:
+  enabled: true
+  upgrade:
+    enabled: true
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "chainguard-actions/actions-cache"
+```
+
+Each rule has these fields:
+
+- `dependency-name` — the actions that the rule covers, such as `chainguard-actions/actions-checkout`. A `*` matches any characters, including `/`, and matching ignores case. A rule for an action also covers its sub-path actions, so `chainguard-actions/actions-cache` also covers `chainguard-actions/actions-cache/restore`.
+- `update-types` — the update types to skip: `version-update:semver-major`, `version-update:semver-minor`, or `version-update:semver-patch`. A rule without `update-types` skips every upgrade for the actions it covers.
+
+Guardener doesn't support Dependabot's `versions` field in ignore rules.
+
+### Fix invalid upgrade settings
+
+A mistake in `migrate.upgrade` turns off upgrades for the repository, but nothing else. Migrations and pull request recommendations keep running, and the migration pull request says why upgrades are off. It names the setting or, for a value of the wrong type, its line in `.chainguard/actions.yaml`. If the mistake leaves nothing to migrate or upgrade, Guardener [closes the migration pull request](#enable-automated-migration-pull-requests) and gives the reason in its closing comment. If there's nothing to migrate and no open migration pull request, Guardener has nowhere to report the mistake, so check `.chainguard/actions.yaml` when expected upgrades don't appear.
+
+These count as mistakes:
+
+- A value of the wrong type, such as `0.5` for `default-days`
+- A number of days outside the range from 0 to 365
+- An ignore rule without a `dependency-name`
+- An update type other than the three listed in [Skip upgrades with ignore rules](#skip-upgrades-with-ignore-rules)
+- A `versions` field in an ignore rule
+- Any other key under `migrate.upgrade` or `migrate.upgrade.cooldown`, such as a misspelled `default-days` or Dependabot's `semver-major-days`
+
+A value of the wrong type for `upgrade.enabled` itself, such as `ture`, doesn't count as a mistake. Guardener treats upgrades as not turned on, so they stay off without a note in the pull request.
+
+Guardener ignores Dependabot's cooldown `include` and `exclude` lists. Without them, the cooldown applies to every action.
+
+### Use upgrades alongside Dependabot or Renovate
+
+If Dependabot or Renovate already updates GitHub Actions in the repository, both tools open pull requests for the same upgrades. To prevent this, have the other tool skip Chainguard Actions. For Dependabot, add an ignore rule to the `github-actions` entry in your `dependabot.yml` file:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "chainguard-actions/*"
+```
+
+For Renovate, add a `packageRules` entry that turns off updates for packages under `chainguard-actions/`.
+
+### Upgrade limitations
+
+Guardener doesn't upgrade these pins:
+
+- A SHA pin that Guardener can't match to a version, because the catalog no longer lists its SHA and it has no version comment.
+- A step with no version, such as `uses: chainguard-actions/actions-checkout`, or with a reference that isn't a version, such as `@main`.
+- Pins outside the workflow files. Guardener reads only `.yml` and `.yaml` files directly in `.github/workflows/`, so it doesn't upgrade pins in composite actions, such as `.github/actions/<name>/action.yml`.
+- Pins in a repository that has a GitHub workflow lockfile (`.github/workflows/actions.lock`). Migrations in these repositories work as before.
+
+When Guardener upgrades a pin, it keeps only the version in the line's comment. Other comment text, as in `# v4.2.2 (pinned by dependabot)`, is dropped.
 
 ## Configuration reference
 
@@ -46602,7 +46863,10 @@ migrate:
 | `migrate.period`         | `24h`   | How often the migration pull request is refreshed. Clamped to a minimum of one day. |
 | `migrate.version-strategy` | `exact` | Version selection when no exact equivalent exists. Set to `smallest-major-bump` to migrate older pins to the closest Chainguard-supplied major version. |
 | `migrate.ignore.files`   | —       | Glob patterns for workflow files to skip during migration.                          |
-| `migrate.ignore.actions` | —       | Glob patterns for upstream actions to skip during migration.                        |
+| `migrate.ignore.actions` | —       | Glob patterns for actions to skip. Upstream names skip migration, and Chainguard names skip upgrades. |
+| `migrate.upgrade.enabled` | `false` | Opts into upgrades of existing Chainguard Actions pins. Requires `migrate.enabled: true`. |
+| `migrate.upgrade.cooldown.default-days` | `3` | Whole days a new version waits before Guardener uses it, from 0 to 365. `0` turns off the cooldown. |
+| `migrate.upgrade.ignore` | — | Dependabot-style rules that skip upgrades by action name and update type. |
 
 The `period` value is a Go-style duration string (for example, `24h`, `168h` for one week).
 
@@ -46666,6 +46930,49 @@ enabled: true
 prefer_fips: false
 ```
 
+## Use your own registry
+
+If you copy your Chainguard container images into your own registry, set `external_registry` to the registry path that holds them. Guardener then names images in your registry instead of in `cgr.dev`:
+
+```yaml
+enabled: true
+external_registry: registry.example.com/chainguard
+```
+
+Guardener places each image's path in your Chainguard organization under the value you set. With the preceding file, `cgr.dev/example.com/postgres:17` becomes `registry.example.com/chainguard/postgres:17`, and `cgr.dev/example.com/team/postgres:17` becomes `registry.example.com/chainguard/team/postgres:17`. If your registry keeps the organization name in its paths, as some pull-through caches do, include the name in the value, such as `registry.example.com/cgr-remote/example.com`.
+
+Guardener never connects to your registry. It checks each image and tag in your Chainguard organization, so before you merge a change, make sure that the tag is also in your registry.
+
+Setting `external_registry` also changes the following:
+
+- Guardener treats references under your registry path as Chainguard container images and doesn't recommend a replacement for them.
+- Guardener recommends moving references to your organization on `cgr.dev`, such as `cgr.dev/example.com/python:3.12`, to the same image and tag in your registry.
+- Replacements aren't pinned by digest, because your registry might rebuild or re-sign the images it copies. A reference pinned by digest gets a replacement with a tag only, and the review comment says so.
+
+The value must start with a registry host, such as `registry.example.com` or `localhost:5000`, and each part of the path must be lowercase. Guardener ignores an `https://` prefix and a trailing slash. It rejects a value without a host, such as `example/chainguard`, which would otherwise name a Docker Hub repository. If the value isn't valid, Guardener stops both Image Suggestions and [Container Image Migration](/chainguard/guardener/github/image-migration/) for the repository and reports the error in the `actions-recommender-images` check run.
+
+A repository's own `.chainguard/images.yaml` file replaces the [organization-level file](/chainguard/guardener/github/configuration/#how-repository-and-organization-configuration-combine) entirely. If you set `external_registry` at the organization level, set it in each repository file too.
+
+## Replace free-tier images
+
+References to Chainguard's free-tier images, under `cgr.dev/chainguard/`, already use Chainguard container images, so by default Guardener doesn't recommend a replacement for them. To move them to your organization's images, set `swap_free_tier: true`:
+
+```yaml
+enabled: true
+swap_free_tier: true
+```
+
+Guardener replaces each free-tier reference with your organization's image of the same name and tag. For example, `cgr.dev/chainguard/python:latest-dev` becomes `cgr.dev/example.com/python:latest-dev`, or `registry.example.com/chainguard/python:latest-dev` when you also [use your own registry](#use-your-own-registry). The one exception is `wolfi-base`, which becomes your organization's `chainguard-base` image.
+
+The following rules apply to free-tier replacements:
+
+- The image keeps its tag, and `prefer_fips` doesn't switch it to a FIPS variant.
+- A reference pinned by digest is pinned to your organization's digest for the same tag. With `external_registry` set, the digest is dropped.
+- If your organization doesn't have the image, the review comment names it but doesn't include a suggested change.
+- Because the image doesn't change, a Dockerfile build stage that runs commands can still get a suggested change.
+
+Guardener replaces only the image reference. A Dockerfile that installs Python on `wolfi-base` moves to `chainguard-base`, not to the `python` image. To convert a whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
+
 ## What Guardener reviews
 
 Guardener reads the files a pull request changes and keeps only the image references on added or changed lines.
@@ -46698,7 +47005,7 @@ A comment includes a one-click suggested change when all of the following are tr
 - The reference is one literal value on its own line. It isn't assembled from a Dockerfile `ARG` or a split Helm `image` mapping, and no other image shares the line.
 - Your Chainguard organization already has the replacement image, with a matching tag.
 - The replacement keeps a version. Guardener doesn't suggest the `latest` tag for a reference with a tag that Chainguard doesn't maintain, or for a reference pinned by digest without a tag.
-- In a Dockerfile, the build stage and any stage built on it don't run commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction, and don't set `CMD` without `ENTRYPOINT`. Chainguard container images without a `-dev` suffix usually have no shell or package manager, and many set `ENTRYPOINT` to their runtime.
+- In a Dockerfile, the build stage and any stage built on it don't run commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction, and don't set `CMD` without `ENTRYPOINT`. Chainguard container images without a `-dev` suffix usually have no shell or package manager, and many set `ENTRYPOINT` to their runtime. This condition doesn't apply when the replacement is the same image, as when Guardener [replaces a free-tier image](#replace-free-tier-images) or moves a reference to [your own registry](#use-your-own-registry).
 
 Otherwise, the comment names the replacement and says why it has no suggested change, so you can make the change yourself or add the image to your organization first. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
 
@@ -46722,6 +47029,8 @@ Guardener also skips any single file larger than 1 MiB, and the check run lists 
 | --- | --- | --- | --- |
 | `enabled` | boolean | `true` when the file exists | Turns Image Suggestions on or off for the repository. |
 | `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants. Images your organization already has still rank first. |
+| `external_registry` | string | None | The registry path that holds your copies of your Chainguard container images, such as `registry.example.com/chainguard`. Replacements name images under this path. Refer to [Use your own registry](#use-your-own-registry). |
+| `swap_free_tier` | boolean | `false` | Replaces references to `cgr.dev/chainguard/` free-tier images with your organization's images. Refer to [Replace free-tier images](#replace-free-tier-images). |
 | `migrate` | mapping | None | Settings for [Container Image Migration](/chainguard/guardener/github/image-migration/#configuration-reference). |
 
 ## Next steps
@@ -47003,6 +47312,8 @@ Configuration committed directly to a repository takes precedence over the organ
 
 This lets you set a baseline for the whole organization and override it only where a specific repository needs different behavior.
 
+Guardener doesn't merge the keys of the two files. A repository file replaces the org-level file for its feature entirely, so it must repeat every org-level setting that the repository still needs. For example, if your org-level `images.yaml` sets [`external_registry`](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), a repository with its own `images.yaml` must set `external_registry` too.
+
 > **Note:** Guardener reads the org-level configuration from the default branch (that is, `main`) of the `.github` repository, just as it does for per-repository configuration.
 
 ## Applying configuration changes
@@ -47233,6 +47544,7 @@ Before you enable Container Image Migration, make sure that:
 
 - The Chainguard App is installed with access to the repository, and your GitHub organization is linked to your Chainguard organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). You don't need to change the [repository visibility scope](/chainguard/guardener/github/app-connections/#repository-visibility-scope): unlike Image Suggestions, migration runs on private repositories even with the default `PUBLIC` scope.
 - Your Chainguard organization has the replacement images. Guardener doesn't add images for you. Adding an image isn't always self-service: how you do it depends on your subscription, and the steps are in [The container isn't in your organization's catalog](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog).
+- If you [use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), it has the replacement images and tags. Guardener checks tags only in your Chainguard organization.
 
 ## Enable Container Image Migration
 
@@ -47273,6 +47585,8 @@ Guardener keeps one image migration pull request per repository, separate from t
 - **Changed files**: every file that the pull request edits.
 - **Not migrated**: each reference that Guardener found and left unchanged, with the reason.
 
+When you [use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), the description also says that Guardener checked each tag in your Chainguard organization but can't read your registry. Before you merge, check that the tags are in your registry.
+
 Each run plans its changes against the latest commit on the default branch. If the migration pull request is open, Guardener updates it only when the planned changes differ from the ones it already has. After you merge or close the pull request, the next run opens a new one if there's anything left to change. Guardener never merges the pull request itself.
 
 Closing the pull request doesn't turn migration off. To stop migration for a repository, set `migrate.enabled: false`.
@@ -47291,17 +47605,24 @@ Migration reads Dockerfiles, YAML files, and JSON files across the whole reposit
 | YAML and JSON, such as Kubernetes manifests, Compose files, and Helm values | Each literal `image` value. Guardener doesn't read Helm chart templates. |
 | Terraform (`*.tf`, `*.tfvars`), shell scripts (`*.sh`), and Makefiles | Nothing. Guardener doesn't read these files. To find the images they use, run [`chainctl images discover`](/chainguard/containers/migration/migration-tools/images-discover/). |
 
-Guardener chooses each replacement the same way as Image Suggestions. When Chainguard publishes a Federal Information Processing Standards (FIPS) variant of an image, Guardener prefers it unless you set `prefer_fips: false`. Guardener keeps the reference's tag when Chainguard maintains it. Otherwise, it uses the newest maintained version on the same minor version line or, failing that, in the same major version. If the version changes, check its release notes before you merge. When a reference has both a tag and a digest, the replacement is also pinned by digest.
+Guardener chooses each replacement the same way as Image Suggestions. When Chainguard publishes a Federal Information Processing Standards (FIPS) variant of an image, Guardener prefers it unless you set `prefer_fips: false`. Guardener keeps the reference's tag when Chainguard maintains it. Otherwise, it uses the newest maintained version on the same minor version line or, failing that, in the same major version. If the version changes, check its release notes before you merge. When a reference has both a tag and a digest, the replacement is also pinned by digest, unless you set `external_registry`.
+
+Two more `.chainguard/images.yaml` settings work the same way for migration as for Image Suggestions:
+
+- `external_registry` makes replacements name images in [your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry) instead of in `cgr.dev`. It also moves references to your organization on `cgr.dev` to your registry.
+- `swap_free_tier: true` [replaces free-tier images](/chainguard/guardener/github/image-suggestions/#replace-free-tier-images) under `cgr.dev/chainguard/` with your organization's images of the same name and tag.
 
 Guardener leaves a reference unchanged and lists it under **Not migrated** in the following cases:
 
-- Your Chainguard organization doesn't have the replacement image, or doesn't have a matching tag. After you add the image, the next run migrates the reference.
+- Your Chainguard organization doesn't have the replacement image, or doesn't have a matching tag. After you add the image, the next run migrates the reference. For a free-tier image, the pull request describes it as a free-tier image that is not in your Chainguard organization.
 - Chainguard doesn't publish an equivalent image.
 - The reference isn't one literal value on its own line. For example, it's assembled from a Dockerfile `ARG`, it's split across Helm `registry`, `repository`, and `tag` keys, or another image shares its line.
 - The Dockerfile build stage, or a stage built on it, runs commands with `RUN`, a shell-form `CMD` or `ENTRYPOINT`, or an `ONBUILD` instruction. Chainguard container images without a `-dev` suffix usually have no shell or package manager, so swapping only the image could break the build. To convert the whole Dockerfile, use [Dockerfile migration](/chainguard/guardener/dockerfile-migration/).
 - The Dockerfile build stage sets `CMD` without `ENTRYPOINT`. Many Chainguard container images set `ENTRYPOINT` to their runtime, so the command could change.
 - The reference has a tag that Chainguard doesn't maintain, and no maintained version is close enough to replace it, so the only replacement would be the `latest` tag.
 - The reference is pinned by digest without a tag, so there's no version to carry over.
+
+The two Dockerfile cases don't apply when the replacement is the same image, as when Guardener replaces a free-tier image or moves a reference to your own registry. The build stage keeps the packages, shell, and entry point it already has, so Guardener changes the reference.
 
 ## Exclude files and images
 
@@ -47388,6 +47709,8 @@ The following keys in `.chainguard/images.yaml` control migration:
 | `migrate.ignore.files` | list of glob patterns | None | Files that migration doesn't read. |
 | `migrate.ignore.images` | list of glob patterns | None | Image references that migration leaves unchanged. |
 | `prefer_fips` | boolean | `true` | Ranks FIPS variants before standard variants, for both migration and Image Suggestions. |
+| `external_registry` | string | None | The registry path that holds your copies of your Chainguard container images. Replacements name images under this path, for both migration and Image Suggestions. Refer to [Use your own registry](/chainguard/guardener/github/image-suggestions/#use-your-own-registry). |
+| `swap_free_tier` | boolean | `false` | Replaces references to `cgr.dev/chainguard/` free-tier images with your organization's images, for both migration and Image Suggestions. Refer to [Replace free-tier images](/chainguard/guardener/github/image-suggestions/#replace-free-tier-images). |
 
 The top-level `enabled` key controls Image Suggestions only. For more information, refer to the [Image Suggestions configuration reference](/chainguard/guardener/github/image-suggestions/#configuration-reference).
 
@@ -62121,7 +62444,12 @@ Some customers have access to email notifications. When enabled, you have contro
 
 ## Set up Slack for Chainguard Notifications
 
-Make sure you are logged into both the console and to your Slack workspace on the same machine before you begin. To perform this task, you must use a user account for the Chainguard Console that is configured with the *owner* role for the organization and a Slack account that can add apps to your Slack workspace and which has access to the Slack channels you plan to use.
+Before you begin, make sure you have the following:
+
+- A Chainguard Console account with the *owner* role for your organization.
+- A Slack account in your workspace that uses the same email address as your Console account. The connection looks up your Slack user by your Console email address, so it fails if no member of the workspace has that address.
+- Permission for that Slack account to add apps to the workspace, and membership in the Slack channels you plan to use.
+- An active sign-in to both the Console and your Slack workspace on the same machine.
 
 > For example, when you are trying to add the Chainguard Notifications app to Slack channels, the Slack account you are using will only be shown a list of public and private Slack channels the app has access to and your Slack user account is a member of. If you have a specific channel in mind for these notifications, make sure the Slack user establishing the connection has access to and is a member of that channel.
 
@@ -62188,6 +62516,20 @@ Chainguard Notifications use the following categories:
 - **Product announcements**: New Chainguard product features and announcements
 
 ## Troubleshooting FAQ - setting up Slack
+
+### Connecting Slack fails — check which email address you are using
+
+**Q:** I clicked **Connect Slack**, selected my workspace, and clicked **Allow**, but the connection failed. Why?
+
+The most common cause is that no member of your Slack workspace has the email address you used to sign in to the Chainguard Console. The Console uses that email address to find your Slack user. If the lookup finds no match, the Console cancels the connection and removes the Chainguard Notifications app from the workspace.
+
+This happens even when you authorize the app with a different Slack account that you're signed in to. For example, if you sign in to the Console as you@gmail.com and to Slack as you@company.com, the connection fails.
+
+To fix it:
+
+1. Sign out of the Chainguard Console.
+1. Sign back in using the email address of your account in the Slack workspace.
+1. Connect Slack again.
 
 ### Channel seems to be missing — check if it is private
 
@@ -73004,6 +73346,7 @@ The Console manages one identity provider per organization. If you need more tha
 
 To follow this guide, you need the following:
 
+- An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 - An OIDC application registered with your identity provider, and its issuer URL, client ID, and client secret. To register one, follow the guide for your provider, such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/), up to the step where you configure Chainguard. For any other provider, follow the [generic integration guide](/platform/administration/custom-idps/custom-idps/#generic-integration-guide).
 - A role in your Chainguard organization with the identity provider capabilities, such as the `owner` role. Setting up SCIM also requires the `identity_providers.scim.manage` capability. Without the required capability, the Console shows the matching buttons as unavailable.
 
@@ -73151,6 +73494,7 @@ Provisioning behaves the same way for every provider:
 
 The provider guides share the following prerequisites:
 
+* An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 * A custom identity provider already configured for login to Chainguard. If you haven't set one up yet, refer to our guide on [using custom identity providers](/platform/administration/custom-idps/custom-idps/).
 * An IAM role that can manage identity providers in your organization, such as the owner role.
 * At least one owner in your organization who can sign in and whose owner role is assigned directly, not through SCIM or a group mapping. Enabling SCIM requires this, so that access to your organization never depends entirely on the IdP that SCIM controls. Group mappings don't count: Chainguard grants their roles per session at login, which an IdP outage would interrupt. Organizations that manage access through groups often have only their creator as a directly assigned owner, so consider assigning a second owner directly before you enable SCIM.
@@ -73923,6 +74267,7 @@ Steps 2 and 3 outline how to use `chainctl` to point Chainguard at a groups clai
 
 To complete this guide, you need the following:
 
+- An organization whose plan includes SSO and SCIM. The Chainguard Starter and Chainguard Team plans don't; refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 - A custom identity provider (such as [Okta](/platform/administration/custom-idps/idp-providers/okta/) or [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/)) already configured for login to Chainguard. If you haven't set one up yet, refer to our guide [Using custom identity providers to authenticate to Chainguard](/platform/administration/custom-idps/custom-idps/).
 - An IAM role that can manage identity providers and role-bindings in your organization, such as the `owner` role.
 - [`chainctl` installed](/platform/chainctl-usage/how-to-install-chainctl/) on your local machine. You must also authenticate with `chainctl auth login`.
@@ -74302,6 +74647,8 @@ In each of these cases, the Chainguard Console redirects you to an external iden
 Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
 ## Setup and administration
+
+Custom identity providers, SCIM provisioning, and group role mappings aren't included in the Chainguard Starter and Chainguard Team plans. Refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
@@ -75844,7 +76191,7 @@ The same pages are published at [man.cgr.dev](https://man.cgr.dev/), with no sig
 https://man.cgr.dev/<repo>/<package>/<version>/man<section>/<name>.<section>
 ```
 
-For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` in place of the version to follow the current release. To get another format, append one of these extensions to the page's address:
+For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1` addresses one version of `curl(1)`. Use `latest` in place of the version to follow the current release, as in the [latest `bash(1)` page](https://man.cgr.dev/os/bash/latest/man1/bash.1). To get another format, append one of these extensions to the page's address:
 
 | Extension | Returns |
 | ----- | ----- |
@@ -75852,7 +76199,7 @@ For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1`. Use `latest` i
 | `.raw` | The original roff source |
 | `.json` | A manifest recording the package, version, license, and a SHA-256 digest of each format |
 
-The site publishes `--help` output under `/help/`, keyed by the executable's absolute path. `https://man.cgr.dev/help/usr/bin/kubectl` shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
+The site publishes `--help` output in its [help index](https://man.cgr.dev/help/), under `/help/` and keyed by the executable's absolute path. The [`kubectl` help page](https://man.cgr.dev/help/usr/bin/kubectl), at `https://man.cgr.dev/help/usr/bin/kubectl`, shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
 
 ```
 https://man.cgr.dev/<repo>/<package>/<version>/help/<path>
