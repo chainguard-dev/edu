@@ -88,10 +88,10 @@ The [quickstart](/chainguard/libraries/introduction/quickstart/) walks through c
 
 ### Verify provenance and SBOMs
 
-Every package that Chainguard builds from source ships with a signed SBOM and SLSA provenance, attached alongside each package. Use a command similar to the following to verify which of your dependencies were built by Chainguard:
+Every package that Chainguard builds from source ships with a signed SBOM and SLSA provenance, attached alongside each package. Use a command similar to the following to verify which of your dependencies were built by Chainguard, replacing `[[ARTIFACT_PATH]]` with the path to the artifact to check:
 
 ```shell
-chainctl libraries verify /path/to/artifact
+chainctl libraries verify [[ARTIFACT_PATH]]
 ```
 
 See [verifying Chainguard Libraries](/chainguard/libraries/policies-and-security/verification/) for what the command checks and for retrieving the SBOM and attestation files directly.
