@@ -62,7 +62,7 @@ chainctl skills verify skills.cgr.dev/public/github.com/github/awesome-copilot/g
 For a skill in your organization's private registry, pass the hardened reference that `chainctl skills harden` or `chainctl skills status` returned:
 
 ```shell
-chainctl skills verify "$HARDENED_REF"
+chainctl skills verify "[[HARDENED_SKILL_DIGEST_REF]]"
 ```
 
 The output has the same fields. The `Identity` is your organization's SKILLS identity rather than the `public` one, as described in [Chainguard's skill signing identities](#chainguards-skill-signing-identities).
@@ -136,10 +136,10 @@ Chainguard signs each organization's skills as that organization's SKILLS identi
 | `public` | `https://issuer.enforce.dev/85490af34ebd49d9ea1fe9370c4ef1169930fc5f/c478d8a95ab1938a` |
 | `chainguard` | `https://issuer.enforce.dev/720909c9f5279097d847ad02a2f24ba8f59de36a/c09dd88a8a73ea84` |
 
-To find the SKILLS identity of your own organization, read its account associations:
+To find the SKILLS identity of your own organization, read its account associations, replacing `[[ORGANIZATION]]` with your organization's name or UIDP:
 
 ```shell
-chainctl iam account-associations describe your-organization --chainguard -o json \
+chainctl iam account-associations describe [[ORGANIZATION]] --chainguard -o json \
   | jq -r '.[0].chainguard.service_bindings.SKILLS'
 ```
 
@@ -186,16 +186,16 @@ Cosign needs credentials to pull from your organization's registry. Configure th
 chainctl auth configure-docker
 ```
 
-Then run `cosign verify`, replacing `<skills-identity-uidp>` with the UIDP of your organization's SKILLS identity from the previous section:
+Then run `cosign verify`, replacing `[[SKILLS_IDENTITY_UIDP]]` with the UIDP of your organization's SKILLS identity from the previous section:
 
 ```shell
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity=https://issuer.enforce.dev/<skills-identity-uidp> \
-  "$HARDENED_REF"
+  --certificate-identity=https://issuer.enforce.dev/[[SKILLS_IDENTITY_UIDP]] \
+  "[[HARDENED_SKILL_DIGEST_REF]]"
 ```
 
-`$HARDENED_REF` is the full hardened reference, including its digest, that `chainctl skills harden` or `chainctl skills status` returned.
+`[[HARDENED_SKILL_DIGEST_REF]]` is the full hardened reference, including its digest, that `chainctl skills harden` or `chainctl skills status` returned.
 
 {{< note >}}
 Earlier instructions for verifying skills used `--new-bundle-format=false` and a `--certificate-identity-regexp` that matched Google Cloud service accounts. Those flags check an older signature format that Chainguard no longer relies on. Use the SKILLS identities on this page instead.

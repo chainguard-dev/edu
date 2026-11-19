@@ -31,7 +31,7 @@ Unlike a [private Chainguard skills registry](/chainguard/agent-skills/skills-re
 
 ## List available skills
 
-Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every source in the registry. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`), so the recursive listing shows each skill's full path:
+Sign in, then browse the skills published in Chainguard's public registry with the `list` subcommand. The `--recursive` flag lists skills across every source in the registry. Public skills are namespaced by their upstream source (`public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]`), so the recursive listing shows each skill's full path:
 
 ```shell
 chainctl auth login
@@ -204,15 +204,17 @@ By default, `uninstall` removes the skill from every agent directory where it's 
 
 ## Command reference
 
+In the following commands, replace `[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]` with a skill's path from the recursive listing, `[[TAG]]` with one of its tags, `[[DIR]]` with the directory to pull the skill into, and `[[INSTALL_NAME]]` with the skill's **Install Name** from `chainctl skills describe`.
+
 | Action | Command |
 | ----- | ----- |
 | List skills | `chainctl skills list --group public --recursive` |
-| Describe a skill | `chainctl skills describe skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
-| Verify a skill's signature | `chainctl skills verify skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
-| Pull a skill | `chainctl skills pull skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag> <dir>` |
+| Describe a skill | `chainctl skills describe skills.cgr.dev/public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]:[[TAG]]` |
+| Verify a skill's signature | `chainctl skills verify skills.cgr.dev/public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]:[[TAG]]` |
+| Pull a skill | `chainctl skills pull skills.cgr.dev/public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]:[[TAG]] [[DIR]]` |
 | Pull or install only if the signature verifies | Add `--verify` to `pull` or `install` |
-| Install a skill | `chainctl skills install skills.cgr.dev/public/<host>/<owner>/<repo>/<name>:<tag>` |
-| Uninstall a skill | `chainctl skills uninstall <install-name>` |
+| Install a skill | `chainctl skills install skills.cgr.dev/public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]:[[TAG]]` |
+| Uninstall a skill | `chainctl skills uninstall [[INSTALL_NAME]]` |
 
 ## Next steps
 
