@@ -21,7 +21,7 @@ toc: true
 This page collects practical snippets you can adapt for shell scripts, scheduled jobs, and CI/CD pipelines. Each snippet is a self-contained building block; combine them to fit your workflow.
 
 {{< note >}}
-The `jq` field names used in these examples reflect the expected JSON output structure. Run `chainctl <command> --output=json | jq '.'` to inspect the exact structure for your version of chainctl.
+The `jq` field names used in these examples reflect the expected JSON output structure. To inspect the exact structure for your version of chainctl, run `chainctl [[COMMAND]] --output=json | jq '.'`, replacing `[[COMMAND]]` with the command whose output you want to read, such as `images history`.
 {{< /note >}}
 
 ## Prerequisites
@@ -51,12 +51,12 @@ Then authenticate using the identity and your platform's OIDC token, and export 
 ```bash
 chainctl auth login \
   --identity="$IDENTITY_ID" \
-  --identity-token="$PATH_TO_OIDC_TOKEN"
+  --identity-token="[[PATH_TO_OIDC_TOKEN]]"
 
 export CHAINGUARD_TOKEN=$(chainctl auth token)
 ```
 
-`$PATH_TO_OIDC_TOKEN` is the path to a file containing the OIDC token provided by your CI platform. Refer to the OIDC-aware CI platforms section below for platform-specific examples.
+`[[PATH_TO_OIDC_TOKEN]]` is the path to a file containing the OIDC token provided by your CI platform. Refer to the OIDC-aware CI platforms section below for platform-specific examples.
 
 Pass the token to Docker or `crane` to authenticate to `cgr.dev`:
 
@@ -78,11 +78,11 @@ Tested examples are available for the following platforms:
 
 ## Pin an image by its digest
 
-Mutable tags like `latest` can silently change. Pinning to a digest prevents unexpected changes from reaching production. This snippet retrieves the current digest for a given tag and rewrites a Kubernetes manifest in place.
+Mutable tags like `latest` can silently change. Pinning to a digest prevents unexpected changes from reaching production. This snippet retrieves the current digest for a given tag and rewrites a Kubernetes manifest in place. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization.
 
 ```bash
 #!/usr/bin/env bash
-ORG="your-org.example.com"
+ORG="[[ORGANIZATION]]"
 IMAGE="python"
 TAG="3.13"
 MANIFEST="deployment.yaml"
@@ -103,7 +103,7 @@ This script compares the current digest for an image tag against the last known 
 
 ```bash
 #!/usr/bin/env bash
-ORG="your-org.example.com"
+ORG="[[ORGANIZATION]]"
 IMAGE="nginx"
 TAG="latest"
 STATE_FILE="/tmp/.${IMAGE}-${TAG}-digest"
@@ -129,7 +129,7 @@ Before promoting a new image version to production, use `chainctl images diff` t
 
 ```bash
 #!/usr/bin/env bash
-ORG="your-org.example.com"
+ORG="[[ORGANIZATION]]"
 IMAGE="python"
 OLD_TAG="3.12"
 NEW_TAG="3.13"

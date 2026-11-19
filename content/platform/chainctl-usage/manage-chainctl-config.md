@@ -113,10 +113,10 @@ platform:
 chainctl looks for a configuration file in three locations and uses the first one it finds:
 
 1. `./chainctl/config.yaml` (relative to your current directory)
-2. `<config-dir>/chainctl/config.yaml`
+2. `[[CONFIG_DIR]]/chainctl/config.yaml`
 3. `~/.chainguard/config.yaml`
 
-`<config-dir>` is your operating system's user configuration directory: `~/Library/Application Support` on macOS, and `$XDG_CONFIG_HOME` (usually `~/.config`) on Linux. Passing `--config FILE` (or setting the `CHAINCTL_CONFIG` environment variable) points chainctl at a specific file and bypasses this search. When chainctl writes a file itself (for example with `save` or `edit`), it uses `<config-dir>/chainctl/config.yaml`.
+`[[CONFIG_DIR]]` is your operating system's user configuration directory: `~/Library/Application Support` on macOS, and `$XDG_CONFIG_HOME` (usually `~/.config`) on Linux. Passing `--config [[FILE]]` (or setting the `CHAINCTL_CONFIG` environment variable) points chainctl at a specific file and bypasses this search. When chainctl writes a file itself (for example with `save` or `edit`), it uses `[[CONFIG_DIR]]/chainctl/config.yaml`.
 
 ## Edit the chainctl configuration
 
@@ -142,11 +142,11 @@ Settings are resolved in order of precedence, where a higher source overrides a 
 
 ## Override settings with environment variables
 
-Any setting can be overridden with an environment variable without editing the file. Prefix the property name with `CHAINGUARD_`, uppercase it, and replace the dots with underscores:
+Any setting can be overridden with an environment variable without editing the file. Prefix the property name with `CHAINGUARD_`, uppercase it, and replace the dots with underscores. In the following example, replace `[[GROUP_ID]]` with the ID of the organization or folder to use by default:
 
 ```shell
 export CHAINGUARD_PLATFORM_API=https://console-api.enforce.dev
-export CHAINGUARD_DEFAULT_GROUP=<group-id>
+export CHAINGUARD_DEFAULT_GROUP=[[GROUP_ID]]
 export CHAINGUARD_OUTPUT_SILENT=true
 ```
 
@@ -241,7 +241,7 @@ If you do not have a configuration file yet, `save` writes the current effective
 chainctl config save
 ```
 
-Without `--config`, it writes to the default location, `<config-dir>/chainctl/config.yaml`.
+Without `--config`, it writes to the default location, `[[CONFIG_DIR]]/chainctl/config.yaml`.
 
 ## Validate your configuration
 

@@ -23,7 +23,7 @@ You can manage your Chainguard resources in several ways, including the web-base
 
 To access the [Chainguard Console](/platform/console/images-directory/), [create an account and sign in](https://console.chainguard.dev/auth/login). The Console is accessible to everyone, including users who aren't Chainguard customers.
 
-To use `chainctl`, start by [installing chainctl](/platform/chainctl-usage/how-to-install-chainctl/). Refer to [Get started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it. The examples on this page assume you have `chainctl` installed and are authenticated. They also assume you belong to one organization, which `chainctl` selects automatically. If you have access to more than one, add `--parent=<organization>` to choose one. For `chainctl iam invite create`, pass the organization name as the first argument instead.
+To use `chainctl`, start by [installing chainctl](/platform/chainctl-usage/how-to-install-chainctl/). Refer to [Get started with chainctl](/get-started/getting-started-with-chainctl/) to help you begin using it. The examples on this page assume you have `chainctl` installed and are authenticated. They also assume you belong to one organization, which `chainctl` selects automatically. If you have access to more than one, add `--parent=[[ORGANIZATION]]` to choose one. For `chainctl iam invite create`, pass the organization name as the first argument instead.
 
 ## High-level comparison
 
@@ -83,10 +83,10 @@ Whether you can add images to your organization yourself depends on your organiz
 
 ### Add an image with `chainctl`
 
-To add a catalog image with `chainctl`, run the following command. Replace `<image_name>` with the image's catalog name, such as `nginx`:
+To add a catalog image with `chainctl`, run the following command. Replace `[[IMAGE_NAME]]` with the image's catalog name, such as `nginx`:
 
 ```sh
-chainctl images entitlements add-image <image_name>
+chainctl images entitlements add-image [[IMAGE_NAME]]
 ```
 
 ## Add a Helm chart
@@ -105,10 +105,10 @@ The Console adds the chart and its images in the background.
 
 ### Add a Helm chart with `chainctl`
 
-To add a Helm chart with `chainctl`, run the following command. Replace `<chart_name>` with the chart's name, such as `argo-cd`:
+To add a Helm chart with `chainctl`, run the following command. Replace `[[CHART_NAME]]` with the chart's name, such as `argo-cd`:
 
 ```sh
-chainctl images helm add-chart <chart_name>
+chainctl images helm add-chart [[CHART_NAME]]
 ```
 
 To list the images the command would add before you add anything, include the `--dry-run` flag.
@@ -131,10 +131,10 @@ A pull token gives a system outside Chainguard, such as a CI pipeline or a Kuber
 
 ### Create a pull token with `chainctl`
 
-To create a pull token with `chainctl`, run the following command. Replace `<token_name>` with a name for the token:
+To create a pull token with `chainctl`, run the following command. Replace `[[TOKEN_NAME]]` with a name for the token:
 
 ```sh
-chainctl auth pull-token create --name=<token_name>
+chainctl auth pull-token create --name=[[TOKEN_NAME]]
 ```
 
 This token pulls container images. To create a token for packages or libraries, add the `--repository` flag, which matches the Console's **Access** setting. To set how long the token stays valid, add the `--ttl` flag with a duration in hours, such as `--ttl=168h`. The longest duration allowed depends on your organization's plan. Refer to [Pull token output formats and credential names](/platform/chainctl-usage/pull-token-output/) for what the command prints.
@@ -155,12 +155,12 @@ This token pulls container images. To create a token for packages or libraries, 
 
 ### Invite users with `chainctl`
 
-To invite a user with `chainctl`, run the following command. Replace `<email_address>` with the address of the user you're inviting. Adjust the role, how long the invite stays valid (`--ttl`), and whether it can be used only once (`--single-use`) to suit your needs:
+To invite a user with `chainctl`, run the following command. Replace `[[EMAIL_ADDRESS]]` with the address of the user you're inviting. Adjust the role, how long the invite stays valid (`--ttl`), and whether it can be used only once (`--single-use`) to suit your needs:
 
 ```sh
 chainctl iam invite create \
   --role=viewer \
-  --email=<email_address> \
+  --email=[[EMAIL_ADDRESS]] \
   --ttl=168h \
   --single-use
 ```
@@ -229,10 +229,10 @@ The tab lists the image's advisories, newest first. Each entry gives the date of
 
 ### Review security advisories with `chainctl`
 
-To list the advisories for an image with `chainctl`, run the following command. Replace `<organization>` with your organization name and `<image>` with the image's name:
+To list the advisories for an image with `chainctl`, run the following command. Replace `[[ORGANIZATION]]` with your organization name and `[[IMAGE]]` with the image's name:
 
 ```sh
-chainctl images advisories list cgr.dev/<organization>/<image>:latest
+chainctl images advisories list cgr.dev/[[ORGANIZATION]]/[[IMAGE]]:latest
 ```
 
 The command reads the image's SBOM to find its packages, and then lists the advisories for each one. To show only advisories with certain statuses, add the `--status` flag, for example `--status=detected`. Refer to [How to use Chainguard Security Advisories](/chainguard/containers/security-and-compliance/security-advisories/how-to-use/) for more about advisories and their statuses.

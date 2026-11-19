@@ -80,10 +80,10 @@ chainctl images repos list
 
 To examine the history of an image tag in chainctl, like when it was updated and the associated digests for each update, use `chainctl images history`. This will also return information such as how many times a variant has been built and for which platforms, along with the time and digests for each.
 
-Pass the image and tag directly to skip the menu shown earlier:
+Pass the image and tag directly to skip the menu shown earlier, replacing `[[IMAGE]]` and `[[TAG]]` with the image's name and tag:
 
 ```shell
-chainctl images history $IMAGE:$TAG
+chainctl images history [[IMAGE]]:[[TAG]]
 ```
 
 For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
@@ -159,10 +159,10 @@ Once you make a selection, the details will be returned for that variant.
 
 ## Compare Chainguard container images
 
-When you want to compare two Chainguard images, enter:
+When you want to compare two Chainguard images, enter the following, replacing `[[FROM_IMAGE]]` and `[[TO_IMAGE]]` with the images to compare:
 
 ```shell
-chainctl images diff $FROM_IMAGE $TO_IMAGE
+chainctl images diff [[FROM_IMAGE]] [[TO_IMAGE]]
 ```
 
 See <ins>[How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/)</ins> to learn more.

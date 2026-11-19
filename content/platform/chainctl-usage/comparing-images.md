@@ -49,7 +49,7 @@ The `chainctl images diff` subcommand accepts the names of two Chainguard Contai
 The `diff` subcommand follows this general syntax.
 
 ```sh
-chainctl images diff $FROM_IMAGE $TO_IMAGE
+chainctl images diff [[FROM_IMAGE]] [[TO_IMAGE]]
 ```
 
 As an example, try comparing the `latest` public `go` Chainguard Container with its `latest-dev` version.

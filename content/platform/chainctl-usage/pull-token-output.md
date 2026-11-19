@@ -20,7 +20,7 @@ weight: 30
 
 `chainctl auth pull-token create` returns two values:
 
-* An **identity ID**, the identifier of the pull token identity that `chainctl` just created. It takes the form `ORGANIZATION_ID/TOKEN_ID`, where both parts are hexadecimal strings.
+* An **identity ID**, the identifier of the pull token identity that `chainctl` just created. It takes the form `[[ORGANIZATION_ID]]/[[TOKEN_ID]]`, where both parts are hexadecimal strings.
 * A **token**, a JSON Web Token that authenticates as that identity until the token's time to live expires.
 
 Every tool that consumes a pull token takes that pair as a username and a password for [HTTP basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Authentication#basic_authentication_scheme): the identity ID is the username, and the token is the password. What changes between output formats is only the label.
@@ -29,8 +29,8 @@ Every tool that consumes a pull token takes that pair as a username and a passwo
 
 | Value | Default output | `--output=json` | `--output=env` |
 | --- | --- | --- | --- |
-| Identity ID | `Username` | `identity_id` | `CHAINGUARD_IDENTITY_ID` or `CHAINGUARD_<ECOSYSTEM>_IDENTITY_ID` |
-| Token | `Password` | `token` | `CHAINGUARD_TOKEN` or `CHAINGUARD_<ECOSYSTEM>_TOKEN` |
+| Identity ID | `Username` | `identity_id` | `CHAINGUARD_IDENTITY_ID` or `CHAINGUARD_[[ECOSYSTEM]]_IDENTITY_ID` |
+| Token | `Password` | `token` | `CHAINGUARD_TOKEN` or `CHAINGUARD_[[ECOSYSTEM]]_TOKEN` |
 
 The Chainguard Console labels the same two values **Username** and **Password** when it displays a new access token.
 
@@ -51,7 +51,7 @@ chainctl auth pull-token create
 ```output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
 The `--username` value is the identity ID and the `--password` value is the token. Both work with any tool that logs in to an OCI registry, including Podman, Helm, and registry mirroring tools. Refer to [Authenticate to Chainguard's Registry](/chainguard/containers/registry/authenticating/#using-a-pull-token-with-podman-helm-and-other-tools) for examples.
@@ -65,9 +65,9 @@ chainctl auth pull-token create --repository=java
 ```output
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: <identity-id>
+Username: [[IDENTITY_ID]]
 
-Password: <pull-token>
+Password: [[PULL_TOKEN]]
 ```
 
 ## JSON output
@@ -79,7 +79,7 @@ chainctl auth pull-token create --repository=java --output=json
 ```
 
 ```output
-{"identity_id":"<identity-id>","token":"<pull-token>"}
+{"identity_id":"[[IDENTITY_ID]]","token":"[[PULL_TOKEN]]"}
 ```
 
 The field names stay the same for every repository type. Pipe the object to `jq` or another JSON processor to extract either value:
@@ -99,8 +99,8 @@ chainctl auth pull-token create --repository=java --output=env
 ```
 
 ```output
-export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
-export CHAINGUARD_JAVA_TOKEN=<pull-token>
+export CHAINGUARD_JAVA_IDENTITY_ID=[[IDENTITY_ID]]
+export CHAINGUARD_JAVA_TOKEN=[[PULL_TOKEN]]
 ```
 
 Wrap the command in `eval` to run those `export` statements, which sets both variables in your current session:
@@ -132,7 +132,7 @@ Each invocation creates a new pull token identity. Write the `export` statements
 
 `chainctl` emits variables starting with `CHAINGUARD_`. However, build tools that read credentials from the environment typically use their own names, and don't read the `CHAINGUARD_*` variables directly. In such cases, you must map one to the other explicitly.
 
-For example, `uv` reads index-scoped credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name in uppercase, with underscores replacing hyphens. For an index named `chainguard`:
+For example, `uv` reads index-scoped credentials from `UV_INDEX_[[NAME]]_USERNAME` and `UV_INDEX_[[NAME]]_PASSWORD`, where `[[NAME]]` is the index name in uppercase, with underscores replacing hyphens. For an index named `chainguard`:
 
 ```sh
 export UV_INDEX_CHAINGUARD_USERNAME="${CHAINGUARD_PYTHON_IDENTITY_ID}"
