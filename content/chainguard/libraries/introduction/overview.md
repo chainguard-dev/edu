@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-19T15:41:04+00:00
+lastmod: 2026-11-19T15:46:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -266,6 +266,8 @@ Chainguard's scanning evaluates multiple signal types, including:
 You can view blocked packages [in the Chainguard Console](/chainguard/libraries/introduction/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
 For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+If your security team reviews a blocked version and decides it's acceptable, a user with the Owner role can allow it with a library policy override and a written justification. Refer to [Override malware or greyware blocking](/chainguard/chainguard-repository/library-policies#override-malware-or-greyware-blocking).
 
 #### Malware API
 
