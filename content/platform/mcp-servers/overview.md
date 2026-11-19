@@ -82,7 +82,7 @@ chainctl auth login \
 
 The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
 
-Once an audience is logged in, `chainctl auth token --audience=<url>` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
+Once an audience is logged in, `chainctl auth token --audience=[[URL]]` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
 
 Next, point your client at `chainctl` rather than at OAuth. Claude Code's MCP configuration accepts a `headersHelper` field naming a script that Claude Code runs (through `sh -c`, with a roughly 10-second budget) each time it opens a connection. The script reads `CLAUDE_CODE_MCP_SERVER_URL` from its environment and prints a JSON object of HTTP headers on stdout, which Claude Code merges into the connection in place of the OAuth flow.
 
@@ -149,17 +149,17 @@ That command replaces any existing `.mcp.json`. If the repository already has on
 
 ### Keep your path out of a shared file
 
-A committed `.mcp.json` carries your home directory to everyone who clones the repository, and their username won't match yours. To keep the tracked file generic, leave the plain `type` and `url` entries in `.mcp.json` and put the `headersHelper` override in your own `~/.claude.json`, under the repository's absolute path:
+A committed `.mcp.json` carries your home directory to everyone who clones the repository, and their username won't match yours. To keep the tracked file generic, leave the plain `type` and `url` entries in `.mcp.json` and put the `headersHelper` override in your own `~/.claude.json`, under the repository's absolute path. Replace `[[REPO_PATH]]` with that path and `[[USERNAME]]` with your username:
 
 ```json
 {
   "projects": {
-    "/absolute/path/to/repo": {
+    "[[REPO_PATH]]": {
       "mcpServers": {
         "cg-oci": {
           "type": "http",
           "url": "https://cgr.dev/mcp",
-          "headersHelper": "/home/your-user/bin/cg-mcp-headers"
+          "headersHelper": "/home/[[USERNAME]]/bin/cg-mcp-headers"
         }
       }
     }

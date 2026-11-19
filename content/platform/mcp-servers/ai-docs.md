@@ -218,7 +218,7 @@ The AI Docs server also sends these pointers to each client when it connects, so
 
 ### Image references
 
-Write a Chainguard image reference as `cgr.dev/<your-organization>/<image>`, replacing `<your-organization>` with your Chainguard organization's name. Most Chainguard images are available only to organizations entitled to them, in the organization's own namespace. The public `cgr.dev/chainguard` namespace serves a free subset with `latest`-style tags only, so an image reference that works for one organization may not work in `cgr.dev/chainguard`. To check which images your organization can pull, use the `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/).
+Write a Chainguard image reference as `cgr.dev/[[ORGANIZATION]]/[[IMAGE]]`, replacing `[[ORGANIZATION]]` with your Chainguard organization's name. Most Chainguard images are available only to organizations entitled to them, in the organization's own namespace. The public `cgr.dev/chainguard` namespace serves a free subset with `latest`-style tags only, so an image reference that works for one organization may not work in `cgr.dev/chainguard`. To check which images your organization can pull, use the `list_repos` tool on [`cg-oci`](/platform/mcp-servers/cg-oci/).
 
 ## Package catalog
 
@@ -295,17 +295,17 @@ CATALOG_PATH=chainguard-ai-docs/package-mappings.json \
 
 The container runs as a non-root user, so pass `--user` to let it write to the mounted directory and to leave the extracted files owned by you.
 
-To run this script under Claude Desktop, point the configuration at the local files:
+To run this script under Claude Desktop, point the configuration at the local files. Replace `[[VENV_PATH]]` with the absolute path to the `.venv` directory, `[[SERVER_SCRIPT]]` with the absolute path to `mcp-server.py`, and `[[DOCS_FILE]]` and `[[CATALOG_FILE]]` with the absolute paths to `chainguard-ai-docs.md` and `package-mappings.json`:
 
 ```json
 {
   "mcpServers": {
     "chainguard-docs": {
-      "command": "/path/to/.venv/bin/python",
-      "args": ["/path/to/mcp-server.py"],
+      "command": "[[VENV_PATH]]/bin/python",
+      "args": ["[[SERVER_SCRIPT]]"],
       "env": {
-        "DOCS_PATH": "/path/to/chainguard-ai-docs.md",
-        "CATALOG_PATH": "/path/to/package-mappings.json"
+        "DOCS_PATH": "[[DOCS_FILE]]",
+        "CATALOG_PATH": "[[CATALOG_FILE]]"
       }
     }
   }

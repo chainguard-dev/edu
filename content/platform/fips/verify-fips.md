@@ -51,10 +51,10 @@ You can verify whether OpenSSL is properly configured to use its FIPS module wit
 
 When run on a system using the OpenSSL Project FIPS provider, `openssl-fips-test` returns a summary of available algorithms, which is useful to compare different CMVP modules and the algorithms they offer. It also retrieves FIPS module information and returns a CMVP search URL where one can find applicable certificates.
 
-You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `$ORGANIZATION` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
+You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `[[ORGANIZATION]]` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
 
 ```shell
-docker run -e OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0 -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
+docker run -e OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0 -it --entrypoint openssl-fips-test cgr.dev/[[ORGANIZATION]]/python-fips
 ```
 
 ```output
@@ -256,7 +256,7 @@ All of Chainguard's Java FIPS images support FIPS 140-3 compliance using Bouncy 
 To verify whether Bouncy Castle FIPS is operating correctly, you can execute its `DumpInfo` command. The following example shows how you can do this with the [`jre-fips`](https://images.chainguard.dev/directory/image/jre-fips/overview) container image:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/jre-fips org.bouncycastle.util.DumpInfo
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/jre-fips org.bouncycastle.util.DumpInfo
 ```
 
 ```output
@@ -280,7 +280,7 @@ Some of Chainguard's FIPS container images — including [`envoy-fips`](https://
 Chainguard FIPS images that use BoringCrypto list the version of the module in use in their `version` output:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/envoy-fips --version
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/envoy-fips --version
 ```
 
 ```output
@@ -290,7 +290,7 @@ envoy  version: dc2d3098ae5641555f15c71d5bb5ce0060a8015c/1.36.2/Modified/RELEASE
 You can contrast this with the `version` output of the standard, non-FIPS `envoy` image:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/envoy --version
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/envoy --version
 ```
 
 ```output
@@ -302,7 +302,7 @@ This output shows that although it still uses BoringSSL, the non-FIPS `envoy` co
 Chainguard also ships the `envoy-fips` container image with `bssl-test_fips`. This tool prints useful information, including whether FIPS mode is on and which version of the module is in use:
 
 ```shell
-docker run -it --rm --entrypoint /usr/bin/bssl-test_fips cgr.dev/$ORGANIZATION/envoy-fips
+docker run -it --rm --entrypoint /usr/bin/bssl-test_fips cgr.dev/[[ORGANIZATION]]/envoy-fips
 ```
 
 ```output
