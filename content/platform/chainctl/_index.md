@@ -11,7 +11,7 @@ images: []
 weight: 30
 ---
 
-The CLI tool `chainctl` helps you interact with the account model that Chainguard provides. The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. The current `chainctl` reference is below.
+The CLI tool `chainctl` helps you interact with the account model that Chainguard provides. The tool uses the familiar `[[CONTEXT]] [[NOUN]] [[VERB]]` style of CLI interactions. The current `chainctl` reference is below.
 
 The generated reference includes `chainctl develop` and `chainctl checks`. The <ins>[chainctl develop command reference](/chainguard/workspaces/chainctl-develop-reference/)</ins> and the <ins>[chainctl checks command reference](/chainguard/checks/chainctl-checks-reference/)</ins> describe those two command groups in more detail, including their exit codes and output formats.
 

@@ -499,12 +499,12 @@ organization name:
 ```yaml
 contents:
   repositories:
-    - https://apk.cgr.dev/$ORGANIZATION
+    - https://apk.cgr.dev/[[ORGANIZATION]]
   packages:
-    - your-package
+    - [[PACKAGE_NAME]]
 ```
 
-Replace `$ORGANIZATION` with your Chainguard organization name.
+Replace `[[ORGANIZATION]]` with your Chainguard organization name, and `[[PACKAGE_NAME]]` with a package from that repository.
 For full details on setting up and using private APK repositories with
 Chainguard, including how to configure your organization and authenticate, see
 [Chainguard's private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/).

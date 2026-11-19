@@ -16,7 +16,7 @@ hidepageslist: true
 
 Chainguard's `chainctl` (Chainguard Control) is a command-line interface that provides comprehensive control over your Chainguard resources, including container images, identity management, and security configurations. This CLI tool enables automation and advanced operations beyond what's available in the <ins>[Chainguard Console](https://console.chainguard.dev)</ins>, making it essential for DevOps workflows and CI/CD integration.
 
-Like most control commands that end with `ctl`, such as `systemctl` or `loginctl`, `chainctl` uses the familiar `<context> <noun> <verb>` syntax.
+Like most control commands that end with `ctl`, such as `systemctl` or `loginctl`, `chainctl` uses the familiar `[[CONTEXT]] [[NOUN]] [[VERB]]` syntax.
 
 This page lists a curated set of `chainctl` resources to help you get started.
 

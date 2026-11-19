@@ -101,10 +101,10 @@ Sign up as described in [Set up Chainguard Checks and Chainguard Workspaces](/ge
 
 ### Step 2: Add a configuration file to your repository
 
-In your local clone, create a branch for the change. Replace `$REPO_DIR` with the path to your local clone:
+In your local clone, create a branch for the change. Replace `[[REPO_DIR]]` with the path to your local clone:
 
 ```shell
-cd $REPO_DIR
+cd [[REPO_DIR]]
 git checkout -b add-chainguard-checks
 ```
 

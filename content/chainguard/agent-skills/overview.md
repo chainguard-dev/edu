@@ -47,8 +47,8 @@ The security work happens upstream, before you or your agent ever touches the sk
 
 Chainguard serves hardened skills from public and private registries at `skills.cgr.dev`:
 
-- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/public`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis. Public skills are namespaced by their upstream source (`public/<host>/<owner>/<repo>/<name>`).
-- **Your organization's private registry**, available to customers with access, at `skills.cgr.dev/<your-org>/`. Upload original skills to `uploads.cgr.dev/<your-org>/<skill>` and submit them with `chainctl skills harden`. Hardened results are published under `skills.cgr.dev/<org-uidp>/users/<user-namespace>/<skill>`, scoped to your organization.
+- **The public catalog**, maintained by Chainguard at `skills.cgr.dev/public`. This is the hardened catalog described above. Anyone can pull from it, and the skills in it are reviewed and re-hardened on an ongoing basis. Public skills are namespaced by their upstream source (`public/[[HOST]]/[[OWNER]]/[[REPO]]/[[NAME]]`).
+- **Your organization's private registry**, available to customers with access, at `skills.cgr.dev/[[ORGANIZATION]]/`. Upload original skills to `uploads.cgr.dev/[[ORGANIZATION]]/[[SKILL]]` and submit them with `chainctl skills harden`. Hardened results are published under `skills.cgr.dev/[[ORG_UIDP]]/users/[[USER_NAMESPACE]]/[[SKILL]]`, scoped to your organization.
 
 To interact with either of these registries, use the [`chainctl skills` commands](/platform/chainctl/chainctl-docs/chainctl_skills/).
 

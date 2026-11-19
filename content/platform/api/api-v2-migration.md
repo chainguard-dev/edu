@@ -33,7 +33,7 @@ Set up your environment for the following examples:
 export TOKEN=$(chainctl auth token)
 export API=https://console-api.enforce.dev
 # ORG_ID is the UID of your root organization group
-export ORG_ID=YOUR_ORG_ID
+export ORG_ID=[[ORGANIZATION_ID]]
 ```
 
 ## What's not changing
@@ -89,11 +89,11 @@ Update any code that reads specific field names out of API responses — these d
 
 ### Step 3: Switch updates to PATCH with a field mask
 
-v1 uses PUT semantics: changing one field means sending the entire resource back, which forces a fetch-before-write pattern and creates race conditions on concurrent updates. v2 uses PATCH with a field mask, so you specify only the fields you're changing.
+v1 uses PUT semantics: changing one field means sending the entire resource back, which forces a fetch-before-write pattern and creates race conditions on concurrent updates. v2 uses PATCH with a field mask, so you specify only the fields you're changing. Replace `[[REPOSITORY_UID]]` with the UID of the repository to update:
 
 ```shell
 curl -X PATCH -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2/repos/$REPO_UID?updateMask=description" \
+  "$API/registry/v2/repos/[[REPOSITORY_UID]]?updateMask=description" \
   -d '{"description": "updated description"}'
 ```
 
@@ -124,7 +124,7 @@ v1 typically requires filtering a List call to fetch a single resource. v2 adds 
 
 ```shell
 curl -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2/repos/$REPO_UID"
+  "$API/registry/v2/repos/[[REPOSITORY_UID]]"
 ```
 
 Replace any "list and filter to one item" pattern with the dedicated Get endpoint for that resource.
@@ -166,7 +166,7 @@ Delete follows the same path-prefix change, with no other behavior change:
 
 ```shell
 curl -X DELETE -H "Authorization: Bearer $TOKEN" \
-  "$API/registry/v2/repos/$REPO_UID"
+  "$API/registry/v2/repos/[[REPOSITORY_UID]]"
 ```
 
 A `DELETE` returns an empty response body on success, same as v1. A delete blocked by a dependent resource now returns a `PreconditionFailure` error detail explaining why, instead of an ambiguous failure.

@@ -48,16 +48,16 @@ Chainguard Libraries supports the following types of policies:
 
 Library policies use [package URLs](https://spdx.github.io/spdx-spec/v3.0.1/annexes/pkg-url-specification/), or purls, to identify packages across ecosystems:
 
-* Python: `pkg:pypi/<name>`
+* Python: `pkg:pypi/[[NAME]]`
     * Example: `pkg:pypi/requests`
-* JavaScript: `pkg:npm/<name>` or `pkg:npm/%40<scope>/<name>` for scoped packages
+* JavaScript: `pkg:npm/[[NAME]]` or `pkg:npm/%40[[SCOPE]]/[[NAME]]` for scoped packages
     * Example: `pkg:npm/lodash` or `pkg:npm/%40angular/core`
-* Java: `pkg:maven/<group>/<artifact>`
+* Java: `pkg:maven/[[GROUP]]/[[ARTIFACT]]`
     * Example: `pkg:maven/com.fasterxml.jackson.core/jackson-databind`
 
 Omit the version to match all versions of the package.
 
-Append `@<version>` to target one version. For example:
+Append `@[[VERSION]]` to target one version. For example:
 
 * `pkg:pypi/requests@2.31.0`
 * `pkg:npm/lodash@4.17.20`, `pkg:npm/%40angular/core@17.0.0`
@@ -202,11 +202,11 @@ chainctl libraries policy update team-policy \
 chainctl libraries policy enable team-policy --ecosystem=JAVASCRIPT --mode=ENFORCE
 ```
 
-To block all versions of a package, omit the version. For example, the following command updates the existing `team-policy` to add a block of all versions of a package:
+To block all versions of a package, omit the version. For example, the following command updates the existing `team-policy` to add a block of all versions of a package. Replace `[[NAME]]` with the package's name:
 
 ```bash
 chainctl libraries policy update team-policy \
-  --block=purl=pkg:pypi/<name>
+  --block=purl=pkg:pypi/[[NAME]]
 chainctl libraries policy enable team-policy --ecosystem=PYTHON --mode=ENFORCE
 ```
 

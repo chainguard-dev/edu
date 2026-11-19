@@ -68,8 +68,8 @@ Run `chainctl guardener github link`, passing your GitHub organization login and
 
 ```shell
 chainctl guardener github link \
-  --github-org <github-org-login> \
-  --parent <group-name>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[ORGANIZATION]]
 ```
 
 If you omit `--parent`, `chainctl` prompts you to select the Chainguard organization to link.
@@ -93,8 +93,8 @@ To remove the association between a GitHub organization and a Chainguard group, 
 
 ```shell
 chainctl guardener github unlink \
-  --github-org <github-org-login> \
-  --parent <group-name>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[ORGANIZATION]]
 ```
 
 When you pass `--parent` and hold the `guardener.association.manage` capability on that group, the organization is unlinked using your Chainguard credentials with no browser involved. Otherwise, `chainctl` falls back to the GitHub authorization flow to prove you own the organization. Either way, you must be logged in to Chainguard.

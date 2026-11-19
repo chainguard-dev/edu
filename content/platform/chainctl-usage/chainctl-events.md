@@ -21,10 +21,10 @@ There are three `chainctl events` commands available: `create`, `list`, and `del
 
 ## Create event subscriptions
 
-To create a new event and subscribe to events in that organization or folder, use:
+To create a new event and subscribe to events in that organization or folder, use the following command. Replace `[[SINK_URL]]` with the URL of the sink that receives the events:
 
 ```shell
-chainctl events subscriptions create $SINK_URL
+chainctl events subscriptions create [[SINK_URL]]
 ```
 
 A sink is an addressable or callable resource that can receive incoming events delivered over HTTPS and will translate the delivered event into a returned response that includes promised information. The style and type of response is set by the sink.
@@ -43,10 +43,10 @@ This will return a list of IDs and sinks for all of your subscriptions.
 
 ## Delete event subscriptions
 
-To delete an existing event, use:
+To delete an existing event, use the following command. Replace `[[SUBSCRIPTION_ID]]` with the subscription's ID, which `chainctl events subscriptions list` returns:
 
 ```shell
-chainctl events subscriptions delete $SUBSCRIPTION_ID
+chainctl events subscriptions delete [[SUBSCRIPTION_ID]]
 ```
 
 Depending on the sink, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.

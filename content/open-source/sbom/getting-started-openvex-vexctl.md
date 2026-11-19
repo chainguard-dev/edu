@@ -229,10 +229,10 @@ This final document tells the whole story of how `CVE-1234-5678` was `under_inve
 
 To attest to and attach VEX statements within a given document to a container image, you can use the `vexctl attest` command with the `--attach` and `--sign` flags.
 
-For example, if you have a container image `your-username/your-container-image:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation. If you want to try this example, make sure to replace `your-username/your-container-image:latest` with the path to your container.
+For example, if you have a container image `[[USERNAME]]/[[IMAGE]]:latest` in a container registry, and a related VEX document `hello.vex.json`, you can run the following command to attest to that document, attach the document and sign that attestation. If you want to try this example, make sure to replace `[[USERNAME]]/[[IMAGE]]:latest` with the path to your container.
 
 ```sh
-vexctl attest --attach --sign hello.vex.json your-username/your-container-image:latest
+vexctl attest --attach --sign hello.vex.json [[USERNAME]]/[[IMAGE]]:latest
 ```
 
 Upon running this command, you'll be taken through a signing workflow with [Sigstore](https://www.sigstore.dev/). Your terminal output will indicate your progress.

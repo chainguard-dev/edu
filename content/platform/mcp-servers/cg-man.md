@@ -274,7 +274,7 @@ Manual pages and `--help` output are third-party text written by each package's 
 The same pages are published at [man.cgr.dev](https://man.cgr.dev/), with no sign-in. The short form `https://man.cgr.dev/man/bash.1` redirects to the latest version of a page. Each page also has a permanent address of this form:
 
 ```
-https://man.cgr.dev/<repo>/<package>/<version>/man<section>/<name>.<section>
+https://man.cgr.dev/[[REPO]]/[[PACKAGE]]/[[VERSION]]/man[[SECTION]]/[[NAME]].[[SECTION]]
 ```
 
 For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1` addresses one version of `curl(1)`. Use `latest` in place of the version to follow the current release, as in the [latest `bash(1)` page](https://man.cgr.dev/os/bash/latest/man1/bash.1). To get another format, append one of these extensions to the page's address:
@@ -288,7 +288,7 @@ For example, `https://man.cgr.dev/os/curl/8.22.0-r3/man1/curl.1` addresses one v
 The site publishes `--help` output in its [help index](https://man.cgr.dev/help/), under `/help/` and keyed by the executable's absolute path. The [`kubectl` help page](https://man.cgr.dev/help/usr/bin/kubectl), at `https://man.cgr.dev/help/usr/bin/kubectl`, shows the default package's latest capture and lists every other package and version that ships the executable. The short form `https://man.cgr.dev/help/tar` redirects to the full path, or lists the paths when executables in several locations share the name. Each capture also has a permanent address of this form:
 
 ```
-https://man.cgr.dev/<repo>/<package>/<version>/help/<path>
+https://man.cgr.dev/[[REPO]]/[[PACKAGE]]/[[VERSION]]/help/[[PATH]]
 ```
 
 For example, `https://man.cgr.dev/os/crane/0.22.1-r4/help/usr/bin/crane`. Use `latest` in place of the version to follow the current release. Append `.txt` for the plain `--help` text, or `.json` for a manifest recording the package, version, command, exit code, APK checksum, capture time, and parsed options.

@@ -28,7 +28,7 @@ You need the following:
 
 You don't need Go on your laptop. The checks and the session install it.
 
-In the commands on this page, replace `$ORGANIZATION` with the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
+In the commands on this page, replace `[[ORGANIZATION]]` with the name of your Chainguard organization. If you belong to only one organization, you can omit `--parent`.
 
 ## Step 1: Create the project {#step-1-create-the-project}
 
@@ -95,7 +95,7 @@ Create a branch for your change, then open a session from your clone:
 
 ```shell
 git switch -c add-farewell
-chainctl develop --parent $ORGANIZATION
+chainctl develop --parent [[ORGANIZATION]]
 ```
 
 `chainctl` creates a session, uploads your branch, and opens a shell in the session. Its output includes lines similar to the following:
@@ -198,7 +198,7 @@ chainctl checks failures
 The command finds the pull request's latest run for the commit you're on, and prints each failed check with the end of its output:
 
 ```output
-Run: instances/<organization-id>/runs/<run-id>
+Run: instances/[[ORGANIZATION_ID]]/runs/[[RUN_ID]]
 Status: failed; 1 failed, 1 passed, 0 did not run
 
 === check "test" in workflow "ci": failed (exit 1), attempt 1 ===
@@ -240,8 +240,8 @@ Chainguard Checks runs the checks again, and **Chainguard Checks (presubmit)** r
 To leave the session, press `Ctrl+]` to open the session menu, then press `Enter` or `d` to detach. On your laptop, find the session's name, and delete the session:
 
 ```shell
-chainctl develop list --parent $ORGANIZATION
-chainctl develop delete acme/hello/quiet-harbor --parent $ORGANIZATION
+chainctl develop list --parent [[ORGANIZATION]]
+chainctl develop delete acme/hello/quiet-harbor --parent [[ORGANIZATION]]
 ```
 
 The `delete` command asks you to confirm, then destroys the session's VM and its snapshot. Anything you didn't push is gone. Then close the pull request on GitHub, or merge it, and delete the repository if you don't need it.

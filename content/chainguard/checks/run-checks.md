@@ -62,7 +62,7 @@ The `run-ci` command reads your checks from the session's working tree, so it us
 | Configuration | The session's working tree, including uncommitted edits. | The pull request's test merge commit, with the base branch's rules applied. |
 | Which checks run | Every check that has commands, in the order your configuration lists them. It stops at the first check that fails, including an advisory check. | The checks that the run's plan selects, each after the checks it `needs`. An [advisory check](/chainguard/checks/configuration/#advisory-checks) never blocks merging. |
 | `needs`, `when`, `trigger`, and `timeout` | Ignored, so `run-ci` also runs checks that a pull request would skip. | Applied. |
-| `foreach` | Runs the check once for each variation, shown in the output as `<check>/<variation>`, such as `test/api`. | Runs each variation in its own VM, and reports all of them as one GitHub check. |
+| `foreach` | Runs the check once for each variation, shown in the output as `[[CHECK]]/[[VARIATION]]`, such as `test/api`. | Runs each variation in its own VM, and reports all of them as one GitHub check. |
 | Checks that need a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs` | Skipped, with a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. A pass from `run-ci` doesn't cover them. | Run. |
 | User | The session's user, which is `root` unless the session's environment comes from a check with a different `user`. | Each check's `user`, which defaults to `root`. |
 | Environment | The session as it is. Packages you installed in the session are available, and the check's own package list and network access don't apply. | A fresh VM for each check, with the check's packages and network access. |
@@ -78,16 +78,16 @@ Only one `run-ci` or `chainctl develop check` can run in a session at a time. On
 
 ## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
 
-To run a session's checks without attaching to it, use `chainctl develop check` on your laptop with the session's name or short ID. If the session is parked, `chainctl` resumes it first. Replace `$SESSION` with the session's name or short ID, and `$ORGANIZATION` with the name of your Chainguard organization:
+To run a session's checks without attaching to it, use `chainctl develop check` on your laptop with the session's name or short ID. If the session is parked, `chainctl` resumes it first. Replace `[[SESSION]]` with the session's name or short ID, and `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl develop check $SESSION --parent $ORGANIZATION
+chainctl develop check [[SESSION]] --parent [[ORGANIZATION]]
 ```
 
 To run a single check, add `--check` with its name:
 
 ```shell
-chainctl develop check $SESSION --check test --parent $ORGANIZATION
+chainctl develop check [[SESSION]] --check test --parent [[ORGANIZATION]]
 ```
 
 The command uses the same runner as `run-ci` and streams each step's output. It skips the same checks as `run-ci`, and prints a line for each, such as `Skipped deploy: declares identity gcp-prod, which only CI provides`. It exits with `0` when the checks pass, or `1` when a check fails or the checks can't run, including when you name a skipped check with `--check`. To print the result as JSON, add `--output json`. The JSON lists the checks it skipped under `skipped`.

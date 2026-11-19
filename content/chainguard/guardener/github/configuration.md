@@ -79,7 +79,7 @@ Once in place, every repository Guardener can access inherits this configuration
 
 Configuration committed directly to a repository takes precedence over the organization-level configuration from the `.github` repository:
 
-- A repository with its own `.chainguard/<feature>.yaml` file uses that file for the feature, ignoring the org-level default for it.
+- A repository with its own `.chainguard/[[FEATURE]].yaml` file uses that file for the feature, ignoring the org-level default for it.
 - A repository without a given feature file falls back to the org-level default in the `.github` repository.
 - A feature that is configured in neither place stays disabled for the repository.
 

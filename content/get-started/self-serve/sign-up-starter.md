@@ -61,10 +61,10 @@ To check whether your images are ready to pull, run `chainctl starter status`. I
 chainctl starter status
 ```
 
-When an image is ready, pull it from your organization's registry path, which `chainctl starter status` shows on its `Registry:` line, such as `cgr.dev/example.com`. Replace `$REGISTRY` with that path:
+When an image is ready, pull it from your organization's registry path, which `chainctl starter status` shows on its `Registry:` line, such as `cgr.dev/example.com`. Replace `[[REGISTRY]]` with that path:
 
 ```shell
-docker pull $REGISTRY/nginx:latest
+docker pull [[REGISTRY]]/nginx:latest
 ```
 
 An organization created with a personal email address has no domain, so its registry path uses the organization's ID instead of a name.
@@ -128,10 +128,10 @@ With `--terms-step` and `--output json`, the JSON object also includes the follo
 * `plan`: what the Starter plan includes and excludes. The list can include limits that Chainguard doesn't enforce yet. For the current limits, refer to [Chainguard plans](/get-started/self-serve/plans/).
 * `human_step`: the step that only a person can take. Its `command` field holds the command that accepts the terms.
 
-Once the organization exists, `human_step` names the command that accepts the terms, and `next` is empty, so the agent has nothing to run. With `chainctl` releases before 0.2.399, `next` names the command instead. An owner of the organization reads the terms and runs the command. Replace `<organization-id>` with the ID from the JSON's `organization` field:
+Once the organization exists, `human_step` names the command that accepts the terms, and `next` is empty, so the agent has nothing to run. With `chainctl` releases before 0.2.399, `next` names the command instead. An owner of the organization reads the terms and runs the command. Replace `[[ORGANIZATION_ID]]` with the ID from the JSON's `organization` field:
 
 ```shell
-chainctl starter accept-terms --parent <organization-id>
+chainctl starter accept-terms --parent [[ORGANIZATION_ID]]
 ```
 
 The command prints what the Starter plan includes, then the terms, and asks you to accept them. Without an interactive terminal, add `--yes`; using it means you agree to the terms. Running the command again after the terms are accepted changes nothing.

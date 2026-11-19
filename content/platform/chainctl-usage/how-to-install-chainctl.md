@@ -21,7 +21,7 @@ weight: 10
 
 Chainguard's `chainctl` command-line interface provides essential tools for managing your container security infrastructure, including image management, identity and access control, and resource monitoring. This CLI enables automation of Chainguard operations and integration with CI/CD pipelines.
 
-The tool uses the familiar `<context> <noun> <verb>` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
+The tool uses the familiar `[[CONTEXT]] [[NOUN]] [[VERB]]` style of CLI interactions. For example, to retrieve a list of all the private Chainguard Containers available to your organization, you can run `chainctl images list`.
 
 ## Install `chainctl`
 
@@ -175,13 +175,13 @@ You should receive output similar to the following.
   \____| |_| |_| /_/   \_\ |___| |_| \_|  \____|   |_|   |_____|
 chainctl: Chainguard Control
 
-GitVersion: <semver version>
-GitCommit:  <commit hash>
+GitVersion: [[VERSION]]
+GitCommit:  [[COMMIT_HASH]]
 GitTreeState:  clean
-BuildDate:  <date here>
-GoVersion:  <compiler version>
+BuildDate:  [[BUILD_DATE]]
+GoVersion:  [[GO_VERSION]]
 Compiler:   gc
-Platform:   <your platform>
+Platform:   [[PLATFORM]]
 ```
 
 If you received output that you did not expect, check your bash profile to make sure that your system is using the expected PATH.
@@ -210,9 +210,9 @@ Following the [XDG standard](https://specifications.freedesktop.org/basedir/late
 
 * **On Linux systems**, this is typically `~/.cache/`
 * **On MacOS**, this is `~/Library/Caches/`
-* **On Windows**, this is `%LocalAppData%` (typically `C:\Users\<username>\AppData\Local`)
+* **On Windows**, this is `%LocalAppData%` (typically `C:\Users\[[USERNAME]]\AppData\Local`)
 
-The token's path is the local cache directory appended with `/chainguard/<audience>/<oidc-token|refresh-token>`. The `oidc-token` is a short-lived access token used for authentication, while the `refresh-token` is a longer-lived credential that allows chainctl to obtain new access tokens without requiring you to log in again.
+The token's path is the local cache directory appended with `/chainguard/[[AUDIENCE]]/oidc-token` or `/chainguard/[[AUDIENCE]]/refresh-token`. The `oidc-token` is a short-lived access token used for authentication, while the `refresh-token` is a longer-lived credential that allows chainctl to obtain new access tokens without requiring you to log in again.
 
 For example, on Linux you can find the `oidc-token` for the `https://console-api.enforce.dev` audience in the following location:
 
@@ -225,7 +225,7 @@ Note that for this audience, chainctl replaces `/` with `-` in order to ensure a
 On Windows, the same `oidc-token` is stored at:
 
 ```
-C:\Users\<username>\AppData\Local\chainguard\https---console-api.enforce.dev\oidc-token
+C:\Users\[[USERNAME]]\AppData\Local\chainguard\https---console-api.enforce.dev\oidc-token
 ```
 
 Windows doesn't allow `:` in file paths either, so on Windows chainctl replaces both `/` and `:` with `-`. The `https://console-api.enforce.dev` audience becomes `https---console-api.enforce.dev` (three hyphens), rather than the `https:--console-api.enforce.dev` form used on Linux and macOS.

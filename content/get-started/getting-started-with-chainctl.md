@@ -99,10 +99,10 @@ Be warned, that list may take a while to generate and is likely to scroll past q
 
 Let's say you want to compare two versions of an image for the same package. You need to know the URL for your repo, the image name, and the two versions you want to compare. For versions, you can use release numbers like `8.12.0` or you can use `latest` or `latest-dev`.
 
-Use this, where we show the repo used by our Chainguard Developer Education team and where both instances of `<image_name>` are the same:
+Use this, where we show the repo used by our Chainguard Developer Education team and where both instances of `[[IMAGE_NAME]]` are the same. Replace `[[IMAGE_NAME]]` with the image's name:
 
 ```shell
-chainctl images diff cgr.dev/chainguard.edu/$IMAGENAME:latest cgr.dev/chainguard.edu/$IMAGENAME:latest-dev
+chainctl images diff cgr.dev/chainguard.edu/[[IMAGE_NAME]]:latest cgr.dev/chainguard.edu/[[IMAGE_NAME]]:latest-dev
 ```
 
 If a requested image or release being requested is not available in the repo you are using, this will return a `Forbidden` error, just like if you tried to pull an image you did not have access to or from a repository your account is not authorized to use.
@@ -111,20 +111,20 @@ Learn more at [How to compare Chainguard Containers with chainctl](/platform/cha
 
 ## List available package versions
 
-If you want to get details about the various package versions available that can be used in images, use:
+If you want to get details about the various package versions available that can be used in images, use the following command, replacing `[[PACKAGE_NAME]]` with the package's name:
 
 ```shell
-chainctl packages versions list $PACKAGENAME
+chainctl packages versions list [[PACKAGE_NAME]]
 ```
 
 This will list all the versions that Chainguard has built and the end-of-life date for each version that has one assigned. It will also list older package versions that are no longer available.
 
 ## Output formats
 
-Commands may have a default format for output, but that doesn't mean you have to stick with it. There is an option available to tell `chainctl` the output format to use, like this:
+Commands may have a default format for output, but that doesn't mean you have to stick with it. There is an option available to tell `chainctl` the output format to use, like this. Replace `[[COMMAND]]` with a `chainctl` command and `[[FORMAT]]` with an output format:
 
 ```shell
-chainctl $COMMAND -o $FORMAT
+chainctl [[COMMAND]] -o [[FORMAT]]
 ```
 
 The `-o` is followed by one of the following strings: `csv`, `id`, `json`, `none`, `table`, `terse`, `tree`, or `wide`.

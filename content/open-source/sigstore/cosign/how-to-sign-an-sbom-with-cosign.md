@@ -63,7 +63,7 @@ Save the file and close Nano by pressing `CTRL + X`, `y`, and `ENTER` in success
 Since we'll be pushing to a repository on your Docker Hub account, let's set a variable to your Docker Hub username that we can use in further commands.
 
 ```sh
-DH_USERNAME=<your-username>
+DH_USERNAME=[[DOCKER_HUB_USERNAME]]
 ```
 
 You can find your username on your Docker Hub account page. If you're logged in on the command line, you can also run the following command to find your username:

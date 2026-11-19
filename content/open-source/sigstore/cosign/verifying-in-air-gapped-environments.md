@@ -164,10 +164,10 @@ cosign verify-attestation \
 
 ### Verify images from a private registry
 
-Images in your organization's registry are signed by your organization's `image-syncer` and `custom-image-builder` identities rather than by Chainguard's public signing identity. Resolve those identifiers on the connected machine, because `chainctl` needs to reach the Chainguard control plane:
+Images in your organization's registry are signed by your organization's `image-syncer` and `custom-image-builder` identities rather than by Chainguard's public signing identity. Resolve those identifiers on the connected machine, because `chainctl` needs to reach the Chainguard control plane. Replace `[[ORGANIZATION]]` with your organization's name:
 
 ```sh
-PARENT=your-organization
+PARENT=[[ORGANIZATION]]
 IMAGE_SYNCER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.CATALOG_SYNCER')
 CUSTOM_IMAGE_BUILDER=$(chainctl iam account-associations describe $PARENT -o json | jq -r '.[].chainguard.service_bindings.APKO_BUILDER')
 ```

@@ -33,7 +33,7 @@ The **Chainguard Containers Directory** at [images.chainguard.dev](https://image
 Your **organization's registry** is what your teams pull from, and it holds only the images your organization has access to. Authenticated production images live under your organization's namespace:
 
 ```shell
-cgr.dev/$ORGANIZATION/$IMAGE:$TAG
+cgr.dev/[[ORGANIZATION]]/[[IMAGE]]:[[TAG]]
 ```
 
 For example, an organization registered as `example.com` pulls its Python image from `cgr.dev/example.com/python`. Public Starter images remain available to everyone under `cgr.dev/chainguard/`. See the [registry overview](/chainguard/containers/registry/overview/) for the access tiers and [authentication](/chainguard/containers/registry/authenticating/) to set up your credentials.
@@ -53,13 +53,13 @@ Whether an image is available to pull depends on your subscription. If a pull fa
 Every Chainguard container image ships with a signed SBOM and provenance attestations. You can retrieve them three ways; the [full guide](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) covers each in detail.
 
 - **From the Chainguard Containers Directory.** Open an image at [images.chainguard.dev](https://images.chainguard.dev), then download the SBOM from the **SBOM** tab in SPDX or CycloneDX format. This needs no tooling and works for any image in the catalog.
-- **With `cosign`.** Download the SBOM attestation for an image directly from the registry:
+- **With `cosign`.** Download the SBOM attestation for an image directly from the registry, replacing `[[ORGANIZATION]]` with your organization's name and `[[IMAGE]]` with the image's name:
 
   ```shell
   cosign download attestation \
     --platform linux/amd64 \
     --predicate-type https://spdx.dev/Document \
-    cgr.dev/$ORGANIZATION/$IMAGE | jq -r '.payload' | base64 -d | jq -r '.predicate'
+    cgr.dev/[[ORGANIZATION]]/[[IMAGE]] | jq -r '.payload' | base64 -d | jq -r '.predicate'
   ```
 
 - **With `syft`.** Generate an SBOM locally from an image you've pulled. Use this for images you've customized, where you want an SBOM of the final artifact.
@@ -88,10 +88,10 @@ The [quickstart](/chainguard/libraries/introduction/quickstart/) walks through c
 
 ### Verify provenance and SBOMs
 
-Every package that Chainguard builds from source ships with a signed SBOM and SLSA provenance, attached alongside each package. Use a command similar to the following to verify which of your dependencies were built by Chainguard:
+Every package that Chainguard builds from source ships with a signed SBOM and SLSA provenance, attached alongside each package. Use a command similar to the following to verify which of your dependencies were built by Chainguard, replacing `[[ARTIFACT_PATH]]` with the path to the artifact to check:
 
 ```shell
-chainctl libraries verify /path/to/artifact
+chainctl libraries verify [[ARTIFACT_PATH]]
 ```
 
 See [verifying Chainguard Libraries](/chainguard/libraries/policies-and-security/verification/) for what the command checks and for retrieving the SBOM and attestation files directly.

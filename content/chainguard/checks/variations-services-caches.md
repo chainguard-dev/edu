@@ -59,7 +59,7 @@ An entry's values reach the check's commands only as environment variables and a
 
 ### Compute variations during a run {#compute-variations-during-a-run}
 
-To compute the variations during the run, such as one for each module in your repository, define a planner under the top-level `plans` key and set the check's `foreach` to `plans.<name>`:
+To compute the variations during the run, such as one for each module in your repository, define a planner under the top-level `plans` key and set the check's `foreach` to `plans.[[NAME]]`:
 
 ```yaml {title=".chainguard/ci.yaml"}
 version: 1
@@ -88,7 +88,7 @@ A planner works as follows:
 
 - It needs its own `environment` and a `cmd`, and can have a `network`. Its environment can't name caches. Without `network`, it has no network access.
 - It runs in a VM with your repository, with `CHAINGUARD_BASE_REVISION` set the same way as for a check, and can run for up to five minutes.
-- It can write a JSON array of variations, or an object of named arrays, such as `{"unit": [...], "integration": [...]}`. A check uses one array with `foreach: plans.<name>.<group>`, such as `plans.modules.unit`.
+- It can write a JSON array of variations, or an object of named arrays, such as `{"unit": [...], "integration": [...]}`. A check uses one array with `foreach: plans.[[NAME]].[[GROUP]]`, such as `plans.modules.unit`.
 - A variation's `network` can only narrow the check's, as for a `foreach` entry.
 - A variation without a `name` is named `shard-1`, `shard-2`, and so on. An empty array runs no variation of the check.
 - Its output can be up to 1 MiB, with up to 1,000 variations across all arrays and names up to 128 bytes. If the planner fails or writes output that breaks these rules, the checks that use it don't run and report a failed dependency. If every check that uses it is advisory, a failed planner doesn't block merging.
@@ -150,7 +150,7 @@ If the repository is private or the ref doesn't exist, the summary check shows *
 
 ## Services {#services}
 
-A service is a process, such as a database or the Docker daemon, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/<name>/<name>.yaml`, with the script that starts it in the same directory:
+A service is a process, such as a database or the Docker daemon, that Chainguard Checks starts in a check's VM before the check's commands run. In the directory layout, define each service in `.chainguard/ci/services/[[NAME]]/[[NAME]].yaml`, with the script that starts it in the same directory:
 
 ```yaml {title=".chainguard/ci/services/postgres/postgres.yaml"}
 version: 1
@@ -327,7 +327,7 @@ checks:
     user: build
 ```
 
-Chainguard Checks creates the account with UID and GID 65532 and the home directory `/home/<name>`, and makes it the owner of `/work`. A name uses lowercase letters, digits, `_`, and `-`, starts with a lowercase letter or `_`, and can be up to 32 characters.
+Chainguard Checks creates the account with UID and GID 65532 and the home directory `/home/[[NAME]]`, and makes it the owner of `/work`. A name uses lowercase letters, digits, `_`, and `-`, starts with a lowercase letter or `_`, and can be up to 32 characters.
 
 Don't use a name that the VM already has: `bin`, `daemon`, `adm`, `lp`, `sync`, `shutdown`, `halt`, `mail`, `news`, `uucp`, `operator`, `man`, `postmaster`, `cron`, `ftp`, `sshd`, or `nobody`. `chainctl checks validate` accepts these names, but the run refuses them. A check also fails to start if one of its packages creates an account with the same name.
 
@@ -358,11 +358,11 @@ Each key under `caches` is a cache type. During the beta, the following types st
 
 | Type | What it stores | Packages it needs | Variables Chainguard Checks sets |
 | ---- | -------------- | ----------------- | -------------------------------- |
-| `gobuild` | Go build output | `go` or a `go-<version>` package | `GOCACHE`, and `-count=1` added to `GOFLAGS` |
-| `gomod` | Downloaded Go modules | `go` or a `go-<version>` package | `GOMODCACHE` |
-| `python` | Packages that pip and uv download | `python` or a `python-<version>` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
-| `java` | Files that Maven and Gradle download, in `~/.m2/repository` and `~/.gradle/caches/modules-2/files-2.1` | An `openjdk-<version>` package | None |
-| `cargo` | Crates and Git dependencies that Cargo downloads, and the build output in `target/` in the check's `workdir` | `rust` or a `rust-<version>` package | `CARGO_HOME`, set to `/home/build/.cargo` |
+| `gobuild` | Go build output | `go` or a `go-[[VERSION]]` package | `GOCACHE`, and `-count=1` added to `GOFLAGS` |
+| `gomod` | Downloaded Go modules | `go` or a `go-[[VERSION]]` package | `GOMODCACHE` |
+| `python` | Packages that pip and uv download | `python` or a `python-[[VERSION]]` package | `PIP_CACHE_DIR`, `UV_CACHE_DIR`, and `UV_LINK_MODE=copy` unless you set `UV_LINK_MODE` |
+| `java` | Files that Maven and Gradle download, in `~/.m2/repository` and `~/.gradle/caches/modules-2/files-2.1` | An `openjdk-[[VERSION]]` package | None |
+| `cargo` | Crates and Git dependencies that Cargo downloads, and the build output in `target/` in the check's `workdir` | `rust` or a `rust-[[VERSION]]` package | `CARGO_HOME`, set to `/home/build/.cargo` |
 
 The `node` and `directory` types pass validation, but they store nothing during the beta.
 

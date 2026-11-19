@@ -54,7 +54,7 @@ To install the app and link your Chainguard organization to your GitHub organiza
 
 Your pipeline needs credentials to pull from Chainguard, and a long-lived API key stored in repository secrets is the weakest way to supply them. Chainguard uses [assumable identities](/platform/administration/assumable-ids/) instead: your CI job presents the OIDC token its platform already issues, and exchanges it for a short-lived Chainguard token.
 
-On GitHub Actions, the `setup-chainctl` action handles the exchange:
+On GitHub Actions, the `setup-chainctl` action handles the exchange. Replace `[[IDENTITY_ID]]` with the ID of your assumable identity:
 
 ```yaml
 permissions:
@@ -64,15 +64,15 @@ permissions:
 steps:
   - uses: chainguard-dev/setup-chainctl@2cddd35a2f120d9973e58094dc6878c93cf58c28 # v0.5.1
     with:
-      identity: "<identity-id>"
+      identity: "[[IDENTITY_ID]]"
 ```
 
-On GitLab, Jenkins, or a shell script, pass the platform's token to `chainctl` directly:
+On GitLab, Jenkins, or a shell script, pass the platform's token to `chainctl` directly, replacing `[[IDENTITY_ID]]` with the identity's ID and `[[OIDC_TOKEN]]` with the token your platform issues:
 
 ```shell
 chainctl auth login \
-  --identity="$IDENTITY_ID" \
-  --identity-token="$OIDC_TOKEN"
+  --identity="[[IDENTITY_ID]]" \
+  --identity-token="[[OIDC_TOKEN]]"
 ```
 
 [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) covers non-interactive use, and the [identity examples](/platform/administration/assumable-ids/identity-examples/) include worked setups for GitHub, GitLab, and several cloud providers.
@@ -91,10 +91,10 @@ Enable the entitlement for your organization:
 chainctl actions entitlements create
 ```
 
-Then point each step at its hardened equivalent, pinned to a commit digest:
+Then point each step at its hardened equivalent, pinned to a commit digest, replacing `[[COMMIT_SHA]]` with the commit to pin:
 
 ```yaml
-- uses: chainguard-actions/tj-actions-changed-files@<commit-sha> # v47
+- uses: chainguard-actions/tj-actions-changed-files@[[COMMIT_SHA]] # v47
 ```
 
 Repository names in `chainguard-actions` carry the upstream organization as a prefix, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. Run `chainctl actions discover` to list every action and container image your workflows reference, which tells you what there is to migrate. If your GitHub organization restricts which actions can run, add `chainguard-actions/*` to the allowed patterns first.
@@ -132,12 +132,12 @@ All of these are served through the [Chainguard Repository](/chainguard/chaingua
 
 Build your application on a Chainguard base image, using the `-dev` variant for the build stage and the minimal runtime variant for the final stage. [Migrating to Chainguard Containers](/chainguard/containers/migration/migrations-overview/) covers the patterns, and the [Dockerfile conversion tool](/chainguard/containers/migration/migration-tools/dockerfile-conversion/) does the mechanical part.
 
-When your runtime image needs packages the standard image doesn't carry, [Custom Assembly](/chainguard/containers/custom-assembly/overview/) builds a variant to your specification. You can trigger those builds from CI:
+When your runtime image needs packages the standard image doesn't carry, [Custom Assembly](/chainguard/containers/custom-assembly/overview/) builds a variant to your specification. You can trigger those builds from CI, replacing `[[ORGANIZATION]]` with your organization's name and `[[IMAGE_NAME]]` with the image's name:
 
 ```shell
 chainctl images repos build apply --file custom-jre.yaml \
-  --parent <organization> \
-  --repo <image-name> \
+  --parent [[ORGANIZATION]] \
+  --repo [[IMAGE_NAME]] \
   --yes
 ```
 
@@ -149,13 +149,13 @@ chainctl images repos build apply --file custom-jre.yaml \
 
 Every Chainguard container image and library ships with a signed SBOM and provenance attestation. Verifying them in CI turns those signatures into a gate rather than a document nobody reads.
 
-Check an image signature with `cosign`:
+Check an image signature with `cosign`, replacing `[[ORGANIZATION_ID]]` with your organization's ID:
 
 ```shell
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity-regexp="https://issuer.enforce.dev/<organization-id>/.*" \
-  cgr.dev/<organization>/<image-name>:latest
+  --certificate-identity-regexp="https://issuer.enforce.dev/[[ORGANIZATION_ID]]/.*" \
+  cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]:latest
 ```
 
 See [verifying signatures with cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) for what the command proves, and [retrieving image SBOMs](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) for pulling the SBOM itself. For dependencies, `chainctl libraries verify` reports which of your artifacts Chainguard built; [verifying Chainguard Libraries](/chainguard/libraries/policies-and-security/verification/) covers the detail.

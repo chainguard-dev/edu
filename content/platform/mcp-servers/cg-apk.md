@@ -151,7 +151,7 @@ Keep the following in mind when you search:
 
 ### get_sbom
 
-Fetches the SPDX SBOM document embedded in an APK's filesystem, at `var/lib/db/sbom/<pkg>-<ver>.spdx.json`. The response is `{sbom}`, the raw SPDX JSON as a string.
+Fetches the SPDX SBOM document embedded in an APK's filesystem, at `var/lib/db/sbom/[[PACKAGE]]-[[VERSION]].spdx.json`. The response is `{sbom}`, the raw SPDX JSON as a string.
 
 | Parameter | Type | Required | Description |
 | ----- | ----- | ----- | ----- |
