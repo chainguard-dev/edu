@@ -4,7 +4,7 @@ linktitle: "Browsing"
 description: "Searching, browsing, and inspecting Chainguard Libraries in the console"
 type: "article"
 date: 2025-07-03T14:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-19T18:33:27+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -99,7 +99,7 @@ The list at the bottom of the page displays automatically blocked packages, incl
 
 #### Malware and greyware signals detected
 
-Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Next to each blocked package, Chainguard provides the reason it was blocked when there is no public malware advisory. The detected signals fall under the following categories:
+Signals are clues the scanner finds in a package, not a verdict. The scanner weighs them and classifies the package as malware, greyware, or clear, and the same signal can appear in any of those results. When a blocked package has no public malware advisory, Chainguard lists the signals it detected next to the package. Signals fall into the following groups:
 
 * **Credential and data theft**: The package harvests secrets (for example, GitHub tokens or SSH keys) and sends sensitive data out of the environment.
     * Signals: Accesses credentials, Data exfiltration, Contains an exposed secret

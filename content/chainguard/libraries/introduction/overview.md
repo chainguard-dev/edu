@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-19T15:46:04+00:00
+lastmod: 2026-11-19T18:33:27+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -242,12 +242,8 @@ Greyware isn't malware and doesn't require incident response, but it does
 things you might not expect. Examples include packages that:
 
 * Collect telemetry or usage analytics.
-* Check whether you have a valid license.
+* Check whether you have a valid license key or paid plan, for example by contacting the publisher's server.
 * Include security testing or red-team tools that don't run anything when you install them.
-
-If your security team reviews a blocked package and approves it, you can allow
-it with an [override
-policy](/chainguard/chainguard-repository/library-policies/#override-malware-or-greyware-blocking).
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
