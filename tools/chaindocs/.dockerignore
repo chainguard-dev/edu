@@ -1,4 +1,0 @@
-# .dockerignore
-vendor
-logs
-content/*
