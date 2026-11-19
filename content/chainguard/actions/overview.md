@@ -128,7 +128,7 @@ chainctl actions entitlements list
 ```output
                     ID                    |         CREATED
 ------------------------------------------|-------------------------
- [[ENTITLEMENT_ID]]                          | 2026-06-18 17:33:24 UTC
+ [[ENTITLEMENT_ID]]                           | 2026-06-18 17:33:24 UTC
 ```
 
 ### Step 2: Install the Chainguard App
