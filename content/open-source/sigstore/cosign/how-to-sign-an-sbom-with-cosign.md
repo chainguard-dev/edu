@@ -191,13 +191,13 @@ Note the warnings — a record of the attestation will be recorded to an immutab
 
 Cosign can also be used to verify the identity of the person or entity issuing an attestation. The following assumes you used GitHub to authenticate when attesting in the previous step.
 
-To verify that an attestation was issued by a specific entity, we use the `cosign verify-attestation` command, replacing `[[EMAIL]]` with the email address of the issuer:
+To verify that an attestation was issued by a specific entity, we use the `cosign verify-attestation` command, specifying the email address of the issuer:
 
 ```sh
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=[[EMAIL]] \
+ --certificate-identity=emailaddress@emailprovider.com \
  $DIGEST
 ```
 
@@ -209,7 +209,7 @@ The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - Existence of the claims in the transparency log was verified offline
   - The code-signing certificate was verified using trusted certificate authority certificates
-Certificate subject: [[EMAIL]]
+Certificate subject: <you@domain.com>
 Certificate issuer URL: https://github.com/login/oauth
 ```
 
@@ -219,7 +219,7 @@ The remainder of the message consists of an `in-toto attestation` envelope encod
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=[[EMAIL]] \
+ --certificate-identity=emailaddress@emailprovider.com \
  $DIGEST | \
  jq -r .payload | \
  base64 -d | jq .predicate
