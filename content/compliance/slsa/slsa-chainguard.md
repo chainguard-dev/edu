@@ -52,10 +52,10 @@ To pull an attestation, you must first [authenticate to Chainguard's registry](/
 
 Then you can download an attestation of provenance.
 
-If you are a customer, replace $CUSTOMERNAME in this example with your Chainguard registry customer name.
+If you are a customer, replace `[[ORGANIZATION]]` in this example with the name of your Chainguard organization.
 
 ```
-cosign download attestation --predicate-type=https://slsa.dev/provenance/v1 cgr.dev/$CUSTOMERNAME/node-fips:latest | jq -r .payload | base64 -d | jq .predicate
+cosign download attestation --predicate-type=https://slsa.dev/provenance/v1 cgr.dev/[[ORGANIZATION]]/node-fips:latest | jq -r .payload | base64 -d | jq .predicate
 ```
 
 This example returns the following output:
