@@ -66,13 +66,13 @@ Before you start, make sure that:
 - The Chainguard App is installed and your Chainguard organization is linked to your GitHub organization, as described in [Getting started](/chainguard/guardener/github/getting-started/). The migration must be requested through the Chainguard organization that owns the Chainguard App installation.
 - You hold the `guardener.actions.migrate` capability on that Chainguard organization. The built-in `viewer`, `editor`, and `owner` roles include it, as do `guardener.user` and `guardener.admin`. Each built-in role that includes either migration capability includes both. Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for more information on roles.
 
-Run `chainctl guardener github migrate create` with the repository to migrate:
+Run `chainctl guardener github migrate create` with the repository to migrate, replacing `[[OWNER]]/[[REPO]]` with the repository's owner and name:
 
 ```shell
-chainctl guardener github migrate create <owner>/<repo>
+chainctl guardener github migrate create [[OWNER]]/[[REPO]]
 ```
 
-The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the Chainguard App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent <group-name>` to name it explicitly.
+The repository can be given as `owner/repo` shorthand or as a full URL (`https://github.com/owner/repo`); only github.com repositories are supported today. The migration runs under the Chainguard organization that owns the Chainguard App installation. `chainctl` selects that organization automatically when only one is available and prompts you when there are several; pass `--parent [[ORGANIZATION]]` to name it explicitly.
 
 With `chainctl` 0.2.375 or later, the command runs every migration that the repository opts in to, so it also opens or updates the [Container Image Migration](/chainguard/guardener/github/image-migration/) pull request when `.chainguard/images.yaml` enables it. Earlier versions of `chainctl` run only the Hardened Actions migration.
 
@@ -81,9 +81,9 @@ Each migration checks its own capability. If you hold `guardener.actions.migrate
 By default, the command waits for the migrations to finish (up to 10 minutes, adjustable with `--timeout`) and prints one result for each:
 
 ```
-Repository: https://github.com/<owner>/<repo>
+Repository: https://github.com/[[OWNER]]/[[REPO]]
 Triggered by: you@example.com (user)
-Actions: https://github.com/<owner>/<repo>/pull/42
+Actions: https://github.com/[[OWNER]]/[[REPO]]/pull/42
 Images: migration is not enabled here or in repository configuration
 Status: completed
 ```
@@ -94,10 +94,10 @@ If the migration fails because the Chainguard App installation does not cover th
 
 ## Check a migration operation
 
-Pass `--wait=false` to return immediately instead of waiting. The command prints an operation name of the form `operations/migrate/<group>/<id>`, which you can check later with `chainctl guardener github migrate get`:
+Pass `--wait=false` to return immediately instead of waiting. The command prints an operation name of the form `operations/migrate/[[GROUP]]/[[ID]]`, which you can check later with `chainctl guardener github migrate get`, replacing `[[GROUP]]` and `[[ID]]` with the values from that name:
 
 ```shell
-chainctl guardener github migrate get operations/migrate/<group>/<id>
+chainctl guardener github migrate get operations/migrate/[[GROUP]]/[[ID]]
 ```
 
 The owning organization is derived from the operation name, so no `--parent` is needed. Add `--wait` to poll until the operation completes (bounded by `--timeout`, 10 minutes by default). Interrupting a waiting `migrate create` is also safe — the migration keeps running server-side, and the command prints the operation name so you can check it later.
@@ -159,7 +159,7 @@ Each pin keeps its form. A SHA pin gets a new SHA, and a tag pin gets a new tag:
 
 | Pin form | Before | After |
 | -------- | ------ | ----- |
-| SHA pin | `chainguard-actions/actions-checkout@<sha> # v4.2.2` | `chainguard-actions/actions-checkout@<new-sha> # v7.0.1` |
+| SHA pin | `chainguard-actions/actions-checkout@[[SHA]] # v4.2.2` | `chainguard-actions/actions-checkout@[[NEW_SHA]] # v7.0.1` |
 | Tag pin | `chainguard-actions/actions-checkout@v4.2.2` | `chainguard-actions/actions-checkout@v7.0.1` |
 | Floating tag pin | `chainguard-actions/actions-checkout@v4` | `chainguard-actions/actions-checkout@v6` |
 
@@ -266,7 +266,7 @@ Guardener doesn't upgrade these pins:
 
 - A SHA pin that Guardener can't match to a version, because the catalog no longer lists its SHA and it has no version comment.
 - A step with no version, such as `uses: chainguard-actions/actions-checkout`, or with a reference that isn't a version, such as `@main`.
-- Pins outside the workflow files. Guardener reads only `.yml` and `.yaml` files directly in `.github/workflows/`, so it doesn't upgrade pins in composite actions, such as `.github/actions/<name>/action.yml`.
+- Pins outside the workflow files. Guardener reads only `.yml` and `.yaml` files directly in `.github/workflows/`, so it doesn't upgrade pins in composite actions, such as `.github/actions/[[NAME]]/action.yml`.
 - Pins in a repository that has a GitHub workflow lockfile (`.github/workflows/actions.lock`). Migrations in these repositories work as before.
 
 When Guardener upgrades a pin, it keeps only the version in the line's comment. Other comment text, as in `# v4.2.2 (pinned by dependabot)`, is dropped.

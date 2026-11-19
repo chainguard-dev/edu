@@ -141,10 +141,10 @@ Before you start, make sure that:
 - The repository has `migrate.enabled: true` in its own `.chainguard/images.yaml` file or in the organization-level file.
 - You hold the `guardener.images.migrate` capability on the Chainguard organization that's linked to the repository's GitHub organization. The built-in `viewer`, `editor`, and `owner` roles include it, as do `guardener.user` and `guardener.admin`. For more information, refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/).
 
-Run `chainctl guardener github migrate create` with the repository:
+Run `chainctl guardener github migrate create` with the repository, replacing `[[OWNER]]/[[REPO]]` with the repository's owner and name:
 
 ```shell
-chainctl guardener github migrate create <owner>/<repo>
+chainctl guardener github migrate create [[OWNER]]/[[REPO]]
 ```
 
 The command runs every migration that the repository opts in to: Container Image Migration through `.chainguard/images.yaml` and Hardened Actions migration through `.chainguard/actions.yaml`. Each opens or updates its own pull request.
@@ -152,10 +152,10 @@ The command runs every migration that the repository opts in to: Container Image
 By default, the command waits up to 10 minutes for the migrations to finish and then prints one result for each:
 
 ```
-Repository: https://github.com/<owner>/<repo>
+Repository: https://github.com/[[OWNER]]/[[REPO]]
 Triggered by: you@example.com (user)
 Actions: migration is not enabled here or in repository configuration
-Images: https://github.com/<owner>/<repo>/pull/43
+Images: https://github.com/[[OWNER]]/[[REPO]]/pull/43
 Status: completed
 ```
 
@@ -201,7 +201,7 @@ The top-level `enabled` key controls Image Suggestions only. For more informatio
 
 ## Full example
 
-The following `.chainguard/images.yaml` file turns on Image Suggestions and weekly migration pull requests. It prefers standard images to FIPS variants, and it leaves a development Dockerfile and every `busybox:<tag>` reference unchanged:
+The following `.chainguard/images.yaml` file turns on Image Suggestions and weekly migration pull requests. It prefers standard images to FIPS variants, and it leaves a development Dockerfile and every `busybox:[[TAG]]` reference unchanged:
 
 ```yaml
 enabled: true

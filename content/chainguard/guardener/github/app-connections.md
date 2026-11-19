@@ -72,8 +72,8 @@ Run `chainctl guardener github link`, passing the GitHub organization login and 
 
 ```shell
 chainctl guardener github link \
-  --github-org <github-org-login> \
-  --parent <organization-name>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[ORGANIZATION]]
 ```
 
 If you omit `--parent`, `chainctl` prompts you to select from the Chainguard organizations you have access to.
@@ -93,7 +93,7 @@ If the browser flow cannot use its default local port (8989), pass a different o
 List the connections for your Chainguard organization:
 
 ```shell
-chainctl guardener github status --parent <organization-name>
+chainctl guardener github status --parent [[ORGANIZATION]]
 ```
 
 The linked GitHub organization should appear in the output, as described in the next section.
@@ -122,7 +122,7 @@ Each Chainguard organization has a **repository visibility scope**, which contro
 To check your organization's scope, run `chainctl guardener entitlement get`, passing your Chainguard organization name:
 
 ```shell
-chainctl guardener entitlement get --parent <organization-name>
+chainctl guardener entitlement get --parent [[ORGANIZATION]]
 ```
 
 The output shows your organization's group ID and its scope:
@@ -147,16 +147,16 @@ No change on the Chainguard side is needed; the existing link continues to apply
 
 ## Moving a GitHub organization to a different Chainguard organization
 
-Because a GitHub organization can be linked to only one Chainguard organization at a time, moving it is an unlink followed by a link:
+Because a GitHub organization can be linked to only one Chainguard organization at a time, moving it is an unlink followed by a link. Replace `[[OLD_ORGANIZATION]]` and `[[NEW_ORGANIZATION]]` with the names of the Chainguard organizations to move from and to:
 
 ```shell
 chainctl guardener github unlink \
-  --github-org <github-org-login> \
-  --parent <old-organization>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[OLD_ORGANIZATION]]
 
 chainctl guardener github link \
-  --github-org <github-org-login> \
-  --parent <new-organization>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[NEW_ORGANIZATION]]
 ```
 
 The GitHub App installation is untouched by the move; only the Chainguard-side association changes.
@@ -167,8 +167,8 @@ To remove a connection, unlink the GitHub organization:
 
 ```shell
 chainctl guardener github unlink \
-  --github-org <github-org-login> \
-  --parent <organization-name>
+  --github-org [[GITHUB_ORG]] \
+  --parent [[ORGANIZATION]]
 ```
 
 Unlinking accepts either side's authority:
@@ -187,7 +187,7 @@ Linking checks for an existing installation. Install the app on the GitHub organ
 Each GitHub organization can be linked to only one Chainguard organization. Unlink it from its current organization first — anyone who owns the GitHub organization can do this, even without access to the current Chainguard organization (refer to [Removing a connection](#removing-a-connection)).
 
 **The browser authorization fails or never completes**
-The GitHub flow requires that you are an owner of the GitHub organization; membership alone is not enough. If the local callback port is in use, re-run the command with `--port <port>`. The flow times out after a few minutes — re-run the command to try again.
+The GitHub flow requires that you are an owner of the GitHub organization; membership alone is not enough. If the local callback port is in use, re-run the command with `--port [[PORT]]`, replacing `[[PORT]]` with a free port. The flow times out after a few minutes — re-run the command to try again.
 
 **`status` shows the connection but Guardener isn't doing anything**
 A connection alone changes nothing. Check that the repository is covered by the installation's repository access, that its visibility matches your [repository visibility scope](#repository-visibility-scope), and that the feature you expect is enabled by a `.chainguard/` configuration file (refer to [Configuration](/chainguard/guardener/github/configuration/)).
