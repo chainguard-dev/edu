@@ -45,9 +45,9 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `on: pull_request: paths:` | `when: changed:`. A `**` matches any number of directories only as a whole path segment, so write `**.go` as `**/*.go`. A pattern that starts with `!` has no equivalent. Refer to [Run when files change](/chainguard/checks/configuration/#run-when-files-change). |
 | `on: pull_request: paths-ignore:` | No equivalent. List the paths that should run the check under `when: changed:` instead. |
 | `if:` | `when: expr:` with a CEL expression |
-| `workflow_dispatch`, or a job that a label starts | `when: {requested: true}`, run with a `ci/run:<check>` label |
+| `workflow_dispatch`, or a job that a label starts | `when: {requested: true}`, run with a `ci/run:[[CHECK]]` label |
 | `continue-on-error: true`, or a job that isn't required | `advisory: true` |
-| `jobs.<job_id>` | `checks.<name>` |
+| `jobs.[[JOB_ID]]` | `checks.[[NAME]]` |
 | `runs-on` | `resources`. A built-in class without a suffix usually runs on arm64, while `ubuntu-latest` is x86-64, so use an `-amd64` class, such as `medium-amd64`, for a job that needs x86-64. Only a class with a `platform` pins the architecture among your own classes, and if your repository uses the older `.chainguard/ci/resources.yaml` file, the built-in classes aren't available. Refer to [Resources](/chainguard/checks/configuration/#resources). |
 | `steps[*].run` | `steps[*].cmd` or `steps[*].script`. A step takes only `id`, `name`, `cmd`, `script`, and `shell`, so step-level `env`, `if`, and `working-directory` are refused. |
 | `steps[*].uses` | Not supported. List the tool's package and run it. |
@@ -55,11 +55,11 @@ The following table maps common GitHub Actions keys and actions to their Chaingu
 | `actions/checkout` with `submodules` or `lfs` | No equivalent. Submodule directories are empty, and Git LFS files hold their pointer files. |
 | `actions/upload-artifact` and `actions/download-artifact` | `outputs` on the check that writes the files, and `inputs` with `from` on a check in the same file that reads them. Refer to [Pass files between checks](/chainguard/checks/variations-services-caches/#pass-files-between-checks). A run keeps no files that you can download. |
 | `actions/cache`, or the caching in a setup action, such as `actions/setup-go` | `environment.caches`, with a cache pool in the `trust` section of `.chainguard/ci/identities.yaml` on your default branch. Use `gobuild` and `gomod` for Go build output and downloaded modules, `python` for pip and uv, `java` for Maven and Gradle, and `cargo` for Cargo. A check that uses a cache runs as `root`, the default, or as `build`, as described in [Cache types](/chainguard/checks/variations-services-caches/#cache-types). The `node` and `directory` types have no effect during the beta. |
-| `jobs.<job_id>.services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). To run a container image instead, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). |
+| `jobs.[[JOB_ID]].services` | `environment.services`. A service runs in the check's VM from packages that you list, not in a container. Refer to [Services](/chainguard/checks/variations-services-caches/#services). To run a container image instead, run Docker as a service, as described in [Run Docker](/chainguard/checks/variations-services-caches/#run-docker). |
 | `env` | `vars` |
 | `needs` | `needs`, for checks in the same file |
 | `timeout-minutes` | `timeout`, as a duration such as `15m` |
-| `strategy.matrix` | `foreach`. Chainguard Checks doesn't expand a matrix, so write one entry for each combination, and replace each `${{ matrix.<key> }}` with a variable that the entry sets in `vars`, such as `$GOARCH` in a `script`. An entry can't change the check's packages, so for a matrix of tool versions, write a separate check with its own environment for each version. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `strategy.matrix` | `foreach`. Chainguard Checks doesn't expand a matrix, so write one entry for each combination, and replace each `${{ matrix.[[KEY]] }}` with a variable that the entry sets in `vars`, such as `$GOARCH` in a `script`. An entry can't change the check's packages, so for a matrix of tool versions, write a separate check with its own environment for each version. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
 | `strategy.max-parallel` | `parallelism` |
 | `defaults.run.working-directory` | `workdir` |
 | `$GITHUB_STEP_SUMMARY` | Not set, so a command that writes to it fails. Instead, print Markdown between a `::sandbox-summary::` line and an `::end-sandbox-summary::` line, and the check's output on GitHub shows it before the log. Refer to [Add a Markdown summary](/chainguard/checks/configuration/#add-a-markdown-summary). |

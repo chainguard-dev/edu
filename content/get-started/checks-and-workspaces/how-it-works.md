@@ -116,7 +116,7 @@ Chainguard Checks places each run in a *ring*, based on the `trust` section on y
 | Ring | Runs in the ring |
 | -- | -- |
 | `2` | Runs after merging, on your default branch |
-| `1.<subring>` | Pull requests opened by an account in one of the subring's `authors` groups |
+| `1.[[SUBRING]]` | Pull requests opened by an account in one of the subring's `authors` groups |
 | `0` | Every other pull request, including pull requests from forks by anyone outside your subrings |
 
 An identity's `ring` is the lowest ring that gets the identity. Only the account that opened the pull request counts: who pushed its commits, who reviewed it, and whether it comes from a fork don't change the ring. Without a `trust` section, every open pull request whose base branch an identity allows gets that identity, including pull requests from forks, which run without approval. Refer to [Limit which pull requests get an identity](/chainguard/checks/identity-and-trust/#limit-which-pull-requests-get-an-identity).
@@ -132,7 +132,7 @@ A *run* is one pass of a repository's checks for one commit. The following table
 | 3. Plan | Chainguard Checks reads the configuration from the merge commit, applies the base branch's rules, and selects the checks that this change runs. | An invalid configuration fails with **Invalid config**. A change that weakens its own gate, or that changes 3,000 or more files, fails with **Run creation failed**. |
 | 4. Admission | Chainguard Checks admits the run only if Chainguard Checks is turned on for the organization and the organization is within its limits. | Chainguard Checks isn't turned on for the organization, or the organization is at its run limit, such as 10 runs queued or running with the Starter allowance. Either way, no summary check appears. The summary check fails with **Run creation failed** when the organization has used up its monthly compute allowance or hasn't accepted the terms. |
 | 5. Checks | Each selected check runs in its own fresh VM, after the checks it `needs`. Before a check gets a workload identity, Chainguard Checks verifies again, against GitHub, that the pull request is still open at the head and base this run tests, and that the base branch allows the identity for this check. A check that can't finish for a reason outside the check, such as a VM that doesn't start, runs again in a new VM, up to three attempts in all. | A check fails, times out, is stopped by `policy: destroy`, or doesn't get the workload identity it requests. |
-| 6. Summary | A check that doesn't pass, or that reports errors, warnings, notices, or a summary, gets a GitHub check named `presubmit / <file> / <check>` when it finishes. The summary check, **Chainguard Checks (presubmit)**, lists the checks and passes only when every blocking check passes. If a run has too many checks to list, the summary leaves some of them out. | |
+| 6. Summary | A check that doesn't pass, or that reports errors, warnings, notices, or a summary, gets a GitHub check named `presubmit / [[FILE]] / [[CHECK]]` when it finishes. The summary check, **Chainguard Checks (presubmit)**, lists the checks and passes only when every blocking check passes. If a run has too many checks to list, the summary leaves some of them out. | |
 
 A new push to the pull request cancels the current run and starts a new one at stage 1. After a change merges, each new commit on your default branch gets its own run in ring `2`, which reports **Chainguard Checks (postsubmit)**. Refer to [Use Chainguard Checks on GitHub](/chainguard/checks/github/).
 
@@ -167,7 +167,7 @@ You can delete a session in any state. Anything you didn't push is lost. A parke
 : To save a session's memory and disk to a snapshot and stop its VM. A parked session resumes where it left off.
 
 **Ring**
-: The trust level of a run: `2` for runs after merging, `1.<subring>` for pull requests from accounts you trust, and `0` for every other pull request. Rings decide which runs get workload identities and caches.
+: The trust level of a run: `2` for runs after merging, `1.[[SUBRING]]` for pull requests from accounts you trust, and `0` for every other pull request. Rings decide which runs get workload identities and caches.
 
 **Run**
 : One pass of a repository's checks for one commit: a pull request's test merge commit, or a new commit on your default branch. Each run reports one summary check. The word also appears in messages such as **Run creation failed** and in capability names such as `sandbox.run.list`.

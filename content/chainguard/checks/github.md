@@ -42,7 +42,7 @@ Each run reports a summary check, plus a GitHub check for each of your checks th
 
 For a pull request, the summary check is named **Chainguard Checks (presubmit)**. It's pending while the run is in progress, and passes only when every blocking check passes. When the run finishes, its output lists each check's result, as described in [Read the summary check](#read-the-summary-check).
 
-Each of these GitHub checks is named `presubmit / <file> / <check>`, where `<file>` is the name of the file that defines the check, without `.yaml`. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that passes without reporting anything gets no GitHub check of its own, unless an earlier run for the same commit left one under its name. The summary check's output still lists it. When a check that runs once for each of several variations, with `foreach`, gets a GitHub check, it appears as one GitHub check that counts how many variations passed.
+Each of these GitHub checks is named `presubmit / [[FILE]] / [[CHECK]]`, where `[[FILE]]` is the name of the file that defines the check, without `.yaml`. For example, a `test` check in `.chainguard/ci.yaml` appears as **presubmit / ci / test**. Each one appears when its check finishes. A check that passes without reporting anything gets no GitHub check of its own, unless an earlier run for the same commit left one under its name. The summary check's output still lists it. When a check that runs once for each of several variations, with `foreach`, gets a GitHub check, it appears as one GitHub check that counts how many variations passed.
 
 If a pull request changes `.chainguard/develop.yaml`, or a file it takes its environment from, Chainguard Checks also reports a check named **Chainguard Checks / develop-environment**. This check reads the file the way a [Chainguard Workspaces](/chainguard/workspaces/session-environment/) session would, without starting a session or installing packages, and marks each problem on its file and line. It isn't part of the run: the summary check doesn't count it, and **Re-run** on it does nothing. If it finds a problem, it fails, but it doesn't block merging. To clear a problem, push a commit that fixes it.
 
@@ -84,11 +84,11 @@ For each check that couldn't be executed, the reason appears under **Errors:** a
 
 A merge bot, a dashboard, or an agent can read results through GitHub's REST API, which calls each GitHub check a *check run*. The API needs only GitHub access that can read the repository's pull requests and checks. It doesn't need a Chainguard role that can read runs. For example, a GitHub App needs read access to **Checks** and **Pull requests**, and a personal access token (classic) needs the `repo` scope for a private repository. Fine-grained personal access tokens don't have a **Checks** permission.
 
-Results appear on the pull request's head commit, not on the merge commit that Chainguard Checks tests. List the head commit's check runs by name. Filtering by app alone isn't enough, because the Chainguard App also reports checks for other Chainguard products, such as Guardener. These commands use the GitHub CLI. Replace `$OWNER/$REPO` with your repository and `$NUMBER` with the pull request's number:
+Results appear on the pull request's head commit, not on the merge commit that Chainguard Checks tests. List the head commit's check runs by name. Filtering by app alone isn't enough, because the Chainguard App also reports checks for other Chainguard products, such as Guardener. These commands use the GitHub CLI. Replace `[[OWNER]]/[[REPO]]` with your repository and `[[NUMBER]]` with the pull request's number:
 
 ```shell
-SHA=$(gh api "repos/$OWNER/$REPO/pulls/$NUMBER" --jq .head.sha)
-gh api --method GET "repos/$OWNER/$REPO/commits/$SHA/check-runs" \
+SHA=$(gh api "repos/[[OWNER]]/[[REPO]]/pulls/[[NUMBER]]" --jq .head.sha)
+gh api --method GET "repos/[[OWNER]]/[[REPO]]/commits/$SHA/check-runs" \
   -f check_name="Chainguard Checks (presubmit)" \
   --jq '.check_runs[0] | {status, conclusion, title: .output.title}'
 ```
@@ -144,16 +144,16 @@ Chainguard Checks applies these rules to the pull request as it is now, includin
 
 To rerun a pull request's checks, for example after a flaky failure, use **Re-run** on the summary check or on one of its per-check results on GitHub. Chainguard Checks reruns the whole run for the same commit, without reusing earlier results or caches. Pushing a new commit also starts a new run. If the base branch has removed its Chainguard Checks configuration, or all of its presubmit checks, since the pull request's last run, a rerun or a `ci/run:` label starts nothing. The summary check shows that run's result again, notes that nothing can run, and lists any checks that labels requested under **Requested but not run**.
 
-You can also rerun a pull request's checks with `chainctl` after its latest run finishes. Like the run page, this needs a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). Without one, use **Re-run** on GitHub. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+You can also rerun a pull request's checks with `chainctl` after its latest run finishes. Like the run page, this needs a role in your Chainguard organization, as described in [The Details link or a chainctl checks command says you don't have access](/chainguard/checks/troubleshooting/#the-details-link-or-a-chainctl-checks-command-says-you-dont-have-access). Without one, use **Re-run** on GitHub. Replace `[[OWNER]]/[[REPO]]#[[NUMBER]]` with the pull request, such as `acme/app#123`, or with its URL. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl checks rerun "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+chainctl checks rerun "[[OWNER]]/[[REPO]]#[[NUMBER]]" --parent [[ORGANIZATION]]
 ```
 
 The command reruns the pull request's latest run the same way as **Re-run** on GitHub. Nothing reruns if the pull request is closed, or if it has new commits since that run started. Until the new run starts, `chainctl checks status` shows the previous run, and the summary check shows **Re-run requested by *IDENTITY_ID* via chainctl**, where *IDENTITY_ID* is your Chainguard identity ID. After the summary check shows the new run's progress, follow the rerun:
 
 ```shell
-chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION --watch
+chainctl checks status "[[OWNER]]/[[REPO]]#[[NUMBER]]" --parent [[ORGANIZATION]] --watch
 ```
 
 For more ways to inspect a pull request's run from your terminal, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs). To find the checks that fail most often across runs, refer to [See check history](/chainguard/checks/inspect-and-run-checks/#see-check-history).
@@ -179,14 +179,14 @@ A retry runs every step again from the first, so make steps with side effects, s
 
 A check with `when: {requested: true}` runs only when someone asks for it. Until then, it reports no result and doesn't block the pull request. When a run finishes, the summary check's output lists each check that can run on request, with the label that runs it.
 
-To run a check on request, add the label `ci/run:<check>` to the pull request. For example, `ci/run:e2e-full` runs the `e2e-full` check. If two files have a check with the same name, include the file's name, such as `ci/run:go/e2e-full`. Labels match check names regardless of case, so `ci/run:E2E-Full` also runs `e2e-full`. Adding labels requires the triage or write role on the repository.
+To run a check on request, add the label `ci/run:[[CHECK]]` to the pull request. For example, `ci/run:e2e-full` runs the `e2e-full` check. If two files have a check with the same name, include the file's name, such as `ci/run:go/e2e-full`. Labels match check names regardless of case, so `ci/run:E2E-Full` also runs `e2e-full`. Adding labels requires the triage or write role on the repository.
 
 A check that runs on request has limits on its name and its other conditions, as described in [Run on request](/chainguard/checks/configuration/#run-on-request). To run a check when its files change and also on request, use `when.changed` alone, because a label also forces a check that `when.changed` would skip to run. A label doesn't override a `when.expr` condition.
 
-GitHub only offers labels that already exist in the repository, so create each label once. On github.com, open the repository's **Issues** or **Pull requests** tab, select **Labels**, and then select **New label**. Or, if you use the GitHub CLI, run the following command, replacing `$OWNER/$REPO` with your repository:
+GitHub only offers labels that already exist in the repository, so create each label once. On github.com, open the repository's **Issues** or **Pull requests** tab, select **Labels**, and then select **New label**. Or, if you use the GitHub CLI, run the following command, replacing `[[OWNER]]/[[REPO]]` with your repository:
 
 ```shell
-gh label create ci/run:e2e-full --repo $OWNER/$REPO --description "Run the e2e-full check"
+gh label create ci/run:e2e-full --repo [[OWNER]]/[[REPO]] --description "Run the e2e-full check"
 ```
 
 After you create the label, anyone with the triage or write role can add it to a pull request from GitHub's label picker.
@@ -220,7 +220,7 @@ checks:
 | ----- | ------------------- |
 | `off` (default) | Nothing. |
 | `comment` | Comments with the checks it would request and the label for each. To run one, a person adds its label. |
-| `agent` | Adds a `ci/run:<check>` label for each check it picks, and comments with its reasons. |
+| `agent` | Adds a `ci/run:[[CHECK]]` label for each check it picks, and comments with its reasons. |
 
 Start with `comment` to see what the agent picks before you let it add labels. Chainguard Checks reads the setting from the tip of the pull request's base branch, so it takes effect after the pull request that sets it merges.
 
@@ -249,7 +249,7 @@ Before you turn on the agent, review the terms that Chainguard Checks is offered
 
 ## Run checks after merging {#run-checks-after-merging}
 
-Checks with `trigger: postsubmit` run on each new commit on your default branch. Each new commit in the default branch's first-parent history gets its own run, so a merge commit gets one run, and a rebase merge of five commits gets five. The results appear on the commit as **Chainguard Checks (postsubmit)**, with per-check results named `postsubmit / <file> / <check>`, as described in [How results appear](#how-results-appear).
+Checks with `trigger: postsubmit` run on each new commit on your default branch. Each new commit in the default branch's first-parent history gets its own run, so a merge commit gets one run, and a rebase merge of five commits gets five. The results appear on the commit as **Chainguard Checks (postsubmit)**, with per-check results named `postsubmit / [[FILE]] / [[CHECK]]`, as described in [How results appear](#how-results-appear).
 
 For a run after merging, `when.changed` compares the new commit with its first parent. A merge commit or a squash merge selects checks by the whole pull request's changes, and each commit of a rebase merge selects them by its own changes only. A commit has no labels, so a check with `when: {requested: true}` never runs after merging, and one that also has only `trigger: postsubmit` never runs at all. To run that work on merged code, define a separate postsubmit check without `requested`.
 

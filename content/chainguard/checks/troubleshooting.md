@@ -81,7 +81,7 @@ If **Chainguard Checks (presubmit)** fails with **Run creation failed** or **Run
 | A check binds the pull request's description, and the description is over 65,536 bytes or contains a NUL character. The output says how many bytes the description is, or that it contains NUL. | Shorten the description, then use **Re-run** on the summary check, or push a new commit. Characters outside ASCII take more than one byte each. |
 | A check asks for a larger resource class than your organization allows. The output says that a job asks for more CPUs and memory, or more scratch disk, than your organization's largest resource class. | Choose a smaller class with `resources`, or lower your class's `cpus`, `memory`, or `disk`. With the Starter allowance, the largest class is `medium`, which has 4 vCPUs and 16 GB of memory. Unless your organization's allowance sets a different limit, a check's VM can have at most 16 vCPUs, 64 GB of memory, and 100 GB of disk. The built-in classes are within these limits, but a class you [define in `resources.yaml`](/chainguard/checks/configuration/#define-your-own-resource-classes) can exceed them. |
 | Your organization used up this month's compute allowance. The output says that your organization can't start work until the allowance resets on the first day of the month (UTC), and that work already running finishes. | After the reset, use **Re-run** on the summary check, or push a new commit. To continue sooner, [contact Chainguard](https://www.chainguard.dev/contact?utm=docs). Refer to [Availability and limits](/chainguard/checks/overview/#availability-and-limits) for how checks use the allowance. |
-| Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have someone with the `owner` or `limited_owner` role run `chainctl checks accept-terms --parent $ORGANIZATION`, replacing `$ORGANIZATION` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
+| Your organization hasn't accepted the terms that Chainguard Checks is offered under. The output names the terms and the command that accepts them. | Have someone with the `owner` or `limited_owner` role run `chainctl checks accept-terms --parent [[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with the name of your Chainguard organization. After about 30 seconds, use **Re-run** on the summary check, or push a new commit. |
 
 ## The summary check says checks could not be executed {#the-summary-check-says-checks-could-not-be-executed}
 
@@ -170,10 +170,10 @@ The `run-ci` command in a Workspaces session runs each check in the session's en
 
 Refer to [How run-ci differs from a pull request run](/chainguard/checks/run-checks/#how-run-ci-differs-from-a-pull-request-run).
 
-To see what failed on the pull request, print the error lines of the check's log from your terminal, with three lines around each. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, `test` with the check's name, and `$ORGANIZATION` with the name of your Chainguard organization:
+To see what failed on the pull request, print the error lines of the check's log from your terminal, with three lines around each. Replace `[[OWNER]]/[[REPO]]#[[NUMBER]]` with the pull request, such as `acme/app#123`, `test` with the check's name, and `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --errors -C 3 --parent $ORGANIZATION
+chainctl checks logs "[[OWNER]]/[[REPO]]#[[NUMBER]]" --check test --errors -C 3 --parent [[ORGANIZATION]]
 ```
 
 For other ways to read part of a long log, and the role these commands need, refer to [Inspect pull request runs](/chainguard/checks/inspect-and-run-checks/#inspect-pull-request-runs).
@@ -237,10 +237,10 @@ When you pass a commit SHA or a directory to `chainctl checks status`, `chainctl
 
 To see which commits have runs, run [`chainctl checks list`](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-list).
 
-To inspect a pull request's latest run, pass the pull request instead. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL. Replace `$ORGANIZATION` with the name of the Chainguard organization linked to the repository's GitHub account:
+To inspect a pull request's latest run, pass the pull request instead. Replace `[[OWNER]]/[[REPO]]#[[NUMBER]]` with the pull request, such as `acme/app#123`, or with its URL. Replace `[[ORGANIZATION]]` with the name of the Chainguard organization linked to the repository's GitHub account:
 
 ```shell
-chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+chainctl checks status "[[OWNER]]/[[REPO]]#[[NUMBER]]" --parent [[ORGANIZATION]]
 ```
 
 If the command still reports no platform verdict for a pull request whose checks appear on GitHub, check that you typed the owner and repository exactly as GitHub shows them, including capital letters. With a `chainctl` release older than the [minimum version](/get-started/checks-and-workspaces/set-up/#install-or-update-chainctl), pull requests also report no platform verdict. Update it with `sudo chainctl update`, or with `brew upgrade chainctl` if you installed it with Homebrew.

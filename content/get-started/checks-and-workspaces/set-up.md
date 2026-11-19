@@ -113,10 +113,10 @@ If `chainctl develop init` stops with an error, refer to [`chainctl develop init
 
 An organization that `chainctl develop init` creates is on the Starter plan, and you have the `limited_owner` role in it. It includes Chainguard Checks and Chainguard Workspaces, each with its monthly allowance, and up to five non-FIPS container images. For all of the Starter plan's limits, and for upgrading to Chainguard Team, refer to [Chainguard plans](/get-started/self-serve/plans/).
 
-The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `$IMAGE` with an image's name:
+The command doesn't add any images. To add them, wait until the new organization finishes setting up, when `chainctl starter status` shows `READY`. Then choose images from the [Chainguard Directory](/chainguard/containers/registry/chainguard-directory/), and add them with [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `[[IMAGE]]` with an image's name:
 
 ```shell
-chainctl starter add-images $IMAGE
+chainctl starter add-images [[IMAGE]]
 ```
 
 You can't remove or swap an image after you add it.
@@ -140,10 +140,10 @@ For every flag, refer to the [`chainctl develop init` reference](/chainguard/wor
 
 ### Use an organization your company already has {#use-an-organization-your-company-already-has}
 
-If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). Someone with the `owner` or `limited_owner` role in the organization can then turn on both products, replacing `$ORGANIZATION` with the organization's name:
+If your company already has a Chainguard organization, `chainctl develop init` can't create a second one for your email domain. Ask one of its owners to add you, as described in [Give teammates access](#give-teammates-access). Someone with the `owner` or `limited_owner` role in the organization can then turn on both products, replacing `[[ORGANIZATION]]` with the organization's name:
 
 ```shell
-chainctl develop init --parent $ORGANIZATION
+chainctl develop init --parent [[ORGANIZATION]]
 ```
 
 If the organization already has Chainguard Checks or Chainguard Workspaces through your Chainguard account team, the command keeps that allowance.
@@ -151,8 +151,8 @@ If the organization already has Chainguard Checks or Chainguard Workspaces throu
 An organization that has a product through the account team must also accept that product's terms, which takes the `owner` or `limited_owner` role. Until someone accepts them, Chainguard Checks runs no checks for the organization, so the summary check on each pull request fails with **Run creation failed**, and no one can open a Workspaces session in it. To accept the terms for one product only, use its own command:
 
 ```shell
-chainctl checks accept-terms --parent $ORGANIZATION
-chainctl develop accept-terms --parent $ORGANIZATION
+chainctl checks accept-terms --parent [[ORGANIZATION]]
+chainctl develop accept-terms --parent [[ORGANIZATION]]
 ```
 
 If your GitHub account isn't linked to the organization yet, link it as described in [Getting started with Guardener](/chainguard/guardener/github/getting-started/#step-2-link-your-chainguard-organization-to-github), which uses the same Chainguard App.
@@ -171,18 +171,18 @@ Inside a session, a teammate's Chainguard identity can't do more than their role
 
 ### Add a teammate {#add-a-teammate}
 
-In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate with the `sandbox.user` role as follows. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+In a Starter organization, the steps differ, as described in [Add a teammate to a Starter organization](#add-a-teammate-to-a-starter-organization). If you have the `owner` role in your organization, invite your teammate with the `sandbox.user` role as follows. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
-1. Create an invite for your teammate with the `sandbox.user` role. Replace `$EMAIL` with your teammate's email address:
+1. Create an invite for your teammate with the `sandbox.user` role. Replace `[[EMAIL]]` with your teammate's email address:
 
     ```shell
-    chainctl iam invite create $ORGANIZATION --role sandbox.user --email $EMAIL
+    chainctl iam invite create [[ORGANIZATION]] --role sandbox.user --email [[EMAIL]]
     ```
 
-2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `$INVITE_CODE` with the code:
+2. Send your teammate the invite code that the command prints. Your teammate accepts the invite by logging in with it, replacing `[[INVITE_CODE]]` with the code:
 
     ```shell
-    chainctl auth login --invite-code $INVITE_CODE
+    chainctl auth login --invite-code [[INVITE_CODE]]
     ```
 
 Accepting the invite grants the role. To let a teammate use the Chainguard MCP servers in sessions, also grant them `mcp.tool_user` with a role-binding, as described in [Overview of roles and role-bindings](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
@@ -198,7 +198,7 @@ An organization you created with a personal email address can't create invites, 
 To invite a teammate who can open sessions, follow [Add a teammate](#add-a-teammate), but use `--role limited_owner` instead of `--role sandbox.user` in step 1:
 
 ```shell
-chainctl iam invite create $ORGANIZATION --role limited_owner --email $EMAIL
+chainctl iam invite create [[ORGANIZATION]] --role limited_owner --email [[EMAIL]]
 ```
 
 The `limited_owner` role also lets its holder manage your organization's billing and invite or remove members.

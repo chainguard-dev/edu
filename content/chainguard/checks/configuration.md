@@ -29,14 +29,14 @@ Chainguard Checks reads its configuration from one of two layouts. A repository 
 | `.chainguard/ci.yaml`, with optional check files beside it | You're getting started, or each file's checks can share one environment. |
 | A `.chainguard/ci/` directory | You want checks to share named environments or pick their own, or you need service definition files, your own resource classes, or Markdown descriptions of checks. |
 
-In the directory layout, each `<name>.yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. The directory layout can also hold the following:
+In the directory layout, each `[[NAME]].yaml` file in `.chainguard/ci/` holds a group of checks, and the file's name becomes part of each check's name on GitHub. For example, a `test` check in `.chainguard/ci/go.yaml` appears as `presubmit / go / test`. The directory layout can also hold the following:
 
-- `env/<name>.yaml` files, each defining a named environment that checks can share, and their `.lock` files. A check that names no environment uses `env/default.yaml`.
+- `env/[[NAME]].yaml` files, each defining a named environment that checks can share, and their `.lock` files. A check that names no environment uses `env/default.yaml`.
 - `resources/`, which holds one file for each resource class of your own. Refer to [Define your own resource classes](#define-your-own-resource-classes).
-- `<name>.md` files that explain checks in more detail. Chainguard Checks never reads them as configuration. Refer to [Describe a check](#describe-a-check).
-- `services/<name>/<name>.yaml` files, each defining a service, with any files the service needs beside it. Refer to [Services](/chainguard/checks/variations-services-caches/#services).
+- `[[NAME]].md` files that explain checks in more detail. Chainguard Checks never reads them as configuration. Refer to [Describe a check](#describe-a-check).
+- `services/[[NAME]]/[[NAME]].yaml` files, each defining a service, with any files the service needs beside it. Refer to [Services](/chainguard/checks/variations-services-caches/#services).
 
-The single-file layout is named for `.chainguard/ci.yaml`, whose checks appear as `presubmit / ci / <check>`, but it can also hold other check files directly in `.chainguard/`, such as `.chainguard/lint.yaml`. Each one needs `version: 1` and its own `environment`, and its checks appear under the file's name, such as `presubmit / lint / test`.
+The single-file layout is named for `.chainguard/ci.yaml`, whose checks appear as `presubmit / ci / [[CHECK]]`, but it can also hold other check files directly in `.chainguard/`, such as `.chainguard/lint.yaml`. Each one needs `version: 1` and its own `environment`, and its checks appear under the file's name, such as `presubmit / lint / test`.
 
 Either layout can declare workload identities and cache pools in `.chainguard/ci/identities.yaml`. Refer to [Workload identities and trust](/chainguard/checks/identity-and-trust/) and [Set up cache pools](/chainguard/checks/variations-services-caches/#set-up-cache-pools).
 
@@ -164,7 +164,7 @@ Each entry under `checks` defines one check. The key is the check's name. A chec
 | `inputs` | Files to add to the check's VM from another check's output or from another repository. Refer to [Inputs and outputs](/chainguard/checks/variations-services-caches/#inputs-and-outputs). |
 | `outputs` | Directories that the check produces for later checks in the same run. Refer to [Inputs and outputs](/chainguard/checks/variations-services-caches/#inputs-and-outputs). |
 | `resources` | The check's resource class. Refer to [Resources](#resources). |
-| `foreach` | A list of variations to run the check once for each, such as one per package directory, or `plans.<name>` to compute the variations during the run. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
+| `foreach` | A list of variations to run the check once for each, such as one per package directory, or `plans.[[NAME]]` to compute the variations during the run. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
 | `parallelism` | How many `foreach` variations can run at once. Refer to [Run a check once per variation](/chainguard/checks/variations-services-caches/#run-a-check-once-per-variation). |
 | `user` | The name of an account to run the check's commands as, such as `build`. Defaults to `root`. Refer to [Run as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
 | `identity` | A workload identity for the check. Refer to [Credentials](#credentials). |
@@ -405,7 +405,7 @@ A check that runs on request follows these rules:
 - Its name can be at most 43 characters, so that its label fits GitHub's 50-character limit. When two files have a check with the same name, the label includes the file's name, such as `ci/run:go/e2e-full`, and the limit counts the file's name and the `/` after it too.
 - A check that doesn't run on request can't need one that does, because it would then run only when the other check is requested.
 
-To run the check on a pull request, add the label `ci/run:<check>`, such as `ci/run:e2e-full`. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request) for details. A run after merging never runs a check on request.
+To run the check on a pull request, add the label `ci/run:[[CHECK]]`, such as `ci/run:e2e-full`. Refer to [Run a check on request](/chainguard/checks/github/#run-a-check-on-request) for details. A run after merging never runs a check on request.
 
 A pull request can't make its own checks run only on request. The change takes effect after it merges, as described in [Change checks in a pull request](/chainguard/checks/github/#change-checks-in-a-pull-request).
 
@@ -560,7 +560,7 @@ Chainguard Checks sets the following variables for each check's commands:
 | Variable | Value |
 | -------- | ----- |
 | `PATH` | `/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin` |
-| `HOME` | `/root`, or `/home/<name>` for a check that [runs as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
+| `HOME` | `/root`, or `/home/[[NAME]]` for a check that [runs as another user](/chainguard/checks/variations-services-caches/#run-as-another-user). |
 | `USER` and `LOGNAME` | `root`, or the account's name for a check that runs as another user. |
 | `TERM` | `xterm-256color` |
 | `SSL_CERT_FILE`, `REQUESTS_CA_BUNDLE`, `PIP_CERT`, `CURL_CA_BUNDLE`, `NODE_EXTRA_CA_CERTS`, and `HEX_CACERTS_PATH` | `/etc/ssl/certs/ca-certificates.crt`, the VM's certificate bundle, which trusts the certificate authority described in [Network access](#network-access). |
@@ -622,7 +622,7 @@ A summary works as follows:
 - If a check prints several summaries, they appear together, in the order the check printed them.
 - A summary ends with the step that prints it. If the step ends before `::end-sandbox-summary::`, the summary appears as far as it went, with a note.
 - HTML appears as text, except the `<details>`, `<summary>`, and `<br>` tags.
-- Links and images stay only if they point into your repository on GitHub, under `https://github.com/<owner>/<repo>/`, or to the run pages that a check's **Details** link opens. Other links become plain text.
+- Links and images stay only if they point into your repository on GitHub, under `https://github.com/[[OWNER]]/[[REPO]]/`, or to the run pages that a check's **Details** link opens. Other links become plain text.
 - An `@` mention in a summary doesn't notify anyone.
 - GitHub limits the size of a check's output, so Chainguard Checks cuts a summary longer than about 53 KiB and links to the full log. In a check with `foreach`, each variation's summary can be up to 8 KiB.
 

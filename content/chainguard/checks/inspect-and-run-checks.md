@@ -21,10 +21,10 @@ These commands need a role in your Chainguard organization, as described in [The
 
 ## Inspect pull request runs {#inspect-pull-request-runs}
 
-To check a pull request's latest run, pass the pull request to `chainctl checks status`. Replace `$OWNER/$REPO#$NUMBER` with the pull request, such as `acme/app#123`, or with its URL, and capitalize the owner and repository the same way GitHub does. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+To check a pull request's latest run, pass the pull request to `chainctl checks status`. Replace `[[OWNER]]/[[REPO]]#[[NUMBER]]` with the pull request, such as `acme/app#123`, or with its URL, and capitalize the owner and repository the same way GitHub does. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl checks status "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+chainctl checks status "[[OWNER]]/[[REPO]]#[[NUMBER]]" --parent [[ORGANIZATION]]
 ```
 
 The command shows the pull request's newest run and each check's result. It exits with `0` while the run is in progress, so to wait until the run finishes, add `--watch`. After you push a commit or start a rerun, the command shows the previous run until Chainguard Checks creates the new one. For its exit codes and JSON output, refer to [chainctl checks status](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-status).
@@ -32,7 +32,7 @@ The command shows the pull request's newest run and each check's result. It exit
 To see why a pull request's checks failed, run `chainctl checks failures`:
 
 ```shell
-chainctl checks failures "$OWNER/$REPO#$NUMBER" --parent $ORGANIZATION
+chainctl checks failures "[[OWNER]]/[[REPO]]#[[NUMBER]]" --parent [[ORGANIZATION]]
 ```
 
 For each failed check, the command shows the step that failed, with its exit code and command, and the end of the failing output, quoted from the check's log. To show one check, add `--check` with its name. To also list the checks that didn't run, and why, add `--not-run`. The output stays within a size limit that `--budget` sets in bytes: the command shows as many failed checks in full as fit, then one line for each of the rest.
@@ -40,7 +40,7 @@ For each failed check, the command shows the step that failed, with its exit cod
 To print a check's log, pass the pull request and the check's name to `chainctl checks logs`:
 
 ```shell
-chainctl checks logs "$OWNER/$REPO#$NUMBER" --check test --parent $ORGANIZATION
+chainctl checks logs "[[OWNER]]/[[REPO]]#[[NUMBER]]" --check test --parent [[ORGANIZATION]]
 ```
 
 To keep reading a running check's output until it finishes, add `--follow`. To show only a long log's error lines, with three lines around each, add `--errors -C 3`. For other ways to read part of a log, refer to [chainctl checks logs](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-logs).
@@ -48,21 +48,21 @@ To keep reading a running check's output until it finishes, add `--follow`. To s
 To see the programs that each step of a failed check started, and which one most likely failed, run `chainctl checks trace` with `--failed`:
 
 ```shell
-chainctl checks trace "$OWNER/$REPO#$NUMBER" --check test --failed --parent $ORGANIZATION
+chainctl checks trace "[[OWNER]]/[[REPO]]#[[NUMBER]]" --check test --failed --parent [[ORGANIZATION]]
 ```
 
 These commands also work in a Workspaces session, where `chainctl` acts as you.
 
 Instead of a pull request, you can pass a directory, such as `.`, or a commit SHA to read the commit's newest run, as described in [Name a run](/chainguard/checks/chainctl-checks-reference/#name-a-run).
 
-For a run after merging, pass the commit's SHA or the run's ID, such as `chainctl checks status $RUN_ID --parent $ORGANIZATION`. The ID is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
+For a run after merging, pass the commit's SHA or the run's ID, such as `chainctl checks status [[RUN_ID]] --parent [[ORGANIZATION]]`. Replace `[[RUN_ID]]` with the run's ID, which is the part after `/runs/` in the **Details** link of the **Chainguard Checks (postsubmit)** summary check.
 
 ## Run checks on a pushed commit
 
-To run your checks in fresh VMs without opening a pull request, push your commit and run `chainctl checks run` in your checkout. Unlike `run-ci` in a [Workspaces session](/chainguard/checks/run-checks/), it runs only what you pushed, not uncommitted changes. Replace `$ORGANIZATION` with the name of your Chainguard organization:
+To run your checks in fresh VMs without opening a pull request, push your commit and run `chainctl checks run` in your checkout. Unlike `run-ci` in a [Workspaces session](/chainguard/checks/run-checks/), it runs only what you pushed, not uncommitted changes. Replace `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl checks run . --watch --parent $ORGANIZATION
+chainctl checks run . --watch --parent [[ORGANIZATION]]
 ```
 
 The command runs the commit checked out in the current directory. Chainguard Checks reads the commit from GitHub, in the repository of the checkout's `origin` remote, so push the commit first. In a checkout of a fork, add `--git-remote upstream` to read it from the repository you forked instead. The repository's GitHub account must be linked to your Chainguard organization, as described in [Getting started](/get-started/checks-and-workspaces/set-up/#sign-up-with-chainctl-develop-init).
@@ -79,24 +79,24 @@ A run you start this way differs from a pull request run in the following ways:
 
 ### Read a run you started
 
-To read a run you started, pass its ID, or the start of it, to `chainctl checks status` or the other commands that read runs. The ID is the part after `/runs/` in the run's name. Replace `$RUN_ID` with the ID:
+To read a run you started, pass its ID, or the start of it, to `chainctl checks status` or the other commands that read runs. The ID is the part after `/runs/` in the run's name. Replace `[[RUN_ID]]` with the ID:
 
 ```shell
-chainctl checks status $RUN_ID --watch --parent $ORGANIZATION
+chainctl checks status [[RUN_ID]] --watch --parent [[ORGANIZATION]]
 ```
 
 Don't pass `.` or the commit's SHA instead. They name the newest run that Chainguard Checks has for the commit, which might not be the run you started.
 
-To find the ID of a run you started earlier, run `chainctl checks list --parent $ORGANIZATION`. It lists your organization's runs, newest first, including pull request runs, runs after merging, and your teammates' runs. Runs started with `chainctl checks run` have `-` under both `REF` and `PR`. Find yours by its commit and when you started it. To list only one repository's runs, add `--repo`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
+To find the ID of a run you started earlier, run `chainctl checks list --parent [[ORGANIZATION]]`. It lists your organization's runs, newest first, including pull request runs, runs after merging, and your teammates' runs. Runs started with `chainctl checks run` have `-` under both `REF` and `PR`. Find yours by its commit and when you started it. To list only one repository's runs, add `--repo`. To stop a run before it finishes, pass its ID to `chainctl checks cancel`.
 
 ## See check history {#see-check-history}
 
 To find the checks that take the most time or fail most often, use `chainctl checks top`, `chainctl checks trends`, and `chainctl checks stats`.
 
-To rank a repository's checks by their total runtime over the past week, run `chainctl checks top`. Replace `$OWNER/$REPO` with the repository, such as `acme/app`, and `$ORGANIZATION` with the name of your Chainguard organization:
+To rank a repository's checks by their total runtime over the past week, run `chainctl checks top`. Replace `[[OWNER]]/[[REPO]]` with the repository, such as `acme/app`, and `[[ORGANIZATION]]` with the name of your Chainguard organization:
 
 ```shell
-chainctl checks top --repo $OWNER/$REPO --since 7d --parent $ORGANIZATION
+chainctl checks top --repo [[OWNER]]/[[REPO]] --since 7d --parent [[ORGANIZATION]]
 ```
 
 To rank the checks by failure rate instead, add `--by failures`. For the other rankings, the time windows you can read, and how the command counts failures, refer to [chainctl checks top](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-top).
@@ -104,7 +104,7 @@ To rank the checks by failure rate instead, add `--by failures`. For the other r
 To see how long a check takes, hour by hour, pass its name to `chainctl checks trends`:
 
 ```shell
-chainctl checks trends --repo $OWNER/$REPO --check test --parent $ORGANIZATION
+chainctl checks trends --repo [[OWNER]]/[[REPO]] --check test --parent [[ORGANIZATION]]
 ```
 
 For each hour, the command shows the check's median, 95th percentile, and 99th percentile durations. Only the 10 checks with the most total runtime in the window have trends. For more, refer to [chainctl checks trends](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-trends).
@@ -112,7 +112,7 @@ For each hour, the command shows the check's median, 95th percentile, and 99th p
 To count the outcomes of your organization's recent runs, run `chainctl checks stats`:
 
 ```shell
-chainctl checks stats --parent $ORGANIZATION
+chainctl checks stats --parent [[ORGANIZATION]]
 ```
 
 The command prints a table of each repository's runs by outcome, and a table of each check's results by outcome, with the check's failure percentage and median duration. For what each column counts, refer to [chainctl checks stats](/chainguard/checks/chainctl-checks-reference/#chainctl-checks-stats).
