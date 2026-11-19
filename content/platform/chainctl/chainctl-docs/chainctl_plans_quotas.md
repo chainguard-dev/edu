@@ -1,5 +1,5 @@
 ---
-date: 2026-11-17T20:29:50Z
+date: 2026-11-18T15:28:55Z
 title: "chainctl plans quotas"
 slug: chainctl_plans_quotas
 url: /platform/chainctl/chainctl-docs/chainctl_plans_quotas/

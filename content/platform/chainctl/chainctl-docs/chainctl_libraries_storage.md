@@ -1,5 +1,5 @@
 ---
-date: 2026-11-17T20:29:50Z
+date: 2026-11-18T15:28:55Z
 title: "chainctl libraries storage"
 slug: chainctl_libraries_storage
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_storage/
@@ -17,8 +17,9 @@ Show the storage your organization's uploads use in Libraries.
 
 Show how much Libraries storage your organization's own uploads use, per
 ecosystem. Only artifacts your organization uploaded count; Chainguard-built
-and mirrored upstream artifacts do not. Go is the only ecosystem that reports
-usage today.
+and mirrored upstream artifacts do not. Go reports usage everywhere. Java,
+Python, JavaScript and .NET report it where the service reads them, and
+otherwise fail with FAILED_PRECONDITION.
 
 ### Options inherited from parent commands
 

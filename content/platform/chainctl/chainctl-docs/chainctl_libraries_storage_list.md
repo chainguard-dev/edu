@@ -1,5 +1,5 @@
 ---
-date: 2026-11-17T20:29:50Z
+date: 2026-11-18T15:28:55Z
 title: "chainctl libraries storage list"
 slug: chainctl_libraries_storage_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_storage_list/
@@ -20,7 +20,7 @@ chainctl libraries storage list [--ecosystem ECOSYSTEM] [--parent ORG] [--output
 ### Options
 
 ```
-      --ecosystem string   Only list storage usage for this ecosystem (GO). Omit for every ecosystem that reports usage.
+      --ecosystem string   Only list storage usage for this ecosystem (go, java, python, javascript or dotnet). Omit for every ecosystem that reports usage.
       --parent string      The name or id of the organization whose storage usage to list.
 ```
 

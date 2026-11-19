@@ -3684,7 +3684,7 @@
             "description": "The ecosystem."
           },
           "storageBytes": {
-            "description": "Total size of the organization's live uploaded artifacts, in bytes. For Go\nthis is the module ZIPs only; the server-generated .mod and .info files,\ndeleted versions, and orphaned storage objects are not counted.",
+            "description": "Total size of the organization's live uploaded artifacts, in bytes.\nDeleted versions and orphaned storage objects are not counted. Go counts\neach version's module ZIP and may count its go.mod; every other\necosystem counts every file stored for a version. A file that arrived\nbefore its version counts from when it is stored, so this can include\nfiles of versions version_count does not count yet.",
             "format": "int64",
             "type": "string"
           },
@@ -4683,10 +4683,14 @@
       },
       "chainguard.platform.libraries.v2beta1.StorageUsageEcosystem": {
         "default": "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
-        "description": "StorageUsageEcosystem is an ecosystem that reports usage. It is deliberately\nnot the artifacts service's Ecosystem: that enum must be handled by every\nartifacts listing path, and usage starts with Go alone.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.",
+        "description": "StorageUsageEcosystem is an ecosystem storage usage can be reported for. It\nis deliberately not the artifacts service's Ecosystem: that enum must be\nhandled by every artifacts listing path, and it names neither Go nor .NET.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.\n - STORAGE_USAGE_ECOSYSTEM_JAVA: Java (Maven).\n - STORAGE_USAGE_ECOSYSTEM_PYTHON: Python (PyPI).\n - STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT: JavaScript (npm).\n - STORAGE_USAGE_ECOSYSTEM_DOTNET: .NET (NuGet).",
         "enum": [
           "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
-          "STORAGE_USAGE_ECOSYSTEM_GO"
+          "STORAGE_USAGE_ECOSYSTEM_GO",
+          "STORAGE_USAGE_ECOSYSTEM_JAVA",
+          "STORAGE_USAGE_ECOSYSTEM_PYTHON",
+          "STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT",
+          "STORAGE_USAGE_ECOSYSTEM_DOTNET"
         ],
         "type": "string"
       },
@@ -12550,7 +12554,7 @@
             }
           },
           {
-            "description": "Limit the report to these ecosystems. Empty means every ecosystem that\nreports usage.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.",
+            "description": "Limit the report to these ecosystems. Empty means every ecosystem that\nreports usage. An ecosystem that does not report usage yet fails with\nFAILED_PRECONDITION.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.\n - STORAGE_USAGE_ECOSYSTEM_JAVA: Java (Maven).\n - STORAGE_USAGE_ECOSYSTEM_PYTHON: Python (PyPI).\n - STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT: JavaScript (npm).\n - STORAGE_USAGE_ECOSYSTEM_DOTNET: .NET (NuGet).",
             "explode": true,
             "in": "query",
             "name": "ecosystems",
@@ -12558,7 +12562,11 @@
               "items": {
                 "enum": [
                   "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
-                  "STORAGE_USAGE_ECOSYSTEM_GO"
+                  "STORAGE_USAGE_ECOSYSTEM_GO",
+                  "STORAGE_USAGE_ECOSYSTEM_JAVA",
+                  "STORAGE_USAGE_ECOSYSTEM_PYTHON",
+                  "STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT",
+                  "STORAGE_USAGE_ECOSYSTEM_DOTNET"
                 ],
                 "type": "string"
               },

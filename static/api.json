@@ -1822,14 +1822,14 @@
       "chainguard.platform.argos.ArgosPartners.DeleteCapabilitiesBody": {
         "properties": {
           "capabilities": {
-            "description": "capabilities names method display names to remove.",
+            "description": "capabilities names method display names to remove: at most 100, each\nat most 256 bytes with no control characters.",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
           "interests": {
-            "description": "interests names PURLs to remove.",
+            "description": "interests names PURLs to remove: at most 1,000, each at most 2,048\nbytes with no control characters.",
             "items": {
               "type": "string"
             },
@@ -1838,17 +1838,41 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosPartners.PatchCapabilitiesBody": {
+        "properties": {
+          "capabilities": {
+            "description": "capabilities is the full set of mitigation method display names the\npartner now requests: at most 100, each at most 256 bytes with no\ncontrol characters. A name that is not a live method is dropped.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "expectedVersionToken": {
+            "description": "expected_version_token is the version_token the caller last read, at\nmost 128 bytes with no control characters. A caller that read NotFound\nsends the token of no capabilities,\n\"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\"\n(EmptyPartnerCapabilitiesVersionToken in Go).",
+            "type": "string"
+          },
+          "updateMask": {
+            "description": "update_mask must be exactly \"capabilities\"; an empty mask is not\ninferred, because an empty capabilities list unticks every method.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "updateMask",
+          "expectedVersionToken"
+        ],
+        "type": "object"
+      },
       "chainguard.platform.argos.ArgosPartners.UpdateCapabilitiesBody": {
         "properties": {
           "capabilities": {
-            "description": "capabilities is the full set of mitigation method display names the\npartner now requests. Any name that is not a live method is reported\nback as unrecognized.",
+            "description": "capabilities is the full set of mitigation method display names the\npartner now requests: at most 100, each at most 256 bytes with no\ncontrol characters. Any name that is not a live method is reported back\nas unrecognized.",
             "items": {
               "type": "string"
             },
             "type": "array"
           },
           "interests": {
-            "description": "interests is the full set of PURLs the partner is interested in. Empty\nor unset means the partner is interested in every PURL.",
+            "description": "interests is the full set of PURLs the partner is interested in: at\nmost 1,000, each at most 2,048 bytes with no control characters. Empty\nor unset means the partner is interested in every PURL.",
             "items": {
               "type": "string"
             },
@@ -2439,6 +2463,16 @@
               "type": "string"
             },
             "type": "array"
+          },
+          "partnerId": {
+            "description": "partner_id is the UIDP of the partner organization, echoed from the\nrequest.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "versionToken": {
+            "description": "version_token is an opaque digest of the capabilities, never of the\ninterests, and is never empty. Echo it as expected_version_token; do not\ndecode it.",
+            "readOnly": true,
+            "type": "string"
           }
         },
         "type": "object"
@@ -16807,6 +16841,58 @@
           }
         },
         "summary": "Get Capabilities",
+        "tags": [
+          "ArgosPartners"
+        ]
+      },
+      "patch": {
+        "description": "It is a separate RPC rather than a mask and token on UpdateCapabilities\nso that each RPC has one contract: UpdateCapabilities always replaces\neverything unchecked, and PatchCapabilities always checks a token. A\nmasked Update would make an omitted mask silently mean an unchecked\noverwrite of capabilities and interests.",
+        "operationId": "ArgosPartners_PatchCapabilities",
+        "parameters": [
+          {
+            "description": "partner_id is the UIDP of the partner organization.",
+            "in": "path",
+            "name": "partnerId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosPartners.PatchCapabilitiesBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.argos.PartnerCapabilities"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Patch Capabilities",
         "tags": [
           "ArgosPartners"
         ]
