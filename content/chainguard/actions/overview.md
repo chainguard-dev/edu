@@ -66,7 +66,7 @@ Findings are fixed in place and the pipeline re-evaluates its own work, so a sin
 
 Hardening the top-level action is only part of the problem. Actions pull in other actions and container images behind the scenes, and those transitive dependencies are a common path into a pipeline. Chainguard hardens the references it can see in the action definition:
 
-- **Container images are pinned to digests.** When an action runs a registry image (`runs.using: docker` with a `docker://` image), the pipeline resolves the tag to its digest and rewrites the reference as `image:tag@sha256:<digest>`. A retagged image can't change what the action pulls.
+- **Container images are pinned to digests.** When an action runs a registry image (`runs.using: docker` with a `docker://` image), the pipeline resolves the tag to its digest and rewrites the reference as `image:tag@sha256:[[DIGEST]]`. A retagged image can't change what the action pulls.
 - **Nested actions are pinned, and swapped for hardened copies where they exist.** Every nested `uses:` reference is pinned to an immutable commit SHA, with the original tag kept as a comment. In composite actions, when Chainguard has hardened the nested action, the reference points at the hardened copy instead of upstream. For example, the hardened `actions/upload-pages-artifact` calls `chainguard-actions/actions-upload-artifact`, not `actions/upload-artifact`.
 - **The action's own workflows are reviewed too.** Both stages of the review cover the workflows under `.github/workflows/` in the action's repository, not only the action definition.
 - **Missing dependencies can be onboarded.** When a hardened action depends on an action that isn't in the catalog yet, [request that action](https://github.com/chainguard-actions/.github/issues/new?template=new-action.yml) and Chainguard hardens and publishes it.
@@ -116,7 +116,7 @@ chainctl actions entitlements create
 The output confirms the entitlement:
 
 ```output
-Enabled Actions product for org chainguard.edu ($ENTITLEMENT_ID) [entitlement id: $ENTITLEMENT_ID]
+Enabled Actions product for org chainguard.edu ([[ENTITLEMENT_ID]]) [entitlement id: [[ENTITLEMENT_ID]]]
 ```
 
 Confirm your entitlement:
@@ -128,7 +128,7 @@ chainctl actions entitlements list
 ```output
                     ID                    |         CREATED
 ------------------------------------------|-------------------------
- $ENTITLEMENT_ID                          | 2026-06-18 17:33:24 UTC
+ [[ENTITLEMENT_ID]]                          | 2026-06-18 17:33:24 UTC
 ```
 
 ### Step 2: Install the Chainguard App
@@ -163,10 +163,10 @@ If you'd rather not install a GitHub App, you can migrate with the [cg-actions](
 
 ## Basic usage (quick start)
 
-To use a Chainguard hardened action, edit your workflow's YAML configuration file and change the `uses:` line to match the location in `chainguard-actions`:
+To use a Chainguard hardened action, edit your workflow's YAML configuration file and change the `uses:` line to match the location in `chainguard-actions`, replacing `[[ACTION_NAME]]` with the hardened action's name, `[[COMMIT_SHA]]` with the commit to pin, and `[[VERSION_TAG]]` with the version that commit corresponds to:
 
 ```yaml
-- uses: chainguard-actions/<action-name>@<commit-sha> # <version-tag>
+- uses: chainguard-actions/[[ACTION_NAME]]@[[COMMIT_SHA]] # [[VERSION_TAG]]
 ```
 
 Repository names are prefixed with the upstream organization, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. This keeps two different sources of a `changed-files` action from clashing in the Chainguard Actions organization.
@@ -182,7 +182,7 @@ Pin to the commit SHA that a version tag resolves to, and keep the tag as a comm
 Pin to a commit SHA, and pair the pin with a tool that updates it, such as Dependabot, Renovate, or Guardener:
 
 ```yaml
-- uses: chainguard-actions/actions-checkout@<sha> # v4
+- uses: chainguard-actions/actions-checkout@[[COMMIT_SHA]] # v4
 ```
 
 A commit SHA is the only immutable reference in the catalog. Tags are mutable by design, and not just the floating major version. Chainguard re-hardens published versions in place and moves the tag when it does, including fully qualified patch tags, so a single upstream release can be re-hardened several times with the same tag pointing somewhere new each time. Both `@v4` and `@v4.3.1` resolve to whatever was published most recently.
@@ -228,7 +228,7 @@ Change the `uses:` line to match the location in `chainguard-actions`. Pin to th
 
 ```yaml
 # After
-- uses: chainguard-actions/tj-actions-changed-files@<SHA> # v47
+- uses: chainguard-actions/tj-actions-changed-files@[[COMMIT_SHA]] # v47
 # originally - uses: tj-actions/changed-files@v47
 ```
 
@@ -276,14 +276,14 @@ If something breaks, [file an issue](https://github.com/chainguard-actions/.gith
 
 ## View the actions you are currently using in a repository
 
-Use `chainctl` to scan every workflow and composite action in a repository and list the actions and container images they reference:
+Use `chainctl` to scan every workflow and composite action in a repository and list the actions and container images they reference, replacing `[[GIT_ORGANIZATION]]/[[REPO]]` with the repository's GitHub owner and name:
 
 ```shell
-chainctl actions discover $GIT_ORGANIZATION/$REPO
+chainctl actions discover [[GIT_ORGANIZATION]]/[[REPO]]
 ```
 
 ```output
-    scanning $GIT_ORGANIZATION/$REPO for workflows and actions
+    scanning [[GIT_ORGANIZATION]]/[[REPO]] for workflows and actions
                ACTION                    | REQUESTED | USED BY
     -------------------------------------|-----------|---------
      actions/checkout                    | v4        | 1
@@ -298,17 +298,17 @@ The command needs a GitHub token, which it reads from `$GITHUB_TOKEN` or from `g
 By default, `discover` lists only the actions your workflows reference directly. Add `--recursive` to follow each referenced action into its own definition and resolve the full transitive dependency graph:
 
 ```shell
-chainctl actions discover $GIT_ORGANIZATION/$REPO --recursive
+chainctl actions discover [[GIT_ORGANIZATION]]/[[REPO]] --recursive
 ```
 
 A recursive scan makes many GitHub API calls, so it caches responses and stops after `--timeout` (five minutes by default). Refer to [`chainctl actions discover`](/platform/chainctl/chainctl-docs/chainctl_actions_discover/) for the full set of flags.
 
 ## View the actions currently available
 
-While you can search the [Chainguard Actions repository](https://github.com/chainguard-actions) directly in GitHub, you can also use `chainctl` to find an action.
+While you can search the [Chainguard Actions repository](https://github.com/chainguard-actions) directly in GitHub, you can also use `chainctl` to find an action. Replace `[[OWNER]]` with the upstream owner, such as `tj-actions`:
 
 ```shell
-chainctl actions catalog list --upstream-owner=$OWNER
+chainctl actions catalog list --upstream-owner=[[OWNER]]
 ```
 
 For example, to list all the actions from the `tj-actions` source:
@@ -319,10 +319,10 @@ chainctl actions catalog list --upstream-owner=tj-actions
 
 This example returns a list of all actions in the Chainguard Actions repository that originate from the `tj-actions` upstream source.
 
-To list the catalog entries available to a specific organization rather than the whole public catalog, use [`chainctl actions list`](/platform/chainctl/chainctl-docs/chainctl_actions_list/):
+To list the catalog entries available to a specific organization rather than the whole public catalog, use [`chainctl actions list`](/platform/chainctl/chainctl-docs/chainctl_actions_list/), replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-chainctl actions list --parent $ORGANIZATION
+chainctl actions list --parent [[ORGANIZATION]]
 ```
 
 ## What ships in each hardened action

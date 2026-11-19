@@ -32,7 +32,7 @@ The two work the same way. Both use the apk package format, and both are rolling
 | Feature | Wolfi | Chainguard OS |
 |---|---|---|
 | Container images | Free containers, such as `wolfi-base` | Production containers, such as `chainguard-base` |
-| Package repository | The public Wolfi repository, `https://apk.cgr.dev/chainguard`, which doesn't require authentication | Your organization's Private APK Repository, `https://apk.cgr.dev/$ORGANIZATION_ID`, which requires authentication |
+| Package repository | The public Wolfi repository, `https://apk.cgr.dev/chainguard`, which doesn't require authentication | Your organization's Private APK Repository, `https://apk.cgr.dev/[[ORGANIZATION_ID]]`, which requires authentication |
 | Vulnerability remediation SLAs | No | Yes |
 | End-of-life (EOL) support | Updates stop when upstream support ends | Updates continue for an additional period under the [EOL Grace Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) |
 | FIPS-validated packages | No | Yes |
