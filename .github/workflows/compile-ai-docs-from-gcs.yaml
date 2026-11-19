@@ -248,7 +248,17 @@ jobs:
         gcloud auth configure-docker "${REGISTRY_URL%%/*}" --quiet
         AR_IMAGE="$REGISTRY_URL/$PROJECT_ID/$REPOSITORY/ai-docs"
         docker tag "ghcr.io/${REPO_OWNER}/ai-docs:$COMMIT_SHA" "$AR_IMAGE:$COMMIT_SHA"
-        docker push "$AR_IMAGE:$COMMIT_SHA" || { echo "ERROR: Failed to push to Artifact Registry"; exit 1; }
+        # Artifact Registry occasionally drops the upload connection mid-push
+        # (EOF), and a rerun succeeds. Retry a few times before failing.
+        for attempt in 1 2 3; do
+          docker push "$AR_IMAGE:$COMMIT_SHA" && exit 0
+          echo "Push attempt $attempt of 3 failed"
+          if [ "$attempt" -lt 3 ]; then
+            sleep 15
+          fi
+        done
+        echo "ERROR: Failed to push to Artifact Registry after 3 attempts"
+        exit 1
 
     - name: Deploy MCP server to Cloud Run
       if: github.ref == 'refs/heads/main'
