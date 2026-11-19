@@ -80,16 +80,16 @@ On Team, you can add any application, base, or AI image from the catalog without
     chainctl images catalog --name python -o json | jq -r '.[] | select(.name == "python") | .id'
     ```
 
-1. Create a repository in your organization that syncs from the image. Replace `$ORGANIZATION` with your organization's name or ID, and `$IMAGE_ID` with the ID from the previous step:
+1. Create a repository in your organization that syncs from the image. Replace `[[ORGANIZATION]]` with your organization's name or ID, and `[[IMAGE_ID]]` with the ID from the previous step:
 
     ```shell
-    chainctl images repos create python --parent $ORGANIZATION --source $IMAGE_ID
+    chainctl images repos create python --parent [[ORGANIZATION]] --source [[IMAGE_ID]]
     ```
 
 1. When the repository has synced, pull the image's latest build:
 
     ```shell
-    docker pull cgr.dev/$ORGANIZATION/python:latest
+    docker pull cgr.dev/[[ORGANIZATION]]/python:latest
     ```
 
 A pull of an earlier build, or of a version tag such as `python:3.12`, returns an error like the following:
