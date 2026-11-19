@@ -63,7 +63,7 @@ Save the file and close Nano by pressing `CTRL + X`, `y`, and `ENTER` in success
 Since we'll be pushing to a repository on your Docker Hub account, let's set a variable to your Docker Hub username that we can use in further commands.
 
 ```sh
-DH_USERNAME=<your-username>
+DH_USERNAME=[[DOCKER_HUB_USERNAME]]
 ```
 
 You can find your username on your Docker Hub account page. If you're logged in on the command line, you can also run the following command to find your username:
@@ -191,13 +191,13 @@ Note the warnings — a record of the attestation will be recorded to an immutab
 
 Cosign can also be used to verify the identity of the person or entity issuing an attestation. The following assumes you used GitHub to authenticate when attesting in the previous step.
 
-To verify that an attestation was issued by a specific entity, we use the `cosign verify-attestation` command, specifying the email address of the issuer:
+To verify that an attestation was issued by a specific entity, we use the `cosign verify-attestation` command, replacing `[[EMAIL]]` with the email address of the issuer:
 
 ```sh
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=emailaddress@emailprovider.com \
+ --certificate-identity=[[EMAIL]] \
  $DIGEST
 ```
 
@@ -209,7 +209,7 @@ The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - Existence of the claims in the transparency log was verified offline
   - The code-signing certificate was verified using trusted certificate authority certificates
-Certificate subject: <you@domain.com>
+Certificate subject: [[EMAIL]]
 Certificate issuer URL: https://github.com/login/oauth
 ```
 
@@ -219,7 +219,7 @@ The remainder of the message consists of an `in-toto attestation` envelope encod
 cosign verify-attestation \
  --certificate-oidc-issuer=https://github.com/login/oauth \
  --type https://spdx.dev/Document \
- --certificate-identity=emailaddress@emailprovider.com \
+ --certificate-identity=[[EMAIL]] \
  $DIGEST | \
  jq -r .payload | \
  base64 -d | jq .predicate

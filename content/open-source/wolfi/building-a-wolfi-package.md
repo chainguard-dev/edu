@@ -312,10 +312,10 @@ You are now ready to build your Wolfi package.
 
 ### Building a package
 
-To build a package, run the following command from your Wolfi SDK environment:
+To build a package, run the following command from your Wolfi SDK environment, replacing `[[PACKAGE_NAME]]` with the name of the package to build:
 
 ```shell
-make package/<your-package-name>
+make package/[[PACKAGE_NAME]]
 ```
 
 For instance, to build PHP 8.3, which is defined in a file named `php-8.3.yaml`, you would run `make package/php-8.3`:
