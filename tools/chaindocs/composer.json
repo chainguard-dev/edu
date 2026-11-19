@@ -10,7 +10,7 @@
     }
   },
   "require": {
-    "php": ">=8.2",
+    "php": ">=8.5",
     "minicli/minicli": "^4.2",
     "minicli/command-help": "^1.0",
     "librarianphp/parsed": "^1.0"
