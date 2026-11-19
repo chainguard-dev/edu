@@ -20,6 +20,10 @@ spec:
             subject: https://github.com/chainguard-dev/edu/.github/workflows/digestabot.yaml@refs/heads/main
           - issuer: https://token.actions.githubusercontent.com
             subject: https://github.com/chainguard-dev/edu/.github/workflows/autodocs-platform.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/compile-ai-docs-from-gcs.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/pre-commit-autoupdate.yaml@refs/heads/main
       ctlog:
         url: https://rekor.sigstore.dev
     - key:
