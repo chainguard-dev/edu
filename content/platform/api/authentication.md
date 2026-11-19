@@ -118,7 +118,7 @@ This will return output like the following:
 ```response
 Opening browser to https://issuer.enforce.dev/oauth?audience=https%3A%2F%2Fconsole-api.enforce.dev&client_id=auth0&connection=google-oauth2&create_refresh_token=true&exit=redirect&redirect=http%3A%2F%2Flocalhost%3A44723%2Fcallback%3Ftoken%3Dtrue%26error%3Dtrue&skip_registration=true
 Opening in existing browser session.
-<api-token>
+[[ACCESS_TOKEN]]
 ```
 
 Then, retrieve an API token and use it to call the API:
@@ -233,10 +233,10 @@ To do so, you will need an appropriately-configured assumable identity. You can 
 
 ### Example 2 using curl
 
-First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity provider samples](/platform/administration/custom-idps/idp-providers/) for some examples.
+First, login with chainctl using an OIDC token. Where the token comes from will differ by platform. Refer to our [Identity provider samples](/platform/administration/custom-idps/idp-providers/) for some examples. Replace `[[IDENTITY_ID]]` with the UIDP of your assumable identity:
 
 ```shell
-chainctl auth login --identity "<identity-id>" --identity-token /var/run/chainguard/oidc/oidc-token
+chainctl auth login --identity "[[IDENTITY_ID]]" --identity-token /var/run/chainguard/oidc/oidc-token
 ```
 
 Then, retrieve an API token and use it to call the API:
@@ -278,7 +278,7 @@ Here are some sample environment variables:
 
 ```shell
 # This is the UIDP of the assumable identity (refer to documentation)
-IDENTITY="<identity-id>"
+IDENTITY="[[IDENTITY_ID]]"
 
 # Retrieve the OIDC token for your workload. How this is done will differ by platform.
 IDENTITY_TOKEN=$(cat /var/run/chainguard/oidc/oidc-token)
