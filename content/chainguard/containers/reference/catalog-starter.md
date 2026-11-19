@@ -4,7 +4,7 @@ linktitle: "Containers on Starter"
 type: "article"
 description: "Learn about the five free Chainguard container images in Chainguard Starter, and how to choose and pull them."
 date: 2026-03-09T07:52:00+02:00
-lastmod: 2026-11-10T18:15:59+00:00
+lastmod: 2026-11-19T15:28:23+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -39,7 +39,7 @@ Starter is designed as a standalone free plan, separate from paid Catalog or per
 ### 1. Sign up and select your images
 
 1. Go to [console.chainguard.dev/signup](https://console.chainguard.dev/signup).
-2. Sign up with an email address, or click **Continue with Google**, **Continue with GitHub**, or **Continue with GitLab**. A work email address, including a Google account on your company's domain, creates a verified organization named after your email domain. A personal email address, such as a Gmail address, or a GitHub or GitLab sign-in, creates an unverified organization, which you can verify later.
+2. Sign up with an email address, or click **Continue with Google**, **Continue with GitHub**, or **Continue with GitLab**. A work email address, including a Google account on your company's domain, creates a verified organization named after your email domain. A personal email address, such as a Gmail address, or a GitHub or GitLab sign-in, creates an unverified organization. You can't verify it later, so use a work email address if you want a [verified organization](/platform/administration/iam-organizations/verified-orgs/#how-an-organization-gets-verified).
 3. Click **Set up an organization**, then click **Set up Starter organization**.
 4. Complete the form, which asks for your name and job title, and for an organization name if your organization is unverified.
 5. Click **Create Chainguard Starter organization**.
@@ -222,7 +222,7 @@ If you know you’ll need more than five images, it’s usually better to start 
 
 ### Can I sign up with Google, GitHub, or GitLab?
 
-Yes. A work email address, including a Google account on your company's domain, creates a verified organization. A GitHub or GitLab sign-in, or a personal email address such as a Gmail address, creates an unverified organization, which you can verify later.
+Yes. A work email address, including a Google account on your company's domain, creates a verified organization. A GitHub or GitLab sign-in, or a personal email address such as a Gmail address, creates an unverified organization. Chainguard doesn't yet offer a way to verify an existing Starter organization. For what that changes, refer to [Unverified Starter and Team organizations](/platform/administration/iam-organizations/verified-orgs/#unverified-starter-and-team-organizations).
 
 You can also sign up from the command line with `chainctl starter init`, as described in [Sign up with `chainctl`](#sign-up-with-chainctl).
 

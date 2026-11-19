@@ -1,7 +1,7 @@
 ---
 title: "Sign up for Chainguard Starter"
 date: 2026-11-03T16:30:40+00:00
-lastmod: 2026-11-10T18:15:59+00:00
+lastmod: 2026-11-19T15:28:23+00:00
 linktitle: "Sign up for Starter"
 description: "Create a free Chainguard Starter organization with chainctl, add images, and join an existing Starter organization"
 type: "article"
@@ -20,7 +20,7 @@ You need the following:
 * `chainctl` 0.2.394 or later. To install it, refer to [How to install chainctl](/platform/chainctl-usage/how-to-install-chainctl/). To update an existing installation, run `sudo chainctl update`, or `brew upgrade chainctl` if you installed it with Homebrew.
 * A verified email address on one of these accounts: GitHub, GitLab, Google, or an email-and-password account. For GitHub and GitLab, Chainguard uses the account's primary email address.
 
-Use a business email address if you plan to invite colleagues. With a business address, Chainguard names your organization after your email domain, and you can invite people whose addresses are in that domain. A personal email address, such as a Gmail address, creates an organization that isn't tied to any domain and can't invite anyone until it upgrades to Chainguard Team.
+Use a business email address if you plan to invite colleagues. With a business address, Chainguard names your organization after your email domain, and you can invite people whose addresses are in that domain. A personal email address, such as a Gmail address, creates an organization that isn't tied to any domain and can't invite anyone until it upgrades to Chainguard Team. Only an organization created with a business address is a [verified organization](/platform/administration/iam-organizations/verified-orgs/#how-an-organization-gets-verified), and you can't verify an organization after you create it.
 
 ## Sign up
 
