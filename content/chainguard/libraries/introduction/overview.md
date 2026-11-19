@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-12T09:00:00+00:00
+lastmod: 2026-11-19T15:41:04+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -225,11 +225,29 @@ When the upstream fallback is enabled, [build pinning](/chainguard/libraries/pol
 
 Chainguard's [source code and maintainer behavior
 scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware/)
-identifies and blocks malicious and greyware packages in Chainguard Libraries
+identifies and blocks malware and greyware packages in Chainguard Libraries
 via the Chainguard Repository. This includes packages that are publicly reported
 as malicious (including packages associated with OSV malware IDs) and packages
 that Chainguard determines are unsafe through its own malware source code
 scanning, even when no public malware advisory exists yet.
+
+Malware harms the person who installs or uses it. Chainguard bases its
+definition on the [OpenSSF malicious packages
+definition](https://github.com/ossf/malicious-packages/blob/main/README.md): a
+package is malware if installing or using it would require incident response,
+or if it sends out information an attacker can use directly, such as
+credentials, tokens, keys, cookies, or cloud metadata.
+
+Greyware isn't malware and doesn't require incident response, but it does
+things you might not expect. Examples include packages that:
+
+* Collect telemetry or usage analytics.
+* Check whether you have a valid license.
+* Include security testing or red-team tools that don't run anything when you install them.
+
+If your security team reviews a blocked package and approves it, you can allow
+it with an [override
+policy](/chainguard/chainguard-repository/library-policies/#override-malware-or-greyware-blocking).
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
