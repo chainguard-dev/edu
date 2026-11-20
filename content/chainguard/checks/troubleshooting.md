@@ -4,7 +4,7 @@ linktitle: "Troubleshooting"
 description: "Fix common problems with Chainguard Checks, including pull requests that get no checks, refused configurations, failed runs, checks that couldn't run, network errors, missing tools, and unused caches."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-12T13:41:48+00:00
+lastmod: 2026-11-20T14:18:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Troubleshooting"]
 images: []
@@ -206,6 +206,12 @@ To see what each check gets, run `chainctl checks explain` and read its `cache s
 If GitHub waits indefinitely for a required check, you probably required a per-check result, such as **presubmit / ci / test**, instead of the summary check. A check that passes without reporting anything, that a condition skips, or that runs only on request never reports a result of its own. Require only **Chainguard Checks (presubmit)**, as described in [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 
 A GitHub merge queue that requires **Chainguard Checks (presubmit)** never gets a result either, because Chainguard Checks doesn't run on merge queues during the beta. The queue waits until its timeout expires, then removes the pull request. Don't require the summary check on a branch that uses a merge queue.
+
+## GitHub rejects pushes to a branch {#github-rejects-pushes-to-a-branch}
+
+If GitHub rejects pushes to branches other than your default branch, with an error that names a required status check, a branch protection rule or ruleset probably requires **Chainguard Checks (presubmit)** on those branches. Chainguard Checks runs on pull requests and on new commits to the default branch, but not on pushes to other branches, so a pushed commit never gets the check that GitHub requires. Pushes to the branches that pull requests come from fail the same way.
+
+To fix this, apply the rule or ruleset only to your default branch. In a ruleset, remove every entry under **Target branches** except the default branch. In a branch protection rule, set the branch name pattern to your default branch's name, such as `main`. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
 
 ## The requested checks agent doesn't comment on a pull request {#the-requested-checks-agent-doesnt-comment-on-a-pull-request}
 
