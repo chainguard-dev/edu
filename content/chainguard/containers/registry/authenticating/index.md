@@ -148,6 +148,8 @@ chainctl iam identities list
 
 To revoke a token, delete the associated identity.
 
+To find out who created a pull token before you revoke it, see [See who created a pull token or identity](/platform/administration/iam-organizations/identity-creators/).
+
 ```sh
 chainctl iam identity delete <identity UUID>
 ```
