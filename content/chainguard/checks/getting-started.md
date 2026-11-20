@@ -4,7 +4,7 @@ linktitle: "Getting started"
 description: "Sign up for Chainguard Checks, add checks to one of your GitHub repositories, and see them run on a pull request."
 type: "article"
 date: 2026-10-08T00:00:00+00:00
-lastmod: 2026-11-04T17:00:59+00:00
+lastmod: 2026-11-20T14:18:15+00:00
 draft: false
 tags: ["Chainguard Checks", "Getting Started", "GitHub", "Procedural"]
 images: []
@@ -158,7 +158,7 @@ If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/check
 
 ### Step 5: Require checks before merging
 
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset that applies only to your default branch. Chainguard Checks doesn't run on pushes to other branches, so if the rule covers them, GitHub rejects every push to those branches. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 Require only the summary check, not the per-check results. A check that passes without reporting anything, or that a condition skips, never reports a result of its own, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
 
