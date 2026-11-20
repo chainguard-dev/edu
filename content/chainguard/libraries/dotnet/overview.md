@@ -4,7 +4,7 @@ linktitle: ".NET overview"
 description: "Learn about Chainguard Libraries for .NET, providing enhanced security for NuGet dependencies"
 type: "article"
 date: 2026-09-23T00:00:00+00:00
-lastmod: 2026-10-15T13:54:39+00:00
+lastmod: 2026-11-19T15:43:10+00:00
 draft: false
 tags: ["Chainguard Libraries", ".NET", "NuGet"]
 menu:
@@ -32,7 +32,7 @@ The URL for the repository is: `https://libraries.cgr.dev/dotnet/`.
 
 ## View packages blocked due to malware
 
-Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the [Chainguard Repository](/chainguard/chainguard-repository/overview/). You can get a list of blocked packages via `chainctl` or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malware and greyware packages in Chainguard Libraries via the [Chainguard Repository](/chainguard/chainguard-repository/overview/). You can get a list of blocked packages via `chainctl` or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
 
 ## Upstream fallback
 
