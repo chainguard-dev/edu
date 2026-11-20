@@ -52,7 +52,7 @@
     "eslint": "^10.15.0",
     "globals": "^17.14.0",
     "highlight.js": "^11.12",
-    "hugo-extended": "^0.169.0",
+    "hugo-extended": "^0.170.0",
     "instant.page": "^5.2",
     "lazysizes": "^5.3",
     "markdownlint-cli2": "^0.24.1",
