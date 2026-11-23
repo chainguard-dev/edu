@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -251,7 +251,7 @@ chainctl libraries verify /path/to/artifact
 
 {{% blurb/libraries-verify-permissions %}}
 
-For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
+For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`. Other ecosystems don't support lockfiles. For what each ecosystem accepts, refer to [Supported inputs by ecosystem](/chainguard/libraries/policies-and-security/verification/#supported-inputs-by-ecosystem).
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 

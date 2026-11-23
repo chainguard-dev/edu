@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-11-05T16:46:12+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -32,9 +32,48 @@ Command characteristics:
 
 - Uses a signature-based binary identification and a checksum fallback.
 - Supports different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL,
-  APK, and npm tarballs (.tgz), as well as container images.
+  APK, npm tarballs (.tgz), and NuGet packages (.nupkg), as well as container
+  images.
 - Allows analysis of directories and nested archive files.
 - Creates output in text, json, yaml, and CSV formats.
+
+## Supported inputs by ecosystem
+
+The following table lists what `chainctl libraries verify` accepts for each
+ecosystem:
+
+| Ecosystem | Accepted inputs | Lockfiles |
+|---|---|---|
+| Java | JAR, WAR, and EAR files; archives that contain them; container images; `remote:` URLs | Not supported. Verify the JAR files. |
+| JavaScript | npm tarballs (`.tgz`), npm cache, pnpm store, Yarn Classic cache, `node_modules` directories, container images | `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, `bun.lock` |
+| Python | Wheel files, installed virtual environments, `remote:` wheel URLs | Not supported. Verify the installed environment or the wheel files. |
+| .NET | `.nupkg` files, directories of them, the NuGet global packages folder, `remote:` and `jfrog:` URLs | Not supported. Verify the `.nupkg` files or the global packages folder. |
+| Go | Not supported | Not supported |
+
+For Go, `go mod verify` checks downloaded modules against `go.sum`. It doesn't
+verify Chainguard provenance.
+
+### Identify upstream fallback packages in a lockfile
+
+Some lockfiles record the URL of each package, which can show whether the
+package came from [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls):
+
+- **JavaScript**: In `pnpm-lock.yaml`, a package from upstream fallback has a
+  `tarball:` URL under `/javascript-upstream/`, as shown in [Verify a pnpm
+  store](#verify-a-pnpm-store).
+- **Python**: In `uv.lock`, each wheel's `url` and the `sdist.url` show a
+  `/python-upstream/` route for a file from upstream fallback. uv records the
+  route per file, so a package can list Chainguard-built wheels for some
+  platforms and upstream wheels for others. The wheel you install depends on
+  your platform. The `source` registry URL shows `/python/` either way.
+  `poetry.lock` records only filenames and hashes, so it doesn't show where a
+  file came from.
+
+A repository manager can rewrite these URLs. A URL without
+`/javascript-upstream/` or `/python-upstream/` therefore doesn't prove that
+Chainguard built the package. To confirm which packages Chainguard built, run
+`chainctl libraries verify` against a supported input.
 
 ## Requirements
 
@@ -175,6 +214,11 @@ saved files and their trust status in text, JSON, YAML, and CSV output.
 > **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the `owner` role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
 
 ### Analyze a Python wheel file
+
+`chainctl libraries verify` checks installed virtual environments and wheel
+files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 Analyze a Python wheel file in the current directory:
 
