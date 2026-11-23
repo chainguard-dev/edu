@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-23T13:56:25+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -107,7 +107,7 @@ chainctl auth pull-token create --repository=python --ttl=720h
 
 > `--repository=all` covers only `oci` and `apk`. It does not include library
 > ecosystems, so list those explicitly.
-
+>
 > The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
