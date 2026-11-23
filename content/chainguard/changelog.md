@@ -2,9 +2,9 @@
 title: "Chainguard products changelog"
 linktitle: "Changelog"
 type: "article"
-description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
+description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or the end of their grace period, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-11-16T00:00:00+00:00
+lastmod: 2026-11-23T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -13,9 +13,61 @@ toc: true
 tocEndLevel: 2
 ---
 
-This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
+This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or the end of their grace period, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-23
+
+{{< changelog-label "Product Announcements" >}}
+
+### Athena Partner API
+
+_Launched November 19, 2026._
+
+Athena shield partners can now use an API, through `chainctl` or REST, to register the mitigations they can deliver and report the ones they ship. The API replaces the hand-reviewed capability manifests partners used before:
+
+- Partners register the mitigation methods they support, such as WAF rules, detection signatures, and virtual patches. Chainguard reviews and approves each method.
+- Approved partners receive findings through the Athena OSV API, limited to the ones they can mitigate.
+- Partners report a status for each finding: `MITIGATED`, `DECLINED`, or `FAILED`. Chainguard shares which findings have a partner mitigation in place with Athena members.
+
+To get Athena partner permissions, contact your Chainguard account team. For details, read [Announcing the Athena Partner API](https://www.chainguard.dev/unchained/announcing-the-athena-partner-api).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `spark:4.0` | 2026-11-23 | 2027-05-23 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 19 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-python/versions"><code>crossplane-function-python</code></a></td><td>application</td><td>2026-11-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/codex-security/versions"><code>codex-security</code></a></td><td>application</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/temporal-worker-controller/versions"><code>temporal-worker-controller</code></a></td><td>application +fips</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-calico/versions"><code>calico-calico</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-third-party-cni-plugins/versions"><code>calico-third-party-cni-plugins</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sglang/versions"><code>sglang</code></a></td><td>ai</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/starrocks-fe/versions"><code>starrocks-fe</code></a></td><td>application</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-shard-controller/versions"><code>sveltos-shard-controller</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/arize-phoenix/versions"><code>arize-phoenix</code></a></td><td>application</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/debezium-connect-fips/versions"><code>debezium-connect-fips</code></a></td><td>fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-healthcheck-manager/versions"><code>sveltos-healthcheck-manager</code></a></td><td>application +fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-operator/versions"><code>karmada-operator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-scheduler-estimator/versions"><code>karmada-scheduler-estimator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/oc-mirror-fips/versions"><code>oc-mirror-fips</code></a></td><td>fips</td><td>2026-11-22</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-16
 
@@ -46,7 +98,7 @@ For the full list, read [Athena's second wave](https://www.chainguard.dev/unchai
 
 ### Chainguard Starter and Chainguard Team self-serve plans
 
-_Launched November 10, 2026._
+_Launched November 17, 2026._
 
 You can now sign up for Chainguard and start pulling images without talking to sales:
 
@@ -58,6 +110,14 @@ Enterprise plans, which add features such as FIPS images, SSO, and custom polici
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `mattermost:11.4` | 2026-05-15 | 2026-11-15 |
 
 ### Images that have reached end-of-life
 
@@ -150,6 +210,14 @@ It forwards signals to the application and preserves its exit code. Because you 
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `knative-operator:1.20` | 2026-05-06 | 2026-11-06 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -236,6 +304,18 @@ Customers keep their existing GitLab license; Chainguard provides and maintains 
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `knative-eventing:1.20` | 2026-04-29 | 2026-10-29 |
+| `knative-serving:1.20` | 2026-04-29 | 2026-10-29 |
+| `vitess:22` | 2026-04-29 | 2026-10-29 |
+| `mysql:8.0` | 2026-04-30 | 2026-10-30 |
+| `nodejs:20` | 2026-04-30 | 2026-10-30 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -312,6 +392,15 @@ Chainguard built 63 new container images this week, including both standard and 
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `airflow:2` | 2026-04-22 | 2026-10-22 |
+| `airflow-core:2` | 2026-04-22 | 2026-10-22 |
 
 ### Images that have reached end-of-life
 
@@ -446,6 +535,14 @@ Chainguard is moving the signature and attestation format for the container imag
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `envoy:1.34` | 2026-04-15 | 2026-10-15 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -573,13 +670,13 @@ provides:
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
-| `spark:3.5` | 2026-04-12 | 2026-10-12 |
+| `prometheus:3.10` | 2026-04-08 | 2026-10-08 |
 
 {{< changelog-label "New Images" >}}
 
@@ -625,6 +722,22 @@ Ten new mitigation and detection partners also joined the coalition. For the ful
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `istio:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-cni:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-envoy:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-operator:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-pilot-agent:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-pilot-discovery:1.27` | 2026-03-30 | 2026-09-30 |
+| `ruby:3.2` | 2026-03-31 | 2026-09-30 |
+| `ztunnel:1.27` | 2026-03-30 | 2026-09-30 |
+| `haproxy:2.4` | 2026-04-01 | 2026-10-01 |
 
 ### Images that have reached end-of-life
 
@@ -772,6 +885,19 @@ During the beta, authentication and build pipelines continue to run on US infras
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `mattermost:11.2` | 2026-03-15 | 2026-09-15 |
+| `datadog-agent:7.76` | 2026-03-18 | 2026-09-18 |
+| `external-secrets-operator:2.1` | 2026-03-20 | 2026-09-20 |
+| `harbor:2.12` | 2026-03-20 | 2026-09-20 |
+| `harbor-db:2.12` | 2026-03-20 | 2026-09-20 |
+| `kuma:2.10` | 2026-03-20 | 2026-09-20 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -818,6 +944,17 @@ Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `apache-pulsar:4.1` | 2026-03-08 | 2026-09-08 |
+| `gatekeeper:3.20` | 2026-03-09 | 2026-09-09 |
+| `telegraf:1.36` | 2026-03-09 | 2026-09-09 |
+| `cert-manager:1.18` | 2026-03-10 | 2026-09-10 |
 
 ### Images that have reached end-of-life
 
@@ -881,6 +1018,19 @@ JFrog Catalog now recognizes Chainguard-built packages, so joint Chainguard and 
 - Nothing changes for Chainguard Libraries customers who don't use JFrog.
 
 For more information, refer to [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `neo4j:2026.01` | 2026-03-06 | 2026-09-06 |
+| `rust:1.93` | 2026-03-06 | 2026-09-06 |
 
 {{< changelog-label "New Images" >}}
 
@@ -971,12 +1121,19 @@ Organizations that do not use upstream fallback see no change. To review what yo
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `rancher:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-agent:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-charts:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-dashboard:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-kontainer-driver-metadata:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-system-charts:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-ui:2.9` | 2026-02-26 | 2026-08-26 |
 | `kube-conformance:1.32` | 2026-02-28 | 2026-08-28 |
 | `kubernetes:1.32` | 2026-02-28 | 2026-08-28 |
 | `nextcloud-server:31` | 2026-02-28 | 2026-08-28 |
@@ -1052,12 +1209,13 @@ For more information, refer to [Self-serve Helm charts](/get-started/self-serve/
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `datadog-agent:7.75` | 2026-02-23 | 2026-08-23 |
 | `flux:2.5` | 2026-02-24 | 2026-08-24 |
 
 ### Images that have reached end-of-life
@@ -1143,12 +1301,20 @@ For more information, refer to [`chainctl libraries cache`](/platform/chainctl/c
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `fluent-bit:4.1` | 2026-02-11 | 2026-08-11 |
+| `go:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-fips:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-msft:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-openssl:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-slim:1.24` | 2026-02-11 | 2026-08-11 |
+| `kubernetes-csi-node-driver-registrar:2.15` | 2026-02-12 | 2026-08-12 |
+| `mariadb:12.1` | 2026-02-13 | 2026-08-13 |
 | `prometheus:3.9` | 2026-02-17 | 2026-08-17 |
 
 ### Images that have reached end-of-life
@@ -1213,6 +1379,15 @@ For more information, including setup steps, refer to [Enable PKCE for OAuth Tok
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `grafana:12.0` | 2026-02-05 | 2026-08-05 |
+| `external-secrets-operator:1.3` | 2026-02-06 | 2026-08-06 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -1270,12 +1445,16 @@ Chainguard aligned the entrypoint and command behavior of all supported `ingress
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `rabbitmq:4.1` | 2026-01-30 | 2026-07-30 |
+| `tekton-pipelines:0.68` | 2026-01-30 | 2026-07-30 |
+| `keda:2.17` | 2026-02-02 | 2026-08-02 |
+| `kyverno:1.14` | 2026-02-02 | 2026-08-02 |
 | `cilium:1.16` | 2026-02-03 | 2026-08-03 |
 | `neo4j:2025.12` | 2026-02-03 | 2026-08-03 |
 
@@ -1335,9 +1514,9 @@ For more information, including setup steps, refer to [Grant Chainguard roles fr
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
