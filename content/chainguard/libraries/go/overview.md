@@ -4,7 +4,7 @@ linktitle: "Go overview"
 description: "Go modules for your application development"
 type: "article"
 date: 2026-09-25T00:00:00+00:00
-lastmod: 2026-10-14T18:18:18+00:00
+lastmod: 2026-11-19T15:43:10+00:00
 draft: false
 tags: ["Chainguard Libraries", "Go", "Overview"]
 menu:
@@ -78,4 +78,4 @@ Upstream fallback does not make Chainguard Libraries a complete mirror of the up
 
 ### View packages blocked due to malware
 
-Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the Chainguard Repository. You can get a list of blocked packages via chainctl or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malware and greyware packages in Chainguard Libraries via the Chainguard Repository. You can get a list of blocked packages via chainctl or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
