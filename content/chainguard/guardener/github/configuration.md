@@ -4,7 +4,7 @@ linktitle: "Configuration"
 description: "Understand Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-11-17T18:01:18+00:00
+lastmod: 2026-11-23T14:36:15+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -74,6 +74,8 @@ To use org-level configuration:
 3. Commit your `.chainguard/` configuration files to the default branch of the `.github` repository.
 
 Once in place, every repository Guardener can access inherits this configuration without needing its own `.chainguard/` files.
+
+Organization-level configuration covers only Guardener's files. Chainguard Checks and Chainguard Workspaces never read `ci.yaml`, the `ci/` directory, or `develop.yaml` from the `.github` repository, so commit those files to each repository that uses them.
 
 ### How repository and organization configuration combine
 
