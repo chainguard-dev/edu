@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -525,6 +525,11 @@ poetry install
 ## Step 5: Verify your libraries
 
 After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
+
+`chainctl libraries verify` checks installed virtual environments and wheel
+files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
