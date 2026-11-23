@@ -4,7 +4,7 @@ linktitle: "Changelog"
 type: "article"
 description: "Weekly changelog of Chainguard product updates — product announcements, breaking changes, container images reaching end-of-life or leaving the catalog, and images newly added to it."
 date: 2026-07-28T00:00:00+00:00
-lastmod: 2026-11-16T00:00:00+00:00
+lastmod: 2026-11-23T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Changelog"]
 images: []
@@ -16,6 +16,58 @@ tocEndLevel: 2
 This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-23
+
+{{< changelog-label "Product Announcements" >}}
+
+### Athena Partner API
+
+_Launched November 19, 2026._
+
+Athena shield partners can now use an API, through `chainctl` or REST, to register the mitigations they can deliver and report the ones they ship. The API replaces the hand-reviewed capability manifests partners used before:
+
+- Partners register the mitigation methods they support, such as WAF rules, detection signatures, and virtual patches. Chainguard reviews and approves each method.
+- Approved partners receive findings through the Athena OSV API, limited to the ones they can mitigate.
+- Partners report a status for each finding: `MITIGATED`, `DECLINED`, or `FAILED`. Chainguard shares which findings have a partner mitigation in place with Athena members.
+
+To get Athena partner permissions, contact your Chainguard account team. For details, read [Announcing the Athena Partner API](https://www.chainguard.dev/unchained/announcing-the-athena-partner-api).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `spark:4.0` | 2026-11-23 | 2027-05-23 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 19 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-python/versions"><code>crossplane-function-python</code></a></td><td>application</td><td>2026-11-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/codex-security/versions"><code>codex-security</code></a></td><td>application</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/temporal-worker-controller/versions"><code>temporal-worker-controller</code></a></td><td>application +fips</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-calico/versions"><code>calico-calico</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-third-party-cni-plugins/versions"><code>calico-third-party-cni-plugins</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sglang/versions"><code>sglang</code></a></td><td>ai</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/starrocks-fe/versions"><code>starrocks-fe</code></a></td><td>application</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-shard-controller/versions"><code>sveltos-shard-controller</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/arize-phoenix/versions"><code>arize-phoenix</code></a></td><td>application</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/debezium-connect-fips/versions"><code>debezium-connect-fips</code></a></td><td>fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-healthcheck-manager/versions"><code>sveltos-healthcheck-manager</code></a></td><td>application +fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-operator/versions"><code>karmada-operator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-scheduler-estimator/versions"><code>karmada-scheduler-estimator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/oc-mirror-fips/versions"><code>oc-mirror-fips</code></a></td><td>fips</td><td>2026-11-22</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-16
 
@@ -46,7 +98,7 @@ For the full list, read [Athena's second wave](https://www.chainguard.dev/unchai
 
 ### Chainguard Starter and Chainguard Team self-serve plans
 
-_Launched November 10, 2026._
+_Launched November 17, 2026._
 
 You can now sign up for Chainguard and start pulling images without talking to sales:
 
