@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "A walkthrough of the Chainguard Console."
 date: 2024-02-23T11:07:52+02:00
-lastmod: 2026-11-04T13:34:36+00:00
+lastmod: 2026-11-19T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -65,7 +65,7 @@ The **Organization** tab has no **Description** column, but it adds two others:
 
 Click a column name to sort the list by that column, in ascending or descending order.
 
-Above the table, a search box finds images by name or latest version number. To its right, the **Filter by** menu filters the images by their [container image category](/chainguard/containers/concepts/container-categories/).
+Above the table, a search box finds images by name or description. To its right, the **Filter** menu filters the images by their [container image category](/chainguard/containers/concepts/container-categories/). On the **Organization** tab, the menu also has a **Customized** option, which shows only images customized with [Custom Assembly](/chainguard/containers/custom-assembly/overview/).
 
 ## Container image information
 
