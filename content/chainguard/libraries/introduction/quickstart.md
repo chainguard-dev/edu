@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-23T13:56:25+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -90,36 +90,24 @@ You can [create pull tokens via the Chainguard
 Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**.
 
-You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
-
-{{< tabs label="Language ecosystem for creating a pull token" >}}
-
-{{< tab title="Java" >}}
+You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/).
+The `--repository` flag takes a comma-separated list, so a single token can
+cover every ecosystem you're entitled to:
 
 ```bash
-chainctl auth pull-token create --repository=java --ttl=720h
+chainctl auth pull-token create --repository=java,javascript,python,go,dotnet --ttl=720h
 ```
 
-{{< /tab >}}
-
-{{< tab title="JavaScript" >}}
-
-```bash
-chainctl auth pull-token create --repository=javascript --ttl=720h
-```
-
-{{< /tab >}}
-
-{{< tab title="Python" >}}
+The token gets one role binding per repository type. To scope a token to one
+ecosystem, pass only that ecosystem:
 
 ```bash
 chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
-{{< /tab >}}
-
-{{< /tabs >}}
-
+> `--repository=all` covers only `oci` and `apk`. It does not include library
+> ecosystems, so list those explicitly.
+>
 > The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
