@@ -239,7 +239,7 @@ chainctl libraries verify /path/to/artifact
 
 {{% blurb/libraries-verify-permissions %}}
 
-For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`. Other ecosystems don't support lockfiles. For what each ecosystem accepts, refer to [Supported inputs by ecosystem](/chainguard/libraries/policies-and-security/verification/#supported-inputs-by-ecosystem).
+For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`. Verification with lockfiles is only supported for the JavaScript ecosystem today. For what each ecosystem accepts, refer to [Supported inputs by ecosystem](/chainguard/libraries/policies-and-security/verification/#supported-inputs-by-ecosystem).
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 
