@@ -4,7 +4,7 @@ linktitle: "Identities and trust"
 description: "Learn how a Chainguard Checks check gets short-lived Google Cloud, AWS, Azure, or Chainguard credentials through a workload identity, how to limit which pull requests get one, and how to revoke access."
 type: "article"
 date: 2026-10-12T00:00:00+00:00
-lastmod: 2026-11-02T15:34:03+00:00
+lastmod: 2026-11-23T14:41:09+00:00
 draft: false
 tags: ["Chainguard Checks", "Configuration", "Security"]
 images: []
@@ -122,26 +122,30 @@ Each ref must be a full ref that starts with `refs/`.
 
 ### Chainguard hosts {#chainguard-hosts}
 
-Each key under `chainguard` is a Chainguard host, and its value has the following keys, all required:
+Each key under `chainguard` is a Chainguard host, such as `cgr.dev`, `apk.cgr.dev`, `libraries.cgr.dev`, or `console-api.enforce.dev`. Its value has the following keys:
 
-| Key | Description |
-| --- | ----------- |
-| `identity` | The ID of an assumable identity in your Chainguard organization that trusts this workload identity's tokens. Refer to [Set up the provider](#set-up-the-provider). |
-| `exchange_audience` | The audience that the assumable identity accepts. It must also be in the identity's `audiences`. |
-| `role` | The most access the check gets on the host, from the following table. The assumable identity's role bindings must also grant that access. |
-| `scopes` | A list of group IDs, such as your organization's ID. Only the assumable identity's role bindings on these groups, or on the groups that contain them, apply. |
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| `identity` | Yes | The ID of an assumable identity in your Chainguard organization that trusts this workload identity's tokens. Refer to [Set up the provider](#set-up-the-provider). |
+| `exchange_audience` | Yes | The audience that the assumable identity accepts. It must also be in the identity's `audiences`. |
+| `scopes` | Yes | A list of group IDs, such as your organization's ID. Only the assumable identity's role bindings on these groups, or on the groups that contain them, apply. |
+| `role` | No | Has no effect. Chainguard Checks accepts the key so that existing files stay valid. |
 
-Each host accepts the following roles:
+The assumable identity's role bindings on the groups in `scopes` decide what the check can do on the host, and Chainguard Checks doesn't narrow that access. Bind the assumable identity only to roles that grant what the check needs. The following [built-in roles](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) cover common checks:
 
-| Host | `role` | What the check can do |
-| ---- | ------ | --------------------- |
+| Host | Built-in role | What the check can do |
+| ---- | ------------- | --------------------- |
 | `cgr.dev` | `registry.pull` | Pull container images. |
-| `cgr.dev` | `registry.push` | Pull and push container images. |
+| `cgr.dev` | `registry.push` | Pull and push container images, and create, update, and delete repositories and tags. |
 | `apk.cgr.dev` | `apk.pull` | Download packages. |
 | `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.java.pull` | Download Java libraries from Chainguard Libraries. |
-| `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
+| `console-api.enforce.dev` | `console_viewer` | Read resources in the Chainguard API, such as groups, identities, roles, and role bindings. |
+
+To grant less than a built-in role, such as `registry.push` without deletes, bind the assumable identity to a [custom role](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-custom-roles) instead.
+
+Write access to the Chainguard API lets code in the check create credentials that outlive the run. For example, a check that can create identities and role bindings can create an identity that trusts a key the check generated, and grant that identity access. Ending the run or changing the identity's ring doesn't remove what the check created, so delete it in Chainguard IAM. Bind write access only on a group set aside for the check's tests. Give the identity ring `2`, or a subring whose authors you trust, and never ring `0`. Refer to [Rings](#rings).
 
 A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
 
@@ -438,6 +442,6 @@ To take access back, change the place that grants it:
 
 When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud, AWS, or Azure settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. The credentials that the check got through the identity work only inside the check, so they stop working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
 
-Revoking an identity doesn't revoke credentials that a check created with the identity's permissions, such as an AWS access key. Delete those on the provider.
+Revoking an identity doesn't revoke credentials that a check created with the identity's permissions, such as an AWS access key or a Chainguard identity. Delete those on the provider.
 
 Chainguard Workspaces sessions don't use workload identities. To revoke what a session can reach, refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
