@@ -1,7 +1,7 @@
 ---
 title: "Create an assumable identity for HCP Terraform"
 date: 2026-10-19T14:34:54+00:00
-lastmod: 2026-10-23T12:28:00+00:00
+lastmod: 2026-11-24T13:46:25+00:00
 linktitle: "HCP Terraform"
 description: "Authenticate the Chainguard Terraform provider in HCP Terraform with a workload identity token, then manage your other Chainguard identities in Terraform."
 type: "article"
@@ -154,6 +154,8 @@ resource "chainguard_rolebinding" "github_ci_pull" {
   role     = data.chainguard_role.puller.items[0].id
 }
 ```
+
+To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 Keep the bootstrap identity out of this configuration. If the workspace manages the identity it signs in with, a change to that identity can lock the workspace out, and you would need `chainctl` to recover it.
 
