@@ -4,7 +4,7 @@ linktitle: "Lockers"
 type: "article"
 description: "Chainguard Lockers is a free anonymous registry for temporary container images. Push and pull with no account, no login, and no configuration. Images expire automatically."
 date: 2026-10-21T12:00:00+00:00
-lastmod: 2026-11-13T12:00:00+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 images: []
 tags: ["Registry"]
@@ -17,7 +17,7 @@ toc: true
 
 Chainguard Lockers (`lockers.cgruser.dev`) is a free, anonymous, ephemeral OCI registry run by Chainguard. Push an image with no account, no login, and no configuration, hand the reference to a teammate or a test cluster, and it works until it expires. It is handy for sharing a quick build, testing CI pipelines, or pulling into a Kubernetes cluster without configuring pull secrets.
 
-> **This service is experimental.** It has no SLA, its hostname may change, and anything on it can disappear at any time. Never use it for production images, and never push anything secret: everything on this registry is publicly readable, writable, and deletable by anyone.
+> **This service is experimental.** It has no SLA, its hostname may change, and anything on it can disappear at any time. Never use it for production images, and never push anything secret: everything on this registry is publicly readable and writable by anyone.
 
 ## Quick start
 
@@ -63,7 +63,7 @@ A tag whose name is a duration sets how long the tag is served, up to a maximum 
 Details worth knowing:
 
 - A duration is a whole number with one unit: `s`, `m`, `h`, or `d`.
-- Every push restarts the clock.
+- Pushing new content to a tag restarts the clock. Pushing the same content again doesn't.
 - When a duration tag's time is up, pulling it by tag stops working. Pulling by digest may keep working for a while longer.
 - Expiry is a ceiling, not a guarantee of availability: any content may be removed at any time.
 
@@ -106,7 +106,7 @@ The same applies to any cluster that can reach the internet: hand it the image r
 
 ## Ground rules
 
-- **Everything is public and anonymous.** Anyone can pull, overwrite, or delete any tag. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters:
+- **Everything is public and anonymous.** Anyone can pull or overwrite any tag. Nobody can delete a tag or an image, including the person who pushed it; content is removed when it expires. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters:
 
   ```sh
   docker pull lockers.cgruser.dev/<name>/demo@sha256:<digest>
