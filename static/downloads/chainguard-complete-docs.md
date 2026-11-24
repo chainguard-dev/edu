@@ -1,6 +1,6 @@
 # Chainguard Documentation Bundle
 
-_Compiled on: 2026-11-23 02:16:30_
+_Compiled on: 2026-11-24 02:14:45_
 
 This document contains Chainguard documentation compiled from multiple sources.
 
@@ -244,9 +244,61 @@ Build logs are public on GitHub Actions:
 ### Chainguard products changelog
 _Path: chainguard/changelog.md_
 
-This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or are no longer available, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
+This page logs Chainguard product updates week by week, newest first: product announcements, breaking changes, container images that reached end-of-life or the end of their grace period, and images newly added to the catalog. Each event is listed once, in the week it first appeared.
 
 Breaking changes and product announcements cover the entire Chainguard portfolio, while end-of-life, availability, and new-image entries relate specifically to Chainguard Containers. This page summarizes the changes most likely to affect your work rather than every change Chainguard ships. Routine updates, such as new tags for existing images, are not listed individually. For the current tags and versions of any container image, refer to its entry in the [Chainguard Directory](https://images.chainguard.dev/directory).
+
+## Week of 2026-11-23
+
+{{< changelog-label "Product Announcements" >}}
+
+### Athena Partner API
+
+_Launched November 19, 2026._
+
+Athena shield partners can now use an API, through `chainctl` or REST, to register the mitigations they can deliver and report the ones they ship. The API replaces the hand-reviewed capability manifests partners used before:
+
+- Partners register the mitigation methods they support, such as WAF rules, detection signatures, and virtual patches. Chainguard reviews and approves each method.
+- Approved partners receive findings through the Athena OSV API, limited to the ones they can mitigate.
+- Partners report a status for each finding: `MITIGATED`, `DECLINED`, or `FAILED`. Chainguard shares which findings have a partner mitigation in place with Athena members.
+
+To get Athena partner permissions, contact your Chainguard account team. For details, read [Announcing the Athena Partner API](https://www.chainguard.dev/unchained/announcing-the-athena-partner-api).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images that have reached end-of-life
+
+The following container images reached end-of-life and entered their grace period:
+
+| Image | End-of-life | Grace period ends |
+| --- | --- | --- |
+| `spark:4.0` | 2026-11-23 | 2027-05-23 |
+
+{{< changelog-label "New Images" >}}
+
+Chainguard built 19 new container images this week, including both standard and FIPS variants.
+
+<table class="cl-images">
+<thead><tr><th>Image</th><th>Tier</th><th>Added</th></tr></thead>
+<tbody>
+<tr><td><a href="https://images.chainguard.dev/directory/image/crossplane-function-python/versions"><code>crossplane-function-python</code></a></td><td>application</td><td>2026-11-16</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/codex-security/versions"><code>codex-security</code></a></td><td>application</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/temporal-worker-controller/versions"><code>temporal-worker-controller</code></a></td><td>application +fips</td><td>2026-11-17</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-calico/versions"><code>calico-calico</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/calico-third-party-cni-plugins/versions"><code>calico-third-party-cni-plugins</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sglang/versions"><code>sglang</code></a></td><td>ai</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/starrocks-fe/versions"><code>starrocks-fe</code></a></td><td>application</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-shard-controller/versions"><code>sveltos-shard-controller</code></a></td><td>application +fips</td><td>2026-11-18</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/arize-phoenix/versions"><code>arize-phoenix</code></a></td><td>application</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/debezium-connect-fips/versions"><code>debezium-connect-fips</code></a></td><td>fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/sveltos-healthcheck-manager/versions"><code>sveltos-healthcheck-manager</code></a></td><td>application +fips</td><td>2026-11-19</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-operator/versions"><code>karmada-operator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/karmada-scheduler-estimator/versions"><code>karmada-scheduler-estimator</code></a></td><td>application</td><td>2026-11-20</td></tr>
+<tr><td><a href="https://images.chainguard.dev/directory/image/oc-mirror-fips/versions"><code>oc-mirror-fips</code></a></td><td>fips</td><td>2026-11-22</td></tr>
+</tbody>
+</table>
 
 ## Week of 2026-11-16
 
@@ -277,7 +329,7 @@ For the full list, read [Athena's second wave](https://www.chainguard.dev/unchai
 
 ### Chainguard Starter and Chainguard Team self-serve plans
 
-_Launched November 10, 2026._
+_Launched November 17, 2026._
 
 You can now sign up for Chainguard and start pulling images without talking to sales:
 
@@ -289,6 +341,14 @@ Enterprise plans, which add features such as FIPS images, SSO, and custom polici
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `mattermost:11.4` | 2026-05-15 | 2026-11-15 |
 
 ### Images that have reached end-of-life
 
@@ -381,6 +441,14 @@ It forwards signals to the application and preserves its exit code. Because you 
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `knative-operator:1.20` | 2026-05-06 | 2026-11-06 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -467,6 +535,18 @@ Customers keep their existing GitLab license; Chainguard provides and maintains 
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `knative-eventing:1.20` | 2026-04-29 | 2026-10-29 |
+| `knative-serving:1.20` | 2026-04-29 | 2026-10-29 |
+| `vitess:22` | 2026-04-29 | 2026-10-29 |
+| `mysql:8.0` | 2026-04-30 | 2026-10-30 |
+| `nodejs:20` | 2026-04-30 | 2026-10-30 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -543,6 +623,15 @@ Chainguard built 63 new container images this week, including both standard and 
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `airflow:2` | 2026-04-22 | 2026-10-22 |
+| `airflow-core:2` | 2026-04-22 | 2026-10-22 |
 
 ### Images that have reached end-of-life
 
@@ -677,6 +766,14 @@ Chainguard is moving the signature and attestation format for the container imag
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `envoy:1.34` | 2026-04-15 | 2026-10-15 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -804,13 +901,13 @@ provides:
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
-| `spark:3.5` | 2026-04-12 | 2026-10-12 |
+| `prometheus:3.10` | 2026-04-08 | 2026-10-08 |
 
 {{< changelog-label "New Images" >}}
 
@@ -856,6 +953,22 @@ Ten new mitigation and detection partners also joined the coalition. For the ful
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `istio:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-cni:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-envoy:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-operator:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-pilot-agent:1.27` | 2026-03-30 | 2026-09-30 |
+| `istio-pilot-discovery:1.27` | 2026-03-30 | 2026-09-30 |
+| `ruby:3.2` | 2026-03-31 | 2026-09-30 |
+| `ztunnel:1.27` | 2026-03-30 | 2026-09-30 |
+| `haproxy:2.4` | 2026-04-01 | 2026-10-01 |
 
 ### Images that have reached end-of-life
 
@@ -1003,6 +1116,19 @@ During the beta, authentication and build pipelines continue to run on US infras
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `mattermost:11.2` | 2026-03-15 | 2026-09-15 |
+| `datadog-agent:7.76` | 2026-03-18 | 2026-09-18 |
+| `external-secrets-operator:2.1` | 2026-03-20 | 2026-09-20 |
+| `harbor:2.12` | 2026-03-20 | 2026-09-20 |
+| `harbor-db:2.12` | 2026-03-20 | 2026-09-20 |
+| `kuma:2.10` | 2026-03-20 | 2026-09-20 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -1049,6 +1175,17 @@ Chainguard's `sonar-scanner-cli` image changes its default user from `root` (UID
 {{< changelog-label "EOL" >}}
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `apache-pulsar:4.1` | 2026-03-08 | 2026-09-08 |
+| `gatekeeper:3.20` | 2026-03-09 | 2026-09-09 |
+| `telegraf:1.36` | 2026-03-09 | 2026-09-09 |
+| `cert-manager:1.18` | 2026-03-10 | 2026-09-10 |
 
 ### Images that have reached end-of-life
 
@@ -1112,6 +1249,19 @@ JFrog Catalog now recognizes Chainguard-built packages, so joint Chainguard and 
 - Nothing changes for Chainguard Libraries customers who don't use JFrog.
 
 For more information, refer to [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).
+
+{{< changelog-label "EOL" >}}
+
+Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
+
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `neo4j:2026.01` | 2026-03-06 | 2026-09-06 |
+| `rust:1.93` | 2026-03-06 | 2026-09-06 |
 
 {{< changelog-label "New Images" >}}
 
@@ -1202,12 +1352,19 @@ Organizations that do not use upstream fallback see no change. To review what yo
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `rancher:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-agent:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-charts:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-dashboard:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-kontainer-driver-metadata:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-system-charts:2.9` | 2026-02-26 | 2026-08-26 |
+| `rancher-ui:2.9` | 2026-02-26 | 2026-08-26 |
 | `kube-conformance:1.32` | 2026-02-28 | 2026-08-28 |
 | `kubernetes:1.32` | 2026-02-28 | 2026-08-28 |
 | `nextcloud-server:31` | 2026-02-28 | 2026-08-28 |
@@ -1283,12 +1440,13 @@ For more information, refer to [Self-serve Helm charts](/get-started/self-serve/
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `datadog-agent:7.75` | 2026-02-23 | 2026-08-23 |
 | `flux:2.5` | 2026-02-24 | 2026-08-24 |
 
 ### Images that have reached end-of-life
@@ -1374,12 +1532,20 @@ For more information, refer to [`chainctl libraries cache`](/platform/chainctl/c
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `fluent-bit:4.1` | 2026-02-11 | 2026-08-11 |
+| `go:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-fips:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-msft:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-openssl:1.24` | 2026-02-11 | 2026-08-11 |
+| `go-slim:1.24` | 2026-02-11 | 2026-08-11 |
+| `kubernetes-csi-node-driver-registrar:2.15` | 2026-02-12 | 2026-08-12 |
+| `mariadb:12.1` | 2026-02-13 | 2026-08-13 |
 | `prometheus:3.9` | 2026-02-17 | 2026-08-17 |
 
 ### Images that have reached end-of-life
@@ -1444,6 +1610,15 @@ For more information, including setup steps, refer to [Enable PKCE for OAuth Tok
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
+### Images whose grace period has ended
+
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
+
+| Image | End-of-life | Grace period ended |
+| --- | --- | --- |
+| `grafana:12.0` | 2026-02-05 | 2026-08-05 |
+| `external-secrets-operator:1.3` | 2026-02-06 | 2026-08-06 |
+
 ### Images that have reached end-of-life
 
 The following container images reached end-of-life and entered their grace period:
@@ -1501,12 +1676,16 @@ Chainguard aligned the entrypoint and command behavior of all supported `ingress
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
+| `rabbitmq:4.1` | 2026-01-30 | 2026-07-30 |
+| `tekton-pipelines:0.68` | 2026-01-30 | 2026-07-30 |
+| `keda:2.17` | 2026-02-02 | 2026-08-02 |
+| `kyverno:1.14` | 2026-02-02 | 2026-08-02 |
 | `cilium:1.16` | 2026-02-03 | 2026-08-03 |
 | `neo4j:2025.12` | 2026-02-03 | 2026-08-03 |
 
@@ -1566,9 +1745,9 @@ For more information, including setup steps, refer to [Grant Chainguard roles fr
 
 Chainguard offers [a grace period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/) for eligible end-of-life images: up to six months of continued rebuilds and security updates while you complete your upgrade.
 
-### Images that are no longer available
+### Images whose grace period has ended
 
-The following container images reached the end of their grace period and are no longer available:
+The following container images reached the end of their grace period and no longer receive updates or CVE remediations. Your organization keeps access to each image's last successful build:
 
 | Image | End-of-life | Grace period ended |
 | --- | --- | --- |
@@ -3345,6 +3524,8 @@ To use org-level configuration:
 
 Once in place, every repository Guardener can access inherits this configuration without needing its own `.chainguard/` files.
 
+Organization-level configuration covers only Guardener's files. Chainguard Checks and Chainguard Workspaces never read `ci.yaml`, the `ci/` directory, or `develop.yaml` from the `.github` repository, so commit those files to each repository that uses them.
+
 ### How repository and organization configuration combine
 
 Configuration committed directly to a repository takes precedence over the organization-level configuration from the `.github` repository:
@@ -4794,9 +4975,48 @@ Command characteristics:
 
 - Uses a signature-based binary identification and a checksum fallback.
 - Supports different binary formats, including JAR, WAR, EAR, ZIP, TAR, WHL,
-  APK, and npm tarballs (.tgz), as well as container images.
+  APK, npm tarballs (.tgz), and NuGet packages (.nupkg), as well as container
+  images.
 - Allows analysis of directories and nested archive files.
 - Creates output in text, json, yaml, and CSV formats.
+
+## Supported inputs by ecosystem
+
+The following table lists what `chainctl libraries verify` accepts for each
+ecosystem:
+
+| Ecosystem | Accepted inputs | Lockfiles |
+|---|---|---|
+| Java | JAR, WAR, and EAR files; archives that contain them; container images; `remote:` URLs | Not supported. Verify the JAR files. |
+| JavaScript | npm tarballs (`.tgz`), npm cache, pnpm store, Yarn Classic cache, `node_modules` directories, container images | `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, `bun.lock` |
+| Python | Wheel files, installed virtual environments, `remote:` wheel URLs | Not supported. Verify the installed environment or the wheel files. |
+| .NET | `.nupkg` files, directories of them, the NuGet global packages folder, `remote:` and `jfrog:` URLs | Not supported. Verify the `.nupkg` files or the global packages folder. |
+| Go | Not supported | Not supported |
+
+For Go, `go mod verify` checks downloaded modules against `go.sum`. It doesn't
+verify Chainguard provenance.
+
+### Identify upstream fallback packages in a lockfile
+
+Some lockfiles record the URL of each package, which can show whether the
+package came from [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls):
+
+- **JavaScript**: In `pnpm-lock.yaml`, a package from upstream fallback has a
+  `tarball:` URL under `/javascript-upstream/`, as shown in [Verify a pnpm
+  store](#verify-a-pnpm-store).
+- **Python**: In `uv.lock`, each wheel's `url` and the `sdist.url` show a
+  `/python-upstream/` route for a file from upstream fallback. uv records the
+  route per file, so a package can list Chainguard-built wheels for some
+  platforms and upstream wheels for others. The wheel you install depends on
+  your platform. The `source` registry URL shows `/python/` either way.
+  `poetry.lock` records only filenames and hashes, so it doesn't show where a
+  file came from.
+
+A repository manager can rewrite these URLs. A URL without
+`/javascript-upstream/` or `/python-upstream/` therefore doesn't prove that
+Chainguard built the package. To confirm which packages Chainguard built, run
+`chainctl libraries verify` against a supported input.
 
 ## Requirements
 
@@ -4937,6 +5157,11 @@ saved files and their trust status in text, JSON, YAML, and CSV output.
 > **Note**: Running `chainctl libraries verify` requires the `pull_token_creator` role for the ecosystem you verify, the `owner` role, or a `pull` role with a libraries-scoped token. For details, refer to [Requirements](#requirements).
 
 ### Analyze a Python wheel file
+
+`chainctl libraries verify` checks installed virtual environments and wheel
+files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 Analyze a Python wheel file in the current directory:
 
@@ -6791,7 +7016,10 @@ each supported environment when applicable.
 ## Verify dependencies
 
 Use `chainctl libraries verify` to check whether an artifact comes from
-Chainguard Libraries.
+Chainguard Libraries. The command checks installed virtual environments and
+wheel files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 To verify an installed virtual environment:
 
@@ -7821,6 +8049,11 @@ poetry install
 ## Step 5: Verify your libraries
 
 After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
+
+`chainctl libraries verify` checks installed virtual environments and wheel
+files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
@@ -9064,7 +9297,7 @@ upstream fallback on by default. The endpoint always serves Chainguard-built pac
 first. When upstream fallback is on, upstream packages are
 subject to additional security controls before being served, including source code and maintainer behavior scanning and a configurable cooldown period. To serve only Chainguard-built packages, set the entitlement policy to Chainguard-only, as described in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
-For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and malicious signals.
+For Java, Chainguard's scanning inspects compiled `.class` files, package metadata, and extracted `.jar`, `.war`, and `.ear` archive contents for suspicious patterns and other signals.
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from an upstream repository stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
 
@@ -11257,7 +11490,7 @@ Upstream fallback does not make Chainguard Libraries a complete mirror of the up
 
 ### View packages blocked due to malware
 
-Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the Chainguard Repository. You can get a list of blocked packages via chainctl or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malware and greyware packages in Chainguard Libraries via the Chainguard Repository. You can get a list of blocked packages via chainctl or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
 
 ---
 
@@ -11873,11 +12106,25 @@ When the upstream fallback is enabled, [build pinning](/chainguard/libraries/pol
 
 Chainguard's [source code and maintainer behavior
 scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware/)
-identifies and blocks malicious and greyware packages in Chainguard Libraries
+identifies and blocks malware and greyware packages in Chainguard Libraries
 via the Chainguard Repository. This includes packages that are publicly reported
 as malicious (including packages associated with OSV malware IDs) and packages
 that Chainguard determines are unsafe through its own malware source code
 scanning, even when no public malware advisory exists yet.
+
+Malware harms the person who installs or uses it. Chainguard bases its
+definition on the [OpenSSF malicious packages
+definition](https://github.com/ossf/malicious-packages/blob/main/README.md): a
+package is malware if installing or using it would require incident response,
+or if it sends out information an attacker can use directly, such as
+credentials, tokens, keys, cookies, or cloud metadata.
+
+Greyware isn't malware and doesn't require incident response, but it does
+things you might not expect. Examples include packages that:
+
+* Collect telemetry or usage analytics.
+* Check whether you have a valid license key or paid plan, for example by contacting the publisher's server.
+* Include security testing or red-team tools that don't run anything when you install them.
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
@@ -11896,6 +12143,8 @@ Chainguard's scanning evaluates multiple signal types, including:
 You can view blocked packages [in the Chainguard Console](/chainguard/libraries/introduction/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
 For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+If your security team reviews a blocked version and decides it's acceptable, a user with the Owner role can allow it with a library policy override and a written justification. Refer to [Override malware or greyware blocking](/chainguard/chainguard-repository/library-policies#override-malware-or-greyware-blocking).
 
 #### Malware API
 
@@ -12114,7 +12363,7 @@ The list at the bottom of the page displays automatically blocked packages, incl
 
 #### Malware and greyware signals detected
 
-Some signals describe confirmed malicious behavior, while others describe greyware or supply-chain risk indicators that may justify blocking even when there is no public malware advisory. Next to each blocked package, Chainguard provides the reason it was blocked when there is no public malware advisory. The detected signals fall under the following categories:
+Signals are clues the scanner finds in a package, not a verdict. The scanner weighs them and classifies the package as malware, greyware, or clear, and the same signal can appear in any of those results. When a blocked package has no public malware advisory, Chainguard lists the signals it detected next to the package. Signals fall into the following groups:
 
 * **Credential and data theft**: The package harvests secrets (for example, GitHub tokens or SSH keys) and sends sensitive data out of the environment.
     * Signals: Accesses credentials, Data exfiltration, Contains an exposed secret
@@ -12236,36 +12485,24 @@ You can [create pull tokens via the Chainguard
 Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**.
 
-You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
-
-{{< tabs label="Language ecosystem for creating a pull token" >}}
-
-{{< tab title="Java" >}}
+You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/).
+The `--repository` flag takes a comma-separated list, so a single token can
+cover every ecosystem you're entitled to:
 
 ```bash
-chainctl auth pull-token create --repository=java --ttl=720h
+chainctl auth pull-token create --repository=java,javascript,python,go,dotnet --ttl=720h
 ```
 
-{{< /tab >}}
-
-{{< tab title="JavaScript" >}}
-
-```bash
-chainctl auth pull-token create --repository=javascript --ttl=720h
-```
-
-{{< /tab >}}
-
-{{< tab title="Python" >}}
+The token gets one role binding per repository type. To scope a token to one
+ecosystem, pass only that ecosystem:
 
 ```bash
 chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
-{{< /tab >}}
-
-{{< /tabs >}}
-
+> `--repository=all` covers only `oci` and `apk`. It does not include library
+> ecosystems, so list those explicitly.
+>
 > The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
@@ -12397,7 +12634,7 @@ chainctl libraries verify /path/to/artifact
 
 {{% blurb/libraries-verify-permissions %}}
 
-For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
+For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`. Verification with lockfiles is only supported for the JavaScript ecosystem today. For what each ecosystem accepts, refer to [Supported inputs by ecosystem](/chainguard/libraries/policies-and-security/verification/#supported-inputs-by-ecosystem).
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 
@@ -16036,7 +16273,7 @@ The URL for the repository is: `https://libraries.cgr.dev/dotnet/`.
 
 ## View packages blocked due to malware
 
-Chainguard’s source code and maintainer behavior scanning identifies and blocks malicious and greyware packages in Chainguard Libraries via the [Chainguard Repository](/chainguard/chainguard-repository/overview/). You can get a list of blocked packages via `chainctl` or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
+Chainguard’s source code and maintainer behavior scanning identifies and blocks malware and greyware packages in Chainguard Libraries via the [Chainguard Repository](/chainguard/chainguard-repository/overview/). You can get a list of blocked packages via `chainctl` or the API. Refer to the [Libraries Overview page](/chainguard/libraries/introduction/overview/#malware-and-greyware-detection) for more information.
 
 ## Upstream fallback
 
@@ -47149,6 +47386,12 @@ If GitHub waits indefinitely for a required check, you probably required a per-c
 
 A GitHub merge queue that requires **Chainguard Checks (presubmit)** never gets a result either, because Chainguard Checks doesn't run on merge queues during the beta. The queue waits until its timeout expires, then removes the pull request. Don't require the summary check on a branch that uses a merge queue.
 
+## GitHub rejects pushes to a branch {#github-rejects-pushes-to-a-branch}
+
+If GitHub rejects pushes to branches other than your default branch, with an error that names a required status check, a branch protection rule or ruleset probably requires **Chainguard Checks (presubmit)** on those branches. Chainguard Checks runs on pull requests and on new commits to the default branch, but not on pushes to other branches, so a pushed commit never gets the check that GitHub requires. Pushes to the branches that pull requests come from fail the same way.
+
+To fix this, apply the rule or ruleset only to your default branch. In a ruleset, remove every entry under **Target branches** except the default branch. In a branch protection rule, set the branch name pattern to your default branch's name, such as `main`. Refer to [Require checks before merging](/chainguard/checks/github/#require-checks-before-merging).
+
 ## The requested checks agent doesn't comment on a pull request {#the-requested-checks-agent-doesnt-comment-on-a-pull-request}
 
 The [requested checks agent](/chainguard/checks/github/#let-an-agent-request-checks) doesn't add a comment for each push. It keeps one **Requested checks** comment on the pull request, edits it, and names the commit that it answers for. If the comment doesn't appear at all, or names an earlier commit, check the following:
@@ -48117,7 +48360,9 @@ Only the summary check always reflects the latest run, but if a run has too many
 
 ## Require checks before merging {#require-checks-before-merging}
 
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset for your default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset that applies only to your default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
+
+{{< note >}}Don't require **Chainguard Checks (presubmit)** on any branch except your default branch. In a ruleset, make the default branch the only entry under **Target branches**. Chainguard Checks doesn't run on pushes to other branches, so a pushed commit never gets the check. If the rule covers those branches, GitHub rejects every push to them, including pushes to the branches that pull requests come from. For the symptom and the fix, refer to [GitHub rejects pushes to a branch](/chainguard/checks/troubleshooting/#github-rejects-pushes-to-a-branch).{{< /note >}}
 
 Don't require the per-check results, such as **presubmit / ci / test**, or **Chainguard Checks / develop-environment**. A check that passes without reporting anything, that a condition skips, or that runs only on request never reports a result of its own for that pull request, and the develop-environment check appears only on pull requests that change its files, so GitHub would wait for them indefinitely. The summary check already accounts for every check that should block the pull request.
 
@@ -48989,26 +49234,30 @@ Each ref must be a full ref that starts with `refs/`.
 
 ### Chainguard hosts {#chainguard-hosts}
 
-Each key under `chainguard` is a Chainguard host, and its value has the following keys, all required:
+Each key under `chainguard` is a Chainguard host, such as `cgr.dev`, `apk.cgr.dev`, `libraries.cgr.dev`, or `console-api.enforce.dev`. Its value has the following keys:
 
-| Key | Description |
-| --- | ----------- |
-| `identity` | The ID of an assumable identity in your Chainguard organization that trusts this workload identity's tokens. Refer to [Set up the provider](#set-up-the-provider). |
-| `exchange_audience` | The audience that the assumable identity accepts. It must also be in the identity's `audiences`. |
-| `role` | The most access the check gets on the host, from the following table. The assumable identity's role bindings must also grant that access. |
-| `scopes` | A list of group IDs, such as your organization's ID. Only the assumable identity's role bindings on these groups, or on the groups that contain them, apply. |
+| Key | Required | Description |
+| --- | -------- | ----------- |
+| `identity` | Yes | The ID of an assumable identity in your Chainguard organization that trusts this workload identity's tokens. Refer to [Set up the provider](#set-up-the-provider). |
+| `exchange_audience` | Yes | The audience that the assumable identity accepts. It must also be in the identity's `audiences`. |
+| `scopes` | Yes | A list of group IDs, such as your organization's ID. Only the assumable identity's role bindings on these groups, or on the groups that contain them, apply. |
+| `role` | No | Has no effect. Chainguard Checks accepts the key so that existing files stay valid. |
 
-Each host accepts the following roles:
+The assumable identity's role bindings on the groups in `scopes` decide what the check can do on the host, and Chainguard Checks doesn't narrow that access. Bind the assumable identity only to roles that grant what the check needs. The following [built-in roles](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) cover common checks:
 
-| Host | `role` | What the check can do |
-| ---- | ------ | --------------------- |
+| Host | Built-in role | What the check can do |
+| ---- | ------------- | --------------------- |
 | `cgr.dev` | `registry.pull` | Pull container images. |
-| `cgr.dev` | `registry.push` | Pull and push container images. |
+| `cgr.dev` | `registry.push` | Pull and push container images, and create, update, and delete repositories and tags. |
 | `apk.cgr.dev` | `apk.pull` | Download packages. |
 | `libraries.cgr.dev` | `libraries.javascript.pull` | Download JavaScript libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.python.pull` | Download Python libraries from Chainguard Libraries. |
 | `libraries.cgr.dev` | `libraries.java.pull` | Download Java libraries from Chainguard Libraries. |
-| `console-api.enforce.dev` | `console.viewer` | List groups, identities, roles, role bindings, and identity providers in the Chainguard API. |
+| `console-api.enforce.dev` | `console_viewer` | Read resources in the Chainguard API, such as groups, identities, roles, and role bindings. |
+
+To grant less than a built-in role, such as `registry.push` without deletes, bind the assumable identity to a [custom role](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/#managing-custom-roles) instead.
+
+Write access to the Chainguard API lets code in the check create credentials that outlive the run. For example, a check that can create identities and role bindings can create an identity that trusts a key the check generated, and grant that identity access. Ending the run or changing the identity's ring doesn't remove what the check created, so delete it in Chainguard IAM. Bind write access only on a group set aside for the check's tests. Give the identity ring `2`, or a subring whose authors you trust, and never ring `0`. Refer to [Rings](#rings).
 
 A check that uses a Chainguard host must list it in `network.egress`, along with any host that the service redirects downloads to.
 
@@ -49305,7 +49554,7 @@ To take access back, change the place that grants it:
 
 When a change to `identities.yaml` or to the `trust` section takes an identity from a running check, and the identity has Google Cloud, AWS, or Azure settings, Chainguard Checks stops the check and doesn't retry it. The check's result on GitHub shows **Could not be executed**. The credentials that the check got through the identity work only inside the check, so they stop working when the check stops. If the identity has only `chainguard` settings, the check keeps running, but its requests to those Chainguard hosts fail.
 
-Revoking an identity doesn't revoke credentials that a check created with the identity's permissions, such as an AWS access key. Delete those on the provider.
+Revoking an identity doesn't revoke credentials that a check created with the identity's permissions, such as an AWS access key or a Chainguard identity. Delete those on the provider.
 
 Chainguard Workspaces sessions don't use workload identities. To revoke what a session can reach, refer to [Review and revoke a session's credentials](/chainguard/workspaces/credentials/#review-and-revoke-a-sessions-credentials) and [Your Chainguard identity in a session](/chainguard/workspaces/credentials/#your-chainguard-identity-in-a-session).
 
@@ -50154,7 +50403,7 @@ If no checks appear, refer to [Troubleshoot Chainguard Checks](/chainguard/check
 
 ### Step 5: Require checks before merging
 
-To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in your branch protection rule or ruleset for the default branch. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
+To block merging until checks pass, add **Chainguard Checks (presubmit)** as a required status check in a branch protection rule or ruleset that applies only to your default branch. Chainguard Checks doesn't run on pushes to other branches, so if the rule covers them, GitHub rejects every push to those branches. GitHub lists the check there only after it has run in the repository within the past week. For where to find these settings on GitHub, refer to GitHub's [Managing a branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule) or [Creating rulesets for a repository](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository).
 
 Require only the summary check, not the per-check results. A check that passes without reporting anything, or that a condition skips, never reports a result of its own, so GitHub would wait for it indefinitely. The summary check accounts for skipped checks.
 
@@ -94867,7 +95116,7 @@ The **Organization** tab has no **Description** column, but it adds two others:
 
 Click a column name to sort the list by that column, in ascending or descending order.
 
-Above the table, a search box finds images by name or latest version number. To its right, the **Filter by** menu filters the images by their [container image category](/chainguard/containers/concepts/container-categories/).
+Above the table, a search box finds images by name or description. To its right, the **Filter** menu filters the images by their [container image category](/chainguard/containers/concepts/container-categories/). On the **Organization** tab, the menu also has a **Customized** option, which shows only images customized with [Custom Assembly](/chainguard/containers/custom-assembly/overview/).
 
 ## Container image information
 
