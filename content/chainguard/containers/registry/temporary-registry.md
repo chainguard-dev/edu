@@ -63,7 +63,7 @@ A tag whose name is a duration sets how long the tag is served, up to a maximum 
 Details worth knowing:
 
 - A duration is a whole number with one unit: `s`, `m`, `h`, or `d`.
-- Pushing new content to a tag restarts the clock. Pushing the same content again doesn't.
+- Pushing to a tag restarts the clock, even when the content is the same. Some clients, including crane, skip a push when the tag already holds that content, and a skipped push doesn't restart the clock.
 - When a duration tag's time is up, pulling it by tag stops working. Pulling by digest may keep working for a while longer.
 - Expiry is a ceiling, not a guarantee of availability: any content may be removed at any time.
 
