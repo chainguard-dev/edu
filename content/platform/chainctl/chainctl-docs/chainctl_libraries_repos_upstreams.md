@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries repos upstreams"
 slug: chainctl_libraries_repos_upstreams
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_repos_upstreams/
@@ -23,8 +23,9 @@ registry in the list is enabled.
 
 You can enable, disable and reorder the upstream registries Chainguard
 provides; you cannot add your own. On the Starter plan you can disable an
-upstream registry but not enable or reorder one. Only JavaScript repository
-URLs are served now, so only the JavaScript list affects requests.
+upstream registry but not enable or reorder one. Only JavaScript and Java
+repository URLs are served now, so only the JavaScript and Java lists affect
+requests.
 
 Name the repository with --parent ORG/REPO, for example
 --parent=example.com/prod. The default repository has no upstream list: its

@@ -1904,6 +1904,11 @@
             "readOnly": true,
             "type": "string"
           },
+          "createdBy": {
+            "description": "The uid of the identity whose credentials created this one: the\nimmediate caller. When the caller had assumed another identity, this\nnames the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed. Empty for an\nidentity created without an identity caller, such as a person's own\nidentity at signup, and for identities created before the field existed.",
+            "readOnly": true,
+            "type": "string"
+          },
           "delegationOnly": {
             "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
             "type": "boolean"
@@ -3661,6 +3666,36 @@
         ],
         "type": "string"
       },
+      "chainguard.platform.libraries.v2beta1.DeleteUploadedVersionResponse": {
+        "description": "DeleteUploadedVersionResponse is the response message for\nDeleteUploadedVersion.",
+        "properties": {
+          "alreadyDeleted": {
+            "description": "True when the version was already deleted and this call changed nothing.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "ecosystem": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.StorageUsageEcosystem"
+              }
+            ],
+            "description": "The ecosystem of the version, as the request named it, so the response\n(and the event, whose body it is) names the version on its own.",
+            "readOnly": true
+          },
+          "name": {
+            "description": "The package name of the deleted version as the ecosystem's clients\nspell it: the request's name normalised as the ecosystem's registry\nnormalises it (a Go module path keeps its case, unescaped).",
+            "readOnly": true,
+            "type": "string"
+          },
+          "version": {
+            "description": "The version as the ecosystem's clients spell it, normalised as the\necosystem's registry normalises it (a Go version unescaped).",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.libraries.v2beta1.Ecosystem": {
         "default": "ECOSYSTEM_UNSPECIFIED",
         "description": "Ecosystem represents the language ecosystem an artifact belongs to.\n\n - ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - ECOSYSTEM_JAVA: Java ecosystem (Maven).\n - ECOSYSTEM_PYTHON: Python ecosystem (PyPI).\n - ECOSYSTEM_JAVASCRIPT: JavaScript ecosystem (npm).",
@@ -4398,7 +4433,7 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.RequestedLibraryCVEStatus"
               }
             ],
-            "description": "CVE-remediation status for this library, aggregated across the buildable\nversions whose request groups opted into CVE remediation.\n\nThat scope is narrower than the library's requested versions, and the\ndifference matters. Opt-in is a property of a request group, so an\norganization with one opted-in group and one that is not has versions of\nthe same library inside and outside this answer. A version nobody asked us\nto scan is not reported here, and does not hold the status back: every\nrung below is a claim about the versions in scope, not about every version\nthe organization pins.\n\nA version that build_status counts as not buildable is outside the scope\ntoo. Chainguard remediates by shipping a build, so a version it will not\nbuild is never remediated, and it does not hold the status at REVIEWING.\n\nUNSPECIFIED where no version is in scope, which reads as \"not computed\" --\nthere is no scan to report, and any rung would claim one. That is the case\nwhere no contributing group opted in, and also where every opted-in\nversion is not buildable. Tell the two apart by build_status: WONT_BUILD\nmeans the second.",
+            "description": "CVE-remediation status for this library, aggregated across the buildable\nversions whose request groups opted into CVE remediation.\n\nThat scope is narrower than the library's requested versions, and the\ndifference matters. Opt-in is a property of a request group, so an\norganization with one opted-in group and one that is not has versions of\nthe same library inside and outside this answer. A version nobody asked us\nto scan is not reported here, and does not hold the status back: every\nrung below is a claim about the versions in scope, not about every version\nthe organization pins.\n\nA version that build_status counts as not buildable is outside the scope\ntoo. Chainguard remediates by shipping a build, so a version it will not\nbuild is never remediated, and it does not hold the status at REVIEWING.\n\nUNSPECIFIED where no version is in scope, which reads as \"not computed\" --\nthere is no scan to report, and any rung would claim one. That is the case\nwhere no contributing group opted in, and also where every opted-in\nversion is not buildable. Tell the two apart by build_status: WONT_BUILD\nmeans the second.\n\nWhere usage tracking is enabled there is no opt-in: the scope is every\nbuildable tracked version that the request's source admits, and\nUNSPECIFIED means none of them is buildable.",
             "readOnly": true
           },
           "ecosystem": {
@@ -4410,8 +4445,20 @@
             "description": "The ecosystem the library belongs to. The dashboard renders one table per\necosystem.",
             "readOnly": true
           },
+          "firstUseTime": {
+            "description": "The earliest pull of any of this library's tracked versions through the\nChainguard Repository. Unset where none was pulled.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "lastRequestTime": {
-            "description": "When this library was most recently requested.",
+            "description": "When this library was most recently requested. Unset where the\norganization tracks the library only because it pulls it.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "lastUseTime": {
+            "description": "The latest pull of any of this library's tracked versions. Unset where\nnone was pulled.",
             "format": "date-time",
             "readOnly": true,
             "type": "string"
@@ -4422,13 +4469,13 @@
             "type": "string"
           },
           "remediatedCveCount": {
-            "description": "Total High and Critical CVEs remediated across the versions in cve_status's\nscope -- the ones whose request groups opted in, not every requested\nversion. Severity-scoped like CVERemediation.cve_count: medium and low\nfindings are excluded, as are findings with no recorded CVSS score.\n\nReported whatever cve_status says, because a library part-way through\nremediation has fixed CVEs worth naming: the status answers whether it is\nfinished and this answers what has been done.",
+            "description": "Total High and Critical CVEs remediated across the versions in cve_status's\nscope -- the ones whose request groups opted in, not every requested\nversion. Severity-scoped like CVERemediation.cve_count: medium and low\nfindings are excluded, as are findings with no recorded CVSS score. Where\nusage tracking is enabled, the scope is cve_status's: every buildable\ntracked version the source admits.\n\nReported whatever cve_status says, because a library part-way through\nremediation has fixed CVEs worth naming: the status answers whether it is\nfinished and this answers what has been done.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
           },
           "requestedVersionCount": {
-            "description": "How many distinct versions of this library the organization has requested.",
+            "description": "How many distinct versions of this library the organization has requested.\nWhere usage tracking is enabled, how many it tracks (requested or pulled)\namong those the request's source admits.",
             "format": "int32",
             "readOnly": true,
             "type": "integer"
@@ -4483,7 +4530,7 @@
             "readOnly": true
           },
           "availabilityChangeTime": {
-            "description": "When this version's answer last changed. A re-check that reaches the same\nanswer does not move it. It can move with no visible change: the answer\nthat follows a forced refresh is recorded even when it repeats the earlier\none, and so is a move between two answers that report the same\navailability.\n\nThis is last_request_time while the version is pending, while it holds an\nanswer Chainguard retries automatically, such as CAN_BE_REQUESTED or\nBUILD_FAILED, and where no change has been recorded: every version whose\nanswer has not changed since Chainguard began recording changes. BLOCKED\nand WONT_BUILD are checked again too, but keep the time they were reached.\n\nbuf format keeps a field and its options on one line, which is longer than\nthe line limit here. Disabled for this line only.\nprotolint:disable:next MAX_LINE_LENGTH",
+            "description": "When this version's answer last changed. A re-check that reaches the same\nanswer does not move it. It can move with no visible change: the answer\nthat follows a forced refresh is recorded even when it repeats the earlier\none, and so is a move between two answers that report the same\navailability.\n\nThis is last_request_time while the version is pending, while it holds an\nanswer Chainguard retries automatically, such as CAN_BE_REQUESTED or\nBUILD_FAILED, and where no change has been recorded: every version whose\nanswer has not changed since Chainguard began recording changes. BLOCKED\nand WONT_BUILD are checked again too, but keep the time they were reached.\n\nUnset where it would fall back to last_request_time and that is unset: a\nversion the organization only pulled, with no recorded change.\n\nbuf format keeps a field and its options on one line, which is longer than\nthe line limit here. Disabled for this line only.\nprotolint:disable:next MAX_LINE_LENGTH",
             "format": "date-time",
             "readOnly": true,
             "type": "string"
@@ -4507,11 +4554,23 @@
                 "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.CVERemediation"
               }
             ],
-            "description": "CVE-remediation status of this version. Absent when no contributing group\nopted in, and when availability is WONT_BUILD or NOT_FOUND_UPSTREAM:\nChainguard remediates by shipping a build, so a version it will not build\nis never remediated.",
+            "description": "CVE-remediation status of this version. Absent when no contributing group\nopted in, and when availability is WONT_BUILD or NOT_FOUND_UPSTREAM:\nChainguard remediates by shipping a build, so a version it will not build\nis never remediated. Where usage tracking is enabled there is no opt-in,\nso it is absent only for those two availabilities.",
             "readOnly": true
           },
+          "firstUseTime": {
+            "description": "The earliest pull of this version through the Chainguard Repository. Unset\nwhere the organization never pulled it, which means it tracks the version\nonly because it was requested.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
           "lastRequestTime": {
-            "description": "When this version was most recently requested.",
+            "description": "When this version was most recently requested. Unset where the\norganization tracks the version only because it pulls it.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "lastUseTime": {
+            "description": "The latest pull of this version. Unset where it was never pulled.",
             "format": "date-time",
             "readOnly": true,
             "type": "string"
@@ -4539,6 +4598,15 @@
               }
             ],
             "description": "A newer built version to move to, when one exists and this version is\nrequestable.",
+            "readOnly": true
+          },
+          "upstreamUse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.UpstreamUse"
+              }
+            ],
+            "description": "Which artifact the organization's pulls of this version received over the\nlast seven days, for a version Chainguard has built. A built version can\nkeep reaching an organization from upstream through a resolution pin, a\nlockfile that recorded the upstream URL or hash, or a build pointed at the\nupstream repository.\n\nUNSPECIFIED where it is not reported: the version is not built, it was not\npulled in the last seven days, or the ecosystem is Python, whose upstream\nwheels cannot be told apart from the ones Chainguard does not build.",
             "readOnly": true
           },
           "version": {
@@ -4709,6 +4777,17 @@
           }
         },
         "type": "object"
+      },
+      "chainguard.platform.libraries.v2beta1.UpstreamUse": {
+        "default": "UPSTREAM_USE_UNSPECIFIED",
+        "description": "UpstreamUse is which artifact an organization's recent pulls of a built\nversion received: the Chainguard build, the upstream one, or both.\n\n - UPSTREAM_USE_UNSPECIFIED: Not reported: the version is not built, was not pulled recently, or its\necosystem does not report this.\n - UPSTREAM_USE_CHAINGUARD_ONLY: Every recent pull received the Chainguard build.\n - UPSTREAM_USE_UPSTREAM_ONLY: Built, but every recent pull still received the upstream artifact. Check\nresolution pins, repository configuration and lockfiles.\n - UPSTREAM_USE_MIXED: Built, and recent pulls received both: some of the organization's projects\nstill receive the upstream artifact.",
+        "enum": [
+          "UPSTREAM_USE_UNSPECIFIED",
+          "UPSTREAM_USE_CHAINGUARD_ONLY",
+          "UPSTREAM_USE_UPSTREAM_ONLY",
+          "UPSTREAM_USE_MIXED"
+        ],
+        "type": "string"
       },
       "chainguard.platform.oidc.RawToken": {
         "properties": {
@@ -8942,6 +9021,11 @@
                     "readOnly": true,
                     "type": "string"
                   },
+                  "createdBy": {
+                    "description": "The uid of the identity whose credentials created this one: the\nimmediate caller. When the caller had assumed another identity, this\nnames the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed. Empty for an\nidentity created without an identity caller, such as a person's own\nidentity at signup, and for identities created before the field existed.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
                   "delegationOnly": {
                     "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
                     "type": "boolean"
@@ -12154,7 +12238,7 @@
     },
     "/libraries/v2beta1/requestedLibraries": {
       "get": {
-        "description": "This is the per-library view of the same data the group RPCs return, because a\ncustomer asks \"where is snakeyaml\" rather than \"what was in the lockfile I\nuploaded in March\". It reports only libraries the organization has asked for,\nnot every library it can reach.\n\nThe tree is paged one level at a time rather than nested: this RPC returns\nbounded per-library summaries, and one library's versions are fetched by\nListRequestedLibraryVersions on expand. A nested response could not keep both\nthe page size and the page token one-dimensional.",
+        "description": "A customer asks \"where is snakeyaml\" rather than \"what was in the lockfile\nI uploaded in March\", so this is per library. It reports only libraries\nthe organization tracks, not every library it can reach.\n\nThe tree is paged one level at a time rather than nested: this RPC returns\nbounded per-library summaries, and one library's versions are fetched by\nListRequestedLibraryVersions on expand. A nested response could not keep both\nthe page size and the page token one-dimensional.",
         "operationId": "RequestGroupsService_ListRequestedLibraries",
         "parameters": [
           {
@@ -12232,6 +12316,21 @@
             }
           },
           {
+            "description": "Why the organization tracks a version: it requested it, it pulled it, or\neither. Counts and statuses cover only the versions that match. Defaults\nto ANY.\n\nWhere usage tracking is not enabled, results cover only requested\nversions, so ANY and REQUESTED return the same rows, and USED fails with\nFAILED_PRECONDITION.\n\n - TRACKING_SOURCE_UNSPECIFIED: Unspecified: the server applies its default, which is ANY.\n - TRACKING_SOURCE_REQUESTED: The organization asked for the version, whether or not it also pulls it.\n - TRACKING_SOURCE_USED: The organization pulled the version through the Chainguard Repository,\nwhether or not it also asked for it.\n - TRACKING_SOURCE_ANY: Requested, pulled, or both.",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "default": "TRACKING_SOURCE_UNSPECIFIED",
+              "enum": [
+                "TRACKING_SOURCE_UNSPECIFIED",
+                "TRACKING_SOURCE_REQUESTED",
+                "TRACKING_SOURCE_USED",
+                "TRACKING_SOURCE_ANY"
+              ],
+              "type": "string"
+            }
+          },
+          {
             "description": "Maximum libraries to return. Default 50, maximum 1000.",
             "in": "query",
             "name": "pageSize",
@@ -12249,7 +12348,7 @@
             }
           },
           {
-            "description": "Order results by field, as \"field [asc|desc]\". Defaults to\n\"last_request_time desc\". Changing this between pages invalidates the token.",
+            "description": "Order results by field, as \"field [asc|desc]\". Defaults to\n\"last_request_time desc\", which puts the most recently requested or pulled\nlibrary first. Changing this between pages invalidates the token.",
             "in": "query",
             "name": "orderBy",
             "schema": {
@@ -12458,7 +12557,7 @@
             }
           },
           {
-            "description": "Filter by CVE-remediation status.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.\n - CVE_REMEDIATION_STATUS_FIX_AVAILABLE: A fix exists that the caller can move to now, and Chainguard has not\nremediated the pinned version.\n\nThe one rung that names a target: CVERemediation.fix_version carries the\nrelease that clears every CVE the message counts, where one can be\nestablished. An empty fix_version beside this status is ordinary rather\nthan a contradiction -- read\nRequestedLibraryVersionCVE.upstream_fix_version for what is known per CVE.\n\nDistinct from REVIEWING, which says remediation has not started and would\nhide an upgrade available today, and from COMPLETE, which claims a build\nChainguard shipped. Reached when an untriaged CVE already records a fix\ntarget, or when an advisory named a fix at or above the pinned version\nthat Chainguard never ingested.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.\n\nA version that reports this today reported REVIEWING before the value\nexisted.",
+            "description": "Filter by CVE-remediation status. total_count and the page tokens then\ndescribe the versions that match, not every version of the library.\n\nThe status is derived for every version of the library before the page\nis cut, so a library with more than 5,000 matching versions (after the\navailability and source filters) fails with FAILED_PRECONDITION. Narrow\nthe request with availability and retry.\n\n - CVE_REMEDIATION_STATUS_UNSPECIFIED: Unspecified remediation status.\n - CVE_REMEDIATION_STATUS_SCAN_QUEUED: Queued for review, or not yet resolvable to a version we hold. Distinct from\nNO_HIGH_CRITICAL_CVES: this means no answer yet, not a clean answer.\n - CVE_REMEDIATION_STATUS_NO_HIGH_CRITICAL_CVES: Cross-referenced against advisory data, and no High or Critical CVEs apply.\n - CVE_REMEDIATION_STATUS_REVIEWING: CVEs identified; remediation not started.\n - CVE_REMEDIATION_STATUS_IN_PROGRESS: Remediation underway on at least one CVE.\n - CVE_REMEDIATION_STATUS_COMPLETE: Remediation finished with at least one CVE remediated.\n - CVE_REMEDIATION_STATUS_WONT_REMEDIATE: Every CVE on this version was ruled out of scope. The decision on\nCVERemediation says which kind of out-of-scope.\n - CVE_REMEDIATION_STATUS_FIX_AVAILABLE: A fix exists that the caller can move to now, and Chainguard has not\nremediated the pinned version.\n\nThe one rung that names a target: CVERemediation.fix_version carries the\nrelease that clears every CVE the message counts, where one can be\nestablished. An empty fix_version beside this status is ordinary rather\nthan a contradiction -- read\nRequestedLibraryVersionCVE.upstream_fix_version for what is known per CVE.\n\nDistinct from REVIEWING, which says remediation has not started and would\nhide an upgrade available today, and from COMPLETE, which claims a build\nChainguard shipped. Reached when an untriaged CVE already records a fix\ntarget, or when an advisory named a fix at or above the pinned version\nthat Chainguard never ingested.\n\nAdded after the other values. proto3 enums are open, so a client generated\nfrom an earlier copy of this file keeps the number as an unrecognized\nvalue and its switches fall through to their default branch -- it does not\nread as UNSPECIFIED. A client parsing the JSON surface strictly errors on\nthe unknown name instead. Treat an unrecognized value as not computed.\n\nA version that reports this today reported REVIEWING before the value\nexisted.",
             "in": "query",
             "name": "cveRemediationStatus",
             "schema": {
@@ -12472,6 +12571,21 @@
                 "CVE_REMEDIATION_STATUS_COMPLETE",
                 "CVE_REMEDIATION_STATUS_WONT_REMEDIATE",
                 "CVE_REMEDIATION_STATUS_FIX_AVAILABLE"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Why the organization tracks a version: it requested it, it pulled it, or\neither. Defaults to ANY.\n\nWhere usage tracking is not enabled, results cover only requested\nversions, so ANY and REQUESTED return the same rows, and USED fails with\nFAILED_PRECONDITION.\n\n - TRACKING_SOURCE_UNSPECIFIED: Unspecified: the server applies its default, which is ANY.\n - TRACKING_SOURCE_REQUESTED: The organization asked for the version, whether or not it also pulls it.\n - TRACKING_SOURCE_USED: The organization pulled the version through the Chainguard Repository,\nwhether or not it also asked for it.\n - TRACKING_SOURCE_ANY: Requested, pulled, or both.",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "default": "TRACKING_SOURCE_UNSPECIFIED",
+              "enum": [
+                "TRACKING_SOURCE_UNSPECIFIED",
+                "TRACKING_SOURCE_REQUESTED",
+                "TRACKING_SOURCE_USED",
+                "TRACKING_SOURCE_ANY"
               ],
               "type": "string"
             }
@@ -12598,6 +12712,85 @@
           }
         },
         "summary": "Get Storage Usage",
+        "tags": [
+          "StorageUsageService"
+        ]
+      }
+    },
+    "/libraries/v2beta1/uploadedVersions": {
+      "delete": {
+        "description": "The caller needs CAP_LIBRARIES_\u003cECOSYSTEM\u003e_DELETE for the request's\necosystem, bound at parent itself; a binding at a child organization or\nfolder does not count.\n\nThe response names the version's key as the ecosystem's clients spell\nit, which can differ from the request's spelling (a Python or NuGet name\nis normalised, a Go module path and version are unescaped), and says\nwhether the call changed nothing. Deleting a version that is already\ndeleted succeeds with already_deleted set, unless files that a later\nupload left under it remain, which the call removes. A version whose\nupload never completed is not reserved, so deleting it again fails with\nNOT_FOUND, as does a version the organization never uploaded. A version\nthat an upload may still be writing fails with ABORTED, and a caller\nover the organization's limit of deletes fails with RESOURCE_EXHAUSTED;\nretry either later.\n\nA delete that changes something sends a customer event, best effort: if\nthe call fails after the delete commits (the caller's deadline passes)\nand is sent again, the second call finds the version already deleted and\nsends none.",
+        "operationId": "StorageUsageService_DeleteUploadedVersion",
+        "parameters": [
+          {
+            "description": "The organization that uploaded the version. It must be an organization,\nnot a folder.",
+            "in": "query",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The ecosystem of the version.\n\n - STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED: Unspecified ecosystem.\n - STORAGE_USAGE_ECOSYSTEM_GO: Go modules.\n - STORAGE_USAGE_ECOSYSTEM_JAVA: Java (Maven).\n - STORAGE_USAGE_ECOSYSTEM_PYTHON: Python (PyPI).\n - STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT: JavaScript (npm).\n - STORAGE_USAGE_ECOSYSTEM_DOTNET: .NET (NuGet).",
+            "in": "query",
+            "name": "ecosystem",
+            "required": true,
+            "schema": {
+              "default": "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
+              "enum": [
+                "STORAGE_USAGE_ECOSYSTEM_UNSPECIFIED",
+                "STORAGE_USAGE_ECOSYSTEM_GO",
+                "STORAGE_USAGE_ECOSYSTEM_JAVA",
+                "STORAGE_USAGE_ECOSYSTEM_PYTHON",
+                "STORAGE_USAGE_ECOSYSTEM_JAVASCRIPT",
+                "STORAGE_USAGE_ECOSYSTEM_DOTNET"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "The package name as the ecosystem spells it: \"groupId:artifactId\" for\nJava, the npm name (with its \"@scope/\" if any), the Python project name,\nthe Go module path or the NuGet package ID. It is normalised as the\necosystem's registry normalises it, so a Python or NuGet name matches\nwhatever its case. In the REST query, percent-encode it: an unencoded\n\"+\" reads as a space.",
+            "in": "query",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "The version to delete, normalised as the ecosystem's registry\nnormalises it. In the REST query, percent-encode it: an unencoded \"+\"\n(as in a Go \"+incompatible\" version) reads as a space.",
+            "in": "query",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.libraries.v2beta1.DeleteUploadedVersionResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Uploaded Version",
         "tags": [
           "StorageUsageService"
         ]
@@ -15259,7 +15452,7 @@
       "name": "RequestGroupsService"
     },
     {
-      "description": "StorageUsageService reports how much storage an organization's own uploads\nconsume in Chainguard Libraries, per language ecosystem.",
+      "description": "StorageUsageService reports how much storage an organization's own uploads\nconsume in Chainguard Libraries, per language ecosystem, and deletes an\nuploaded version.",
       "name": "StorageUsageService"
     },
     {

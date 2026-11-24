@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries verify"
 slug: chainctl_libraries_verify
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_verify/
@@ -83,14 +83,25 @@ kept, such as one restored from a fallback folder, is reported as unchecked. A
 folder that also holds other artifacts outside its package directories is
 checked as a plain directory, so that every artifact in it is checked.
 
+With --output-attestations, verify also checks the provenance that the
+Chainguard feed serves for each NuGet package. The provenance is a signed
+SLSA statement that names the SHA-256 of the .nupkg. This check needs a token.
+Either the package signature or the provenance verifies a package. If the
+registry rejects the credentials, a package whose signature verified stays
+verified, but verify saves no files for it and reports the rejection after
+the results.
+
 Remediated (CVE-patched) Java artifacts, whose versions carry a "-0.cgr.<rev>" suffix
 (e.g. 3.5.0-0.cgr.2), are resolved from the java-remediated repository; other Java
 artifacts are resolved from the java repository.
 
 With --output-attestations, available SBOMs and attestations are saved under
 each verified artifact's repository path in --output-dir, which defaults to
-./attestations in the current directory. Unsupported inputs produce no companion
-files.
+./attestations in the current directory. This works for Java, JavaScript,
+Python wheels, and NuGet packages. A NuGet package's files go in
+<id>/<version>/, both lowercase: the provenance that verified, and the SPDX
+SBOM when the provenance names its SHA-256. Unsupported inputs produce no
+companion files.
 
 ```
 chainctl libraries verify [path...] [flags]
@@ -113,6 +124,9 @@ chainctl libraries verify [path...] [flags]
 
   # Analyze the NuGet packages restored to the global packages folder
   chainctl libraries verify ~/.nuget/packages
+
+  # Verify a NuGet package's provenance too, and save it with its SBOM
+  chainctl libraries verify semver.3.0.0.nupkg --output-attestations
 
   # Analyze with JSON output
   chainctl libraries verify -o json build/libs/*.jar

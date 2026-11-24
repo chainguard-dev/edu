@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries repos describe"
 slug: chainctl_libraries_repos_describe
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_repos_describe/
@@ -23,8 +23,8 @@ registries is enabled. Leave out NAME, or pass default, to describe the default
 repository, whose upstream fallback follows the organization's entitlement.
 
 A URL marked "(not serving yet)" belongs to an ecosystem whose repository URLs
-are not served: requests to it are refused. Only JavaScript repository URLs
-are served.
+are not served: requests to it are refused. Only JavaScript and Java
+repository URLs are served.
 
 ```
 chainctl libraries repos describe [NAME] --parent ORG [--output=id|json|table] [flags]

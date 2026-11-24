@@ -3630,6 +3630,11 @@
             "format": "date-time",
             "type": "string"
           },
+          "createdBy": {
+            "description": "created_by is the UIDP of the identity whose credentials created this\none: the immediate caller. When the caller had assumed another identity,\nthis names the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed; a value sent on\ncreate or update is ignored. Empty for an identity created without an\nidentity caller, such as a person's own identity at signup, and for\nidentities created before the field existed.",
+            "readOnly": true,
+            "type": "string"
+          },
           "description": {
             "description": "description, human readable of identity.",
             "type": "string"
@@ -3688,6 +3693,11 @@
           "createdAt": {
             "description": "created_at is the timestamp for when the identity was created.",
             "format": "date-time",
+            "type": "string"
+          },
+          "createdBy": {
+            "description": "created_by is the UIDP of the identity whose credentials created this\none: the immediate caller. When the caller had assumed another identity,\nthis names the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed; a value sent on\ncreate or update is ignored. Empty for an identity created without an\nidentity caller, such as a person's own identity at signup, and for\nidentities created before the field existed.",
+            "readOnly": true,
             "type": "string"
           },
           "description": {
@@ -5352,6 +5362,11 @@
           "createTime": {
             "description": "When the identity was created.",
             "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "createdBy": {
+            "description": "The uid of the identity whose credentials created this one: the\nimmediate caller. When the caller had assumed another identity, this\nnames the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed. Empty for an\nidentity created without an identity caller, such as a person's own\nidentity at signup, and for identities created before the field existed.",
             "readOnly": true,
             "type": "string"
           },
@@ -10257,6 +10272,24 @@
         },
         "type": "object"
       },
+      "chainguard.platform.registry.ChartImageDependency": {
+        "description": "ChartImageDependency is one of a chart's image dependencies, deduplicated by\ncatalog repo the way AddChart provisions them.",
+        "properties": {
+          "repoName": {
+            "description": "The catalog repo name (e.g. \"nginx\"), as accepted by\nAddChartRequest.images.",
+            "type": "string"
+          },
+          "requirement": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageRequirement"
+              }
+            ],
+            "description": "Whether AddChart always provisions the image (REQUIRED) or only when it\nis selected (OPTIONAL). UNSPECIFIED is provisioned as required."
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.registry.ChartImageRequirement": {
         "default": "REQUIREMENT_UNSPECIFIED",
         "description": "ChartImageRequirement indicates whether a chart image is required or\noptional for the chart to deploy.",
@@ -10930,12 +10963,23 @@
       "chainguard.platform.registry.FindChartResponse": {
         "description": "FindChartResponse carries the resolved source chart repo.",
         "properties": {
+          "images": {
+            "description": "The chart's image dependencies, one per catalog repo, in the order AddChart\nprovisions them. Set only with include_images.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.registry.ChartImageDependency"
+            },
+            "type": "array"
+          },
           "name": {
             "description": "The resolved chart name.",
             "type": "string"
           },
           "sourceRepoId": {
             "description": "The UIDP of the resolved source chart repo, suitable for\nAddChartRequest.source_repo_id.",
+            "type": "string"
+          },
+          "tag": {
+            "description": "The chart tag the images were read from. Set only with include_images;\npassing it as AddChartRequest.tag adds the chart from the same tag.",
             "type": "string"
           }
         },
@@ -22509,6 +22553,11 @@
                     "readOnly": true,
                     "type": "string"
                   },
+                  "createdBy": {
+                    "description": "The uid of the identity whose credentials created this one: the\nimmediate caller. When the caller had assumed another identity, this\nnames the assumed identity, not the one it started from. Set by the\nserver when the identity is created and never changed. Empty for an\nidentity created without an identity caller, such as a person's own\nidentity at signup, and for identities created before the field existed.",
+                    "readOnly": true,
+                    "type": "string"
+                  },
                   "delegationOnly": {
                     "description": "When true, the identity may only be assumed through the delegated token\nexchange (ExchangeRequest.delegated), in which its capabilities are a\nrequested subset of the presented delegation grant's and its role\nbindings are never consulted. A plain assume is refused, so the identity\nnever holds standing authority. The delegated exchange is refused for\nevery identity without it. Only valid on a claim_match identity.",
                     "type": "boolean"
@@ -27722,7 +27771,7 @@
             }
           },
           {
-            "description": "Only return decisions for this artifact.",
+            "description": "Only return decisions whose artifact_id matches this value, ignoring\ncase. A PURL with a version selects that artifact, and a PURL without one\n(pkg:pypi/requests) selects every version of the package. Any other value\nmatches any part of the artifact_id, with % and _ taken literally.",
             "in": "query",
             "name": "artifactId",
             "schema": {
@@ -28587,6 +28636,30 @@
             "name": "name",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "If true, also read the chart's metadata and return its image dependencies\nand the tag they were read from. Without it the lookup reads no chart tags.",
+            "in": "query",
+            "name": "includeImages",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "The tag of the chart to read images from when include_images is set.\nDefaults as AddChartRequest.tag does. Mutually exclusive with fips.",
+            "in": "query",
+            "name": "tag",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "If true, default to the newest FIPS tag when include_images is set, as\nAddChartRequest.fips does. Mutually exclusive with tag.",
+            "in": "query",
+            "name": "fips",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],

@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl images overlays delete"
 slug: chainctl_images_overlays_delete
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_delete/

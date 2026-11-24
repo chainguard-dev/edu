@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl images helm add-chart"
 slug: chainctl_images_helm_add-chart
 url: /platform/chainctl/chainctl-docs/chainctl_images_helm_add-chart/
@@ -35,9 +35,7 @@ Use --dry-run to see which of a chart's images are required and which are
 optional.
 
 To add only the required images, pass the special value "none"
-(--optional-images none). It can't be combined with image names. On a plan
-with an image allowance, "none" currently needs a free slot for every image in
-the chart, even though only the required images are added.
+(--optional-images none). It can't be combined with image names.
 
 On a plan with an image allowance (per-image, Starter or Team), every image that
 is added is entitled, and each one the organization doesn't already hold uses a
