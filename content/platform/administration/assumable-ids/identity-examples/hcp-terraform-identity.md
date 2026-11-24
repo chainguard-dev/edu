@@ -1,7 +1,7 @@
 ---
 title: "Create an assumable identity for HCP Terraform"
 date: 2026-10-19T14:34:54+00:00
-lastmod: 2026-11-24T13:46:25+00:00
+lastmod: 2026-11-24T18:47:52+00:00
 linktitle: "HCP Terraform"
 description: "Authenticate the Chainguard Terraform provider in HCP Terraform with a workload identity token, then manage your other Chainguard identities in Terraform."
 type: "article"
@@ -207,13 +207,19 @@ rpc error: code = Unauthenticated desc = automatic auth disabled
 
 The provider configuration sets `disabled = true` in `login_options`. That setting stops the provider from getting a new Chainguard token by any method, including a token exchange. Remove it.
 
-### The provider tries to open a browser
+### Failed to open browser
 
-If the run log shows that the provider is launching a browser login flow, or the run waits until it times out, the provider found no token to exchange. Check the following:
+```
+failed to get Chainguard token: login: failed to open browser
+```
+
+The provider found no token to exchange, so it fell back to a browser sign-in, which an HCP Terraform run can't complete. The error also suggests checking `chainguard.console_api`. If you haven't changed that setting, check the workload identity token instead:
 
 * The workspace has `TFC_WORKLOAD_IDENTITY_AUDIENCE` as an environment variable, not a Terraform variable.
-* Its value is `https://issuer.enforce.dev`. With any other value, the provider ignores the token and logs `ignoring TFC_WORKLOAD_IDENTITY_TOKEN`.
+* Its value is `https://issuer.enforce.dev`. If another tool in the workspace needs a different audience, use `TFC_WORKLOAD_IDENTITY_AUDIENCE_CHAINGUARD` instead, as described in [Configure the workspace](#configure-the-workspace).
 * The configuration requires provider version 0.5.4 or later.
+
+When the provider ignores a token because of its audience, it logs `ignoring TFC_WORKLOAD_IDENTITY_TOKEN` with the audience it found. That message appears in the run log only when `TF_LOG` is set, as described at the start of this section.
 
 ## Learn more
 
