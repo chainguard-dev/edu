@@ -40,10 +40,10 @@ crane digest cgr.dev/chainguard/nginx:latest
 ```
 
 ```output
-sha256:<digest>
+sha256:[[DIGEST]]
 ```
 
-Chainguard moves the `latest` tag as it publishes rebuilds, so start by pinning down which build you're reproducing. The `<digest>` you get back is the value to match at the end; it differs from the one anyone else gets unless you both pull the same build. [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) covers digests in more detail.
+Chainguard moves the `latest` tag as it publishes rebuilds, so start by pinning down which build you're reproducing. The `[[DIGEST]]` you get back is the value to match at the end; it differs from the one anyone else gets unless you both pull the same build. [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) covers digests in more detail.
 
 ### Retrieve the build configuration
 
@@ -104,13 +104,13 @@ IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/nginx-repro:1h"
 apko publish latest.apko.json "$IMAGE"
 ```
 
-apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line:
+apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line. In this output, `[[UUID]]` is the random repository name that `uuidgen` generated:
 
 ```output
-lockers.cgruser.dev/<name>/nginx-repro@sha256:<digest>
+lockers.cgruser.dev/[[UUID]]/nginx-repro@sha256:[[DIGEST]]
 ```
 
-That digest is the same `<digest>` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
+That digest is the same `[[DIGEST]]` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
 
 To run apko from its container instead of installing it, mount the directory holding the configuration and pass the same arguments:
 

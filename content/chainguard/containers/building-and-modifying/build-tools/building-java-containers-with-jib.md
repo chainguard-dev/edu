@@ -60,7 +60,7 @@ docker run --rm cgr.dev/chainguard/jre:latest -version
 
 This will display the Java version information from the image:
 
-```
+```output
 openjdk version "25" 2025-09-16
 OpenJDK Runtime Environment (build 25+-wolfi-r1)
 OpenJDK 64-Bit Server VM (build 25+-wolfi-r1, mixed mode, sharing)
@@ -127,7 +127,7 @@ The application is bootstrapped, but still needs build details for Maven. The
 following command will create the pom.xml file with basic build settings for
 Java 21:
 
-```xml
+```shell
 cat > pom.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -177,7 +177,7 @@ mvn clean install
 
 Observe the output indicating that the build was successful:
 
-```
+```output
 ...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
@@ -202,7 +202,7 @@ curl localhost:8080
 
 You should get output like the following:
 
-```
+```output
 Hello from Jib and Chainguard!
 ```
 
@@ -222,7 +222,7 @@ definition like this:
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -281,7 +281,7 @@ mvn clean install
 
 You’ll get output like the following:
 
-```
+```output
 ...
 [WARNING] Detected multi-platform configuration, only building image that matches the local Docker Engine's os and architecture (linux/arm64) or the first platform specified
 [INFO]
@@ -296,18 +296,21 @@ You’ll get output like the following:
 This command has compiled the application, built the container, and loaded it
 into the local Docker instance.
 
-To verify that the image was built:
+To verify that Jib built the image, list it:
 
 ```sh
-docker images linky
+docker images linky:latest
 ```
 
-Which will provide details on the new image:
+Docker shows the image's ID and size:
 
+```output
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+linky:latest   23e20a911821        395MB          110MB
 ```
-REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
-linky        latest    43171844f68e   3 minutes ago   466MB
-```
+
+This output comes from Docker 29. Earlier Docker versions show different
+columns, and your image's ID and size differ from this example.
 
 You should also scan the image for CVEs. This example uses
 [grype](https://github.com/anchore/grype), but you can use your preferred
@@ -319,7 +322,7 @@ grype linky
 
 This should give you output similar to the following:
 
-```
+```output
  ✔ Vulnerability DB                [updated]
  ✔ Loaded image                                                  linky:latest
  ✔ Parsed image                    sha256:bf2e8781db85416a96815753aa5dce19f9d8
@@ -353,7 +356,7 @@ curl http://localhost:8080/
 
 This should return:
 
-```
+```output
 Hello from Jib and Chainguard!
 ```
 
@@ -365,7 +368,7 @@ curl http://localhost:8080/health
 
 Expected output:
 
-```
+```output
 Application is healthy
 ```
 
@@ -385,7 +388,7 @@ Replace the previous plugin definition with this one (or add this one if you ski
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -435,7 +438,7 @@ mvn clean install
 
 You’ll get output like this:
 
-```
+```output
 ...
 [INFO] Using base image with digest: sha256:60a6d264537fbad2f5d37a01cf6222f2f172415f686bf59afe3b1043f79323f0
 [INFO]
@@ -491,7 +494,7 @@ The following plugin definition will build a tarball for the `amd64` platform:
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -531,7 +534,7 @@ mvn clean install
 
 And the output should give you the location of the built tarball:
 
-```
+```output
 ...
 [INFO]
 [INFO] Built image tarball at /Users/amouat/proj/jib-demo/target/jib-image.tar
@@ -546,7 +549,7 @@ docker load < target/jib-image.tar
 
 This should respond with the name of the built image:
 
-```
+```output
 Loaded image: linky:latest
 ```
 
