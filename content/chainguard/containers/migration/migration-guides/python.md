@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "Learn how to migrate Python applications to Chainguard Containers for enhanced security posture, reduced CVEs, and streamlined dependency management"
 date: 2024-05-02T15:06:00-07:00
-lastmod: 2026-11-24T15:51:51+00:00
+lastmod: 2026-11-24T16:14:05+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -88,7 +88,6 @@ As you can see, the primary difference in this Flask application compared to the
 
 We create the virtual environment with `--without-pip` and install into it with `pip --python`, which runs the development image's own pip against the virtual environment. Because the second stage copies that environment into the production image, anything installed there ships to production. Leaving pip out keeps the production image limited to the packages your application imports.
 
-{{< note >}}
 This example assumes BuildKit, the default builder in Docker Engine 23.0 and later. Docker's legacy builder, which some CI systems still use, creates the `WORKDIR` directory with `root` as its owner. The image's `nonroot` user then can't write the virtual environment there, and the build fails with `Permission denied`. If you build with the legacy builder, add these lines before the first `WORKDIR` line to create the directory and give it to `nonroot`:
 
 ```Dockerfile
@@ -96,8 +95,6 @@ USER root
 RUN mkdir -p /flask-app && chown nonroot:nonroot /flask-app
 USER nonroot
 ```
-
-{{< /note >}}
 
 By default, the entrypoint for the Python Chainguard Container is `/usr/bin/python` rather than `bash`. However, if you shadow the included system `python` with the virtual environment `python` on the path as we do above, you should set the entrypoint explicitly. Otherwise, you won't have access to the packages included in your virtual environment.
 

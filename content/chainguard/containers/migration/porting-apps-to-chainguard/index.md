@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "This article works through porting a small but complete application to use Chainguard Containers. As we'll see, this is relatively straightforward, but it is important to be aware of some of the differences to other common images."
 date: 2024-04-10T12:56:52-00:00
-lastmod: 2026-11-24T15:51:51+00:00
+lastmod: 2026-11-24T16:14:05+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -525,7 +525,6 @@ The development server runs on port 5000, while the production server runs on po
 
 To get a minimal, clean production install, we are using a Python virtual environment ([venv](https://docs.python.org/3/library/venv.html)) in the development image to isolate all dependencies, which are then copied over to the production image. The `--without-pip` flag keeps pip out of that environment, so the production image carries only the packages the application imports. Installing into the environment then takes `pip --python /app/venv/bin/python`, which runs the development image's system pip against the environment. If you work inside the development container, use that same `--python` flag to add a package, because a bare `pip install` targets the system interpreter instead. Finally, the production image has been changed to use [gunicorn](https://gunicorn.org/) as [uwsgi has entered "maintenance mode"](https://github.com/unbit/uwsgi).
 
-{{< note >}}
 This example assumes BuildKit, the default builder in Docker Engine 23.0 and later. Docker's legacy builder, which some CI systems still use, creates the `WORKDIR` directory with `root` as its owner. The image's `nonroot` user then can't write the virtual environment there, and the build fails with `Permission denied`. If you build with the legacy builder, add these lines before the first `WORKDIR` line to create the directory and give it to `nonroot`:
 
 ```Dockerfile
@@ -533,8 +532,6 @@ USER root
 RUN mkdir -p /app && chown nonroot:nonroot /app
 USER nonroot
 ```
-
-{{< /note >}}
 
 Build the final image:
 

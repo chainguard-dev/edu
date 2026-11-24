@@ -9,7 +9,7 @@ aliases:
 - /chainguard/containers/getting-started/python/
 description: "Learn how to use Chainguard's Python container images for secure Python applications with minimal CVEs, distroless design, and comprehensive supply chain security features"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2026-11-24T15:51:51+00:00
+lastmod: 2026-11-24T16:14:05+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -237,7 +237,6 @@ ENTRYPOINT [ "python", "/linky/linky.py" ]
 EOF
 ```
 
-{{< note >}}
 This Dockerfile assumes BuildKit, the default builder in Docker Engine 23.0 and later. Docker's legacy builder, which some CI systems still use, creates the `WORKDIR` directory with `root` as its owner. The image's `nonroot` user then can't write the virtual environment there, and the build fails with `Permission denied`. If you build with the legacy builder, add these lines before the first `WORKDIR` line to create the directory and give it to `nonroot`:
 
 ```Dockerfile
@@ -245,8 +244,6 @@ USER root
 RUN mkdir -p /linky && chown nonroot:nonroot /linky
 USER nonroot
 ```
-
-{{< /note >}}
 
 You can now build the container image. If you can't connect to the Docker daemon, try running under `sudo`.
 
