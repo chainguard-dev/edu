@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to use incert — a Go program from Chainguard — to create container images with custom certificates built-in to them."
 date: 2023-07-03T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -217,23 +217,24 @@ The next step is to create an image that has our self-signed certificate built i
 Run the following command to build a new image using Chainguard's `curl` image as its base and insert the `selfsigned.pem` certificate into it.
 
 ```sh
-incert -ca-certs-file selfsigned.pem -platform linux/arm64 -image-url cgr.dev/chainguard/curl:latest -dest-image-url ttl.sh/curl-with-cert:1h
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/curl-with-cert:1h"
+incert -ca-certs-file selfsigned.pem -platform linux/arm64 -image-url cgr.dev/chainguard/curl:latest -dest-image-url "$IMAGE"
 ```
 
 This command uses the `-ca-certs-file` option to specify that `incert` should use the `selfisgned.pem` certificate file and the `-platform` option to specify that it wants to build an image for `linux/arm64`. Be aware that you should change the value passed to the `-platform` argument to reflect that of the host platform. It also includes the `-image-url` option to specify the image we want to build on as our base image (here we specify Chainguard's `curl` image) and the `-dest-image-url` to pass the registry where we want the resulting image to be uploaded to.
 
-For this final option, this example specifies [`ttl.sh`](http://ttl.sh/), an ephemeral Docker image registry. `ttl.sh` is free to use and does not require a login, making it useful for testing. However, it's also public, so be sure that you **do not** upload any important private certificates there.
+For this final option, this example specifies [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. The first line of the command stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Lockers doesn't require a login, which makes it useful for testing. However, it's also public, so be sure that you **do not** upload any important private certificates there.
 
 This command will take a few moments to complete, but once it finishes you will receive output showing the image that was created and uploaded to the destination repo.
 
 ```
-ttl.sh/curl-with-cert:1h@sha256:877762fdd511a3df8aa24faf6a6209036370b7cfc1638e16b81098143c2a0215
+lockers.cgruser.dev/7586706b-686c-4c28-97da-7c6bcb4d8486/curl-with-cert:1h@sha256:cc52dbbbc43333713ed95140b1cab12ca68e8170f2a75a7d1e9ea238b4fd2f0f
 ```
 
 Following that, you can re-execute the `docker run` command from the previous section, but replace the standard Chainguard `curl` image with the image you just built.
 
 ```sh
-docker run -it --add-host example.com:[ipaddress] ttl.sh/curl-with-cert:1h https://example.com:8443
+docker run -it --add-host example.com:[ipaddress] "$IMAGE" https://example.com:8443
 ```
 
 This time, the `curl` container is able to reach the running nginx container.

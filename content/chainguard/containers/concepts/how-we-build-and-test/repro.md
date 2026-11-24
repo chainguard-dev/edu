@@ -4,7 +4,7 @@ linktitle: "Reproducibility"
 description: "What makes a build reproducible, and how to rebuild any Chainguard Container from its signed apko configuration and confirm the result matches bit for bit"
 type: "article"
 date: 2024-05-20T12:21:01+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -100,13 +100,14 @@ apko builds are declarative: the configuration names a list of APK packages and 
 Point apko at the configuration and give it somewhere to push:
 
 ```sh
-apko publish latest.apko.json ttl.sh/nginx-repro
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/nginx-repro:1h"
+apko publish latest.apko.json "$IMAGE"
 ```
 
 apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line:
 
 ```output
-ttl.sh/nginx-repro@sha256:<digest>
+lockers.cgruser.dev/<name>/nginx-repro@sha256:<digest>
 ```
 
 That digest is the same `<digest>` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
@@ -114,17 +115,17 @@ That digest is the same `<digest>` the first step recorded, which means the rebu
 To run apko from its container instead of installing it, mount the directory holding the configuration and pass the same arguments:
 
 ```shell
-docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json ttl.sh/nginx-repro
+docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json "$IMAGE"
 ```
 
-`apko publish` needs a registry to push to. These examples use [ttl.sh](https://ttl.sh), a free registry whose images expire after a short time, which suits a throwaway comparison. Any registry you can write to works.
+`apko publish` needs a registry to push to. These examples use [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry whose images expire automatically, which suits a throwaway comparison. The first line stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Any registry you can write to works.
 
 ### Compare images that don't match
 
 When two digests differ, [diffoci](https://github.com/reproducible-containers/diffoci) reports the specific differences between the images rather than leaving you to compare two hashes:
 
 ```sh
-diffoci diff cgr.dev/chainguard/nginx:latest ttl.sh/nginx-repro
+diffoci diff cgr.dev/chainguard/nginx:latest "$IMAGE"
 ```
 
 When the images match, the command exits without reporting anything. When they differ, it lists the differing files and where they differ. Add `--ignore-timestamps` to set aside timestamp differences, or `--semantic` to ignore everything diffoci treats as non-substantive, including file ordering and redundant file mode bits.

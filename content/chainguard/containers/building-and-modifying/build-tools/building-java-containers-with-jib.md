@@ -4,7 +4,7 @@ linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
 date: 2025-09-23T00:49:31+00:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -377,7 +377,7 @@ One of the strongest points of jib is that you don't need Docker installed to
 build and distribute container images. In this step we will change `pom.xml` to
 push the image directly to a container registry.
 
-This example uses `ttl.sh`, which is a free-to-use Docker registry for short-lived hosting of images. You can also change the code to use your own registry such as a local one or the Docker Hub.
+This example uses [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. You can also change the code to use your own registry such as a local one or the Docker Hub.
 
 Replace the previous plugin definition with this one (or add this one if you skipped Stage 3):
 
@@ -409,7 +409,7 @@ Replace the previous plugin definition with this one (or add this one if you ski
             </platforms>
           </from>
           <to>
-            <image>ttl.sh/jib-demo-${maven.build.timestamp}:20m</image>
+            <image>lockers.cgruser.dev/jib-demo-${maven.build.timestamp}:20m</image>
           </to>
           <container>
             <ports>
@@ -425,7 +425,7 @@ This contains a couple of changes:
 
 - The execution goal is now `build`. This will push to the registry rather than the
 local Docker instance.
-- The image name now refers to the `ttl.sh` registry and includes a timestamp for uniqueness.
+- The image name now refers to the Lockers registry and includes a timestamp for uniqueness.
 
 Run the build again:
 
@@ -443,7 +443,7 @@ You’ll get output like this:
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
 [INFO]
-[INFO] Built and pushed image as ttl.sh/jib-demo-20250925104449:20m
+[INFO] Built and pushed image as lockers.cgruser.dev/jib-demo-20250925104449:20m
 ...
 ```
 
@@ -452,17 +452,17 @@ The image won't be in your local Docker instance, but you can pull it as
 normal (remember to copy your unique image name from the output):
 
 ```sh
-docker pull ttl.sh/jib-demo-20250925104449:20m
+docker pull lockers.cgruser.dev/jib-demo-20250925104449:20m
 ```
 
 And run it as before:
 
 ```sh
-docker run -p 8080:8080 ttl.sh/jib-demo-20250925104449:20m
+docker run -p 8080:8080 lockers.cgruser.dev/jib-demo-20250925104449:20m
 ```
 
-The `ttl.sh` registry is only for temporary testing of images and your image
-will be deleted in 20 minutes.
+Lockers is only for temporary testing of images. The `20m` tag sets the image's
+lifetime, so the tag stops working after 20 minutes.
 
 This time the built image is a multi-platform image -- if you pull the image
 from an `amd64` host you will get the `amd64` version and if you pull from an
@@ -470,7 +470,7 @@ from an `amd64` host you will get the `amd64` version and if you pull from an
 when pulling:
 
 ```sh
-docker pull --platform amd64 ttl.sh/jib-demo-20250925104449:20m
+docker pull --platform amd64 lockers.cgruser.dev/jib-demo-20250925104449:20m
 ```
 
 ## Other features
