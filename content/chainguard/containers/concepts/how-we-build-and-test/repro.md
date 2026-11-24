@@ -118,7 +118,7 @@ To run apko from its container instead of installing it, mount the directory hol
 docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json "$IMAGE"
 ```
 
-`apko publish` needs a registry to push to. These examples use [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry whose images expire automatically, which suits a throwaway comparison. The first line stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Any registry you can write to works.
+`apko publish` needs a registry to push to. These examples use [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry whose images expire automatically, which suits a throwaway comparison. Lockers is experimental and meant only for testing, so don't push production images or anything secret to it. The first line stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Any registry you can write to works.
 
 ### Compare images that don't match
 

@@ -140,7 +140,6 @@ cat > pom.xml <<EOF
     <maven.compiler.release>21</maven.compiler.release>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
   </properties>
   <dependencies>
     <dependency>
@@ -380,7 +379,7 @@ One of the strongest points of jib is that you don't need Docker installed to
 build and distribute container images. In this step we will change `pom.xml` to
 push the image directly to a container registry.
 
-This example uses [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. You can also change the code to use your own registry such as a local one or the Docker Hub.
+This example uses [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. Lockers is experimental and meant only for testing, so don't push production images or anything secret to it. You can also change the code to use your own registry such as a local one or the Docker Hub.
 
 Replace the previous plugin definition with this one (or add this one if you skipped Stage 3):
 
@@ -412,7 +411,7 @@ Replace the previous plugin definition with this one (or add this one if you ski
             </platforms>
           </from>
           <to>
-            <image>lockers.cgruser.dev/jib-demo-${maven.build.timestamp}:20m</image>
+            <image>${image}</image>
           </to>
           <container>
             <ports>
@@ -428,44 +427,45 @@ This contains a couple of changes:
 
 - The execution goal is now `build`. This will push to the registry rather than the
 local Docker instance.
-- The image name now refers to the Lockers registry and includes a timestamp for uniqueness.
+- The image name comes from the `image` property, which you set when you run
+the build.
 
-Run the build again:
+Anyone can push to Lockers, so use a repository name that nobody else can
+guess. The following commands store a random repository name in the `REPO`
+variable and build the image with a `20m` tag, which means the tag stops
+working after 20 minutes:
 
 ```sh
-mvn clean install
+REPO="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/jib-demo"
+mvn clean install -Dimage="$REPO:20m"
 ```
 
-You’ll get output like this:
+You’ll get output like this, where `[[UUID]]` is the random repository name
+that `uuidgen` generated:
 
 ```output
 ...
-[INFO] Using base image with digest: sha256:60a6d264537fbad2f5d37a01cf6222f2f172415f686bf59afe3b1043f79323f0
-[INFO]
-[INFO]
+[INFO] Using base image with digest: sha256:c6c5cfe7b92ead2d5a76ee09483a9c66b15e16283e8868981ccb9670ea2475fa
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
 [INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
-[INFO]
-[INFO] Built and pushed image as lockers.cgruser.dev/jib-demo-20250925104449:20m
+[INFO] Built and pushed image as lockers.cgruser.dev/[[UUID]]/jib-demo:20m
 ...
 ```
 
-The image name is parameterised with a timestamp, so yours will look different.
-The image won't be in your local Docker instance, but you can pull it as
-normal (remember to copy your unique image name from the output):
+The image won't be in your local Docker instance. Anyone can also overwrite a
+tag on Lockers, so pull the image by the digest of your own build rather than by
+its tag. Jib writes that digest to `target/jib-image.digest`:
 
 ```sh
-docker pull lockers.cgruser.dev/jib-demo-20250925104449:20m
+DIGEST=$(cat target/jib-image.digest)
+docker pull "$REPO@$DIGEST"
 ```
 
 And run it as before:
 
 ```sh
-docker run -p 8080:8080 lockers.cgruser.dev/jib-demo-20250925104449:20m
+docker run -p 8080:8080 "$REPO@$DIGEST"
 ```
-
-Lockers is only for temporary testing of images. The `20m` tag sets the image's
-lifetime, so the tag stops working after 20 minutes.
 
 This time the built image is a multi-platform image -- if you pull the image
 from an `amd64` host you will get the `amd64` version and if you pull from an
@@ -473,7 +473,7 @@ from an `amd64` host you will get the `amd64` version and if you pull from an
 when pulling:
 
 ```sh
-docker pull --platform amd64 lockers.cgruser.dev/jib-demo-20250925104449:20m
+docker pull --platform linux/arm64 "$REPO@$DIGEST"
 ```
 
 ## Other features
