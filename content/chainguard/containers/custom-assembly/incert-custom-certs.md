@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "An overview of how to use incert — a Go program from Chainguard — to create container images with custom certificates built-in to them."
 date: 2023-07-03T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -180,7 +180,7 @@ CONTAINER ID   IMAGE                      COMMAND                  CREATED      
 As this output shows, the name of the nginx container in this example is `agitated_jones`. Replace this with the name of your own container in the following command:
 
 ```sh
-docker inspect --format '{{ .NetworkSettings.IPAddress }}' agitated_jones
+docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' agitated_jones
 ```
 
 This will return the container's IP address:
