@@ -4,7 +4,7 @@ linktitle: "Install APKs in distroless"
 description: "Learn how to install APK packages into Chainguard's distroless container images that do not include package managers"
 type: "article"
 date: 2026-04-21T00:00:01+00:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-24T16:14:05+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -152,6 +152,14 @@ We now create a virtual environment, give this environment precedence on the pat
 `ENV PATH="/app/venv/bin":$PATH`
 `COPY requirements.txt /app/`
 `RUN pip install --no-cache-dir -r /app/requirements.txt`
+
+If you build with Docker's legacy builder, which some CI systems still use, `WORKDIR` creates `/app` with `root` as its owner. The `nonroot` user (UID 65532) then can't write the virtual environment there, and the build fails with `Permission denied`. To build with the legacy builder, add these lines before the first `WORKDIR` line to create the directory and give it to `nonroot`:
+
+```Dockerfile
+USER root
+RUN mkdir -p /app && chown nonroot:nonroot /app
+USER nonroot
+```
 
 We have now created the software artifact that will be copied into our final distroless image, in this case a Python virtual environment set up to run MariaDB. Now we will create a customized file structure that uses the filesystem from our distroless image as a base and includes required additional APKs needed during runtime.
 

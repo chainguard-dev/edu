@@ -7,7 +7,7 @@ aliases:
 - /get-started/migration/the-guardener/
 type: "article"
 date: 2026-07-13T00:00:00+00:00
-lastmod: 2026-10-27T18:06:32+00:00
+lastmod: 2026-11-24T19:04:05+00:00
 draft: false
 tags: ["GitHub", "AI", "Chainguard Containers"]
 images: []
@@ -85,10 +85,12 @@ The entire loop takes from five to more than thirty minutes, depending on the co
 
 Access to Dockerfile migration is governed by Chainguard IAM roles:
 
-| Action                                                                                                   | Minimum role                 |
-| -------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin` or `owner` |
-| Running Dockerfile migration sessions                                                                    | `guardener.user`             |
+| Action                                                                                                   | Minimum role                                   |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| Accepting the Guardener legal terms for your organization (required once before anyone can run sessions) | `guardener.admin`, `owner`, or `limited_owner` |
+| Running Dockerfile migration sessions                                                                    | `guardener.user`                               |
+
+If you created a Starter organization, you have the `limited_owner` role and can accept the terms yourself.
 
 Refer to the [Built-in roles and capabilities reference](/platform/administration/iam-organizations/roles-role-bindings/capabilities-reference/) for details.
 

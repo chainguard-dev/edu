@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl agent accept-terms"
 slug: chainctl_agent_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_agent_accept-terms/

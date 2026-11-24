@@ -5,7 +5,7 @@ lead: "Pull a free Chainguard Container, build an application on top of it, and 
 description: "An end-to-end walkthrough of Chainguard Containers: pull a free container, run a small Node.js application on it, and verify the image's signature and SBOM."
 type: "article"
 date: 2026-08-05T00:00:00+00:00
-lastmod: 2026-10-08T13:25:53+00:00
+lastmod: 2026-11-24T01:17:58+00:00
 draft: false
 tags: ["Chainguard Containers", "Getting Started"]
 images: []
@@ -25,6 +25,7 @@ These steps link to reference documentation instead of explaining each concept i
 To follow this quickstart, you need:
 
 * [Docker](https://docs.docker.com/engine/install/) or another OCI-compatible container runtime installed on your local machine.
+* [curl](https://curl.se/download.html), which you use in Step 2 to send a request to the demo app, installed. Most Linux distributions and macOS include it.
 * [Cosign](/open-source/sigstore/cosign/how-to-install-cosign/), which you use in Step 4 to verify a container image, installed.
 * [jq](https://jqlang.github.io/jq/download/) installed. jq is a lightweight, command-line JSON processor; this guide uses it in Step 4 to make Cosign output more easily readable.
 

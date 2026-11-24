@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries repos"
 slug: chainctl_libraries_repos
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_repos/
@@ -23,7 +23,7 @@ https://libraries.cgr.dev/javascript/, are its default repository, named
 default. Creating, changing or deleting a named repository does not change
 the default repository.
 
-Repository URLs serve JavaScript packages. Repository URLs for other
+Repository URLs serve JavaScript and Java packages. Repository URLs for other
 ecosystems are listed as "(not serving yet)" and are not served.
 
 Your plan sets how many repositories you can have: Starter has the default

@@ -4,7 +4,7 @@ linktitle: "App connections"
 description: "Set up, inspect, and remove the connections between your Chainguard organization and your GitHub organizations for Guardener."
 type: "article"
 date: 2026-08-03T00:00:00+00:00
-lastmod: 2026-10-28T19:01:36+00:00
+lastmod: 2026-11-24T19:04:05+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -44,7 +44,7 @@ The `chainctl guardener github` commands check permissions on both sides of the 
 
 | Action | Requires |
 | ------ | -------- |
-| Link (`link`) | **Both**: the `guardener.association.manage` capability on the Chainguard organization (held by owners), **and** ownership of the GitHub organization. |
+| Link (`link`) | **Both**: the `guardener.association.manage` capability on the Chainguard organization (included in the `owner`, `limited_owner`, and `guardener.admin` roles), **and** ownership of the GitHub organization. |
 | List connections (`status`) | The `guardener.association.list` capability on the Chainguard organization. |
 | Unlink (`unlink`) | **Either**: the `guardener.association.manage` capability on the Chainguard organization, **or** ownership of the GitHub organization (refer to [Removing a connection](#removing-a-connection)). |
 

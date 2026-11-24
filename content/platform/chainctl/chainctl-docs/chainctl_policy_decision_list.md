@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl policy decision list"
 slug: chainctl_policy_decision_list
 url: /platform/chainctl/chainctl-docs/chainctl_policy_decision_list/
@@ -28,7 +28,11 @@ single organization you can access — you are prompted when several are
 available. Within that scope, filter by --repo for a single repository,
 by --policy for a single policy, by --resource-type for one resource
 type, by --mode or --result for a subset of outcomes, and by --since for
-a time window.
+a time window. --artifact-id takes a PURL the way a blocklist entry does:
+pkg:pypi/requests@2.32.3 selects that version, and pkg:pypi/requests every
+version of requests. Any other value matches any part of an artifact ID,
+ignoring case, so --artifact-id=requests also matches
+pkg:pypi/requests-oauthlib.
 
 Decisions are listed most recent first. By default the 20 most recent
 are shown; use --limit (1-100) to change how many are returned.
@@ -40,8 +44,8 @@ target. The table view shortens artifact IDs that are digests, but not
 artifact IDs that are package PURLs; -o json returns the full value.
 
 Use --show-decision-details to print each decision as an expanded
-block, grouped by artifact. Every verdict is rendered so a
---artifact-id lookup shows the full decision picture.
+block, grouped by artifact. Every verdict is rendered, so a full digest
+passed to --artifact-id shows the full decision picture for one artifact.
 
 Use --show-artifact-ids to print the unique full artifact IDs from the
 result set, one per line.
@@ -81,6 +85,9 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
   # List the unique full artifact IDs from the result set
   chainctl policy decision list --show-artifact-ids
   
+  # List decisions for every version of a package
+  chainctl policy decision list --artifact-id=pkg:pypi/requests
+  
   # Show every policy's verdict and reasons for a single artifact
   chainctl policy decision list --artifact-id=sha256:<full-artifact-id> --show-decision-details
   
@@ -91,7 +98,7 @@ chainctl policy decision list [--parent ORG] [--repo REPO] [--artifact-id ARTIFA
 ### Options
 
 ```
-      --artifact-id string      Only show decisions for this artifact: an image digest for container policies (sha256:...) or a PURL for library policies (pkg:npm/left-pad@1.3.0).
+      --artifact-id string      Only show decisions for this artifact, ignoring case. A PURL with a version (pkg:npm/left-pad@1.3.0) selects that version, and a PURL without one (pkg:npm/left-pad) selects every version of the package, as in a blocklist. Any other text matches any part of an artifact ID, such as part of an image digest (sha256:abc12).
       --limit int               Maximum number of decisions to return, most recent first (1-100). (default 20)
       --mode string             Only show decisions evaluated in this mode (ENFORCE or DRY_RUN; the POLICY_MODE_ prefixed value from -o json is also accepted).
       --parent string           The name or id of the organization to list decisions for.

@@ -188,7 +188,7 @@ CONTAINER ID   IMAGE                      COMMAND                  CREATED      
 As this output shows, the name of the nginx container in this example is `agitated_jones`. Replace this with the name of your own container in the following command:
 
 ```sh
-docker inspect --format '{{ range .NetworkSettings.Networks }}{{ .IPAddress }}{{ end }}' agitated_jones
+docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' agitated_jones
 ```
 
 This will return the container's IP address:

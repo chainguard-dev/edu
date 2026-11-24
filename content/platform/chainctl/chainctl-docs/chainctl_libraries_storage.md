@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries storage"
 slug: chainctl_libraries_storage
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_storage/
@@ -11,15 +11,17 @@ toc: true
 ---
 ## chainctl libraries storage
 
-Show the storage your organization's uploads use in Libraries.
+Show and delete your organization's uploads in Libraries.
 
 ### Synopsis
 
 Show how much Libraries storage your organization's own uploads use, per
-ecosystem. Only artifacts your organization uploaded count; Chainguard-built
-and mirrored upstream artifacts do not. Go reports usage everywhere. Java,
-Python, JavaScript and .NET report it where the service reads them, and
-otherwise fail with FAILED_PRECONDITION.
+ecosystem, and delete a version your organization uploaded.
+
+Only artifacts your organization uploaded count, and only they can be deleted;
+Chainguard-built and mirrored upstream artifacts cannot. Go reports usage
+everywhere. Java, Python, JavaScript and .NET report it where the service
+reads them, and otherwise "list" fails with FAILED_PRECONDITION.
 
 ### Options inherited from parent commands
 
@@ -39,5 +41,6 @@ otherwise fail with FAILED_PRECONDITION.
 ### SEE ALSO
 
 * [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries/)	 - Ecosystem library related commands.
+* [chainctl libraries storage delete](/platform/chainctl/chainctl-docs/chainctl_libraries_storage_delete/)	 - Delete a version your organization uploaded to Libraries.
 * [chainctl libraries storage list](/platform/chainctl/chainctl-docs/chainctl_libraries_storage_list/)	 - List storage usage per ecosystem.
 

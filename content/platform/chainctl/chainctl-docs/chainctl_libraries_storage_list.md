@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries storage list"
 slug: chainctl_libraries_storage_list
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_storage_list/
@@ -41,5 +41,5 @@ chainctl libraries storage list [--ecosystem ECOSYSTEM] [--parent ORG] [--output
 
 ### SEE ALSO
 
-* [chainctl libraries storage](/platform/chainctl/chainctl-docs/chainctl_libraries_storage/)	 - Show the storage your organization's uploads use in Libraries.
+* [chainctl libraries storage](/platform/chainctl/chainctl-docs/chainctl_libraries_storage/)	 - Show and delete your organization's uploads in Libraries.
 
