@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "Tutorial with examples showing how you can authenticate with the Chainguard SDK's auth and auth/ggcr packages."
 date: 2025-06-04T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-24T15:13:28+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -17,7 +17,7 @@ weight: 40
 
 There are several ways for users to interact with the Chainguard platform, with [`chainctl`](/platform/chainctl/) (Chainguard's command-line tool) and the [Chainguard Console](https://console.chainguard.dev/overview) (Chainguard's web interface) being the two most commonly-used methods. However, both of these require a human user to authenticate, and aren't useful for working with Chainguard resources programmatically.
 
-The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/containers/registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/platform/administration/assumable-ids/assumable-ids/).
+The [Chainguard SDK](https://github.com/chainguard-dev/sdk) serves to ease programmatic integration with the Chainguard platform. This guide highlights two examples from the SDK repository that show how to authenticate to the [Chainguard registry](/chainguard/containers/registry/overview/) using the `chainguard.dev/sdk/auth` and `chainguard.dev/sdk/auth/ggcr` packages. The first has you authenticate as a local user, while the second has you authenticate as an [assumed identity](/platform/administration/assumable-ids/assumable-ids/). A third example shows how a delegate exchanges a delegation grant for an access token, with either the `chainguard.dev/sdk/sts` package or a direct HTTP request.
 
 This page gives examples in Golang as well as using `curl`. For more information about the Golang examples, refer to the [`examples` folder](https://github.com/chainguard-dev/sdk/tree/main/examples/registry) in the SDK repository.
 
@@ -295,6 +295,126 @@ curl -H "Authorization: Bearer ${API_TOKEN}" https://console-api.enforce.dev/reg
 ```
 
 Refer to the [Assumable identities documentation](/platform/administration/assumable-ids/assumable-ids/#using-the-chainguard-api) for another example of authentication using an assumed identity.
+
+## Example 3 — Exchange a delegation grant as a delegate
+
+<!-- TODO(blocker): Engineering must confirm the audience (aud) for a delegated token used against libraries.cgr.dev, and the capabilities a Libraries pull needs. Until then, [[CONFIRM_LIBRARIES_AUDIENCE_WITH_ENGINEERING]] stays a placeholder and this example isn't ready for Libraries use. Don't merge with the placeholder in place. -->
+
+A *delegate* is an identity that acts only on grants its subject mints for it. You create a delegate with [`chainctl iam identities create delegate`](/platform/chainctl/chainctl-docs/chainctl_iam_identities_create_delegate/), and the subject mints a grant for it with [`chainctl auth token --delegate`](/platform/chainctl/chainctl-docs/chainctl_auth_token/). This example covers the delegate's side: exchanging the grant at the Chainguard STS for an access token.
+
+The grant isn't an access token. No API accepts it, and its only use is as the input to the exchange. Send the token that the exchange returns to the API instead.
+
+{{< note >}}
+`chainctl auth login` doesn't perform a delegated exchange, including with `--identity-token`. If you run it as a delegate, it fails with an error like `identity [[DELEGATE_ID]] only accepts delegated exchanges`. This error is expected. Exchange the grant with an HTTP request or the Go SDK instead, as shown in this section.
+{{< /note >}}
+
+A delegated exchange has the following constraints:
+
+* You must request both a scope and at least one capability. In an HTTP request, repeat the `cap` field once for each capability.
+* The exchanged token carries only a subset of the grant's capabilities. If you request a capability the grant doesn't carry, the whole exchange fails.
+* The exchanged token expires no later than the grant, and a grant lasts at most 60 minutes.
+* The exchange doesn't issue a refresh token. When the exchanged token expires, the subject mints a new grant and the delegate exchanges it again.
+
+Treat the grant as a secret until it expires. It's a bearer token for the delegated exchange, so move it from the subject to the delegate over a channel you trust, and don't log it or pass it as a command-line argument.
+
+### Example 3 using curl
+
+First, the subject mints a grant. This command grants the viewer role's capabilities in an organization and stores the grant in the `GRANT` variable:
+
+```shell
+GRANT=$(chainctl auth token --delegate=my-delegate --role=viewer --scope=[[ORGANIZATION_ID]])
+```
+
+Then, with the grant in the `GRANT` variable on the delegate's side, send a `POST` request to the STS exchange endpoint. The grant is the bearer token, and the delegated-exchange fields are form-encoded in the request body:
+
+```shell
+API_TOKEN=$(printf 'Authorization: Bearer %s\n' "${GRANT}" | curl -sSf \
+  -H @- \
+  --data-urlencode "identity=[[DELEGATE_ID]]" \
+  --data-urlencode "delegated=true" \
+  --data-urlencode "aud=[[CONFIRM_LIBRARIES_AUDIENCE_WITH_ENGINEERING]]" \
+  --data-urlencode "scopes=[[ORGANIZATION_ID]]" \
+  --data-urlencode "cap=[[CAPABILITY_1]]" \
+  --data-urlencode "cap=[[CAPABILITY_2]]" \
+  https://issuer.enforce.dev/sts/exchange \
+  | jq -r .token
+)
+```
+
+The request sets the following fields:
+
+* `identity`: The delegate's identity ID. `chainctl iam identities create delegate --output=id` prints it.
+* `delegated`: Set to `true` to request a delegated exchange.
+* `aud`: The audience of the access token you're requesting. A successful exchange doesn't confirm that a service accepts this audience. To check it, call the service with the access token.
+* `scopes`: The UIDP of the organization to scope the access token to.
+* `cap`: One capability for the access token. Repeat the field for each capability.
+
+`printf` is a shell built-in, and `curl -H @-` reads the header from standard input, so the grant doesn't appear in the process list. The STS returns JSON, and `jq` extracts the access token from its `token` field. Send `API_TOKEN` as a bearer token to the service that matches the audience you requested.
+
+#### Exchange a grant for a Chainguard API token
+
+This example applies only to the Chainguard API audience, `https://console-api.enforce.dev`, not to Chainguard Libraries. It exchanges a grant for an access token that carries the `repo.list` capability, and then uses that token to list the organization's repositories:
+
+```shell
+API_TOKEN=$(printf 'Authorization: Bearer %s\n' "${GRANT}" | curl -sSf \
+  -H @- \
+  --data-urlencode "identity=[[DELEGATE_ID]]" \
+  --data-urlencode "delegated=true" \
+  --data-urlencode "aud=https://console-api.enforce.dev" \
+  --data-urlencode "scopes=[[ORGANIZATION_ID]]" \
+  --data-urlencode "cap=repo.list" \
+  https://issuer.enforce.dev/sts/exchange \
+  | jq -r .token
+)
+
+printf 'Authorization: Bearer %s\n' "${API_TOKEN}" | curl -sSf \
+  -H @- \
+  "https://console-api.enforce.dev/registry/v1/repos?uidp.descendants_of=[[ORGANIZATION_ID]]" \
+  | jq '.items | length'
+```
+
+The second command prints the number of repositories in the organization.
+
+### Example 3 in Golang
+
+The `chainguard.dev/sdk/sts` package performs the same exchange. `sts.WithDelegation()` requests the delegated exchange, `sts.WithIdentity()` names the delegate, and `sts.WithScope()` and `sts.WithCapabilities()` select the access the token carries:
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "os"
+
+    "chainguard.dev/sdk/sts"
+)
+
+func main() {
+    ctx := context.Background()
+    grant := os.Getenv("GRANT")
+
+    exchanger := sts.New(
+        "https://issuer.enforce.dev",
+        "[[CONFIRM_LIBRARIES_AUDIENCE_WITH_ENGINEERING]]",
+        sts.WithDelegation(),
+        sts.WithIdentity("[[DELEGATE_ID]]"),
+        sts.WithScope("[[ORGANIZATION_ID]]"),
+        sts.WithCapabilities("[[CAPABILITY_1]]", "[[CAPABILITY_2]]"),
+    )
+
+    pair, err := exchanger.Exchange(ctx, grant)
+    if err != nil {
+        log.Fatalf("exchanging the grant: %v", err)
+    }
+
+    // Send pair.AccessToken as a bearer token. pair.RefreshToken is empty.
+    fmt.Printf("Access token expires at %s\n", pair.Expiry)
+}
+```
+
+The second argument to `sts.New()` is the audience of the access token you're requesting. As with the HTTP request, `Exchange()` returns no refresh token, and the access token expires no later than the grant.
 
 ## Learn more
 
