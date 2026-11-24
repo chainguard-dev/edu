@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl auth pull-token create"
 slug: chainctl_auth_pull-token_create
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/
@@ -27,7 +27,7 @@ repository's URL, never from the default repository or another repository,
 and grants no right to change the repository.
 
 ```
-chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|java|python_athena|ruby|java_athena|go_athena|ruby_athena|python|dotnet|dotnet_athena|go|rust|rust_athena|javascript|javascript_athena}[,...] | --repository=all] [flags]
+chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description=DESC] [--ttl=NUM_HOURS_ACTIVE] [--parent=PARENT] [--repository={oci|apk|rust_athena|python|javascript|python_athena|java_athena|go|ruby|ruby_athena|rust|java|javascript_athena|dotnet|dotnet_athena|go_athena}[,...] | --repository=all] [flags]
 ```
 
 ### Examples
@@ -64,7 +64,7 @@ chainctl auth pull-token create [--save=true|false] [--name=NAME] [--description
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
       --parent string        Name or UIDP of the organization or folder the pull token belongs to. Pass ORG/REPO, such as example.com/prod, for a token that pulls only from one Libraries repository.
-      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, python_athena, ruby, java_athena, go_athena, ruby_athena, python, dotnet, dotnet_athena, go, rust, rust_athena, javascript, javascript_athena. "all" selects oci and apk. The token gets one role binding per repository type. This names the kind of registry, not a Libraries repository: pass that in --parent as ORG/REPO. (default "oci")
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, rust_athena, python, javascript, python_athena, java_athena, go, ruby, ruby_athena, rust, java, javascript_athena, dotnet, dotnet_athena, go_athena. "all" selects oci and apk. The token gets one role binding per repository type. This names the kind of registry, not a Libraries repository: pass that in --parent as ORG/REPO. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
       --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```

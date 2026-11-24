@@ -1,5 +1,5 @@
 ---
-date: 2026-11-18T15:28:55Z
+date: 2026-11-23T15:46:28Z
 title: "chainctl libraries repos upstreams reorder"
 slug: chainctl_libraries_repos_upstreams_reorder
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_repos_upstreams_reorder/
@@ -19,8 +19,8 @@ Set the order in which a repository tries its upstream registries for an
 ecosystem. List every upstream registry in the ecosystem's list once, first
 tried first.
 
-Only JavaScript repository URLs are served now, so only the JavaScript list
-affects requests.
+Only JavaScript and Java repository URLs are served now, so only the
+JavaScript and Java lists affect requests.
 
 ```
 chainctl libraries repos upstreams reorder NAME... --parent ORG/REPO --ecosystem ECOSYSTEM [--output=json|table] [flags]
