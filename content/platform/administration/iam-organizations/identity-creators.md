@@ -31,9 +31,11 @@ The creator is whoever made the request. If a person creates a pull token while 
 
 Chainguard shows the creator email only while the creator holds a role in your organization, either on the organization itself or on a folder within it. The email is empty when:
 
-* The creator no longer holds a role in your organization.
+* The creator no longer holds a role in your organization, for example because they left or because they're Chainguard staff.
 * The creator doesn't have a verified email address. This is typical for assumable identities and other non-human identities.
 * The creator's identity was deleted.
+
+Roles that your identity provider assigns through SCIM count as roles in your organization. A member whose access comes only from an identity provider group mapping without SCIM, and who has no default role, holds no role binding, so their email isn't shown.
 
 In each case, the **Created by** ID is still available.
 
@@ -50,7 +52,7 @@ If you need to know who created an older pull token, check your own records, suc
 
 1. In the [Chainguard Console](https://console.chainguard.dev), go to **Settings** and open **Pull tokens**.
 2. Find the token in the list. The **Created by** column shows the creator's email, or the creator's ID if the email isn't available.
-3. To see more detail, select the token. The details panel shows the creator's email and ID. If no creator was recorded, it shows **Not recorded**.
+3. To see more detail, select the token. The details panel shows the creator's email and ID. If there's no email, the Console says that the creator doesn't have a role in this organization (for example, they've left or are Chainguard staff) or hasn't verified an email.
 
 ## View the creator with chainctl
 
@@ -60,7 +62,7 @@ To see the creator of each pull token in an organization, run:
 chainctl auth pull-token list --parent=ORGANIZATION_NAME
 ```
 
-The output includes a **Created By** column. The column is empty for tokens that have no recorded creator.
+The output includes a **Created By** column, which shows the creator's email, or the creator's ID if the email isn't available. The column is empty for tokens that have no recorded creator.
 
 To see the creator of a single identity, run:
 
@@ -68,20 +70,20 @@ To see the creator of a single identity, run:
 chainctl iam identities describe IDENTITY_ID
 ```
 
-The output includes a `Created by:` line when a creator was recorded, and leaves the line out otherwise.
+The output includes a `Created by:` line, with the creator's email or ID, when a creator was recorded. It leaves the line out otherwise.
 
-Both commands, and `chainctl iam identities list`, include the creator in JSON output. Add `--output=json` to get `created_by` and `creator_email` for each identity.
+Both commands, and `chainctl iam identities list`, include the creator's ID in JSON output. Add `--output=json` to get `created_by` for each identity. JSON output doesn't include the creator's email.
 
 ## View the creator with the Chainguard API
 
-The identity resource includes both values as output-only fields:
+The identity resource includes these values as output-only fields:
 
-| Field | API v1 | API v2 |
+| Value | API v1 | API v2 |
 | --- | --- | --- |
 | Created by | `created_by` | `createdBy` |
-| Creator email | `creator_email` | `creatorEmail` |
+| Creator email | Not available | `createdByEmail` |
 
-The fields appear when you get, list, create, or update an identity. Because they're output only, the API ignores any value you send for them.
+The creator ID appears whenever the API returns an identity. The creator email appears only when you get or list identities with API v2. API v1 doesn't return it. Because both fields are output only, the API ignores any value you send for them.
 
 If you subscribe to [Chainguard events](/platform/administration/cloudevents/events-reference/), the `actor.subject` of each `dev.chainguard.api.iam.identity.created.v1` event names the identity that created it. Events never include the creator email, so email addresses aren't sent to your event subscriptions.
 
