@@ -34,27 +34,23 @@ In order to complete this tutorial, you need the following:
 
 When configuring an Artifactory remote repository to function as a pull-through cache for packages from a Chainguard private APK repository, the remote repository must authenticate to Chainguard. This section outlines the steps necessary to create a Chainguard pull token and configure the required permissions to access your Chainguard organization's private APK repository:
 
-Generate a pull token:
+Generate a pull token and save its credentials as environment variables:
 
 ```shell
-chainctl auth pull-token --repository=apk -o env
+eval $(chainctl auth pull-token --repository=apk -o env)
 ```
 
-This `chainctl` command's `--repository=apk` flag creates a role binding to bind the pull token identity the `apk.pull` role, enabling the identity to download packages from the private APK repository of the parent organization.
+This `chainctl` command's `--repository=apk` flag creates a role binding to bind the pull token identity the `apk.pull` role, enabling the identity to download packages from the private APK repository of the parent organization. The `-o env` flag prints the credentials as `export` statements, and `eval` runs them, which sets two environment variables in your current shell:
 
-This command's output shows the pull token credentials:
+* `CHAINGUARD_IDENTITY_ID` holds the pull token's identity ID, which Artifactory uses as the username.
+* `CHAINGUARD_TOKEN` holds the pull token itself, which Artifactory uses as the password.
 
-```output
-Creating new APK registry pull-token in example.org
+You'll enter both values when you set up the remote repository on Artifactory. To print them, run:
 
-To use this pull token in another environment, supply the following for Basic authorization:
-
-Username: <identity-id>
-
-Password: <pull-token>
+```shell
+echo "$CHAINGUARD_IDENTITY_ID"
+echo "$CHAINGUARD_TOKEN"
 ```
-
-Be sure to note down both the `Username` and `Password` values returned by this command, as you will need these when setting up a remote repository on Artifactory.
 
 ## Setting up a pull-through cache for a private APK repository
 
@@ -72,9 +68,9 @@ To set up the remote repository:
 This takes you to a **Basic** configuration tab where you can enter the following details for the remote repository:
 
 * **Repository Key** — This is a name used to identify your remote repository, for example `cg-private`.
-* **URL** — This must be set to `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
-* **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Use the pull token `Username` value you generated with `chainctl` in the previous step.
-* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Here, enter the `Password` value returned by the `chainctl auth pull-token` command in the previous section.
+* **URL** — This must be set to `https://apk.cgr.dev/[[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with your organization's name as it appears in the Chainguard Console. For example, if your organization is named `example` use `https://apk.cgr.dev/example`.
+* **User Name** — This is used by Artifactory to authenticate to Chainguard and access your private APK repository. Enter the value of `CHAINGUARD_IDENTITY_ID` from the previous section.
+* **Password / Access Token** — This is used along with the user name to authenticate to Chainguard. Enter the value of `CHAINGUARD_TOKEN` from the previous section.
 
 Then, navigate to the **Advanced** configuration tab and enter the following details:
 
@@ -94,26 +90,24 @@ Before testing whether you're able to pull packages through the remote Artifacto
 4. Click the **Generate Token & Create Instructions** button.
 5. Copy or take note of the token generated for your repository.
 
-With this token in hand, run the following `export` command to create an environment variable, replacing `my-token` with the token you noted down. You will use this environment variable in the following section as you test out the remote repository:
+With this token in hand, run the following `export` command to create an environment variable, replacing `[[ARTIFACTORY_TOKEN]]` with the token you noted down. You will use this environment variable in the following section as you test out the remote repository:
 
 ```shell
-export CG_PRIVATE_TOKEN=my-token
+export CG_PRIVATE_TOKEN=[[ARTIFACTORY_TOKEN]]
 ```
 
-Additionally, create two more environment variables to hold your Artifactory username and server name:
+Additionally, create two more environment variables to hold your Artifactory username and server name, replacing `[[USERNAME]]` and `[[SERVER_NAME]]` with those values:
 
 ```shell
-export ARTIFACTORY_USERNAME=my-user-profile
-export ARTIFACTORY_SERVER_NAME=my-artifactory-hostname
+export ARTIFACTORY_USERNAME=[[USERNAME]]
+export ARTIFACTORY_SERVER_NAME=[[SERVER_NAME]]
 ```
 
 If you aren't sure of these values, you can find them in the command from the **Set Up An Alpine Client** window where you retrieved the token:
 
 ```shell
-sudo sh -c "echo 'https://linky:<TOKEN>@example-server-name.jfrog.io/artifactory/cg-private/<BRANCH>/<REPOSITORY>'" >> /etc/apk/repositories
+sudo sh -c "echo 'https://[[USERNAME]]:[[ARTIFACTORY_TOKEN]]@[[SERVER_NAME]].jfrog.io/artifactory/cg-private/[[BRANCH]]/[[REPOSITORY]]'" >> /etc/apk/repositories
 ```
-
-In this example, the Artifactory username is `linky` and the hostname is `example-server-name`.
 
 > **Note**: If your Artifactory username is an email address, you must percent-encode the `@` sign, as in `export ARTIFACTORY_USERNAME=linky%40example.com`. Here, the Artifactory username is `linky@example.com`, but it must be entered into the environment variable as `linky%40example.com`.
 
@@ -186,8 +180,8 @@ You must create two remote repositories within Artifactory — one for each publ
 Enter the following details for the two remote repositories:
 
 * **Repository Key** — This is the name used to identify your remote repository. Again, you can choose whatever names you like here but this guide's examples use the names `cg-chainguard` and `cg-extras`.
-* **URL** — This must be set to `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/chainguard` for the `chainguard` repository and `https://virtualapk.cgr.dev/<ORGANIZATION-ID>/extra-packages` for the `extra-packages` repository.
-    * For both of these URLs, you need to replace the `<ORGANIZATION-ID>` placeholder with your Chainguard organization's UID. You can find this by running the `chainctl iam organizations list -o table`; the UID is the value in your organization's `ID` column. Alternatively, you can find it by checking the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
+* **URL** — This must be set to `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard` for the `chainguard` repository and `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages` for the `extra-packages` repository.
+    * For both of these URLs, you need to replace the `[[ORGANIZATION_ID]]` placeholder with your Chainguard organization's UID. You can find this by running the `chainctl iam organizations list -o table`; the UID is the value in your organization's `ID` column. Alternatively, you can find it by checking the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
 
 You **do not** need to set any values for the **User Name** or **Password / Access Token** fields, as the public repositories do not require authentication.
 
@@ -206,13 +200,13 @@ After creating both repositories, generate and retrieve a token for each one as 
 Next, copy the resulting tokens to create a pair of environment variables. For the `cg-chainguard` repository's token:
 
 ```shell
-export CG_TOKEN=<cg-chainguard-token>
+export CG_TOKEN=[[CHAINGUARD_REPO_TOKEN]]
 ```
 
 Then for the `cg-extras` repo's token:
 
 ```shell
-export EXTRAS_TOKEN=<cg-extras-token>
+export EXTRAS_TOKEN=[[EXTRAS_REPO_TOKEN]]
 ```
 
 Following that, you can create a Dockerfile for the public repositories. As before, use single quotes around `'EOF'` to prevent shell expansion:
