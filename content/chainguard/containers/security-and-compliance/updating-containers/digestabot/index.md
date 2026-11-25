@@ -17,7 +17,7 @@ aliases:
 type: "article"
 description: "How to configure Digestabot to keep digest-pinned references to Chainguard Containers current, including authenticating to a private cgr.dev registry"
 date: 2024-02-07T15:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-15T14:26:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -318,6 +318,6 @@ So please try it out and let me know if you have any questions.
 
 * [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) covers the tool to pair with Digestabot for moving between version streams.
 * [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) covers the equivalent setup for teams outside GitHub.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) explains what a digest is and why pinning to one matters.

@@ -1,10 +1,10 @@
 ---
 title: "Chainguard Libraries"
 linktitle: "Chainguard Libraries"
-description: "Chainguard Libraries provide enhanced security for Java and Python dependencies with automated vulnerability patching and supply chain protection"
+description: "Chainguard Libraries provide enhanced security for Java, JavaScript, Python, Go, and .NET dependencies with automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-29T18:47:49+00:00
 draft: false
 images: []
 weight: 40
@@ -12,7 +12,7 @@ topic: true
 banner: {
     image: "/icon-stack.svg",
     title: "Get started with Chainguard Libraries",
-    subtitle: "Secure your Java, Python, and JavaScript dependencies with automated patching and supply chain protection",
+    subtitle: "Secure your Java, JavaScript, Python, Go, and .NET dependencies with automated patching and supply chain protection",
     cta: "Read more",
     link: "/chainguard/libraries/introduction/quickstart/"
 }
@@ -33,6 +33,16 @@ tutorials: [
     description: "Secure npm packages for your JavaScript projects",
     url: "/chainguard/libraries/javascript/"
   },
+  {
+    title: "Go",
+    description: "Secure Go modules for your Go projects",
+    url: "/chainguard/libraries/go/"
+  },
+  {
+    title: ".NET",
+    description: "Secure NuGet packages for your .NET projects",
+    url: "/chainguard/libraries/dotnet/"
+  },
     {
     title: "Migrate a Java project",
     description: "Switch an existing Maven or Gradle project to Chainguard Libraries",
@@ -49,6 +59,16 @@ tutorials: [
     url: "/chainguard/libraries/python/migration/"
   },
   {
+    title: "Migrate a Go project",
+    description: "Switch an existing Go module project to Chainguard Libraries",
+    url: "/chainguard/libraries/go/migration/"
+  },
+  {
+    title: "Migrate a .NET project",
+    description: "Switch an existing NuGet project to Chainguard Libraries",
+    url: "/chainguard/libraries/dotnet/migration/"
+  },
+  {
     title: "Quickstart",
     description: "Configure your build to pull from Chainguard Libraries",
     url: "/chainguard/libraries/introduction/quickstart/"
@@ -61,7 +81,7 @@ tutorials: [
   {
     title: "FAQ",
     description: "Common questions about security and supported ecosystems",
-    url: "/chainguard/libraries/troubleshooting/faq/"
+    url: "/chainguard/libraries/troubleshooting/"
   },
 ]
 

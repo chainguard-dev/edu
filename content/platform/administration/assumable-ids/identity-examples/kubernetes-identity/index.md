@@ -7,7 +7,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Kubernetes pod."
 type: "article"
 date: 2025-08-07T13:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -77,6 +77,8 @@ kubectl create token default | jwt decode -
 
 Run this `chainctl` command to create an identity for the `default` service
 account in the `default` namespace and assign it the `registry.pull` role.
+
+To pull from Chainguard Libraries instead of, or as well as, container images, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 Provide the issuer URL you identified in the previous step.
 

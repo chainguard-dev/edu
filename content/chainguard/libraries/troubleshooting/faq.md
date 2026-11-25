@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard Libraries, including security benefits, supported ecosystems, and how automated patching protects against supply chain attacks"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-12T19:21:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 aliases:
@@ -26,8 +26,9 @@ toc: true
 The following video focuses on Chainguard's built-from-source model: when a
 rebuilt package is available, Chainguard serves it with verifiable provenance
 and SBOMs. Not every package or version can be built immediately, so the
-[Chainguard Repository](/chainguard/chainguard-repository/) also supports an
-optional, policy-governed upstream fallback. When enabled, Chainguard-built
+[Chainguard Repository](/chainguard/chainguard-repository/) also includes a
+policy-governed upstream fallback, on by default for new entitlements. When
+enabled, Chainguard-built
 packages are preferred, while eligible upstream packages are subject to
 configurable controls such as a cooldown period and malware and greyware
 scanning. Packages identified as malicious are blocked.
@@ -127,7 +128,7 @@ of the software supply chain for libraries across different language ecosystems:
   proposed mechanism would not publish source code. Chainguard Libraries replace other repositories and the use of Chainguard Libraries, based on
   building from the original source, would have prevented an attack using this approach
 * Refer also to [_The Hacker News_ article](https://thehackernews.com/2024/01/hackers-hijack-popular-java-and-android.html),
-  [_Oversecured_ blog post](https://blog.oversecured.com/Introducing-MavenGate-a-supply-chain-attack-method-for-Java-and-Android-applications/),
+  [_Oversecured_ blog post](https://oversecured.com/blog/introducing-mavengate-a-supply-chain-attack-method-for-java-and-android-applications),
   and [Sonatype's take as Maven Central
   operator](https://www.sonatype.com/sonatypes-ongoing-commitment-to-maven-central).
 
@@ -143,7 +144,7 @@ of the software supply chain for libraries across different language ecosystems:
   source code repository was not compromised.
 * Since no source code was compromised, a similar attack on a protected library ecosystem
   would be prevented by Chainguard Libraries
-* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard Containers include XZ Utils packages. These are also built
+* XZ Utils is written in C and therefore not available as an ecosystem protected by Chainguard Libraries. However, Chainguard's container images include XZ Utils packages. These are also built
   from source and are not affected.
 * Refer also to [Wikipedia article](https://en.wikipedia.org/wiki/XZ_Utils_backdoor)
   and [official page from the XZ data compression](https://tukaani.org/xz-backdoor/).
@@ -201,15 +202,25 @@ to pulling directly from public registries like Maven Central, npm, and PyPI.
 feature where Chainguard backports High and Critical vulnerability fixes from
 newer upstream releases to older versions that customers are still using,
 particularly when upstream maintainers no longer ship patches for those older
-versions. Remediated versions are:
+versions. Each ecosystem uses a version suffix so you can distinguish remediated
+builds from non‑remediated upstream versions, but how you select them differs:
 
-* Published in a separate repository:
-  `https://libraries.cgr.dev/python-remediated/simple/` for Python and
-  `https://libraries.cgr.dev/java-remediated/` for Java.
-* Given a local version suffix -- like `+cgr.N` for Python (for example,
-  2.0.0+cgr.1) and `-0.cgr.N` for Java -- so dependency resolvers can
-  distinguish them from non‑remediated upstream versions while still preferring
-  the remediated build during resolution.
+* **Python**: A `+cgr.N` local version suffix (for example, `2.0.0+cgr.1`),
+  published in a separate index at
+  `https://libraries.cgr.dev/python-remediated/simple/`. Python package managers
+  treat it as a higher‑precedence version and can select it automatically during
+  resolution.
+* **Java**: A `-0.cgr.N` suffix (for example, `3.18.0-0.cgr.1`), published in a
+  separate repository at `https://libraries.cgr.dev/java-remediated/`. Maven and
+  Gradle sort it higher than the base version, so dependency management rules can
+  resolve to it when the overlay repository is available.
+* **JavaScript**: A `-cgr.N` prerelease suffix (for example, `4.17.21-cgr.1`),
+  served through the standard endpoint at `https://libraries.cgr.dev/javascript/`.
+  Because npm treats `-cgr.N` as a prerelease rather than a newer release, you
+  select remediated versions by running `chainctl libraries remediate --apply`.
+  Rather than relying on version precedence, the command sets the exact `-cgr.N`
+  version for direct dependencies and adds override or resolution rules for
+  transitive ones, then updates the lockfile.
 
 ## Why might I still see errors with the upstream fallback enabled through the Chainguard Repository?
 
@@ -226,7 +237,9 @@ the upstream fallback is enabled, for example when:
 * A package or version is blocked by malware detection and therefore
   intentionally not served from upstream.
 * A recently published version is still in the cooldown period, so the
-  repository will not yet serve it.
+  repository will not yet serve it. Cooldowns end at 00:00 UTC, so a version
+  can stay blocked for up to a day after the configured number of days. See
+  [When a version becomes available](/chainguard/chainguard-repository/library-policies/#when-a-version-becomes-available).
 * The requested package/version truly does not exist in either Chainguard’s
   catalog or upstream.
 
@@ -235,6 +248,35 @@ though a version appears in the public registry.
 
 For more details on the errors you may see when a package is blocked for these reasons,
 see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+## Why might `chainctl libraries verify` report 0% coverage?
+
+There are a few reasons why `chainctl libraries verify` might report 0% coverage:
+
+* Missing .package-lock.json: If `.package-lock.json` is not present in the directory, the directory is not recognized as an npm tree and verification will not run.
+* The packages you are verifying come from Chainguard's upstream fallback. Packages that Chainguard did not build show as not verified. These packages can be found via the Console or `chainctl libraries packages`.
+* Fat or shaded JAR: For Java, a 0% coverage result is [expected when verifying a fat JAR, uber JAR, or shaded JAR](/chainguard/libraries/policies-and-security/verification#why-might-i-see-0-coverage-when-verifying-java-artifacts).
+* Insufficient role or missing credentials: With a regular `chainctl auth login`, the command requires the pull token creator role (for example, for JavaScript: `libraries.javascript.pull_token_creator`), or the owner role, because it creates a pull token internally. If you only have the pull role for an ecosystem, you must pass a libraries-scoped token explicitly. For example:
+
+```bash
+chainctl auth login --audience=libraries.cgr.dev
+export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+chainctl libraries verify ./node_modules
+```
+
+Without this, a pull-only role will report 0% coverage even after login.
+
+* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example:
+
+```bash
+chainctl libraries verify --parent <your-organization> ./node_modules
+```
+
+Or set a default organization first:
+
+```bash
+chainctl config set default.group <your-organization>
+```
 
 ## What are Chibbies?
 

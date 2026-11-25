@@ -1,0 +1,13 @@
+{{- /*
+Returns the href for a sidebar cross-link's url value. When the value names a
+page, that is the page's published URL (see partials/page-link-target.html), so
+a cross-link to a section's landing page goes to the section. Otherwise it is
+the value with the site's base path.
+
+Context: the cross-link's url, such as "/get-started/checks-and-workspaces/set-up/".
+*/ -}}
+{{- $url := partial "site-path.html" . -}}
+{{- with site.GetPage (strings.TrimSuffix "/" .) -}}
+{{- $url = (partial "page-link-target.html" .).RelPermalink -}}
+{{- end -}}
+{{- return $url -}}

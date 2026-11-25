@@ -7,7 +7,7 @@ aliases:
 type: "article"
 description: "How to configure Dependabot to authenticate to your private cgr.dev registry and open pull requests that update Chainguard Containers"
 date: 2026-09-03T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-15T14:26:56+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -171,5 +171,5 @@ If the job log shows a successful run but no pull requests, check the following:
 ## Learn more
 
 * [Using Renovate with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/renovate/) covers the equivalent setup for teams outside GitHub, or teams that want short-lived credentials through an assumable identity.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.

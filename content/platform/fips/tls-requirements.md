@@ -59,6 +59,7 @@ The following Operating Systems, and newer versions of thereof, are known to sup
 * iOS 10
 * AWS RDS Postgres 16.11-R1
 * AWS MQ Apache ActiveMQ
+* AWS ELB Application Load Balancer
 
 This list is not exhaustive. To find FIPS products that support TLSv1.2 RFC 7627 or TLS v1.3 one can use [CAVP search](https://csrc.nist.gov/Projects/cryptographic-algorithm-validation-program/validation-search), select **Implementation**, and in the list of algorithms select "**TLS v1.2 RFC7627**" or "**TLS v1.3 KDF**".
 
@@ -71,6 +72,14 @@ AWS RDS Postgres 16.11-R1 and later support TLSv1.3. If you require access to Po
 At this time AWS MQ RabbitMQ [does not support](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/data-protection.html) TLSv1.2 RFC 7627 or TLSv1.3. This product is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final).
 
 Please consider using AWS MQ Apache ActiveMQ, Chainguard's [rabbitmq-fips](https://images.chainguard.dev/directory/image/rabbitmq-fips/overview) container image, or a VM instead.
+
+### AWS Elastic Load Balancing - Classic Load Balancers - no connectivity
+
+At this time the AWS Elastic Load Balancing - Classic Load Balancer [does not support](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-ssl-security-policy.html#elb-backend-cipher-suite) any secure or approved cipher suites for back-end connections. The usage of the backend connectivity in Classic Load balancer is currently out of compliance with [NIST Special Publication 800-52 Rev. 2](https://csrc.nist.gov/pubs/sp/800/52/r2/final). This is also documented at [Elastic Load Balancing in AWS GovCloud (US)](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-elb.html) which states that:
+
+> Some features of Elastic Load Balancing (ELB) TLS do not support FIPS 140-3 requirements by default. When using the Classic or Network Load Balancer, you can pass TCP traffic and terminate TLS on your target (for example, web server), that is configured to support FIPS 140-3 requirements. Application Load Balancer (ALB) supports selecting FIPS algorithms.
+
+Please consider upgrading to AWS Elastic Load Balancing - Application Load Balancer product, or configure Classic Load Balancer to pass TCP traffic and terminate TLS on the target with any Chainguard FIPS images.
 
 ### Amazon Linux 2 connectivity support
 

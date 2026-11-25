@@ -4,7 +4,7 @@ linktitle: "EOL grace period"
 type: "article"
 description: "Understanding Chainguard's end-of-life (EOL) grace period."
 date: 2025-05-14T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -21,7 +21,7 @@ aliases:
 
 Typically, specific versions of software receive updates on a schedule for a set amount of time. Eventually, though, every version of software will stop receiving support. When project maintainers stop providing updates, it's known as the *End-of-Life* (EOL) stage.
 
-It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
+It's recommended that when a software version reaches the EOL phase, users should migrate their projects to a later version, as [EOL software is known to accumulate vulnerabilities](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year). However, there are cases where an organization may want to continue using a container image after it has reached end-of-life. This could be because an image reaches EOL before the organization's release schedule, or perhaps later image versions have one or more issues that prevent the organization from upgrading.
 
 To help in situations like this, Chainguard offers an end-of-life grace period for eligible Containers to all Chainguard Containers customers. This article provides an overview of Chainguard's EOL grace period, and also includes a brief introduction to using Chainguard's API to retrieve information about an image's EOL grace period status.
 
@@ -51,7 +51,7 @@ Be aware that the following are not covered by Chainguard's EOL grace period:
 * Updating an image’s EOL primary package.
 * Backporting or cherry-picking individual commits or patches to the EOL primary package.
 * Installing updated versions of packages in instances where the new package version no longer supports the EOL version of the image's main package (refer to the note).
-* Any package labeled end-of-life for more than 6 months by its open-source creators or maintainers.
+* Any package labeled end-of-life for more than 6 months by its open source creators or maintainers.
 
 Additionally, if a container image fails to build because underlying dependencies conflict with the primary package, it will no longer be supported. A failed build signals the end of support for that image.
 
@@ -175,4 +175,4 @@ Of course, you won't use `curl` to interact with the Chainguard API in most scen
 
 Chainguard's EOL grace period gives customers the opportunity to continue to receive best-effort CVE remediated updates on EOL images, while they work on transitioning to a newer upstream version.
 
-For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our conceptual article on [How end-of-life software accumulates vulnerabilities](/chainguard/containers/concepts/lifecycle-and-eol/how-eol-software-accumulates-cves/) is helpful for understanding the risk involved with using end-of-life software by outlining how EOL images accrue vulnerabilities and where they accumulate.
+For more information on the EOL grace period, [please contact us](https://www.chainguard.dev/contact). Additionally, our doc outlining the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) can be helpful for understanding Chainguard’s approach to updates, releases, and versions within Chainguard Containers. Finally, our blog post [Why end-of-life software means 400+ CVEs per year](https://www.chainguard.dev/unchained/why-end-of-life-software-means-400-cves-per-year) explains how end-of-life software accumulates vulnerabilities.

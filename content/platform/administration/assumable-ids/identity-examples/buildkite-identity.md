@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a Buildkite workflow."
 type: "article"
 date: 2023-05-17T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -26,7 +26,7 @@ This tutorial outlines how to create an identity using Terraform, and then how t
 
 To complete this guide, you must have the following in place:
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide uses to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * A Buildkite agent and pipeline you can use to test out the identity you'll create. We recommend following Buildkite's [Getting Started guide](https://buildkite.com/docs/tutorials/getting-started) to set these up.
 
@@ -118,7 +118,7 @@ output "buildkite-identity" {
 }
 ```
 
-The section after that looks up the `viewer` role:
+The section after that looks up the `viewer` role. The `viewer` role can pull container images but not Chainguard Libraries. To pull libraries, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role).
 
 ```hcl
 data "chainguard_role" "viewer" {
@@ -218,7 +218,7 @@ You could add the commands for testing the identity like this:
 
 ```Pipeline
 - command: |
-    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m)"
+    curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
     chmod +x chainctl
     mv chainctl /usr/bin
     buildkite-agent oidc request-token --audience issuer.enforce.dev > .token.txt
@@ -270,12 +270,12 @@ Be sure to replace `<github-id>` with your GitHub username.
 Plugins can implement a number of [plugin hooks](https://buildkite.com/docs/agent/v3/hooks). Run the following command to create a pre-command hook within the `hooks/` subdirectory:
 
 ```sh
-cat > .buildkite/plugins/cgrauth/hooks/pre-command <<EOF
+cat > .buildkite/plugins/cgrauth/hooks/pre-command <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
 identity="${BUILDKITE_PLUGIN_CGRAUTH_IDENTITY:?missing identity}"
-curl -o chainctl https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr "[:upper:]" "[:lower:]")_$(uname -m)
+curl -o chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/aarch64/arm64/')"
 chmod +x chainctl
 mv chainctl /usr/bin
 token=$(buildkite-agent oidc request-token --audience issuer.enforce.dev)
@@ -321,7 +321,7 @@ $ chainctl images repos list
 If you'd like to experiment further with this identity and what the pipeline can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant:
 
 ```hcl
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```

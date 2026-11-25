@@ -58,16 +58,16 @@ To change a policy's permissions, edit the file, then commit and push the change
 
 ### Match subjects exactly
 
-Prefer exact subject matching:
+Prefer exact subject matching, replacing `[[OWNER_ID]]` and `[[REPO_ID]]` with the numeric IDs of the repository's owner and the repository:
 
 ```yaml
-subject: repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/main
+subject: repo:org@[[OWNER_ID]]/repo@[[REPO_ID]]:ref:refs/heads/main
 ```
 
 Use a pattern only when you need the flexibility:
 
 ```yaml
-subject_pattern: "repo:org@<owner-id>/repo@<repo-id>:ref:refs/heads/.*"
+subject_pattern: "repo:org@[[OWNER_ID]]/repo@[[REPO_ID]]:ref:refs/heads/.*"
 ```
 
 An exact match makes it harder to grant broader access than you intended.
@@ -82,7 +82,7 @@ To issue one token that works across several repositories, use an organization t
 
 ```yaml
 issuer: https://token.actions.githubusercontent.com
-subject: repo:org@<owner-id>/automation-repo@<repo-id>:ref:refs/heads/main
+subject: repo:org@[[OWNER_ID]]/automation-repo@[[REPO_ID]]:ref:refs/heads/main
 
 permissions:
   contents: read

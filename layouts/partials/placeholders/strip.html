@@ -1,0 +1,16 @@
+{{- /*
+Removes placeholder markers, leaving the placeholder name as plain text.
+
+Use it on text that isn't rendered as HTML, such as the Markdown and
+full-text outputs, summaries, and meta descriptions, so [[NAME]] becomes
+NAME. Refer to placeholders/render.html for the marker syntax.
+
+HTML input, such as .Summary, stays HTML so templates don't escape it.
+
+Usage: {{ partial "placeholders/strip.html" .Summary }}
+*/ -}}
+{{- $out := replaceRE `\[\[([A-Z][A-Z0-9_]*)\]\]` "$1" (string .) -}}
+{{- if eq (printf "%T" .) "template.HTML" -}}
+  {{- $out = $out | safeHTML -}}
+{{- end -}}
+{{- return $out -}}

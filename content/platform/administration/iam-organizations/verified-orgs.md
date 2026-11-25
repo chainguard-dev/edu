@@ -3,10 +3,10 @@ aliases:
 - /chainguard/administration/iam-organizations/verified-orgs/
 title : "Verified organizations"
 lead: ""
-description: "An overview of how to verify your organization and the implications"
+description: "What a verified organization is, how Enterprise, Starter, and Team organizations get verified, and what verification changes"
 type: "article"
 date: 2023-08-15T14:22:23-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-19T15:28:23+00:00
 draft: false
 tags: ["Chainguard Console", "Conceptual"]
 images: []
@@ -29,7 +29,26 @@ Verifying your organization lets you:
 - Log in through your [custom identity provider](/platform/administration/custom-idps/custom-idps/) by entering your organization name. This works in `chainctl`, the Chainguard Console, and the [Terraform provider](/platform/administration/terraform-provider/), so users don't need your identity provider's ID.
 - [Request new container images](/chainguard/containers/reference/request-resources/) in the Chainguard Console.
 
-Currently, Chainguard verifies customer organizations manually, typically while setting up your organization during onboarding. If you want to try Chainguard Containers before becoming a customer, refer to [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/).
+## How an organization gets verified
+
+How your organization gets verified depends on how it was created. Verification isn't a feature of a [plan](/get-started/self-serve/plans/), and you can't verify an organization yourself.
+
+| How the organization was created | Verified? | Organization name |
+| --- | --- | --- |
+| Chainguard set it up for an Enterprise customer | Yes. Chainguard verifies it manually, typically during onboarding. | Agreed with Chainguard, usually your company's domain |
+| You signed up for Chainguard Starter with a business email address | Yes, automatically at signup | Your email domain, such as `example.com` |
+| You signed up for Chainguard Starter with a personal email address, such as a Gmail address | No | A name you choose, which can't look like a domain name |
+
+Chainguard decides this once, when the organization is created. [Upgrading to Chainguard Team](/get-started/self-serve/upgrade-team/) keeps the organization's verification status: a verified Starter organization stays verified on Team, and an unverified one stays unverified.
+
+### Unverified Starter and Team organizations
+
+An unverified Starter or Team organization keeps its plan's images, libraries, and other products. It differs from a verified organization in these ways:
+
+- Its registry path uses the organization's ID, such as `cgr.dev/<org_id>/python`, instead of a name.
+- It isn't tied to an email domain, which changes who you can invite and how compute is metered. For details, refer to [Plan limits](/get-started/self-serve/plans/#plan-limits).
+
+Chainguard doesn't yet offer a way to verify an existing Starter or Team organization. If you plan to invite colleagues or want to pull images by name, [sign up for Chainguard Starter](/get-started/self-serve/sign-up-starter/) with a business email address. That creates a new organization, separate from any organization you created with a personal address.
 
 ## Check whether your organization is verified
 
@@ -52,7 +71,7 @@ A verified organization has the field `"verified": true`. The output for an unve
 }
 ```
 
-If your organization isn't verified, ask your Chainguard account team or support to verify it.
+If you're an Enterprise customer and your organization isn't verified, ask your Chainguard account team or support to verify it. For a Starter or Team organization, refer to [Unverified Starter and Team organizations](#unverified-starter-and-team-organizations).
 
 ## Log in with your organization name
 

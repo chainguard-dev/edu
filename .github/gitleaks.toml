@@ -1,10 +1,13 @@
-# Gitleaks configuration for documentation compilation
+# Gitleaks configuration for the pre-commit gitleaks hook
+# (.pre-commit-config.yaml). Nothing in the build reads this file. The AI
+# docs bundle has its own credential scan in compile-ai-docs-from-gcs.yaml.
 
 [allowlist]
 description = "Global allow list for documentation"
 paths = [
+    # The nightly bundle-refresh PR rewrites this file, and the build scans
+    # it for credentials before publishing, so the hook skips it.
     '''static/downloads/chainguard-complete-docs\.md''',
-    '''\.github/workflows/.*\.yml''',
 ]
 
 [[rules]]
@@ -66,16 +69,3 @@ description = "Private Key"
 id = "private-key"
 regex = '''(?i)(private_key|privatekey)(.{0,20})?['|"][0-9a-zA-Z]{32,45}['|"]'''
 tags = ["key", "Generic"]
-
-# Allow certain patterns in documentation
-[[rules.allowlists]]
-description = "Allow example keys in documentation"
-regexes = ['''example|sample|demo|test|dummy|placeholder|your-.*-here|<.*>|\$\{.*\}''']
-
-[[rules.allowlists]]
-description = "Allow code blocks"
-regexes = ['''```[\s\S]*?```''']
-
-[[rules.allowlists]]
-description = "Allow markdown links"
-regexes = ['''\[.*\]\(.*\)''']

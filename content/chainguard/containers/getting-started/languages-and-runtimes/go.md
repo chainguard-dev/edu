@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/migration/migration-guides/migrating_go/
 description: "Learn how to build more secure Go applications with Chainguard's Go container images, featuring minimal attack surface and multi-stage build patterns for optimized runtime"
 date: 2023-02-28T11:07:52+02:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -26,11 +26,11 @@ weight: 20
 toc: true
 ---
 
-Chainguard's [Go container image](https://images.chainguard.dev/directory/image/go/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) provides a secure foundation for building Go applications. The distroless `latest` variant contains only the Go compiler and runtime, while the `latest-dev` variant includes additional build tools and package management capabilities for development workflows.
+Chainguard's [Go container image](https://images.chainguard.dev/directory/image/go/overview) provides a secure foundation for building Go applications. The distroless `latest` variant contains only the Go compiler and runtime, while the `latest-dev` variant includes additional build tools and package management capabilities for development workflows.
 
 In this guide, we'll demonstrate how to build and execute Go applications using Chainguard Containers, using three examples from our [demos repository](https://github.com/chainguard-dev/edu-images-demos). In the first example, we'll build a CLI application using a Docker multi-stage build. In the second example, we'll build an application that's accessible by HTTP server, also using a Docker multi-stage build to obtain an optimized runtime. The third example shows how to build an image using [ko](https://ko.build/), a tool that enables you to build container images from Go programs and push them to container registries without requiring a Dockerfile.
 
-The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Containers, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) or [`static`](https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-go) Chainguard Containers. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
+The examples in this guide recommend executing Go binaries from one of our runtime Chainguard Containers, such as the [`glibc-dynamic`](https://images.chainguard.dev/directory/image/glibc-dynamic/overview) or [`static`](https://images.chainguard.dev/directory/image/static/overview) Chainguard Containers. That is possible because Go applications are compiled and the toolchain is not typically required in a runtime container image.
 
 {{< details "What is distroless?" >}}
 {{< blurb/distroless >}}

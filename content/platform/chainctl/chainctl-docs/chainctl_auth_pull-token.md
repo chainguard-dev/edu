@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl auth pull-token"
 slug: chainctl_auth_pull-token
 url: /platform/chainctl/chainctl-docs/chainctl_auth_pull-token/
@@ -13,6 +13,19 @@ toc: true
 
 Create a pull token.
 
+### Synopsis
+
+Create a pull token, a long-lived credential for pulling from Chainguard
+in environments that cannot sign in.
+
+--repository is the kind of registry the token pulls from: oci, apk, or a
+library ecosystem such as javascript or java. --parent is where the token
+belongs. A token for an organization pulls from the organization's default
+Libraries repository and from every named repository in it. A token for one
+Libraries repository, created with --parent ORG/REPO, pulls only from that
+repository's URL, never from the default repository or another repository,
+and grants no right to change the repository.
+
 ```
 chainctl auth pull-token [flags]
 ```
@@ -22,10 +35,10 @@ chainctl auth pull-token [flags]
 ```
       --description string   Optional description for the pull token.
       --name string          Optional name for the pull token. (default "pull-token")
-      --parent string        The IAM organization or folder with which the pull token identity is associated.
-      --repository string    The repository type to create a pull token for. Must be one of: oci, apk, python_athena, ruby, ruby_athena, javascript, java_athena, javascript_athena, dotnet, dotnet_athena, go, go_athena, java, python. (default "oci")
+      --parent string        Name or UIDP of the organization or folder the pull token belongs to. Pass ORG/REPO, such as example.com/prod, for a token that pulls only from one Libraries repository.
+      --repository string    Comma-separated repository types to create one pull token for, each one of: oci, apk, java, javascript_athena, ruby, ruby_athena, java_athena, dotnet, javascript, dotnet_athena, go, go_athena, rust, python, python_athena, rust_athena. "all" selects oci and apk. The token gets one role binding per repository type. This names the kind of registry, not a Libraries repository: pass that in --parent as ORG/REPO. (default "oci")
       --save                 Save the OCI registry pull token to the Docker configuration.
-      --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
+      --ttl ns               Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills uninstall"
 slug: chainctl_skills_uninstall
 url: /platform/chainctl/chainctl-docs/chainctl_skills_uninstall/
@@ -17,7 +17,7 @@ Remove a skill from agent directories on the local machine.
 
 Remove a skill from agent directories on the local machine.
 
-<name> is the skill name (no org or tag needed — operates on local files only).
+\<name> is the skill name (no org or tag needed — operates on local files only).
 
 By default uninstall removes the project-local copy. If a global copy also
 exists, it is left in place and a warning is printed; re-run with --global to

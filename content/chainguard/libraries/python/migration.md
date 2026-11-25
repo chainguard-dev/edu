@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing Python project to pull dependencies from Chainguard Libraries"
 date: 2026-07-14T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 tags: ["Chainguard Libraries", "Python"]
 menu:
   docs:
@@ -25,15 +25,42 @@ To follow along with a ready-made project instead of your own, use the [Chaingua
 
 For a reference of the configuration options for each supported build tool, check out [Configure Python build tools](/chainguard/libraries/python/build-configuration/).
 
+## Prepare for migration
+
+A Python migration is more than changing an index URL; the application code usually stays the same, but dependency resolution can change because Python packages are distributed as different artifacts for different operating systems, Python versions, CPU architectures, and C libraries.
+
+Plan for the following possible friction patterns:
+
+* The Chainguard catalog may not have every package, version, or wheel variant in an existing lockfile.
+    * Learn more under [Troubleshooting: Handling coverage gaps](#handling-coverage-gaps).
+* A dependency may be available for Linux but not for macOS, Windows, Alpine, or a particular Python/architecture combination.
+* A lockfile generated against PyPI contains hashes and artifact URLs that do not match Chainguard-built artifacts.
+* CI needs an authentication model that is safe for unattended builds and compatible with the package manager and repository topology.
+
+### Pre-migration readiness check
+
+Before changing the index, record the dependency and environment matrix that the migration must support:
+
+* Python versions used in development, CI, and production
+* Operating systems and CPU architectures used by developers, CI runners, build images, and deployment jobs
+* The package manager and lockfile format used by each job: `pip`, `uv`, Poetry, or another supported tool
+* Direct dependencies and improtant transitive dependencies that include native code, GPU support, platform markers, or compiled extensions
+* Whether the project uses hash-pinned requirements or lockfiles
+* Where package caches exist: local machines, CI caches, repository managers, Docker layers, and base images
+
+Run the existing build successfully before making changes. Keep the baseline dependency versions and record the commands used to install, test, and package the project. This gives your team a comparison point when a migration failure is caused by source selection, an artifact mismatch, or an unrelated dependency change.
+
 ## Prerequisites
 
 Before you begin, you need:
 
 * An existing, working Python project with a `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, or `pylock.toml`
 * [chainctl installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-* An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for Python.
+* An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for Python.
 
-If you do not have an entitlement to Chainguard Libraries for Python yet, run the following command to create an entitlement and enable upstream fallback:
+If your organization is not yet entitled to Chainguard Libraries for Python, contact your Chainguard account team to add an entitlement.
+
+New Python entitlements have upstream fallback on by default. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running the following command:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=PYTHON --policy=CHAINGUARD_AND_UPSTREAM
@@ -47,7 +74,7 @@ For authentication, you need a pull token or the Python keyring provider.
 
 {{< tabs label="Authentication method" >}}
 
-{{% tab title="Pull token" %}}
+{{< tab title="Pull token" >}}
 
 If you plan to use a repository manager, or a non-interactive environment such as CI/CD, you will need a pull token. You must have the `owner` role or have the `libraries.python.pull_token_creator` permission to create one.
 
@@ -63,11 +90,11 @@ eval $(chainctl auth pull-token --output env --repository=python --name=my-pytho
 
 Learn more about creating and managing pull tokens in the [Libraries access documentation](/chainguard/libraries/introduction/access/#creating-pull-tokens-for-libraries).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
-The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. The keyring provider requires pip 23.1 or later.
+The keyring leverages `chainctl` to fetch temporary credentials whenever your environment requests packages from Chainguard. Supported environments include local development and CI/CD platforms that can use assumable identities. For GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.python.pull` role. The keyring provider requires pip 23.1 or later.
 
 Learn how to install this package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
@@ -79,17 +106,30 @@ grep -A2 "libraries.cgr.dev" ~/.netrc
 
 Remove or correct any stale entry before proceeding.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
 > **Note: Do not commit credentials to version control.** Store tokens as environment variables or CI secrets, not as literal values in `pip.conf`, `.netrc`, or any file that might be checked into a repository.
 
+### CI and frozen uv installs
+
+If CI runs `uv sync --frozen`, configure registry authentication even though the command does not re-resolve dependencies. A frozen install can still query configured indexes - for example, to fetch a build backend or another package needed while building a source distribution. Configure credentials before the sync step, and provide access to every index the job may use.
+
+For CI, prefer a pull token or repository-manager credential in the CI secret store, mapped to uv's index-scoped environment variables. For an index named chainguard, for example:
+
+```bash
+export UV_INDEX_CHAINGUARD_USERNAME="$CHAINGUARD_PYTHON_IDENTITY_ID"
+export UV_INDEX_CHAINGUARD_PASSWORD="$CHAINGUARD_PYTHON_TOKEN"
+```
+
+Keep the index name and `UV_INDEX_*` variable names aligned, and set `authenticate = "always"` on the index. If the lockfile contains direct artifact URLs for `libraries.cgr.dev`, a pull-token-backed `.netrc` entry for that host is also suitable. Do not rely on an unauthenticated or reduced-permission path merely because the install is frozen.
+
 ## Step 1: Configure authentication and registry
 
 How you configure the index depends on your environment. Follow the instructions that match your setup.
 
-The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. By default, it serves only Chainguard-built artifacts. When upstream fallback is enabled for your organization, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
+The `https://libraries.cgr.dev/python/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Python. It serves Chainguard-built artifacts first. When upstream fallback is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from PyPI under Chainguard security controls.
 
 ### Direct access
 
@@ -101,7 +141,7 @@ Setting pull token credentials in `.netrc` is a common approach for individual w
 
 {{< tabs label="Direct access authentication method" >}}
 
-{{% tab title="Pull token in .netrc" %}}
+{{< tab title="Pull token in .netrc" >}}
 
 > **Note**: `.netrc` only supports one set of credentials per hostname. Since all Chainguard Libraries are served from `libraries.cgr.dev`, configuring `.netrc` for Python will override credentials for any other ecosystem.
 
@@ -124,9 +164,9 @@ EOF
 chmod 600 ~/.netrc
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Pull token in pip.conf" %}}
+{{< tab title="Pull token in pip.conf" >}}
 
 Unlike `.netrc`, `pip.conf` can be scoped per project or per pipeline rather than shared globally across a whole workstation.
 
@@ -167,17 +207,32 @@ This method sets both the index and its credentials in one step.
 > version with a literal token embedded in the URL. Add `.pip/` to
 > `.gitignore` if you create it locally with real credentials for testing.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python keyring" %}}
+{{< tab title="Python keyring" >}}
 
 The `keyrings-chainguard-libraries` package supplies short-lived credentials automatically via `chainctl`, avoiding static tokens on your local workstation.
 
-Follow the [instructions to install the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider).
+Install the `keyring` package with the Chainguard backend from PyPI:
+
+```bash
+uv pip install --index https://pypi.org/simple keyring keyrings-chainguard-libraries
+```
+
+Before running `uv sync`, verify that the Chainguard backend is active:
+
+```bash
+uv run --no-project python -m keyring --list-backends \
+  | grep -F 'keyrings.chainctl_auth.ChainctlAuth'
+```
+
+The output should identify `keyrings.chainctl_auth.ChainctlAuth`. If it does not, do not continue to `uv sync`; check that the packages were installed in the environment used by uv.
+
+Learn more about installing the keyring package in the [Chainguard Libraries access documentation](/chainguard/libraries/introduction/access/#python-keyring-provider).
 
 > **Note**: After switching to Chainguard, you can [reinstall the keyring package](/chainguard/libraries/introduction/access/#python-keyring-provider) to use the Chainguard-built version.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -189,7 +244,7 @@ Note that Chainguard publishes both standard and [remediated Python indexes](/ch
 
 {{< tabs label="Package manager for build tool configuration" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 If you configured authentication via `.netrc` or the Python keyring provider, run the following commands to set the remediated repository first, then the simple repository:
 
@@ -202,15 +257,15 @@ If you configured authentication via pull token credentials in `pip.conf`, this 
 is already done; the `index-url` you set in `.pip/pip.conf` already points
 at Chainguard with credentials embedded.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Edit the `pyproject.toml` for project-level or the `~/.config/uv/uv.toml` to make global-level changes, setting the remediated repository first:
 
 ```toml
 [tool.uv]
-index-strategy = "unsafe-best-match"
+index-strategy = "unsafe-first-match"
 
 [[tool.uv.index]]
 name = "cgr-pr"
@@ -224,9 +279,15 @@ authenticate = "always"
 default = true
 ```
 
-When using the remediated index, set `index-strategy = "unsafe-best-match"` so uv can resolve dependencies that fall back from remediated to non-remediated packages.
+Set `index-strategy = "unsafe-first-match"` so uv prefers the first index that has a compatible version and falls back to the next only for a version gap. With the remediated index listed first, uv keeps the remediated build when one satisfies a constraint and uses the standard Chainguard index when it doesn't.
 
-Setting `default = true` on the Chainguard index replaces PyPI as uv's default index. Without it, uv appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match` it can resolve packages from PyPI even when Chainguard serves them. This bypasses Chainguard malware blocking and cooldown. If you need packages that Chainguard has not built, use the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) instead of adding PyPI to your configuration.
+Don't set `index-strategy = "unsafe-best-match"`. That strategy selects the best version across every index at once, so once you add PyPI it can install a newer PyPI version even when Chainguard already has the package, which defeats Chainguard preference.
+
+Changing the index strategy fixes version gaps, not per-platform wheel gaps. If a version exists but has no wheel for your operating system, architecture, Python version, or C library — and no source distribution uv can build — no index strategy resolves it. See [Runtime and build requirements](/chainguard/libraries/python/overview/#runtime-and-build-requirements) and [Handling coverage gaps](#handling-coverage-gaps).
+
+uv's default `first-index` strategy limits candidates to the first index that returns a given package name. This blocks dependency-confusion attacks, but it also means a pinned version that Chainguard hasn't built fails to resolve even when PyPI has it: once a Chainguard index returns the package name, uv never consults a later index for that package. Use `first-index` only when every pinned version is available from Chainguard.
+
+For packages Chainguard hasn't built, prefer the [built-in upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) over adding PyPI as an explicit index. If you do run an explicit PyPI index, see [Multiple indexes](/chainguard/libraries/python/build-configuration/#multiple-indexes) for the full layout. Don't mark a Chainguard index as `default = true` when PyPI is listed as a regular index: the default index is lowest priority, so PyPI could be checked first and serve shared packages. Mark the PyPI fallback as `default = true` instead.
 
 If you are using the Python keyring, enable support for it in `pyproject.toml`:
 
@@ -235,9 +296,9 @@ If you are using the Python keyring, enable support for it in `pyproject.toml`:
 keyring-provider = "subprocess"
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Configure the Chainguard sources, setting the remediated index as the primary:
 
@@ -246,7 +307,7 @@ poetry source add --priority=primary chainguard-remediated https://libraries.cgr
 poetry source add chainguard https://libraries.cgr.dev/python/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -258,15 +319,15 @@ Once configured, point your build tool at your repository manager URL instead of
 
 {{< tabs label="Package manager for repository manager setup" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip config set global.index-url https://<your-repo-manager-url>/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 Configure `~/.config/uv/uv.toml` for a global default across all projects:
 
@@ -286,9 +347,9 @@ url = "https://repo.example.com/repository/python-all/simple/"
 default = true
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Run the following command:
 
@@ -297,7 +358,7 @@ poetry config http-basic.python-all REPO_MANAGER_USERNAME REPO_MANAGER_PASSWORD
 poetry source add python-all https://repo.example.com/repository/python-all/simple/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -320,7 +381,7 @@ You can update your lockfile in one of two ways. Update the checksums in place t
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use `chainctl libraries update-hashes` to rewrite only the integrity hashes in your existing lockfile or requirements file to match Chainguard's artifacts, without re-resolving your dependency graph. Supported formats include `requirements.txt`, `poetry.lock`, `uv.lock`, `pdm.lock`, `Pipfile.lock`, and `pylock.toml`.
 
@@ -330,7 +391,7 @@ Run the following command to auto-detect and update the lockfile in the current 
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify the lockfile when running the command. For example:
 
@@ -348,9 +409,9 @@ chainctl libraries update-hashes
 
 By default, Chainguard hashes are appended alongside your existing hashes rather than replacing them. If your installer fails on a dual-hash entry, use the `--replace` flag.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the migration as an opportunity to update dependencies at the same time. Before you regenerate, consider the following:
 
@@ -385,7 +446,7 @@ Poetry 2.x:
 poetry lock
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -396,29 +457,29 @@ from your previous index, with no error indicating this happened. To avoid this,
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip cache purge
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry cache clear --all pypi
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -434,30 +495,30 @@ Reinstall dependencies and confirm that the lockfile reflects Chainguard as the 
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="pip" %}}
+{{< tab title="pip" >}}
 
 ```shell
 pip install --force-reinstall --no-cache-dir -r requirements.txt
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="uv" %}}
+{{< tab title="uv" >}}
 
 ```bash
 uv sync --reinstall
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 ```bash
 poetry env remove --all
 poetry install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -465,17 +526,22 @@ poetry install
 
 After reinstalling, you can use `chainctl` to verify which dependencies are built by Chainguard. When upstream fallback is enabled, [libraries that aren't built by Chainguard](#packages-not-available-in-chainguard-libraries) are subject to Chainguard's security controls.
 
+`chainctl libraries verify` checks installed virtual environments and wheel
+files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
+
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="pip and uv" %}}
+{{< tab title="pip and uv" >}}
 
 ```shell
 chainctl libraries verify --detailed ./.venv/
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Poetry" %}}
+{{< tab title="Poetry" >}}
 
 Poetry's `virtualenv` location depends on your configuration. If `virtualenvs.in-project` is enabled, it's `.venv` in the project directory. Otherwise, find it with:
 
@@ -489,11 +555,11 @@ Then:
 chainctl libraries verify --detailed $(poetry env info --path)
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="python" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard.
 
@@ -501,7 +567,7 @@ For full details on verification options and output, check out [Verification: An
 
 ## Step 6: Commit and roll out
 
-Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies.
+Commit the updated lockfile and any non-sensitive configuration changes. Apply the same index, cache, authentication strategy, and hash-update steps to other developer workstations and build servers as you migrate them, including CI/CD platforms and any infrastructure that builds the application or installs dependencies. Test the exact CI command, including `uv sync --frozen`, with the permissions available to the real pipeline.
 
 For organization-wide rollout using a repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 
@@ -532,6 +598,60 @@ pip install -vvv <package> 2>&1 | grep -B2 -A2 "credentials\|40[13]"
 ### A pinned dependency shows "not verified" after running `chainctl libraries verify`
 
 Check your install output for a local wheel build (`Building wheel for <package>`), which indicates Chainguard has only a source distribution for that specific pinned version.
+
+### Handling coverage gaps
+
+Coverage gaps can occur at more than one level. For example, a package name may not be present in the Chainguard catalog, the pinned version may not be available, a wheel may be available for Linux but not for macOS or Windows, or a transitive dependency introduced by a version change may have different coverage from the direct dependency that caused the change.
+
+Do not use a single successful install as proof that the migration is complete. Test each environment that installs the project.
+
+A direct dependency can resolve successfully while one of its transitive dependencies, optional extras, or platform-specific wheels comes from upstream fallback. The reverse can also happen: the direct package may use fallback while its transitive dependencies are available as Chainguard-built artifacts. Evaluate the resolved artifact set, not only the names in `pyproject.toml` or `requirements.in`.
+
+Choose how to handle coverage gaps:
+
+* Confirm whether the failure is authentication or coverage. A 401/403 is an empty version list, and a genuine 404 has different causes.
+* Check the exact package version and wheel tags required by the failing environment.
+* If the artifact is not available from Chainguard, use the configured protected upstream fallback when policy allows it.
+* If the project cannot use fallback, choose a compatible version or move the install to a supported Linux environment only when that is an acceptable product decision.
+* Do not silently replace a package with a different version during migration; treat it as a separate dependency change and test it separately.
+
+### Route a transitive dependency to a specific index
+
+When the gap is in a transitive dependency — a package pulled in by one of your dependencies rather than declared directly — you may need to route only that package to a specific index, such as an explicit PyPI fallback. uv's `[tool.uv.sources]` pins a package to a named index, but it applies only to direct dependencies: a source entry for a package that appears only transitively is ignored.
+
+To route a transitive dependency, promote it to a direct dependency by adding it to `[project].dependencies`, then pin it with `[tool.uv.sources]`. For example, to route `urllib3` — pulled in transitively by `requests` — to an explicit PyPI index:
+
+```toml
+[project]
+dependencies = [
+    "requests",
+    "urllib3",   # promoted to a direct dependency so the source below applies
+]
+
+[tool.uv.sources]
+urllib3 = { index = "pypi-fallback" }
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
+```
+
+uv now resolves `urllib3` from `pypi-fallback` while every other package still resolves from the Chainguard indexes.
+
+Promoting a transitive dependency is a real dependency change: you now own its version constraint. Pin a version you have tested, and treat the change as separate from the migration. This pattern applies to explicit multi-index layouts; with the built-in upstream fallback, you don't configure PyPI as a separate index.
+
+### Freeze the lockfile while you route remaining gaps
+
+A full `uv sync` re-resolves your dependency graph and fails if any gap is still unrouted. To keep builds working while you route the remaining gaps one at a time, install from your committed lockfile without re-resolving:
+
+1. Update the integrity hashes in place with `chainctl libraries update-hashes`, which rewrites hashes without changing your locked versions. See [Update your lockfile](#step-2-update-your-lockfile).
+2. Install with `uv sync --frozen`, which installs exactly what the lockfile pins and skips re-resolution.
+
+This holds a known-good graph while you route each gap explicitly — through `[tool.uv.sources]`, the built-in upstream fallback, or a compatible version — instead of letting one unrouted gap block the whole resolve.
+
+`uv sync --frozen` is not an offline mode. It can still query configured indexes to fetch a build backend or another package needed to build a source distribution, so the job still needs credentials for every configured index. See [CI and frozen uv installs](#ci-and-frozen-uv-installs).
+
+Stop relying on `--frozen` once every gap is routed and a full `uv sync` re-resolves cleanly into a stable lockfile.
 
 ## Next steps
 

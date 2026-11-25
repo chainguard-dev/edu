@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl iam identities describe"
 slug: chainctl_iam_identities_describe
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_describe/
@@ -13,8 +13,47 @@ toc: true
 
 View the details of an identity.
 
+### Synopsis
+
+View the details of an identity: where it lives, the roles it holds, and
+what it trusts.
+
+For an identity assumed from CI, the output shows the token claims it
+accepts (issuer, subject, audience, and any extra claims) as exact values
+or patterns. Compare them with the claims in the failing job's OIDC token.
+"Last seen at" is the last successful token exchange; 0001-01-01 means no
+exchange has ever matched. An identity with no role bindings has no Roles
+section.
+
+Example output for a GitHub Actions identity:
+
+```
+Identity "github-ci"
+Last seen at: 2026-11-12 18:04:11.512 +0000 UTC
+
+ID: 0123.../abcd...
+Location: my-org [0123...]
+
+Roles:
+  - my-org: registry.pull
+
+Type: Claim match
+  Issuer: https://token.actions.githubusercontent.com
+  Subject Pattern: repo:my-org/my-repo:ref:refs/heads/main
+```
+
 ```
 chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID} [flags]
+```
+
+### Examples
+
+```
+  # Show what an identity trusts and which roles it holds
+  chainctl iam identities describe github-ci
+  
+  # Emit JSON for scripting
+  chainctl iam identities describe github-ci -o json
 ```
 
 ### Options inherited from parent commands

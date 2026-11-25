@@ -4,7 +4,7 @@ linktitle: "Configuration"
 description: "Understand Guardener's .chainguard/ configuration model and how to enable features per repository."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-23T14:36:15+00:00
 draft: false
 tags: ["GitHub", "Configuration"]
 images: []
@@ -24,6 +24,7 @@ Guardener reads its configuration from the `.chainguard/` directory at the root 
 ```text
 .chainguard/
 ├── actions.yaml   # Hardened Actions
+├── images.yaml    # Container Image Suggestions and Container Image Migration
 └── source.yaml    # Commit Verification
 ```
 
@@ -31,7 +32,7 @@ Because these files live in your repository, your configuration is reviewed thro
 
 ## Features are opt-in per repository
 
-Installing the Guardener GitHub App does not change any repository on its own. Each feature stays disabled until you add its configuration file and enable it. This means you can:
+Installing the Chainguard App does not change any repository on its own. Each feature stays disabled until you add its configuration file and enable it. This means you can:
 
 - Roll a feature out to one repository at a time.
 - Try a feature in report-only or non-blocking mode before enforcing it.
@@ -44,7 +45,11 @@ A repository with no `.chainguard/` files is unaffected by Guardener even when t
 | Feature                                                           | Config file                | What it does                                                                |
 | ----------------------------------------------------------------- | -------------------------- | --------------------------------------------------------------------------- |
 | [Hardened Actions](/chainguard/guardener/github/actions-security/)       | `.chainguard/actions.yaml` | Recommends and migrates GitHub Actions to hardened, SHA-pinned equivalents. |
+| [Container Image Suggestions](/chainguard/guardener/github/image-suggestions/) | `.chainguard/images.yaml` | Recommends Chainguard container images for the images a pull request adds or changes. |
+| [Container Image Migration](/chainguard/guardener/github/image-migration/) | `.chainguard/images.yaml` | Opens a pull request that replaces the images a repository already uses with Chainguard container images. |
 | [Commit Verification](/chainguard/guardener/github/commit-verification/) | `.chainguard/source.yaml`  | Verifies that commits in a pull request are signed by an authorized signer. |
+
+The `.chainguard/` directory also holds configuration for two other products that use the Chainguard App: a `ci.yaml` file or `ci/` directory for [Chainguard Checks](/chainguard/checks/configuration/), and a `develop.yaml` file for [Chainguard Workspaces](/chainguard/workspaces/session-environment/#use-a-chainguarddevelopyaml-file).
 
 Additional features will be added over time, each with its own `.chainguard/` file and opt-in configuration.
 
@@ -58,26 +63,31 @@ The `.github` repository is a special repository that GitHub already uses for or
 .github/                # your organization's .github repository
 └── .chainguard/
     ├── actions.yaml     # org-wide default for Hardened Actions
+    ├── images.yaml      # org-wide default for Container Image Suggestions and Container Image Migration
     └── source.yaml      # org-wide default for Commit Verification
 ```
 
 To use org-level configuration:
 
 1. Create a repository named `.github` in your organization if you don't already have one.
-2. Add the Guardener GitHub App to the `.github` repository (or install it on **All repositories**).
+2. Add the Chainguard App to the `.github` repository (or install it on **All repositories**).
 3. Commit your `.chainguard/` configuration files to the default branch of the `.github` repository.
 
 Once in place, every repository Guardener can access inherits this configuration without needing its own `.chainguard/` files.
+
+Organization-level configuration covers only Guardener's files. Chainguard Checks and Chainguard Workspaces never read `ci.yaml`, the `ci/` directory, or `develop.yaml` from the `.github` repository, so commit those files to each repository that uses them.
 
 ### How repository and organization configuration combine
 
 Configuration committed directly to a repository takes precedence over the organization-level configuration from the `.github` repository:
 
-- A repository with its own `.chainguard/<feature>.yaml` file uses that file for the feature, ignoring the org-level default for it.
+- A repository with its own `.chainguard/[[FEATURE]].yaml` file uses that file for the feature, ignoring the org-level default for it.
 - A repository without a given feature file falls back to the org-level default in the `.github` repository.
 - A feature that is configured in neither place stays disabled for the repository.
 
 This lets you set a baseline for the whole organization and override it only where a specific repository needs different behavior.
+
+Guardener doesn't merge the keys of the two files. A repository file replaces the org-level file for its feature entirely, so it must repeat every org-level setting that the repository still needs. For example, if your org-level `images.yaml` sets [`external_registry`](/chainguard/guardener/github/image-suggestions/#use-your-own-registry), a repository with its own `images.yaml` must set `external_registry` too.
 
 > **Note:** Guardener reads the org-level configuration from the default branch (that is, `main`) of the `.github` repository, just as it does for per-repository configuration.
 
@@ -94,4 +104,6 @@ To add or update the Guardener configuration:
 ## Next steps
 
 - **[Hardened Actions](/chainguard/guardener/github/actions-security/)** — Configure `.chainguard/actions.yaml`.
+- **[Container Image Suggestions](/chainguard/guardener/github/image-suggestions/)** — Configure `.chainguard/images.yaml`.
+- **[Container Image Migration](/chainguard/guardener/github/image-migration/)** — Add a `migrate` block to `.chainguard/images.yaml`.
 - **[Commit Verification](/chainguard/guardener/github/commit-verification/)** — Configure `.chainguard/source.yaml`.

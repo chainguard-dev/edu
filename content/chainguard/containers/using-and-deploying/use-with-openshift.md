@@ -4,7 +4,7 @@ linktitle: "Using with OpenShift"
 type: "article"
 description: "Learn how to deploy Chainguard Containers on Red Hat OpenShift, including security context adjustments and permission configurations for enhanced security"
 date: 2025-06-17T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "OpenShift"]
 images: []
@@ -15,7 +15,7 @@ aliases:
 - /chainguard/containers/how-to-use/use-with-openshift/
 ---
 
-Chainguard Containers are fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.
+Chainguard Containers is fully compatible with Red Hat OpenShift Container Platform, providing enhanced security while requiring some configuration adjustments for OpenShift's security context constraints. This guide explains how to successfully deploy Chainguard's minimal, security-hardened container images in OpenShift environments.
 
 [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is an application platform that orchestrates and manages your systems and resources. While it is based on open source software like Kubernetes, OpenShift includes a suite of applications with additional functionality that are configured to work together.
 

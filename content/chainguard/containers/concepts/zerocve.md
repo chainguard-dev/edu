@@ -5,7 +5,7 @@ description: "The three practices behind the low CVE counts in Chainguard Contai
 type: "article"
 tags: ["Video", "Chainguard Containers"]
 date: 2024-05-31T12:21:01+00:00
-lastmod: 2026-10-01T14:31:17+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 images: []
 weight: 70
@@ -22,7 +22,7 @@ aliases:
 - /chainguard/containers/concepts/beyond_zero_pytorch_2024/
 ---
 
-Chainguard Containers typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
+Chainguard's container images typically report few or no CVEs when scanned, which raises a fair question about whether those findings are being suppressed. They are not. Scanners read Chainguard Containers exactly as they read any other container, and they report whatever they find. The low counts are instead the product of three practices: shipping less software, rebuilding nightly, and publishing security advisories that tell scanners what a given finding means.
 
 This article explains each practice, and describes how to verify the results independently.
 
@@ -51,7 +51,7 @@ The key point is that CVE counts on Chainguard Containers are a function of how 
 
 A pinned digest never changes. That is the purpose of pinning, and also its cost. Pair it with tooling that moves the pin, such as [Digestabot](/chainguard/containers/security-and-compliance/updating-containers/digestabot/), and refer to [Considerations for image updates](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) for guidance on planning the cadence.
 
-For current CVE data on a specific container and tag, refer to that container's entry in the [Chainguard Containers directory](https://images.chainguard.dev/directory?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve).
+For current CVE data on a specific container and tag, refer to that container's entry in the [Chainguard Containers directory](https://images.chainguard.dev/directory).
 
 ## Practice 1: shipping less software
 
@@ -77,7 +77,7 @@ A Chainguard security advisory is a machine-readable record, issued per package 
 
 Advisories are published in several places:
 
-- The [Security Advisories page](https://images.chainguard.dev/security/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-containers-concepts-zerocve) in the Containers directory, for browsing by CVE or container.
+- The [Security Advisories page](https://images.chainguard.dev/security/) in the Containers directory, for browsing by CVE or container.
 - [`wolfi-dev/advisories`](https://github.com/wolfi-dev/advisories) on GitHub, where each package's advisories live as YAML.
 - An [OSV](https://ossf.github.io/osv-schema/) feed, for scanners and automation.
 

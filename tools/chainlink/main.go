@@ -19,6 +19,7 @@ import (
 
 func init() {
 	flag.StringVar(&hostname, "hostname", "edu.chainguard.dev", "Hostname to prepend to relative URLs")
+	flag.StringVar(&basePath, "basePath", "", "Path to prepend to relative URLs, such as `/docs`. When set, a trailing slash is also removed")
 	flag.StringVar(&scheme, "scheme", "https", "Scheme to use with hostname. `http` or `https`")
 	flag.StringVar(&httpMethod, "method", "HEAD", "HTTP method to use - `HEAD` or `GET`")
 	flag.StringVar(&ignoreFile, "ignoreFile", "ignore.json", "Path to json file with a list of URLs and regexes to not check")

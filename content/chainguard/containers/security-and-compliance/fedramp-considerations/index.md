@@ -142,20 +142,16 @@ Traditionally, to meet these compliance requirements, containers would access an
 <center><img src="fedramp-considerations-2.png" alt="Diagram labeled 'FIPS Module + SP 800-90B Entropy Source'. The diagram shows two boxes labeled 'Container Image' and 'Host OS Linux Kernel.' The 'Container Image' box holds two boxes within it labeled 'Application' and 'FIPS Module,' with 'FIPS Module' surrounded by a rectangle labeled 'FIPS Cryptographic Boundary.' The 'Host OS Linux Kernel' box contains a box labeled 'Kernel FIPS Module' and a cylinder labeled 'SP 800-90B Entropy Source,' both of which are surrounded by a rectangle labeled 'FIPS Cryptographic Boundary.' An arrow points from the 'Application' to the 'FIPS Module' and from the 'FIPS Module' to the 'Entropy Source.'" style="width:1050px;"></center>
 <br />
 
-This architecture drives significant friction for vendors delivering FIPS compliant workloads for  modern cloud-native applications. First, very few versions of the Linux Kernel are certified. Second, Linux Kernel certification timelines are often long and arduous.
+This architecture drives significant friction for vendors delivering FIPS compliant workloads for modern cloud-native applications. First, very few versions of the Linux Kernel are certified. Second, Linux Kernel certification timelines are often long and arduous.
 Ultimately, this results in a very limited choice of certified runtimes and compatible underlying hardware for developers to build on. In practice, it means that a certified kernel from a given vendor might be over 5 years old. Outdated kernels typically lack support and optimizations for the latest generation of hardware, and are often incompatible with the latest cloud instance types. It also means when sticking to the same vendor, the application runtimes are equally as out of date and vulnerable.
 Chainguard's solution has the FIPS module and the SP 800-90B entropy source co-located in the container image userspace. This eliminates the need for a certified Linux kernel for the majority of workloads and streamlines engineering effort for workload deployments. This is why Chainguard FIPS images now ship with a certified userspace SP 800-90B entropy source, as in this design:
 
 <center><img src="fedramp-considerations-3.png" alt="Diagram labeled Kernel Independent FIPS Container Images. The diagram contains a box labeled 'New Chainguard FIPS Container Image' which contains three objects: a box labeled 'Application', a box labeled 'FIPS Module' (which is surrounded by a rectangle labeled 'FIPS Cryptographic Boundary') and a cylinder labeled 'SP 800-90B Entropy Source.' An arrow points from 'Application' to 'FIPS Module,' and another arrow points from 'FIPS Module' to the 'Entropy Source' cylinder." style="width:1050px;"></center>
 <br />
 
-This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own CMVP](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
+This means that the entropy source is now independent of the hardware or cloud environment. Essentially, you can have FIPS on any host OS, kernel, and hardware. You can even have FIPS on managed cloud Kubernetes platforms like GKE, EKS, and AKS. Note that this solution has been tested by two NIST labs and [certified with its own Entropy Source Validation (ESV)](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191).
 
-For more information, please refer to the CMVP entries for Chainguard's FIPS Modules and entropy source:
-
-* OpenSSL FIPS 3.0 Provider Module (CMVP #4856)
-* Bouncy Castle FIPS Java API (CMVP #4743 [historical: CMVP #4616])
-* Chainguard CPU Time Jitter RNG Entropy Source ([ESV Entropy Certificate #E191](https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/191))
+For the current list of Chainguard's FIPS modules and entropy sources, along with their CMVP and ESV certificates, refer to the [Chainguard FIPS commitment](https://www.chainguard.dev/legal/fips-commitment).
 
 Additionally, check out our blog post on [Kernel-Independent FIPS Containers](https://www.chainguard.dev/unchained/kernel-independent-fips-images).
 

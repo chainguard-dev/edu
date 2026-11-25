@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl iam identities create aws role"
 slug: chainctl_iam_identities_create_aws_role
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_create_aws_role/
@@ -11,7 +11,7 @@ toc: true
 ---
 ## chainctl iam identities create aws role
 
-
+Create a new identity for an AWS IAM role.
 
 ```
 chainctl iam identities create aws role NAME --aws-account-id=ACCOUNT --aws-role-name=NAME [--aws-role-id=ID] [--aws-partition=PARTITION] [--parent=PARENT] [--description=DESC] [--role=ROLE,ROLE,...] [--output=id|json|table]

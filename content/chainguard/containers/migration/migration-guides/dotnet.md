@@ -8,7 +8,7 @@ linktitle: ".NET"
 type: "article"
 description: "Learn how to migrate .NET applications from images provided by Microsoft to Chainguard's security-hardened .NET container images."
 date: 2025-11-05T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -16,7 +16,7 @@ weight: 10
 toc: true
 ---
 
-Chainguard's [.NET container images](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) provide a security-hardened foundation for building and running applications with significantly fewer vulnerabilities than .NET images provided by Microsoft. Chainguard's .NET container images maintain full .NET compatibility while dramatically reducing the attack surface.
+Chainguard's [.NET container images](https://images.chainguard.dev/directory/image/dotnet-sdk/overview) provide a security-hardened foundation for building and running applications with significantly fewer vulnerabilities than .NET images provided by Microsoft. Chainguard's .NET container images maintain full .NET compatibility while dramatically reducing the attack surface.
 
 This guide demonstrates migrating a .NET application from Microsoft's official images to Chainguard's .NET container images by building one application with two different Dockerfiles and comparing the results side by side. This guide also highlights concrete examples of the security improvements resulting from migrating to Chainguard Containers.
 
@@ -384,6 +384,6 @@ These small changes result in containerized applications with few-to-zero vulner
 
 For detailed information about Chainguard's .NET container images and additional configuration options, refer to the following resources:
 
-- The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) and [.NET Runtime](https://images.chainguard.dev/directory/image/dotnet-runtime/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-dotnet) documentation pages contain full details on Chainguard's .NET images, including usage documentation, provenance, and security advisories.
+- The [.NET SDK](https://images.chainguard.dev/directory/image/dotnet-sdk/overview) and [.NET Runtime](https://images.chainguard.dev/directory/image/dotnet-runtime/overview) documentation pages contain full details on Chainguard's .NET images, including usage documentation, provenance, and security advisories.
 - Our [General migration guidance](/chainguard/containers/migration/migrating-to-chainguard-images/) is helpful for understanding migration best practices.
 - [Guardener](/chainguard/guardener/dockerfile-migration/) is an AI-powered agent that iteratively converts, builds, and validates your Dockerfiles for use with Chainguard Containers.

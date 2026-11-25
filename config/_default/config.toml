@@ -1,4 +1,7 @@
-baseURL = "https://edu.chainguard.dev/"
+# The address the docs are served at. Local runs (npm run start) serve them
+# under /docs/ too. The Cloud Run image that redirects edu.chainguard.dev
+# builds with its own base URL; see .github/workflows/cloud-run.yaml.
+baseURL = "https://www.chainguard.dev/docs/"
 canonifyURLs = false
 disableAliases = false
 disableHugoGeneratorInject = true
@@ -19,19 +22,14 @@ disableLanguages = ["de", "nl"]
 # defaultContentLanguageInSubdir = true
 # add redirects/headers
 [outputs]
-home = ["HTML", "RSS", "ALIASES", "REDIRECTS", "VERCELCONFIG", "HEADERS", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS", "SITEMAP"]
+home = ["HTML", "RSS", "ALIASES", "VERCELCONFIG", "TXT", "FULLTXT", "AIMETADATA", "AISITEMAP", "CONCEPTS", "SITEMAP"]
 section = ["HTML", "RSS", "SITEMAP", "MD"]
 page = ["HTML", "MD"]
-# remove .{ext} from text/netlify
+# Extensionless plain text, for the nginx _aliases map. The name dates from
+# Netlify, which used it for _redirects and _headers.
 [mediaTypes."text/netlify"]
 suffixes = [""]
 delimiter = ""
-# add output format for netlify _redirects
-[outputFormats.REDIRECTS]
-mediaType = "text/netlify"
-baseName = "_redirects"
-isPlainText = true
-notAlternative = true
 # add output format for the Vercel preview's routing table (Build Output API)
 [outputFormats.VERCELCONFIG]
 mediaType = "application/json"
@@ -42,12 +40,6 @@ notAlternative = true
 [outputFormats.ALIASES]
 mediaType = "text/netlify"
 baseName = "_aliases"
-isPlainText = true
-notAlternative = true
-# add output format for netlify _headers
-[outputFormats.HEADERS]
-mediaType = "text/netlify"
-baseName = "_headers"
 isPlainText = true
 notAlternative = true
 # add output format for section sitemap.xml
@@ -103,7 +95,6 @@ notAlternative = true
   filename = "sitemap.xml"
   priority = 0.5
 [taxonomies]
-  contributor = "contributors"
   tags = "tags"
 [related]
   # Only include matches with rank >= threshold

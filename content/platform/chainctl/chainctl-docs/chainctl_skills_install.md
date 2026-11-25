@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills install"
 slug: chainctl_skills_install
 url: /platform/chainctl/chainctl-docs/chainctl_skills_install/
@@ -17,14 +17,20 @@ Download a skill and install it into agent directories.
 
 Download a skill and place it into the skills directories of detected agents.
 
-<ref> is a skill reference, optionally host-qualified: a bare org/name (or
+\<ref> is a skill reference, optionally host-qualified: a bare org/name (or
 org/owner/name) resolves to the hardened catalog on skills.cgr.dev, while an
 uploads.cgr.dev/org/name reference installs a private skill straight from the
 uploads namespace (the same reference `chainctl skills list --source uploads`
 prints).
 
-By default, a shared canonical copy is written to .agents/skills/<name>/ and
+By default, a shared canonical copy is written to .agents/skills/\<name>/ and
 agent-specific symlinks are created. Use --copy to write independent copies.
+
+With --verify, the fetched digest must pass the same signature check as
+`chainctl skills verify` before any file or symlink is written; otherwise
+the command exits nonzero and installs nothing. A skill on a registry whose
+signatures chainctl cannot verify, such as a staging or development registry,
+fails too, unless --allow-unverifiable-host is also given.
 
 ```
 chainctl skills install <ref> [flags]
@@ -33,9 +39,11 @@ chainctl skills install <ref> [flags]
 ### Options
 
 ```
-  -a, --agent stringArray   Target specific agents by ID (repeatable). Use --agent '*' for all known agents.
-      --copy                Copy files per agent instead of using a shared canonical copy + symlinks.
-      --global              Install to global (~/) directories instead of project-local.
+  -a, --agent stringArray         Target specific agents by ID (repeatable). Use --agent '*' for all known agents.
+      --allow-unverifiable-host   With --verify, accept a skill from a registry whose signatures chainctl cannot verify, such as a staging or development registry, with a warning instead of failing.
+      --copy                      Copy files per agent instead of using a shared canonical copy + symlinks.
+      --global                    Install to global (~/) directories instead of project-local.
+      --verify                    Check Chainguard's signature on the fetched skill, as 'chainctl skills verify' does, before writing anything. Fails unless verified, including for a skill on a registry whose signatures chainctl cannot verify.
 ```
 
 ### Options inherited from parent commands

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Migrate to Chainguard"
 description: "How to migrate an existing JavaScript project to pull dependencies from Chainguard Libraries"
 date: 2026-06-01T00:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 tags: ["Chainguard Libraries", "JavaScript"]
 menu:
   docs:
@@ -41,21 +41,21 @@ Before you begin, you'll need:
 - An existing JavaScript project with a `package.json` and a lockfile
   (`package-lock.json`, `pnpm-lock.yaml`, `yarn.lock`, or `bun.lock`)
 - [`chainctl` installed and authenticated](/platform/chainctl-usage/how-to-install-chainctl/)
-- An [entitlement to Chainguard Libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/)
+- An [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement)
   for JavaScript
 
-### Create an entitlement
+### Entitlement and upstream fallback
 
-To create an entitlement to Chainguard Libraries for JavaScript and enable upstream fallback, including a default 7-day cooldown, run:
+You must have an [entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#entitlement) for JavaScript. To add an entitlement for your organization, contact your Chainguard account team.
+
+New JavaScript entitlements have upstream fallback on by default, with a default 7-day cooldown. To check your entitlement's policy, run `chainctl libraries entitlements list`. If upstream fallback is off, turn it on by running:
 
 ```shell
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-Alternatively, you can create an entitlement and pull token in the Chainguard Console: while viewing the JavaScript ecosystem page, follow the prompts to create an access token.
-
 You can also configure [cooldown policies](#packages-not-available-in-chainguard-libraries)
-after you create the entitlement. For example, to create and enforce a
+after you enable upstream fallback. For example, to create and enforce a
 policy for a 14-day cooldown:
 
 ```shell
@@ -106,39 +106,39 @@ To see all currently active npm configuration and where each value comes from:
 
 {{< tabs label="Package manager for auditing registry configuration" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```shell
 npm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```shell
 yarn config list
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```shell
 cat bunfig.toml
@@ -146,7 +146,7 @@ cat bunfig.toml
 
 If there is no `bunfig.toml`, or if that file does not contain a specific registry, then it is using the standard npm registry by default.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -184,8 +184,11 @@ chainctl auth configure-npm
 
 Because [this
 command](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/) uses a
-session-backed bearer token, you will need to re-run it when the token expires.
-If the command returns an error, ensure you are using the [latest version of
+short-lived, session-backed bearer token, you must re-run it when the token
+expires; a later install can fail with an `E401` authentication error even
+though your configuration is unchanged. For longer-lived access, use a [pull
+token](#pull-token-authentication). If the command returns an error, ensure you
+are using the [latest version of
 chainctl](/platform/chainctl-usage/how-to-install-chainctl/#updating-chainctl).
 
 For pnpm and Yarn, [configure the .npmrc
@@ -201,6 +204,9 @@ identities](/platform/administration/assumable-ids/assumable-ids/) are the
 recommended approach. Rather than managing a static token, an assumable identity
 lets your CI/CD workload authenticate directly with Chainguard using its own
 platform identity; no long-lived credentials to rotate or accidentally expose.
+To set one up for GitHub Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.javascript.pull` role.
 
 Once configured, authenticate and write the registry configuration in your
 pipeline. For example, in a GitHub Actions workflow using npm:
@@ -317,7 +323,7 @@ credentials — not a Chainguard pull token.
 
 {{< tabs label="Package manager for repository manager configuration" >}}
 
-{{% tab title="npm or Yarn Classic" %}}
+{{< tab title="npm or Yarn Classic" >}}
 
 ```shell
 cat > .npmrc << EOF
@@ -327,9 +333,9 @@ EOF
 
 Learn more in the build configuration docs for [npm](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager) and for [Yarn Classic](/chainguard/libraries/javascript/build-configuration/#using-a-repo-manager).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 ```shell
 pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
@@ -337,9 +343,9 @@ pnpm config set registry https://<your-repo-manager-url>/repository/javascript-a
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```shell
 yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
@@ -347,9 +353,9 @@ yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/jav
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Add the registry configuration to the `bunfig.toml` file of your project:
 
@@ -361,7 +367,7 @@ registry = "https://repo.example.com:8443/repository/javascript-all/"
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-3).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -408,7 +414,7 @@ refresh your dependency versions.
 
 {{< tabs label="Lockfile update approach" >}}
 
-{{% tab title="Update in place" %}}
+{{< tab title="Update in place" >}}
 
 Use [`chainctl libraries update-hashes`](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes)
 to rewrite only the integrity hashes in your existing lockfile to match
@@ -422,7 +428,7 @@ Run the command in the directory containing the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
@@ -440,9 +446,9 @@ reinstalling.
 Learn about using this command with repo managers in the [Global
 configuration](/chainguard/libraries/javascript/global-configuration/) page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Regenerate lockfile" %}}
+{{< tab title="Regenerate lockfile" >}}
 
 Regenerating the lockfile is another valid approach, and many teams use the
 migration as an opportunity to update dependencies at the same time. Before you
@@ -454,7 +460,7 @@ in `package.json`. If a constraint uses `^` or `~` (the npm default), the
 resolver picks the newest matching version, so you can lose your existing pins
 and pick up unintended upgrades that change your application's behavior.
 - Whether Chainguard has a resolved version available depends on the policies
-you've configured. For example, a version that was published upstream within your configured cooldown period will return an error. Check the cooldown period you've set before you regenerate.
+you've configured. For example, a version published upstream within your configured cooldown period is withheld until the window passes: it does not appear during resolution, and a request for that exact version returns a `403`. Check the cooldown period you've set before you regenerate.
 
 To regenerate — for example, to intentionally refresh your dependency
 versions — use the following commands:
@@ -467,12 +473,14 @@ versions — use the following commands:
 | Yarn Classic | `rm -rf node_modules yarn.lock && yarn` |
 | Bun | `rm -rf node_modules bun.lock && bun install` |
 
-If you hit 404 errors after regenerating, the most likely cause is that the
-resolved version is not yet available in Chainguard Libraries or is still within
-the cooldown window. Refer to [Packages not available in Chainguard
+After regenerating, a `404` usually means the resolved package or version is not
+available in Chainguard Libraries and upstream fallback is not enabled. A version
+within the cooldown window instead returns a `403` when you request that exact
+version, and it does not appear in the version list during resolution. Refer to
+[Packages not available in Chainguard
 Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -480,15 +488,15 @@ Libraries](#packages-not-available-in-chainguard-libraries) for next steps.
 
 {{< tabs label="Package manager for clearing caches" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 ```bash
 rm -rf node_modules && npm cache clean --force
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 First, remove `node_modules`:
 
@@ -536,25 +544,25 @@ Use the path returned by `pnpm store path` and delete it via File Explorer or `r
 
 > Note: `pnpm prune` removes unused tarballs but does not remove packument metadata. If you are seeing 404 errors after switching to or updating the Chainguard registry endpoint, use the commands above rather than `pnpm prune`.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Berry" %}}
+{{< tab title="Yarn Berry" >}}
 
 ```bash
 rm -rf node_modules .yarn/cache
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 ```bash
 rm -rf node_modules && yarn cache clean
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 ```bash
 rm -rf node_modules && bun pm cache rm
@@ -562,7 +570,7 @@ rm -rf node_modules && bun pm cache rm
 
 If this command is not available on your version of Bun, you can instead delete Bun's cache directory manually.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -575,7 +583,7 @@ your repository manager host, not `registry.npmjs.org`.
 
 {{< tabs label="Package manager for reinstalling dependencies" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Install dependencies:
 
@@ -589,9 +597,9 @@ Then check the `resolved` field in `package-lock.json`:
 grep "resolved" package-lock.json | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Install dependencies:
 
@@ -611,9 +619,9 @@ For pnpm v9+, check the `integrity` field:
 grep "integrity" pnpm-lock.yaml | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn" %}}
+{{< tab title="Yarn" >}}
 
 Install dependencies:
 
@@ -627,9 +635,9 @@ Then check the `archiveUrl` field in `yarn.lock`:
 grep "archiveUrl" yarn.lock | head -5
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Bun" %}}
+{{< tab title="Bun" >}}
 
 Install dependencies:
 
@@ -639,7 +647,7 @@ bun install
 
 Then check the `packages` section in `bun.lock` to verify that package source URLs reference Chainguard (or your repository manager) rather than npm.
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
@@ -656,7 +664,7 @@ When upstream fallback is enabled, [packages that aren't built by Chainguard](#p
 
 {{< tabs label="Package manager for verifying libraries" >}}
 
-{{% tab title="npm" %}}
+{{< tab title="npm" >}}
 
 Scan the npm cache:
 
@@ -670,9 +678,9 @@ Verify an npm tarball:
 chainctl libraries verify PACKAGE-VERSION.tgz
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="pnpm" %}}
+{{< tab title="pnpm" >}}
 
 Use `--store-dir` to install to an explicit path and verify that location:
 
@@ -683,9 +691,9 @@ chainctl libraries verify /tmp/my-pnpm-store
 
 Learn more about verifying a pnpm store in the [Verification page](/chainguard/libraries/policies-and-security/verification/#analyze-javascript-packages).
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Yarn Classic" %}}
+{{< tab title="Yarn Classic" >}}
 
 Verify a Yarn Classic cache:
 
@@ -693,9 +701,9 @@ Verify a Yarn Classic cache:
 chainctl libraries verify yarn:
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="node_modules" %}}
+{{< tab title="node_modules" >}}
 
 Scan the project directory:
 
@@ -703,11 +711,11 @@ Scan the project directory:
 chainctl libraries verify ./node_modules
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.javascript.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="javascript" %}}
 
 A successful result shows what percentage of your project's dependencies were built by Chainguard. For example:
 
@@ -761,13 +769,19 @@ packages already satisfied by the lockfile. Follow
 regenerate the lockfile.
 
 **404 errors during install**  
-The requested package or version may not yet be available in Chainguard
-Libraries, or may still be within the cooldown window. Check the [Chainguard
+A `404` usually means the requested package or version is not available in
+Chainguard Libraries and upstream fallback is not enabled. Check the [Chainguard
 Console](https://console.chainguard.dev/libraries/javascript), try an earlier
 version, or enable upstream fallback. Refer to [Packages not available in Chainguard
-Libraries](#packages-not-available-in-chainguard-libraries). Also note that
-upstream fallback and cooldown policies can take up to 30 minutes to go into
-effect.
+Libraries](#packages-not-available-in-chainguard-libraries). Upstream fallback
+and cooldown policies can take up to 30 minutes to go into effect.
+
+**403 errors during install**  
+A `403` with a reason means a version is blocked by a policy such as a cooldown,
+or by malware or greyware scanning. A version within the cooldown window is also
+withheld from the package's metadata, so it does not appear in the version list
+and its publish time is absent; only a request for the exact version returns the
+`403`. Refer to [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
 **Authentication errors or `npm ping` failure**  
 Confirm your environment variables are set and the token has not expired.

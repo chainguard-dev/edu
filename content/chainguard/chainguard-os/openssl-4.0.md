@@ -51,6 +51,10 @@ For more information about Transport Layer Security (TLS) please see the followi
 - [RFC 9151](https://www.rfc-editor.org/info/rfc9151/)
 - [draft-becker-cnsa2-tls-profile](https://datatracker.ietf.org/doc/draft-becker-cnsa2-tls-profile/)
 
+## Changelog
+
+2026-10-07: Brainpool removed from the default configuration. Brainpool groups, curves, signatures remain available as opt-in. We received a report about Palo Alto Networks firewalls blocking connections advertising Brainpool groups.
+
 ## TLS Cipher Suites
 
 | Value | Cipher Suite | v4.0 | FIPS v3.6 | PQC |
@@ -91,9 +95,9 @@ For more information about Transport Layer Security (TLS) please see the followi
 | 23 | secp256r1 | Default | Default |  |
 | 24 | secp384r1 | Default | Preshare |  |
 | 25 | secp521r1 | Default | Default |  |
-| 26, 31 | brainpoolP256r1 | Default |  |  |
-| 27, 32 | brainpoolP384r1 | Default |  |  |
-| 28, 33 | brainpoolP512r1 | Default |  |  |
+| 26, 31 | brainpoolP256r1 | Available |  |  |
+| 27, 32 | brainpoolP384r1 | Available |  |  |
+| 28, 33 | brainpoolP512r1 | Available |  |  |
 | 29 | x25519 | Preshare |  |  |
 | 30 | x448 | Default |  |  |
 
@@ -122,18 +126,18 @@ The brainpool rows combine two codepoints each: the first one (`brainpoolP256r1`
 | 0x0809 | rsa_pss_pss_sha256 | Default | Default |  |
 | 0x080A | rsa_pss_pss_sha384 | Default | Default |  |
 | 0x080B | rsa_pss_pss_sha512 | Default | Default |  |
-| 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Default |  |  |
-| 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Default |  |  |
-| 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Default |  |  |
+| 0x081A | ecdsa_brainpoolP256r1tls13_sha256 | Available |  |  |
+| 0x081B | ecdsa_brainpoolP384r1tls13_sha384 | Available |  |  |
+| 0x081C | ecdsa_brainpoolP512r1tls13_sha512 | Available |  |  |
 
 ## Elliptic Curves
 
 | OID | Elliptic Curve | v4.0 | FIPS v3.6 |
 |---|---|---|---|
 | 1.2.840.10045.3.1.7 | prime256v1 (P-256, secp256r1) | Default | Default |
-| 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Default |  |
-| 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Default |  |
-| 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Default |  |
+| 1.3.36.3.3.2.8.1.1.7 | brainpoolP256r1 | Available |  |
+| 1.3.36.3.3.2.8.1.1.11 | brainpoolP384r1 | Available |  |
+| 1.3.36.3.3.2.8.1.1.13 | brainpoolP512r1 | Available |  |
 | 1.3.132.0.10 | secp256k1 | Non-TLS only |  |
 | 1.3.132.0.34 | secp384r1 (P-384) | Default | Default |
 | 1.3.132.0.35 | secp521r1 (P-521) | Default | Default |

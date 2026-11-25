@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl auth login"
 slug: chainctl_auth_login
 url: /platform/chainctl/chainctl-docs/chainctl_auth_login/
@@ -14,7 +14,7 @@ toc: true
 Login to the Chainguard platform.
 
 ```
-chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--refresh] [--output=id|json|none|table]
+chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN] [--identity=IDENTITY_ID] [--identity-provider=IDP_ID] [--org-name=ORG_NAME] [--audience=AUDIENCE]... [--social-login={email|google|github|gitlab}] [--headless] [--prefer-ambient-credentials] [--output=id|json|none|table]
 ```
 
 ### Examples
@@ -22,9 +22,6 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ```
   # Default auth login flow:
   chainctl auth login
-  
-  # Refreshing a token within a Kubernetes context:
-  chainctl auth login --identity-token=PATH_TO_TOKEN --refresh
   
   # Headless login using --org-name
   chainctl auth login --headless --org-name my-org
@@ -36,17 +33,15 @@ chainctl auth login [--invite-code=INVITE_CODE] [--identity-token=PATH_TO_TOKEN]
 ### Options
 
 ```
-      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, and the hosted sandbox sessions and workflow runs) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
+      --audience stringArray         The Chainguard token audience to request. Can be specified multiple times. An interactive login for a platform audience (API, registry, apk, images, libraries, skills, uploads, the hosted sandbox sessions and workflow runs, and Facts analytics) mints one refresh token covering all of them, so a single login serves every platform audience; any other audience is minted on its own. When the cached session lacks any platform audience, the login signs in again rather than renewing it. Defaults to the comma-separated list in $CHAINCTL_AUDIENCES when set.
       --headless                     Skip browser authentication and use device flow.
       --identity string              The unique ID of the identity to assume when logging in.
       --identity-provider string     The unique ID of the customer managed identity provider to authenticate with. Mutually exclusive with --org-name.
       --identity-token string        Use an explicit passed identity token or token path.
       --invite-code string           Registration invite code.
+      --open-url                     In --headless mode, also open the device-flow URL in a browser after printing it. Overrides auth.headless.open-url when set explicitly.
       --org-name string              Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
       --prefer-ambient-credentials   Auth with ambient credentials, if present, before using a supplied identity token.
-      --refresh                      Enable auto refresh of the Chainguard token (for workloads).
-      --refresh-all                  Refresh every cached token, discovered from the local token cache instead of --audience (implies --refresh-only). Re-evaluated on each refresh cycle, so tokens created after startup are picked up without a restart.
-      --refresh-only                 Only refresh existing tokens, skip initial token creation (implies --refresh). Must authenticate separately.
       --social-login string          Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
       --sts-http1-downgrade          Downgrade STS requests to HTTP/1.x
 ```

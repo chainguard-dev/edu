@@ -5,6 +5,16 @@
 # only Python + pre-commit. Hooks run on changed files only (see the
 # pre-commit CI workflow's --from-ref/--to-ref); the repo carries a backlog of
 # pre-existing lint errors that are fixed opportunistically as files are touched.
+
+# Pin the Node that pre-commit downloads for the eslint and markdownlint hooks.
+# Unpinned, pre-commit asks nodeenv for the latest release, and nodeenv crashes
+# parsing a pre-release version string ("ValueError: invalid literal for int()
+# ... '0-alpha'"). pre-commit won't use a Node installed under the home
+# directory (nvm, for example), so most contributors hit the download. Keep
+# the major version in step with .nvmrc; nothing updates this pin automatically.
+default_language_version:
+  node: 22.23.4
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
@@ -42,17 +52,17 @@ repos:
         args: ['--maxkb=1000']
       - id: detect-private-key
         # These files contain example PEM private-key material as documentation
-        # (redaction examples, allowlist patterns, or a throwaway tutorial key),
-        # not real credentials. Exclude them to avoid false positives.
+        # (redaction examples or a throwaway tutorial key), not real
+        # credentials. Exclude them to avoid false positives.
         # chainguard-complete-docs.md bundles cosign-manual-way.md, so it carries
         # the same tutorial key; .github/gitleaks.toml already allowlists it.
-        exclude: ^(\.github/workflows/compile-docs\.yml|content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
+        exclude: ^(content/ai-docs-security\.md|content/open-source/sigstore/cosign/cosign-manual-way\.md|static/downloads/chainguard-complete-docs\.md)$
       - id: check-merge-conflict
       - id: mixed-line-ending
 
   - repo: https://github.com/gitleaks/gitleaks
-    # >= v8.19.0 required: .github/gitleaks.toml uses multiple [[rules.allowlist]]
-    # blocks, which older gitleaks parses as a slice-vs-map schema error.
+    # Local only: the hook scans staged changes at commit time. CI skips it;
+    # .github/workflows/pre-commit.yaml explains why.
     rev: 2ca41cc1372d1e939a6a879f18cdc19fc1cac1ce  # frozen: v8.30.0
     hooks:
       - id: gitleaks
@@ -62,7 +72,7 @@ repos:
   # (zizmor.yaml uploads SARIF to code scanning, actionlint.yaml adds shellcheck
   # + annotations); the hooks give the same checks locally on changed files.
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: fa412071e4f5d44d44f9e365f4676f9df92456a2  # frozen: v1.30.1
+    rev: c7d31dc612dffdd4d3b2f2b88b9660d3ab057ee8  # frozen: v1.33.1
     hooks:
       - id: zizmor # auto-loads .github/zizmor.yml
 
@@ -86,7 +96,7 @@ repos:
         files: ^scripts/.*\.py$
 
   - repo: https://github.com/psf/black
-    rev: 4f1883b1f15305a0e83a7c87991f46292bf09f85  # frozen: 26.10.0
+    rev: 258e7dbf348bc23cb70b8cdf693481c04634ebcc  # frozen: 26.10.1
     hooks:
       - id: black
         language_version: python3
@@ -147,7 +157,7 @@ repos:
   # `npm run lint` rejects. `pre-commit autoupdate` bumps rev only and never
   # touches additional_dependencies, so nothing keeps these in step for us.
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: 10e29bbf6681d33cb90d555ea2f7ea71e162d259  # frozen: v10.12.0
+    rev: 73e3fe97594aeeb7151061de3b7792b5fc451e55  # frozen: v10.15.0
     hooks:
       - id: eslint
         files: ^(assets/js|config)/.*\.js$
@@ -158,7 +168,7 @@ repos:
 
   # Lint Markdown content against .markdownlint-cli2.jsonc.
   - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: 916ad0aaa108c64d294101002066f530ea170b10  # frozen: v0.23.3
+    rev: d4df4cec471ce155946474590d7b95920f623ccb  # frozen: v0.24.2
     hooks:
       - id: markdownlint-cli2
         # content/platform/chainctl/chainctl-docs/ is generated upstream (cobra

@@ -1,4 +1,4 @@
-# Chainguard Academy - Full Content
+# Chainguard Docs - Full Content
 
 Generated: {{ now.Format "January 2, 2006 at 3:04 PM MST" }}
 
@@ -31,7 +31,7 @@ Last Modified: {{ .Lastmod.Format "January 2, 2006" }}
 Tags: {{ delimit .Params.tags ", " }}
 {{- end }}
 
-{{ .Content | plainify }}
+{{ partial "placeholders/strip.html" .RenderShortcodes }}
 
 ---
 

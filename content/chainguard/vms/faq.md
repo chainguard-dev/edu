@@ -4,7 +4,7 @@ linktitle: "FAQ"
 description: "Frequently asked questions about Chainguard VMs, including availability, supported ecosystems, compliance, and more"
 type: "article"
 date: 2025-10-21T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:32:50+00:00
 draft: false
 tags: ["Chainguard VMs", "FAQ"]
 menu:
@@ -15,9 +15,9 @@ weight: 30
 toc: true
 ---
 
-## Which platforms and hypervisors are Chainguard VMs available for?
+## Which platforms and hypervisors does Chainguard VMs support? {#which-platforms-and-hypervisors-are-chainguard-vms-available-for}
 
-Chainguard VMs are available for AWS ([EC2](https://aws.amazon.com/ec2/) and [ECS](https://aws.amazon.com/ecs/)/[EKS](https://aws.amazon.com/eks/)), [GCP](https://cloud.google.com/?hl=en) (Compute Engine), and [Azure Compute](https://azure.microsoft.com/en-us/products/category/compute) cloud environments, and also for on-prem solutions based on KVM such as [QEMU](https://www.qemu.org/), [VMware](https://www.vmware.com/products/cloud-infrastructure/vsphere), [Nutanix](https://www.nutanix.com/), among others.
+Chainguard VMs is available for AWS ([EC2](https://aws.amazon.com/ec2/) and [ECS](https://aws.amazon.com/ecs/)/[EKS](https://aws.amazon.com/eks/)), [GCP](https://cloud.google.com/?hl=en) (Compute Engine), and [Azure Compute](https://azure.microsoft.com/en-us/products/category/compute) cloud environments, and also for on-prem solutions based on KVM such as [QEMU](https://www.qemu.org/), [VMware](https://www.vmware.com/products/cloud-infrastructure/vsphere), [Nutanix](https://www.nutanix.com/), among others.
 
 ## What kinds of VMs are currently available?
 
@@ -37,15 +37,15 @@ Application VMs come pre-packaged with popular backend applications running as s
 
 ## Which operating system is used by Chainguard VMs?
 
-Chainguard VMs are based on [Chainguard OS](https://get.chainguard.dev/chainguard-your-os-whitepaper-0), our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
+Chainguard's virtual-machine images are based on [Chainguard OS](https://get.chainguard.dev/chainguard-your-os-whitepaper-0), our minimal Linux distribution initially designed to run on containers and now extended to include a kernel and other components.
 
 ## Which Linux kernel is used in Chainguard VMs?
 
 The [Chainguard Factory](/platform/factory/overview/) tracks both the stable upstream and the latest LTS (for FIPS) versions of the kernel, building from source to provide the most up-to-date and patched versions.
 
-## Do Chainguard VMs support in-place upgrades?
+## Does Chainguard VMs support in-place upgrades? {#do-chainguard-vms-support-in-place-upgrades}
 
-No, Chainguard VMs do not support in-place upgrades (e.g. via package upgrade). The upgrade strategy is based on node replacement.
+No, Chainguard VMs does not support in-place upgrades (e.g. via package upgrade). The upgrade strategy is based on node replacement.
 
 ## How does FIPS work on VMs?
 
@@ -55,8 +55,8 @@ This design, which requires maintenance of FIPS cryptographic boundaries at the 
 
 Making the cryptographic module user-space or [kernel independent](https://www.chainguard.dev/unchained/kernel-independent-fips-images) breaks that coupling, so the same validated module can serve many VMs and kernels with less toil and fewer surprises.
 
-## Do Chainguard VMs support FIPS?
+## Does Chainguard VMs support FIPS? {#do-chainguard-vms-support-fips}
 
-Yes, Chainguard VMs support **kernel independent FIPS**. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.
+Yes, Chainguard VMs supports **kernel independent FIPS**. This means that application workloads use a FIPS validated entropy source independent of the kernel. The advantage to this approach is that the certification of the entropy source does not need to be performed against a specific kernel, so customers can take advantage of new kernel features while remaining FIPS compliant. It also means that VMs no longer need to be booted in FIPS mode.
 
 Note that with kernel independent FIPS, some low level operating system functions such as disk encryption, IPSEC, KMSV, among others do not use FIPS validated entropy. This is less relevant on cloud platforms, since disk volumes are encrypted with FIPS validated entropy, as is network and filesystem encryption. On the cloud, kernel independent FIPS is a more efficient way of servicing FIPS workloads in VMs.

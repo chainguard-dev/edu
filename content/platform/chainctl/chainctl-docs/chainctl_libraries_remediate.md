@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl libraries remediate"
 slug: chainctl_libraries_remediate
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_remediate/
@@ -46,10 +46,12 @@ default plan mode nor --check needs it.
 Discovery is registry-highest: for each exactly resolved version it selects the
 greatest -cgr.N published for that base version. Packages resolved from a
 non-public registry, and those whose lockfile entry cannot be proven to resolve
-through a public registry, are excluded.
+through a public registry, are excluded. Yarn projects that load plugins
+(.yarnrc.yml plugins, or YARN_PLUGINS) are not supported: plugin code takes
+part in resolution, so no entry's registry can be proven.
 
 Each remediation is then classified against the OpenVEX feed. A feed statement
-fixing a vulnerability in <base>-cgr.N means the upstream <base> carries it, so
+fixing a vulnerability in \<base>-cgr.N means the upstream \<base> carries it, so
 a tree resolved to that base is reported as vulnerable, citing the CVE. A
 remediation with no statement against the resolved version is reported as a
 rebuild rather than a vulnerability; use --vulnerable-only to plan and gate on

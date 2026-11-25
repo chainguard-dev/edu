@@ -1,0 +1,128 @@
+---
+title: "Run checks before you push with Chainguard Workspaces"
+linktitle: "Run checks before you push"
+description: "Run your repository's checks against uncommitted changes in a Chainguard Workspaces session, and validate your Chainguard Checks configuration offline before you push."
+type: "article"
+date: 2026-10-08T00:00:00+00:00
+lastmod: 2026-11-12T15:31:43+00:00
+draft: false
+tags: ["Chainguard Checks", "chainctl", "Procedural"]
+images: []
+menu:
+  docs:
+    parent: "checks"
+toc: true
+weight: 50
+---
+
+Waiting for a pull request's checks to find a mistake is slow, especially for a coding agent that has to push, wait, and read the results before it can try again. With [Chainguard Workspaces](/chainguard/workspaces/overview/), you can run your repository's checks against your working tree, uncommitted changes included, before you push. This page explains how, and how to find mistakes in your configuration without running anything. To run checks on a pushed commit without a pull request, or to read results and your checks' history from your terminal, refer to [Inspect and run checks with chainctl](/chainguard/checks/inspect-and-run-checks/). For `run-ci` in the whole loop, from a change through a failing pull request and its fix, follow the tutorial [Fix a failing check with Claude Code](/get-started/checks-and-workspaces/tutorial/).
+
+## Run checks in a Workspaces session {#run-checks-in-a-workspaces-session}
+
+Every Workspaces session has a `run-ci` command that runs the checks your repository defines against the working tree in `/work`. It checks only `/work`, so it can't check a git worktree elsewhere in the session. To run every check, run `run-ci` with no arguments in the session:
+
+```shell
+run-ci
+```
+
+The command prints each step's output as it runs, followed by a result line. For a repository with `vet` and `test` checks, the output looks similar to the following:
+
+```
+run-ci: checks vet, test (advisory: the gate runs the verdict on push)
+── vet[0]: go vet ./...
+── vet[0]: exit 0 (9.281s)
+── test[0]: go test ./...
+ok      github.com/acme/app    0.004s
+── test[0]: exit 0 (3.843s)
+PASS in 13.131s
+```
+
+Each `──` line names a check and the number of the step within it, counting from `0`, followed by the step's command or its exit code and duration. The first line is a reminder that the pull request's run, not `run-ci`, decides what GitHub shows. When a check declares a different environment from the session's, `run-ci` also prints a note about it.
+
+To run a single check, pass its name:
+
+```shell
+run-ci test
+```
+
+The `run-ci` command exits with one of the following codes, so scripts and agents can act on the result:
+
+| Exit code | Meaning |
+| --------- | ------- |
+| `0` | Every check passed. |
+| `1` | A check failed. The last line names the check and the number of the step that failed. |
+| `2` | The checks couldn't run. The last line says why. |
+
+### How run-ci differs from a pull request run {#how-run-ci-differs-from-a-pull-request-run}
+
+The `run-ci` command reads your checks from the session's working tree, so it uses your latest edits to the configuration too. The following table shows how it differs from a pull request run:
+
+| What differs | `run-ci` in a session | A pull request run |
+| --- | --- | --- |
+| Configuration | The session's working tree, including uncommitted edits. | The pull request's test merge commit, with the base branch's rules applied. |
+| Which checks run | Every check that has commands, in the order your configuration lists them. It stops at the first check that fails, including an advisory check. | The checks that the run's plan selects, each after the checks it `needs`. An [advisory check](/chainguard/checks/configuration/#advisory-checks) never blocks merging. |
+| `needs`, `when`, `trigger`, and `timeout` | Ignored, so `run-ci` also runs checks that a pull request would skip. | Applied. |
+| `foreach` | Runs the check once for each variation, shown in the output as `[[CHECK]]/[[VARIATION]]`, such as `test/api`. | Runs each variation in its own VM, and reports all of them as one GitHub check. |
+| Checks that need a [workload identity](/chainguard/checks/configuration/#credentials), `services` in the check's environment, or `inputs` | Skipped, with a line for each, such as `run-ci: skipped deploy: declares identity gcp-prod, which only CI provides`. A pass from `run-ci` doesn't cover them. | Run. |
+| User | The session's user, which is `root` unless the session's environment comes from a check with a different `user`. | Each check's `user`, which defaults to `root`. |
+| Environment | The session as it is. Packages you installed in the session are available, and the check's own package list and network access don't apply. | A fresh VM for each check, with the check's packages and network access. |
+| Size and CPU architecture | The session's. A session runs on x86-64 unless its resource class pins arm64, as described in [Resources](/chainguard/workspaces/session-environment/#resources). | Each check's `resources`. A class that doesn't pin an architecture usually runs on arm64. |
+
+If you name a skipped check, as in `run-ci deploy`, or if `run-ci` skips every check, it exits with `2`. A session whose environment comes from a check with a different `user`, such as a session you open with `chainctl develop --check`, runs as that user. It runs only the checks with that `user`, and skips the rest the same way. In a `root` session, every check runs as `root`.
+
+Because of these differences, a pass from `run-ci` predicts that the pull request's checks will pass, but only the pull request's run in fresh VMs decides what GitHub shows.
+
+The `run-ci` command works while something is attached to the session, such as your terminal. It also works after you detach, while the session keeps running, as described in [Keep a session running while you're away](/chainguard/workspaces/manage-sessions/#keep-a-session-running-while-youre-away). A run keeps the session busy, so the session doesn't park while the run is in progress, up to 24 hours after you last detach. While it runs, `chainctl develop list` shows `busy: check run` in the session's state. In a session created with `--keep park` or with `chainctl` 0.2.382 or earlier, or while your organization's monthly compute allowance is used up, running checks doesn't keep the session from parking. If the session parks while `run-ci` runs, the run stops and `run-ci` exits with `2`.
+
+Only one `run-ci` or `chainctl develop check` can run in a session at a time. One that starts while another runs fails and tells you to wait for the first to finish.
+
+## Run checks in a session from your laptop {#run-checks-in-a-session-from-your-laptop}
+
+To run a session's checks without attaching to it, use `chainctl develop check` on your laptop with the session's name or short ID. If the session is parked, `chainctl` resumes it first. Replace `[[SESSION]]` with the session's name or short ID, and `[[ORGANIZATION]]` with the name of your Chainguard organization:
+
+```shell
+chainctl develop check [[SESSION]] --parent [[ORGANIZATION]]
+```
+
+To run a single check, add `--check` with its name:
+
+```shell
+chainctl develop check [[SESSION]] --check test --parent [[ORGANIZATION]]
+```
+
+The command uses the same runner as `run-ci` and streams each step's output. It skips the same checks as `run-ci`, and prints a line for each, such as `Skipped deploy: declares identity gcp-prod, which only CI provides`. It exits with `0` when the checks pass, or `1` when a check fails or the checks can't run, including when you name a skipped check with `--check`. To print the result as JSON, add `--output json`. The JSON lists the checks it skipped under `skipped`.
+
+If you detached from the session and it's still running, `chainctl develop check` might fail with a message that says `the guest is held by another controller`. Attach to the session and run `run-ci` in it, or run the command again after the session parks.
+
+## Validate your configuration offline {#validate-your-configuration-offline}
+
+To find mistakes in your configuration without running anything, run `chainctl checks validate` anywhere in your repository's checkout:
+
+```shell
+chainctl checks validate
+```
+
+With no argument, the command finds your repository's root. You can also pass the path of a repository or of a configuration file. For a valid configuration, the command prints each workflow it found:
+
+```
+workflow ci (.chainguard/ci.yaml)
+ok: the document lowers
+```
+
+For a configuration with problems, it prints each problem with its file, line, and column, and exits with a non-zero status. For example, a string `cmd` with a pipe in it produces an error that suggests using a shell:
+
+```
+.chainguard/ci.yaml:6:10: check t: cmd "go test ./... | tee out": unquoted shell metacharacter '|': a string `cmd:` is safe-split with no shell behind it (no pipes, redirects, globs, or expansion) — quote the character, or write `cmd: [sh, -c, "..."]` to opt into a shell explicitly
+```
+
+Because `validate` needs no network access or Chainguard account, you can run it in a git pre-commit hook.
+
+To see how Chainguard Checks interprets your configuration, run `chainctl checks explain`. It prints each check with its environment, trigger, and commands, plus its conditions, network access, and timeout when they're set:
+
+```shell
+chainctl checks explain
+```
+
+Run `explain` when a check doesn't behave as you expect, such as running when you thought a condition would skip it.
+
+For a pull request, Chainguard Checks reads only the files directly in your repository's root `.chainguard/` directory and the files under `.chainguard/ci/`. In the directory layout, `validate` and `explain` read the same files. In the single-file layout, they also read `.chainguard/` directories below the root, such as `testdata/.chainguard/`, and folders inside `.chainguard/`. As a result, they can list a workflow that pull requests never run, or fail on a file that pull requests ignore. To avoid this, move those files out of `.chainguard/` directories, or use the [directory layout](/chainguard/checks/configuration/#file-layouts).

@@ -62,7 +62,7 @@ Get an API token and set your organization ID:
 export TOKEN=$(chainctl auth token)
 export API=https://console-api.enforce.dev
 # ORG_ID is the UID of your root organization group
-export ORG_ID=YOUR_ORG_ID
+export ORG_ID=[[ORGANIZATION_ID]]
 ```
 
 The following examples use `$TOKEN`, `$API`, and `$ORG_ID` for brevity.
@@ -126,7 +126,7 @@ New in v2: fetch a resource directly by UID. In v1, this required a List call wi
 
 ```shell
 # REPO_UID is a uid value from the List repos response above
-export REPO_UID=YOUR_REPO_UID
+export REPO_UID=[[REPOSITORY_UID]]
 
 curl -s -H "Authorization: Bearer $TOKEN" \
   "$API/registry/v2/repos/$REPO_UID" | jq '{uid, name, createTime}'
@@ -232,7 +232,7 @@ Then bind it:
 # ROLE_UID is the uid of the viewer role, retrieved above
 ROLE_UID="63921b2c44617e3f2603851537be0123af4a57d7"
 # IDENTITY_UID is the uid value returned in the Create an identity response above
-export IDENTITY_UID=YOUR_IDENTITY_UID
+export IDENTITY_UID=[[NEW_IDENTITY_UID]]
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -574,8 +574,8 @@ Delete resources you created during this walkthrough:
 
 ```shell
 # Delete in reverse order: role binding, then identity
-# BINDING_UID is the uid value returned in the Bind a role response above
-curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/roleBindings/$BINDING_UID"
+# [[BINDING_UID]] is the uid value returned in the Bind a role response above
+curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/roleBindings/[[BINDING_UID]]"
 curl -s -X DELETE -H "Authorization: Bearer $TOKEN" "$API/iam/v2/identities/$IDENTITY_UID"
 ```
 

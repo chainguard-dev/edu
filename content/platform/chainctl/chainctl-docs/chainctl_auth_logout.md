@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl auth logout"
 slug: chainctl_auth_logout
 url: /platform/chainctl/chainctl-docs/chainctl_auth_logout/
@@ -12,6 +12,12 @@ toc: true
 ## chainctl auth logout
 
 Logout from the Chainguard platform.
+
+### Synopsis
+
+Logout from the Chainguard platform.
+
+Without --audience, the sessions this chainctl holds are revoked on the server before the local tokens are deleted. With --audience, only that audience's local tokens are deleted.
 
 ```
 chainctl auth logout [--audience=AUDIENCE]

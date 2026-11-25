@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-13T14:42:18+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -104,7 +104,7 @@ First, force a fresh install:
 
 {{< tabs label="Language ecosystem for adopting a Chainguard build" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 Java (Maven):
 
@@ -119,9 +119,9 @@ Java (Gradle):
 ./gradlew build --refresh-dependencies
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 JavaScript (npm):
 
@@ -130,9 +130,9 @@ rm -rf node_modules package-lock.json
 npm install
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 Python (pip):
 
@@ -140,7 +140,7 @@ Python (pip):
 pip install --no-cache-dir --force-reinstall <package>==<version>
 ```
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 

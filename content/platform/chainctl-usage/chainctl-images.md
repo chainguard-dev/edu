@@ -7,7 +7,7 @@ lead: "Chainguard's chainctl images commands enable discovery, analysis, and com
 description: "Learn how to use chainctl images commands to discover, examine version history, and compare Chainguard's security-hardened container images in your registry"
 type: "article"
 date: 2025-03-06T08:49:15+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -20,7 +20,7 @@ For a full reference of all commands with details and switches, refer to [chainc
 
 ## List available Chainguard container images
 
-When you want to know which Chainguard Containers are available to your account, use the following command:
+When you want to know which container images are available to your account, use the following command:
 
 ```shell
 chainctl images list
@@ -80,10 +80,10 @@ chainctl images repos list
 
 To examine the history of an image tag in chainctl, like when it was updated and the associated digests for each update, use `chainctl images history`. This will also return information such as how many times a variant has been built and for which platforms, along with the time and digests for each.
 
-Pass the image and tag directly to skip the menu shown earlier:
+Pass the image and tag directly to skip the menu shown earlier, replacing `[[IMAGE]]` and `[[TAG]]` with the image's name and tag:
 
 ```shell
-chainctl images history $IMAGE:$TAG
+chainctl images history [[IMAGE]]:[[TAG]]
 ```
 
 For example, let's find the history of one of the `python` image variants from our previous list, `3.12.7`. So we enter:
@@ -159,10 +159,10 @@ Once you make a selection, the details will be returned for that variant.
 
 ## Compare Chainguard container images
 
-When you want to compare two Chainguard images, enter:
+When you want to compare two Chainguard images, enter the following, replacing `[[FROM_IMAGE]]` and `[[TO_IMAGE]]` with the images to compare:
 
 ```shell
-chainctl images diff $FROM_IMAGE $TO_IMAGE
+chainctl images diff [[FROM_IMAGE]] [[TO_IMAGE]]
 ```
 
 See <ins>[How to compare Chainguard Containers with chainctl](/platform/chainctl-usage/comparing-images/)</ins> to learn more.

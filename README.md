@@ -1,11 +1,11 @@
 <p align="center">
-  <a href="https://edu.chainguard.dev" target="_blank"><img src="https://edu.chainguard.dev/logos/3d-linky.png" width="200" height="auto"></a>
+  <a href="https://www.chainguard.dev/docs" target="_blank"><img src="https://www.chainguard.dev/docs/logos/3d-linky.png" width="200" height="auto"></a>
 </p>
-<h1 align="center">Chainguard Academy</h1>
+<h1 align="center">Chainguard Docs</h1>
 
 <a href="https://chainguard.dev/" target="_blank"><img alt="Chainguard" src="https://img.shields.io/badge/Chainguard-4445E7.svg?style=for-the-badge&logo=Chainguard&logoColor=white"></a>
 
-Chainguard Academy is the documentation site for Chainguard products. It exists to help you succeed with Chainguard. Visit it at 🔗 [edu.chainguard.dev](https://edu.chainguard.dev)
+Chainguard Docs is the documentation site for Chainguard products. It exists to help you succeed with Chainguard. Visit it at 🔗 [www.chainguard.dev/docs](https://www.chainguard.dev/docs)
 
 You can find the educational resource files in Markdown under the `content` directory.
 
@@ -25,23 +25,47 @@ To run a local version of this site, start the development server:
 npm run start
 ```
 
-While the server is running, open `http://localhost:1313` in your web browser. To stop the server, press `Ctrl+C` in the terminal.
+While the server is running, open `http://localhost:1313/docs/` in your web browser. To stop the server, press `Ctrl+C` in the terminal.
 
 ## Testing
 
-Any documentation published to Chainguard Academy is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
+Any documentation published to Chainguard Docs is reviewed carefully for accuracy. GUI procedures, API commands, and CLI code snippets in a draft are run and tested thoroughly — by both the author and the reviewer — to confirm they work exactly as written. This helps ensure that readers can follow along and get the same results.
 
 We also test drafts by previewing rendered content before it's published. Draft content passes through several checks between your editor and the live site:
 
-- **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
+- **Local preview** — Run `npm ci` once, then `npm run start` to serve the site at `http://localhost:1313/docs/` with live reload. Use this to confirm pages render correctly, formatting holds up, and internal links resolve. When a doc includes commands or examples, run them to confirm they still work.
 - **Pre-commit checks** — A required `pre-commit` check validates tags, lints, and scans changed files; a git hook stamps content dates; spell-check runs locally. See [Pre-commit](#pre-commit) below for setup.
-- **Deploy previews** — Every pull request builds a Netlify deploy preview with a staging URL. Reviewers open this link to see your changes rendered as they'll appear in production.
+- **Deploy previews** — Every pull request builds a Vercel deploy preview with its own URL. Reviewers open this link to see your changes rendered as they'll appear in production. For a pull request from a fork, a Docs team member must authorize each push before its preview builds.
 
 When you open a pull request, describe how you tested the change so reviewers know what to verify. Recent PRs often list the steps taken, such as previewing pages in the Hugo dev server, confirming links resolve, and running any commands the doc relies on.
 
 ## 📑 Contributing
 
 If you spot a major change, please file an [issue](https://github.com/chainguard-dev/edu/issues/new). For a minor change — a typo, or tooling with a newer package available — you're welcome to open a pull request for the team to review.
+
+### Writing with an AI agent
+
+If you use an AI agent to help write docs, this repository gives it the docs team's writing rules. Three agent skills live in `.agents/skills/`:
+
+- `writing-clearly-and-concisely` applies Strunk's rules for clear, concise prose and flags common AI writing patterns. It covers any text a human will read, including commit messages and pull request descriptions.
+- `written-style-guide` applies Chainguard's voice, tone, and product names. Its product names take precedence over the other guides.
+- `google-style` applies Google's developer documentation style to technical docs.
+
+You don't need to install anything. Claude Code, Codex, Cursor, GitHub Copilot, and Gemini CLI find the skills when you open this repository, and [`AGENTS.md`](AGENTS.md) tells them when to use each one. To confirm, ask your agent to list its skills.
+
+If you installed copies of these skills earlier, such as from a link the docs team shared, delete them from your personal skills directory. In Claude Code, a personal skill hides a repository skill with the same name, so your agent keeps using the old copy.
+
+To use the skills in other repositories too, ask your agent to install them. For example:
+
+```
+Copy the skills in .agents/skills/ from https://github.com/chainguard-dev/edu
+into my personal skills directory, then add the rules in its AGENTS.md to my
+personal agent instructions.
+```
+
+The personal skills directory is `~/.claude/skills/` for Claude Code and `~/.agents/skills/` for Codex, Cursor, GitHub Copilot, and Gemini CLI. Copies don't update themselves, and in Claude Code your copy takes precedence over this repository's, so refresh it when the skills change.
+
+An agent can speed up a draft, but a member of the docs team still reviews every pull request. To suggest a change to a skill, open a pull request.
 
 ### Date Format
 

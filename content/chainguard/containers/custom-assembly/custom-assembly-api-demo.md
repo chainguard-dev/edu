@@ -4,7 +4,7 @@ linktitle: "Manage with Chainguard's API"
 type: "article"
 description: "How to use the Chainguard API to manage Custom Assembly resources."
 date: 2025-05-01T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural", "Custom Assembly"]
 images: []
@@ -20,7 +20,7 @@ aliases:
 
 Chainguard's [Custom Assembly](/chainguard/containers/custom-assembly/) is a tool that allows customers to create customized containers with extra packages added. This enables customers to reduce their risk exposure by creating container images that are tailored to their internal organization and application requirements while still having few-to-zero CVEs.
 
-You can use the Chainguard API to further customize your Custom Assembly builds and retrieve information about them. This tutorial highlights a demo application (which can be found in [Chainguard Academy's Demo Applications repository](https://github.com/chainguard-dev/edu-images-demos/tree/main)) which, when run, updates a Custom Assembly container's configuration based on a provided YAML file.
+You can use the Chainguard API to further customize your Custom Assembly builds and retrieve information about them. This tutorial highlights a demo application (which can be found in [Chainguard's demo applications repository](https://github.com/chainguard-dev/edu-images-demos/tree/main)) which, when run, updates a Custom Assembly container's configuration based on a provided YAML file.
 
 > **Note**: This tutorial highlights using the Chainguard API to interact with Custom Assembly resources. However, you can also interact with Custom Assembly using [`chainctl`, Chainguard's command-line interface tool](/chainguard/containers/custom-assembly/custom-assembly-chainctl/), as well as [the Chainguard Console](/chainguard/containers/custom-assembly/custom-assembly-console/).
 

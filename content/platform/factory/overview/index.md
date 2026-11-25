@@ -7,7 +7,7 @@ type: "article"
 description: "Learn about Chainguard Factory, the automated build system that continuously updates thousands of containers, libraries, and VMs with the latest security patches"
 lead: "An introduction to Chainguard’s Factory; the powerhouse of engineering and automation that continuously transforms the chaos of open source into secure, up-to-date containers, libraries, and VMs at massive scale."
 date: 2025-07-15T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-06T14:00:04+00:00
 draft: false
 tags: ["Chainguard Containers", "Chainguard VMs"]
 images: []
@@ -77,15 +77,15 @@ this affects a handful of images, but an update to OpenSSL or glibc requires
 practically all our images to be rebuilt. After new versions of images are
 built, they are tested, often as part of a Helm chart deployed to a Kubernetes
 cluster (sometimes even a specially provisioned EKS cluster for images such as
-[eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)).
+[eks-distro-kube-proxy!](https://images.chainguard.dev/directory/image/eks-distro-kube-proxy/overview)).
 
 On top of this, software is constantly going End-of-Life (EOL). When software
-is no longer supported upstream, we will cease updating it in Wolfi (refer to [Wolfi
-Packages in chainguard
-Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#wolfi-packages-in-chainguard-containers)).
-Customers benefit from an extended [EOL grace
+is no longer supported upstream, we will cease updating it in Wolfi (refer to [Maintaining Wolfi
+packages in Chainguard
+Containers](/chainguard/containers/concepts/lifecycle-and-eol/versions/#maintaining-wolfi-packages-in-chainguard-containers)).
+Customers benefit from an extended [EOL Grace
 Period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/)
-with Chainguard OS where we continue to build old versions).
+with Chainguard OS, where we continue to build old versions.
 
 The result is a relentless, orchestrated flow of updates — ensuring our
 software remains secure, current, and reliable.
@@ -96,7 +96,7 @@ Projects like [NVD](https://nvd.nist.gov/) and
 [GHSA](https://github.com/advisories) are constantly issuing security
 advisories, for example in 2024 an [average of 108 CVEs were issued every
 day](https://jerrygamblin.com/2025/01/05/2024-cve-data-review/). These
-advisories are ingested by [scanners](https://www.chainguard.dev/scanners?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) such
+advisories are ingested by [scanners](https://www.chainguard.dev/scanners) such
 as grype and snyk. We use these scanners internally to alert whenever a CVE is
 identified as affecting one of our packages. Automation adds the CVE to an
 internal queue for further investigation and an advisory is issued with
@@ -138,7 +138,7 @@ We take security in our build environment seriously and adhere to the
 [SLSA](https://slsa.dev/) guidelines for ensuring build integrity and
 provenance. The builds themselves follow [OpenSSF guidance for security
 hardening via compiler flag
-settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+settings](https://www.chainguard.dev/unchained/enhanced-compiler-flags-for-building-chainguards-guarded-images).
 
 ## On automation, AI and human engineers
 

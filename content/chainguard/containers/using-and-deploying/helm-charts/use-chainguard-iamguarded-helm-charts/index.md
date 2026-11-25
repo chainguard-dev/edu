@@ -8,7 +8,7 @@ type: "article"
 description: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 lead: "A primer on how to use Chainguard-produced iamguarded Helm charts to deploy Chainguard container images"
 date: 2025-07-11T08:49:31+00:00
-lastmod: 2026-10-02T12:53:50+00:00
+lastmod: 2026-10-08T12:48:27+00:00
 draft: false
 tags: ["Chainguard Containers", "Helm charts", "iamguarded", "Product"]
 images: []
@@ -286,6 +286,6 @@ To get the `values.yaml` so you can examine it, run:
 helm show values oci://cgr.dev/chainguard-private/iamguarded-charts/rabbitmq
 ```
 
-If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart.
+If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart. If the install succeeds and the pods then stay in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
 
 Refer to the [Helm commands documentation](https://helm.sh/docs/helm/) for more information.

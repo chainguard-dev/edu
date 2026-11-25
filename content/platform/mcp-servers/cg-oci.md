@@ -304,7 +304,7 @@ What OS packages are in the amd64 build of chainguard/python:latest?
 | `no chainctl token for audience ...` | The helper script ran but that audience was never logged in. | Run the `chainctl auth login` command the error prints. |
 | An SBOM request is refused for size | The SPDX document exceeds the server's 512 KB ceiling. Documents are never truncated. | Use `list_sbom_packages` instead, or fetch the file with the `cosign` command named in the error. |
 | `list_sbom_packages` returns only two or three entries | The call read the index-level SBOM rather than a per-architecture one. | Pass `architecture=amd64` (or `arm64`). |
-| The AI tool can't find an image you know exists | It may be searching `list_repos`, which reflects your token rather than the public catalog, and offers no server-side name filter. | Name the repository explicitly, as `chainguard/<name>`, or look it up in the [Containers directory](https://images.chainguard.dev/). |
+| The AI tool can't find an image you know exists | It may be searching `list_repos`, which reflects your token rather than the public catalog, and offers no server-side name filter. | Name the repository explicitly, as `chainguard/[[NAME]]`, or look it up in the [Containers directory](https://images.chainguard.dev/). |
 
 ## Next steps
 

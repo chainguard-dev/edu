@@ -11,7 +11,7 @@ aliases:
 description: "Learn how to port a Java Dockerfile to Chainguard's Maven, Gradle, JDK, and JRE containers, including a worked Spring Boot example and the differences from the Java images on Docker Hub"
 type: "article"
 date: 2024-04-02T15:21:01+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Migration"]
 images: []
@@ -19,7 +19,7 @@ weight: 20
 toc: true
 ---
 
-Chainguard's Java containers fill the same roles as the Java base images found on Docker Hub, such as `eclipse-temurin` and `maven`, but are built on [Wolfi](/open-source/wolfi/) with a much smaller package set. Chainguard builds its own JDK from source in Wolfi, and rebuilds these containers nightly so security patches land without manual intervention. Porting a Dockerfile takes a handful of changes, mostly around the non-root user and the absent shell, which [Differences from the Java images on Docker Hub](#differences-from-the-java-images-on-docker-hub) covers in full. For current CVE data on a specific container and tag, refer to the [JRE entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java).
+Chainguard's Java containers fill the same roles as the Java base images found on Docker Hub, such as `eclipse-temurin` and `maven`, but are built on [Wolfi](/open-source/wolfi/) with a much smaller package set. Chainguard builds its own JDK from source in Wolfi, and rebuilds these containers nightly so security patches land without manual intervention. Porting a Dockerfile takes a handful of changes, mostly around the non-root user and the absent shell, which [Differences from the Java images on Docker Hub](#differences-from-the-java-images-on-docker-hub) covers in full. For current CVE data on a specific container and tag, refer to the [JRE entry in the Chainguard Containers directory](https://images.chainguard.dev/directory/image/jre/overview).
 
 {{< details "What is Distroless?" >}}
 {{< blurb/distroless >}}
@@ -41,10 +41,10 @@ Chainguard publishes four containers for Java, split by the job they do:
 
 | Container | Contents | Use it for |
 | --- | --- | --- |
-| [`maven`](https://images.chainguard.dev/directory/image/maven/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | JDK plus Apache Maven | The build stage of a Maven project |
-| [`gradle`](https://images.chainguard.dev/directory/image/gradle/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | JDK plus Gradle | The build stage of a Gradle project |
-| [`jdk`](https://images.chainguard.dev/directory/image/jdk/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | Full Java Development Kit | Compiling inside the container without Maven or Gradle |
-| [`jre`](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) | Java Runtime Environment only | Running a compiled JAR in production |
+| [`maven`](https://images.chainguard.dev/directory/image/maven/overview) | JDK plus Apache Maven | The build stage of a Maven project |
+| [`gradle`](https://images.chainguard.dev/directory/image/gradle/overview) | JDK plus Gradle | The build stage of a Gradle project |
+| [`jdk`](https://images.chainguard.dev/directory/image/jdk/overview) | Full Java Development Kit | Compiling inside the container without Maven or Gradle |
+| [`jre`](https://images.chainguard.dev/directory/image/jre/overview) | Java Runtime Environment only | Running a compiled JAR in production |
 
 The `jre` container is the production target. It has no compiler, no build tooling, no shell, and no package manager, which keeps it small but also means you cannot extend it in place. The build containers include a shell and a package manager and can be extended freely.
 
@@ -199,7 +199,7 @@ The following video walks through the same migration outlined in the previous st
 
 ## Additional resources
 
-- The [JRE container documentation](https://images.chainguard.dev/directory/image/jre/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-migration-migrating-java) has full details on the Java containers, including usage, provenance, and security advisories.
+- The [JRE container documentation](https://images.chainguard.dev/directory/image/jre/overview) has full details on the Java containers, including usage, provenance, and security advisories.
 - [Build Java containers with Jib](/chainguard/containers/building-and-modifying/build-tools/building-java-containers-with-jib/) covers building Java containers without writing a Dockerfile at all, using Jib's Maven and Gradle plugins.
 - [Building minimal container images](/chainguard/containers/building-and-modifying/building-minimal-containers/) explains the multi-stage pattern this guide uses, and when a runtime container is the right final base.
 - [Fully bootstrapping Java from source in Wolfi](https://www.chainguard.dev/unchained/fully-bootstrapping-java-from-source-in-wolfi) describes how Chainguard builds its JDK.

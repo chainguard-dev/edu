@@ -1,0 +1,12 @@
+{{- /*
+Returns the page to link to for a page: the page itself, or for a section's
+landing page, the section, because the landing page's own URL redirects there
+(see partials/landing-section.html). Use its RelPermalink or Permalink.
+
+Context: a page.
+*/ -}}
+{{- $target := . -}}
+{{- with partial "landing-section.html" . -}}
+{{- $target = . -}}
+{{- end -}}
+{{- return $target -}}

@@ -1,10 +1,23 @@
-function toast(textContent) {
-  const notification = document.getElementById("notification");
-  const notificationText = document.getElementById("notification-text");
-  notificationText.textContent = textContent;
-  notification.classList.remove("notification-toast");
-  requestAnimationFrame(() => notification.classList.add("notification-toast"));
-}
+const createToast = () => {
+  const notification = document.createElement("div");
+  notification.id = "notification";
+  notification.setAttribute("aria-live", "polite");
+  const icon = document.createElement("i");
+  icon.classList.add("bi", "bi-check-circle-fill");
+  icon.setAttribute("aria-hidden", "true");
+  const message = document.createElement("span");
+  notification.append(icon, message);
+  document.body.append(notification);
+
+  return (text) => {
+    message.textContent = text;
+    notification.classList.remove("notification-toast");
+    requestAnimationFrame(() => notification.classList.add("notification-toast"));
+    notification.addEventListener("animationend", () => {
+      message.textContent = "";
+    }, { once: true });
+  };
+};
 
 // Function to normalize code block labels with consistent formatting
 const normalizeCodeBlockLabel = (rawLabel) => {
@@ -68,7 +81,7 @@ const expandCode = (expanded, codeContent, expandButtonText, expandIcon) => {
   }
 };
 
-const customizeUI = (pre) => {
+const customizeUI = (pre, toast) => {
   const codeContent = pre.querySelector("code");
   codeContent.classList.add("code");
 
@@ -113,6 +126,7 @@ const customizeUI = (pre) => {
   copyText.classList.add("tooltip");
   copyButton.append(copyIcon, copyText);
 
+  let resetTimer;
   copyButton.addEventListener("click", () => {
     const textToCopy = codeContent.innerText;
 
@@ -120,15 +134,15 @@ const customizeUI = (pre) => {
       .writeText(textToCopy)
       .then(() => {
         copyText.textContent = "Copied";
-        setTimeout(() => {
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(() => {
           copyText.textContent = "Copy";
         }, 2000);
+        toast("Copied to clipboard");
       })
       .catch((err) => {
         console.error("Failed to copy text:", err);
       });
-
-    toast("Code copied to your clipboard");
   });
   actionContainer.append(copyButton);
 
@@ -163,5 +177,6 @@ const customizeUI = (pre) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll("pre:not(.scalar-app pre)").forEach((pre) => customizeUI(pre));
+  const toast = createToast();
+  document.querySelectorAll("pre:not(.scalar-app pre)").forEach((pre) => customizeUI(pre, toast));
 });

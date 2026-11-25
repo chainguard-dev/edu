@@ -4,7 +4,7 @@ linktitle: "Overview"
 description: "The four Chainguard MCP servers that expose live product data — images, packages, version history, and platform APIs — to any MCP-compatible client."
 type: "article"
 date: 2026-09-16T00:00:00+00:00
-lastmod: 2026-10-01T17:08:58+00:00
+lastmod: 2026-11-12T13:08:00+00:00
 draft: false
 tags: ["MCP", "Overview"]
 images: []
@@ -20,13 +20,15 @@ Four of Chainguard's MCP servers give an AI tool direct access to live product d
 
 These servers back the [Chainguard Power for Kiro](/platform/integrations/kiro/) and the [Chainguard plugin for Cursor](/platform/integrations/cursor/), but you don't need either one. Any MCP-compatible client can connect to them directly.
 
+In a [Chainguard Workspaces](/chainguard/workspaces/overview/) session, Claude Code comes with the `cg-apk` and `cg-versions` servers already configured, with no browser sign-in. Refer to [MCP servers in a session](/chainguard/workspaces/coding-agents/#mcp-servers-in-a-session).
+
 ## What is MCP?
 
 [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) is an open protocol that standardizes how AI applications access external data and tools. An MCP server exposes structured data and tools that AI clients can call to ground their responses in real information.
 
 ## Chainguard's MCP servers
 
-Chainguard's MCP servers fall into two groups. Four return live product data, and two serve specific content: documentation and agent skills.
+Chainguard's MCP servers fall into two groups. Four return live product data, and three serve specific content: documentation, manual pages, and agent skills.
 
 ### Product data servers
 
@@ -42,6 +44,10 @@ These servers return live product data, such as an image tag's manifest and SBOM
 ### AI Docs MCP server
 
 The [AI Docs MCP server](/platform/mcp-servers/ai-docs/), at `https://mcp.edu.chainguard.dev/mcp`, searches Chainguard documentation: guides, security references, and the Wolfi, apko, melange, and chainctl references. It also maps Debian and Fedora packages to their Wolfi equivalents, and upstream images to the Chainguard images that replace them. It has no live image data; for that, use `cg-oci`. You can also run it locally from a container image, or download its documentation as a single file. It needs no sign-in and doesn't paginate its results, so the Authentication and Pagination sections that follow don't apply to it.
+
+### cg-man MCP server
+
+The [`cg-man` MCP server](/platform/mcp-servers/cg-man/), at `https://man.cgr.dev/mcp`, serves the manual pages that Chainguard OS packages ship, and the `--help` output of their executables, at the exact package version you run. An AI tool can search the pages, read one, read a tool's `--help` output, look up a single option or exit code, and follow cross-references. It's public and needs no sign-in, and its tools request long results with `offset` and `limit` rather than a cursor, so the Authentication and Pagination sections that follow don't apply to it. For connection steps and the tool reference, refer to its own page.
 
 ### Public Skills MCP server
 
@@ -76,7 +82,7 @@ chainctl auth login \
 
 The Public Skills MCP server accepts the same method. Add `--audience=https://skills.cgr.dev/mcp` to log in to it too.
 
-Once an audience is logged in, `chainctl auth token --audience=<url>` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
+Once an audience is logged in, `chainctl auth token --audience=[[URL]]` returns from cache without prompting, and `chainctl` refreshes the underlying token as it nears expiry.
 
 Next, point your client at `chainctl` rather than at OAuth. Claude Code's MCP configuration accepts a `headersHelper` field naming a script that Claude Code runs (through `sh -c`, with a roughly 10-second budget) each time it opens a connection. The script reads `CLAUDE_CODE_MCP_SERVER_URL` from its environment and prints a JSON object of HTTP headers on stdout, which Claude Code merges into the connection in place of the OAuth flow.
 
@@ -143,17 +149,17 @@ That command replaces any existing `.mcp.json`. If the repository already has on
 
 ### Keep your path out of a shared file
 
-A committed `.mcp.json` carries your home directory to everyone who clones the repository, and their username won't match yours. To keep the tracked file generic, leave the plain `type` and `url` entries in `.mcp.json` and put the `headersHelper` override in your own `~/.claude.json`, under the repository's absolute path:
+A committed `.mcp.json` carries your home directory to everyone who clones the repository, and their username won't match yours. To keep the tracked file generic, leave the plain `type` and `url` entries in `.mcp.json` and put the `headersHelper` override in your own `~/.claude.json`, under the repository's absolute path. Replace `[[REPO_PATH]]` with that path and `[[USERNAME]]` with your username:
 
 ```json
 {
   "projects": {
-    "/absolute/path/to/repo": {
+    "[[REPO_PATH]]": {
       "mcpServers": {
         "cg-oci": {
           "type": "http",
           "url": "https://cgr.dev/mcp",
-          "headersHelper": "/home/your-user/bin/cg-mcp-headers"
+          "headersHelper": "/home/[[USERNAME]]/bin/cg-mcp-headers"
         }
       }
     }

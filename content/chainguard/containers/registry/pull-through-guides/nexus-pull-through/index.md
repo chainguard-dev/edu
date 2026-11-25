@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Tutorial outlining how to set up a Nexus repository to pull container images through from Chainguard's registry."
 date: 2024-03-28T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -71,7 +71,7 @@ Be sure the `docker pull` command contains the correct Nexus URL for your reposi
 
 ## Setting up Nexus as a pull through for production containers
 
-Production Chainguard Containers are enterprise-ready images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
+Chainguard's Production images are enterprise-ready container images that come with patch SLAs and features such as [Federal Information Processing Standard](/platform/fips/fips-images/) (FIPS) readiness. The process for setting up an Nexus repository that you can use as a pull through cache for Production images is similar to the one outlined previously for Free containers, but with a few extra steps.
 
 To get started, you will need to create [a pull token](/chainguard/containers/registry/authenticating/#authenticating-with-a-pull-token) for your organization's registry. Pull tokens are longer-lived tokens that can be used to pull containers from other environments that don't support OIDC, such as some CI environments, Kubernetes clusters, or with registry mirroring tools like Nexus.
 

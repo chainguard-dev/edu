@@ -8,7 +8,7 @@ lead: "Chainguard custom IdPs"
 description: "An introduction to and overview of Chainguard's custom IdP support features"
 type: "article"
 date: 2023-04-17T08:48:45+00:00
-lastmod: 2026-10-01T17:08:58+00:00
+lastmod: 2026-11-16T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview"]
 images: []
@@ -92,13 +92,15 @@ To authenticate with the Chainguard Console, [open the login screen](https://con
 - To use a third-party identity provider, click the corresponding option from the list.
 - To use your email and a password, enter your email and click **Continue**.
 
-<center><img src="/platform/administration/custom-idps/custom-idps/cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
+<center><img src="cg-all-signin-24.png" alt="Screenshot showing an example Chainguard login box, with all described options shown." style="width:600px;"></center>
 
 In each of these cases, the Chainguard Console redirects you to an external identity provider to authenticate and then returns you to the Console. If you use your email and a password, [Auth0](https://auth0.com/) handles authentication and stores your credentials.
 
 Multi-factor authentication follows the same split. Your own identity provider manages it for users who sign in through your SSO integration, while Chainguard manages it for users who sign in with an email address and a password. See [Change or reset your MFA device](/get-started/mfa-devices/) for what each group should do to move MFA to a new device.
 
 ## Setup and administration
+
+Custom identity providers, SCIM provisioning, and group role mappings aren't included in the Chainguard Starter and Chainguard Team plans. Refer to [Chainguard self-serve plans](/get-started/self-serve/plans/).
 
 Chainguard SSO supports OpenID Connect (OIDC) compatible identity providers. In addition, identity providers must support the following:
 
@@ -116,7 +118,7 @@ To set up SSO for your identity provider, you must configure one of these resour
 
 Chainguard reads the standard OIDC `email` claim to populate each user's email address. That address is used for display across the Console and for the [support portal](/get-started/get-support/) handoff; it is not used to authenticate users, grant access, or correlate identities. Even so, several things break without it, so the token your identity provider issues must carry a populated `email` claim — requesting the `email` scope alone isn't enough. Some identity providers store a user's email under a directory attribute, such as the LDAP `mail` attribute, that isn't mapped to the standard `email` claim by default. When that mapping is missing, sign-in still completes, but the identity is created without an email: the user appears in the Console by an internal ID rather than a name, and opening a support request fails.
 
-If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim) and [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim) guides for the specifics.
+If your users' email lives in a non-standard attribute, configure your identity provider so the token carries it as the standard `email` claim. What that takes depends on the provider: some let you map any attribute to the claim, while others — notably Microsoft Entra ID — populate `email` only from a specific source attribute and don't let you re-point it. See the [Okta](/platform/administration/custom-idps/idp-providers/okta/#send-a-usable-email-claim), [Microsoft Entra ID](/platform/administration/custom-idps/idp-providers/ms-entra-id/#send-a-usable-email-claim), [Ping Identity](/platform/administration/custom-idps/idp-providers/ping-id/#send-a-usable-email-claim), and [Keycloak](/platform/administration/custom-idps/idp-providers/keycloak/#send-a-usable-email-claim) guides for the specifics.
 
 Chainguard currently reads email from the standard `email` claim. Where your provider supports it, also send the `email_verified` companion claim: when it is absent or `false`, Chainguard stores the address as unverified and re-evaluates it on each sign-in. Set `email_verified` to `true` only when the address has actually been verified.
 
@@ -163,6 +165,8 @@ Finally, configure a set of client credentials and make note of the following de
 - The issuer URL
 - Client ID
 - Client Secret
+
+The following steps create the identity provider with `chainctl`. To create it in the Chainguard Console instead, refer to the "Create an identity provider" section of [Manage custom identity providers in the Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/#create-an-identity-provider).
 
 Next, use `chainctl` to log in to Chainguard with an OIDC provider (such as Google, GitHub, or GitLab) to bootstrap your account.
 
@@ -213,7 +217,7 @@ The organization you choose doesn't affect how your users authenticate, but it d
 
 ## Managing existing identity providers
 
-Identity providers can be managed via `chainctl` using the `chainctl iam identity-provider` subcommand.
+You can manage your identity provider in the [Chainguard Console](/platform/administration/custom-idps/manage-idps-in-console/) or with the `chainctl iam identity-provider` subcommand. This section covers `chainctl`.
 
 To create new providers, you can use the `create` subcommand.
 

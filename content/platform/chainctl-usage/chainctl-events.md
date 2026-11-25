@@ -6,7 +6,7 @@ lead: "Chainguard's chainctl events commands enable CloudEvents-based monitoring
 description: "Learn how to use chainctl events commands to create, view, and manage CloudEvents subscriptions for monitoring Chainguard security events and container activities"
 type: "article"
 date: 2025-05-06T08:49:15+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -15,16 +15,16 @@ weight: 70
 
 Chainguard's `chainctl events` commands provide programmatic access to security event streams using the [CloudEvents](https://cloudevents.io/) specification. These commands enable you to monitor container activities, security alerts, and supply chain events across your organization for enhanced observability and compliance.
 
-Chainguard Academy has several deeper guides on [Chainguard CloudEvents](/platform/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/platform/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](/platform/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
+We have several deeper guides on [Chainguard CloudEvents](/platform/administration/cloudevents/). You may find our guide on [Subscribing to Chainguard CloudEvents](/platform/administration/cloudevents/events-example/) to be particularly useful for understanding how to work with events from Chainguard while [Chainguard Events](/platform/administration/cloudevents/events-reference/) provides a deeper dive into the content and make up of events.
 
 There are three `chainctl events` commands available: `create`, `list`, and `delete`.
 
 ## Create event subscriptions
 
-To create a new event and subscribe to events in that organization or folder, use:
+To create a new event and subscribe to events in that organization or folder, use the following command. Replace `[[SINK_URL]]` with the URL of the sink that receives the events:
 
 ```shell
-chainctl events subscriptions create $SINK_URL
+chainctl events subscriptions create [[SINK_URL]]
 ```
 
 A sink is an addressable or callable resource that can receive incoming events delivered over HTTPS and will translate the delivered event into a returned response that includes promised information. The style and type of response is set by the sink.
@@ -43,10 +43,10 @@ This will return a list of IDs and sinks for all of your subscriptions.
 
 ## Delete event subscriptions
 
-To delete an existing event, use:
+To delete an existing event, use the following command. Replace `[[SUBSCRIPTION_ID]]` with the subscription's ID, which `chainctl events subscriptions list` returns:
 
 ```shell
-chainctl events subscriptions delete $SUBSCRIPTION_ID
+chainctl events subscriptions delete [[SUBSCRIPTION_ID]]
 ```
 
 Depending on the sink, you may be prompted to respond to some questions before this action is complete. You can add a `-y` to the command to automatically assume `yes` and run without interaction.

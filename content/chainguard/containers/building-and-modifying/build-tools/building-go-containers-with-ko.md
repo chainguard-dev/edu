@@ -4,7 +4,7 @@ linktitle: "Ko"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Go containers using Ko and Chainguard base images"
 date: 2025-09-11T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -128,7 +128,7 @@ Once you’re able to pull images without being prompted to authenticate, you ca
 
 ## Step 3: Building your first container with Ko
 
-To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard Containers are available for both `amd64` and `arm64` architectures.
+To get started, you'll build your application locally using Ko’s default configuration. Ko supports cross-compilation to other CPU architectures and operating systems via the `--platform` flag, so it can build container images for any platform that is supported by the base image. Chainguard's container images are available for both `amd64` and `arm64` architectures.
 
 To build the image locally using default settings, run:
 
@@ -252,6 +252,6 @@ You now have a foundation for using Ko to build secure, minimal images for your 
 
 - [Ko's official documentation](https://ko.build/) for advanced configuration options
 - [Chainguard's image catalog](https://images.chainguard.dev/) to discover specialized base images for different use cases
-- [Container signing with Cosign](https://edu.chainguard.dev/open-source/sigstore/cosign/how-to-install-cosign/) to add cryptographic signatures to your images
+- [Container signing with Cosign](/open-source/sigstore/cosign/how-to-install-cosign/) to add cryptographic signatures to your images
 
 Ko's declarative approach to container building combined with Chainguard's security-focused base images provides a powerful toolkit for modern Go application deployment.

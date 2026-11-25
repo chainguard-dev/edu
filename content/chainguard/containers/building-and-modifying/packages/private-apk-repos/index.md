@@ -327,14 +327,13 @@ INFO: Build completed successfully, 128 total actions
 
 ## Pull token for authentication in automated workflows
 
-Use a pull token with a custom time to live (TTL) to authenticate to your
-private APK repository. The following example creates a pull token with a TTL of
-2190 hours, equivalent to 3 months, and produces an output with `export`
-commands to set environment variables `CHAINGUARD_IDENTITY_ID` for username and
+Use a pull token to authenticate to your private APK repository. The following
+example creates a pull token and produces an output with `export` commands to
+set environment variables `CHAINGUARD_IDENTITY_ID` for username and
 `CHAINGUARD_TOKEN` for password values and basic authentication use.
 
 ```shell
-chainctl auth pull-token --repository=apk --ttl=2190h --output=env
+chainctl auth pull-token --repository=apk --output=env
 ```
 
 ```output
@@ -345,16 +344,17 @@ export CHAINGUARD_TOKEN=<pull-token>
 * `--repository=apk`: create a role binding to bind the pull token identity the
 `apk.pull` role, enabling the identity to download packages from the private APK
 repository of the parent organization.
-* `--ttl=2190d`: set the duration for the validity of the token, defaults to
-  `720h` (equivalent to 30 days), maximum valid value is `8760h` (equivalent to
-  365 days), valid unit strings range from nanoseconds to hours and are `ns`,
-  `us`, `ms`, `s`, `m`, and `h`.
 * `--output=env`: set the command output to use export commands for environment
   variables. `apk` and `oci` pull tokens use the unqualified
   `CHAINGUARD_IDENTITY_ID` and `CHAINGUARD_TOKEN` names; library ecosystems use
   names such as `CHAINGUARD_JAVA_IDENTITY_ID`. Refer to [pull token output
   formats and credential
   names](/platform/chainctl-usage/pull-token-output/) for the full mapping.
+
+To set how long the token stays valid, add the `--ttl` flag with a duration in
+hours, such as `--ttl=168h`. The maximum depends on your organization's plan:
+`720h` (30 days) for Starter, `168h` (7 days) for Team, and `8760h` (365 days)
+for other plans.
 
 Each invocation of the command creates a new identity with access rights as a
 pull token. `chainctl` uses your organization automatically when you belong to

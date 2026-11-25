@@ -1,6 +1,6 @@
 # Feedback Widget System Overview
 
-This document provides an overview of the interactive feedback system implemented on Chainguard Academy, allowing users to provide feedback on content pages.
+This document provides an overview of the interactive feedback system implemented on Chainguard Docs, allowing users to provide feedback on content pages.
 
 ## What is the Feedback Widget?
 
@@ -31,11 +31,13 @@ User Interaction → JavaScript → Google Apps Script → Google Sheets
 ### Files Involved
 
 **Frontend Templates:**
+
 - `layouts/partials/feedback-widget.html` - Main widget HTML template
 - `assets/scss/components/feedback-widget.scss` - Widget styling
 - `assets/js/feedback-widget.js` - Interactive JavaScript functionality
 
 **Integration Points:**
+
 - `layouts/article/single.html` - Article page integration
 - `layouts/article/single-semantic.html` - Semantic article page integration
 - `layouts/wide/single.html` - Wide layout integration
@@ -45,20 +47,22 @@ User Interaction → JavaScript → Google Apps Script → Google Sheets
 ### Backend Services
 
 **Google Apps Script Web App:**
+
 - **Source Code**: "Feedback System Apps Script"
 - **Function**: Processes feedback submissions and writes to Google Sheets
 - **Deployment**: Web app deployment accessible to "Anyone" for public feedback collection
 
 **Data Storage:**
+
 - **Spreadsheet**: "Feedback Data Collection"
 - **Format**: Structured data with timestamp, page info, feedback type, and user comments
 
 The Feedback System Apps Script and Feedback Data Collection files are accessible to members of the Developer Enablement team.
 
-
 ## Features
 
 ### User Experience Features
+
 - **Simple Interface**: Clear "Was this helpful?" question with Yes/No buttons
 - **Positive Feedback**: One-click appreciation with visual confirmation
 - **Negative Feedback**: Detailed feedback collection with text input
@@ -69,6 +73,7 @@ The Feedback System Apps Script and Feedback Data Collection files are accessibl
 - **Theme Support**: Automatic dark mode compatibility
 
 ### Technical Features
+
 - **Data Collection**: Automatic capture of page title, URL, feedback type, and text
 - **Timestamp Recording**: Automatic date/time logging for each submission
 - **CORS Handling**: Proper cross-origin request configuration
@@ -90,15 +95,17 @@ Each feedback submission creates a row in the Google Sheets with the following c
 ## Security and Privacy
 
 ### Content Security Policy
+
 The site's CSP has been updated to allow connections to:
+
 - `https://script.google.com` (Apps Script endpoint)
 - `https://script.googleusercontent.com` (Apps Script responses)
 
 ### Data Privacy
+
 - **No personal information** is collected (no names, emails, IP addresses)
 - **No tracking** beyond basic page context
 - **Anonymous feedback** only - users cannot be identified
 - **Public data** - all feedback is stored in accessible Google Sheets
-
 
 Remember: The feedback widget helps improve content quality by providing direct user insights. Regular monitoring and response to feedback ensures the documentation continues to meet user needs effectively!

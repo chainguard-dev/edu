@@ -6,7 +6,7 @@ aliases:
 description: "JavaScript libraries for your application development"
 type: "article"
 date: 2025-06-05T09:00:00+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "JavaScript", "Overview"]
 menu:
@@ -78,7 +78,7 @@ https://libraries.cgr.dev/javascript/
 
 The URL does not expose a browsable directory structure.
 
-The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when configured, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
+The Chainguard Libraries for JavaScript repository is exposed through the Chainguard Repository endpoint for JavaScript libraries. It uses the npm repository protocol and serves both libraries that Chainguard has rebuilt from verifiable source and, when upstream fallback is on, packages proxied from the public npm registry under configurable policy controls. All packages served through this endpoint are subject to Chainguard security controls such as malware scanning and a configurable cooldown period for newly published upstream versions.
 
 Even with upstream fallback enabled, the repository does not include every package from npm. Packages may be unavailable when:
 
@@ -91,15 +91,32 @@ You can continue to use additional registries alongside Chainguard for needs out
 
 Configure this endpoint [globally through a repository manager](/chainguard/libraries/javascript/global-configuration/) for centralized access control across your organization, or use it for [direct access](/chainguard/libraries/javascript/build-configuration/) from individual build tools. If you prefer to manage your own npm fallback rather than using the built-in upstream fallback, refer to the [global configuration documentation](/chainguard/libraries/javascript/global-configuration/) for setup guides per repository manager.
 
+## CVE remediation
+
+{{% blurb/athena %}}
+
 ## Updating lockfile hashes
 
-Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes/).
+Existing JavaScript lockfiles usually contain upstream integrity hashes. Because Chainguard rebuilds packages from verified source, those hashes must be updated before reinstalling. Use `chainctl libraries update-hashes` to update them in place. Learn more in [Build configuration](/chainguard/libraries/javascript/build-configuration/#updating-lockfile-hashes).
 
 For a step-by-step walkthrough of moving an existing project to Chainguard Libraries, check out the [JavaScript migration guide](/chainguard/libraries/javascript/migration/).
 
-If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes/).
+If you install through a repository manager, refer to [Global configuration](/chainguard/libraries/javascript/global-configuration/#updating-lockfile-hashes).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from upstream stable after Chainguard publishes its own build, so you don't have to update these hashes again unexpectedly.
+
+## CVE remediation
+
+Chainguard Libraries for JavaScript includes the [CVE
+Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated packages carry an appended prerelease identifier of `-cgr.N`. For example, a remediated build of `example-package` version `4.17.21` is published as `example-package@4.17.21-cgr.1`.
+
+Unlike Python and Java, JavaScript remediation does not rely on version precedence. Because `-cgr.N` is an npm prerelease identifier, npm semver resolution does not treat it as newer than the base version, so a normal range such as `^4.17.21` never matches it. Instead, remediation operates on the resolved dependency tree in your lockfile.
+
+Preview available remediations by running `chainctl libraries remediate`, then adopt them by running the same command with `--apply`. When applied, the command walks the lockfile and updates each eligible package to the corresponding `-cgr.N` version. The change depends on where the package sits in your dependency tree: for a direct dependency, the command sets the exact `-cgr.N` version in `package.json`; for a transitive dependency, it adds an override or resolution rule that your package manager supports. In both cases, it also updates the lockfile. Re-run the command after every install or dependency update so that newly resolved entries are evaluated.
+
+Remediated artifacts are served through the standard JavaScript endpoint at `https://libraries.cgr.dev/javascript/`. For how remediation handles transitive dependencies and repeated package occurrences, see [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/).
+
+To see this end to end, the [CVE remediation demo](https://github.com/chainguard-demo/chainguard-libraries-javascript/tree/main/pnpm/cve-remediation) installs a vulnerable and a remediated version of the same package with pnpm and scans both with Grype.
 
 ## Provenance and attestations
 
@@ -175,6 +192,13 @@ the attestation was signed by Chainguard.
 
 ### Retrieve SBOMs
 
+To save the available SPDX SBOM and verified SLSA provenance bundle during
+verification, use `chainctl libraries verify --output-attestations`. Files are
+saved to `attestations` by default, or use `--output-dir` to choose another
+destination. Refer to [Download JavaScript SBOMs and
+attestations](/chainguard/libraries/policies-and-security/verification/#download-javascript-sboms-and-attestations)
+for examples, output paths, and the trust status of each file.
+
 Chainguard Libraries for JavaScript also include Software Bills of Materials (SBOMs) in SPDX format.
 
 To check whether an SBOM is available for a package, use npm show with the dist.sboms field:
@@ -193,12 +217,20 @@ Replace `PACKAGE` and `VERSION` with the package name and version (for example, 
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for JavaScript supports an optional built-in fallback to
+Chainguard Libraries for JavaScript includes a built-in, policy-governed fallback to
 the upstream npm Registry, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New JavaScript entitlements
+have upstream fallback on by default. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Libraries overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
+
+The `https://libraries.cgr.dev/javascript/` URL is your organization's default
+repository. To use a different upstream fallback setting for some builds, such
+as a CI repository that serves only Chainguard-built packages, you can create a
+named repository with its own URL. Repositories are in beta. Refer to
+[Repositories](/chainguard/libraries/repositories/overview/).
 
 > Note: Upstream fallback has been tested against pnpm v11. When using pnpm, we recommend pnpm v11 or newer.

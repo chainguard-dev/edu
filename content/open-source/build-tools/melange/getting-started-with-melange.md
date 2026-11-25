@@ -7,7 +7,7 @@ lead: "An apk builder tool"
 type: "article"
 description: "melange is a declarative apk builder"
 date: 2022-07-21T15:21:01+02:00
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["melange", "Procedural"]
 images: []
@@ -20,7 +20,7 @@ toc: true
 
 [melange](https://github.com/chainguard-dev/melange) is an [apk](https://wiki.alpinelinux.org/wiki/Package_management) builder tool that uses declarative pipelines to create apk packages. From a single YAML file, users are able to generate multi-architecture apks that can be injected directly into [apko](https://github.com/chainguard-dev/apko) builds.
 
-Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard Containers](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
+Understanding melange can help you better understand the [Wolfi](/open-source/wolfi/) operating system and how [Chainguard's container images](/chainguard/containers/) are made to be minimal and secure, but it is not necessary to have a background in melange in order to use Chainguard Containers.
 
 In this guide, you'll learn how to build a software package with melange. To demonstrate the versatile combination of melange and apko builds, we'll package a small command-line PHP script and build a minimalist container image based on Wolfi with the generated apk. All files used in this demo are open source and available at the [melange-php-demos](https://github.com/chainguard-dev/melange-php-demos/tree/main/hello-minicli) repository.
 
@@ -44,7 +44,7 @@ You should now be able to build apks for all architectures supported by melange.
 
 ## 1 — Downloading the melange image
 
-The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-open-source-build-tools-melange-getting-started-with-melange) with Docker. Start by pulling the melange image into your local system:
+The fastest way to get melange up and running on your system is by using the [official melange image](https://images.chainguard.dev/directory/image/melange/versions) with Docker. Start by pulling the melange image into your local system:
 
 ```shell
 docker pull cgr.dev/chainguard/melange:latest

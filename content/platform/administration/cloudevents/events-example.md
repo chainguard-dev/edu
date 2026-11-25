@@ -6,7 +6,7 @@ linktitle: "Subscribe to events"
 type: "article"
 description: "."
 date: 2025-04-24T15:22:20+01:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 draft: false
 tags: ["Chainguard Console", "CloudEvents", "Procedural"]
 images: []
@@ -123,7 +123,7 @@ This shows that you have successfully subscribed the test service to Chainguard 
 
 The webhook will get all events for your organization. You will need to filter them to only the events you are interested in, which can be done using the `ce-type` header. For pull events the type is `dev.chainguard.registry.pull.v1` and push events are of type `dev.chainguard.registry.push.v1`.
 
-A full description of all events and their types is [available on Chainguard Academy](/platform/administration/cloudevents/events-reference/).
+[Chainguard Events](/platform/administration/cloudevents/events-reference/) describes all events and their types.
 
 ## Validating events
 

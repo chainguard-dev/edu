@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl policy override create"
 slug: chainctl_policy_override_create
 url: /platform/chainctl/chainctl-docs/chainctl_policy_override_create/
@@ -22,7 +22,9 @@ identified by --artifact-id, under the policy named by --policy. Which
 form the artifact takes follows from the policy's resource type: an image
 digest for a Repo policy, written as sha256: followed by exactly 64
 lowercase hex characters, or a PURL for a library policy, such as
-pkg:npm/left-pad@1.3.0. A malformed value is rejected locally before any
+pkg:npm/left-pad@1.3.0. An image policy also accepts \<repo>@\<digest>, the
+form a policy decision's artifact ID takes, and the override stores only
+the digest. A malformed value is rejected locally before any
 API call, as is a digest aimed at a library policy or a PURL aimed at an
 image policy. A --reason is required to record why the waiver was
 granted.
@@ -51,6 +53,10 @@ chainctl policy override create --policy POLICY --artifact-id ARTIFACT --reason 
   # Waive the no-eol policy for a specific image digest
   chainctl policy override create --policy=no-eol --parent=engineering \
   --artifact-id=sha256:<64-hex-digest> --reason="approved exception, ticket OPS-42"
+  
+  # Waive it using the artifact ID copied from a policy decision
+  chainctl policy override create --policy=no-eol --parent=engineering \
+  --artifact-id=<repo>@sha256:<64-hex-digest> --reason="approved exception, ticket OPS-42"
   
   # Waive the cooldown gate for one npm package version
   chainctl policy override create --policy=cooldown --resource-type=Javascript \

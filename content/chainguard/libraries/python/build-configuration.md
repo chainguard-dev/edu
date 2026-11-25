@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Python on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-05T16:46:12+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 menu:
@@ -175,7 +175,7 @@ Run the command in your project directory to auto-detect the lockfile:
 chainctl libraries update-hashes
 ```
 
-> **Note**: Running `chainctl libraries update-hashes` requires the `libraries.python.pull` permission or the Owner role.
+{{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
 Or specify a lockfile path directly:
 
@@ -505,12 +505,14 @@ index URL using your username `CG_PULLTOKEN_USERNAME` and password
 `CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`.
 
-The recommended approach for CI/CD and shared configurations is to use
-uv's native index-scoped environment variables. For a named index, uv reads
-credentials from `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`,
-where `<NAME>` is the index name uppercased with hyphens replaced by underscores.
-This avoids storing credentials in config files while keeping the index
-configuration shareable.
+The recommended approach for CI/CD and shared configurations (including jobs
+that run `uv sync --frozen`) is to use uv's native index-scoped environment
+variables. Frozen sync can still query configured indexes, so CI must provide
+credentials even when the lockfile is not being re-resolved. For a named index,
+uv reads credentials from `UV_INDEX_<NAME>_USERNAME` and
+`UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name uppercased with
+hyphens replaced by underscores. This avoids storing credentials in configuration files
+while keeping the index configuration shareable.
 
 For example, with an index named `chainguard`:
 
@@ -567,48 +569,71 @@ indexes](https://docs.astral.sh/uv/concepts/indexes/#searching-across-multiple-i
 
 You can use this to configure the remediated Chainguard Libraries for Python
 index as the first choice for any library access, with a fallback to the
-Chainguard Libraries for Python index. In addition, if you are consuming from
-our remediated Python libraries index, we recommend setting the [index-strategy
-setting](https://docs.astral.sh/uv/reference/settings/#index-strategy) to
-`unsafe-best-match`. This ensures that index resolution continues to work when
-remediated libraries have dependencies on non-remediated libraries.
+Chainguard Libraries for Python index. Choose the order that matches how your project should consume Python packages:
 
-Example `pyproject.toml` index setup for direct access to remediated and default
-packages with netrc-based authentication. Note that the order of the entries in
-the configuration file is significant and determines the order for resolving
-dependencies:
+- Latest-major first: Put the standard Chainguard index first, then the remediated index. With `uv`'s default `first-index` strategy, a package available from the standard index is resolved there rather than from the remediated index.
+- Remediated first: Put the remediated Chainguard index first, then the standard index. This makes a remediated package the preferred source when it is available.
+
+For either layout, list Chainguard indexes before PyPI. To use PyPI only when a package is absent from both Chainguard indexes, configure PyPI explicitly as the default index:
 
 ```toml
+[tool.uv]
+index-strategy = "first-index"
+
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
-default = true # replaces PyPI as the lowest priority index
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
+default = true
 ```
 
-Setting `default = true` on the Chainguard index is important. Without it, uv
-appends PyPI as an implicit lowest-priority index, and with `unsafe-best-match`
-it can resolve packages from PyPI even when Chainguard serves them. This
-bypasses Chainguard malware blocking and cooldown. If you need packages that
-Chainguard has not built, use the [built-in upstream
+This example is **remediated-first**. For latest-major-first, swap the `cgr-pr`
+and `cgr-p` entries. Keep the PyPI entry last and marked `default = true` in
+either layout, because `default = true` means lowest priority, not highest.
+
+The example uses `first-index`, which limits candidates to the first index that
+returns a given package name. This gives protection against
+dependency-confusion attacks, but a pinned version that Chainguard hasn't built
+fails to resolve even when PyPI has it: once a Chainguard index returns the
+package name, uv never consults PyPI for that package. Use `first-index` only
+when every pinned version of a package that Chainguard builds is available from Chainguard.
+
+To let PyPI fill version gaps while still preferring Chainguard, set
+`index-strategy = "unsafe-first-match"`. uv then prefers the first index with a
+compatible version and falls back to a later index only when the earlier ones
+lack one. It keeps the Chainguard build when one fits and uses PyPI only for a
+genuine version gap.
+
+Don't set `index-strategy = "unsafe-best-match"` when PyPI is configured. That
+strategy selects the best version across every index at once, so it can install
+a newer PyPI version even when Chainguard has the package, which defeats
+Chainguard preference.
+
+Changing the index strategy fixes version gaps, not per-platform wheel gaps. If
+a version exists but has no wheel for your operating system, architecture,
+Python version, or C library — and no source distribution uv can build — no
+index strategy resolves it. See [Runtime and build
+requirements](/chainguard/libraries/python/overview/#runtime-and-build-requirements).
+
+If you need packages that Chainguard hasn't built, prefer the [built-in upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
-instead of adding PyPI to your configuration.
-
-Set the index strategy to allow fallback from the remediated package index to
-the Chainguard index in `pyproject.toml`:
-
-```toml
-[tool.uv]
-index-strategy = "unsafe-best-match"
-```
+over adding PyPI as an explicit index.
 
 Run a build to observe the resolved packages. For example, the declared
 dependency to `flask` version `2.0.0` results in the use of version `2.0.0+cgr.1`.
+
+#### CI and `uv sync frozen`
+
+`uv sync --frozen` verifies and installs from the existing lockfile without re-resolving it, but it is not an offline mode. The command can still query configured indexes when it needs a build backend or another package required to build a source distribution. A CI job that runs a frozen sync therefore still needs valid credentials for the configured indexes.
 
 ## Minimal example projects
 
@@ -694,20 +719,28 @@ dependencies = [
 ]
 
 [tool.uv]
-index-strategy = "unsafe-best-match"
-# This allows uv to search across multiple indexes to find remediated versions of Python libraries
+index-strategy = "first-index"
 
 [[tool.uv.index]]
 name = "cgr-pr"
-url = "https://libraries.cgr.dev/python-remediated/simple"
+url = "https://libraries.cgr.dev/python-remediated/simple/"
 authenticate = "always"
 
 [[tool.uv.index]]
 name = "cgr-p"
-url = "https://libraries.cgr.dev/python/simple"
+url = "https://libraries.cgr.dev/python/simple/"
 authenticate = "always"
+
+[[tool.uv.index]]
+name = "pypi-fallback"
+url = "https://pypi.org/simple/"
 default = true
 ```
+
+This example uses `first-index`, which works here because `flask==2.0.0` is
+available from Chainguard. If you pin a version Chainguard hasn't built, switch
+to `index-strategy = "unsafe-first-match"` so uv falls back to PyPI for the
+version gap. See [Multiple indexes](#multiple-indexes) for the trade-offs.
 
 **4. Build the project**
 

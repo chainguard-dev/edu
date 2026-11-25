@@ -7,7 +7,7 @@ lead: "Using Chainguard container images and libraries in AI-assisted developmen
 description: "Install the Chainguard Power for Kiro and use it to migrate projects to Chainguard container images and libraries."
 type: "article"
 date: 2026-06-18T00:00:00-04:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T14:27:19+00:00
 draft: false
 weight: 20
 ---
@@ -30,7 +30,7 @@ Before you begin, you'll need:
 * [`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) installed and authenticated
 * Access to the Chainguard products you plan to use
     * [Chainguard Containers](/chainguard/containers/overview/) for container image migration
-    * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to create an entitlement in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    * [Chainguard Libraries](/chainguard/libraries/introduction/overview/) for Java, JavaScript, or Python dependency migration. Learn how to get access in the [Libraries access docs](/chainguard/libraries/introduction/access/#manage-library-entitlements).
 
 The Chainguard Power uses your existing `chainctl` session for image and package lookups in Kiro.
 If you want Kiro to help reconfigure a project to use Chainguard Libraries, make sure your organization also has access to the relevant Libraries ecosystem.

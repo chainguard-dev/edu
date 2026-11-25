@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl iam identities delete"
 slug: chainctl_iam_identities_delete
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identities_delete/
@@ -33,6 +33,9 @@ chainctl iam identities delete {IDENTITY_NAME | IDENTITY_ID | --expired [--paren
   
   # Delete all expired static identities in an organization
   chainctl iam identities delete --expired --parent=my-org
+  
+  # Delete all expired static identities in every location, even with default.group set
+  chainctl iam identities delete --expired --parent=""
 ```
 
 ### Options

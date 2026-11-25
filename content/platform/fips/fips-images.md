@@ -14,7 +14,7 @@ aliases:
 type: "article"
 description: "Learn about Chainguard's FIPS-validated container images for federal compliance, featuring kernel-independent design and simplified deployment for FedRAMP and government requirements"
 date: 2024-02-08T15:56:52-07:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "FIPS"]
 images: []
@@ -33,7 +33,7 @@ Chainguard provides FIPS-validated container images to help organizations meet f
 
 ## What to expect from Chainguard FIPS containers
 
-Chainguard offers 700+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider (CMVP Certificate [#4282](https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4282)) and Bouncy Castle FIPS for Java.
+Chainguard offers 700+ FIPS image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider and Bouncy Castle FIPS for Java.
 
 All FIPS images include STIG hardening, daily builds with zero-to-minimal CVEs under SLA, and build-time SBOMs. Chainguard's warranties and certification details are on the [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) page.
 
@@ -51,7 +51,7 @@ For technical details, refer to [Kernel-Independent FIPS Containers](https://www
 
 FIPS images are available for language runtimes (Go, Java, Node.js, Python, .NET, PHP), databases (PostgreSQL, Elasticsearch, Redis), web servers (nginx, HAProxy), Kubernetes components, and monitoring tools. View the complete catalog at [images.chainguard.dev/?category=fips](https://images.chainguard.dev/?category=fips).
 
-All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
+All Chainguard FIPS Containers include [STIG hardening](/chainguard/containers/security-and-compliance/stigs/) in addition to FIPS validation. To review a container image's STIG results and FIPS certificates, use the [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) in the Chainguard Console. For images not currently available with FIPS, [contact Chainguard](https://www.chainguard.dev/contact) to discuss custom requirements.
 
 ## Additional resources
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl libraries go upload"
 slug: chainctl_libraries_go_upload
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_go_upload/
@@ -19,7 +19,7 @@ Upload a Go module to Chainguard Libraries for Go.
 
 The command packages the module at --source into a GOPROXY module zip
 (the same layout 'go mod download' produces), validates it locally, and
-uploads it to <ecosystems-url>/go/<module>/@v/<version>.zip. The version
+uploads it to \<ecosystems-url>/go/\<module>/@v/\<version>.zip. The version
 lands in your organization's own registry, which only your organization
 can resolve, alongside the shared catalog. The registry derives the .mod
 and .info files from the zip. The source directory must contain a go.mod
@@ -39,14 +39,14 @@ role. Credentials are resolved in this order:
   1. --token
   2. $CHAINCTL_AUTH_TOKEN, if its audience includes the registry host
   3. the chainctl session for the registry host, as created by
-     'chainctl auth login --audience <host>' (a browser login is opened
+     'chainctl auth login --audience \<host>' (a browser login is opened
      when no usable session exists)
 
 If a token was minted before the push capability was granted it still
 carries the old capability set; refresh it with
-'chainctl auth login --audience <host> --refresh'.
+'chainctl auth login --audience \<host>'.
 
-Consumers resolve uploaded versions with GOPROXY=<ecosystems-url>/go.
+Consumers resolve uploaded versions with GOPROXY=\<ecosystems-url>/go.
 Versions published this way never appear in sum.golang.org, so consumers
 must exclude the module from checksum-database lookups (GONOSUMDB or
 GOPRIVATE).

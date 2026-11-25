@@ -4,7 +4,7 @@ linktitle: "Access"
 description: "Learn how to access Chainguard Libraries for enhanced security in Java and Python dependencies, including authentication and organization setup"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-12T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -25,8 +25,9 @@ system. This guide explains how to access (download) Chainguard library artifact
 ### Prerequisites
 
 - Ensure you have access to Chainguard Libraries.
-    - If you are not a Chainguard user yet, a new Chainguard account must be
-created and you must [add an entitlement to Chainguard Libraries](/chainguard/libraries/introduction/access/#manage-library-entitlements).
+    - If you are not a Chainguard user yet, create a Chainguard account. To add
+an entitlement to Chainguard Libraries for your organization, contact your
+Chainguard account team.
 - If you have access to more than one Chainguard organization, confirm the name
 of the one you want to use. You can then pass it to `chainctl` commands with the
 `--parent` parameter.
@@ -39,8 +40,8 @@ direct access.
 #### Artifact manager
 
 If your organization uses an artifact manager such as Cloudsmith, JFrog Artifactory, or Sonatype Nexus, you can set up and configure credentials once per language ecosystem. Then, all projects and developers automatically inherit
-the configuration. This option is recommended for organizations with multiple
-teams, and provides centralized access controls and consistent uptime.
+the configuration. This option suits organizations with multiple teams, and
+provides centralized access controls and consistent uptime.
 
 #### Direct access
 
@@ -49,12 +50,30 @@ configuration. This option allows for faster initial setup, but it does not
 allow for global configuration. It requires configuration per project and
 workstation, which creates more overhead as you scale across teams and projects.
 
-Both approaches require pull tokens for authentication; refer to [Pull token
-characteristics and use](#pull-token-characteristics-and-use) for more information.
+An artifact manager authenticates to Chainguard Libraries with a pull token.
+For direct access, you can use a session token or a pull token.
 
-> NOTE: For Python users, the [Chainguard keyring
-provider](#python-keyring-provider) uses short-lived credentials and is the
-preferred method where your environment supports it.
+<a id="choose-auth"></a>
+
+### Choose an authentication method
+
+Chainguard Libraries supports both short-lived credentials and long-lived pull
+tokens. Chainguard recommends short-lived credentials where your tools and
+workflows support them, because they expire on their own and are tied to a
+person or workload. Pull tokens work with every build tool and artifact
+manager.
+
+| Option | How it works | Lifetime | Good fit |
+| --- | --- | --- | --- |
+| Session token with a `chainctl` helper (recommended) | Chainguard provides authentication helpers that retrieve a token using `chainctl`. Helpers are available for Python ([Python keyring provider](#python-keyring)), JavaScript ([`chainctl auth configure-npm`](/chainguard/libraries/javascript/build-configuration/)), and .NET ([`chainctl auth configure nuget`](/chainguard/libraries/dotnet/build-configuration/)). | Up to one hour | Workstations with direct access, with the use of a `chainctl` helper |
+| Session token from `chainctl auth token` | You supply the token to your build tool as a password, and get a new one when it expires. | Up to one hour | Scripts and short sessions with build tools that have no helper |
+| Assumable identity (recommended for CI/CD) | Your CI/CD platform exchanges its OIDC token for a Chainguard token. See [assumable identities](/platform/administration/assumable-ids/assumable-ids/). | Up to one hour | CI/CD platforms that support OIDC, such as GitHub Actions |
+| [Pull token](#pull-token) | A username and password for an identity that can only pull. Store it in a secrets manager or password manager and load it from [environment variables](#env). | The TTL you set, 30 days by default and up to 365 days | Any build tool, artifact managers, CI/CD platforms without OIDC, and teams that share one credential |
+
+For guidance that applies to every option, see [Credential
+guidelines](#credential-guidelines).
+
+A check in [Chainguard Checks](/chainguard/checks/overview/) doesn't need a pull token. It can download JavaScript and Python libraries through a [workload identity](/chainguard/checks/identity-and-trust/#chainguard-hosts) that holds the `libraries.javascript.pull` or `libraries.python.pull` role. A [Chainguard Workspaces](/chainguard/workspaces/overview/) session has no credential for Chainguard Libraries, as described in [Credentials a session can't supply](/chainguard/workspaces/credentials/#credentials-a-session-cant-supply).
 
 ### Initial authentication
 
@@ -76,6 +95,85 @@ and a token:
 Successfully exchanged token.
 Valid! Id: 8a4141a........7d9904d98c
 ```
+
+<a id="session-tokens"></a>
+
+## Session tokens and pull tokens
+
+Chainguard Libraries accepts two kinds of credentials:
+
+- **Session token**: a token from your own `chainctl` login, scoped to
+  `libraries.cgr.dev`. It's valid for up to one hour, pulls are associated with
+  your user, and you can end the session with [`chainctl auth sessions
+  revoke`](/platform/chainctl/chainctl-docs/chainctl_auth_sessions_revoke/).
+  Getting one needs no permissions beyond pull access, and every machine that
+  uses it needs `chainctl`.
+- **Pull token**: a username and password for a separate identity that holds
+  only a pull role. It works in any tool that supports basic authentication and
+  doesn't need `chainctl`, but it stays valid until its TTL ends or you delete
+  it. Creating one requires a `pull_token_creator` role. For details, see
+  [Creating pull tokens for libraries](#pull-token).
+
+Build tools get session tokens from `chainctl` in the following ways:
+
+- The [Python keyring provider](#python-keyring) runs `chainctl auth token
+  --audience=libraries.cgr.dev` each time pip or uv needs credentials, so no
+  token is written to your configuration files.
+- [`chainctl auth
+  configure-npm`](/platform/chainctl/chainctl-docs/chainctl_auth_configure-npm/)
+  writes your session token to the project `.npmrc`. Re-run the command when
+  the token expires.
+- [`chainctl auth configure
+  nuget`](/chainguard/libraries/dotnet/build-configuration/) writes your session
+  token to the NuGet configuration file. Re-run the command when the token
+  expires.
+- Other build tools, such as Maven, Gradle, and Go, accept a session token in
+  place of a pull token. Use `_token` as the username and the output of
+  [`chainctl auth
+  token`](/platform/chainctl/chainctl-docs/chainctl_auth_token/) as the
+  password. For example, set the environment variables that the [Java build
+  configuration](/chainguard/libraries/java/build-configuration/) uses:
+
+  ```shell
+  export CHAINGUARD_JAVA_IDENTITY_ID=_token
+  export CHAINGUARD_JAVA_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
+  ```
+
+  Run the commands again when the token expires.
+
+You don't need a background service to keep session tokens current. When a
+cached token expires, `chainctl auth token` renews it from the cached refresh
+token. The Python keyring provider runs that command, so it gets the renewed
+token too. A token that was already copied into a file or an environment
+variable, such as `.npmrc`, the NuGet configuration file, or
+`CHAINGUARD_JAVA_TOKEN`, doesn't update, so re-run the command that wrote it.
+
+If you installed the token refresh service in the past, it's deprecated, and
+you can remove it with [`chainctl auth configure-refresh-service
+uninstall`](/platform/chainctl/chainctl-docs/chainctl_auth_configure-refresh-service_uninstall/).
+
+<a id="credential-guidelines"></a>
+
+### Credential guidelines
+
+Follow these guidelines for whichever option you choose:
+
+- Commit the registry URL to your project, but do not commit credentials. Keep
+  authentication lines, such as `_auth` and `_authToken` entries in `.npmrc`,
+  out of version control.
+- Prefer short-lived credentials where your build tools and workflows support
+  them.
+- Store pull tokens in a secrets manager or password manager, and load them
+  from [environment variables](#env) instead of writing them into configuration
+  files. A team can share one pull token this way.
+- Set the shortest pull token TTL that fits how often you can rotate it,
+  replace the token before it expires, and [delete expired
+  tokens](#pull-token-management).
+- Limit who can create pull tokens, so you know where each one is used.
+- Give CI/CD pipelines and other automated workloads, such as AI agents that
+  run outside a workstation, their own credential, ideally an assumable
+  identity, instead of an engineer's session token or a team's shared pull
+  token.
 
 <a id="pull-token"></a>
 
@@ -142,8 +240,8 @@ Chainguard console:
 1. Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 2. In the left-hand navigation, click **Overview**.
-3. Click the **Manage pull tokens** tab, then click **Create access token**.
-    - Alternatively, select **Access Tokens** from the menu at the top of the
+3. Click the **Manage pull tokens** link, then click **Create token**.
+    - Alternatively, select **Access Tokens** from the menu on the
       **Settings** page.
 4. Configure the access token:
     - **Name**: Provide a name. The name can later be used to locate the token
@@ -153,9 +251,9 @@ Chainguard console:
     - **Expiration**: Set an expiration date for the token. The default is 30
       days.
 5. Click **Create token**.
-6. When the username and password values are displayed, note these values in a
-   secure location, as you will need them for pull token use. These values will
-   not be displayed again.
+6. When the username and password values are displayed, save them in a secure
+   location. You need them to use the pull token, and the console doesn't
+   display them again.
 
 ## Pull token characteristics and use
 
@@ -170,16 +268,23 @@ The returned username and password combination is a new credential set in the
 organization that is independent of the account used to create and retrieve the
 credential set. It is therefore suitable for use in any service application,
 such as a repository manager or a build tool that is not tied to a specific
-user. You can also use the token as an individual for your development with
-direct access to Chainguard Libraries.
+user. For individual development with direct access, prefer a [session
+token](#session-tokens) where your build tool supports it.
+
+A pull token created for the organization works on every URL in the
+organization, including the URLs of its named repositories. A pull token
+created for a named repository works only on that repository's URL. Named
+repositories are in beta; refer to [Repositories](/chainguard/libraries/repositories/overview/).
 
 To use the pull token in another environment, supply the username and password
 for basic authentication. Note that the actual returned values are much longer.
 
-> **Note**: Chainguard does not offer an SLA for uptime availability of the
-> Chainguard Libraries repositories at `libraries.cgr.dev`. To reduce production
-> risk and ensure reliability, we recommend proxying the repositories through
-> your own artifact repository whenever possible.
+{{< note >}}
+Chainguard does not offer an SLA for uptime availability of the
+Chainguard Libraries repositories at `libraries.cgr.dev`. To reduce production
+risk and ensure reliability, we recommend proxying the repositories through
+your own artifact repository whenever possible.
+{{< /note >}}
 
 For artifact manager setup, see the global configuration guides:
 
@@ -323,7 +428,10 @@ Python users can leverage an alternative to pull tokens. The [Chainguard keyring
 implementation](https://github.com/chainguard-dev/keyrings-chainguard-libraries)
 provides short-lived credentials from supported environments, such as local
 development and CI/CD platforms that can use [assumable
-identities](/platform/administration/assumable-ids/assumable-ids/).
+identities](/platform/administration/assumable-ids/assumable-ids/). For GitHub
+Actions, follow
+[Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/)
+and bind the `libraries.python.pull` role.
 
 Where possible, Chainguard recommends using short-lived credentials to access
 Chainguard Libraries.
@@ -345,7 +453,11 @@ pip install keyrings-chainguard-libraries --ignore-installed --no-cache-dir
 
 Once the keyring package is installed, when you request to install packages from
 Chainguard Libraries for Python, the keyring automatically retrieves short-lived
-credentials for you, using `chainctl`.
+credentials for you, using `chainctl`. The keyring requires `chainctl` to be
+installed and logged in on the same machine. It holds the token in memory only,
+and it works only for requests that go directly to `libraries.cgr.dev`, not
+through an artifact manager. To reduce how often you need to log in again, pair
+it with the [token refresh service](#session-tokens).
 
 To use the keyring with a project `uv`, install the keyring:
 
@@ -398,20 +510,21 @@ Inspect all pull tokens for your organization in the Chainguard console:
 - Use your authentication details to access the console at
   [https://console.chainguard.dev/](https://console.chainguard.dev/).
 - Select **Overview** in the left-hand navigation.
-- Select the **Manage pull tokens** tab.
+- Select the **Manage pull tokens** link.
     - Alternatively, select **Settings** in the left-hand navigation, and select
-    **Pull Tokens** in the menu on the settings page.
+    **Access Tokens** in the menu on the settings page.
 
 The list includes the following columns:
 
-- **Name** - the name of the pull token, expired pull token are identified by a
-  red **Expired** warning.
-- **Description** - the description of the pull token
-- **Created** - the date when the pull token was created
+- **Name** - the name of the pull token. Expired pull tokens show an
+  **Expired** warning.
+- **Description** - the description of the pull token.
+- **Access** - what the pull token can pull, such as **Java Libraries**.
+- **Created** - the date when the pull token was created.
 - **Expiration** - string description of the expiration status of the token,
   such as *in 8 months* or *4 days ago*.
-- **Actions** - menu button to perform actions on the pull token, only a Delete
-  action is available.
+- **Actions** - menu button to perform actions on the pull token: **Delete**
+  and **Edit**.
 
 Use the action to remove a pull token:
 
@@ -465,42 +578,40 @@ to delete a specific pull token using its ID `45a0c61ea6fd97...`:
 chainctl iam identities delete 45a0c61ea6fd97...
 ```
 
-Use the identifier or name of your organization `example` and the `--expired`
-flag to remove all expired pull tokens:
+Use the `--expired` flag with the identifier or name of your organization,
+`example` in this sample, to remove all expired static identities, including
+expired pull tokens:
 
 ```shell
-chainctl iam ids rm --expired
+chainctl iam ids rm --expired --parent=example
 ```
 
 <a id="entitlement"></a>
 
 ## Manage library entitlements
 
-You can create, list, and remove entitlements using [`chainctl libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
+An entitlement grants your organization access to a Chainguard Libraries
+ecosystem. To add or remove an entitlement, contact your Chainguard account
+team.
 
-### Create entitlements
+Once your organization is entitled to an ecosystem, you can list your
+entitlements and change their upstream fallback policy yourself with [`chainctl
+libraries entitlements`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/).
 
-As administrator you can use [`chainctl libraries entitlements create`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) for one or more ecosystems:
+### Enable upstream fallback
 
-```shell
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT,JAVA,PYTHON
-```
-
-To enable upstream fallback for JavaScript, use the `--policy` flag:
+New entitlements have [upstream
+fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls)
+on by default. To turn on upstream fallback for an entitlement that has it off,
+use the `--policy` flag:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
 
-To update the upstream fallback policy on an existing entitlement, rerun the `create` command with the new `--policy` value.
-
-### Remove entitlements
-
-You can delete an ecosystem library entitlement for a specific ecosystem from your organization with [`chainctl libraries entitlements delete`](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/):
-
-```shell
-chainctl libraries entitlements delete --ecosystem=JAVASCRIPT
-```
+To change the upstream fallback policy on an existing entitlement, rerun the
+command with the new `--policy` value. For example, `--policy=CHAINGUARD` serves
+only Chainguard-built packages.
 
 ### List entitlements
 

@@ -25,8 +25,13 @@ from typing import Any, Annotated, Dict, List, Literal, Optional
 
 # MCP SDK imports (2.0 high-level API)
 try:
+    import uvicorn
     from mcp.server import MCPServer
     from pydantic import Field
+    from starlette.applications import Starlette
+    from starlette.requests import Request
+    from starlette.responses import Response
+    from starlette.routing import Route
 except ImportError:
     import sys
 
@@ -53,7 +58,9 @@ CATALOG_PATH = os.getenv("CATALOG_PATH", "/docs/package-mappings.json")
 # as "no image data at all": a headless Claude Code test found that wording
 # made the model skip this server's dfc image mappings and guess instead. The
 # second exists because the same test found most answers printing
-# cgr.dev/chainguard/<image> for images that namespace does not serve.
+# cgr.dev/chainguard/<image> for images that namespace does not serve. The
+# third keeps the image wording from suggesting that the documentation covers
+# only images and build tools.
 SERVER_INSTRUCTIONS = """\
 This server searches Chainguard documentation and maps Debian and Fedora
 packages to their Wolfi equivalents. Its documentation includes the Dockerfile
@@ -69,6 +76,13 @@ in the organization's own namespace. The public cgr.dev/chainguard namespace
 serves a free subset, with latest-style tags only, so do not present
 cgr.dev/chainguard/<image> as pullable unless you have confirmed it.
 
+The documentation covers every Chainguard product, including Chainguard
+Containers, Chainguard Libraries, Chainguard Actions, Guardener, Chainguard
+Checks, and Chainguard Workspaces, as well as chainctl, Wolfi, apko, and
+melange. Use search_docs for how-to and reference questions about any of them,
+such as writing a Chainguard Checks .chainguard/ci.yaml file or working in a
+Chainguard Workspaces session.
+
 For live image and package facts, use Chainguard's product MCP servers, which
 require a Chainguard account:
 - cg-oci (https://cgr.dev/mcp): repositories and tags you can pull, manifests
@@ -80,7 +94,7 @@ require a Chainguard account:
 
 To browse the public image catalog and its documentation, use
 https://images.chainguard.dev/. Setup for every server:
-https://edu.chainguard.dev/platform/mcp-servers/overview/
+https://www.chainguard.dev/docs/platform/mcp-servers/overview
 """
 
 # Input length limits to prevent CPU DoS on string operations
@@ -145,16 +159,17 @@ EXACT_PHRASE_BONUS = 60  # the whole query, verbatim
 BODY_HIT_CAP = 20  # ceiling on raw frequency, so long pages cannot dominate
 
 # Where the bundled pages are published, so a search result can link to the
-# page rather than only naming it.
-EDU_BASE_URL = "https://edu.chainguard.dev"
+# page rather than only naming it. URLs on www carry no trailing slash; a
+# trailing slash costs the reader a 308 redirect.
+DOCS_BASE_URL = "https://www.chainguard.dev/docs"
 
 
 def page_url(source_path: str) -> str:
     """Map a bundle '_Path:' value to the published page URL.
 
-    compile_docs.py records the path relative to content/, and Hugo serves
+    compile_docs.py records the path relative to content/, and the docs serve
     'chainguard/libraries/python/overview.md' at
-    '<base>/chainguard/libraries/python/overview/'.
+    '<base>/chainguard/libraries/python/overview'.
 
     Both bundle forms are served at the directory rather than below it: a
     branch bundle (_index.md, 32 pages) and a leaf bundle (index.md, 76
@@ -164,8 +179,8 @@ def page_url(source_path: str) -> str:
     slug = source_path.removesuffix(".md")
     slug = slug.removesuffix("/_index").removesuffix("/index")
     if slug in ("_index", "index"):
-        return f"{EDU_BASE_URL}/"
-    return f"{EDU_BASE_URL}/{slug}/"
+        return DOCS_BASE_URL
+    return f"{DOCS_BASE_URL}/{slug}"
 
 
 # Registry hosts that mean Docker Hub. dfc strips these before matching, so
@@ -690,6 +705,55 @@ def find_image_equivalent(
     return response
 
 
+async def refuse_sse_stream(request: Request) -> Response:
+    """Answer GET /mcp with 405: this server offers no server-to-client stream."""
+    return Response(status_code=405, headers={"Allow": "POST"})
+
+
+def build_http_app(host: str) -> Starlette:
+    """Build the streamable-HTTP app that serves /mcp.
+
+    stateless_http holds no per-session state in instance memory. The service
+    runs multiple Cloud Run instances behind a global load balancer with no
+    session affinity, so a session minted by initialize on one instance is
+    rejected with 404 "Session not found" when a follow-up request (e.g.
+    notifications/initialized) lands on another (CUS-1340). The docs tools are
+    read-only with no server-initiated notifications, so holding no shared
+    session state has no downside. Statelessness also retires the SDK's
+    per-session ceilings (max_sessions, session_idle_timeout); throughput is
+    now bounded by Cloud Run per-instance concurrency instead.
+
+    json_response returns each POST reply as a single application/json body
+    instead of a one-shot text/event-stream. These tools are read-only and
+    single-response, so nothing needs SSE framing, and plain JSON is friendlier
+    to the fronting load balancer and buffering proxies.
+
+    The first route answers GET (and HEAD) /mcp with 405, which the MCP spec
+    defines as "no SSE stream offered here" and requires clients to handle.
+    In stateless mode the SDK still accepts GET and holds the stream open,
+    sending only keepalive pings, until Cloud Run's 300-second request
+    timeout. Each open stream holds one of the service's Cloud Run request
+    slots; enough of them filled every slot, and Cloud Run returned 429 to all
+    callers (EXP-577; upstream: modelcontextprotocol/python-sdk#2474).
+    Starlette matches routes in order and this route accepts only GET and
+    HEAD, so it must come first; POST and DELETE fall through to the SDK's
+    /mcp route. The SDK's custom_route() can't do this, because it adds routes
+    after /mcp.
+    """
+    # streamable_http_path defaults to "/mcp" and max_request_body_size to
+    # 4 MiB. host is passed so the SDK applies the same transport-security
+    # defaults it would under server.run().
+    app = server.streamable_http_app(
+        host=host,
+        stateless_http=True,
+        json_response=True,
+    )
+    app.router.routes.insert(
+        0, Route("/mcp", endpoint=refuse_sse_stream, methods=["GET"])
+    )
+    return app
+
+
 def parse_args():
     """Parse command-line arguments with env var fallbacks."""
     parser = argparse.ArgumentParser(
@@ -721,34 +785,20 @@ if __name__ == "__main__":
     args = parse_args()
 
     if args.transport == "http":
-        # host must be passed explicitly: the SDK runner defaults to 127.0.0.1,
-        # but Cloud Run requires binding 0.0.0.0. streamable_http_path defaults
-        # to "/mcp" (matches the 1.x mount) and max_request_body_size to 4 MiB.
-        #
-        # stateless_http holds no per-session state in instance memory. The
-        # service runs multiple Cloud Run instances behind a global load
-        # balancer with no session affinity, so a session minted by initialize
-        # on one instance is rejected with 404 "Session not found" when a
-        # follow-up request (e.g. notifications/initialized) lands on another
-        # (CUS-1340). The docs tools are read-only with no server-initiated
-        # notifications, so holding no shared session state has no downside.
-        # Statelessness also retires the SDK's per-session ceilings
-        # (max_sessions, session_idle_timeout); throughput is now bounded by
-        # Cloud Run per-instance concurrency instead.
-        #
-        # json_response returns each POST reply as a single application/json
-        # body instead of a one-shot text/event-stream. These tools are
-        # read-only and single-response, so nothing needs SSE framing, and plain
-        # JSON is friendlier to the fronting load balancer and buffering proxies.
+        # host must be passed explicitly: it defaults to 127.0.0.1, but Cloud
+        # Run requires binding 0.0.0.0. This calls uvicorn the way the SDK's
+        # server.run() does (host, port, log level), and uvicorn reads
+        # FORWARDED_ALLOW_IPS from the environment (see serve-mcp-http.sh).
+        # build_http_app() explains the transport settings.
         logger.info(
-            "Starting HTTP transport with stateless_http=True, json_response=True (CUS-1340)"
+            "Starting HTTP transport: stateless_http=True, json_response=True, "
+            "GET /mcp returns 405 (CUS-1340, EXP-577)"
         )
-        server.run(
-            transport="streamable-http",
+        uvicorn.run(
+            build_http_app(args.host),
             host=args.host,
             port=args.port,
-            stateless_http=True,
-            json_response=True,
+            log_level=server.settings.log_level.lower(),
         )
     else:
         server.run()  # stdio

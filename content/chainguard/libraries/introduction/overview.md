@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-19T18:33:27+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -121,6 +121,10 @@ To move an existing project over, follow the migration guide for
 [JavaScript](/chainguard/libraries/javascript/migration/), or
 [Python](/chainguard/libraries/python/migration/).
 
+## CVE remediation
+
+{{% blurb/athena %}}
+
 ## Chainguard criteria for building a library
 
 Chainguard Libraries includes thousands of Java, JavaScript, and Python libraries, and coverage is continuously growing as we add more packages and versions over time. Chainguard aims to build libraries that are relevant to our customers and that support broader software supply chain security goals. However, it is not always feasible or safe to rebuild and redistribute every package from public registries such as Maven Central, npm, or PyPI.
@@ -148,39 +152,58 @@ Our current minimum supported toolchains are:
 
 We will attempt to rebuild any libraries that meet the [licensing and source availability criteria](#licensing-and-source-availability) using the supported toolchains.
 
-### EOL version support
-
-When a library version reaches end of life (EOL) upstream, Chainguard Libraries continues to build packages and provide security fixes for that version for six months beyond the upstream EOL date.
-
-After that six-month window closes, Chainguard Libraries will:
-
-* No longer build new packages that require the EOL version
-* No longer provide security fixes for packages built against the EOL version
-* Continue to serve previously built packages
-
 ## Upstream fallback and controls
 
-Chainguard Libraries support an optional protected upstream fallback, managed through the [Chainguard
+Chainguard Libraries include a protected upstream fallback, managed through the [Chainguard
 Repository](/chainguard/chainguard-repository/overview/).
 
-By default, the Chainguard library endpoints serve
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+New entitlements have upstream fallback on by default for every ecosystem that has
+an upstream registry. The endpoint serves Chainguard-built packages first and serves
+eligible upstream packages only when Chainguard hasn't built the requested version.
+Upstream packages are subject to additional security controls before being served.
+
+To see the policy on each of your entitlements, run
+`chainctl libraries entitlements list`. To change it, follow the steps in the next
+section.
 
 > Note: When using `chainctl` to configure upstream fallback or cooldown duration, it can take up to 30 minutes for the repository changes to take effect.
 
 ### Enable the upstream repository
 
-To enable or change upstream fallback configuration, use the [`chainctl
-libraries entitlements`
-command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/).
+Two settings control how the repository serves packages:
 
-For example, the following command creates or updates an entitlement to Chainguard Libraries
-for JavaScript, and adds the npm upstream fallback policy. Enabling upstream fallback includes a 7-day cooldown by default, which can also be configured:
+* Your **entitlement** controls whether the repository serves upstream packages. Use the [`chainctl
+  libraries entitlements`
+  command](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements_create/) to change it.
+* A **library policy** controls the cooldown period. Use the `chainctl libraries policy` command to change it.
+
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to Chainguard-built packages and upstream packages alike. When upstream fallback is off, the repository serves only Chainguard-built packages and no cooldown applies to them.
+
+When upstream fallback is on, the default 7-day cooldown applies until you enable a library policy that sets a different cooldown.
+
+New entitlements already have upstream fallback on. If yours is off, or you want
+to switch an entitlement to Chainguard-only, change the entitlement policy. For
+example, the following command turns on upstream fallback for your JavaScript
+entitlement:
 
 ```bash
 chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD_AND_UPSTREAM
 ```
+
+To serve only Chainguard-built packages, set the policy to `CHAINGUARD` instead:
+
+```bash
+chainctl libraries entitlements create --ecosystems=JAVASCRIPT --policy=CHAINGUARD
+```
+
+To change the cooldown, create a library policy and enable it for the ecosystem. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan). For example, on a plan that allows it, the following commands disable the cooldown for JavaScript:
+
+```bash
+chainctl libraries policy create --name=no-cooldown --cooldown-days=0
+chainctl libraries policy enable no-cooldown --ecosystem=JAVASCRIPT --mode=ENFORCE
+```
+
+Malware and greyware scanning still applies when the cooldown is disabled. For more options, see [Cooldown policies](/chainguard/chainguard-repository/library-policies/#cooldown-policies).
 
 For JavaScript, you can also enable upstream fallback in the Chainguard Console. For Java and Python, you cannot currently enable fallback or view upstream vs. Chainguard-built packages via the Chainguard Console; you must use `chainctl` to enable fallback for Java and Python.
 
@@ -188,8 +211,13 @@ For JavaScript, you can also enable upstream fallback in the Chainguard Console.
 
 The following options are available:
 
-* **No upstream fallback (default)**: Only Chainguard-built packages are served.
-* **Upstream fallback enabled with default 7-day cooldown**: Upstream packages are available after passing a configurable cooldown period and malware scan. The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **Upstream fallback on (default for new entitlements)**: Chainguard-built packages are served first. Upstream packages are available after they pass malware scanning and the cooldown period. The cooldown defaults to 7 days, and you can change or disable it with a [library policy](/chainguard/chainguard-repository/library-policies/#cooldown-policies). The same cooldown period is enforced across Chainguard-built packages and upstream packages, so that dependency trees resolve consistently across both sources.
+* **No upstream fallback**: Only Chainguard-built packages are served, and the cooldown does not apply. Set the entitlement policy to `CHAINGUARD` to choose this option.
+
+Your entitlement sets the upstream fallback for your organization's default
+repository, the URLs such as `https://libraries.cgr.dev/javascript/`. Named
+repositories, in beta for JavaScript, each have their own upstream fallback
+setting. Refer to [Repositories](/chainguard/libraries/repositories/overview/).
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a package version you pulled from upstream stable even after Chainguard publishes its own build of that version. This prevents unexpected checksum changes across rebuilds.
 
@@ -197,11 +225,25 @@ When the upstream fallback is enabled, [build pinning](/chainguard/libraries/pol
 
 Chainguard's [source code and maintainer behavior
 scanning](https://www.chainguard.dev/unchained/the-expanding-threat-landscape-chainguard-now-scans-source-code-for-traditional-malware-and-greyware/)
-identifies and blocks malicious and greyware packages in Chainguard Libraries
+identifies and blocks malware and greyware packages in Chainguard Libraries
 via the Chainguard Repository. This includes packages that are publicly reported
 as malicious (including packages associated with OSV malware IDs) and packages
 that Chainguard determines are unsafe through its own malware source code
 scanning, even when no public malware advisory exists yet.
+
+Malware harms the person who installs or uses it. Chainguard bases its
+definition on the [OpenSSF malicious packages
+definition](https://github.com/ossf/malicious-packages/blob/main/README.md): a
+package is malware if installing or using it would require incident response,
+or if it sends out information an attacker can use directly, such as
+credentials, tokens, keys, cookies, or cloud metadata.
+
+Greyware isn't malware and doesn't require incident response, but it does
+things you might not expect. Examples include packages that:
+
+* Collect telemetry or usage analytics.
+* Check whether you have a valid license key or paid plan, for example by contacting the publisher's server.
+* Include security testing or red-team tools that don't run anything when you install them.
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
@@ -220,6 +262,8 @@ Chainguard's scanning evaluates multiple signal types, including:
 You can view blocked packages [in the Chainguard Console](/chainguard/libraries/introduction/browse/#view-malware-information), [using `chainctl` commands](/platform/chainctl/chainctl-docs/chainctl_libraries_packages_malware_list/), or [via the API](#malware-api).
 
 For more details on the errors a blocked package surfaces across ecosystems, see the [Error messages documentation](/chainguard/libraries/troubleshooting/errors/).
+
+If your security team reviews a blocked version and decides it's acceptable, a user with the Owner role can allow it with a library policy override and a written justification. Refer to [Override malware or greyware blocking](/chainguard/chainguard-repository/library-policies#override-malware-or-greyware-blocking).
 
 #### Malware API
 
@@ -268,11 +312,13 @@ curl -s \
 
 ### Cooldown period
 
-When fallback is enabled, upstream packages are subject to a cooldown period from their publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
+When upstream fallback is enabled, package versions are subject to a cooldown period from their upstream publication date before the Chainguard Repository will serve them. The cooldown is an additional layer of security that provides a window for the security community to identify and report malicious packages before your builds can pull them.
 
-The cooldown applies globally across Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window.
+A library policy sets the cooldown. The cooldown defaults to 7 days. Your plan sets the range you can choose, as described in [Cooldown limits by plan](/chainguard/chainguard-repository/library-policies/#cooldown-limits-by-plan).
 
-If a requested package version falls within the cooldown period, the package manager will output a 404 error. The package becomes available once it has passed the cooldown period and cleared malware scanning.
+The cooldown only applies when upstream fallback is on for the ecosystem. When it applies, it applies to both Chainguard-built packages and upstream packages served through the fallback. This prevents installs from failing when a Chainguard-built package depends on an upstream dependency that is still under the cooldown window. When upstream fallback is off, no cooldown applies to the Chainguard-built packages the repository serves.
+
+If a requested package version falls within the cooldown period, the package manager reports it as blocked: npm returns a `403` with the reason, and other package managers return a not-found error. The version is also withheld from the package's metadata, so it does not appear in version listings until the cooldown passes. The package becomes available once it has passed the cooldown period and cleared malware scanning. For how blocks surface in each package manager, see [Error messages](/chainguard/libraries/troubleshooting/errors/).
 
 Learn how to create, enforce, disable, and list policies in the [Libraries policies documentation](/chainguard/chainguard-repository/library-policies/) page.
 

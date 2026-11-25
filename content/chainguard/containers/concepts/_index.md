@@ -4,7 +4,7 @@ linktitle: "Concepts"
 description: "Conceptual articles and resources on Chainguard Containers"
 type: "article"
 date: 2024-12-19T08:49:15+00:00
-lastmod: 2026-09-02T13:31:42+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 images: []
 weight: 110
@@ -16,11 +16,11 @@ topic: true
 banner: {
     image: "/icon-article.svg",
     title: "Going distroless",
-    subtitle: "Why Chainguard Containers ship without a shell or a package manager, and what that changes about how you build",
+    subtitle: "Why Chainguard's container images ship without a shell or a package manager, and what that changes about how you build",
     cta: "Read more",
     link: "/chainguard/containers/concepts/getting-started-distroless/"
 }
-sectiontitle: "More on how Chainguard Containers work"
+sectiontitle: "More on how Chainguard's container images work"
 tutorials: [
   {
     title: "Product release lifecycle",

@@ -21,17 +21,24 @@ jobs:
       id-token: write # Federate a token via octo-sts
 
     steps:
-      - uses: step-security/harden-runner@e14015d583714f6e62063499dc959a02595150a1 # v2.21.1
+      - uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
         with:
           egress-policy: block
           allowed-endpoints: >
             *.githubapp.com:443
             api.github.com:443
             files.pythonhosted.org:443
+            fulcio.sigstore.dev:443
             github.com:443
             octo-sts.dev:443
             pypi.org:443
+            rekor.sigstore.dev:443
             release-assets.githubusercontent.com:443
+            tuf-repo-cdn.sigstore.dev:443
+
+      # Sign the pull request's commit so it passes the commit-signing check;
+      # .chainguard/source.yaml accepts this workflow's identity on main.
+      - uses: chainguard-dev/actions/setup-gitsign@d496b2ab65497cac13d77ccd5038b8aae7e8c43b # v1.8.2
 
       - uses: octo-sts/action@f603d3be9d8dd9871a265776e625a27b00effe05 # v1.1.1
         id: octo-sts
@@ -47,7 +54,7 @@ jobs:
           persist-credentials: true
 
       - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: '3.13'
 
@@ -57,7 +64,7 @@ jobs:
           pre-commit autoupdate --freeze
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
         with:
           token: ${{ steps.octo-sts.outputs.token }}
           commit-message: "chore(deps): update pre-commit hook versions"

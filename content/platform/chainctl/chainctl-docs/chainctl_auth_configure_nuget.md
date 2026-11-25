@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl auth configure nuget"
 slug: chainctl_auth_configure_nuget
 url: /platform/chainctl/chainctl-docs/chainctl_auth_configure_nuget/
@@ -18,19 +18,30 @@ Configure NuGet credentials for Chainguard Libraries for .NET
 Configure NuGet to use Chainguard Libraries for .NET.
 
 By default, this command authenticates using your current Chainguard
-session and writes a project-level nuget.config with that session's token.
+session and writes a project-level nuget.config with that session's
+token, which expires within the hour. Re-run the command when it does.
+In CI, log in first (for example with --identity) and run the command in
+the same job.
 
-With the --pull-token flag, it creates a longer-lived pull token that can
-be used in environments that don't support OIDC (CI systems, build
-servers, etc.).
+With --pull-token, it creates a long-lived pull token (30 days unless
+--ttl says otherwise) for environments that can't log in to Chainguard
+(build servers, CI without OIDC, etc.) and writes it to nuget.config.
+Each run creates a new pull token. A Starter organization holds at most
+5 unexpired pull tokens, and each run with --pull-token uses one until
+it expires; "chainctl auth pull-token list" shows them.
+
+With --repo-name, it points NuGet at a Libraries repository's URL instead
+of the organization's default repository: ORG/REPO, or the repository name
+alone with --parent. .NET repository URLs are not served, so the command
+refuses a repository and writes nothing.
 
 A config created from scratch names the Chainguard feed as its only
-source, so a restore cannot fall back to nuget.org — including sources
+source, so a restore cannot fall back to nuget.org. That includes sources
 inherited from a parent directory or the user-level config, which a new
 file also clears for everything beneath it. An existing config is
-amended instead: its own sources and settings are kept, which means the
-feed may not be the only one — and directives already in the file can
-stop NuGet consulting it at all. Either way the command reports whether a
+amended instead: its own sources and settings are kept, so the feed may
+not be the only one, and directives already in the file can stop NuGet
+consulting it at all. Either way the command reports whether a
 restore would actually reach the feed.
 
 The file configures restore only: the publish endpoint is not a v3
@@ -48,17 +59,14 @@ chainctl auth configure nuget [flags]
 ### Examples
 
 ```
-  # Configure NuGet using your current Chainguard session.
+  # Configure NuGet with your current Chainguard session's token, which expires within the hour.
   chainctl auth configure nuget
   
-  # Configure NuGet with a long-lived pull token.
-  chainctl auth configure nuget --pull-token
-  
-  # Configure NuGet with a pull token for a specific organization.
-  chainctl auth configure nuget --pull-token --parent=my-org
+  # Configure NuGet with a long-lived pull token for your organization.
+  chainctl auth configure nuget --pull-token --parent=example.com
   
   # Configure NuGet with a pull token that lasts for 24 hours.
-  chainctl auth configure nuget --pull-token --ttl=24h
+  chainctl auth configure nuget --pull-token --parent=example.com --ttl=24h
 ```
 
 ### Options
@@ -70,10 +78,12 @@ chainctl auth configure nuget [flags]
       --identity-token string      Use an explicit passed identity token or token path.
       --name string                Optional name for the pull token. (default "pull-token")
       --org-name string            Organization to use for authentication. If configured the organization's custom identity provider will be used. Mutually exclusive with --identity-provider.
-      --parent string              The IAM organization or folder with which the pull-token identity is associated.
-      --pull-token                 Whether to create a pull token for NuGet authentication.
+      --parent string              Name or UIDP of the organization the pull token belongs to.
+      --pull-token                 Whether to create a pull token for NuGet authentication. Setting --parent, --ttl or --name implies it.
+      --repo-name string           The Libraries repository to point NuGet at, instead of the organization's default repository: ORG/REPO, such as example.com/prod, or the repository name alone with --parent.
       --social-login string        Which of the default identity providers to use for authentication. Must be one of: email, google, github, gitlab
-      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. Maximum value is 8760h or one year. (default 720h0m0s)
+      --sts-http1-downgrade        Downgrade STS requests to HTTP/1.x
+      --ttl ns                     Time To Live for the validity of the pull token. Valid unit strings range from nanoseconds to hours and are ns, `us`, `ms`, `s`, `m`, and `h`. The maximum depends on the organization's plan: 720h (30 days) for Starter, 168h (7 days) for Team and 8760h (one year) for other plans. (default 720h0m0s)
 ```
 
 ### Options inherited from parent commands

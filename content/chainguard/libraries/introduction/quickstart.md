@@ -4,7 +4,7 @@ linktitle: "Quickstart"
 description: "Learn how to get started with Chainguard Libraries"
 type: "article"
 date: 2025-03-25T00:08:04+00:00
-lastmod: 2026-09-28T18:48:06+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -25,9 +25,10 @@ this pattern.
 Chainguard Libraries for Java, JavaScript, and Python are rebuilt from verified
 source in an isolated build environment, making them malware-resistant by
 design. When a package is available as a Chainguard-built library, that rebuilt
-package is served first. When you use the [upstream
+package is served first. With [upstream
 fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls),
-the same ecosystem endpoint can also serve eligible upstream packages that
+which is on by default for new entitlements, the same ecosystem endpoint can
+also serve eligible upstream packages that
 Chainguard has not yet built, subject to configurable policy controls such as
 cooldown and malware scanning. This gives your engineers drop-in replacements
 for the packages they already use, with no breaking changes.
@@ -47,39 +48,10 @@ Before getting started:
 
 * If you're not yet a Chainguard user, you must [create an
       account](https://console.chainguard.dev/auth/login).
-* Entitle access for yourself to Chainguard Libraries:
+* Ensure your organization is entitled to Chainguard Libraries. To add an
+  entitlement for an ecosystem, contact your Chainguard account team.
 
-{{< tabs label="Select method for entitling access to Chainguard Libraries" >}}
-
-{{% tab title="Console" %}}
-
-To create an entitlement and pull token in the Chainguard Console: while viewing a library ecosystem page, follow the prompts to create an access token.
-
-{{% /tab %}}
-
-{{% tab title="chainctl" %}}
-
-[Install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) and log in:
-
-```bash
-chainctl auth login
-```
-
-{{< blurb/chainctl-auth >}}
-
-Run the following [chainctl libraries](/platform/chainctl/chainctl-docs/chainctl_libraries_entitlements/) command to create an entitlement for libraries:
-
-```bash
-chainctl libraries entitlements create --ecosystems=JAVASCRIPT
-```
-
-The available `ecosystems` are `JAVA`, `JAVASCRIPT`, and `PYTHON`.
-
-{{% /tab %}}
-
-{{< /tabs >}}
-
-Chainguard Libraries are available to Catalog Starter and Free tier users, and trial users.
+Chainguard Libraries are also included in the self-serve plans. A Chainguard Starter organization can pull Java, Python, JavaScript, .NET, and Go packages, without CVE-remediated versions. Chainguard Team adds the remediated versions. Refer to [Chainguard plans](/get-started/self-serve/plans/#plan-limits).
 
 ## Step 1: Choose your access method
 
@@ -118,36 +90,24 @@ You can [create pull tokens via the Chainguard
 Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console)
 under **Overview > Manage pull tokens > Create access token**.
 
-You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/):
-
-{{< tabs label="Language ecosystem for creating a pull token" >}}
-
-{{% tab title="Java" %}}
+You can also [create one using `chainctl`](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token_create/).
+The `--repository` flag takes a comma-separated list, so a single token can
+cover every ecosystem you're entitled to:
 
 ```bash
-chainctl auth pull-token create --repository=java --ttl=720h
+chainctl auth pull-token create --repository=java,javascript,python,go,dotnet --ttl=720h
 ```
 
-{{% /tab %}}
-
-{{% tab title="JavaScript" %}}
-
-```bash
-chainctl auth pull-token create --repository=javascript --ttl=720h
-```
-
-{{% /tab %}}
-
-{{% tab title="Python" %}}
+The token gets one role binding per repository type. To scope a token to one
+ecosystem, pass only that ecosystem:
 
 ```bash
 chainctl auth pull-token create --repository=python --ttl=720h
 ```
 
-{{% /tab %}}
-
-{{< /tabs >}}
-
+> `--repository=all` covers only `oci` and `apk`. It does not include library
+> ecosystems, so list those explicitly.
+>
 > The default TTL is `720h` (30 days); the maximum is `8760h` (365 days).
 
 The command returns a username and password for basic authentication. Store
@@ -161,7 +121,7 @@ Once you have a pull token, you can configure your build tool. Configuration
 steps vary by build tool and ecosystem. Refer to the ecosystem-specific documentation
 pages for instructions.
 
-If you [configure upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), the same ecosystem endpoint can serve both:
+With [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls), which is on by default for new entitlements, the same ecosystem endpoint can serve both:
 
 * Libraries rebuilt from source by Chainguard, and
 * Eligible packages from the upstream public registry when Chainguard has not built that package or version yet
@@ -170,7 +130,7 @@ Upstream packages served through the Chainguard Repository are subject to config
 
 {{< tabs label="Language ecosystem for build tool configuration" >}}
 
-{{% tab title="Java" %}}
+{{< tab title="Java" >}}
 
 ### Java
 
@@ -193,9 +153,9 @@ Check out minimal example projects for
 and
 [Gradle](/chainguard/libraries/java/build-configuration/#minimal-example-project-1) to understand how to use these repositories.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="JavaScript" %}}
+{{< tab title="JavaScript" >}}
 
 ### JavaScript
 
@@ -222,9 +182,9 @@ and
 > [JavaScript](/chainguard/libraries/javascript/build-configuration/#update-hashes-auth)
 > build configuration page.
 
-{{% /tab %}}
+{{< /tab >}}
 
-{{% tab title="Python" %}}
+{{< tab title="Python" >}}
 
 ### Python
 
@@ -257,16 +217,16 @@ Check out minimal example projects for
 > the authentication options in the
 > [Python build configuration page](/chainguard/libraries/python/build-configuration/#update-hashes-auth).
 
-{{% /tab %}}
+{{< /tab >}}
 
 {{< /tabs >}}
 
 <a id="upstream-note"></a>
 
-> **Note on upstream fallback**: The upstream fallback is
-> available as an opt-in setting for both repository manager or direct access
-> approaches, and is turned off by default. Learn more about upstream
-> fallback policy and controls in the [Libraries
+> **Note on upstream fallback**: Upstream fallback works with both the
+> repository manager and direct access approaches, and new entitlements have it
+> on by default. To check yours, run `chainctl libraries entitlements list`.
+> Learn more about upstream fallback policy and controls in the [Libraries
 > overview](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls).
 
 ## Step 4: Verify your libraries
@@ -277,9 +237,9 @@ After setup, you can verify which dependencies were built from source by Chaingu
 chainctl libraries verify /path/to/artifact
 ```
 
-> **Note**: Running `chainctl libraries verify` requires one of the `libraries.java.pull`, `libraries.javascript.pull`, or `libraries.python.pull` permissions, or the Owner role.
+{{% blurb/libraries-verify-permissions %}}
 
-For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`.
+For JavaScript projects, you can also verify a lockfile directly, without installing dependencies. For example: `chainctl libraries verify package-lock.json`. Verification with lockfiles is only supported for the JavaScript ecosystem today. For what each ecosystem accepts, refer to [Supported inputs by ecosystem](/chainguard/libraries/policies-and-security/verification/#supported-inputs-by-ecosystem).
 
 Learn more in [Chainguard Libraries verification](/chainguard/libraries/policies-and-security/verification/).
 

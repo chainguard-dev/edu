@@ -60,7 +60,7 @@
     justify-content: center;
     gap: 12px;
     padding: 16px 32px;
-    background: #6226FB;
+    background: var(--primary-1);
     color: #FFF !important;
     font-family: $titleFont;
     font-size: 18px;
@@ -69,22 +69,14 @@
     text-decoration: none;
     align-self: flex-start;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(98, 38, 240, 0.2);
 
     svg {
       width: 16px;
       height: 16px;
-      transition: transform 0.3s ease;
     }
 
     &:hover {
-      background: #7c4dff;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(98, 38, 240, 0.3);
-
-      svg {
-        transform: translateX(4px);
-      }
+      background: var(--primary-hover);
     }
   }
 
@@ -229,7 +221,6 @@
 
     &:hover {
       color: var(--footer-link-hover-color) !important;
-      transform: translateY(-2px);
     }
   }
 }

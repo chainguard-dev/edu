@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-25T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -24,7 +24,7 @@ Apply these changes on every workstation and build server that builds your
 applications or downloads libraries, including CI/CD infrastructure such as
 Jenkins, TeamCity, or GitHub Actions.
 
-The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. By default, it serves only Chainguard-built artifacts. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the same endpoint can also serve requested versions from Maven Central under Chainguard security controls.
+The `https://libraries.cgr.dev/java/` endpoint is also the [Chainguard Repository](/chainguard/chainguard-repository/overview/) endpoint for Java. It serves Chainguard-built artifacts first. When [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, which is the default for new entitlements, the same endpoint can also serve requested versions from Maven Central and the other supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) under Chainguard security controls.
 
 This guide outlines how to configure your build tool. If you are looking for something else, refer to the following guides depending on your goals:
 
@@ -83,6 +83,11 @@ If using Chainguard's [CVE remediation](/chainguard/libraries/policies-and-secur
 1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature.
 1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
+
+These URLs are your organization's default repository. If your organization
+uses a named repository, use its URLs and a pull token bound to it instead.
+Repositories are in beta; refer to
+[Repositories](/chainguard/libraries/repositories/overview/#configure-java-clients).
 
 ## Selecting remediated library versions
 
@@ -287,7 +292,7 @@ Java.
 #### Configure direct access
 
 If you are not using a repository manager at your organization, you can
-configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible upstream Maven Central artifacts through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
+configure access to the Chainguard Libraries for Java repository directly. If [upstream fallback](/chainguard/libraries/introduction/overview/#upstream-fallback-and-controls) is enabled for your organization, the `https://libraries.cgr.dev/java/` repository can serve both Chainguard-built artifacts and eligible artifacts from the supported [upstream repositories](/chainguard/libraries/java/overview/#upstream-repositories-used-for-fallback) through the same endpoint. If upstream fallback is not enabled, continue to configure Maven Central or your Maven Central proxy after the Chainguard repository, as shown in the following example.
 
 If you are participating in the beta for CVE remediation, include the `https://libraries.cgr.dev/java-remediated/` repository first.
 
@@ -539,7 +544,7 @@ chainctl libraries verify \
   ~/.m2/repository/com/google/guava/guava/33.4.0-jre/guava-33.4.0-jre.jar
 ```
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="java" %}}
 
 A successfully verified artifact produces output similar to the following:
 
@@ -785,7 +790,7 @@ Then copy the exact path to the jar and verify it with `chainctl`:
 chainctl libraries verify /full/path/to/guava-<version>.jar
 ```
 
-> **Note**: Running `chainctl libraries verify` requires the `libraries.java.pull` permission or the Owner role.
+{{% blurb/libraries-verify-permissions ecosystem="java" %}}
 
 A successfully verified artifact produces output similar to the following:
 

@@ -4,7 +4,7 @@ type: "article"
 linktitle: "MinIO"
 description: "Learn how to deploy MinIO object storage with Chainguard's secure, minimal container images for S3-compatible storage solutions with reduced vulnerabilities"
 date: 2025-10-27T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -22,7 +22,7 @@ MinIO is a high-performance, S3-compatible object storage system that has become
 
 On October 23, 2025, the MinIO project stopped publishing the free, community edition of their Docker container image to Docker Hub and Quay repositories, requiring developers to build and maintain their own containers from source code. This change has impacted countless build pipelines and CI/CD workflows. Additionally, a new vulnerability, [CVE-2025-62506](https://www.cve.org/CVERecord?id=CVE-2025-62506), was reported in MinIO containers, which the maintainers declined to patch in the community edition.
 
-To help the community maintain secure and up-to-date MinIO deployments without additional complexity, Chainguard has made our [MinIO container image](https://images.chainguard.dev/directory/image/minio/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-minio) publicly available and free to all users. Built with a distroless design and minimal attack surface, Chainguard's production-ready MinIO image is continuously rebuilt from source in our SLSA L3 hardened infrastructure, providing zero-CVE images that are updated daily with new releases and security fixes.
+To help the community maintain secure and up-to-date MinIO deployments without additional complexity, Chainguard has made our [MinIO container image](https://images.chainguard.dev/directory/image/minio/overview) publicly available and free to all users. Built with a distroless design and minimal attack surface, Chainguard's production-ready MinIO image is continuously rebuilt from source in our SLSA L3 hardened infrastructure, providing zero-CVE images that are updated daily with new releases and security fixes.
 
 In this guide, we'll demonstrate how to deploy and use MinIO with Chainguard Containers through two practical examples. These examples show you how to replace existing MinIO deployments with Chainguard's more secure alternative while maintaining compatibility with your existing S3 workflows. The first example covers basic deployment for testing and development environments. The second example demonstrates how to build applications that interact with MinIO programmatically, which is relevant for CI/CD pipelines, automated backup systems, data processing workflows, and any application that requires object storage capabilities.
 

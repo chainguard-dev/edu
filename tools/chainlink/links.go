@@ -102,6 +102,12 @@ func (l *link) parseURL() (*url.URL, error) {
 	if u.Host == "" {
 		u.Host = hostname
 		u.Scheme = scheme
+
+		// Sites served under a path, such as www.chainguard.dev/docs, link
+		// to /docs/foo rather than /foo/, so check the same URL readers get.
+		if basePath != "" {
+			u.Path = strings.TrimSuffix(basePath, "/") + strings.TrimSuffix(u.Path, "/")
+		}
 	}
 
 	return u, nil

@@ -16,6 +16,7 @@ import (
 var (
 	// flags
 	hostname        = ""
+	basePath        = ""
 	scheme          = ""
 	httpMethod      = ""
 	ignoreFile      = ""

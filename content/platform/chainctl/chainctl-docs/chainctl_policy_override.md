@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl policy override"
 slug: chainctl_policy_override
 url: /platform/chainctl/chainctl-docs/chainctl_policy_override/
@@ -15,7 +15,7 @@ Manage policy overrides.
 
 ### Synopsis
 
-A policy override is an admin-granted waiver that flips a DENIED
+A policy override is an admin-granted waiver that flips a BLOCKED
 policy result to ALLOWED for one specific artifact. It does not change
 the policy or its binding; it records a deliberate, attributable
 exception that the engine applies after evaluation.

@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl images overlays"
 slug: chainctl_images_overlays
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays/
@@ -19,17 +19,35 @@ Manage tag-based Custom Assembly overlays.
 
 An overlay is a reusable image customization (packages, environment
 variables, annotations, accounts, and certificates) owned by an
-organization or folder. Attaching an overlay to a repo creates a binding
-that selects which of the repo's tags the overlay applies to:
+organization. Attaching an overlay to a repo — or, with --all-repos, to
+every repo under an organization or folder, including repos created
+later — creates a binding that selects which tags the overlay applies
+to:
 
-- --all: every tag.
-- --variant: a tag variant, such as dev.
-- --tag: specific tags.
+- --all-tags: every tag.
+- --tag-variant: a tag variant, such as dev.
+- --exact-tag: specific tags.
 
 When bindings of different kinds match the same tag, they layer in the
 order ALL, then VARIANT, then EXACT, with later layers taking
-precedence. Bindings of the same kind may coexist on a repo only when
-their overlays do not conflict.
+precedence. All-repos bindings layer by scope depth — the organization
+first, then each nested folder, deeper folders taking precedence — and
+a repo's own bindings layer above every all-repos binding. Bindings of
+the same kind may coexist in one scope only when their overlays do not
+conflict.
+
+The Guarded Entrypoint keys layer per key: fail_mode, command_override, and
+truststore come from the most specific binding that sets them, and a binding
+that leaves one unset uses a broader binding's value (an empty
+command_override counts as set and cancels a broader one); guarded_entrypoint
+is on when any matching binding sets it, but an overlay that sets fail_mode,
+preflight, command_override, or truststore must still set guarded_entrypoint:
+true itself; preflight checks from every matching binding are combined,
+broader bindings first. A binding is rejected when it is created if its
+overlay sets a different fail_mode, command_override, or truststore than a
+binding it co-matches in the same layer: two --all-tags bindings, two
+--tag-variant bindings for one variant, or two --exact-tag bindings sharing a
+tag.
 
 Chainguard rebuilds the matching images after an overlay or binding
 changes. These rebuilds run only for organizations enrolled in tag-based
@@ -42,7 +60,7 @@ Custom Assembly. Contact your Chainguard account team to enroll.
   chainctl images overlays create my-overlay --parent my-org --package curl --package jq
 
   # Attach it to every tag of a repo
-  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
+  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all-tags
 
   # List overlays and their bindings
   chainctl images overlays list --parent my-org
@@ -66,7 +84,7 @@ Custom Assembly. Contact your Chainguard account team to enroll.
 ### SEE ALSO
 
 * [chainctl images](/platform/chainctl/chainctl-docs/chainctl_images/)	 - Images related commands for the Chainguard platform.
-* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach Custom Assembly overlays to a repo.
+* [chainctl images overlays attach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/)	 - Attach Custom Assembly overlays to a repo or to every repo in an organization.
 * [chainctl images overlays create](/platform/chainctl/chainctl-docs/chainctl_images_overlays_create/)	 - Create a Custom Assembly overlay.
 * [chainctl images overlays delete](/platform/chainctl/chainctl-docs/chainctl_images_overlays_delete/)	 - Delete a Custom Assembly overlay.
 * [chainctl images overlays detach](/platform/chainctl/chainctl-docs/chainctl_images_overlays_detach/)	 - Detach a Custom Assembly overlay from a repo.

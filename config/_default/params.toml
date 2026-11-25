@@ -1,7 +1,7 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "Chainguard Academy"
+title = "Chainguard Docs"
 titleSeparator = "—"
 titleAddition = "Software Supply Chain Security Knowledge Base"
 subTitle = "Chainguard"
@@ -17,7 +17,7 @@ googleTagManager = "GTM-58WV5RN"
 images = ["chainguard.png"]
 ogLocale = "en_US"
 domainTLD = "chainguard.dev"
-titleHome = "Chainguard Academy"
+titleHome = "Chainguard Docs"
 
 ## Twitter Cards
 twitterSite = "@chainguard_dev"

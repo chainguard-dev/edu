@@ -16,6 +16,148 @@
         },
         "type": "object"
       },
+      "chainguard.platform.oci.v2alpha1.ListRegistriesResponse": {
+        "description": "ListRegistriesResponse contains the organization's enrollment, if any.",
+        "properties": {
+          "registries": {
+            "description": "Empty for an unenrolled organization; otherwise its single Registry.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.ListReposResponse": {
+        "description": "ListReposResponse contains a page of private repository metadata.",
+        "properties": {
+          "nextPageToken": {
+            "description": "Empty on the final page.",
+            "type": "string"
+          },
+          "repos": {
+            "description": "Repositories matching the request.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Repo"
+            },
+            "type": "array"
+          },
+          "totalCount": {
+            "description": "Total matching repositories, not just the current page length.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.RegistriesService.EnrollRegistryBody": {
+        "description": "EnrollRegistryRequest selects an existing root organization for enrollment.",
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.RegistriesService.SetRegistryStateBody": {
+        "description": "SetRegistryStateRequest changes an enrolled Registry's lifecycle state.",
+        "properties": {
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry.State"
+              }
+            ],
+            "description": "ACTIVE or DISABLED; STATE_UNSPECIFIED is not an update."
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.Registry": {
+        "description": "Registry is an operator-enrolled private registry owned by an organization.",
+        "properties": {
+          "createTime": {
+            "description": "Time the Registry was provisioned.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "domain": {
+            "description": "Service-assigned hostname, without a scheme or path.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "parent": {
+            "description": "Owning root organization UIDP.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry.State"
+              }
+            ],
+            "description": "Operator-controlled lifecycle state.",
+            "readOnly": true
+          },
+          "uid": {
+            "description": "Stable Registry UIDP assigned by the service.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "Time the Registry metadata last changed.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.oci.v2alpha1.Registry.State": {
+        "default": "STATE_UNSPECIFIED",
+        "description": "State controls Registry content serving and writes.\n\n - STATE_UNSPECIFIED: State was not specified.\n - ACTIVE: Registry permits authorized content serving and writes.\n - DISABLED: Content serving and writes are refused; metadata and cleanup remain\navailable.",
+        "enum": [
+          "STATE_UNSPECIFIED",
+          "ACTIVE",
+          "DISABLED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.oci.v2alpha1.Repo": {
+        "description": "Repo is private repository metadata, separate from the Chainguard catalog.",
+        "properties": {
+          "createTime": {
+            "description": "Time the repository was created.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "Human-readable repository description.",
+            "type": "string"
+          },
+          "name": {
+            "description": "Repository path relative to the Registry, for example \"team/api\".",
+            "type": "string"
+          },
+          "uid": {
+            "description": "Stable repository UIDP assigned by the service.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "Time the repository metadata last changed.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      },
       "chainguard.platform.oidc.RawToken": {
         "properties": {
           "expiry": {
@@ -79,11 +221,470 @@
   },
   "openapi": "3.0.3",
   "paths": {
+    "/oci/v2alpha1/organizations/{parent}/registries": {
+      "get": {
+        "description": "ListRegistries discovers the organization's Registry, if enrolled.",
+        "operationId": "RegistriesService_ListRegistries",
+        "parameters": [
+          {
+            "description": "Root organization UIDP; discovery never enumerates other organizations.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.ListRegistriesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Registries",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/organizations/{parent}/registries:enroll": {
+      "post": {
+        "description": "EnrollRegistry provisions the organization's private Registry. Retrying\npreserves its identity, state and domain. Enrollment does not add the\norganization to the deployment's serving allowlist.",
+        "operationId": "RegistriesService_EnrollRegistry",
+        "parameters": [
+          {
+            "description": "Owning organization UIDP. The service assigns the domain.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.RegistriesService.EnrollRegistryBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Enroll Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/registries/{parent}/repos": {
+      "get": {
+        "description": "ListRepos lists direct children of the specified Registry.",
+        "operationId": "RegistriesService_ListRepos",
+        "parameters": [
+          {
+            "description": "Registry UIDP, not an IAM group UIDP.",
+            "in": "path",
+            "name": "parent",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "Default 50, maximum 1000; larger values are clamped.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Continuation token from a previous response with the same filter and scope.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Supported fields: uid, name, create_time, update_time.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of repositories to skip after the cursor position.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.ListReposResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Repos",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/registries/{uid}": {
+      "delete": {
+        "description": "DeleteRegistry removes an empty Registry. Live repositories must be deleted\nfirst; disabling a Registry alone does not remove its content.",
+        "operationId": "RegistriesService_DeleteRegistry",
+        "parameters": [
+          {
+            "description": "Registry UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      },
+      "get": {
+        "description": "GetRegistry retrieves a Registry by UIDP, including disabled Registries.",
+        "operationId": "RegistriesService_GetRegistry",
+        "parameters": [
+          {
+            "description": "Registry UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Registry",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/registries/{uid}:setRegistryState": {
+      "post": {
+        "description": "SetRegistryState enables or disables content serving without deleting data.\nEnabling does not bypass the deployment's per-organization allowlist.",
+        "operationId": "RegistriesService_SetRegistryState",
+        "parameters": [
+          {
+            "description": "Registry UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.RegistriesService.SetRegistryStateBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Registry"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Set Registry State",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
+    "/oci/v2alpha1/repos/{uid}": {
+      "delete": {
+        "description": "DeleteRepo removes a repository, including while its Registry is disabled.",
+        "operationId": "RegistriesService_DeleteRepo",
+        "parameters": [
+          {
+            "description": "Repository UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Delete Repo",
+        "tags": [
+          "RegistriesService"
+        ]
+      },
+      "get": {
+        "description": "GetRepo retrieves repository metadata, not image content.",
+        "operationId": "RegistriesService_GetRepo",
+        "parameters": [
+          {
+            "description": "Repository UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Repo"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Repo",
+        "tags": [
+          "RegistriesService"
+        ]
+      },
+      "post": {
+        "description": "CreateRepo explicitly creates a repository beneath an active Registry.",
+        "operationId": "RegistriesService_CreateRepo",
+        "parameters": [
+          {
+            "description": "Registry UIDP, not an IAM group UIDP.",
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Repo"
+              }
+            }
+          },
+          "description": "Repository metadata; name is required.",
+          "required": true,
+          "x-originalParamName": "repo"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.oci.v2alpha1.Repo"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Repo",
+        "tags": [
+          "RegistriesService"
+        ]
+      }
+    },
     "/sts/exchange": {
       "get": {
         "operationId": "SecurityTokenService_Exchange2",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -91,7 +692,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -110,6 +712,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -117,7 +720,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -129,6 +733,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -136,7 +741,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -152,6 +758,14 @@
             "name": "task",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -186,6 +800,7 @@
         "operationId": "SecurityTokenService_Exchange",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -193,7 +808,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -212,6 +828,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -219,7 +836,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Empty or the UIDP of the custom identity provider.",
@@ -231,6 +849,7 @@
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -238,7 +857,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "delegated requests the delegated exchange mode when assuming `identity`.\nThe assumed identity's own role bindings are not consulted; instead the\nreturned token's capabilities are a per-scope subset of the presented\ncredential's capabilities, selected by `scopes` and `cap` (both\nrequired), and its expiry never exceeds the presented credential's. A\nrequest for any capability or scope the presented credential does not\nhold is rejected, never trimmed. The presented credential must be a\ndelegation grant: a token minted by this issuer whose only audience is\n\"\u003cissuer\u003e/delegation/\u003cname\u003e\", pinned by the identity's claim_match, and\nthe identity must be marked delegation_only. A token minted by a\ndelegated exchange is never accepted as a grant. No refresh token is\nissued. The returned token's subject is the assumed identity, its `act`\nclaim is the presented credential's verified claims, and its\n`act_chain` records the transfer.",
@@ -254,6 +874,14 @@
             "name": "task",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "refresh_token_rotation declares that the client handles refresh-token\nrotation: it stores one refresh token per family under a lock shared by\nits processes, persists the successor every refresh returns, and\ndiscards a token the issuer refuses as REFRESH_TOKEN_SUPERSEDED. The\nissuer rotates a refresh-token family only if the exchange that created\nit set this; a family created without it is echoed back unchanged on\nevery refresh. A client must not set it unless it does all three, since\na rotated family whose superseded token is presented again is revoked.\nA successor's expiry may be later than its parent's: a rotated family's\nsession slides while it is used, up to its organizations' session\nlength.",
+            "in": "query",
+            "name": "refreshTokenRotation",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -290,6 +918,7 @@
         "operationId": "SecurityTokenService_ExchangeRefreshToken",
         "parameters": [
           {
+            "explode": true,
             "in": "query",
             "name": "aud",
             "schema": {
@@ -297,7 +926,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "Deprecated: use scopes instead",
@@ -309,6 +939,7 @@
           },
           {
             "description": "List of capabilities to request for the token.",
+            "explode": true,
             "in": "query",
             "name": "cap",
             "schema": {
@@ -316,10 +947,12 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           },
           {
             "description": "One or more group scopes to restrict the returned token to.\nIf scope and scopes are both provided, the union of their values is\nconsidered, after deduplication.\n\nThe returned token will include role bindings for the requested scopes,\nif any exist, that are either granted directly at that scope or inherited from\nits ancestors. That is, a role binding granted at a \"lower\" scope in the ancestry\napplies to all descendants of that scope.\n\nFor example, given a role binding on group `foo` with id `foo/rb-id-1`\nand a role binding on group `foo/bar` with id `foo/bar/rb-id-2`:\n - given scopes = [foo, foo/bar] =\u003e {foo: [foo/rb-id-1], foo/bar: [foo/bar/rb-id-2]}\n - given scopes = [foo/bar] =\u003e {foo/bar: [foo/rb-id-1, foo/bar/rb-id-2]}",
+            "explode": true,
             "in": "query",
             "name": "scopes",
             "schema": {
@@ -327,7 +960,8 @@
                 "type": "string"
               },
               "type": "array"
-            }
+            },
+            "style": "form"
           }
         ],
         "responses": {
@@ -405,6 +1039,10 @@
     }
   ],
   "tags": [
+    {
+      "description": "RegistriesService manages private customer repositories. Registry enrollment\nand lifecycle are operator-managed, not customer mutations.",
+      "name": "RegistriesService"
+    },
     {
       "name": "Auth"
     },

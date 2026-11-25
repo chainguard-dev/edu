@@ -1,0 +1,31 @@
+# Input for check_flags.py, which compares the hand-written chainctl
+# references with the generated chainctl reference. See scripts/README.md.
+
+# Each page names the command group it covers and the heading level of its
+# per-command sections.
+
+[[page]]
+path = "chainguard/checks/chainctl-checks-reference.md"
+command = "chainctl checks"
+heading_level = 3
+
+[[page]]
+path = "chainguard/workspaces/chainctl-develop-reference.md"
+command = "chainctl develop"
+heading_level = 2
+
+# Flags in chainctl's help that the hand-written pages leave out on purpose.
+# An entry applies to every command. The script stops if an entry matches
+# nothing, so remove entries that no longer apply.
+
+[[ignore]]
+flag = "sandbox-url"
+reason = "Points chainctl at another Chainguard Checks control plane. Customers use the default."
+
+[[ignore]]
+flag = "facts-url"
+reason = "Points chainctl at another Chainguard Checks history service. Customers use the default."
+
+[[ignore]]
+flag = "token"
+reason = "Replaces the chainctl session with a bearer token for the control plane. Customers sign in with chainctl auth login."

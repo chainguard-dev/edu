@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl iam identity-providers scim disable"
 slug: chainctl_iam_identity-providers_scim_disable
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_disable/
@@ -12,6 +12,10 @@ toc: true
 ## chainctl iam identity-providers scim disable
 
 Disable SCIM provisioning for an identity provider.
+
+### Synopsis
+
+Disable SCIM provisioning for an identity provider. The identity provider's SCIM configuration is created when its first SCIM token is generated, so run `chainctl iam identity-providers scim token generate` before switching provisioning on or off.
 
 ```
 chainctl iam identity-providers scim disable IDENTITY_PROVIDER [flags]

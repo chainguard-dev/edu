@@ -4,7 +4,7 @@ linktitle: "Kyverno"
 type: "article"
 description: "How to enforce best practices and ensure compliance with Kyverno."
 date: 2025-09-26T10:00:00-00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Overview", "Policy"]
 images: []
@@ -101,7 +101,7 @@ kubectl delete -f restrict-image-registries.yaml
 
 ## Ensure images are referenced by digest
 
-Chainguard Containers are updated frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
+Chainguard updates its container images frequently to incorporate CVE fixes and package updates. The tags for Chainguard's container images are highly mutable, meaning that the underlying image changes frequently, even for very specific tags like `v1.2.3-r1`.
 
 To prevent the risk of updates introducing breaking changes, you can [pull by digest](/chainguard/containers/troubleshooting/inspecting-containers/) to ensure the use of a specific image. When using Kyverno, you can use a `ClusterPolicy` policy to ensure that images are only referenced by digest.
 
@@ -319,6 +319,6 @@ Once all the failures have been addressed, you can switch to `failureAction: Enf
 
 ## Learn more
 
-By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provide a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
+By combining Kyverno with Chainguard Containers, you gain a powerful way to enforce security and compliance across your Kubernetes clusters. Kyverno ensures that only container images meeting your defined policies are deployed, while Chainguard Containers provides a minimal, hardened foundation to reduce risk from the start. Together, they help teams ship software more securely and confidently, without slowing down development.
 
 If you'd like to learn more about Kyverno, we encourage you to refer to the [official documentation](https://kyverno.io/docs/).

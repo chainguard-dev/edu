@@ -14,10 +14,16 @@ spec:
             subjectRegExp: .+@chainguard.dev$
           - issuer: https://accounts.google.com
             subjectRegExp: .+@chainguard.dev$
-          # TODO(IT/security): add the CI/bot workflow identities that sign
-          # commits in this repo (issuer https://token.actions.githubusercontent.com,
-          # subject https://github.com/chainguard-dev/edu/.github/workflows/<file>.yaml@refs/heads/main)
-          # so automated commits keep passing. Confirm the full set before merge.
+          # Accept commits that these workflows sign with gitsign when they run
+          # on main. Add a workflow here when it starts signing its commits.
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/digestabot.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/autodocs-platform.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/compile-ai-docs-from-gcs.yaml@refs/heads/main
+          - issuer: https://token.actions.githubusercontent.com
+            subject: https://github.com/chainguard-dev/edu/.github/workflows/pre-commit-autoupdate.yaml@refs/heads/main
       ctlog:
         url: https://rekor.sigstore.dev
     - key:

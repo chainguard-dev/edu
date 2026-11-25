@@ -6,7 +6,7 @@ linktitle: "FIPS and non-approved algorithms"
 type: "article"
 description: "Technical deep-dive into Chainguard FIPS images access to non-approved algorithms such as MD5 and SHA1"
 date: 2025-10-28T08:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-16T13:40:09+00:00
 draft: false
 tags: ["FIPS", "MD5"]
 images: []
@@ -81,7 +81,7 @@ SHA1 is available as approved in Chainguard FIPS Provider for OpenSSL versions 3
 
 ### Chainguard Legacy Approved provider for OpenSSL
 
-Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_APPROVED=0`. This provider enables all OpenSSL applications to uniformally access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
+Chainguard FIPS and non-FIPS images are configured to use a legacy provider that exposes the above mentioned algorithms for non-security purposes. At runtime one can choose to disable them with an environment variable `CHAINGUARD_LEGACY_ALLOWED=0`. This provider enables all OpenSSL applications to uniformly access legacy algorithms for non-security purposes. They do remain blocked from being used inside the FIPS module boundary for security purposes such as protecting data at rest or in transit.
 
 This guidance applies to all images and software that uses OpenSSL:
 
@@ -97,7 +97,7 @@ And many others.
 
 If you are compiling grpc or pycryptography from source; or installing it from PyPI; it may come with a vendored and statically linked copy of a cryptographic library and will not operate in FIPS mode. In such cases, all usage of it may be non-approved.
 
-If you install grpc and pycryptography through [Custom Assembly](https://edu.chainguard.dev/chainguard/containers/custom-assembly/overview/), it will be dynamically linked with Chainguard OpenSSL and will use the above guidance.
+If you install grpc and pycryptography through [Custom Assembly](/chainguard/containers/custom-assembly/overview/), it will be dynamically linked with Chainguard OpenSSL and will use the above guidance.
 
 ### Go-fips / Go-openssl-fips
 

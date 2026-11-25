@@ -5,7 +5,7 @@ type: "article"
 description: "Signing software bills of materials with Cosign"
 lead: "Use Cosign to sign software bills of materials (SBOMs)"
 date: 2022-07-13T15:22:20+01:00
-lastmod: 2026-10-02T13:51:55+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Cosign", "Procedural", "SBOM"]
 images: []
@@ -63,7 +63,7 @@ Save the file and close Nano by pressing `CTRL + X`, `y`, and `ENTER` in success
 Since we'll be pushing to a repository on your Docker Hub account, let's set a variable to your Docker Hub username that we can use in further commands.
 
 ```sh
-DH_USERNAME=<your-username>
+DH_USERNAME=[[DOCKER_HUB_USERNAME]]
 ```
 
 You can find your username on your Docker Hub account page. If you're logged in on the command line, you can also run the following command to find your username:
@@ -148,7 +148,7 @@ Before proceeding, let's push our image to Docker Hub, since the following comma
 docker push $DH_USERNAME/example-image
 ```
 
-Our `example-image` still has attestations derived from our base image, since all Chainguard Containers come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
+Our `example-image` still has attestations derived from our base image, since all of Chainguard's container images come with SBOM and SLSA provenance attestations. Let's remove these attestations with the `cosign clean` command:
 
 ```sh
 cosign clean $DH_USERNAME/example-image

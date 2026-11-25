@@ -6,7 +6,7 @@ linktitle: "FIPS verification"
 description: "Learn how to verify that Chainguard FIPS containers are properly configured to use various FIPS modules."
 type: "article"
 date: 2025-11-23T08:04:00+00:00
-lastmod: 2026-09-28T18:03:13+00:00
+lastmod: 2026-10-09T00:00:00+00:00
 draft: false
 tags: ["FIPS", "Chainguard Containers", "Reference"]
 menu:
@@ -19,6 +19,8 @@ toc: true
 Chainguard offers hundreds of FIPS container image variants covering language runtimes (Go, Java, Python, Node.js, .NET, PHP, C/C++), databases, web servers, and Kubernetes components. These images use NIST-validated cryptographic modules including the OpenSSL FIPS provider, Bouncy Castle FIPS, and BoringCrypto. Refer to Chainguard's [FIPS Commitment](https://www.chainguard.dev/legal/fips-commitment) for a full list of the modules used in Chainguard FIPS Images, as well as their respective CMVP certificates and SBOM indicators.
 
 This guide outlines how to verify that Chainguard's FIPS images are properly configured to use these FIPS modules.
+
+To list the validated modules in a specific container image without running it, open the image's **Compliance** tab in the Chainguard Console. The [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) shows each module with a link to its NIST certificate.
 
 ## Why verify FIPS configuration?
 
@@ -49,10 +51,10 @@ You can verify whether OpenSSL is properly configured to use its FIPS module wit
 
 When run on a system using the OpenSSL Project FIPS provider, `openssl-fips-test` returns a summary of available algorithms, which is useful to compare different CMVP modules and the algorithms they offer. It also retrieves FIPS module information and returns a CMVP search URL where one can find applicable certificates.
 
-You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `$ORGANIZATION` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
+You can use the `openssl-fips-test` tool to check whether any Chainguard Container is properly configured to use its FIPS module with a command like the following. Be sure to replace `[[ORGANIZATION]]` with the name of your own organization and [`python-fips`](https://images.chainguard.dev/directory/image/python-fips/overview) with any FIPS image your organization has access to:
 
 ```shell
-docker run -it --entrypoint openssl-fips-test cgr.dev/$ORGANIZATION/python-fips
+docker run -e OPENSSL_CONF_INCLUDE=/etc/ssl-3.6.0 -it --entrypoint openssl-fips-test cgr.dev/[[ORGANIZATION]]/python-fips
 ```
 
 ```output
@@ -140,7 +142,7 @@ This output confirms that OpenSSL in the `python-fips` image is properly configu
 
 [NIST SP 800-131A](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) requires HMAC to use approved digest and keys of at least 112 bits long (14 characters) for security purposes.
 
-Success scenario is HMAC with a 14 characters long key and a SHA256 digest:
+Success scenario is HMAC with a 14-character key and a SHA256 digest:
 
 ```sh
 openssl mac -macopt key:14charslongkey -macopt digest:sha256 -in /dev/null HMAC
@@ -166,15 +168,15 @@ MAC parameter error
 808B8049E17F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:355:FIPS internal library context, Algorithm (md5 : 0), Properties (<null>)
 ```
 
-The above checks can also be performed in other programming languages for images that systems that use OpenSSL to power FIPS cryptography, for example python, node, php, perl and similar.
+You can also perform these checks in other programming languages, such as Python, Node.js, PHP, and Perl, in images and systems that use OpenSSL to power FIPS cryptography.
 
-In non-fips images, all of the above commands are successful.
+In non-FIPS images, all of these commands succeed.
 
 ### OpenSSL FIPS 140-3 tamper test
 
 Cryptographic modules are required to perform startup self-tests, and
-must enter error state and stop all cryptoraphic services upon
-failure. One of the startup self-tests is intergity check of the
+must enter error state and stop all cryptographic services upon
+failure. One of the startup self-tests is an integrity check of the
 cryptographic module itself. To observe this one can tamper with the
 fips.so module itself, or tamper with the expected module HMAC value.
 
@@ -206,7 +208,7 @@ mac: Use -help for summary.
 80DB6818FB7F0000:error:0308010C:digital envelope routines:inner_evp_generic_fetch:unsupported:crypto/evp/evp_fetch.c:376:Global default library context, Algorithm (HMAC : 0), Properties (<null>)
 ```
 
-If application continues to operate, even when the fips module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operation, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
+If an application continues to operate, even when the FIPS module has been tampered with or removed, this indicates that the given application and algorithms have stopped using the FIPS module, are not using OpenSSL, or have fallbacks. For example, applications might prefer OpenSSL when it is operational, but have fallbacks to other libraries or have statically compiled alternative implementations of algorithms.
 
 ### Opt in to different FIPS provider versions
 
@@ -254,7 +256,7 @@ All of Chainguard's Java FIPS images support FIPS 140-3 compliance using Bouncy 
 To verify whether Bouncy Castle FIPS is operating correctly, you can execute its `DumpInfo` command. The following example shows how you can do this with the [`jre-fips`](https://images.chainguard.dev/directory/image/jre-fips/overview) container image:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/jre-fips org.bouncycastle.util.DumpInfo
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/jre-fips org.bouncycastle.util.DumpInfo
 ```
 
 ```output
@@ -278,7 +280,7 @@ Some of Chainguard's FIPS container images — including [`envoy-fips`](https://
 Chainguard FIPS images that use BoringCrypto list the version of the module in use in their `version` output:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/envoy-fips --version
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/envoy-fips --version
 ```
 
 ```output
@@ -288,7 +290,7 @@ envoy  version: dc2d3098ae5641555f15c71d5bb5ce0060a8015c/1.36.2/Modified/RELEASE
 You can contrast this with the `version` output of the standard, non-FIPS `envoy` image:
 
 ```shell
-docker run -it --rm cgr.dev/$ORGANIZATION/envoy --version
+docker run -it --rm cgr.dev/[[ORGANIZATION]]/envoy --version
 ```
 
 ```output
@@ -300,7 +302,7 @@ This output shows that although it still uses BoringSSL, the non-FIPS `envoy` co
 Chainguard also ships the `envoy-fips` container image with `bssl-test_fips`. This tool prints useful information, including whether FIPS mode is on and which version of the module is in use:
 
 ```shell
-docker run -it --rm --entrypoint /usr/bin/bssl-test_fips cgr.dev/$ORGANIZATION/envoy-fips
+docker run -it --rm --entrypoint /usr/bin/bssl-test_fips cgr.dev/[[ORGANIZATION]]/envoy-fips
 ```
 
 ```output
@@ -360,5 +362,6 @@ For additional support, contact Chainguard support or consult the FIPS documenta
 ## Related resources
 
 - [Chainguard FIPS Images](https://images.chainguard.dev/directory?fips=true) - Browse all available FIPS-validated container images
+- [Compliance Dashboard](/chainguard/containers/security-and-compliance/compliance-dashboard/) - Review the FIPS certificates and STIG results for your organization's FIPS container images in the Chainguard Console
 - [NIST CMVP Certificate Search](https://csrc.nist.gov/projects/cryptographic-module-validation-program/validated-modules/search) - Verify cryptographic module certifications
 - [OpenSSL FIPS Test Tool](https://github.com/chainguard-dev/openssl-fips-test) - Source code and documentation for the verification tool

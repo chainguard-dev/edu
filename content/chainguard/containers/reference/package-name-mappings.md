@@ -4,7 +4,7 @@ linktitle: "Package name mappings"
 type: "article"
 description: "Understanding how Chainguard maps upstream package and image names to Chainguard Containers"
 date: 2025-10-23T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:25:53+00:00
 draft: false
 tags: ["Chainguard Containers", "Packages"]
 images: []
@@ -22,9 +22,9 @@ When migrating to Chainguard Containers, you may notice that some package and im
 
 ## Why Chainguard remaps package names
 
-Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardize these names to provide consistency regardless of which distribution you're migrating from.
+Different Linux distributions often use different names for the same software. For example, Debian calls its C compiler package `build-essential`, while Alpine calls the equivalent package `build-base` and Fedora uses `gcc` and related packages. Chainguard Containers standardizes these names to provide consistency regardless of which distribution you're migrating from.
 
-In some cases, upstream package names can be ambiguous or misleading. To create more clarity, Chainguard maps `netcat-traditional` to `netcat-openbsd` to specify the implementation, and `google-chrome-stable` to `chromium` to reflect the open-source base.
+In some cases, upstream package names can be ambiguous or misleading. To create more clarity, Chainguard maps `netcat-traditional` to `netcat-openbsd` to specify the implementation, and `google-chrome-stable` to `chromium` to reflect the open source base.
 
 Some distributions split a single piece of software into many sub-packages, while others bundle functionality together. Chainguard's package naming reflects a more streamlined approach that reduces the number of packages you need to install, minimizing the attack surface by avoiding unnecessary package splits.
 

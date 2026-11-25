@@ -1,0 +1,18 @@
+{{- /*
+Returns a root-relative path under the site's base path. With the docs served
+at www.chainguard.dev/docs/, "/get-started/" becomes "/docs/get-started/".
+With a base URL at the root of its host, every path comes back unchanged.
+
+Use it for paths that start with "/". relURL treats a leading slash as the
+root of the host and drops the base path. A path that already starts with the
+base path, such as a page's RelPermalink, a full URL, or a fragment, is
+returned unchanged.
+
+Usage: {{ partial "site-path.html" "/get-started/" }}
+*/ -}}
+{{- $path := . -}}
+{{- $base := site.Home.RelPermalink -}}
+{{- if and (strings.HasPrefix $path "/") (not (strings.HasPrefix $path "//")) (not (strings.HasPrefix $path $base)) -}}
+  {{- $path = printf "%s%s" $base (strings.TrimPrefix "/" $path) -}}
+{{- end -}}
+{{- return $path -}}

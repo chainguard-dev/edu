@@ -3,7 +3,7 @@ title: "Get started"
 lead: "New to Chainguard? Start here. Orient yourself, then pick the path that matches what you're trying to do — build with containers, build with libraries, evaluate trust, or migrate an organization."
 description: "Get started with Chainguard: orient yourself, then choose your path — build with containers, build with libraries, evaluate trust, or migrate an existing organization."
 date: 2026-06-09T08:48:23+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-15T12:09:53+00:00
 draft: false
 images: []
 weight: 10
@@ -19,9 +19,13 @@ Pull and run hardened, low-CVE container images from `cgr.dev`. Work through a [
 
 Swap your existing dependencies for Chainguard Libraries — rebuilt from verified source, drop-in compatible. Currently available for Java, Python, and JavaScript. Start with the [libraries on-ramp](/get-started/libraries-examples/).
 
+## Build with Checks and Workspaces
+
+Run your pull request checks in isolated microVMs with Chainguard Checks, and your coding agents in remote sessions that hold none of your long-lived credentials with Chainguard Workspaces. [Set up Chainguard Checks and Chainguard Workspaces](/get-started/checks-and-workspaces/set-up/) explains how the two work together and signs you up for both. [How Chainguard Checks and Chainguard Workspaces isolate your code](/get-started/checks-and-workspaces/how-it-works/) describes their security model.
+
 ## Evaluate trust
 
-Deciding whether Chainguard is right for your organization? Review how Chainguard Containers are built, what guarantees they carry, and how they compare on CVEs.
+Deciding whether Chainguard is right for your organization? Review how Chainguard's container images are built, what guarantees they carry, and how they compare on CVEs.
 
 ## Onboard your teams
 

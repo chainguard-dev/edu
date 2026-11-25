@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl libraries cache opt-in"
 slug: chainctl_libraries_cache_opt-in
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_cache_opt-in/
@@ -26,7 +26,7 @@ chainctl libraries cache opt-in [--ecosystem ECOSYSTEM] [--parent ORG] [flags]
 
 ```
       --ecosystem string   Change one ecosystem (JAVA, PYTHON, JAVASCRIPT). Omit for all ecosystems.
-      --parent string      The name or id of the organization whose opt-out to change.
+      --parent string      The name or id of the organization whose opt-out to change. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
 ```
 
 ### Options inherited from parent commands

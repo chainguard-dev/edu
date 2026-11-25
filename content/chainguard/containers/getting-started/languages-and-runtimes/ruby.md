@@ -9,7 +9,7 @@ aliases:
 type: "article"
 description: "Learn how to use Chainguard's Ruby container images for secure Ruby applications, including multi-stage builds for Rubygems and minimal runtime images"
 date: 2023-05-10T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -20,7 +20,7 @@ weight: 70
 toc: true
 ---
 
-Chainguard's [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-getting-started-ruby) provide secure foundations for Ruby applications with minimal vulnerabilities through both development and production-ready distroless variants. These images significantly reduce attack surface compared to traditional Ruby base images while maintaining full compatibility with Ruby applications and the Rubygems ecosystem.
+Chainguard's [Ruby container images](https://images.chainguard.dev/directory/image/ruby/versions) provide secure foundations for Ruby applications with minimal vulnerabilities through both development and production-ready distroless variants. These images significantly reduce attack surface compared to traditional Ruby base images while maintaining full compatibility with Ruby applications and the Rubygems ecosystem.
 
 Because Ruby applications typically require the installation of third-party dependencies via [Rubygems](https://rubygems.org/), using a pure distroless image for building your application would not work. In cases like this, you'll need to implement a [multi-stage Docker build](https://docs.docker.com/build/building/multi-stage/) that uses one of the `-dev` images to set up the application.
 

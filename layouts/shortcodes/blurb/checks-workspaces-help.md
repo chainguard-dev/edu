@@ -1,0 +1,1 @@
+To ask questions or get support, use the #{{ .Get "channel" }} channel in the [Chainguard community Slack](https://join.slack.com/t/chainguardcommunity/shared_invite/zt-3nttdr807-V9BJHayWvsB0KbHsfZO5Rw). If you aren't a member yet, the link invites you to join.

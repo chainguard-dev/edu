@@ -11,7 +11,7 @@ lead: ""
 description: "Procedural tutorial outlining how to create a Chainguard identity that can be assumed by a GitLab CI/CD pipeline."
 type: "article"
 date: 2023-06-28T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "Procedural"]
 images: []
@@ -31,7 +31,7 @@ Both methods outlined in this guide require you to have the following:
 * Access to a GitLab project and CI/CD pipeline you can use to test out the identity you'll create. GitLab provides a [quickstart tutorial on creating your first pipeline](https://docs.gitlab.com/ee/ci/quick_start/) which can be useful for getting a testing pipeline up and running.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 
-Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+Additionally, the Terraform method requires you to have `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 
 ## Create an assumable identity with `chainctl`
 
@@ -62,7 +62,7 @@ This command creates an identity named `cg-gitlab-id` with the following claim m
 
 These options' values are string literals; you can use `--identity-issuer-pattern`, `--subject-pattern`, and `--audience-pattern` to use regular expressions instead.
 
-This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. You can also chain together multiple roles, as in `--role=registry.push,registry.pull`.
+This command also binds the `viewer` role to the new identity. The `viewer` role provides read-only access to Chainguard resources, which is appropriate for most CI/CD use cases that need to pull images or inspect resources. The `viewer` role can pull container images but not Chainguard Libraries. To pull libraries, bind the matching role listed in [Choosing a role](/platform/administration/assumable-ids/assumable-ids/#choosing-a-role). You can also chain together multiple roles, as in `--role=registry.push,registry.pull`.
 
 To see all available roles and their permissions, run `chainctl iam roles list`. You can also learn more by reviewing our [Overview of roles and role-bindings in Chainguard](/platform/administration/iam-organizations/roles-role-bindings/roles-role-bindings/).
 
@@ -280,7 +280,7 @@ assume-and-explore:
     apk add wget
 
     # Install chainctl.
-    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m)"
+    wget -O chainctl "https://dl.enforce.dev/chainctl/latest/chainctl_linux_$(uname -m | sed 's/aarch64/arm64/')"
     chmod +x chainctl
     mv chainctl /usr/bin
 
@@ -298,7 +298,7 @@ assume-and-explore:
 
 Let's go over what this configuration does.
 
-First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://images.chainguard.dev/directory/image/wolfi-base/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-administration-iam-organizations-identity-examples-gitlab-identity) since it includes the `sh` shell.
+First, GitLab requires that pipelines have a shell. To this end, this configuration uses the [`cgr.dev/chainguard/wolfi-base` image](https://images.chainguard.dev/directory/image/wolfi-base/overview) since it includes the `sh` shell.
 
 Next, this configuration creates a JSON Web Token (JWT) with an [`id_tokens`](https://docs.gitlab.com/ee/ci/yaml/index.html#id_tokens) block that will allow the job to be able to fetch an OIDC token and authenticate with Chainguard. GitLab requires that any JWTs created in this manner must include an `aud` keyword. In this case, it should align with the `audience` associated with the Chainguard identity you created: `https://gitlab.com`.
 
@@ -333,7 +333,7 @@ This indicates that the GitLab CI/CD pipeline did indeed assume the identity and
 If you'd like to experiment further with this identity and what the workflow can do with it, there are a few parts of this setup that you can tweak. For instance, if you'd like to give this identity different permissions you can change the role data source to the role you would like to grant.
 
 ```
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 ```

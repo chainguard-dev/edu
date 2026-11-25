@@ -7,7 +7,7 @@ linktitle: "Migration checklist"
 type: "article"
 description: "Recommended practices when migrating to Chainguard Containers"
 date: 2025-02-03T10:42:57+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T14:07:28+00:00
 tags: ["Chainguard Containers"]
 draft: false
 images: []
@@ -21,11 +21,11 @@ Chainguard container images are designed to be minimal and to include special fe
 
 ## Important to know
 
-- Most Chainguard Containers don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
+- Most of Chainguard's container images don’t have a package manager or a shell by default. These are **distroless** images intended to be used as slim runtimes for production environments.
 - For every version of an image, a complimentary **standard** image is provided with a shell and the apk package manager. These are identified by the `-dev` suffix and can be customized.
 - When possible, we recommend using multistage builds that combine a build stage based on a `-dev` variant and a runtime stage based on a distroless image.
-- Chainguard Containers typically don’t run as root, so a `USER root` statement may be required before installing software.
-- Chainguard Containers are based on **apk**. If you’re coming from Debian or Ubuntu you’ll need to replace `apt` commands with their `apk` equivalents. This also applies for other distros that are not based on **apk**.
+- Chainguard's container images typically don’t run as root, so a `USER root` statement may be required before installing software.
+- Chainguard's container images are based on **apk**. If you’re coming from Debian or Ubuntu you’ll need to replace `apt` commands with their `apk` equivalents. This also applies for other distros that are not based on **apk**.
 - Some images may behave differently than their equivalent in other distros, due to differences in entrypoint and shell availability. Always check the image documentation for usage details.
 - For a number of our most popular Containers, a **full** variant (tagged `-full`) maps to the upstream image to ease initial migration. It's a useful starting point if your pipeline depends on packages from your previous image, though we recommend moving to a slimmer variant once you've migrated. Refer to [Full container variants](/chainguard/containers/concepts/container-variants/#full-container-variants).
 
@@ -39,6 +39,6 @@ Chainguard container images are designed to be minimal and to include special fe
 - [ ] When copying application files to the image, make sure proper permissions are set.
 - [ ] Switch back to a non-root user so that the image does not run as root by default.
 - [ ] Build and test your image to validate your setup.
-- [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](https://edu.chainguard.dev/chainguard/containers/concepts/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
+- [ ] Optional: migrate your setup to a multi-stage build that uses a distroless image variant as runtime. Our [Getting started with distroless](/chainguard/containers/concepts/getting-started-distroless/) guide has detailed information on how to work with distroless images and multi-stage builds.
 
-For detailed migration guidance, please refer to our [Migration docs](https://edu.chainguard.dev/chainguard/containers/migration/) on Chainguard Academy. For troubleshooting, check our [Debugging distroless containers](https://edu.chainguard.dev/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.
+For detailed migration guidance, please refer to our [Migration docs](/chainguard/containers/migration/). For troubleshooting, check our [Debugging distroless containers](/chainguard/containers/troubleshooting/debugging-distroless-images/) resource.

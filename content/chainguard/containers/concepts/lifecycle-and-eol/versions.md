@@ -11,7 +11,7 @@ aliases:
 type: "article"
 description: "Understanding Chainguard's approach to container image versions."
 date: 2024-01-08T08:49:31+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -23,7 +23,7 @@ toc: true
 ---
 
 [Chainguard
-Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)
+Containers](https://images.chainguard.dev/)
 are able to offer few-to-zero known vulnerabilities because they are updated
 frequently. Because of this continuous release cycle, the best way to mitigate
 vulnerabilities is to use the newest build of each Chainguard Container
@@ -34,7 +34,7 @@ following:
 * Rapidly applying upstream patches to current releases — you can read more
   about this in our blog post, “[How Chainguard fixes vulnerabilities before
   they're
-  detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement)”
+  detected](https://www.chainguard.dev/unchained/how-chainguard-fixes-vulnerabilities)”
 * Applying Chainguard patches to OSS software
 
 Upstream projects are updated frequently for many reasons, including to combat
@@ -53,7 +53,7 @@ vulnerabilities realistically possible.
 This document provides an overview of Chainguard’s approach to updates,
 releases, and versions within Chainguard Containers. For more specific guidance,
 please [contact
-us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement).
+us](https://www.chainguard.dev/contact).
 
 This page explains the policy. If you're trying to resolve a specific container
 image or version you can't pull, refer to [Troubleshoot container and version
@@ -61,7 +61,7 @@ availability](/chainguard/containers/troubleshooting/container-version-troublesh
 
 ## How versions are maintained
 
-Chainguard Containers are built on open source software, so understanding how
+Chainguard's container images are built on open source software, so understanding how
 Chainguard manages releases starts with understanding how open source projects
 version and release software. Generally, projects follow one of two approaches:
 
@@ -99,18 +99,18 @@ The table provides some example scenarios to help illustrate our approach.
 
 | **Category** | **Example** | **Maintained Upstream Releases** | **Chainguard Patches** | **Chainguard No Longer Patches** |
 | --------------- | ------------- | ---------------------------------- | ------------------------ | ---------------------------------- |
-| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1.23, 1.22 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
-| | [Python](https://images.chainguard.dev/directory/image/python/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old |
-| | [Postgres](https://images.chainguard.dev/directory/image/postgres/version?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 17, 16, 15, 14, 13 | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below |
-| **Single Release Track** | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 2 | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x |
-| | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | 1 | `:latest`, 1 | Any previous version tag
-| **No Release Track** | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) | No versioned releases | `:latest` | Any previous version tag |
+| **Multiple Release Tracks** | [Go](https://images.chainguard.dev/directory/image/go/versions) | 1.23, 1.22 | `:latest`, 1, 1.23, 1.22 | 1.23.old, 1.22.old, 1.21 and below |
+| | [Python](https://images.chainguard.dev/directory/image/python/versions) | 3.13, 3.12, 3.11, 3.10, 3.9 | `:latest`, 3, 3.9 and above | 3.8 and below, 3.8.old, 3.9.old, 3.10.old, 3.11.old, 3.12.old |
+| | [Postgres](https://images.chainguard.dev/directory/image/postgres/version) | 17, 16, 15, 14, 13 | `:latest`, 17, 16, 15, 14, 13 | 12 (EOL November 21, 2024) and below |
+| **Single Release Track** | [Cosign](https://images.chainguard.dev/directory/image/cosign/versions) | 2 | `:latest`, 2, 2.4 | 2.3, 2.2, 2.1, 2.0, 1.x, 0.x |
+| | [Bank-Vaults](https://images.chainguard.dev/directory/image/bank-vaults/versions) | 1 | `:latest`, 1 | Any previous version tag
+| **No Release Track** | [envoyproxy/ratelimit](https://images.chainguard.dev/directory/image/envoy-ratelimit/versions) | No versioned releases | `:latest` | Any previous version tag |
 
 > **Note**: The "Maintained Upstream Releases" column is current as of December 2024.
 
 ### Daily rebuilds and proactive patching
 
-[Actively maintained](#list-active-tags) Chainguard Containers are rebuilt on a daily
+[Actively maintained](#list-active-tags) container images are rebuilt on a daily
 cadence, so you can be sure the container image you are using is up to date.
 
 In some
@@ -119,7 +119,7 @@ project to release patches. Learn more about this under [Epoch tags](#epoch-tags
 
 ### Maintaining Wolfi packages in Chainguard Containers
 
-Chainguard Containers only contain packages that are either built and maintained
+Chainguard's container images only contain packages that are either built and maintained
 internally by Chainguard or packages from the [Wolfi
 Project](https://github.com/wolfi-dev). These packages follow the same
 conventions of minimalism and rapid updates as Chainguard Containers.
@@ -161,7 +161,7 @@ more versions. The Chainguard approach is as follows:
 
 ## Floating tags and epoch tags
 
-Chainguard Containers use _floating tags_. This means that a container image's
+Chainguard's container images use _floating tags_. This means that a container image's
 tag always points to the most recent build or version within a version stream,
 rather than a fixed, immutable image. For example, `python:3.13` will always
 point to the latest version of that version stream (`3.13.9`, as of this
@@ -191,12 +191,12 @@ package or involve security fixes.
 
 Once a newer epoch tag is available, the previous one stops being updated. For
 example, the tag `1.14.5-r3` will no longer be updated once `1.14.5-r4` is
-available. Because Chainguard Containers are rebuilt frequently, this may not
+available. Because Chainguard's container images are rebuilt frequently, this may not
 always be apparent; a container image with these tags may show both as being
 updated on the same day, when in fact `-r3` was updated only to be replaced
 later in the day by `-r4`.
 
-As mentioned previously, Chainguard Containers use floating tags. In the context
+As mentioned previously, Chainguard's container images use floating tags. In the context
 of epoch tags, this means that the minor version and patch will both always
 point to the latest available epoch tag. For example, if the latest epoch tag
 for Chainguard's `python` container image is `python:3.14.0-r6`, then
@@ -269,6 +269,29 @@ longer updated.
 No EOL notice will be provided for single-release applications where the only
 supported release is the `:latest` or corresponding version tag.
 
+### How Chainguard determines EOL dates
+
+Chainguard sets the EOL status of each version stream from that project's
+lifecycle data:
+
+* For many projects, the data comes from [endoflife.date](https://endoflife.date).
+* For projects that endoflife.date doesn't cover, Chainguard uses the project's
+  published support policy or upstream release data instead.
+* If a source doesn't reflect the project's open source releases, Chainguard
+  sets the date manually. A manual date takes precedence over all other
+  sources.
+
+For example, endoflife.date sometimes tracks a vendor's commercial support
+window, which continues after the project's last open source release. In that
+case, Chainguard sets the EOL date to the date of the last open source release,
+because that's the last release Chainguard can build from source.
+
+The Chainguard Console and `chainctl` show the EOL status or date that
+Chainguard uses for each version stream. That date can differ from the one on
+the upstream project's website when the two use different sources or define
+support differently. If a version stream is eligible for the End-of-Life (EOL)
+Grace Period, the grace period starts on that date.
+
 ### EOL grace period
 
 There are cases where an organization may want to continue using a container
@@ -320,7 +343,7 @@ For instance, the following command lists the tags that are currently active for
 `python`:
 
 ```sh
-chainctl image repo list --repo=python -o json | jq -r '.items[].activeTags'
+chainctl image repo list --repo=python -o json | jq -r '.items[].active_tags'
 ```
 
 ```output
@@ -457,6 +480,9 @@ period](/chainguard/containers/concepts/lifecycle-and-eol/eol-grace-period/#usin
 ### Refer to endoflife.date
 
 The [endoflife.date](https://endoflife.date) website lists the release tracks
-and product lifecycles of many Open Source projects. Generally the information
-on this site will align with the lifecycle of the corresponding Chainguard
-image.
+and product lifecycles of many open source projects. Chainguard uses it as the
+source of EOL dates for many projects, so it's a useful reference when you plan
+upgrades. The date that applies to a Chainguard container image is the one the
+Console or `chainctl` shows, which can differ from endoflife.date for the reasons
+outlined in [How Chainguard determines EOL
+dates](#how-chainguard-determines-eol-dates).

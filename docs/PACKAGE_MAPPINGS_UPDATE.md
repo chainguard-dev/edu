@@ -49,7 +49,7 @@ npm run build
 npm run start
 ```
 
-Navigate to `/chainguard/containers/about/package-name-mappings/` to verify the tables render correctly.
+Navigate to `http://localhost:1313/docs/chainguard/containers/reference/package-name-mappings/` to verify the tables render correctly.
 
 ## Hugo Shortcodes
 
@@ -86,7 +86,7 @@ After updating the mappings:
 
 ## Related Files
 
-- Documentation: `/content/chainguard/containers/about/package-name-mappings.md`
+- Documentation: `/content/chainguard/containers/reference/package-name-mappings.md`
 - Data file: `/data/package-mappings.yaml`
 - Shortcodes: `/layouts/shortcodes/package-mappings/*.html`
 - This guide: `/docs/PACKAGE_MAPPINGS_UPDATE.md`

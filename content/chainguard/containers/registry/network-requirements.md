@@ -10,7 +10,7 @@ lead: "Using Chainguard Containers with firewalls, access control lists, and pro
 type: "article"
 description: "Using Chainguard Containers with firewalls, access control lists, and proxies."
 date: 2023-09-08T08:49:31+00:00
-lastmod: 2026-10-01T17:08:58+00:00
+lastmod: 2026-11-12T00:00:00+00:00
 draft: false
 tags: ["Chainguard Containers", "Reference"]
 images: []
@@ -18,9 +18,9 @@ toc: true
 weight: 30
 ---
 
-This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
+This document provides an overview of network requirements for using [Chainguard Containers](https://www.chainguard.dev/chainguard-images). To use Chainguard tools and Containers in environments with firewalls, VPNs, and IDS/IPS systems, you will need to add some rules to allow traffic into and out of your networks.
 
-Chainguard Containers do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
+Chainguard's container images do not call Chainguard services while running, so no network changes would be required to the runtime environment. Review the **Notes** column for more info on each Hostname.
 
 ## Chainguard Containers hosts
 
@@ -31,6 +31,7 @@ This table lists the DNS hostnames, associated ports, and protocols that will ne
 | cgr.dev                 | 443  | HTTPS    | v4      | Main container image registry         |
 | console.chainguard.dev  | 443  | HTTPS    | v4      | Chainguard dashboard                  |
 | data.chainguard.dev     | 443  | HTTPS    | v4      | Console API endpoint                  |
+| token.chainguard.dev    | 443  | HTTPS    | v4      | Console login callback, reached by the browser that completes the login |
 | console-api.enforce.dev | 443  | HTTPS    | v4      | Registry API endpoint                 |
 | enforce.dev             | 443  | HTTPS    | v4      | Registry authentication               |
 | dl.enforce.dev          | 443  | HTTPS    | v4      | `chainctl` downloads                  |

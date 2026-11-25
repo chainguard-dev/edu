@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-11T17:15:41+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -70,8 +70,8 @@ URL cannot be rebuilt within the Chainguard Factory.
 
 Chainguard Libraries for Python can be consumed through [Chainguard
 Repository](/chainguard/libraries/javascript/overview/), which provides a
-single endpoint for Python package retrieval and supports protected upstream
-fallback when configured for your organization. This allows builds to prefer
+single endpoint for Python package retrieval and includes protected upstream
+fallback, which is on by default for new entitlements. This allows builds to prefer
 Chainguard-built packages first while still covering packages or wheel files
 that Chainguard does not currently serve directly. Configure this endpoint
 [globally through a repository
@@ -88,6 +88,8 @@ and find available packages, package versions, source distribution (sdist), and
 Python wheel files for standard and remediated package version.
 
 ## CVE remediation
+
+{{% blurb/athena %}}
 
 Chainguard Libraries for Python includes the [CVE
 Remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature. Remediated
@@ -403,7 +405,8 @@ Note that `pip-compile` embeds your Chainguard index URL, including credentials,
 
 When the configured index changes, `uv sync` automatically re-resolves dependencies and updates `uv.lock` with hashes from the new index. No explicit `uv lock` step is required; running `uv sync` after configuring Chainguard as your index is sufficient. However, running `uv lock` explicitly after switching indexes is recommended to ensure your lock file accurately reflects what is being installed before you run `uv sync`.
 
-Note that `uv sync --frozen` bypasses index configuration entirely and downloads packages using the URLs embedded directly in `uv.lock`. If your lock file was generated against PyPI, `uv sync --frozen` will continue to download from PyPI regardless of your configured index. Run `uv lock` first to update the lock file before using `--frozen`.
+Note that `uv sync --frozen` does not re-resolve dependencies or update `uv.lock`, but it can still query indexes configured in the project or CI environment. For example, `uv` may need to fetch a build backend or another package required to build a source distribution. CI jobs that run `uv sync --frozen` must therefore still provide credentials for every configured index that the job may query.
+A frozen sync uses the sources and hashes recorded in `uv.lock` for locked packages. If your lock file was generated against PyPI, it can still download locked artifacts from PyPI regardless of your configured index. Run `uv lock` to update the lock file after changing indexes, then commit the updated lockfile before using `--frozen` in CI. For CI, use a pull token or repository manager credential exposed through the index configuration, preferably with `uv`'s index-scoped environment variables.
 
 The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
 
@@ -447,6 +450,13 @@ Chainguard Libraries for Python include files that contain software bill of
 material (SBOM) information. Additional files attest details about build
 infrastructure with  the [Supply-chain Levels for Software Artifacts
 (SLSA)](https://slsa.dev/) provenance information.
+
+To save the available signature bundle, verified PEP 740 provenance, and
+embedded SPDX SBOM while verifying a wheel, use `chainctl libraries verify
+--output-attestations`. Files are saved to `attestations` by default, or use
+`--output-dir` to choose another destination. Refer to [Download Python SBOMs
+and attestations](/chainguard/libraries/policies-and-security/verification/#download-python-sboms-and-attestations)
+for examples and output paths.
 
 ### Embedded SBOMs
 
@@ -538,10 +548,12 @@ specifically for each package, version, and file.
 
 ## Upstream fallback policy and controls
 
-Chainguard Libraries for Python supports an optional built-in fallback to
+Chainguard Libraries for Python includes a built-in, policy-governed fallback to
 the upstream PyPI index, managed through the [Chainguard
-Repository](/chainguard/chainguard-repository/overview/). By default, the endpoint serves
-only Chainguard-built packages. When the upstream fallback is enabled, upstream packages are
-subject to additional security controls before being served.
+Repository](/chainguard/chainguard-repository/overview/). New Python entitlements
+have upstream fallback on by default. The endpoint always serves Chainguard-built
+packages first. When upstream fallback is on, upstream packages are
+subject to additional security controls before being served. To serve only
+Chainguard-built packages, set the entitlement policy to Chainguard-only.
 
 Learn about managing fallback and cooldown controls in the [Chainguard Libraries overview](/chainguard/libraries/introduction/overview/).

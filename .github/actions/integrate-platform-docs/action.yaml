@@ -1,5 +1,5 @@
 name: Integrate Platform Docs
-description: Download and integrate platform docs from GCS into the academy content directory
+description: Download and integrate platform docs from GCS into the docs content directory
 
 inputs:
   storage_bucket:
@@ -92,7 +92,7 @@ runs:
         gcloud --quiet storage cp --recursive --project="${PROJECT_ID}" \
           "${STORAGE_BUCKET}/chainctl-docs" /tmp/
 
-    - name: copy changed chainctl docs into academy content directory
+    - name: copy changed chainctl docs into docs content directory
       shell: bash
       run: |
         rsync -av --delete --exclude="_index.md" \

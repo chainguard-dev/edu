@@ -10,7 +10,7 @@ aliases:
 description: "Procedural tutorial outlining how to use Terraform to create Chainguard role-bindings for members of a GitHub team."
 type: "article"
 date: 2023-06-10T08:48:45+00:00
-lastmod: 2026-09-30T18:41:26+00:00
+lastmod: 2026-10-27T14:25:39+00:00
 draft: false
 tags: ["Chainguard Console", "Procedural"]
 images: []
@@ -27,7 +27,7 @@ This guide outlines one method of using Terraform to grant members of a GitHub t
 
 To complete this guide, you will need the following.
 
-* `terraform` installed on your local machine. Terraform is an open-source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
+* `terraform` installed on your local machine. Terraform is an open source Infrastructure as Code tool which this guide will use to create various cloud resources. Follow [the official Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) for instructions on installing the tool.
 * `chainctl` — the Chainguard command line interface tool — installed on your local machine. Follow our guide on [How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/) to set this up.
 * Access to a GitHub team. If you'd like, you can create a new GitHub organization and team for testing purposes. Check out [GitHub's documentation](https://docs.github.com/en/organizations/organizing-members-into-teams/creating-a-team) for details on how to do this.
 * A GitHub Personal Access Token, with a minimum of **read.org** access. Follow [GitHub's documentation on the subject](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) to learn how to set one up. Additionally, you will need to [configure SSO for your personal access token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) if required by your organization.
@@ -318,7 +318,7 @@ The Terraform configuration used in this guide is meant to serve as a starting p
 For example, rather than applying the `viewer` role to your team's role-bindings, you can apply one of the other built-in roles, or any custom roles created within your Chainguard organization. The following `data` and `resource` block examples could be used in place of the ones used in this guide's `rolebindings.tf` file. Instead of granting the identities the `viewer` role, this grants them the `editor` role.
 
 ```hcl
-data "chainguard_roles" "editor" {
+data "chainguard_role" "editor" {
   name = "editor"
 }
 
@@ -326,7 +326,7 @@ resource "chainguard_rolebinding" "cg-binding" {
   for_each = toset(data.chainguard_identity.team_ids)
   identity = each.value.id
   group = "$CHAINGUARD_ORG"
-  role     = data.chainguard_roles.editor.items[0].id
+  role     = data.chainguard_role.editor.items[0].id
 }
 ```
 

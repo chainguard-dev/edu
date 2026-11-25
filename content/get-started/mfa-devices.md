@@ -5,7 +5,7 @@ lead: "Moving your authenticator to a new phone, switching authenticator apps, o
 description: "Change or reset the multi-factor authentication device you use with the Chainguard Console, whether your MFA is managed by your identity provider or by Chainguard."
 type: "article"
 date: 2026-09-11T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-02T12:57:14+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -59,7 +59,7 @@ If you still have your old device, check whether your authenticator app can move
 
 Chainguard doesn't act on an MFA reset requested from the account's own email address. Anyone who controlled your mailbox could already request a password reset, so treating an emailed request as proof of identity would defeat the purpose of the second factor.
 
-Instead, ask an Owner in your Chainguard organization to open a support ticket on your behalf. [Resetting your MFA device for the Chainguard Console](https://support.chainguard.dev/hc/en-us/articles/52523310297115-Resetting-your-MFA-device-for-the-Chainguard-Console) in the Chainguard knowledge base describes the process.
+Instead, ask an Owner in your Chainguard organization to open a support ticket on your behalf. The ticket needs to name the email address whose MFA enrollment you want reset.
 
 Once support clears your enrollment, sign in to the Console again. The sign-in flow prompts you to enroll and displays a new QR code, which you scan with your authenticator app to finish. You won't receive an automatic notification when the reset happens, so watch your support ticket for the update.
 

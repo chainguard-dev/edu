@@ -42,7 +42,6 @@ module.exports = {
         "th",
         "td",
         "h5",
-        "alert-link",
         "container-xxl",
         "container-fluid",
         // Absent from scanned content; keeps dropdown styles from being purged

@@ -27,66 +27,6 @@ h4 code {
   font-size: 1rem;
 }
 
-blockquote {
-  font-size: 16px;
-  line-height: 24px;
-  padding: 24px;
-  border-radius: 0 4px 4px 0;
-  display: flex;
-
-  &::before {
-    content: var(--info-icon-url);
-    position: relative;
-    top: 2px;
-    margin-right: 14px;
-  }
-
-  background: var(--blockquote-background);
-  border-left: 2px solid var(--blockquote-border) !important;
-
-  p {
-    margin-bottom: 0;
-  }
-
-  * {
-    font-style: normal !important;
-  }
-}
-
-h1 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 36px;
-  line-height: 120%;
-  letter-spacing: -0.02em;
-}
-
-h2 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 130%;
-  letter-spacing: -0.02em;
-}
-
-h3 {
-  font-family: $titleFont;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 140%;
-
-  /* identical to box height, or 28px */
-  letter-spacing: -0.02em;
-}
-
-h4,
-h5 {
-  font-family:$titleFont;
-}
-
 // Link element reset, beats _dark.scss selectors
 a[href][href][href] {
   text-decoration: none;

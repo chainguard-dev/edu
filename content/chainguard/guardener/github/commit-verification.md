@@ -4,7 +4,7 @@ linktitle: "Commit Verification"
 description: "Configure Guardener to verify that every commit in a pull request is cryptographically signed by an authorized signer."
 type: "article"
 date: 2026-07-08T00:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-23T04:48:59+00:00
 draft: false
 tags: ["GitHub", "Security"]
 images: []
@@ -16,6 +16,8 @@ toc: true
 ---
 
 The Commit Verification feature verifies that every commit in a pull request is cryptographically signed by an authorized signer, according to a policy you control. This ensures that changes to your codebase come from identities you trust, and it supports both keyless (Sigstore) signatures and static keys such as GPG.
+
+{{< beta feature="Commit Verification" access="organizations that have installed and linked the Chainguard App" >}}
 
 Keyless commit signatures are verified using [gitsign](https://github.com/sigstore/gitsign) and [Sigstore](/open-source/sigstore/). Static key authorities (such as GPG) are verified directly against the key material you supply, without gitsign.
 

@@ -1,6 +1,5 @@
 ---
 aliases:
-- /chainguard/administration/policies/
 - /chainguard/chainguard-images/staying-secure/policies/
 - /chainguard/containers/staying-secure/policies/
 title: "Chainguard container image pull policies"
@@ -8,7 +7,7 @@ linktitle: "Container pull policies"
 type: "article"
 description: "Configure and enforce policies that control which Chainguard container and artifact versions your organization can pull, using chainctl"
 date: 2026-05-21T08:48:45+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-03T00:00:00+00:00
 draft: false
 tags: ["Overview"]
 images: []
@@ -17,8 +16,6 @@ weight: 20
 ---
 
 Policies enable you to filter and restrict Chainguard artifact updates. You do this by defining policies that control and restrict versions that will be pulled from Chainguard.
-
-{{< beta feature="Policies" >}}
 
 ## Definitions
 
@@ -29,7 +26,7 @@ This page uses the following terms:
 * **Mode**: A binding's mode controls what happens when the policy denies an image:
     * `ENFORCE`: Block the pull.
     * `DRY_RUN`: Allow the pull but record the violation.
-* **Parameter**: A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=KEY=VALUE` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=$POLICY` to see which parameters a policy accepts and what defaults apply.
+* **Parameter**: A configurable value declared by a policy's schema (for example, `days` on the `cooldown` policy). Supply values when you enable a policy with `--param=[[KEY]]=[[VALUE]]` (repeatable). Omitted parameters fall back to the schema's declared default. Use `chainctl policies describe --policy=[[POLICY]]`, replacing `[[POLICY]]` with a policy's name, to see which parameters it accepts and what defaults apply.
 * **Policy type**: Whether a policy is authored by Chainguard or by you. Refer to [Policy types](#policy-types).
 
 The `--mode` flag is required when you enable a policy. Chainguard recommends starting with `DRY_RUN` so you can review a policy's impact before promoting it to `ENFORCE`.
@@ -105,7 +102,7 @@ chainctl policies list
 Inspect a policy to see its full definition and configurable parameters before enabling it:
 
 ```shell
-chainctl policies describe --policy=$POLICY
+chainctl policies describe --policy=[[POLICY]]
 ```
 
 See which policies are currently active:
@@ -120,7 +117,7 @@ Activate a policy in `DRY_RUN` mode. This example activates the "no end-of-life"
 chainctl policies enable --policy=no-eol --mode=DRY_RUN
 ```
 
-Some policies accept parameters. Use `--param=KEY=VALUE` to supply them:
+Some policies accept parameters. Use `--param=[[KEY]]=[[VALUE]]` to supply them:
 
 ```shell
 chainctl policies enable --policy=cooldown --mode=DRY_RUN --param=days=7
@@ -142,10 +139,10 @@ chainctl policies disable --policy=no-eol
 
 Before you depend on a specific image (pinning it in a deployment, promoting it through an environment, or adding it to a base image), you often want to know whether your active policies will let it through. `chainctl policies check` answers that for one image on demand, without waiting for a pull to happen.
 
-Pass a full image reference, by tag or by digest:
+Pass a full image reference, by tag or by digest, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-chainctl policies check cgr.dev/$ORGANIZATION/python:latest
+chainctl policies check cgr.dev/[[ORGANIZATION]]/python:latest
 ```
 
 The reference identifies the organization and repository; a tag is resolved to its current digest, and a digest is used as-is. The image is then evaluated against every policy active for that organization, and each result is printed:
@@ -164,7 +161,7 @@ Because the check evaluates against the policies you have enabled right now, it 
 `check` is also built for automation. Its exit status is non-zero whenever any policy returns `DENIED` or `ERROR`, regardless of that policy's mode, so you can gate a CI pipeline on it:
 
 ```shell
-chainctl policies check cgr.dev/$ORGANIZATION/python@sha256:abc... || echo "image violates a policy"
+chainctl policies check cgr.dev/[[ORGANIZATION]]/python@sha256:abc... || echo "image violates a policy"
 ```
 
 Note that a `DRY_RUN` denial also produces a non-zero exit, so a passing `check` is stricter than what enforcement alone would block, which is useful as an early warning while you stage policies.
@@ -308,13 +305,13 @@ chainctl policies override list
 ```output
  OVERRIDE ID  | POLICY |       TARGET        |           REASON           |    CREATED BY     |       CREATED AT
 --------------|--------|---------------------|----------------------------|-------------------|-------------------------
- <id>         | no-eol | image sha256:abc12… | approved exception, OPS-42 | alice@example.com | 2026-06-28 14:30:00 UTC
+ [[OVERRIDE_ID]]  | no-eol | image sha256:abc12… | approved exception, OPS-42 | alice@example.com | 2026-06-28 14:30:00 UTC
 ```
 
-When the exception is no longer needed, delete the override to restore the policy's result for that image. Use `chainctl policies override list` to find the ID:
+When the exception is no longer needed, delete the override to restore the policy's result for that image. Use `chainctl policies override list` to find the ID, and replace `[[OVERRIDE_ID]]` with it:
 
 ```shell
-chainctl policies override delete <override-id>
+chainctl policies override delete [[OVERRIDE_ID]]
 ```
 
 Once deleted, the image is again subject to whatever the policy decides.
@@ -407,9 +404,9 @@ The fields below are what is available for policies whose resource type is `regi
 
 ### Parameters in custom policies
 
-A parameter is a value your policy declares but does not hardcode. Whoever enables the policy supplies the value on the binding with `--param=KEY=VALUE`, so one policy definition can serve several thresholds without being edited.
+A parameter is a value your policy declares but does not hardcode. Whoever enables the policy supplies the value on the binding with `--param=[[KEY]]=[[VALUE]]`, so one policy definition can serve several thresholds without being edited.
 
-Declare parameters in the `parameters` block of the policy manifest, then read them at `input.parameters.<name>`. The `cooldown` system policy is a good template:
+Declare parameters in the `parameters` block of the policy manifest, then read them at `input.parameters.[[NAME]]`. The `cooldown` system policy is a good template:
 
 ```yaml
 name: cooldown
@@ -709,7 +706,7 @@ chainctl policies enable --policy=lts-only --mode=DRY_RUN
 Check a specific image against your active policies without waiting for a pull:
 
 ```shell
-chainctl policies check cgr.dev/$ORGANIZATION/python:latest
+chainctl policies check cgr.dev/[[ORGANIZATION]]/python:latest
 ```
 
 Let your normal pull traffic run for a representative period, then review what the policy would have denied:
@@ -746,7 +743,7 @@ Common questions that come up when authoring and operating custom policies.
 Start by confirming *which* policy denied it. An image is allowed only when every active policy allows it, so a denial you attribute to your new custom policy may be coming from an entirely different one.
 
 ```shell
-chainctl policies check cgr.dev/$ORGANIZATION/python:latest
+chainctl policies check cgr.dev/[[ORGANIZATION]]/python:latest
 ```
 
 ```output
@@ -784,7 +781,7 @@ At launch, the input document carries lifecycle data about the artifact's main p
 * `input.main_package` — the main package name
 * `input.main_package_version` — version metadata, including `version`, `latestVersion`, `eolDate`, `releaseDate`, `exists`, `fips`, `lts`, `eolBroken`, and `versionSource`
 * `input.create_time` — the image creation timestamp, as RFC 3339
-* `input.parameters.<name>` — values for the parameters your policy declares
+* `input.parameters.[[NAME]]` — values for the parameters your policy declares
 * `input.main_package_license` — main-package effective-license expression (not yet populated)
 * `input.packages` — every APK's `purl` and `license` (not yet populated)
 
@@ -850,7 +847,7 @@ chainctl policies enable --policy=lts-only --mode=DRY_RUN
 Check a specific image immediately:
 
 ```shell
-chainctl policies check cgr.dev/$ORGANIZATION/python:latest
+chainctl policies check cgr.dev/[[ORGANIZATION]]/python:latest
 ```
 
 Then let normal pull traffic run for a representative period and review what the policy would have blocked:
@@ -895,11 +892,11 @@ Updating a policy from a manifest is a full replacement, so a policy can gain, l
 chainctl policies binding list
 ```
 
-Re-enable any binding whose parameters no longer match the policy's schema, supplying the current parameters with `--param=KEY=VALUE`.
+Re-enable any binding whose parameters no longer match the policy's schema, supplying the current parameters with `--param=[[KEY]]=[[VALUE]]`.
 
 ## Known issues
 
-Policies are in open beta, and we are continuously working to improve the experience. The items below are current limitations you may run into when working with overrides, along with the workaround for each.
+The following are current limitations you might run into when working with overrides, along with the workaround for each.
 
 ### An override/binding mutation is not effective immediately
 

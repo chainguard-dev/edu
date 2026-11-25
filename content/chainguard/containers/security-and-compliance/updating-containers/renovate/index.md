@@ -10,7 +10,7 @@ aliases:
 type: "article"
 description: "How to use Renovate to automatically keep Chainguard Containers, Helm charts and packages updated"
 date: 2023-09-05T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -200,9 +200,9 @@ RUN apk add --no-cache \
 
 ### Default repositories
 
-Chainguard Containers ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
+Chainguard's container images ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
 
-* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open-source packages used in Chainguard's Free container images.
+* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open source packages used in Chainguard's Free container images.
 * **`virtualapk.cgr.dev/<org-id>/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.
 
 If you aren't modifying `/etc/apk/repositories` in your build then you should add a `packageRules` entry to your `renovate.json` that matches the `apk` datasource and lists both of the default URLs.
@@ -638,7 +638,7 @@ DEBUG: found labels in manifest (repository=local)
          "org.opencontainers.image.authors": "Chainguard Team https://www.chainguard.dev/",
          "org.opencontainers.image.created": "2024-12-04T19:55:37Z",
          "org.opencontainers.image.source": "https://github.com/chainguard-images/images-private/tree/main/images/static",
-         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-renovate",
+         "org.opencontainers.image.url": "https://images.chainguard.dev/directory/image/static/overview",
          "org.opencontainers.image.vendor": "Chainguard"
        }
 ```
@@ -667,7 +667,7 @@ These can be safely ignored. They are caused by Renovate using the `org.opencont
 
 * [Using Digestabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/digestabot/) covers Chainguard's own GitHub Action for keeping digest-pinned references current.
 * [Using Dependabot with Chainguard Containers](/chainguard/containers/security-and-compliance/updating-containers/dependabot/) covers the equivalent setup for teams already using Dependabot.
-* [Strategies and tooling for updating containers](/chainguard/containers/security-and-compliance/updating-containers/strategies-tools-updating-images/) compares the wider range of update tools.
+* [Stay secure: Strategies and tooling for updating container images](https://www.chainguard.dev/unchained/stay-secure-strategies-and-tooling-for-updating-container-images), on the Chainguard blog, compares the wider range of update tools.
 * [Considerations for keeping containers up to date](/chainguard/containers/security-and-compliance/updating-containers/considerations-for-image-updates/) covers the tradeoffs behind an update policy.
 * [Authenticating to the Chainguard registry](/chainguard/containers/registry/authenticating/) documents pull tokens and the other authentication options in full.
 * [Renovate's APK datasource documentation](https://docs.renovatebot.com/modules/datasource/apk/) covers every `registryUrl` query parameter Renovate supports.

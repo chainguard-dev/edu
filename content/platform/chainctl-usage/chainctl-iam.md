@@ -23,10 +23,10 @@ This page is intended as an introductory overview of IAM with chainctl. For a fu
 
 Folders contain the catalogs of things your organization has access to.
 
-Find out what folders are available to your organization with:
+Find out what folders are available to your organization with the following command, replacing `[[ORGANIZATION_NAME]]` with your organization's name:
 
 ```shell
-chainctl iam folders list $ORGANIZATION_NAME
+chainctl iam folders list [[ORGANIZATION_NAME]]
 ```
 
 For example, for our Developer Enablement team, which uses the `chainguard.edu` organization, the interaction looks like this:
@@ -49,10 +49,10 @@ To list all of the existing identities along with roles, types, and more, use:
 chainctl iam identities list
 ```
 
-Because this command requests a large amount of information, you may find it useful to direct the output into a file or pipe it into a filter. If you know the specific `IDENTITY_NAME` or `IDENTITY_ID` that you want to know more about, use:
+Because this command requests a large amount of information, you may find it useful to direct the output into a file or pipe it into a filter. If you know the specific `[[IDENTITY_NAME]]` or `[[IDENTITY_ID]]` that you want to know more about, use:
 
 ```shell
-chainctl iam identities describe {IDENTITY_NAME | IDENTITY_ID}
+chainctl iam identities describe {[[IDENTITY_NAME]] | [[IDENTITY_ID]]}
 ```
 
 This command can also create, delete, describe, and update identities by replacing `list` with `create`, `delete`, `describe`, or `update`. Refer to the reference guide for more details.
@@ -92,11 +92,11 @@ This command can also create and delete invites by replacing `list` with `create
 To create a new invite, use create, like in this example that defines a role, an email address to tie the invite to, the valid length of the invitation, and that it can only be used once:
 
 ```shell
-chainctl iam invite create ORGANIZATION_NAME
---role=viewer
---email=sandra@organization.dev
---ttl=7d
---single-use
+chainctl iam invite create [[ORGANIZATION_NAME]] \
+  --role=viewer \
+  --email=sandra@organization.dev \
+  --ttl=168h \
+  --single-use
 ```
 
 ## List organizations
@@ -121,10 +121,10 @@ chainctl iam roles list
 
 This command can also create, delete, and update identities by replacing `list` with `create`, `delete` or `update`.
 
-It is possible to define role details during creation or create a role interactively. To create a role interactively, use:
+It is possible to define role details during creation or create a role interactively. To create a role interactively, use the following command, replacing `[[ROLE_NAME]]` with a name for the role:
 
 ```shell
-chainctl iam roles create ROLE_NAME
+chainctl iam roles create [[ROLE_NAME]]
 ```
 
 To find out what actions can be done by each role, use:

@@ -5,7 +5,7 @@ lead: "A map of where each Chainguard product fits in a CI/CD pipeline, in the o
 description: "Where each Chainguard product fits in a CI/CD pipeline: hardening the repository, authenticating without long-lived secrets, pulling trusted inputs, building, verifying, gating deploys, and staying current."
 type: "article"
 date: 2026-09-24T00:00:00+00:00
-lastmod: 2026-09-29T16:22:03+00:00
+lastmod: 2026-11-10T17:44:41+00:00
 draft: false
 tags: ["Getting Started"]
 images: []
@@ -19,7 +19,7 @@ This page walks the whole path in order so you can see how the pieces relate bef
 
 You don't have to adopt every stage, and you don't have to adopt them in order. Most organizations start at [Pull trusted inputs](#4-pull-trusted-inputs), because swapping a base image is the smallest change with the largest effect, then work outward from there.
 
-![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](cicd-lifecycle.svg)
+![Vertical flow diagram of a CI/CD pipeline in nine stages, each labeled with the Chainguard products and practices that apply. Stage 0, set up access: Chainguard Console, chainctl, IAM roles. Stage 1, harden the repository: Guardener, Hardened Actions, Commit Verification. Stage 2, authenticate the pipeline: assumable identities, OIDC tokens, setup-chainctl. Stage 3, replace workflow steps: Chainguard Actions, the cg-actions skill, Chainguard Checks, Chainguard Agent Skills. Stage 4, pull trusted inputs: Chainguard Containers, Chainguard Libraries, Chainguard OS Packages. Stage 5, build the image: Custom Assembly, Chainguard VMs, Dockerfile migration. Stage 6, verify before shipping: signature verification, SBOMs, SLSA provenance. Stage 7, gate the deploy: admission policies, repository policies. Stage 8, stay current: Digestabot, CloudEvents, security advisories, EOL Grace Period.](/diagrams/cicd-lifecycle.svg)
 
 ## 0. Set up access
 
@@ -37,7 +37,7 @@ The [Chainguard Console](/platform/console/) covers the same ground in a browser
 
 Recent supply chain attacks have targeted the workflow file, not the artifact it produces. [Guardener](/chainguard/guardener/) hardens the repository itself through a suite of capabilities you turn on one at a time.
 
-Two of them run through the [Guardener GitHub App](/chainguard/guardener/github/), enabled per repository by a file you commit to `.chainguard/`:
+Two of them run through the [Chainguard App](/chainguard/guardener/github/), enabled per repository by a file you commit to `.chainguard/`:
 
 - [Hardened Actions](/chainguard/guardener/github/actions-security/) recommends and migrates your GitHub Actions to Chainguard's hardened, SHA-pinned equivalents, either as non-blocking review comments or as a migration pull request.
 - [Commit Verification](/chainguard/guardener/github/commit-verification/) enforces cryptographically signed commits against a policy you control, covering both keyless Sigstore signatures and static keys such as GPG.
@@ -54,7 +54,7 @@ To install the app and link your Chainguard organization to your GitHub organiza
 
 Your pipeline needs credentials to pull from Chainguard, and a long-lived API key stored in repository secrets is the weakest way to supply them. Chainguard uses [assumable identities](/platform/administration/assumable-ids/) instead: your CI job presents the OIDC token its platform already issues, and exchanges it for a short-lived Chainguard token.
 
-On GitHub Actions, the `setup-chainctl` action handles the exchange:
+On GitHub Actions, the `setup-chainctl` action handles the exchange. Replace `[[IDENTITY_ID]]` with the ID of your assumable identity:
 
 ```yaml
 permissions:
@@ -64,20 +64,20 @@ permissions:
 steps:
   - uses: chainguard-dev/setup-chainctl@2cddd35a2f120d9973e58094dc6878c93cf58c28 # v0.5.1
     with:
-      identity: "<identity-id>"
+      identity: "[[IDENTITY_ID]]"
 ```
 
-On GitLab, Jenkins, or a shell script, pass the platform's token to `chainctl` directly:
+On GitLab, Jenkins, or a shell script, pass the platform's token to `chainctl` directly, replacing `[[IDENTITY_ID]]` with the identity's ID and `[[OIDC_TOKEN]]` with the token your platform issues:
 
 ```shell
 chainctl auth login \
-  --identity="$IDENTITY_ID" \
-  --identity-token="$OIDC_TOKEN"
+  --identity="[[IDENTITY_ID]]" \
+  --identity-token="[[OIDC_TOKEN]]"
 ```
 
 [Automating with chainctl](/platform/chainctl-usage/automating-chainctl/) covers non-interactive use, and the [identity examples](/platform/administration/assumable-ids/identity-examples/) include worked setups for GitHub, GitLab, and several cloud providers.
 
-**On Catalog Starter.** [Chainguard Catalog Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
+**On Chainguard Starter.** [Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create assumable identities, so neither approach in this stage works. Authenticate with a pull token instead, as described in [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 
 **Why it matters.** There's no long-lived credential to leak, rotate, or track. A token that shows up in a build log has already expired by the time anyone reads it.
 
@@ -91,18 +91,20 @@ Enable the entitlement for your organization:
 chainctl actions entitlements create
 ```
 
-Then point each step at its hardened equivalent, pinned to a commit digest:
+Then point each step at its hardened equivalent, pinned to a commit digest, replacing `[[COMMIT_SHA]]` with the commit to pin:
 
 ```yaml
-- uses: chainguard-actions/tj-actions-changed-files@<commit-sha> # v47
+- uses: chainguard-actions/tj-actions-changed-files@[[COMMIT_SHA]] # v47
 ```
 
 Repository names in `chainguard-actions` carry the upstream organization as a prefix, so `tj-actions/changed-files` becomes `tj-actions-changed-files`. Run `chainctl actions discover` to list every action and container image your workflows reference, which tells you what there is to migrate. If your GitHub organization restricts which actions can run, add `chainguard-actions/*` to the allowed patterns first.
 
 You don't have to make these edits by hand. Two tools do the migration for you, and which one fits depends on how much you're moving at once:
 
-- [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Guardener GitHub App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
+- [Hardened Actions](/chainguard/guardener/github/actions-security/), through the Chainguard App described in stage 1, inventories the actions in use across your organization and opens migration pull requests on a schedule. You can also trigger a run [on demand](/chainguard/guardener/github/actions-security/#run-an-on-demand-migration) with `chainctl guardener github migrate create`. Use this for a centralized, organization-wide rollout.
 - [cg-actions](https://github.com/chainguard-dev/cg-skills/tree/main/skills/cg-actions), a Claude Code skill, audits one repository's Actions usage and opens a pull request swapping in the hardened equivalents. Use this for a pilot, or where installing an app across the organization isn't an option.
+
+To move pull request checks off GitHub Actions runners instead, [Chainguard Checks](/chainguard/checks/overview/) runs each check in its own microVM. Refer to [Migrate from GitHub Actions to Chainguard Checks](/chainguard/checks/migrate-from-github-actions/).
 
 Separately, if agents run anywhere in your pipeline, [Chainguard Agent Skills](/chainguard/agent-skills/overview/) applies the same hardening idea to the skills those agents load.
 
@@ -130,12 +132,12 @@ All of these are served through the [Chainguard Repository](/chainguard/chaingua
 
 Build your application on a Chainguard base image, using the `-dev` variant for the build stage and the minimal runtime variant for the final stage. [Migrating to Chainguard Containers](/chainguard/containers/migration/migrations-overview/) covers the patterns, and the [Dockerfile conversion tool](/chainguard/containers/migration/migration-tools/dockerfile-conversion/) does the mechanical part.
 
-When your runtime image needs packages the standard image doesn't carry, [Custom Assembly](/chainguard/containers/custom-assembly/overview/) builds a variant to your specification. You can trigger those builds from CI:
+When your runtime image needs packages the standard image doesn't carry, [Custom Assembly](/chainguard/containers/custom-assembly/overview/) builds a variant to your specification. You can trigger those builds from CI, replacing `[[ORGANIZATION]]` with your organization's name and `[[IMAGE_NAME]]` with the image's name:
 
 ```shell
 chainctl images repos build apply --file custom-jre.yaml \
-  --parent <organization> \
-  --repo <image-name> \
+  --parent [[ORGANIZATION]] \
+  --repo [[IMAGE_NAME]] \
   --yes
 ```
 
@@ -147,13 +149,13 @@ chainctl images repos build apply --file custom-jre.yaml \
 
 Every Chainguard container image and library ships with a signed SBOM and provenance attestation. Verifying them in CI turns those signatures into a gate rather than a document nobody reads.
 
-Check an image signature with `cosign`:
+Check an image signature with `cosign`, replacing `[[ORGANIZATION_ID]]` with your organization's ID:
 
 ```shell
 cosign verify \
   --certificate-oidc-issuer=https://issuer.enforce.dev \
-  --certificate-identity-regexp="https://issuer.enforce.dev/<organization-id>/.*" \
-  cgr.dev/<organization>/<image-name>:latest
+  --certificate-identity-regexp="https://issuer.enforce.dev/[[ORGANIZATION_ID]]/.*" \
+  cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]:latest
 ```
 
 See [verifying signatures with cosign](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/) for what the command proves, and [retrieving image SBOMs](/chainguard/containers/security-and-compliance/retrieve-image-sboms/) for pulling the SBOM itself. For dependencies, `chainctl libraries verify` reports which of your artifacts Chainguard built; [verifying Chainguard Libraries](/chainguard/libraries/policies-and-security/verification/) covers the detail.

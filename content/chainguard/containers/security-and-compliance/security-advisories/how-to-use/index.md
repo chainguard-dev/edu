@@ -15,7 +15,7 @@ aliases:
 type: "article"
 description: "Article outlining how one can explore and use the Security Advisories found on the Chainguard Container Directory."
 date: 2023-12-27T11:07:52+02:00
-lastmod: 2026-10-01T15:08:56+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers", "CVE"]
 images: []
@@ -25,7 +25,7 @@ toc: true
 
 When using scanners such as [Grype](https://github.com/anchore/grype) or [Docker Scout](https://docs.docker.com/scout/) to scan for vulnerabilities in Chainguard Containers, you'll often find that there are few or no CVEs present. However, CVEs can sometimes be found in Chainguard Containers, and you may also encounter CVEs if you're using older tags. In these cases, you will likely wish to check Chainguard's security advisories for information on which CVEs will cause security issues in your deployment.
 
-To help demystify the nature of CVEs within Chainguard Containers, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use) that lists every security advisory published for Chainguard Containers. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Container and whether we've mitigated or are planning to mitigate the CVE.
+To help demystify the nature of CVEs within Chainguard Containers, we've created a self-service [Security Advisories page](https://images.chainguard.dev/security) that lists every security advisory published for Chainguard Containers. Having this information available allows you to view whether Chainguard is aware of a specific vulnerability reported to exist within a Chainguard Container and whether we've mitigated or are planning to mitigate the CVE.
 
 In alignment with the [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/#examples-of-what-chainguard-supports-and-maintains-for-chainguard-containers), our vulnerability management strategy focuses on the latest versions of any given release track, as these are the versions we actively maintain and secure. Accordingly, we only publish new CVE advisories for packages that fall within our defined support scope.
 
@@ -95,7 +95,7 @@ Copy or note down the CVE identifier (`2023-44487` in this case). Additionally, 
 
 ## Searching the Security Advisories
 
-After finding a vulnerability in a Chainguard Container, you can navigate to [Chainguard's **Security Advisories** page](https://images.chainguard.dev/security?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement&utm_content=edu-content-chainguard-chainguard-images-working-with-images-security-advisories-how-to-use). This is a helpful resource you can use to determine the status for any CVE found within a Chainguard Container.
+After finding a vulnerability in a Chainguard Container, you can navigate to [Chainguard's **Security Advisories** page](https://images.chainguard.dev/security). This is a helpful resource you can use to determine the status for any CVE found within a Chainguard Container.
 
 The Security Advisories page is self-service, allowing you to check whether Chainguard is aware of a specific vulnerability and whether it has been mitigated in a certain package version. You can search the Security Advisories page by entering any CVE identifier to find what packages are affected by that CVE. You can also enter the names of individual packages to find what CVEs have been reported within them.
 

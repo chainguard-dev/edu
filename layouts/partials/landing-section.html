@@ -1,0 +1,14 @@
+{{- /*
+Returns the section that shows this page as its landing page, or false.
+
+A section's _index.md can name a child page with the landingpage key, and
+layouts/_default/list.html then shows that page's content at the section's
+URL. The section's URL is the one to publish: the child page's own URL
+redirects to it (layouts/partials/redirect-rules.html), so links, the
+sidebar, the canonical link, and the sitemap use the section instead.
+
+Context: a page.
+*/ -}}
+{{- $landingPages := partialCached "landing-section-map.html" "all" -}}
+{{- $section := index $landingPages .Path | default false -}}
+{{- return $section -}}

@@ -4,26 +4,18 @@ terraform {
     prefix = "/ng-academy"
   }
 
-  # Pin below google v8: v8.0.0 changed the default load_balancing_scheme on
-  # google_compute_backend_service / google_compute_global_forwarding_rule from
-  # EXTERNAL to EXTERNAL_MANAGED. The serverless-gclb module leaves the field
-  # unset, so v8 plans an in-place classic->managed ALB flip that the GCP API
-  # rejects without its guided migration (CUS-1229). Remove once the backends
-  # are migrated to EXTERNAL_MANAGED.
+  # Stay within one major version: google v8.0.0 changed the default
+  # load_balancing_scheme, and a default change like that broke deploys
+  # (CUS-1229). serverless-gclb now sets the scheme itself, EXTERNAL by default.
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "~> 7.0"
-    }
-    google-beta = {
-      source  = "hashicorp/google-beta"
-      version = "~> 7.0"
+      version = "~> 8.7"
     }
   }
 }
 
 provider "google" { project = var.project_id }
-provider "google-beta" { project = var.project_id }
 
 module "networking" {
   source  = "chainguard-dev/common/infra//modules/networking"
@@ -156,11 +148,12 @@ resource "google_dns_managed_zone" "edu-zone" {
 // Put the above domain in front of our regional services.
 module "serverless-gclb" {
   source  = "chainguard-dev/common/infra//modules/serverless-gclb"
-  version = "0.6.163"
+  version = "1.80.3"
 
   name       = var.name
   project_id = var.project_id
   dns_zone   = google_dns_managed_zone.edu-zone.name
+  team       = "docs"
 
   // Regions are all of the places that we have backends deployed.
   // Regions must be removed from serving before they are torn down.

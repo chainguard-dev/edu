@@ -4,7 +4,7 @@ linktitle: "Build criteria"
 type: "article"
 description: "An overview of what Chainguard will build"
 date: 2025-01-13T11:07:52+02:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-04T13:34:36+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -18,7 +18,7 @@ aliases:
 - /chainguard/containers/about/what-chainguard-will-build/
 ---
 
-There are currently over [2,000 Chainguard Containers](https://images.chainguard.dev/?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) and that number is always growing as we add more to our expanding catalog.
+There are currently over [2,000 Chainguard Containers](https://images.chainguard.dev/) and that number is always growing as we add more to our expanding catalog.
 
 If you would like a Chainguard Container that is not yet available, or inquire about whether we would build a given container image, Chainguard will endeavor to perform an analysis on the request. Chainguard aims to build new container images that are relevant to our customers and to support broader software security goals. However, it is not always feasible to package and build software. Please note that we have the following general criteria when considering requests.
 
@@ -32,4 +32,4 @@ If you would like a Chainguard Container that is not yet available, or inquire a
     * There is usually a lead or owner.
 * There are no technical blockers preventing us from building the container image as we’ve determined as part of an initial analysis process.
 
-If the software project or container image you have in mind meets the above criteria, please [contact us](https://www.chainguard.dev/contact?utm_source=cg-academy&utm_medium=referral&utm_campaign=dev-enablement) for more information.
+If the software project or container image you have in mind meets the above criteria, please [contact us](https://www.chainguard.dev/contact) for more information.

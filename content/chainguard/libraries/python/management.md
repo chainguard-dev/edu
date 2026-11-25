@@ -4,7 +4,7 @@ linktitle: "Dependency maintenance"
 description: "Manage Chainguard Libraries for Python dependencies after setup, including package updates, verification, and monitoring security improvements"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-11-23T15:21:33+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python"]
 images: []
@@ -48,7 +48,10 @@ each supported environment when applicable.
 ## Verify dependencies
 
 Use `chainctl libraries verify` to check whether an artifact comes from
-Chainguard Libraries.
+Chainguard Libraries. The command checks installed virtual environments and
+wheel files. It doesn't support Python lockfiles, such as `requirements.txt`,
+`uv.lock`, or `poetry.lock`, and reports an unsupported file type error if you
+pass one.
 
 To verify an installed virtual environment:
 

@@ -6,7 +6,7 @@ linktitle: "Factory tour"
 type: "article"
 description: "Take a guided tour through the Chainguard Factory with Dustin Kirkland to see how secure software is built"
 date: 2025-08-02T16:00:00+00:00
-lastmod: 2026-09-28T14:00:04+00:00
+lastmod: 2026-10-08T13:39:28+00:00
 draft: false
 tags: ["Chainguard Factory", "Video", "Overview"]
 images: []
@@ -23,7 +23,7 @@ toc: true
 
 **Interviewer**: So Dustin, can you give us a quick tour of the Chainguard Factory?
 
-**Dustin Kirkland**: Yeah, so the Chainguard Factory is the automation that we have inside of Chainguard itself that is able to reproducibly build thousands of open-source projects.
+**Dustin Kirkland**: Yeah, so the Chainguard Factory is the automation that we have inside of Chainguard itself that is able to reproducibly build thousands of open source projects.
 
 We start from a fully bootstrapped-from-source version of the source code. We pull the source code down, we apply our build rules, build that code, test that code, sign that code, and publish that code—first as packages.
 

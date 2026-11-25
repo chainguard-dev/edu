@@ -1,55 +1,24 @@
-const tableOfContents = document.querySelector("#TableOfContents ul");
-const navLinkElements = tableOfContents ? tableOfContents.children : [];
-const activeElementClassName = "active-element";
-const activeLinkClassName = "active-link";
+const sections = [...document.querySelectorAll(".tocLinks a")]
+  .map((link) => ({
+    link,
+    heading: document.getElementById(decodeURIComponent(link.hash.slice(1))),
+  }))
+  .filter(({ heading }) => heading);
 
-const hasSecondLevelLinks = (element) => (element.children[1] ? true : false);
-
-const removeClass = (linkElements) => {
-  Array.from(linkElements).forEach((element) => {
-    element.children[0].classList.remove(activeLinkClassName);
-    element.children[0].classList.remove(activeElementClassName);
-    element.classList.remove(activeElementClassName);
-    if (hasSecondLevelLinks(element)) {
-      removeClass(element.children[1].children);
+const update = () => {
+  let current = sections[0];
+  let nearest = Infinity;
+  for (const section of sections) {
+    const top = section.heading.getBoundingClientRect().top;
+    if (top <= innerHeight / 2 && Math.abs(top) <= nearest) {
+      current = section;
+      nearest = Math.abs(top);
     }
-  });
-};
-
-const elementClickHandler = (element) => {
-  // Trick to select items that don't match scrollbar (e.g. when more than one section fit the bottom of the screen)
-  element.addEventListener("click", () => {
-    setTimeout(() => {
-      removeClass(navLinkElements);
-      element.classList.add(activeElementClassName);
-      element.children[0].classList.add(activeLinkClassName);
-    }, 500);
-  });
-};
-
-const hashValueHandler = (element) => {
-  const currentHash = window.location.hash;
-  const elementHash = element.children[0].getAttribute("href");
-  if (currentHash === elementHash) {
-    removeClass(navLinkElements);
-    element.children[0].classList.add(activeElementClassName);
-    element.children[0].classList.add(activeLinkClassName);
   }
+  sections.forEach(({ link }) =>
+    link.setAttribute("aria-current", link === current.link)
+  );
 };
 
-const highlightLink = (linkElements) =>
-  Array.from(linkElements).forEach((element, i) => {
-    hashValueHandler(element, i);
-    if (!hasSecondLevelLinks(element)) {
-      elementClickHandler(element);
-    } else {
-      element.children[0].addEventListener("click", () => {
-        removeClass(navLinkElements);
-        element.children[0].classList.add(activeElementClassName);
-        element.children[0].classList.add(activeLinkClassName);
-      });
-      highlightLink(element.children[1].children);
-    }
-  });
-
-highlightLink(navLinkElements);
+update();
+addEventListener("scroll", update, { passive: true });

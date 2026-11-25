@@ -1,5 +1,5 @@
 ---
-date: 2026-10-02T21:08:35Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl images overlays attach"
 slug: chainctl_images_overlays_attach
 url: /platform/chainctl/chainctl-docs/chainctl_images_overlays_attach/
@@ -11,19 +11,25 @@ toc: true
 ---
 ## chainctl images overlays attach
 
-Attach Custom Assembly overlays to a repo.
+Attach Custom Assembly overlays to a repo or to every repo in an organization.
 
 ### Synopsis
 
-Attach one or more Custom Assembly overlays to a repo by creating a
-binding per overlay.
+Attach one or more Custom Assembly overlays by creating a binding per
+overlay. A binding attaches an overlay to a single repo (--repo) or to
+every repo under an organization or folder (--all-repos with --parent
+naming the organization or the folder), including repos created after
+the binding exists.
 
-Every binding selects which of the repo's tags its overlay applies to.
-Pass exactly one of:
+Every binding selects which tags its overlay applies to. Pass exactly
+one of:
 
-- --all: every tag.
-- --variant: a tag variant, such as dev.
-- --tag: specific tags.
+- --all-tags: every tag.
+- --tag-variant: a tag variant, such as dev.
+- --exact-tag: specific tags.
+
+The flags --all, --variant, and --tag are deprecated aliases for
+--all-tags, --tag-variant, and --exact-tag.
 
 A repo can hold several bindings of the same kind only when their
 overlays do not conflict; a conflicting binding is rejected, and the
@@ -31,6 +37,16 @@ error names the conflicting binding and fields. An overlay can be
 attached to a repo only once. Multiple overlays attach in the order
 given, one binding each; on a failure, the bindings already created are
 kept and the error names the overlay that failed.
+
+An all-repos binding is owned by the organization or folder named by
+--parent and applies its overlay to the matching tags of every repo
+under that scope. An overlay can have at most one all-repos binding
+per organization or folder. When bindings at several scopes match the
+same tag, they layer by depth — the organization first, then each
+nested folder — with deeper scopes taking precedence where both
+overlays set the same field, the repo's own binding above all, and
+their package lists combining. Repos with a legacy customization keep
+the legacy behavior; all-repos bindings do not apply to them.
 
 The command prints each binding UID. Use them with "update-binding" and
 "detach", or look them up later with "chainctl images overlays list".
@@ -43,27 +59,36 @@ chainctl images overlays attach [flags]
 
 ```
   # Apply an overlay to every tag of a repo
-  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all
+  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --all-tags
+
+  # Apply an overlay to every tag of every repo in the organization,
+  # including repos created later
+  chainctl images overlays attach --overlay my-overlay --all-repos --parent my-org --all-tags
+
+  # Apply an overlay to every repo under a folder, including repos
+  # created later
+  chainctl images overlays attach --overlay my-overlay --all-repos --parent my-org/golden-images --all-tags
 
   # Apply two overlays to every tag of a repo
-  chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all
+  chainctl images overlays attach --overlay my-certs,my-packages --repo python --parent my-org --all-tags
 
   # Apply an overlay to -dev tags only
-  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --variant dev
+  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --tag-variant dev
 
   # Apply an overlay to specific tags
-  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --tag 3.12 --tag 3.13
+  chainctl images overlays attach --overlay my-overlay --repo python --parent my-org --exact-tag 3.12 --exact-tag 3.13
 ```
 
 ### Options
 
 ```
-      --all               Bind to every tag on the repo; multiple --all bindings may coexist when their overlays do not conflict. Mutually exclusive with --tag and --variant.
-      --overlay strings   Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
-      --parent string     Org name or UIDP for resolving --repo by name; unused when --repo is a UIDP. If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
-      --repo string       Target repo: UIDP, or name resolved within --parent.
-      --tag strings       Exact tag names to bind to (repeatable). Mutually exclusive with --all and --variant. "all" and "dev" are not tags: use --all or --variant=dev.
-      --variant string    Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --tag and --all.
+      --all-repos            Attach to every repo under the organization or folder named by --parent, including repos created later; mutually exclusive with --repo.
+      --all-tags             Bind to every tag on the repo; multiple --all-tags bindings may coexist when their overlays do not conflict. Mutually exclusive with --exact-tag and --tag-variant.
+      --exact-tag strings    Exact tag names to bind to (repeatable). Mutually exclusive with --all-tags and --tag-variant. "all" and "dev" are not tags: use --all-tags or --tag-variant=dev.
+      --overlay strings      Overlay to attach: UIDP or name (resolved within the repo's org). Comma separated and repeatable; each overlay gets its own binding with the same tag selector.
+      --parent string        Org or folder name or UIDP: the scope the binding is created under with --all-repos, or the group for resolving --repo by name (unused when --repo is a UIDP). If unset, auto-selects when the caller belongs to a single org, otherwise prompts. Defaults to the default.group config value (env: CHAINGUARD_DEFAULT_GROUP).
+      --repo string          Target repo: UIDP, or name resolved within --parent. Mutually exclusive with --all-repos.
+      --tag-variant string   Bind to a tag variant: currently only "dev" (matches tags ending in -dev). Mutually exclusive with --exact-tag and --all-tags.
 ```
 
 ### Options inherited from parent commands
