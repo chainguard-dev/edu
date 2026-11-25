@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl images repos build apply"
 slug: chainctl_images_repos_build_apply
 url: /platform/chainctl/chainctl-docs/chainctl_images_repos_build_apply/
@@ -83,7 +83,7 @@ Customizable sections:
     (e.g., a re-signing mirror). Each entry has a name and a PEM PUBLIC KEY
     content; the key is written to /etc/apk/keys under its name, which must
     match the filename referenced by the repository's APKINDEX signature
-    (.SIGN.RSA256.<name>). Keys can also be loaded from files using the
+    (.SIGN.RSA256.\<name>). Keys can also be loaded from files using the
     --with-runtime-keys flag.
 
   environment

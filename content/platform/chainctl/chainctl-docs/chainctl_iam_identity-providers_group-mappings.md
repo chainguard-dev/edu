@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl iam identity-providers group-mappings"
 slug: chainctl_iam_identity-providers_group-mappings
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_group-mappings/

@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl libraries update-hashes"
 slug: chainctl_libraries_update-hashes
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/
@@ -73,7 +73,7 @@ Authentication:
   (passing both is a contradiction and is rejected).
 
 Custom registry URLs:
-  Use --registry-url <url> to point at a private proxy whose path layout does not
+  Use --registry-url \<url> to point at a private proxy whose path layout does not
   match libraries.cgr.dev (no /javascript or /python/simple suffix is appended;
   the value is used verbatim as the per-ecosystem base).
 

@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills push"
 slug: chainctl_skills_push
 url: /platform/chainctl/chainctl-docs/chainctl_skills_push/
@@ -18,7 +18,7 @@ Package a skill directory and publish it to uploads.cgr.dev.
 Package a skill directory and publish it to uploads.cgr.dev.
 
 Reads SKILL.md from the specified directory (default: current directory),
-validates the skill, and pushes an OCI artifact to uploads.cgr.dev/<org>/<name>:<tag>.
+validates the skill, and pushes an OCI artifact to uploads.cgr.dev/\<org>/\<name>:\<tag>.
 
 ```
 chainctl skills push [<path>] [flags]

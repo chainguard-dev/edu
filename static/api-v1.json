@@ -759,7 +759,7 @@
       },
       "chainguard.platform.argos.ArgosDocument.Status": {
         "default": "STATUS_UNSPECIFIED",
-        "description": " - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
+        "description": " - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: The upload contained no recognizable packages.",
         "enum": [
           "STATUS_UNSPECIFIED",
           "STATUS_PENDING",
@@ -799,6 +799,15 @@
             },
             "type": "array"
           },
+          "failureReason": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.ArgosDocumentFileBinding.FailureReason"
+              }
+            ],
+            "description": "failure_reason says why analysis failed when status is STATUS_FAILED. It\nis FAILURE_REASON_UNSPECIFIED for every other status, and for a failure\nwith no recorded reason.",
+            "readOnly": true
+          },
           "filename": {
             "description": "filename is the archive-relative path from the manifest.",
             "type": "string"
@@ -819,9 +828,31 @@
         },
         "type": "object"
       },
+      "chainguard.platform.argos.ArgosDocumentFileBinding.FailureReason": {
+        "default": "FAILURE_REASON_UNSPECIFIED",
+        "description": "FailureReason is the category of a failed analysis. New values may\nappear; a client that does not know a value treats it as\nFAILURE_REASON_UNSPECIFIED.\n\n - FAILURE_REASON_UNSPECIFIED: No reason was recorded, or the file did not fail.\n - FAILURE_REASON_TOO_LARGE: The finding is larger than the platform processes.\n - FAILURE_REASON_UNSUPPORTED_ECOSYSTEM: The package's ecosystem is not one the platform analyzes.\n - FAILURE_REASON_NO_PACKAGE: The finding does not describe a package the platform can analyze.\n - FAILURE_REASON_NO_VERSION: The version of the package the finding is about could not be\ndetermined.\n - FAILURE_REASON_VERSION_NOT_PUBLISHED: The package exists, but the version in the finding is not a published\nrelease.\n - FAILURE_REASON_UNKNOWN_PACKAGE: No registry the platform checks publishes the package.\n - FAILURE_REASON_INVALID_COORDINATE: The package name or coordinate is malformed, or does not resolve to a\nsingle package.\n - FAILURE_REASON_NO_REPO_URL: No source repository was found for the package.\n - FAILURE_REASON_REPO_URL_NOT_GIT: The package's source repository is not a git repository.\n - FAILURE_REASON_REPO_HAS_NO_TAGS: The package's source repository has no tags, so the source for the\nreported version could not be found.\n - FAILURE_REASON_SOURCE_UNAVAILABLE: The platform could not read the package's source repository. The\ncause is on the platform's side, not in the finding.\n - FAILURE_REASON_PACKAGE_LINK_FAILED: The platform could not link the finding to the package. The cause is\non the platform's side, not in the finding.\n - FAILURE_REASON_RETRIES_EXHAUSTED: Analysis failed on every attempt for a transient reason. The cause is\nusually on the platform's side, not in the finding.\n - FAILURE_REASON_SOURCE_TOO_LARGE: The package's source repository is larger than the platform can\nanalyze. The cause is on the platform's side, not in the finding.",
+        "enum": [
+          "FAILURE_REASON_UNSPECIFIED",
+          "FAILURE_REASON_TOO_LARGE",
+          "FAILURE_REASON_UNSUPPORTED_ECOSYSTEM",
+          "FAILURE_REASON_NO_PACKAGE",
+          "FAILURE_REASON_NO_VERSION",
+          "FAILURE_REASON_VERSION_NOT_PUBLISHED",
+          "FAILURE_REASON_UNKNOWN_PACKAGE",
+          "FAILURE_REASON_INVALID_COORDINATE",
+          "FAILURE_REASON_NO_REPO_URL",
+          "FAILURE_REASON_REPO_URL_NOT_GIT",
+          "FAILURE_REASON_REPO_HAS_NO_TAGS",
+          "FAILURE_REASON_SOURCE_UNAVAILABLE",
+          "FAILURE_REASON_PACKAGE_LINK_FAILED",
+          "FAILURE_REASON_RETRIES_EXHAUSTED",
+          "FAILURE_REASON_SOURCE_TOO_LARGE"
+        ],
+        "type": "string"
+      },
       "chainguard.platform.argos.ArgosDocumentFileBinding.Status": {
         "default": "STATUS_UNSPECIFIED",
-        "description": " - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file.",
+        "description": " - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file; failure_reason says why.",
         "enum": [
           "STATUS_UNSPECIFIED",
           "STATUS_PENDING",
@@ -1595,6 +1626,14 @@
           },
           "summary": {
             "type": "string"
+          },
+          "upstream": {
+            "description": "upstream lists the ids of the records this one derives from, per OSV\nschema 1.7 (osv-schema §upstream-field). On a Chainguard APK advisory it\nnames the one record for the upstream library the APK ships. Empty on\nevery other record. A reader sees only the ids it can read itself.",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
           },
           "withdrawn": {
             "description": "withdrawn is the time the entry should be considered withdrawn, per OSV\nspec. Unset means the record has not been withdrawn.",
@@ -4366,10 +4405,19 @@
             "format": "date-time",
             "type": "string"
           },
+          "firstRequestedAt": {
+            "description": "Both set when request_count \u003e 0. first_requested_at never moves once\nset; last_requested_at advances with each request-site block.",
+            "format": "date-time",
+            "type": "string"
+          },
           "id": {
             "type": "string"
           },
           "lastBlockedAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "lastRequestedAt": {
             "format": "date-time",
             "type": "string"
           },
@@ -4397,6 +4445,15 @@
           "reason": {
             "description": "cooldown, malware, or policy.",
             "type": "string"
+          },
+          "repositoryId": {
+            "description": "The id of the repository whose URL the block came through: the UIDP of\nthe repository's folder. Empty when no repository was recorded for the\nblock, which does not show that the block came through no repository\nURL. The group the event was recorded under, the parent of its id, names\nthe scope where it was recorded: the org, or a folder, such as a token\nscope that holds its own entitlement.",
+            "type": "string"
+          },
+          "requestCount": {
+            "description": "Blocks in this window where the client named the version or artifact\nand was answered with a block response, as opposed to the version being\nleft out of an index listing. Zero means every block so far was a\nlisting omission. Only serve binaries that stamp the block site count\nrequests, so rows recorded before that rollout read zero.",
+            "format": "int32",
+            "type": "integer"
           },
           "unblocksAt": {
             "description": "publish_date + cooldown_days; nil when reason != cooldown.",
@@ -5787,7 +5844,7 @@
         "description": "Override is an admin-granted waiver of a policy decision for one specific\nimage. It does not change the policy or its binding; it records a deliberate,\nattributable exception applied by the engine after evaluation.",
         "properties": {
           "artifactId": {
-            "description": "The artifact this override waives: a manifest digest for container\npolicies (\"sha256:abc123...\") or a PURL for library policies\n(\"pkg:npm/left-pad@1.3.0\"). Which form is expected follows from the\npolicy's supported_resource_type — there is no separate discriminator.\nExactly one of artifact_id or the deprecated digest may be set on create.",
+            "description": "The artifact this override waives: a manifest digest for container\npolicies (\"sha256:abc123...\") or a PURL for library policies\n(\"pkg:npm/left-pad@1.3.0\"). Which form is expected follows from the\npolicy's supported_resource_type — there is no separate discriminator.\nA container override is created from a bare digest or from\n\"\u003crepo\u003e@\u003cdigest\u003e\", the form a Decision's artifact_id takes; either way\nonly the digest is stored and returned.\nExactly one of artifact_id or the deprecated digest may be set on create.",
             "type": "string"
           },
           "createdAt": {
@@ -10728,7 +10785,7 @@
             "style": "form"
           },
           {
-            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) returns documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
+            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) returns documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: The upload contained no recognizable packages.",
             "in": "query",
             "name": "status",
             "schema": {
@@ -10762,7 +10819,7 @@
             }
           },
           {
-            "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200.",
+            "description": "Maximum number of results to return per page.\nDefault: 50, Maximum: 200. An unset or negative page_size gets the\ndefault and a larger one is clamped to 200.",
             "in": "query",
             "name": "pageSize",
             "schema": {
@@ -10821,7 +10878,7 @@
             }
           },
           {
-            "description": "include_finding_counts sets finding_counts on each returned document.\nIt needs an explicit page_size between 1 and 200: an unset page_size\nlists unpaged, so the flag is ignored and finding_counts stays unset,\nwith no error.",
+            "description": "include_finding_counts sets finding_counts on each returned document.",
             "in": "query",
             "name": "includeFindingCounts",
             "schema": {
@@ -10908,7 +10965,7 @@
             "style": "form"
           },
           {
-            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) counts documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: Processing determined the finding is not a true positive.",
+            "description": "Filter to documents in a specific lifecycle state.\nSTATUS_UNSPECIFIED (the default) counts documents in any state.\n\n - STATUS_PENDING: Payload received; pending downstream processing.\n - STATUS_READY: Document is fully usable.\n - STATUS_FAILED: Document processing failed; the document is unusable.\n - STATUS_FALSE_POSITIVE: The upload contained no recognizable packages.",
             "in": "query",
             "name": "status",
             "schema": {
@@ -10933,7 +10990,7 @@
             }
           },
           {
-            "description": "finding_status, when set, counts only file bindings in this state, and\ntakes CGP identifiers from those bindings alone, dropping identifiers\nattached only at the document level. Unset counts every binding.\n\n - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file.",
+            "description": "finding_status, when set, counts only file bindings in this state, and\ntakes CGP identifiers from those bindings alone, dropping identifiers\nattached only at the document level. Unset counts every binding.\n\n - STATUS_UNSPECIFIED: No per-file outcome is attributable: the file was not analyzed as its\nown unit, or the analysis predates per-file tracking.\n - STATUS_PENDING: Analysis is still in progress.\n - STATUS_ANALYZED: Analysis completed; cgp_ids carries any identifiers it resolved.\n - STATUS_FAILED: Analysis failed for this file; failure_reason says why.",
             "in": "query",
             "name": "findingStatus",
             "schema": {
@@ -15618,7 +15675,7 @@
         "operationId": "LibraryPolicyBlockEvents_ListBlockEvents",
         "parameters": [
           {
-            "description": "The org (parent) to scope events to. Required.",
+            "description": "The org (parent) to scope events to. Required. A folder lists the events\nrecorded under it and, for a repository's folder, the events recorded\nfor that repository, as repository_id does.",
             "in": "query",
             "name": "parentId",
             "schema": {
@@ -15695,6 +15752,22 @@
             "name": "pageToken",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "Only events of this repository, by its id: the UIDP of the repository's\nfolder, or of the org for the default repository. A folder also matches\nthe events recorded under the folder itself; the org matches the events\nrecorded under the org with no repository recorded, whichever URL they\ncame through. Requires parent_id to be the org, or to be the same\nfolder. A caller whose role is only at a repository's folder lists that\nrepository's events and no others.",
+            "in": "query",
+            "name": "repositoryId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Only events with request_count \u003e 0: rows where at least one block was\nanswered to a client that named the version, not just hidden from a\nlisting.",
+            "in": "query",
+            "name": "requestedOnly",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -15939,7 +16012,7 @@
             }
           },
           {
-            "description": "package_name filters to an exact package name. When empty, all packages\nmatch.",
+            "description": "package_name filters to a single package, matched in its ecosystem's\ncanonical form: Maven \"group:artifact\" and \"group/artifact\" name the same\npackage, PyPI names compare in PEP 503 normalized form, and NuGet, Go and\ncrates.io names compare case-insensitively. npm names match exactly. When\nempty, all packages match.",
             "in": "query",
             "name": "packageName",
             "schema": {
@@ -15947,7 +16020,7 @@
             }
           },
           {
-            "description": "package_search filters to packages whose name contains this value, matched\ncase-insensitively. Unlike the exact package_name filter, it supports\npartial searches (e.g. \"turbo\" matches \"turbod\"). When both are set, an\nentry must satisfy both. When empty, no substring filter is applied.",
+            "description": "package_search filters to packages whose name contains this value, matched\ncase-insensitively. Unlike the package_name filter, it supports\npartial searches (e.g. \"turbo\" matches \"turbod\"). When both are set, an\nentry must satisfy both. When empty, no substring filter is applied.",
             "in": "query",
             "name": "packageSearch",
             "schema": {
@@ -16012,7 +16085,7 @@
             }
           },
           {
-            "description": "deduplicate_results collapses entries sharing the same ecosystem, package\nname, version, and scope into a single entry. A package version flagged by\nmultiple advisories (distinct MAL-* identifiers or sources) otherwise\nappears once per advisory. When false, every entry is returned.",
+            "description": "deduplicate_results collapses entries sharing the same ecosystem, package\nname (compared in the canonical form package_name matches in), version,\nand scope into a single entry. A package version flagged by\nmultiple advisories (distinct MAL-* identifiers or sources) otherwise\nappears once per advisory. When false, every entry is returned.",
             "in": "query",
             "name": "deduplicateResults",
             "schema": {

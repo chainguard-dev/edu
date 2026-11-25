@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills versions"
 slug: chainctl_skills_versions
 url: /platform/chainctl/chainctl-docs/chainctl_skills_versions/
@@ -17,7 +17,7 @@ List all published versions (tags) for a skill.
 
 List all published versions (tags) for a skill.
 
-<ref> is the skill name without a tag: org/name
+\<ref> is the skill name without a tag: org/name
 
 ```
 chainctl skills versions <ref> [flags]
