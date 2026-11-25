@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl images entitlements swap-image"
 slug: chainctl_images_entitlements_swap-image
 url: /platform/chainctl/chainctl-docs/chainctl_images_entitlements_swap-image/

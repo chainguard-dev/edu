@@ -1,0 +1,1976 @@
+{
+  "components": {
+    "schemas": {
+      "chainguard.platform.skills.v1alpha1.FindingAssessment": {
+        "default": "FINDING_ASSESSMENT_UNSPECIFIED",
+        "description": "FindingAssessment is what hardening did about a finding, derived by the\npipeline from the edits it applied rather than from model output.\n\n - FINDING_ASSESSMENT_UNSPECIFIED: FINDING_ASSESSMENT_UNSPECIFIED: not assessed, as for an introduced\nfinding or a report written before assessments existed.\n - FINDING_ASSESSMENT_FIXED: FINDING_ASSESSMENT_FIXED: an applied edit targeted the finding and it\nclosed.\n - FINDING_ASSESSMENT_RETAINED: FINDING_ASSESSMENT_RETAINED: hardening chose to keep the flagged content.\n - FINDING_ASSESSMENT_NOT_ADDRESSED: FINDING_ASSESSMENT_NOT_ADDRESSED: no applied edit targeted the finding.",
+        "enum": [
+          "FINDING_ASSESSMENT_UNSPECIFIED",
+          "FINDING_ASSESSMENT_FIXED",
+          "FINDING_ASSESSMENT_RETAINED",
+          "FINDING_ASSESSMENT_NOT_ADDRESSED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.FindingSeverity": {
+        "default": "FINDING_SEVERITY_UNSPECIFIED",
+        "description": "FindingSeverity is the normalized CGSVT level, most severe first.",
+        "enum": [
+          "FINDING_SEVERITY_UNSPECIFIED",
+          "FINDING_SEVERITY_CRITICAL",
+          "FINDING_SEVERITY_HIGH",
+          "FINDING_SEVERITY_MEDIUM",
+          "FINDING_SEVERITY_LOW",
+          "FINDING_SEVERITY_INFO"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.FindingStatus": {
+        "default": "FINDING_STATUS_UNSPECIFIED",
+        "description": "FindingStatus is a finding's outcome across hardening.\n\n - FINDING_STATUS_CLOSED: FINDING_STATUS_CLOSED: present before hardening, gone after.\n - FINDING_STATUS_OPEN: FINDING_STATUS_OPEN: present before and after hardening.\n - FINDING_STATUS_INTRODUCED: FINDING_STATUS_INTRODUCED: present only after hardening.",
+        "enum": [
+          "FINDING_STATUS_UNSPECIFIED",
+          "FINDING_STATUS_CLOSED",
+          "FINDING_STATUS_OPEN",
+          "FINDING_STATUS_INTRODUCED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.HardenSkillRequest": {
+        "description": "HardenSkillRequest names a skill artifact already uploaded to uploads.cgr.dev\nand the group to harden it into. The caller supplies components, not a ref:\nthe server builds the digest-pinned source ref\nuploads.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e@sha256:\u003ccontent_digest\u003e from the fields\nbelow — the host is a server constant, never caller input, so a caller can\nnever point the harden pipeline at an arbitrary registry. On success the\nhardened result is published to a per-user path,\nskills.cgr.dev/\u003cgroup\u003e/users/\u003cactor\u003e/\u003cskill_name\u003e (the user-less\nskills.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e path is reserved for promotion).\n\nEvery source normalizes to an uploads.cgr.dev artifact before harden: customer\nuploads (chainctl skills push), public Chainguard skills, and Chainguard's\ninternal skills are all pushed to uploads.cgr.dev by the pipeline's ingest\nphase — the only stage that fetches upstream content. So this endpoint only\never names an uploads artifact by digest; there is no remote/git source on\nthis surface.",
+        "properties": {
+          "contentDigest": {
+            "description": "content_digest is the sha256 digest of the uploaded artifact, as\n\"sha256:\u003c64-hex\u003e\". It is the content dimension of the source ref: the server\nbuilds the pinned OCI ref uploads.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e@\u003ccontent_digest\u003e\n(host fixed server-side) and the pipeline pulls the artifact by it. The API\nnever carries file bytes — the --folder and --digest client modes both\nresolve to this digest. The server validates the format and rejects anything\nthat is not a well-formed sha256 digest.",
+            "type": "string"
+          },
+          "group": {
+            "description": "group is the target group (org UIDP) the skill is hardened into. It is\nauthorized against the caller (the IAM scope for CAP_SKILLS_HARDEN_WRITE),\nnever derived from identity. The hardened skill lands under a per-user path,\nskills.cgr.dev/\u003cgroup\u003e/users/\u003cactor\u003e/\u003cskill_name\u003e; the user-less\nskills.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e path is reserved for promotion.",
+            "type": "string"
+          },
+          "retryOf": {
+            "description": "retry_of is the full name of a failed operation to retry. The operation\nmust belong to this caller and match group, skill_name and content_digest.\nIt is preserved, and a new operation tracks the retry. Repeating the same\nretry_of returns the same retry operation, including its terminal result.\nTo retry again, name that failed retry operation. Empty retains ordinary\ncontent-addressed submission. Successful, pending or cancelled jobs cannot\nbe retried.",
+            "type": "string"
+          },
+          "skillName": {
+            "description": "skill_name is the skill's catalog name (from --name or SKILL.md\nfrontmatter). It is the path the hardened skill takes under the group's\nskills folder.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "group",
+          "skillName",
+          "contentDigest"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningFinding": {
+        "description": "HardeningFinding is one CGSVT finding: a distinct (group, subtype, file).",
+        "properties": {
+          "artifactPath": {
+            "type": "string"
+          },
+          "assessment": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingAssessment"
+              }
+            ],
+            "description": "assessment is what hardening did about the finding. UNSPECIFIED for\nintroduced findings and on reports written before the field existed."
+          },
+          "detectorCount": {
+            "description": "detector_count is the number of distinct scanners that raised it.",
+            "format": "int32",
+            "type": "integer"
+          },
+          "groupId": {
+            "type": "string"
+          },
+          "groupTitle": {
+            "readOnly": true,
+            "type": "string"
+          },
+          "operationalId": {
+            "description": "operational_id is the finding's stable identity across hardening.",
+            "type": "string"
+          },
+          "rationaleId": {
+            "description": "rationale_id names the APPROVED Rationale that explains the assessment;\nempty when none applies. Read the text with ListRationales.",
+            "type": "string"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingSeverity"
+          },
+          "sources": {
+            "description": "sources are in display order: sources[0] names the finding.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningFinding.Source"
+            },
+            "type": "array"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingStatus"
+          },
+          "subtypeId": {
+            "type": "string"
+          },
+          "subtypeTitle": {
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningFinding.Source": {
+        "description": "Source is one scanner check that raised the finding.",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "name": {
+            "description": "name is the check's display name; empty when the taxonomy does not\ncatalogue the rule.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "scanner": {
+            "type": "string"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingSeverity"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningReport": {
+        "description": "HardeningReport is the hardening result for one skill version.",
+        "properties": {
+          "after": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.SeverityCounts"
+          },
+          "before": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.SeverityCounts"
+          },
+          "createTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "digest": {
+            "description": "digest is the hardened artifact digest the report describes.",
+            "type": "string"
+          },
+          "generateTime": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "passed": {
+            "description": "passed is true when the version cleared the hardening gate.",
+            "type": "boolean"
+          },
+          "scannerRuns": {
+            "description": "scanner_runs are the scanners evaluated for this version and how each\nended, so a version with no findings can be told apart from one whose\nscanner did not finish. Empty on reports written before the field existed.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun"
+            },
+            "type": "array"
+          },
+          "summary": {
+            "description": "summary is the pipeline's templated prose summary of the result. Empty on\nreports written before the field existed.",
+            "type": "string"
+          },
+          "tagId": {
+            "description": "tag_id is the registry tag UIDP of the skill version.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "taxonomyVersion": {
+            "description": "taxonomy_version is the CGSVT version the findings are classified under.",
+            "type": "string"
+          },
+          "unroutedEntries": {
+            "description": "unrouted are scanner labels CGSVT does not classify, kept so a high or\ncritical unknown is still counted.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport.Unrouted"
+            },
+            "type": "array"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "versionSha": {
+            "description": "version_sha is the upstream commit the version was built from.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "digest",
+          "taxonomyVersion"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun": {
+        "description": "ScannerRun is one scanner's outcome in one evaluation.",
+        "properties": {
+          "phase": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun.Phase"
+          },
+          "scanner": {
+            "type": "string"
+          },
+          "status": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun.Status"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun.Phase": {
+        "default": "PHASE_UNSPECIFIED",
+        "description": "Phase is the skill the scanner evaluated, matching before and after.\n\n - PHASE_BEFORE: PHASE_BEFORE is the submitted skill, before hardening.\n - PHASE_AFTER: PHASE_AFTER is the hardened skill.",
+        "enum": [
+          "PHASE_UNSPECIFIED",
+          "PHASE_BEFORE",
+          "PHASE_AFTER"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningReport.ScannerRun.Status": {
+        "default": "STATUS_UNSPECIFIED",
+        "description": " - STATUS_FAILED: STATUS_FAILED means the scanner did not finish: its findings are\nmissing from the report, not zero.\n - STATUS_SKIPPED: STATUS_SKIPPED means the scanner is not enabled in this environment,\nso it did not scan the skill.",
+        "enum": [
+          "STATUS_UNSPECIFIED",
+          "STATUS_COMPLETED",
+          "STATUS_FAILED",
+          "STATUS_SKIPPED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.HardeningReport.Unrouted": {
+        "properties": {
+          "count": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "key": {
+            "type": "string"
+          },
+          "scanner": {
+            "type": "string"
+          },
+          "severity": {
+            "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingSeverity"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListHardeningFindingsResponse": {
+        "properties": {
+          "digest": {
+            "description": "digest is the digest of the report the page was read from.",
+            "type": "string"
+          },
+          "findings": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningFinding"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "type": "string"
+          },
+          "totalSize": {
+            "description": "total_size is the number of findings matching the filter.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListHardeningReportsResponse": {
+        "properties": {
+          "nextPageToken": {
+            "type": "string"
+          },
+          "reports": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport"
+            },
+            "type": "array"
+          },
+          "totalSize": {
+            "description": "total_size counts the stored reports the filter matches, including any\nwhose tag has since moved.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListRationalesResponse": {
+        "properties": {
+          "nextPageToken": {
+            "type": "string"
+          },
+          "rationales": {
+            "description": "rationales are ordered by id.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Rationale"
+            },
+            "type": "array"
+          },
+          "totalSize": {
+            "description": "total_size is the number of entries matching the filter.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListSkillFilesResponse": {
+        "properties": {
+          "paths": {
+            "description": "paths are the files' relative paths, sorted.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListSkillSourcesResponse": {
+        "properties": {
+          "items": {
+            "description": "items are one page of distinct sources in scope, ordered by slug.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Source"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "Token for the next page, empty when there are no more results.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.ListSkillsResponse": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Skill"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is the token for the next page (empty if no more pages).",
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "total_count is the total number of skills matching the filter.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Rationale": {
+        "description": "Rationale is one reviewed rationale catalog entry. Its text is generic: it\nnames no skill, path or command, so one entry serves many findings.",
+        "properties": {
+          "assessments": {
+            "description": "assessments are the finding assessments the entry can explain.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.FindingAssessment"
+            },
+            "type": "array"
+          },
+          "createTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "deprecated": {
+            "description": "deprecated entries are no longer chosen for new findings but still\nexplain the findings that reference them.",
+            "type": "boolean"
+          },
+          "groupIds": {
+            "description": "group_ids are the CGSVT groups the entry is written for, e.g. \"CGSVT-08\";\nempty when it applies to any group.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "id": {
+            "description": "id is the entry's stable identity, referenced by findings.",
+            "type": "string"
+          },
+          "reviewTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "reviewer": {
+            "description": "reviewer is who approved or rejected the entry; empty for an entry\ncreated APPROVED or not yet reviewed. Only catalog writers see it.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "state": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.RationaleState"
+              }
+            ],
+            "description": "state is required to create an entry (PENDING or APPROVED) and is changed\nonly by ReviewRationale. On an update it is left unset or matches the\nstored state."
+          },
+          "text": {
+            "type": "string"
+          },
+          "updateTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "assessments"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.RationaleState": {
+        "default": "RATIONALE_STATE_UNSPECIFIED",
+        "description": "RationaleState is where a rationale catalog entry is in review. Only\nAPPROVED entries can be cited by findings or listed publicly.\n\n - RATIONALE_STATE_PENDING: RATIONALE_STATE_PENDING: proposed, awaiting review.\n - RATIONALE_STATE_APPROVED: RATIONALE_STATE_APPROVED: reviewed and citable.\n - RATIONALE_STATE_REJECTED: RATIONALE_STATE_REJECTED: reviewed and refused; the id is never reused.",
+        "enum": [
+          "RATIONALE_STATE_UNSPECIFIED",
+          "RATIONALE_STATE_PENDING",
+          "RATIONALE_STATE_APPROVED",
+          "RATIONALE_STATE_REJECTED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.skills.v1alpha1.SearchSkillsResponse": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Skill"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is the token for the next page (empty if no more pages).",
+            "type": "string"
+          },
+          "totalCount": {
+            "description": "total_count is the total number of skills matching the query.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.SeverityCounts": {
+        "description": "SeverityCounts tallies findings by level; critical is never folded into high.",
+        "properties": {
+          "critical": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "high": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "info": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "low": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "medium": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Skill": {
+        "description": "Skill is one hardened skill in the catalog. Content (SKILL.md + references)\nlives in the OCI registry; this record carries the catalog metadata the\nregistry does not (description, license, category). Read-only over the public\nAPI — populated internally at publish time.",
+        "properties": {
+          "category": {
+            "description": "category groups the skill in the catalog, if declared.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "createTime": {
+            "description": "create_time is when the skill was first recorded.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "description": {
+            "description": "description is a human-readable one-line summary.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "downloads": {
+            "description": "downloads is the accumulated download/pull count for the skill.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "hardened": {
+            "description": "hardened is true when any of the skill's versions passed evaluation. Backs\nthe \"Hardened\" chip on the catalog directory page.",
+            "readOnly": true,
+            "type": "boolean"
+          },
+          "id": {
+            "description": "id, the skill's UIDP under the owning Group.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "keywords": {
+            "description": "keywords are free-form tags associated with the skill. Field 6 is reclaimed\nfrom the removed digest field: digest = 6 (string) shipped in SDK\nv0.1.159-v0.1.165, but the catalog was never populated or consumed in that\nwindow, so the slot is reused for keywords (repeated string).",
+            "items": {
+              "type": "string"
+            },
+            "readOnly": true,
+            "type": "array"
+          },
+          "license": {
+            "description": "license is the skill's SPDX license identifier, if declared.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "name": {
+            "description": "name is the skill's normalized short catalog name, e.g. \"academy-guide\".",
+            "readOnly": true,
+            "type": "string"
+          },
+          "source": {
+            "description": "source is the organization that published the skill (e.g. \"anthropics\").",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sourceBrowseUrl": {
+            "description": "source_browse_url links to the skill's folder upstream at its tracked\nbranch; it equals source_repo_url for a whole-repository skill.\n\nnext id: 16",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sourcePath": {
+            "description": "source_path is the skill's folder within source_repo_url, e.g.\n\"skills/academy-guide\"; empty when the skill is the whole repository.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "sourceRepoUrl": {
+            "description": "source_repo_url is the browsable upstream repository the skill was\ningested from, e.g. \"https://github.com/agentspace-so/agent-skills\"; empty\nwhen unknown. Public because only public auto-ingested skills are in the\ncatalog.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "stars": {
+            "description": "stars is the accumulated count of stars (favorites) for the skill.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "updateTime": {
+            "description": "update_time is when the skill was last updated.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.SkillFile": {
+        "description": "SkillFile is one file from a skill artifact.",
+        "properties": {
+          "content": {
+            "format": "byte",
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.SkillsHarden.CancelHardenOperationBody": {
+        "properties": {
+          "group": {
+            "description": "group is the owning group UIDP; the IAM scope. The operation cancelled is\nharden/{group}/{job_id}.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "group"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Source": {
+        "description": "Source is one publishing organization occurring in the catalog.",
+        "properties": {
+          "source": {
+            "description": "source is the slug to pass back as the ListSkills / SearchSkills `source`\nfilter, e.g. \"anthropics\".",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Taxonomy": {
+        "description": "Taxonomy is one CGSVT version's display metadata.",
+        "properties": {
+          "checks": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Taxonomy.Check"
+            },
+            "type": "array"
+          },
+          "createTime": {
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "crosswalkSha256": {
+            "type": "string"
+          },
+          "crosswalkVersion": {
+            "type": "string"
+          },
+          "groups": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Taxonomy.Group"
+            },
+            "type": "array"
+          },
+          "unifiedSha256": {
+            "description": "unified_sha256 and crosswalk_sha256 are the taxonomy files' hashes; they\nmake a version immutable.",
+            "type": "string"
+          },
+          "version": {
+            "description": "version is the taxonomy version, e.g. \"1.4.0\".",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "unifiedSha256",
+          "crosswalkSha256"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Taxonomy.Check": {
+        "description": "Check is one scanner rule's display name.",
+        "properties": {
+          "category": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ruleId": {
+            "type": "string"
+          },
+          "scanner": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Taxonomy.Group": {
+        "properties": {
+          "definition": {
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the group id, e.g. \"CGSVT-04\".",
+            "type": "string"
+          },
+          "owaspCodes": {
+            "description": "owasp_codes lists the group's OWASP LLM and agentic codes.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "subtypes": {
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Taxonomy.Subtype"
+            },
+            "type": "array"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.skills.v1alpha1.Taxonomy.Subtype": {
+        "properties": {
+          "definition": {
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the subtype slug, e.g. \"secret-exposure\".",
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "google.longrunning.Operation": {
+        "description": "This resource represents a long-running operation that is the result of a\nnetwork API call.",
+        "properties": {
+          "done": {
+            "description": "If the value is `false`, it means the operation is still in progress.\nIf `true`, the operation is completed, and either `error` or `response` is\navailable.",
+            "type": "boolean"
+          },
+          "error": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/google.rpc.Status"
+              }
+            ],
+            "description": "The error result of the operation in case of failure or cancellation."
+          },
+          "metadata": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/google.protobuf.Any"
+              }
+            ],
+            "description": "Service-specific metadata associated with the operation.  It typically\ncontains progress information and common metadata such as create time.\nSome services might not provide such metadata.  Any method that returns a\nlong-running operation should document the metadata type, if any."
+          },
+          "name": {
+            "description": "The server-assigned name, which is only unique within the same service that\noriginally returns it. If you use the default HTTP mapping, the\n`name` should be a resource name ending with `operations/{unique_id}`.",
+            "type": "string"
+          },
+          "response": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/google.protobuf.Any"
+              }
+            ],
+            "description": "The normal, successful response of the operation.  If the original\nmethod returns no data on success, such as `Delete`, the response is\n`google.protobuf.Empty`.  If the original method is standard\n`Get`/`Create`/`Update`, the response should be the resource.  For other\nmethods, the response should have the type `XxxResponse`, where `Xxx`\nis the original method name.  For example, if the original method name\nis `TakeSnapshot()`, the inferred response type is\n`TakeSnapshotResponse`."
+          }
+        },
+        "type": "object"
+      },
+      "google.protobuf.Any": {
+        "additionalProperties": {},
+        "properties": {
+          "@type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "google.rpc.Status": {
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/components/schemas/google.protobuf.Any"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Chainguard Skills API v1alpha1 (alpha)",
+    "version": "v1alpha1"
+  },
+  "openapi": "3.0.3",
+  "paths": {
+    "/skills/v1alpha1/files": {
+      "get": {
+        "description": "ListSkillFiles lists the files in one skill version's artifact. The\nartifact is pulled with the caller's own credentials, so the capabilities\nbelow include the registry's pull checks: a cached read is authorized\nexactly as a pull would be.",
+        "operationId": "Skills_ListSkillFiles",
+        "parameters": [
+          {
+            "description": "parent_id is the org (or group) UIDP the skill belongs to; it scopes the\ncapability check, and tag_id must be within its subtree.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "tag_id is the registry tag UIDP of the skill version.",
+            "in": "query",
+            "name": "tagId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListSkillFilesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Skill Files",
+        "tags": [
+          "Skills"
+        ]
+      }
+    },
+    "/skills/v1alpha1/files:get": {
+      "get": {
+        "description": "GetSkillFile returns one file from a skill version's artifact, such as\nSKILL.md to render on the skill's page. Authorized like ListSkillFiles.",
+        "operationId": "Skills_GetSkillFile",
+        "parameters": [
+          {
+            "description": "parent_id is the org (or group) UIDP the skill belongs to; it scopes the\ncapability check, and tag_id must be within its subtree.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "tag_id is the registry tag UIDP of the skill version.",
+            "in": "query",
+            "name": "tagId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "path is the file's relative path, e.g. \"SKILL.md\".",
+            "in": "query",
+            "name": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.SkillFile"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Skill File",
+        "tags": [
+          "Skills"
+        ]
+      }
+    },
+    "/skills/v1alpha1/harden": {
+      "post": {
+        "description": "By default, the operation name is the deterministic job id derived from the\ngroup, submitting user, skill name, and content digest, so a client can\nrecompute it locally and poll GetHardenOperation without the submit\nround-trip. An explicit retry_of instead derives its id from that failed\noperation, preserving one successor per failed attempt.",
+        "operationId": "SkillsHarden_HardenSkill",
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardenSkillRequest"
+              }
+            }
+          },
+          "description": "HardenSkillRequest names a skill artifact already uploaded to uploads.cgr.dev\nand the group to harden it into. The caller supplies components, not a ref:\nthe server builds the digest-pinned source ref\nuploads.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e@sha256:\u003ccontent_digest\u003e from the fields\nbelow — the host is a server constant, never caller input, so a caller can\nnever point the harden pipeline at an arbitrary registry. On success the\nhardened result is published to a per-user path,\nskills.cgr.dev/\u003cgroup\u003e/users/\u003cactor\u003e/\u003cskill_name\u003e (the user-less\nskills.cgr.dev/\u003cgroup\u003e/\u003cskill_name\u003e path is reserved for promotion).\n\nEvery source normalizes to an uploads.cgr.dev artifact before harden: customer\nuploads (chainctl skills push), public Chainguard skills, and Chainguard's\ninternal skills are all pushed to uploads.cgr.dev by the pipeline's ingest\nphase — the only stage that fetches upstream content. So this endpoint only\never names an uploads artifact by digest; there is no remote/git source on\nthis surface.",
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.longrunning.Operation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Harden Skill",
+        "tags": [
+          "SkillsHarden"
+        ]
+      }
+    },
+    "/skills/v1alpha1/harden/{jobId}:cancel": {
+      "post": {
+        "description": "CancelHardenOperation requests cancellation of a running harden job and\nreturns the operation. Idempotent: cancelling an already-terminal operation\nis a no-op that returns it unchanged.",
+        "operationId": "SkillsHarden_CancelHardenOperation",
+        "parameters": [
+          {
+            "description": "job_id is the deterministic harden job id to cancel (the final segment of\nthe operation name; see HardenOperationMetadata.job_id).",
+            "in": "path",
+            "name": "jobId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.SkillsHarden.CancelHardenOperationBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.longrunning.Operation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Cancel Harden Operation",
+        "tags": [
+          "SkillsHarden"
+        ]
+      }
+    },
+    "/skills/v1alpha1/hardeningFindings": {
+      "get": {
+        "description": "ListHardeningFindings pages a skill version's findings, most severe first.",
+        "operationId": "SkillsHardeningReports_ListHardeningFindings",
+        "parameters": [
+          {
+            "description": "parent_id is the org (or group) UIDP the skill belongs to; it scopes the\ncapability check, and tag_id must be within its subtree.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "tag_id is the registry tag UIDP of the skill version.",
+            "in": "query",
+            "name": "tagId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "statuses and severities narrow the findings; empty matches all.\n\n - FINDING_STATUS_CLOSED: FINDING_STATUS_CLOSED: present before hardening, gone after.\n - FINDING_STATUS_OPEN: FINDING_STATUS_OPEN: present before and after hardening.\n - FINDING_STATUS_INTRODUCED: FINDING_STATUS_INTRODUCED: present only after hardening.",
+            "explode": true,
+            "in": "query",
+            "name": "statuses",
+            "schema": {
+              "items": {
+                "enum": [
+                  "FINDING_STATUS_UNSPECIFIED",
+                  "FINDING_STATUS_CLOSED",
+                  "FINDING_STATUS_OPEN",
+                  "FINDING_STATUS_INTRODUCED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "explode": true,
+            "in": "query",
+            "name": "severities",
+            "schema": {
+              "items": {
+                "enum": [
+                  "FINDING_SEVERITY_UNSPECIFIED",
+                  "FINDING_SEVERITY_CRITICAL",
+                  "FINDING_SEVERITY_HIGH",
+                  "FINDING_SEVERITY_MEDIUM",
+                  "FINDING_SEVERITY_LOW",
+                  "FINDING_SEVERITY_INFO"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "query matches a substring of the check names, group and subtype titles, or\nfile path.",
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is bounded server-side: 0 uses the default and larger values are\ncapped.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "skip is the number of findings to skip, for numbered pages (0 to 10,000).",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "assessments narrow the findings; empty matches all.\n\n - FINDING_ASSESSMENT_UNSPECIFIED: FINDING_ASSESSMENT_UNSPECIFIED: not assessed, as for an introduced\nfinding or a report written before assessments existed.\n - FINDING_ASSESSMENT_FIXED: FINDING_ASSESSMENT_FIXED: an applied edit targeted the finding and it\nclosed.\n - FINDING_ASSESSMENT_RETAINED: FINDING_ASSESSMENT_RETAINED: hardening chose to keep the flagged content.\n - FINDING_ASSESSMENT_NOT_ADDRESSED: FINDING_ASSESSMENT_NOT_ADDRESSED: no applied edit targeted the finding.",
+            "explode": true,
+            "in": "query",
+            "name": "assessments",
+            "schema": {
+              "items": {
+                "enum": [
+                  "FINDING_ASSESSMENT_UNSPECIFIED",
+                  "FINDING_ASSESSMENT_FIXED",
+                  "FINDING_ASSESSMENT_RETAINED",
+                  "FINDING_ASSESSMENT_NOT_ADDRESSED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListHardeningFindingsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Hardening Findings",
+        "tags": [
+          "SkillsHardeningReports"
+        ]
+      }
+    },
+    "/skills/v1alpha1/hardeningReports": {
+      "get": {
+        "description": "ListHardeningReports lists the hardening summaries for the skill versions a\nUIDP filter selects: children_of a skill repo for its versions, or\ndescendants_of a skills folder for a whole catalog. Like ListSkills it is\nunscoped and results self-scope to the orgs the caller holds\nCAP_SKILLS_LIST on. A report is returned only while its tag still points at\nthe hardened digest, so a page can hold fewer than page_size reports.",
+        "operationId": "SkillsHardeningReports_ListHardeningReports",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "page_size is bounded server-side: 0 uses the default and larger values are\ncapped.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "skip is the number of reports to skip, for numbered pages (0 to 10,000).",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListHardeningReportsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Hardening Reports",
+        "tags": [
+          "SkillsHardeningReports"
+        ]
+      }
+    },
+    "/skills/v1alpha1/hardeningReports/{tagId}": {
+      "get": {
+        "description": "GetHardeningReport returns a skill version's hardening summary. A report is\nonly served while the tag still points at the digest that was hardened.",
+        "operationId": "SkillsHardeningReports_GetHardeningReport",
+        "parameters": [
+          {
+            "description": "tag_id is the registry tag UIDP of the skill version.",
+            "in": "path",
+            "name": "tagId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "parent_id is the org (or group) UIDP the skill belongs to; it scopes the\ncapability check, and tag_id must be within its subtree.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.HardeningReport"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Hardening Report",
+        "tags": [
+          "SkillsHardeningReports"
+        ]
+      }
+    },
+    "/skills/v1alpha1/rationales": {
+      "get": {
+        "description": "ListRationales pages the rationale catalog: the reviewed, generic\nexplanations a finding's rationale_id names. Only approved entries are\nlisted unless states says otherwise; listing any other state also takes\nCAP_SKILLS_WRITE. Deprecated entries are included, since stored findings\nstill reference them. reviewer is never returned; ListRationalesForReview\nserves it to catalog writers.",
+        "operationId": "SkillsHardeningReports_ListRationales",
+        "parameters": [
+          {
+            "description": "parent_id is the caller's org (or group) UIDP; it scopes the capability\ncheck. The catalog itself belongs to no org.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "ids narrows the entries to these ids; empty lists the whole catalog.",
+            "explode": true,
+            "in": "query",
+            "name": "ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "page_size is bounded server-side: 0 uses the default and larger values are\ncapped.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous response.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "skip is the number of entries to skip, for numbered pages (0 to 10,000).",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "states narrow the entries; empty lists APPROVED only. Any state other\nthan APPROVED takes CAP_SKILLS_WRITE on parent_id.\n\n - RATIONALE_STATE_PENDING: RATIONALE_STATE_PENDING: proposed, awaiting review.\n - RATIONALE_STATE_APPROVED: RATIONALE_STATE_APPROVED: reviewed and citable.\n - RATIONALE_STATE_REJECTED: RATIONALE_STATE_REJECTED: reviewed and refused; the id is never reused.",
+            "explode": true,
+            "in": "query",
+            "name": "states",
+            "schema": {
+              "items": {
+                "enum": [
+                  "RATIONALE_STATE_UNSPECIFIED",
+                  "RATIONALE_STATE_PENDING",
+                  "RATIONALE_STATE_APPROVED",
+                  "RATIONALE_STATE_REJECTED"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListRationalesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Rationales",
+        "tags": [
+          "SkillsHardeningReports"
+        ]
+      }
+    },
+    "/skills/v1alpha1/skills": {
+      "get": {
+        "description": "ListSkills lists skills in the catalog under a group, paginated. It never\nreturns the whole catalog in one response (bounded page_size).",
+        "operationId": "Skills_ListSkills",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "category optionally narrows results to a single category.",
+            "in": "query",
+            "name": "category",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of results to return per page. It is bounded\nserver-side: omitting it applies a default page size and any value is capped\nat a maximum, so a list is always paginated and never returns the whole\ncatalog in one response.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is a token from a previous response's next_page_token. Omit to\nstart from the first page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "source optionally narrows results to a single publishing organization\n(e.g. \"anthropics\").",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "skip is an offset (SQL OFFSET) for random-access page jumps (e.g. page 1 -\u003e\npage 5), applied on top of page_size/page_token. Bounded server-side.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "order_by sorts results (AIP-132), e.g. \"stars desc, name\". Sortable keys:\nname, create_time, update_time, stars, downloads. A stable tiebreak is\nalways appended server-side. Default: \"name asc\".",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "keywords optionally narrows results to skills carrying any of these\nkeywords (match-any). NB these are catalog keywords, not registry tags.",
+            "explode": true,
+            "in": "query",
+            "name": "keywords",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "hardened optionally narrows by the harden marker: unset = all, true =\nhardened only, false = non-hardened only.",
+            "in": "query",
+            "name": "hardened",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "name optionally narrows results to skills with this exact short catalog\nname (e.g. \"academy-guide\"); no partial match. Combine with source to\nnarrow the matches; the combination is not guaranteed unique. Names are\nstored lowercase.\n\nnext id: 11",
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListSkillsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Skills",
+        "tags": [
+          "Skills"
+        ]
+      }
+    },
+    "/skills/v1alpha1/skills:search": {
+      "get": {
+        "description": "SearchSkills is the ranked search surface over the catalog: it matches the\nfree-text query against name, description, category, and keywords, scoped to\na group. Like ListSkills it is org-agnostic and unscoped, self-scoping to the\norgs the caller holds CAP_SKILLS_LIST on.",
+        "operationId": "Skills_SearchSkills",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "query is the free-text search string, matched against the catalog's name,\ndescription, category, and keywords. Empty means match-all: the server lists\nthe scope (no text match) rather than rejecting the request, so an unfiltered\n\"search\" returns the full catalog.",
+            "in": "query",
+            "name": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of results to return per page. It is bounded\nserver-side (same as ListSkills): omitting it applies a default page size and\nany value is capped at a maximum, so a search is always paginated and never\nreturns the whole match set in one response.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is a token from a previous response's next_page_token. Omit to\nstart from the first page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "category optionally narrows results to a single category (parity with List).",
+            "in": "query",
+            "name": "category",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "source optionally narrows results to a single publishing organization\n(parity with List).",
+            "in": "query",
+            "name": "source",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "skip is an offset (SQL OFFSET) for random-access page jumps, applied on top\nof page_size/page_token. Bounded server-side.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "keywords optionally narrows results to skills carrying any of these\nkeywords (match-any). NB these are catalog keywords, not registry tags.",
+            "explode": true,
+            "in": "query",
+            "name": "keywords",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "hardened optionally narrows by the harden marker: unset = all, true =\nhardened only, false = non-hardened only.",
+            "in": "query",
+            "name": "hardened",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "order_by is a secondary sort applied after relevance (AIP-132), e.g.\n\"stars desc\". Relevance stays the primary order. Same keys as ListSkills.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "name optionally narrows results to skills with this exact short catalog\nname (parity with List); relevance still orders the matches.\n\nnext id: 12",
+            "in": "query",
+            "name": "name",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.SearchSkillsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Search Skills",
+        "tags": [
+          "Skills"
+        ]
+      }
+    },
+    "/skills/v1alpha1/sources": {
+      "get": {
+        "description": "ListSkillSources lists the publishing organizations that actually occur on the\nskills in scope. It backs the catalog's\nsource-filter dropdown: every value it returns is a value ListSkills /\nSearchSkills `source` will match, so the dropdown cannot offer an empty\nfilter. Scoped exactly like ListSkills.",
+        "operationId": "Skills_ListSkillSources",
+        "parameters": [
+          {
+            "description": "ancestors_of are groups reachable by repeated proceeding from child to parent.",
+            "in": "query",
+            "name": "uidp.ancestorsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "descendants_of are groups reachable by repeated proceeding from parent to child.",
+            "in": "query",
+            "name": "uidp.descendantsOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "children_of are groups reachable by directly proceeding from parent to children.",
+            "in": "query",
+            "name": "uidp.childrenOf",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "in_root restricts responses to root level resources.",
+            "in": "query",
+            "name": "uidp.inRoot",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "description": "ids are a list of exact UIDPs of records.",
+            "explode": true,
+            "in": "query",
+            "name": "uidp.ids",
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "style": "form"
+          },
+          {
+            "description": "Maximum results per page. Defaults to 50; values above 1000 are capped.\nNegative values are rejected.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Token from a previous response's next_page_token. Other filters and the\ncaller's authorized scope must remain unchanged.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Sort by source, optionally followed by asc or desc. Default: source asc.",
+            "in": "query",
+            "name": "orderBy",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Number of distinct values to skip after the page token, from 0 to 10000.",
+            "in": "query",
+            "name": "skip",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListSkillSourcesResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Skill Sources",
+        "tags": [
+          "Skills"
+        ]
+      }
+    },
+    "/skills/v1alpha1/taxonomies/{version}": {
+      "get": {
+        "description": "GetTaxonomy returns a CGSVT taxonomy version: its groups and subtypes with\ntitles and definitions, and the scanner checks it names. Findings carry\nthe version they are classified under.",
+        "operationId": "SkillsHardeningReports_GetTaxonomy",
+        "parameters": [
+          {
+            "description": "version is the taxonomy version, e.g. \"1.4.0\".",
+            "in": "path",
+            "name": "version",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "parent_id is the caller's org (or group) UIDP; it scopes the capability\ncheck. The taxonomy itself belongs to no org.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.Taxonomy"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Taxonomy",
+        "tags": [
+          "SkillsHardeningReports"
+        ]
+      }
+    },
+    "/skills/v1alpha1/{name}": {
+      "get": {
+        "description": "GetHardenOperation returns the current state of a harden operation\npreviously returned by HardenSkill. The operation name embeds the owning\ngroup's UIDP; group must match and is the IAM scope.",
+        "operationId": "SkillsHarden_GetHardenOperation",
+        "parameters": [
+          {
+            "description": "name is the operation name as returned by HardenSkill (harden/{uidp}/{id}).",
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "schema": {
+              "pattern": "harden/.+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "group is the owning group UIDP; the IAM scope. Must match the UIDP embedded\nin the operation name.",
+            "in": "query",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.longrunning.Operation"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Harden Operation",
+        "tags": [
+          "SkillsHarden"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://console-api.enforce.dev"
+    }
+  ],
+  "tags": [
+    {
+      "description": "Skills is the catalog surface for hardened Chainguard skills. Its customer-\nfacing side is a read API (ListSkills) — the shared backend consumed by the\ncgr-skills MCP, chainctl, and the community UI (one backend, many front doors,\nmirroring the registry ListRepos/ListTags endpoints). It also carries the\npublish-time writes (UpdateSkill/DeleteSkill), which are internal_only and\nhidden from the tool surface. Skill content is pulled from the OCI registry\n(skills.cgr.dev); this API serves the catalog metadata (name, description,\ncategory) the registry does not carry.\n\nA skill is a registry Repo, so versions, digests, and content come from the\nregistry API (ListRepos/ListTags/GetTag + OCI). Ranked catalog search is\nSearchSkills.",
+      "name": "Skills"
+    },
+    {
+      "description": "SkillsHarden is the customer-facing on-demand skill-harden API. A caller\nsubmits a skill artifact — already uploaded to uploads.cgr.dev — targeted at\na group, and receives a long-running Operation to track the harden pipeline.\nIt is the API-driven sibling of the synchronous `chainctl skills harden` MVP\nand the registry-push-triggered reconciler, and the one path that lets a\ncaller submit a specific skill on demand and get a handle to track it.",
+      "name": "SkillsHarden"
+    },
+    {
+      "description": "SkillsHardeningReports serves the hardening result for a skill version: the\nbefore/after severity counts and the findings, classified by the Chainguard\nSkill Vulnerability Taxonomy (CGSVT). A skill version is a registry tag, so\nreports are keyed by the tag's UIDP. The writes are internal_only and hidden\nfrom the tool surface; the skills pipeline is their only caller.",
+      "name": "SkillsHardeningReports"
+    }
+  ]
+}

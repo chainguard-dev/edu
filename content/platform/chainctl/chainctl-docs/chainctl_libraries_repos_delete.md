@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl libraries repos delete"
 slug: chainctl_libraries_repos_delete
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_repos_delete/

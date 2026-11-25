@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills registry publish"
 slug: chainctl_skills_registry_publish
 url: /platform/chainctl/chainctl-docs/chainctl_skills_registry_publish/
@@ -18,7 +18,7 @@ Package a skill directory and publish it to an OCI reference.
 Package a skill directory and publish it to an OCI reference.
 
 Reads and validates SKILL.md from the skill directory (default: current
-directory, or --dir), packs it as a skill artifact, and publishes it to <ref>.
+directory, or --dir), packs it as a skill artifact, and publishes it to \<ref>.
 Prints the published reference by digest.
 
 ```

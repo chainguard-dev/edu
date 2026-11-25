@@ -1,5 +1,5 @@
 ---
-date: 2026-11-23T15:46:28Z
+date: 2026-11-24T18:17:18Z
 title: "chainctl skills pull"
 slug: chainctl_skills_pull
 url: /platform/chainctl/chainctl-docs/chainctl_skills_pull/
@@ -28,7 +28,7 @@ exits nonzero and writes nothing. A skill on a registry whose signatures
 chainctl cannot verify, such as a staging or development registry, fails
 too, unless --allow-unverifiable-host is also given.
 
-With -o json, a successful pull prints {"location": <absolute path>} plus,
+With -o json, a successful pull prints {"location": \<absolute path>} plus,
 with --verify, "verification": the result `chainctl skills verify -o json`
 prints. A failed --verify prints that result on its own and exits 1.
 
