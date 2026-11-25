@@ -6,7 +6,7 @@ description:
   Libraries using the chainctl tool for enhanced supply chain security"
 type: "article"
 date: 2025-07-03T12:00:00+00:00
-lastmod: 2026-11-23T15:21:33+00:00
+lastmod: 2026-11-25T12:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries"]
 menu:
@@ -47,7 +47,7 @@ ecosystem:
 | Java | JAR, WAR, and EAR files; archives that contain them; container images; `remote:` URLs | Not supported. Verify the JAR files. |
 | JavaScript | npm tarballs (`.tgz`), npm cache, pnpm store, Yarn Classic cache, `node_modules` directories, container images | `package-lock.json`, `npm-shrinkwrap.json`, `pnpm-lock.yaml`, `yarn.lock`, `bun.lock` |
 | Python | Wheel files, installed virtual environments, `remote:` wheel URLs | Not supported. Verify the installed environment or the wheel files. |
-| .NET | `.nupkg` files, directories of them, the NuGet global packages folder, `remote:` and `jfrog:` URLs | Not supported. Verify the `.nupkg` files or the global packages folder. |
+| .NET | `.nupkg` files, directories of them, the NuGet global packages folder, a published app's `*.deps.json` or its directory, container images, `remote:` and `jfrog:` URLs | `packages.lock.json` |
 | Go | Not supported | Not supported |
 
 For Go, `go mod verify` checks downloaded modules against `go.sum`. It doesn't
@@ -89,6 +89,13 @@ installed and available on your path:
 trust root, the command needs network access to `tuf-repo-cdn.sigstore.dev`.
 Refer to [network requirements](/chainguard/libraries/introduction/network-requirements/) for
 the full list of domains.
+
+Local .NET inputs are an exception. A run that checks only local `.nupkg`
+files, NuGet packages folders, NuGet lockfiles, or .NET deps files needs no
+token, no entitlement, and no network access, because the Chainguard signature
+is inside each package. This holds only without `--fetch-missing` and
+`--output-attestations`. For details, refer to [Analyze .NET
+packages](#analyze-net-packages).
 
 You also need:
 
@@ -205,7 +212,8 @@ command in CI/CD:
 ## File analysis
 
 To save available Software Bills of Materials (SBOMs) and attestations while
-verifying Java artifacts, JavaScript packages, or Python wheels, add
+verifying Java artifacts, JavaScript packages, Python wheels, or NuGet
+packages, add
 `--output-attestations`. Use `--output-dir` to choose the base directory, which
 defaults to `attestations` in the current directory. Only packages verified as
 Chainguard builds produce companion files. The verification report lists the
@@ -600,6 +608,268 @@ chainctl libraries verify IMAGE:TAG
 Coverage is reported as the percentage of JavaScript packages in the image that are confirmed Chainguard-rebuilt libraries.
 
 Images built with npm versions earlier than v7, or where `.package-lock.json` was removed during the build, cannot be verified this way.
+
+### Analyze .NET packages
+
+> **Note**: .NET package verification requires `chainctl` v0.2.397 or later.
+> Lockfile, published app, and container image verification require v0.2.409
+> or later. The provenance check and the downloads in [Download .NET SBOMs and
+> attestations](#download-net-sboms-and-attestations) require v0.2.408 or
+> later.
+
+`chainctl libraries verify` checks a NuGet package (`.nupkg`) by the Chainguard
+package signature inside it. Each .NET package that Chainguard builds carries an
+author signature, made with the Chainguard code-signing certificate and
+timestamped. `chainctl` checks this signature against the certificate that it
+pins. The check reads only the package, so it needs no token, no network
+access, and no Sigstore trust root.
+
+#### Verify a NuGet package
+
+Verify a `.nupkg` file:
+
+```sh
+chainctl libraries verify Newtonsoft.Json.13.0.3.nupkg
+```
+
+For a package to verify, all of the following conditions must be true:
+
+- The package carries an author signature under the Chainguard code-signing
+  certificate that `chainctl` pins.
+- The signature was made for this package. A Chainguard signature copied from
+  another package does not verify.
+- The signature carries an RFC 3161 timestamp that chains to a timestamp root
+  that `chainctl` pins. Because of the timestamp, a signature stays valid after
+  the signing certificate expires.
+
+A verified package reports 100% coverage. Its details are `Fully verified by
+Chainguard (package signature verified)`. With `-o json --detailed`, the
+verification method names the signer, the SHA-256 fingerprint of its
+certificate, and the time of the timestamp. A package that fails a condition,
+such as a package from nuget.org that Chainguard did not build, reports 0%
+coverage.
+
+Chainguard can sign a package with a new certificate that your `chainctl`
+release does not pin yet. The result is then indeterminate, and the details tell
+you to upgrade `chainctl`. Upgrade, then run the command again.
+
+`chainctl` also verifies a NuGet package in a remote repository. It downloads
+the package and checks it the same way. The download never uses your Chainguard
+token. If the repository needs an API key, `chainctl` uses that key. For a JFrog
+repository, `chainctl` reads the key from `ARTIFACT_API_KEY`. If
+`ARTIFACT_API_KEY` is not set, it reads `JFROG_API_KEY`:
+
+```sh
+chainctl libraries verify jfrog:example.jfrog.io/artifactory/nuget-remote/polysharp.1.15.0.nupkg
+```
+
+#### Verify the global packages folder
+
+When NuGet restores a project, it keeps each package in the global packages
+folder, `~/.nuget/packages` by default. Verify all of the packages in the
+folder:
+
+```sh
+chainctl libraries verify ~/.nuget/packages
+```
+
+For each package, `chainctl` verifies the signature of the `.nupkg` that NuGet
+keeps. It then makes sure that the package id and version match the directory.
+Last, it compares the files that NuGet extracted beside the package with the
+contents of the signed package. Your build reads the extracted files, not the
+`.nupkg`. So a file that is missing, changed, or not in the package makes the
+package not verified. A verified package reports `Fully verified by Chainguard
+(package signature verified, and the extracted files match the package)`.
+
+`chainctl` does not compare NuGet's own files, `.nupkg.metadata` and the
+`.sha512` hash. A nuspec or IntelliSense XML file that the restore left out does
+not count as missing. A package with no `.nupkg` kept, such as a package
+restored from a fallback folder, is reported as unchecked.
+
+The global packages folder holds every package that the machine restored, from
+every source and for every project. To verify only what one project uses,
+restore the project into an empty folder and verify that folder. The
+`NUGET_PACKAGES` environment variable sets the global packages folder for one
+restore:
+
+```sh
+NUGET_PACKAGES="$PWD/chainguard-verify" dotnet restore
+chainctl libraries verify --detailed ./chainguard-verify
+```
+
+A folder that also holds files outside its package directories is checked as a
+plain directory, so that every artifact in it is checked.
+
+#### Verify a NuGet lockfile
+
+If your project uses a NuGet lockfile, restore the project, then verify the
+lockfile:
+
+```sh
+dotnet restore
+chainctl libraries verify packages.lock.json
+```
+
+`chainctl` also accepts a per-project lockfile name, such as
+`packages.MyApp.lock.json`. It reads every target framework and runtime section
+of the lockfile and skips project references. The report counts the package
+entries that the lockfile declares, and gives the number of entries that are
+Chainguard packages.
+
+`chainctl` reads the package of each entry from the global packages folder. It
+uses the folder that `--packages-dir` names. If you do not set
+`--packages-dir`, it uses `NUGET_PACKAGES`, or `~/.nuget/packages` if that
+variable is not set. `chainctl` does not read a `globalPackagesFolder` from
+`nuget.config`. If your configuration sets one, pass that folder with
+`--packages-dir`.
+
+An entry verifies in two steps. First, its package must verify as in a global
+packages folder. Second, the package must match the entry's `contentHash`. The
+`contentHash` is the SHA-512 digest of the package without its signature.
+NuGet refuses to restore a package that does not match it, so the match ties
+the entry to the package whose signature verified. A verified entry reports
+`Fully verified by Chainguard (package signature verified, the lockfile's
+contentHash matches, and the extracted files match the package)`.
+
+An entry whose package is not in the folder is reported as unchecked, not as
+not verified. To check those entries too, add `--fetch-missing`. `chainctl` then
+fetches each missing package from the Chainguard feed and checks its signature,
+its id and version, and the entry's `contentHash`. A fetched package has no
+extracted files to compare, and its details say that it was fetched. With
+`--fetch-missing`, you can verify a lockfile with no restore:
+
+```sh
+chainctl libraries verify --fetch-missing --parent <your-organization> packages.lock.json
+```
+
+An entry for a package that the feed does not serve reports `Not verified: the
+Chainguard feed does not serve the package`. If the feed cannot answer for an
+entry, the entry is reported as unchecked.
+
+Like a `.nupkg`, a lockfile needs no token and no network access. The exception
+is a run with `--fetch-missing` or `--output-attestations`. Both flags need a
+token for an organization entitled to Chainguard Libraries for .NET. If the
+registry rejects the credentials, `chainctl` fetches nothing more. It reports the
+entries that it did not fetch as unchecked, and it prints the rejection after
+the results.
+
+#### Regenerate `packages.lock.json` after you move to Chainguard
+
+If your project uses a NuGet lockfile, regenerate `packages.lock.json` when
+the project starts to restore from Chainguard Libraries. A Chainguard build of a
+package has a different content hash than the nuget.org package of the same
+version. NuGet checks every package against the hash in the lockfile, with or
+without `--locked-mode`. So a lockfile written against nuget.org makes the
+restore stop with `NU1403` ("Package content hash validation failed").
+
+To regenerate the lockfile, restore once against the Chainguard source with
+`--force-evaluate`, or delete `packages.lock.json` and restore:
+
+```sh
+dotnet restore --force-evaluate
+```
+
+Then commit the new `packages.lock.json`. A lockfile written against nuget.org
+also does not match the packages restored from Chainguard, so `chainctl
+libraries verify` reports its entries as not verified.
+
+#### Verify a published app or a container image
+
+A published .NET app holds DLL files, not `.nupkg` files. Its deps file is
+`<app>.deps.json`. For each NuGet package that the app uses, the deps file
+names the version, the SHA-512 digest, and the files from the package that the
+app holds. Verify the deps file, or the publish directory that holds it:
+
+```sh
+dotnet publish -o out
+chainctl libraries verify out/MyApp.deps.json
+```
+
+The deps file alone is a claim, so `chainctl` compares the app's files with the
+package. For a package to verify, all of the following conditions must be true:
+
+- Its `.nupkg` carries a Chainguard package signature.
+- The `.nupkg` matches the SHA-512 digest in the deps file.
+- Every file that the deps file lists for the package is in the app, byte for
+  byte as the package has it.
+
+When the global packages folder holds that exact package, `chainctl` reads
+the `.nupkg` from it. It finds the folder as for a lockfile. A package that is
+not there is unchecked. To fetch it from the Chainguard feed, add
+`--fetch-missing`.
+Without `--fetch-missing`, a deps file needs no token.
+
+The report gives the number of packages that are Chainguard packages. It counts
+packages, not files. It lists the app's own assemblies, the .NET runtime, and
+packages with no file in the app, but does not count them. A file that differs
+from the package leaves the package not verified, with the details `Modified at
+publish (ReadyToRun or trimming)`. A ReadyToRun or trimmed publish changes the
+files, so verify an app that you publish without these options. A file that is
+missing from the app leaves the package unchecked. Single-file apps, whose deps
+file is inside the executable, are not supported.
+
+To verify the .NET packages of an app in a container image, pass the image:
+
+```sh
+chainctl libraries verify --parent <your-organization> registry.example.com/my-app:latest
+```
+
+An image has no packages folder, so `chainctl` always fetches the packages from
+the Chainguard feed, and the check needs a token. In an image, `chainctl` reads
+each file from the top layer that holds it. A file that a later layer deletes
+counts as missing. `chainctl` does not check the deps files of the .NET
+installation itself, because they describe Microsoft's tools and frameworks,
+not your app.
+
+#### Download .NET SBOMs and attestations
+
+Add `--output-attestations` to also check the SLSA provenance that the
+Chainguard feed serves for each package, and to save the provenance and the SPDX
+SBOM:
+
+```sh
+chainctl libraries verify Semver.3.0.0.nupkg --output-attestations
+```
+
+The provenance is a Sigstore bundle with a signed SLSA statement. `chainctl`
+verifies the bundle and makes sure that the Chainguard .NET signing identity
+signed it. It also makes sure that the statement names the SHA-256 digest of
+the `.nupkg`. Either the package signature or the provenance verifies a package,
+and the report records both.
+
+The provenance check is not offline. It needs a token for an organization
+entitled to Chainguard Libraries for .NET. It also needs network access to
+`libraries.cgr.dev` and `tuf-repo-cdn.sigstore.dev`. For the roles, refer to
+[Requirements](#requirements).
+
+Files are saved under `--output-dir`, which defaults to `attestations`, in a
+directory named `<id>/<version>/`, both in lowercase, as the feed names them.
+For the preceding command, the directory is `attestations/semver/3.0.0/`. When
+they are available, it holds these files:
+
+- `semver.3.0.0.nupkg.provenance.sigstore.json`: The exact Sigstore bundle that
+  `chainctl` verified, saved as trusted.
+- `semver.3.0.0.nupkg.sbom.spdx.json`: The SPDX SBOM. The verified
+  provenance names the SBOM with its SHA-256 digest. When the digest of the
+  SBOM is equal to that digest, `chainctl` saves the SBOM as trusted. If the
+  digests are different, `chainctl` does not save the SBOM and prints a note on
+  stderr.
+
+The JSON output lists each saved file in `downloadedAttestations`, with its
+`kind`, `path`, `url`, and `trusted` fields.
+
+Downloads also work for the packages of a global packages folder, a lockfile,
+and a published app. `chainctl` saves files only for a package that is fully
+verified. In a global packages folder, that includes its extracted files.
+
+The provenance step can fail for a package whose signature verified. The
+package then stays verified, but `chainctl` saves no files for it:
+
+- If the feed serves no provenance for the package, `chainctl` prints a warning
+  on stderr. A package that came from nuget.org through upstream fallback has no
+  provenance.
+- If the registry rejects your credentials, `chainctl` prints the report and
+  then the rejection on stderr. The exit status does not change.
 
 ### Other bundled artifact formats
 
