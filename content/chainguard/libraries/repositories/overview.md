@@ -115,7 +115,8 @@ ecosystem, and its upstream fallback setting: either `Upstream fallback: on`
 or `Upstream fallback: off (every upstream registry is disabled)`.
 
 A URL marked `(not serving yet)` belongs to an ecosystem that doesn't serve
-repository URLs in this beta. Chainguard Libraries refuses requests to it.
+repository URLs in this beta. Requests to it return HTTP `503` or HTTP
+`403`, depending on the ecosystem.
 
 To view the default repository, omit the name:
 
@@ -183,10 +184,13 @@ the default repository has no upstream list; its upstream fallback follows the o
 
 ### Java upstream registries
 
-A Java repository lists five upstream registries: `maven-central`,
-`google-maven`, `gradle-plugins`, `confluent`, and `jboss-releases`. The
-repository tries the enabled registries in the order of the list. With none
-enabled, upstream fallback is off for Java.
+A Java repository lists five upstream registries, in this order:
+`maven-central`, `google-maven`, `gradle-plugins`, `confluent`, and
+`jboss-releases`. As with `npmjs`, a new repository starts with all five
+enabled if your organization's Libraries entitlement includes upstream fallback
+for Java, and disabled if it doesn't. The repository tries the enabled
+registries in the order of the list. With none enabled, upstream fallback is
+off for Java.
 
 To view, disable, or enable a Java upstream registry, pass `--ecosystem java`:
 
@@ -334,11 +338,20 @@ Java build tools](/chainguard/libraries/java/build-configuration/#direct-access)
 
 ### Maven
 
-In `~/.m2/settings.xml`, list the repository URLs in the `chainguard` profile
-and give each one a `server` entry with the pull token:
+In `~/.m2/settings.xml`, add a mirror that sends every repository except the
+remediated one to the repository URL, so Maven never falls back to Maven
+Central. List the repository URLs for dependencies and plugins, and give each
+`id` a `server` entry with the pull token:
 
 ```xml
 <settings>
+  <mirrors>
+    <mirror>
+      <id>chainguard-java</id>
+      <url>https://libraries.cgr.dev/java/~/example.com/prod/</url>
+      <mirrorOf>*,!chainguard-remediated</mirrorOf>
+    </mirror>
+  </mirrors>
   <activeProfiles>
     <activeProfile>chainguard</activeProfile>
   </activeProfiles>
@@ -355,6 +368,16 @@ and give each one a `server` entry with the pull token:
           <url>https://libraries.cgr.dev/java/~/example.com/prod/</url>
         </repository>
       </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>chainguard-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/~/example.com/prod/</url>
+        </pluginRepository>
+        <pluginRepository>
+          <id>chainguard-java</id>
+          <url>https://libraries.cgr.dev/java/~/example.com/prod/</url>
+        </pluginRepository>
+      </pluginRepositories>
     </profile>
   </profiles>
   <servers>
@@ -372,15 +395,16 @@ and give each one a `server` entry with the pull token:
 </settings>
 ```
 
-If your `settings.xml` also has a `mirror` or `pluginRepository` entry for
-`https://libraries.cgr.dev/java/`, change its URL to the repository URL too. A
-pull token bound to the repository returns HTTP `403` on the default
-repository URL.
+If your `settings.xml` already has a mirror or repository for
+`https://libraries.cgr.dev/java/`, change its URL to the repository URL. A pull
+token bound to the repository returns HTTP `403` on the default repository URL.
 
 ### Gradle
 
-In `build.gradle`, list the repository URLs in the `repositories` block, above
-any other repository:
+In `build.gradle`, replace the `repositories` block with the repository URLs.
+Remove `mavenCentral()` and every other repository: Gradle tries the next
+repository when one returns HTTP `404`, so an artifact the repository refuses
+would resolve from there instead.
 
 ```groovy
 repositories {
@@ -396,6 +420,23 @@ repositories {
         credentials {
             username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
             password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+        }
+    }
+}
+```
+
+To resolve plugins through the repository too, point `pluginManagement` in
+`settings.gradle` at the repository URL:
+
+```groovy
+pluginManagement {
+    repositories {
+        maven {
+            url = uri("https://libraries.cgr.dev/java/~/example.com/prod/")
+            credentials {
+                username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+                password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+            }
         }
     }
 }
