@@ -4,7 +4,7 @@ linktitle: "Configure build tools"
 description: "Configuring Chainguard Libraries for Java on your workstation"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-10T00:15:21+00:00
+lastmod: 2026-11-25T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java"]
 menu:
@@ -83,6 +83,11 @@ If using Chainguard's [CVE remediation](/chainguard/libraries/policies-and-secur
 1. `https://libraries.cgr.dev/java-remediated/` for remediated Spring Boot libraries; this is available in beta as part of the [CVE remediation](/chainguard/libraries/policies-and-security/cve-remediation/) feature.
 1. `https://libraries.cgr.dev/java/`
 1. `https://repo1.maven.org/maven2/` or your Maven Central proxy
+
+These URLs are your organization's default repository. If your organization
+uses a named repository, use its URLs and a pull token bound to it instead.
+Repositories are in beta; refer to
+[Repositories](/chainguard/libraries/repositories/overview/#configure-java-clients).
 
 ## Selecting remediated library versions
 

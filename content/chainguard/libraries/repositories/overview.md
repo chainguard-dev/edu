@@ -4,7 +4,7 @@ linktitle: "Repositories overview"
 description: "Create named repositories in Chainguard Libraries, each with its own URL and upstream fallback setting"
 type: "article"
 date: 2026-11-12T09:00:00+00:00
-lastmod: 2026-11-12T09:00:00+00:00
+lastmod: 2026-11-25T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 weight: 10
@@ -27,25 +27,27 @@ These URLs are your organization's *default repository*. If you don't create
 any other repository, nothing changes: the URLs keep working as before.
 
 A *repository* is an additional, named set of URLs in the same organization.
-Each repository has its own upstream fallback setting. In this beta, Chainguard
-Libraries serves repository URLs only for JavaScript. A common setup uses two
-repositories:
+Each repository has its own upstream fallback setting and can have its own
+policy. In this beta, Chainguard Libraries serves repository URLs for
+JavaScript and Java. A common setup uses two repositories:
 
 * A `prod` repository with upstream fallback off, so CI installs only packages
   that Chainguard builds.
 * A `dev` repository with upstream fallback on, so engineers can install any
   package.
 
-A JavaScript repository URL has the following form, where `example.com` is the
+Repository URLs have the following form, where `example.com` is the
 organization name and `prod` is the repository name:
 
-```text
-https://libraries.cgr.dev/javascript/~/example.com/prod/
-```
+| Ecosystem | Repository URL |
+| --- | --- |
+| JavaScript | `https://libraries.cgr.dev/javascript/~/example.com/prod/` |
+| Java | `https://libraries.cgr.dev/java/~/example.com/prod/` |
+| Java remediated builds | `https://libraries.cgr.dev/java-remediated/~/example.com/prod/` |
 
-To manage repositories, update `chainctl` to the latest release. For
-instructions, refer to [How to install
-`chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
+To manage repositories, update `chainctl` to the latest release. Java
+repositories need `chainctl` v0.2.408 or later. For instructions, refer to
+[How to install `chainctl`](/platform/chainctl-usage/how-to-install-chainctl/).
 
 ## Plan limits
 
@@ -72,12 +74,14 @@ To create a repository named `prod`, run the following command:
 chainctl libraries repos create prod
 ```
 
-The output shows the repository URL:
+The output shows the repository URL for each ecosystem your organization is
+entitled to, for example:
 
 ```text
 Repository prod is ready.
 URLs:
   JAVASCRIPT  https://libraries.cgr.dev/javascript/~/example.com/prod/
+  JAVA        https://libraries.cgr.dev/java/~/example.com/prod/
 ```
 
 Running `create` again with the same name doesn't fail or create a second
@@ -110,11 +114,8 @@ The output shows the repository's state, its creation time, the URL for each
 ecosystem, and its upstream fallback setting: either `Upstream fallback: on`
 or `Upstream fallback: off (every upstream registry is disabled)`.
 
-The output also lists URLs for Java, Python, Go, and .NET, marked
-`(not serving yet)`. In this beta, Chainguard Libraries serves repository URLs
-only for JavaScript.
-A request to a repository URL for another ecosystem returns HTTP `503` with a
-message such as `Libraries repositories are not available for java yet.`
+A URL marked `(not serving yet)` belongs to an ecosystem that doesn't serve
+repository URLs in this beta. Chainguard Libraries refuses requests to it.
 
 To view the default repository, omit the name:
 
@@ -180,21 +181,50 @@ against the organization, `chainctl` returns the following error:
 the default repository has no upstream list; its upstream fallback follows the organization's Libraries entitlement
 ```
 
+### Java upstream registries
+
+A Java repository lists five upstream registries: `maven-central`,
+`google-maven`, `gradle-plugins`, `confluent`, and `jboss-releases`. The
+repository tries the enabled registries in the order of the list. With none
+enabled, upstream fallback is off for Java.
+
+To view, disable, or enable a Java upstream registry, pass `--ecosystem java`:
+
+```shell
+chainctl libraries repos upstreams list --parent example.com/prod --ecosystem java
+chainctl libraries repos upstreams disable google-maven --parent example.com/prod --ecosystem java
+chainctl libraries repos upstreams enable google-maven --parent example.com/prod --ecosystem java
+```
+
+To change the order, list every registry once, the first tried first:
+
+```shell
+chainctl libraries repos upstreams reorder maven-central gradle-plugins google-maven confluent jboss-releases \
+  --parent example.com/prod --ecosystem java
+```
+
 ## Configure credentials
 
 Two kinds of pull token work with repositories:
 
 * An organization pull token works on the default repository URL and on every
   repository URL in the organization.
-* A pull token bound to a repository works only on that repository's URL. On
+* A pull token bound to a repository works only on that repository's URLs. On
   the default repository URL or on another repository's URL, the request
-  returns HTTP `403`.
+  returns HTTP `403`. A Java token bound to a repository works on both of its
+  Java URLs.
 
 To create a pull token bound to the `prod` repository, run the following
 command:
 
 ```shell
 chainctl auth pull-token create --repository=javascript --parent example.com/prod --name ci-prod
+```
+
+For Java, pass `--repository=java`:
+
+```shell
+chainctl auth pull-token create --repository=java --parent example.com/prod --name ci-prod-java
 ```
 
 For more information about pull tokens, refer to [Chainguard Libraries
@@ -294,6 +324,83 @@ An entry keyed by `//libraries.cgr.dev/javascript` doesn't authenticate
 requests to a repository URL. Yarn reports `YN0033: No authentication
 configured for request`.
 
+## Configure Java clients
+
+`chainctl auth configure` has no Maven or Gradle form. Copy the repository
+URLs into your build configuration, and use a pull token bound to the
+repository. If your organization's entitlement includes remediated builds,
+list the remediated URL first, as for the default repository in [Configure
+Java build tools](/chainguard/libraries/java/build-configuration/#direct-access).
+
+### Maven
+
+In `~/.m2/settings.xml`, list the repository URLs in the `chainguard` profile
+and give each one a `server` entry with the pull token:
+
+```xml
+<settings>
+  <activeProfiles>
+    <activeProfile>chainguard</activeProfile>
+  </activeProfiles>
+  <profiles>
+    <profile>
+      <id>chainguard</id>
+      <repositories>
+        <repository>
+          <id>chainguard-remediated</id>
+          <url>https://libraries.cgr.dev/java-remediated/~/example.com/prod/</url>
+        </repository>
+        <repository>
+          <id>chainguard-java</id>
+          <url>https://libraries.cgr.dev/java/~/example.com/prod/</url>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+  <servers>
+    <server>
+      <id>chainguard-remediated</id>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+    </server>
+    <server>
+      <id>chainguard-java</id>
+      <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
+      <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
+    </server>
+  </servers>
+</settings>
+```
+
+If your `settings.xml` also has a `mirror` or `pluginRepository` entry for
+`https://libraries.cgr.dev/java/`, change its URL to the repository URL too. A
+pull token bound to the repository returns HTTP `403` on the default
+repository URL.
+
+### Gradle
+
+In `build.gradle`, list the repository URLs in the `repositories` block, above
+any other repository:
+
+```groovy
+repositories {
+    maven {
+        url = uri("https://libraries.cgr.dev/java-remediated/~/example.com/prod/")
+        credentials {
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+        }
+    }
+    maven {
+        url = uri("https://libraries.cgr.dev/java/~/example.com/prod/")
+        credentials {
+            username = providers.environmentVariable("CHAINGUARD_JAVA_IDENTITY_ID").orNull
+            password = providers.environmentVariable("CHAINGUARD_JAVA_TOKEN").orNull
+        }
+    }
+}
+```
+
 ## Responses from a repository URL
 
 The following table shows what a client receives from a repository URL. In the
@@ -306,6 +413,9 @@ registry hosts, the examples use `five`.
 | `npm install lodash` on `prod` or `dev` | Installs the package |
 | `npm install five` on `prod` | HTTP `404` |
 | `npm install five` on `dev` | Installs the package |
+| A Java artifact that Chainguard builds, on `prod` or `dev` | Served |
+| A Java artifact that only an upstream registry holds, on `prod` | HTTP `404` |
+| A Java artifact that only an upstream registry holds, on `dev` | Served |
 | A request without credentials | HTTP `401` |
 | A request to a repository that doesn't exist | HTTP `403` |
 | A repository-bound token used on another repository or on the default repository | HTTP `403` |
@@ -327,8 +437,8 @@ returns an error that names them, for example:
 Repository dev has 1 pull token (ci-dev). Delete them first or pass --force.
 ```
 
-To delete the repository together with its pull tokens and policy bindings,
-pass `--force`.
+To delete the repository together with its pull tokens, policies, and policy
+bindings, pass `--force`.
 
 If someone deletes the repository's folder through IAM, `describe` shows the
 state `folder missing` and tells you to run `chainctl libraries repos delete
@@ -336,10 +446,22 @@ NAME` to remove the repository.
 
 ## Policies and access
 
-A repository uses its organization's
-[policies](/chainguard/chainguard-repository/library-policies/), including
-malware blocking and cooldown. There are no per-repository policies in this
-beta.
+A JavaScript or Java repository can have its own
+[policy](/chainguard/chainguard-repository/library-policies/), with its own
+cooldown, allow list, and block list. A repository without its own policy
+uses the organization's. The organization's block list and malware blocking
+apply in every repository, and a repository's allow list can't override them.
+
+To give the `prod` repository its own policy, create the policy in the
+repository and enable it there:
+
+```shell
+chainctl libraries policy create --name=prod-policy --parent=example.com/prod --cooldown-days=3
+chainctl libraries policy enable prod-policy --parent=example.com/prod --ecosystem=JAVA --mode=ENFORCE
+```
+
+You can enable a policy in a repository only after the organization has an
+enforced policy for the same ecosystem.
 
 An identity bound at a repository can pull packages only from that repository.
 To manage repositories, an identity needs the following capabilities at the
@@ -359,8 +481,7 @@ Only the `owner` role has the three write capabilities. The `viewer` and
 
 The following features aren't available in this beta:
 
-* Per-repository policies.
-* Repository URLs for Java, Python, Go, and .NET.
+* Repository URLs for Python, Go, and .NET.
 * CUDA Python registries on repository URLs.
 * Upstream registries that you add, or that need their own credentials.
 * Repositories in the Chainguard Console.
