@@ -83,7 +83,7 @@ certificates:
 Chainguard recommends organizing your configuration YAML files in a dedicated directory, as in the following example repository structure:
 
 ```
-<github-repository>/
+[[GITHUB_REPO]]/
 ├── .github/
 │   └── workflows/
 │       └── build-custom-images.yaml
@@ -105,17 +105,17 @@ chainctl iam identities create github-actions-identity \
   --description="GitHub Actions identity for Custom Assembly" \
   --identity-issuer=https://token.actions.githubusercontent.com \
   --subject-pattern=".*" \
-  --claim-pattern=repository:<github-organization>/<github-repository> \
+  --claim-pattern=repository:[[GITHUB_ORG]]/[[GITHUB_REPO]] \
   --claim-pattern='event_name:^(push|workflow_dispatch)$'
 ```
 
-Replace `<github-organization>/<github-repository>` with the repository that holds your workflow. This creates an identity that GitHub Actions workflows in that repository can assume, whether triggered by a push or started manually from the Actions tab.
+Replace `[[GITHUB_ORG]]/[[GITHUB_REPO]]` with the repository that holds your workflow. This creates an identity that GitHub Actions workflows in that repository can assume, whether triggered by a push or started manually from the Actions tab.
 
 Claim values are patterns, not literal strings, so `^(push|workflow_dispatch)$` matches either event. Match both: the workflow later in this guide triggers on `push` and `workflow_dispatch`, and the testing steps start a run manually. An identity pinned to `event_name:push` alone rejects manual runs with `token has invalid "event_name": workflow_dispatch`. Be sure to quote the pattern so your shell does not interpret the `|` as a pipe.
 
-Repeat `--claim-pattern` once per claim, as shown in this example. Passing several `claim:pattern` pairs as a single comma-separated value does not create separate claims — `chainctl` treats the entire string as one pattern, matching a `repository` claim whose literal value is `<github-organization>/<github-repository>,event_name:push`. This fails silently, producing an identity that no workflow can assume.
+Repeat `--claim-pattern` once per claim, as shown in this example. Passing several `claim:pattern` pairs as a single comma-separated value does not create separate claims — `chainctl` treats the entire string as one pattern, matching a `repository` claim whose literal value is `[[GITHUB_ORG]]/[[GITHUB_REPO]],event_name:push`. This fails silently, producing an identity that no workflow can assume.
 
-This example matches on the `repository` and `event_name` claims rather than the `sub` claim, so it is unaffected by GitHub's [immutable subject claims](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers), which change only the `sub` claim. The `repository` claim carries the repository name, and names can be reassigned. For stronger protection against namespace reuse, pin the identity to the repository's numeric ID by adding `--claim-pattern=repository_id:<github-repository-id>`.
+This example matches on the `repository` and `event_name` claims rather than the `sub` claim, so it is unaffected by GitHub's [immutable subject claims](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers), which change only the `sub` claim. The `repository` claim carries the repository name, and names can be reassigned. For stronger protection against namespace reuse, pin the identity to the repository's numeric ID by adding `--claim-pattern=repository_id:[[GITHUB_REPO_ID]]`.
 
 ## Step 2: Grant permissions
 
@@ -132,10 +132,10 @@ Then use this variable to create a role binding that grants the custom role to t
 ```shell
 chainctl iam role-bindings create \
   --identity=$IDENTITY_ID \
-  --role=<custom-role>
+  --role=[[CUSTOM_ROLE]]
 ```
 
-Be sure to replace `<custom-role>` with the name of the custom role you created. If you have access to more than one organization, add `--parent <chainguard-org>` to choose where the role binding is created.
+Be sure to replace `[[CUSTOM_ROLE]]` with the name of the custom role you created. If you have access to more than one organization, add `--parent [[ORGANIZATION]]` to choose where the role binding is created.
 
 ## Step 3: Note your identity ID
 
@@ -147,12 +147,12 @@ chainctl iam identities list -o table
 
 ## Trigger builds with `chainctl` in CI/CD workflows
 
-Regardless of which CI/CD platform you use, you trigger Custom Assembly builds with the same `chainctl images repos build apply` command:
+Regardless of which CI/CD platform you use, you trigger Custom Assembly builds with the same `chainctl images repos build apply` command, replacing `[[ORGANIZATION]]` with your organization's name and `[[IMAGE_NAME]]` with the image's name:
 
 ```bash
 chainctl images repos build apply --file ca-images-iac/custom-jre.yaml \
-  --parent <chainguard-org> \
-  --repo <image-name> \
+  --parent [[ORGANIZATION]] \
+  --repo [[IMAGE_NAME]] \
   --yes
 ```
 
@@ -186,9 +186,9 @@ on:
 # organization settings. They are defined here, at workflow level, so every step can
 # read them.
 env:
-  CUSTOM_IMAGE: "cgr.dev/<chainguard-org>/<image-name>"
-  IMAGE_SYNCER: "<chainguard-org-id>/<image-syncer-id>"
-  CUSTOM_IMAGE_BUILDER: "<chainguard-org-id>/<custom-image-builder-id>"
+  CUSTOM_IMAGE: "cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]"
+  IMAGE_SYNCER: "[[ORGANIZATION_ID]]/[[IMAGE_SYNCER_ID]]"
+  CUSTOM_IMAGE_BUILDER: "[[ORGANIZATION_ID]]/[[CUSTOM_IMAGE_BUILDER_ID]]"
 
 # Top-level permissions follow the principle of least privilege. Job-level permissions grant only what's needed.
 permissions: {}
@@ -230,7 +230,7 @@ jobs:
       # Authenticate to Chainguard using assumable identity
       - uses: chainguard-dev/setup-chainctl@8d93dcbef466d3cf3533f67084f52eb74ef9d262 # v0.2.4
         with:
-          identity: "<chainguard-org-id>/<chainguard-identity-id>"
+          identity: "[[ORGANIZATION_ID]]/[[IDENTITY_ID]]"
 
       - name: 'Auth to Registry'
         run: |
@@ -274,7 +274,7 @@ jobs:
         continue-on-error: false
         run: |
           chainctl images repos build apply -f ca-images-iac/custom-jre.yaml \
-            --parent <chainguard-org> --repo <image-name> --yes
+            --parent [[ORGANIZATION]] --repo [[IMAGE_NAME]] --yes
 ```
 
 #### Extending the workflow with GitHub API access
@@ -287,7 +287,7 @@ Rather than storing a long-lived Personal Access Token, add an [Octo STS](https:
       - uses: octo-sts/action@6177b4481c00308b3839969c3eca88c96a91775f # v1.0.0
         id: octo-sts
         with:
-          scope: <github-organization>/<github-repository>
+          scope: [[GITHUB_ORG]]/[[GITHUB_REPO]]
           identity: build
 ```
 
@@ -301,11 +301,11 @@ Before deploying your CI/CD workflow to production, test it thoroughly to ensure
 
 Before using the GitHub action in this guide, make sure to update the placeholders:
 
-* `<chainguard-org-id>/<chainguard-identity-id>`: The full ID of the identity you created in Step 1
-* `CUSTOM_IMAGE: "cgr.dev/<chainguard-org>/<image-name>"`: Your image registry path
-* `IMAGE_SYNCER: "<chainguard-org-id>/<image-syncer-id>"`: Your `image-syncer` identity
-* `CUSTOM_IMAGE_BUILDER: "<chainguard-org-id>/<custom-image-builder-id>"`: Your `custom-image-builder` identity
-* `--parent <chainguard-org> --repo <image-name>`: Your Chainguard organization and image repository names
+* `[[ORGANIZATION_ID]]/[[IDENTITY_ID]]`: The full ID of the identity you created in Step 1
+* `CUSTOM_IMAGE: "cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]"`: Your image registry path
+* `IMAGE_SYNCER: "[[ORGANIZATION_ID]]/[[IMAGE_SYNCER_ID]]"`: Your `image-syncer` identity
+* `CUSTOM_IMAGE_BUILDER: "[[ORGANIZATION_ID]]/[[CUSTOM_IMAGE_BUILDER_ID]]"`: Your `custom-image-builder` identity
+* `--parent [[ORGANIZATION]] --repo [[IMAGE_NAME]]`: Your Chainguard organization and image repository names
 * `ca-images-iac/custom-jre.yaml`: The directory in your GitHub repository that holds the apko overlay files, and the overlay file name
 
 {{< note >}}

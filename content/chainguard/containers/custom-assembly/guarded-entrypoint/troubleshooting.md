@@ -23,16 +23,16 @@ This page covers two kinds of problems. A container that is built with [Guarded 
 
 When a wrapped container fails to start, set the `GUARDED_DISABLE` environment variable on the container and redeploy. The wrapper then starts the image's original entrypoint and arguments without doing anything else. You don't need to rebuild the image.
 
-With Kubernetes, set the variable on the deployment:
+With Kubernetes, set the variable on the deployment, replacing `[[DEPLOYMENT]]` with the deployment's name:
 
 ```shell
-kubectl set env deployment/$DEPLOYMENT GUARDED_DISABLE=1
+kubectl set env deployment/[[DEPLOYMENT]] GUARDED_DISABLE=1
 ```
 
-With Docker, pass it to `docker run`:
+With Docker, pass it to `docker run`, replacing `[[ORGANIZATION]]` and `[[REPO]]` with your organization's and repo's names:
 
 ```shell
-docker run -e GUARDED_DISABLE=1 cgr.dev/$ORGANIZATION/$REPO:latest
+docker run -e GUARDED_DISABLE=1 cgr.dev/[[ORGANIZATION]]/[[REPO]]:latest
 ```
 
 `GUARDED_DISABLE` counts as set unless its value, lowercased and trimmed, is empty, `0`, `false`, `no`, or `off`. A value of `1` or `true` turns the wrapper off. A value of `0` or `false` leaves it on. The wrapper checks `GUARDED_DISABLE` before it reads any other setting. This means that a malformed setting in the image doesn't stop it from working.
@@ -55,16 +55,16 @@ Anyone who can set environment variables on a container can set `GUARDED_DISABLE
 
 ## Find out why the container stopped
 
-Start with the container's exit code. For a Kubernetes pod, `kubectl describe pod` shows it under `Last State`. For Docker, run the following command:
+Start with the container's exit code. For a Kubernetes pod, `kubectl describe pod` shows it under `Last State`. For Docker, run the following command, replacing `[[CONTAINER]]` with the container's name or ID:
 
 ```shell
-docker inspect --format '{{.State.ExitCode}}' $CONTAINER
+docker inspect --format '{{.State.ExitCode}}' [[CONTAINER]]
 ```
 
-Then read the container's logs. The wrapper writes JSON messages to standard error, one object per line, and each message names the setting or variable that failed. It never logs a secret value:
+Then read the container's logs. The wrapper writes JSON messages to standard error, one object per line, and each message names the setting or variable that failed. It never logs a secret value. Replace `[[POD]]` with the pod's name:
 
 ```shell
-kubectl logs $POD
+kubectl logs [[POD]]
 ```
 
 For a pod in a restart loop, add `--previous` to read the logs of the container that stopped.
@@ -126,10 +126,10 @@ When Chainguard can't wrap an image, the rebuild of that image fails. Chainguard
 To find the failure, list the repo's builds:
 
 ```shell
-chainctl images repos build list --repo $REPO --parent $ORGANIZATION
+chainctl images repos build list --repo [[REPO]] --parent [[ORGANIZATION]]
 ```
 
-The `Result` column shows the failure, and the `Reason` column shows why. Chainguard fills the `Reason` column only for failures that it records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo $REPO --parent $ORGANIZATION` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
+The `Result` column shows the failure, and the `Reason` column shows why. Chainguard fills the `Reason` column only for failures that it records outside a build, such as these refusals and binding conflicts. It is empty for an ordinary build failure. The failed build has no tags in the `Tags` column. For the full text, run `chainctl images repos build logs --repo [[REPO]] --parent [[ORGANIZATION]]` and select the failed build. Without a terminal, for example in a pipeline, pass `--build-id` with the build's ID. The output has this form:
 
 ```output
 guarded entrypoint refused for tags [latest] (digest sha256:...): the environment sets GUARDED_DISABLE; the tags are not rebuilt and are dropped from the repo's active tag list until the refusal is resolved

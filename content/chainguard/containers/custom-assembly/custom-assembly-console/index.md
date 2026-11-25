@@ -48,7 +48,7 @@ After selecting one of these options, click the **Preview changes** button to vi
 
 If you'd like to make further changes, click the **Back** button to return to the package selection.
 
-If you're satisfied with the selection of packages, click the **Apply changes** button to build the new customized image. If you opted to create a new image, this button instead says **Create $IMAGE_NAME**. A confirmation message at the top of the Customize Container display tells you that the image was successfully customized.
+If you're satisfied with the selection of packages, click the **Apply changes** button to build the new customized image. If you opted to create a new image, this button instead says **Create [[IMAGE_NAME]]**. A confirmation message at the top of the Customize Container display tells you that the image was successfully customized.
 
 If a build fails, you'll need to make the appropriate changes before attempting another build. You can check the build's logs for information about what went wrong and what to fix.
 

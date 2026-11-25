@@ -21,11 +21,11 @@ This page has five example manifests for [Guarded Entrypoint](/chainguard/contai
 
 Applying a manifest replaces the repo's stored configuration. If your repo already has other customizations, such as packages, add the Guarded Entrypoint keys to your existing manifest instead of replacing it.
 
-The examples use the following variables:
+The examples use the following variables. Replace `[[REPO_NAME]]` and `[[ORGANIZATION_NAME]]` with your repo's and organization's names:
 
 ```shell
-export REPO=my-custom-app
-export ORGANIZATION=example.com
+export REPO=[[REPO_NAME]]
+export ORGANIZATION=[[ORGANIZATION_NAME]]
 ```
 
 To try an example, save it as `build.yaml`. Preview the change, then apply it:

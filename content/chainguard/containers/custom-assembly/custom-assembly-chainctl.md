@@ -35,10 +35,10 @@ For a shorter, task-first version of these procedures, along with how to find a 
 To edit one of your organization's Custom Assembly container images, you can run the `chainctl images repos build edit` command:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER
+chainctl images repos build edit --repo [[CONTAINER]]
 ```
 
-This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
+This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=[[ORGANIZATION]]` to skip that prompt.
 
 This command will open up a file with your machine's default text editor. This file will contain a structure like the following:
 
@@ -62,7 +62,7 @@ Before applying the change, `chainctl` will outline the changes you made and pro
 -  - wget
 +  - bash
 
-Applying build config to $CONTAINER
+Applying build config to [[CONTAINER]]
 Are you sure?
 Do you want to continue? [y,N]:
 ```
@@ -88,7 +88,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --repo [[CONTAINER]] --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
@@ -118,13 +118,13 @@ This approach is useful in cases where you would prefer to avoid any kind of int
 To see what a configuration file would change without changing anything, replace `--yes` with `--dry-run`. The command prints the same diff and then exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline:
 
 ```shell
-chainctl images repos build apply -f build.yaml --repo $CONTAINER --dry-run
+chainctl images repos build apply -f build.yaml --repo [[CONTAINER]] --dry-run
 ```
 
 The `edit` subcommand also accepts a configuration file through its own `-f` argument. Passing a file to `edit` skips the text editor but still prompts you to confirm the diff:
 
 ```shell
-chainctl images repos build edit -f build.yaml --repo $CONTAINER
+chainctl images repos build edit -f build.yaml --repo [[CONTAINER]]
 ```
 
 ### Using the `--save-as` option
@@ -135,10 +135,10 @@ For example, say your organization has access to Chainguard's [`node` container 
 
 By creating a new image with Custom Assembly, you can customize the image without impacting any of the users or workflows already consuming it. You could also create multiple customized images based on the `node` container image to support specific functions.
 
-To use `chainctl` to create new customized container images with Custom Assembly, you must include the `--save-as` option, like this:
+To use `chainctl` to create new customized container images with Custom Assembly, you must include the `--save-as` option, like this, replacing `[[NEW_NAME]]` with a name for the new image:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER --save-as $NEW_NAME
+chainctl images repos build edit --repo [[CONTAINER]] --save-as [[NEW_NAME]]
 ```
 
 The following example command creates a new image named `custom-node` after applying the customizations:
@@ -172,7 +172,7 @@ Chainguard's container images include metadata in the form of *annotations*. The
 With Custom Assembly, you can add custom annotations to your Chainguard Containers using `chainctl`. The process is the same as the one outlined previously for adding packages. First run a command like the following:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER
+chainctl images repos build edit --repo [[CONTAINER]]
 ```
 
 In the text editor, add an `annotations` section to the bottom of the file like the following example:
@@ -202,7 +202,7 @@ Chainguard's container images often come with a set of predefined environment va
 You can follow the same procedure for adding custom annotations to add custom environment variables to your Custom Assembly container images. Start by running a `chainctl images repos build edit` command:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER
+chainctl images repos build edit --repo [[CONTAINER]]
 ```
 
 In the text editor, add an `environment` section like the following example:
@@ -237,7 +237,7 @@ Custom Assembly lets you replace the default APK repository URLs written to `/et
 To add custom runtime repositories, use `chainctl images repos build edit` as with other customizations:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER
+chainctl images repos build edit --repo [[CONTAINER]]
 ```
 
 In the text editor, add a `runtime_repositories` field under `contents`:
@@ -276,7 +276,7 @@ EOF
 ```
 
 ```shell
-chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
+chainctl images repos build apply -f build.yaml --repo [[CONTAINER]] --yes
 ```
 
 To remove custom runtime repositories and revert to the default `virtualapk.cgr.dev` URLs, edit the configuration and remove the `runtime_repositories` field entirely.
@@ -302,10 +302,10 @@ Custom Assembly images trust only Chainguard's APK signing key by default. If yo
 To add a runtime key, pass the public key file to the `--with-runtime-keys` option:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER --with-runtime-keys=key-ee8fa0a3.rsa.pub
+chainctl images repos build edit --repo [[CONTAINER]] --with-runtime-keys=key-ee8fa0a3.rsa.pub
 ```
 
-Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.<name>`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
+Each file becomes a key in `/etc/apk/keys` named after the file's basename. The name must match the filename referenced by your repository's APKINDEX signature (`.SIGN.RSA256.[[NAME]]`), because `apk` looks up the key by that name during verification. `chainctl` uses filenames verbatim and returns an error if two files share the same basename.
 
 You can also define runtime keys in the editor or in a YAML manifest by adding a `runtime_keyring` field under `contents`. Each entry has a `name` and the key's PEM `content`:
 
@@ -324,7 +324,7 @@ contents:
         -----END PUBLIC KEY-----
 ```
 
-Apply the manifest with the `apply` subcommand as with other customizations. In the confirmation diff, each key appears as the SHA-256 digest of its content rather than the raw PEM text. To confirm that a digest matches a local key file, run `sha256sum <keyfile>`.
+Apply the manifest with the `apply` subcommand as with other customizations. In the confirmation diff, each key appears as the SHA-256 digest of its content rather than the raw PEM text. To confirm that a digest matches a local key file, run `sha256sum [[KEYFILE]]`.
 
 When you run the `edit` subcommand, the editor buffer includes any existing runtime keys. Keep the `runtime_keyring` section to preserve the keys, edit an entry to replace a key, or delete the field to remove all custom keys from the image.
 
@@ -343,7 +343,7 @@ Runtime keys are validated when the configuration is applied. The following rule
 You can also use the `list` subcommand to retrieve every one of a customized image's builds from the past 24 hours:
 
 ```shell
-chainctl images repos build list --repo $REPO
+chainctl images repos build list --repo [[CONTAINER]]
 ```
 
 This command is useful for quickly determining which builds were successful or failed:
@@ -361,7 +361,7 @@ This command is useful for quickly determining which builds were successful or f
 Lastly, you can also retrieve the logs for a given build with the `logs` subcommand:
 
 ```shell
-chainctl images repos build logs --repo $REPO
+chainctl images repos build logs --repo [[CONTAINER]]
 ```
 
 This command will prompt you to select the build report you want to view. These are organized in reverse chronological order by the time of each build:
