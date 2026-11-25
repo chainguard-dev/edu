@@ -65,7 +65,7 @@ https://apk.cgr.dev/chainguard
 Users that aren't Chainguard customers can use this URL to add packages from the Wolfi repository. Chainguard customers can access it with a URL that's unique to their organization:
 
 ```url
-https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard
+https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard
 ```
 
 If you need packages outside Wolfi's open source scope, or under less permissive licenses, Chainguard offers a supplemental Packages repository
@@ -81,23 +81,23 @@ The Extra Packages repository isn't specified in the `/etc/apk/repositories` fil
 Like the Wolfi repository, customers can access it with a URL that's unique to their organization:
 
 ```url
-https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages
+https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages
 ```
 
 ### Working with public repositories
 
 As mentioned previously, both the Wolfi and Extra Packages repositories are public and don't require authentication. Chainguard customers can access both with a URL that's unique to their organization:
 
-* Wolfi: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/chainguard`
-* Extra: `https://virtualapk.cgr.dev/$ORGANIZATION_ID/extra-packages`
+* Wolfi: `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard`
+* Extra: `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages`
 
-You must replace `$ORGANIZATION_ID` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/platform/chainctl-usage/how-to-install-chainctl/):
+You must replace `[[ORGANIZATION_ID]]` with your organization's unique identifier (UID). You can find this with `chainctl` if [you've installed it](/platform/chainctl-usage/how-to-install-chainctl/):
 
 ```shell
 chainctl iam orgs ls -o table
 ```
 
-You must replace `$ORGANIZATION_ID` with your organization's `ID` value, not its name:
+You must replace `[[ORGANIZATION_ID]]` with your organization's `ID` value, not its name:
 
 ```output
                     ID                    |      NAME       |          DESCRIPTION
@@ -140,7 +140,7 @@ The list of packages available in a given organization’s private repository is
 Chainguard's private APK repositories have URLs that follow this form:
 
 ```url
-https://apk.cgr.dev/$ORGANIZATION_ID
+https://apk.cgr.dev/[[ORGANIZATION_ID]]
 ```
 
 Because Chainguard's private APK repos are only accessible to members of a specific organization, you must authenticate in order to access them. Refer to our overview of [Chainguard's private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) for more information. Additionally, note that if you customize a Chainguard Container using the [Custom Assembly tool](/chainguard/containers/custom-assembly/overview/), the list of packages available for you to add to your container image is taken from your organization's private APK repository.

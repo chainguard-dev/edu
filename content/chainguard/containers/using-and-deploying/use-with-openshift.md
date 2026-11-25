@@ -57,7 +57,7 @@ Here's a sample Dockerfile covering this process.
 # Change this to reference the image you want to pull and
 # if needed, to use the location of your custom image repo
 
-FROM cgr.dev/$ORGANIZATION/aspnet-runtime:9-dev
+FROM cgr.dev/[[ORGANIZATION]]/aspnet-runtime:9-dev
 
 USER 0
 

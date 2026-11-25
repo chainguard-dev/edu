@@ -115,7 +115,7 @@ Recall from the Prerequisites section that this guide assumes you have a Docker 
 Create an environment variable to hold your Docker Hub namespace:
 
 ```shell
-export NAMESPACE=<your-dockerhub-name>
+export NAMESPACE=[[DOCKER_HUB_USERNAME]]
 ```
 
 > **Note**: If you aren't using Docker Hub as your container registry, you will need to include the host name of your registry in this variable. Docker defaults to Docker Hub (`docker.io`) if this is omitted.

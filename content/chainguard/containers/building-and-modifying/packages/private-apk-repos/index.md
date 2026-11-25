@@ -83,7 +83,7 @@ In this command and throughout the rest of this guide, be sure to change `$ORGAN
 Also, you can initialize these placeholder values by setting them as environment variables as in the following examples. This will make it easier to follow along:
 
 ```shell
-ORGANIZATION="chainguard.edu"
+ORGANIZATION="[[ORGANIZATION_NAME]]"
 IMAGE="chainguard-base"
 ```
 
@@ -337,8 +337,8 @@ chainctl auth pull-token --repository=apk --output=env
 ```
 
 ```output
-export CHAINGUARD_IDENTITY_ID=<identity-id>
-export CHAINGUARD_TOKEN=<pull-token>
+export CHAINGUARD_IDENTITY_ID=[[IDENTITY_ID]]
+export CHAINGUARD_TOKEN=[[PULL_TOKEN]]
 ```
 
 * `--repository=apk`: create a role binding to bind the pull token identity the
@@ -358,7 +358,7 @@ for other plans.
 
 Each invocation of the command creates a new identity with access rights as a
 pull token. `chainctl` uses your organization automatically when you belong to
-only one; if you have access to more than one, add `--parent=ORGANIZATION`.
+only one; if you have access to more than one, add `--parent=$ORGANIZATION`.
 
 Combine the call with `eval` to populate the environment variables directly by
 calling `chainctl`. The following example uses the default TTL value of 30 days,

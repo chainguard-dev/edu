@@ -99,7 +99,7 @@ With that, you're ready to install Cilium.
 We will use the Cilium CLI to install Cilium. In order to use Chainguard Containers, we must first set the following values:
 
 ```sh
-export ORGANIZATION=<your-Chainguard-organization>
+export ORGANIZATION=[[ORGANIZATION_NAME]]
 export AGENT_IMAGE=cgr.dev/$ORGANIZATION/cilium-agent:latest
 export HUBBLE_RELAY_IMAGE=cgr.dev/$ORGANIZATION/cilium-hubble-relay:latest
 export HUBBLE_UI_IMAGE=cgr.dev/$ORGANIZATION/cilium-hubble-ui:latest
