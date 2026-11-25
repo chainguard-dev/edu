@@ -47,6 +47,7 @@ This enables you to create identities that can only be assumed by specific autom
 * [Bitbucket](/platform/administration/assumable-ids/identity-examples/bitbucket-identity/)
 * [Azure](/platform/administration/assumable-ids/identity-examples/azure-identity/)
 * [Kubernetes](/platform/administration/assumable-ids/identity-examples/kubernetes-identity/)
+* [HCP Terraform](/platform/administration/assumable-ids/identity-examples/hcp-terraform-identity/)
 * [Keycloak](/platform/administration/assumable-ids/identity-examples/keycloak-identity/)
 
 A notable difference between registered users and identities in Chainguard's IAM model is that identities are tied to a specific [IAM organization](/platform/administration/iam-organizations/overview-of-chainguard-iam-model/). When you create an identity, you must specify a Chainguard organization under which the identity will be created.
