@@ -4,7 +4,7 @@ linktitle: "Java overview"
 description: "Learn about Chainguard Libraries for Java, providing enhanced security for Maven dependencies through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-19T18:33:27+00:00
+lastmod: 2026-11-25T09:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Java", "Overview"]
 menu:
@@ -276,6 +276,12 @@ For Java, Chainguard's scanning inspects compiled `.class` files, package metada
 
 When the upstream fallback is enabled, [build pinning](/chainguard/libraries/policies-and-security/build-pinning/) keeps a version you pulled from an upstream repository stable after Chainguard publishes its own build. This prevents unexpected checksum mismatches across rebuilds.
 
+The `https://libraries.cgr.dev/java/` URL is your organization's default
+repository. To use a different upstream fallback setting or policy for some
+builds, such as a CI repository that serves only Chainguard-built artifacts,
+you can create a named repository with its own URLs. Repositories are in beta.
+Refer to [Repositories](/chainguard/libraries/repositories/overview/).
+
 ### Upstream repositories used for fallback
 
 When the upstream fallback is enabled, the Chainguard Repository can serve
@@ -296,8 +302,10 @@ build tools and repository manager only need to reach
 `https://libraries.cgr.dev/java/`; they do not need network access to the
 repositories listed above.
 
-You cannot select individual upstream repositories. The upstream fallback is
-enabled or disabled for all of the listed repositories together.
+In the default repository, you can't select individual upstream repositories.
+The upstream fallback is enabled or disabled for all of the listed repositories
+together. In a named repository, you can enable, disable, and reorder each one.
+Refer to [Repositories](/chainguard/libraries/repositories/overview/#java-upstream-registries).
 
 > **Note:** This list covers the repositories used for upstream fallback. It is
 > separate from the repositories Chainguard uses as sources when building
