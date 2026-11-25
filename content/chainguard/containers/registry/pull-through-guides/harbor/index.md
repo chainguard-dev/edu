@@ -48,7 +48,7 @@ This returns username and password credentials:
 ```Output
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
 Take note of these values, as you'll need them shortly.
@@ -88,10 +88,10 @@ To configure a cache, perform the following steps in the Harbor UI:
 Following that, you can pull images from the Harbor project like so:
 
 ```shell
-docker pull $HARBOR_URL/cgr-proxy/$ORGANIZATION/$IMAGE:$TAG
+docker pull [[HARBOR_URL]]/cgr-proxy/[[ORGANIZATION]]/[[IMAGE]]:[[TAG]]
 ```
 
-Be sure to replace the placeholder values (`$HARBOR_URL`, `$ORGANIZATION`, `$IMAGE`, and `$TAG`) to reflect your own setup.
+Be sure to replace the placeholder values (`[[HARBOR_URL]]`, `[[ORGANIZATION]]`, `[[IMAGE]]`, and `[[TAG]]`) to reflect your own setup.
 
 ## Create a replication rule
 
@@ -116,7 +116,7 @@ Then, perform the following steps to create a new replication rule:
     * **Name** — This can be whatever you like. This guide uses the name  `cgr-mirror`.
     * **Replication mode** — Must be `Pull-based`.
     * **Source registry** — Specify the `cgr.dev` endpoint.
-    * **Source resource filter > Name** — (Optional) You can ensure you only select images in your organization by setting this to `<org-name>/*`.
+    * **Source resource filter > Name** — (Optional) You can ensure you only select images in your organization by setting this to `[[ORGANIZATION]]/*`.
     * **Destination > Namespace** — This should be the project you created before.
     * **Destination > Flattening** — Set to `Flatten All Levels`. This removes the organization name from the path.
     * **Trigger Mode** — Set to `Scheduled` to run the replication regularly or `Manual` to trigger on an ad hoc basis.
@@ -129,7 +129,7 @@ To trigger the replication manually, select the `cgr-mirror` rule in the table a
 You should be able to pull images from the project like this:
 
 ```shell
-docker pull $HARBOR_URL/cgr-mirror/$IMAGE:$TAG
+docker pull [[HARBOR_URL]]/cgr-mirror/[[IMAGE]]:[[TAG]]
 ```
 
 Again, be sure to replace this command's placeholder values as necessary.

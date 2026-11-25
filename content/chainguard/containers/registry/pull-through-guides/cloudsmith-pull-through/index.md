@@ -68,10 +68,10 @@ This command will prompt you to enter your Cloudsmith username and password. You
 After running the command, you will be able to pull a Free container through your new Cloudsmith repository. The following example pulls the `nginx` container image:
 
 ```sh
-docker pull docker.cloudsmith.io/<cloudsmith-organization>/<cloudsmith-repository>/nginx:latest
+docker pull docker.cloudsmith.io/[[CLOUDSMITH_ORGANIZATION]]/[[CLOUDSMITH_REPOSITORY]]/nginx:latest
 ```
 
-Be sure to replace `<cloudsmith-organization>` and `<cloudsmith-repository>` with the names of your Cloudsmith organization and repository, respectively.
+Be sure to replace `[[CLOUDSMITH_ORGANIZATION]]` and `[[CLOUDSMITH_REPOSITORY]]` with the names of your Cloudsmith organization and repository, respectively.
 
 If everything worked correctly, the image appears in your repository.
 
@@ -122,10 +122,10 @@ docker login docker.cloudsmith.io
 After running the command, you will be able to pull any Production containers that your organization has access to through Cloudsmith. To do so, you would run a command with syntax like the following:
 
 ```sh
-docker pull docker.cloudsmith.io/<cloudsmith-organization>/<cloudsmith-repository>/<chainguard-registry>/IMAGE
+docker pull docker.cloudsmith.io/[[CLOUDSMITH_ORGANIZATION]]/[[CLOUDSMITH_REPOSITORY]]/[[CHAINGUARD_REGISTRY]]/IMAGE
 ```
 
-As with the `docker pull` command used in the previous section, you will need to change the `<cloudsmith-organization>` and `<cloudsmith-repository>` values to reflect your own Cloudsmith setup. Additionally, be sure to change `<chainguard-registry>` to the name of your organization's Chainguard registry.
+As with the `docker pull` command used in the previous section, you will need to change the `[[CLOUDSMITH_ORGANIZATION]]` and `[[CLOUDSMITH_REPOSITORY]]` values to reflect your own Cloudsmith setup. Additionally, be sure to change `[[CHAINGUARD_REGISTRY]]` to the name of your organization's Chainguard registry.
 
 As an example, the following command will pull the `python:3.9-dev` image from a Chainguard registry named `chainguard.edu` and through a Cloudsmith repository named `chainguard-private` owned by a Cloudsmith organization named `chainguard-example`:
 
@@ -143,7 +143,7 @@ If you run into issues when trying to pull Containers from Chainguard's registry
 
 * Ensure that all Containers [network requirements](/chainguard/containers/registry/network-requirements/) are met.
 * When configuring a remote Cloudsmith repository, ensure that the **URL** field is set correctly. For Free container images, this should be `https://cgr.dev/chainguard`; for Production containers this should be `https://cgr.dev/`. This field **must not** contain any additional components.
-* You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
+* You can troubleshoot by running `docker login` from another node (using the Cloudsmith pull token credentials) and try pulling an image from `cgr.dev/chainguard/[[IMAGE_NAME]]` or `cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]`, using your own organization's registry name in place of `[[ORGANIZATION]]`.
 * It could be that your Cloudsmith repository was misconfigured. In this case, create and configure a new Cloudsmith repository to test with.
 
 ## Learn more

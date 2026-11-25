@@ -45,10 +45,10 @@ Before you start, [sign up for a Chainguard account](#signing-up) and [install `
     chainctl iam organizations list
     ```
 
-3. Pull an image, replacing `$ORGANIZATION` with the name from the previous step:
+3. Pull an image, replacing `[[ORGANIZATION]]` with the name from the previous step:
 
     ```sh
-    docker pull cgr.dev/$ORGANIZATION/python:latest
+    docker pull cgr.dev/[[ORGANIZATION]]/python:latest
     ```
 
 To see which repositories your organization can pull, run `chainctl images repos list`. To browse the full catalog, visit the [Chainguard Containers Directory](https://images.chainguard.dev/). Your organization's registry holds a subset of what the Directory lists, so browsing a container there doesn't mean you can pull it; refer to [Onboard your teams](/get-started/onboard-your-teams/#what-your-organization-can-pull) for how your subscription determines what's available.
@@ -112,8 +112,8 @@ The `docker login` command that `chainctl auth configure-docker --pull-token` pr
 
 ```sh
 docker login "cgr.dev" \
-  --username "<identity-id>" \
-  --password "<pull-token>"
+  --username "[[IDENTITY_ID]]" \
+  --password "[[PULL_TOKEN]]"
 ```
 
 Save that pair and pass it to any tool that logs in to an OCI registry. For example, Podman:
@@ -146,14 +146,14 @@ Pull tokens are associated with Chainguard identities so they can be viewed with
 chainctl iam identities list
 ```
 
-To revoke a token, delete the associated identity.
+To revoke a token, delete the associated identity, replacing `[[IDENTITY_ID]]` with its ID from the list:
 
 ```sh
-chainctl iam identity delete <identity UUID>
+chainctl iam identity delete [[IDENTITY_ID]]
 ```
 
 {{< note >}}
-On [Chainguard Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+On [Chainguard Starter](/chainguard/containers/reference/catalog-starter/), this command fails, and the **Delete** action on the Console's **Access Tokens** page is unavailable. The `limited_owner` role assigned to Starter users can't delete identities. Delete the token's role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete [[ROLE_BINDING_ID]]`. This removes the token's access, although the identity itself remains in the list.
 {{< /note >}}
 
 An expired pull token stops working, but its identity stays in your organization until you delete it. `chainctl iam identities list` leaves expired identities out, so add `--expired` to list only those:
@@ -165,7 +165,7 @@ chainctl iam identities list --expired
 To delete every expired static identity in your organization at once, including expired pull tokens, run:
 
 ```sh
-chainctl iam identities delete --expired --parent=<organization>
+chainctl iam identities delete --expired --parent=[[ORGANIZATION]]
 ```
 
 On Starter, this command fails for the same reason as a single delete.
@@ -193,11 +193,11 @@ You can configure authentication with OIDC-aware CI platforms like GitHub Action
 This approach requires an assumable identity, which [Chainguard Starter](/chainguard/containers/reference/catalog-starter/) organizations can't create. On Starter, authenticate your pipelines with a pull token instead. Refer to [Authenticate CI pipelines with a pull token](/chainguard/containers/reference/catalog-starter/#authenticate-ci-pipelines-with-a-pull-token).
 {{< /note >}}
 
-First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs:
+First create an identity using `chainctl`, which can be limited to only allow OIDC federation from certain GitHub workflow runs. Replace `[[IDENTITY_NAME]]` with a name for the identity, `[[GITHUB_ORG]]` and `[[GITHUB_REPO]]` with the repository's owner and name, and `[[GITHUB_OWNER_ID]]` and `[[GITHUB_REPO_ID]]` with their numeric IDs:
 
 ```sh
-chainctl iam identity create github [GITHUB-IDENTITY] \
-  --github-repo=${GITHUB_ORG}@${GITHUB_OWNER_ID}/${GITHUB_REPO}@${GITHUB_REPO_ID} \
+chainctl iam identity create github [[IDENTITY_NAME]] \
+  --github-repo=[[GITHUB_ORG]]@[[GITHUB_OWNER_ID]]/[[GITHUB_REPO]]@[[GITHUB_REPO_ID]] \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```
@@ -369,11 +369,11 @@ When you create a pull token with `--save`, your Docker config file is updated t
 
 Create the pull token with `--save` before you build the secret. If you set up `chainctl auth configure-docker` without a pull token, your Docker config has no credentials for `cgr.dev`, only an entry naming the `chainctl` credential helper. The kubelet can't run a credential helper, so a secret built from that file pulls without credentials. `--save` writes the token into the file and turns off the credential helper for `cgr.dev`.
 
-After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials):
+After that, you can create a Kubernetes secret based on those credentials, following [these instructions](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#registry-secret-existing-credentials), replacing `[[DOCKER_CONFIG_PATH]]` with the path to your Docker config file:
 
 ```sh
 kubectl create secret generic regcred \
- --from-file=.dockerconfigjson=<path/to/.docker/config.json> \
+ --from-file=.dockerconfigjson=[[DOCKER_CONFIG_PATH]] \
  --type=kubernetes.io/dockerconfigjson
 ```
 

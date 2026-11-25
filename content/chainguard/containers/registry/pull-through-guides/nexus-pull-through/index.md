@@ -53,10 +53,10 @@ Your Nexus URL is the hostname of the Nexus server AND the port number you chose
 
 ### Testing pull through of a free container
 
-If your setup requires authentication, log in with a valid Nexus username and password:
+If your setup requires authentication, log in with a valid Nexus username and password, replacing `[[USERNAME]]` with your Nexus username:
 
 ```sh
-docker login -u<user> <Nexus URL>
+docker login -u[[USERNAME]] [[NEXUS_URL]]
 ```
 
 After running this command, you'll be prompted to enter a password.
@@ -64,7 +64,7 @@ After running this command, you'll be prompted to enter a password.
 After running the `docker login` command, you will be able to pull a Free container image through Nexus. The following example pulls the `wolfi-base` container image:
 
 ```sh
-docker pull <Nexus URL>/chainguard/wolfi-base
+docker pull [[NEXUS_URL]]/chainguard/wolfi-base
 ```
 
 Be sure the `docker pull` command contains the correct Nexus URL for your repository.
@@ -90,15 +90,15 @@ Click the **Save** button to apply the changes.
 If your setup requires authentication, log in with a valid Nexus username and password:
 
 ```sh
-docker login -u<user> <Nexus URL>
+docker login -u[[USERNAME]] [[NEXUS_URL]]
 ```
 
 After running this command, you'll be prompted to enter a password.
 
-After running the `docker login` command, you will be able to pull a Production containers through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` container image:
+After running the `docker login` command, you will be able to pull a Production containers through Nexus. If your organization has access to it, the following example will pull the `chainguard-base` container image, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```sh
-docker pull <Nexus URL>/<company domain>/chainguard-base
+docker pull [[NEXUS_URL]]/[[ORGANIZATION]]/chainguard-base
 ```
 
 Be sure the `docker pull` command you run includes the name of your organization's registry.
@@ -109,7 +109,7 @@ If you run into issues when trying to pull Containers from Chainguard's Registry
 
 * Ensure that all Containers [network requirements](/chainguard/containers/registry/network-requirements/) are met.
 * When configuring a remote Nexus repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components.
-* You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/<image name>` or `cgr.dev/<example.com>/<image name>`, using your own organization's registry name in place of `<example.com>`.
+* You can troubleshoot by running `docker login` from another node (using the Nexus pull token credentials) and try pulling a container image from `cgr.dev/chainguard/[[IMAGE_NAME]]` or `cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]`, using your own organization's registry name in place of `[[ORGANIZATION]]`.
 * It could be that your Nexus repository was misconfigured. In this case, create and configure a new Nexus repository to test with.
 
 ## Learn more

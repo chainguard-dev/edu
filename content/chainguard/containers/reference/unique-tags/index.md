@@ -51,7 +51,7 @@ After signing in to the Chainguard Console, select **Images** in the left-hand n
 
 Select any image to open its **Tags** tab. The **Tag** column lists the Unique Tags available for that image. These tags include a timestamp in the format `YYYYMMDDHHMM`, and may include a prefix to help identify and parse the tag name programmatically.
 
-For example, a container image version might have a tag similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/$ORGANIZATION/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL always refers to the same container image.
+For example, a container image version might have a tag similar to `:openjdk-17-202412120223`. This means that this particular version of the container image was last updated on December 12, 2024, at 2:23 AM. You can use this version's **Pull URL** (`cgr.dev/[[ORGANIZATION]]/jdk-fips:openjdk-17-202412120223`) to download this container image, and you can be confident that this Pull URL always refers to the same container image.
 
 ## Unique vs immutable tags: are unique tags right for me?
 
