@@ -4,7 +4,7 @@ linktitle: "Python overview"
 description: "Learn about Chainguard Libraries for Python, providing enhanced security for PyPI packages through automated vulnerability patching and supply chain protection"
 type: "article"
 date: 2025-04-09T04:00:00+00:00
-lastmod: 2026-11-11T17:15:41+00:00
+lastmod: 2026-11-25T18:05:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Python", "Overview"]
 menu:
@@ -25,12 +25,10 @@ security risk by remediating High and Critical vulnerabilities across older
 package versions where upstream maintainers are not able to prioritize fixes.
 
 Chainguard Libraries for Python enables access to a growing collection of Python
-packages rebuilt from source. New releases of common libraries or artifacts
-requested by customers are added to the index by an automated system. Any
-request for a library or library version missing in Chainguard Libraries
-automatically triggers a process to provision the artifacts from relevant
-sources if available. In combination with third-party software repository
-managers, you can use Chainguard Libraries for Python as a secure source of
+packages rebuilt from source. New releases of common libraries are added
+automatically, and Chainguard prioritizes what to build and remediate based on
+the packages customers pull. In combination with third-party software
+repository managers, you can use Chainguard Libraries for Python as a secure source of
 truth for your development process.
 
 ## Technical details
@@ -99,9 +97,8 @@ takes precedence over versions without the version suffix during dependency
 resolution.
 
 For example, the `flask` library has a fix for CVE-2023-30861 available in the
-upstream codebase. Upon customer request for a specific version, the fix is
-backported to the flask versions `1.1.2` and `2.0.0` and made available in new
-versions `1.1.2+cgr.1` and `2.0.0+cgr.1`. Python package management tools
+upstream codebase. The fix is backported to the flask versions `1.1.2` and
+`2.0.0` and made available in new versions `1.1.2+cgr.1` and `2.0.0+cgr.1`. Python package management tools
 consider these local versions, such as `1.1.2+cgr.1` and `2.0.0+cgr.1`, as
 newer, compatible replacements automatically.
 
