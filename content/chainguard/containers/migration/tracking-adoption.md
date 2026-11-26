@@ -24,11 +24,11 @@ Identifying the images that aren't Chainguard images matters as much, because th
 
 ### Image reference
 
-The simplest signal is the image reference itself. An image pulled from `cgr.dev/$ORGANIZATION`, or from your [pull-through cache or mirror](/chainguard/containers/registry/pull-through-guides/) of it, is a Chainguard image.
+The simplest signal is the image reference itself. An image pulled from `cgr.dev/[[ORGANIZATION]]`, or from your [pull-through cache or mirror](/chainguard/containers/registry/pull-through-guides/) of it, is a Chainguard image.
 
 Image references are available almost everywhere — in manifests, in the Kubernetes API, in registry logs — so this approach is cheap to implement. It works well for application images that you run as-is, like `nginx` or `postgres`.
 
-It doesn't work for images that you build using a Chainguard image as a base. An image built `FROM cgr.dev/$ORGANIZATION/python` and pushed to your own registry has a reference like `registry.example.com/my-app`, which tells you nothing about its base image.
+It doesn't work for images that you build using a Chainguard image as a base. An image built `FROM cgr.dev/[[ORGANIZATION]]/python` and pushed to your own registry has a reference like `registry.example.com/my-app`, which tells you nothing about its base image.
 
 Image references are a better way to identify images that aren't Chainguard images. A reference to an upstream image, such as `docker.io/library/nginx` or `quay.io/prometheus/prometheus`, points to an image that isn't from Chainguard, and can help you find a Chainguard image that could replace it.
 
@@ -123,10 +123,10 @@ Because `/etc/os-release` is part of the filesystem, it is present in any image 
 
 It's equally useful for images that aren't Chainguard images, because other distributions identify themselves the same way, with values like `ID=debian`, `ID=ubuntu`, or `ID=alpine`. As well as telling you an image still needs migrating, this tells you what it's migrating from, which helps you plan the work. Refer to the [compatibility guides](/chainguard/containers/migration/compatibility/) for the differences to expect from each distribution. Images without an `/etc/os-release` file, like those built `FROM scratch`, aren't Chainguard images either, because every Chainguard image includes one.
 
-It's also the signal that vulnerability scanners use to decide which advisory data applies to an image. Most scanners and cloud-native application protection platforms (CNAPPs) report it as image metadata, so you may already be collecting it. For example, `trivy` reports it as the OS family:
+It's also the signal that vulnerability scanners use to decide which advisory data applies to an image. Most scanners and cloud-native application protection platforms (CNAPPs) report it as image metadata, so you may already be collecting it. For example, `trivy` reports it as the OS family, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-trivy image --quiet --format json cgr.dev/$ORGANIZATION/python:latest | jq '.Metadata.OS'
+trivy image --quiet --format json cgr.dev/[[ORGANIZATION]]/python:latest | jq '.Metadata.OS'
 ```
 
 For an image in your organization, the OS family is `chainguard`. For a public image in `cgr.dev/chainguard`, it's `wolfi`:
@@ -229,10 +229,10 @@ Guardener and `chainctl images discover` work on your source code. Scanners and 
 
 If your code is on GitHub, [Guardener](/chainguard/guardener/github/) scans your repositories for image references continuously, and can [suggest](/chainguard/guardener/github/image-suggestions/) or [migrate to](/chainguard/guardener/github/image-migration/) Chainguard images for the references it finds.
 
-The migration pull requests that Guardener opens give you a measure of the work left to do. You can list the open ones across your GitHub organization with the GitHub CLI:
+The migration pull requests that Guardener opens give you a measure of the work left to do. You can list the open ones across your GitHub organization with the GitHub CLI, replacing `[[GITHUB_ORG]]` with your GitHub organization's name:
 
 ```shell
-gh search prs --owner $GITHUB_ORG --author app/chainguard --state open \
+gh search prs --owner [[GITHUB_ORG]] --author app/chainguard --state open \
   --match title "Migrate container images to Chainguard equivalents" \
   --json repository,url --limit 1000
 ```
@@ -318,7 +318,7 @@ This identifies the JVM, not the image. It counts images based on Chainguard ima
 
 Admission controllers like [Kyverno](/chainguard/containers/security-and-compliance/enforcement/kyverno/), [OPA Gatekeeper](/chainguard/containers/security-and-compliance/enforcement/opa-gatekeeper/), and [Kubewarden](https://www.kubewarden.io/) are usually used to enforce policy, but in audit mode they record violations without blocking anything. A policy that requires Chainguard images, run in audit mode, gives you a list of the workloads that haven't been migrated yet. Once that list is short enough, you can switch the policy to enforce.
 
-For example, this Kyverno policy audits every container image in the cluster, and passes an image if it's signed by one of your organization's Chainguard [signing identities](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities) or by the key your build system uses to sign images it builds on Chainguard images:
+For example, this Kyverno policy audits every container image in the cluster, and passes an image if it's signed by one of your organization's Chainguard [signing identities](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities) or by the key your build system uses to sign images it builds on Chainguard images. Replace `[[IMAGE_SYNCER_ID]]` and `[[CUSTOM_IMAGE_BUILDER_ID]]` with the UIDPs of your organization's `image-syncer` and `custom-image-builder` identities:
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -345,7 +345,7 @@ spec:
             - count: 1
               entries:
                 - keyless:
-                    subjectRegExp: "^https://issuer.enforce.dev/(<image-syncer-id>|<custom-image-builder-id>)$"
+                    subjectRegExp: "^https://issuer.enforce.dev/([[IMAGE_SYNCER_ID]]|[[CUSTOM_IMAGE_BUILDER_ID]])$"
                     issuer: "https://issuer.enforce.dev"
                     rekor:
                       url: https://rekor.sigstore.dev

@@ -59,10 +59,10 @@ Save the following as `build-request.jq`:
 
 This filter does three things: it selects only distribution packages by PURL prefix, drops irrelevant CycloneDX fields (licenses, properties, publisher, etc.) that the API ignores, and renames `bom-ref` to `bomref` to match the API's expected field name.
 
-Run it with values for your source distribution:
+Run it with values for your source distribution, replacing `[[ORGANIZATION_ID]]` with your organization's UID and `[[SBOM_FILE]]` with your image's CycloneDX SBOM file:
 
 ```bash
-export ORG_ID="<your-org-uid>"
+export ORG_ID="[[ORGANIZATION_ID]]"
 
 jq \
   --arg org_id "$ORG_ID" \
@@ -70,7 +70,7 @@ jq \
   --arg arch   "x86_64" \
   --arg purl_prefix "pkg:deb/" \
   -f build-request.jq \
-  your-image.cdx.json \
+  [[SBOM_FILE]] \
   > request.json
 ```
 
@@ -93,7 +93,7 @@ The reshaped request body for a Debian nginx image looks like the following:
 
 ```json
 {
-  "parent_id": "<your-org-uid>",
+  "parent_id": "[[ORGANIZATION_ID]]",
   "dist_name": "debian",
   "arch": "x86_64",
   "sbom": {
@@ -139,7 +139,7 @@ The response contains a ranked `images` array, ordered from highest to lowest `p
 {
   "images": [
     {
-      "imageRef": "cgr.dev/<your-org>/nginx:latest",
+      "imageRef": "cgr.dev/[[ORGANIZATION]]/nginx:latest",
       "probabilityScore": 98.57,
       "satisfiedCount": 6,
       "totalRequired": 86,

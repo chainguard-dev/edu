@@ -198,7 +198,7 @@ You can use a `verifyImages` rule in a `ClusterPolicy` to ensure that images are
 
 To begin, retrieve the IDs of the `image-syncer` and `custom-image-builder` identities for your organization as described [on this page](/chainguard/containers/security-and-compliance/verifying-chainguard-images-and-metadata-signatures-with-cosign/#chainguards-signing-identities).
 
-Next, create `verify-image-signatures.yaml` with this content. Be sure to replace `<catalog-syncer-id>` and `<apko-builder-id>` with the appropriate values:
+Next, create `verify-image-signatures.yaml` with this content. Be sure to replace `[[CATALOG_SYNCER_ID]]` and `[[APKO_BUILDER_ID]]` with the appropriate values:
 
 ```yaml
 apiVersion: kyverno.io/v1
@@ -222,7 +222,7 @@ spec:
           attestors:
             - entries:
                 - keyless:
-                    subjectRegExp: "^https://issuer.enforce.dev/(<catalog-syncer-id>|<apko-builder-id>)$"
+                    subjectRegExp: "^https://issuer.enforce.dev/([[CATALOG_SYNCER_ID]]|[[APKO_BUILDER_ID]])$"
                     issuer: "https://issuer.enforce.dev"
                     rekor:
                       url: https://rekor.sigstore.dev

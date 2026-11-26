@@ -40,7 +40,7 @@ This command responds with output such as:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
 By default, this credential is good for 30 days.
@@ -54,8 +54,8 @@ You can now configure `hostRules` in Renovate to support the Chainguard registry
     {
       "hostType": "docker",
       "matchHost": "cgr.dev",
-      "username": "<identity-id>",
-      "password": "<pull-token>"
+      "username": "[[IDENTITY_ID]]",
+      "password": "[[PULL_TOKEN]]"
      }]
 }
 ```
@@ -188,10 +188,10 @@ The benefit of this approach is that it lets you define your update strategy for
 
 Pinned package versions accumulate CVEs over time and may become unavailable as Chainguard [removes older versions from its repositories](/chainguard/containers/building-and-modifying/packages/package-model/#package-retention-in-public-repositories). Renovate's [APK datasource](https://docs.renovatebot.com/modules/datasource/apk/) (introduced in version 44.97.1) can update `apk add pkg=version` pins in Dockerfiles, keeping them current as new package versions are released.
 
-For example, the following Dockerfile pins two APK packages that Renovate can bump:
+For example, the following Dockerfile pins two APK packages that Renovate can bump, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```dockerfile
-FROM cgr.dev/<org-name>/chainguard-base@sha256:aaaa...
+FROM cgr.dev/[[ORGANIZATION]]/chainguard-base@sha256:aaaa...
 
 RUN apk add --no-cache \
     curl=8.12.1-r0 \
@@ -202,8 +202,8 @@ RUN apk add --no-cache \
 
 Chainguard's container images ship with their `/etc/apk/repositories` file already populated with two public, org-scoped mirrors served from `virtualapk.cgr.dev`. Neither requires authentication:
 
-* **`virtualapk.cgr.dev/<org-id>/chainguard`** — open source packages used in Chainguard's Free container images.
-* **`virtualapk.cgr.dev/<org-id>/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.
+* **`virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard`** — open source packages used in Chainguard's Free container images.
+* **`virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages`** — additional packages that aren't fully open source but can still be redistributed by Chainguard.
 
 If you aren't modifying `/etc/apk/repositories` in your build then you should add a `packageRules` entry to your `renovate.json` that matches the `apk` datasource and lists both of the default URLs.
 
@@ -217,15 +217,15 @@ If you aren't modifying `/etc/apk/repositories` in your build then you should ad
     {
       "matchDatasources": ["apk"],
       "registryUrls": [
-        "https://virtualapk.cgr.dev/<org-id>/chainguard?arch=x86_64",
-        "https://virtualapk.cgr.dev/<org-id>/extra-packages?arch=x86_64"
+        "https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard?arch=x86_64",
+        "https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages?arch=x86_64"
       ]
     }
   ]
 }
 ```
 
-Replace `<org-id>` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
+Replace `[[ORGANIZATION_ID]]` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
 
 Set `arch=aarch64` if you are building exclusively for that architecture.
 
@@ -233,7 +233,7 @@ In practice, Chainguard publish almost every package with the same versions for 
 
 ### Private repository
 
-Your organization-scoped [private repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) (**`apk.cgr.dev/<org-name>`**) serves the packages your organization is entitled to and provides packages that are not available from the public mirrors. To get access to the largest range of packages and versions, you should use it in addition to the default, public repositories.
+Your organization-scoped [private repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) (**`apk.cgr.dev/[[ORGANIZATION]]`**) serves the packages your organization is entitled to and provides packages that are not available from the public mirrors. To get access to the largest range of packages and versions, you should use it in addition to the default, public repositories.
 
 If you are modifying the `/etc/apk/repositories` file in your builds to include it, then you should also include it in your Renovate configuration. Since the private repository requires authentication, add a `hostRules` entry alongside `packageRules`. The `username` and `password` are sourced from [Renovate secrets](https://docs.renovatebot.com/self-hosted-configuration/#secrets) so the credentials themselves stay out of source control:
 
@@ -254,16 +254,16 @@ If you are modifying the `/etc/apk/repositories` file in your builds to include 
     {
       "matchDatasources": ["apk"],
       "registryUrls": [
-        "https://virtualapk.cgr.dev/<org-id>/chainguard?arch=x86_64",
-        "https://virtualapk.cgr.dev/<org-id>/extra-packages?arch=x86_64",
-        "https://apk.cgr.dev/<org-name>?arch=x86_64"
+        "https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard?arch=x86_64",
+        "https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages?arch=x86_64",
+        "https://apk.cgr.dev/[[ORGANIZATION]]?arch=x86_64"
       ]
     }
   ]
 }
 ```
 
-Replace `<org-name>` with your organization's name and `<org-id>` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
+Replace `[[ORGANIZATION]]` with your organization's name and `[[ORGANIZATION_ID]]` with your organization's ID, which you can find by running `chainctl iam org list -o table`.
 
 If your build is exclusively using the private repository then you should remove the public `virtualapk.cgr.dev` URLs from the list.
 
@@ -279,10 +279,10 @@ Or for short-lived credentials, either locally or when using [assumable identiti
 chainctl auth token --audience=apk.cgr.dev
 ```
 
-Either way, inject the credentials into the `PULL_TOKEN_USERNAME` and `PULL_TOKEN_PASSWORD` secrets at runtime via the `RENOVATE_SECRETS` environment variable:
+Either way, inject the credentials into the `PULL_TOKEN_USERNAME` and `PULL_TOKEN_PASSWORD` secrets at runtime via the `RENOVATE_SECRETS` environment variable, replacing `[[USERNAME]]` and `[[PASSWORD]]` with those credentials:
 
 ```shell
-export RENOVATE_SECRETS="{\"PULL_TOKEN_USERNAME\": \"<username>\", \"PULL_TOKEN_PASSWORD\": \"<password>\"}"
+export RENOVATE_SECRETS="{\"PULL_TOKEN_USERNAME\": \"[[USERNAME]]\", \"PULL_TOKEN_PASSWORD\": \"[[PASSWORD]]\"}"
 ```
 
 Alternatively, you can supply the credentials to Renovate in one of two other ways:
@@ -301,16 +301,16 @@ Given a `helmfile.yaml` such as:
 ```yaml
 releases:
   - name: kube-prometheus-stack
-    chart: oci://cgr.dev/<org>/charts/kube-prometheus-stack@sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
+    chart: oci://cgr.dev/[[ORGANIZATION]]/charts/kube-prometheus-stack@sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
     version: 87.4.0
     namespace: monitoring
   - name: nginx
-    chart: oci://cgr.dev/<org>/iamguarded-charts/nginx@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
+    chart: oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/nginx@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
     version: 22.1.0
     namespace: nginx
 ```
 
-Configure Renovate with the following example, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror or proxy.
+Configure Renovate with the following example, replacing every instance of `cgr.dev/[[ORGANIZATION]]` with your Chainguard organization or internal mirror or proxy.
 
 ```json
 {
@@ -319,7 +319,7 @@ Configure Renovate with the following example, replacing every instance of `cgr.
     {
       "matchManagers": ["helmfile"],
       "matchPackagePatterns": [
-        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+        "^cgr\\.dev/[[ORGANIZATION]]/(charts|iamguarded-charts)/"
       ],
       "enabled": false
     }
@@ -330,7 +330,7 @@ Configure Renovate with the following example, replacing every instance of `cgr.
       "fileFormat": "yaml",
       "fileMatch": ["(^|/)helmfile\\.ya?ml$"],
       "matchStrings": [
-        "releases[$contains(chart, 'cgr.dev/<org>/charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/<org>/charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/<org>/charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
+        "releases[$contains(chart, 'cgr.dev/[[ORGANIZATION]]/charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/[[ORGANIZATION]]/charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/[[ORGANIZATION]]/charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
       ],
       "datasourceTemplate": "docker"
     },
@@ -339,7 +339,7 @@ Configure Renovate with the following example, replacing every instance of `cgr.
       "fileFormat": "yaml",
       "fileMatch": ["(^|/)helmfile\\.ya?ml$"],
       "matchStrings": [
-        "releases[$contains(chart, 'cgr.dev/<org>/iamguarded-charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'iamguarded-charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
+        "releases[$contains(chart, 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts/')].($n := $substringAfter($substringBefore(chart & '@', '@'), 'iamguarded-charts/'); $exists(version) ? { 'depName': $n, 'packageName': 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts/' & $n, 'currentValue': version, 'currentDigest': $substringAfter(chart, '@') } : { 'depName': $n, 'packageName': 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts/' & $n, 'currentDigest': $substringAfter(chart, '@') })"
       ],
       "datasourceTemplate": "docker"
     }
@@ -362,7 +362,7 @@ metadata:
   name: kube-prometheus-stack
 spec:
   source:
-    repoURL: oci://cgr.dev/<org>/charts
+    repoURL: oci://cgr.dev/[[ORGANIZATION]]/charts
     chart: kube-prometheus-stack
     targetRevision: 87.4.0@sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
 ---
@@ -372,12 +372,12 @@ metadata:
   name: nginx
 spec:
   source:
-    repoURL: oci://cgr.dev/<org>/iamguarded-charts
+    repoURL: oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts
     chart: nginx
     targetRevision: 22.1.0@sha256:7b88d44da254fc764171da809471d10c6cf15b9ab0ddcb4b475b9a8f380aeb79
 ```
 
-Configure Renovate as in the following example, replacing every instance of `cgr.dev/<org>` with your Chainguard organization or internal mirror or proxy.
+Configure Renovate as in the following example, replacing every instance of `cgr.dev/[[ORGANIZATION]]` with your Chainguard organization or internal mirror or proxy.
 
 ```json
 {
@@ -386,7 +386,7 @@ Configure Renovate as in the following example, replacing every instance of `cgr
     {
       "matchManagers": ["argocd"],
       "matchPackagePatterns": [
-        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+        "^cgr\\.dev/[[ORGANIZATION]]/(charts|iamguarded-charts)/"
       ],
       "enabled": false
     }
@@ -397,7 +397,7 @@ Configure Renovate as in the following example, replacing every instance of `cgr
       "fileFormat": "yaml",
       "fileMatch": ["\\.ya?ml$"],
       "matchStrings": [
-        "spec.source[$contains(repoURL, 'cgr.dev/<org>/charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/<org>/charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/<org>/charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
+        "spec.source[$contains(repoURL, 'cgr.dev/[[ORGANIZATION]]/charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/[[ORGANIZATION]]/charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/[[ORGANIZATION]]/charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
       ],
       "datasourceTemplate": "docker"
     },
@@ -406,7 +406,7 @@ Configure Renovate as in the following example, replacing every instance of `cgr
       "fileFormat": "yaml",
       "fileMatch": ["\\.ya?ml$"],
       "matchStrings": [
-        "spec.source[$contains(repoURL, 'cgr.dev/<org>/iamguarded-charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/<org>/iamguarded-charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
+        "spec.source[$contains(repoURL, 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts')].($tr := targetRevision; $substring($tr, 0, 7) = 'sha256:' ? { 'depName': chart, 'packageName': 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts/' & chart, 'currentDigest': $tr } : { 'depName': chart, 'packageName': 'cgr.dev/[[ORGANIZATION]]/iamguarded-charts/' & chart, 'currentValue': $substringBefore($tr & '@', '@'), 'currentDigest': $substringAfter($tr, '@') })"
       ],
       "datasourceTemplate": "docker"
     }
@@ -429,7 +429,7 @@ metadata:
   namespace: monitoring
 spec:
   interval: 5m
-  url: oci://cgr.dev/<org>/charts/kube-prometheus-stack
+  url: oci://cgr.dev/[[ORGANIZATION]]/charts/kube-prometheus-stack
   ref:
     tag: 87.4.0
     digest: sha256:833bd55297054df0afdbe47750013b8e2eff930059c63c0746447fa8d0b729d3
@@ -462,7 +462,7 @@ Configure Renovate with the following example, adjusting the `flux.fileMatch` pa
       "matchManagers": ["flux"],
       "matchDatasources": ["docker"],
       "matchPackagePatterns": [
-        "^cgr\\.dev/<org>/(charts|iamguarded-charts)/"
+        "^cgr\\.dev/[[ORGANIZATION]]/(charts|iamguarded-charts)/"
       ],
       "pinDigests": true
     }
@@ -488,16 +488,16 @@ This is an example of a minimal configuration:
 
 Push this file to the `main` branch of your repository.
 
-Next, create an assumable identity for your GitHub repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies.
+Next, create an assumable identity for your GitHub repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies. Replace `[[IDENTITY_NAME]]` with a name for the identity, `[[GITHUB_ORG]]` and `[[GITHUB_REPO]]` with the repository's owner and name, and `[[GITHUB_OWNER_ID]]` and `[[GITHUB_REPO_ID]]` with their numeric IDs.
 
 ```shell
-chainctl iam identities create github <identity-name> \
-  --github-repo=<github-org>@<owner-id>/<github-repo-name>@<repo-id> \
+chainctl iam identities create github [[IDENTITY_NAME]] \
+  --github-repo=[[GITHUB_ORG]]@[[GITHUB_OWNER_ID]]/[[GITHUB_REPO]]@[[GITHUB_REPO_ID]] \
   --github-ref=refs/heads/main \
   --role=registry.pull,apk.pull
 ```
 
-Create a workflow file named `.github/workflows/renovate.yaml` with the following content. Replace `<identity-id>` with the ID returned by the previous command.
+Create a workflow file named `.github/workflows/renovate.yaml` with the following content. Replace `[[IDENTITY_ID]]` with the ID returned by the previous command.
 
 ```yaml
 name: Renovate
@@ -524,7 +524,7 @@ jobs:
     steps:
     - uses: chainguard-dev/setup-chainctl@be0acd273acf04bfdf91f51198327e719f6af978 # v0.4.0
       with:
-        identity: "<identity-id>"
+        identity: "[[IDENTITY_ID]]"
 
     - shell: bash
       run: |
@@ -588,7 +588,7 @@ Then, log in with `chainctl`:
 chainctl auth login
 ```
 
-Finally, run Renovate. Substitute `<org-name>` with the name of your Chainguard organization and provide any GitHub repositories that you want to target as arguments in the form `<github-org>/<github-repo-name>`:
+Finally, run Renovate. Substitute `[[ORGANIZATION]]` with the name of your Chainguard organization and provide any GitHub repositories that you want to target as arguments in the form `[[GITHUB_ORG]]/[[GITHUB_REPO]]`:
 
 ```shell
 docker run \
@@ -600,8 +600,8 @@ docker run \
   -e RENOVATE_DOCKER_CGR_DEV_PASSWORD=$(chainctl auth token --audience cgr.dev) \
   -e RENOVATE_APK_APK_CGR_DEV_USERNAME=_token \
   -e RENOVATE_APK_APK_CGR_DEV_PASSWORD=$(chainctl auth token --audience apk.cgr.dev) \
-  cgr.dev/<org-name>/renovate \
-  <github-org>/<github-repo-name>
+  cgr.dev/[[ORGANIZATION]]/renovate \
+  [[GITHUB_ORG]]/[[GITHUB_REPO]]
 ```
 
 This example passes short-lived tokens for `cgr.dev` and `apk.cgr.dev` using the `RENOVATE_DOCKER_CGR_DEV_PASSWORD` and `RENOVATE_APK_APK_CGR_DEV_PASSWORD` environment variables.
@@ -621,7 +621,7 @@ LOG_LEVEL=debug renovate --print-config
          {
            "hostType": "docker",
            "matchHost": "cgr.dev",
-           "username": "<identity-id>",
+           "username": "[[IDENTITY_ID]]",
            "password": "***********",
            "resolvedHost": "cgr.dev"
          },

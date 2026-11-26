@@ -362,7 +362,7 @@ docker run -d -p 8080:8080 dnmonster-final
 curl --output ./monster.png 'localhost:8080/monster/wolfi?size=100'
 ```
 
-> **Note:** If you receive a "port is already allocated" error, be sure to clean up the previous container. Check what containers are running with `docker container ls` and remove it with `docker rm -f <container-name>`. There are still more tweaks that could be made. Bret Fisher has some [excellent resources on building Node.js containers in this GitHub repo](https://github.com/BretFisher/nodejs-rocks-in-docker). But for the purposes of this example app, we've made excellent progress.
+> **Note:** If you receive a "port is already allocated" error, be sure to clean up the previous container. Check what containers are running with `docker container ls` and remove it with `docker rm -f [[CONTAINER_NAME]]`. There are still more tweaks that could be made. Bret Fisher has some [excellent resources on building Node.js containers in this GitHub repo](https://github.com/BretFisher/nodejs-rocks-in-docker). But for the purposes of this example app, we've made excellent progress.
 
 ## Updating the Python microservice
 
@@ -612,7 +612,7 @@ docker-compose down
 ```
 
 Then check `docker ps` to see if any containers are still running and stop them with `docker stop
-<id>`.
+[[ID]]`.
 
 You can then remove any container images you've built:
 

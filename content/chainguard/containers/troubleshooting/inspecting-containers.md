@@ -25,7 +25,7 @@ aliases:
 
 Two questions come up repeatedly once you're running Chainguard Containers: which exact build is this, and what software versions are inside it? A digest answers the first. The container's SBOM answers the second.
 
-The following examples pull from `cgr.dev/chainguard/`, the namespace that holds Chainguard's Free containers, so they run as written. If you pull from your organization's own registry, substitute `cgr.dev/<organization>/`.
+The following examples pull from `cgr.dev/chainguard/`, the namespace that holds Chainguard's Free containers, so they run as written. If you pull from your organization's own registry, substitute `cgr.dev/[[ORGANIZATION]]/`.
 
 ## Identify a build by its digest
 

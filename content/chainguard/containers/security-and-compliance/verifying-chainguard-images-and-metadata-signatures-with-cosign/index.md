@@ -56,7 +56,7 @@ These identities are created and added to every [verified Chainguard organizatio
 To follow along with the **Private Registry** examples in this guide, you need the *unique identifier paths* (UIDPs) of these Chainguard identities. To this end, create a few environment variables, the first of which should point to the name of your Chainguard organization:
 
 ```shell
-PARENT=your-organization
+PARENT=[[ORGANIZATION]]
 ```
 
 Next, create two more variables to hold the UIDPs of your organization's `image-syncer` and `custom-image-builder` identities (`catalog_syncer` and `apko_builder` for older organizations), respectively:

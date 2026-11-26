@@ -51,10 +51,10 @@ This command responds with output such as the following:
 ```shell
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
-The username has the form `<organization ID>/<pull token ID>`. Record both values; you'll store them as secrets in the next section.
+The username has the form `[[ORGANIZATION_ID]]/[[TOKEN_ID]]`. Record both values; you'll store them as secrets in the next section.
 
 The `--ttl` flag sets how long the token stays valid. The example uses `2160h`, or 90 days. The default is `720h` (30 days) and the maximum is `8760h` (one year). Dependabot's authentication fails once the token expires, so choose a lifetime you can commit to rotating, and set a reminder to replace the token before it lapses.
 
@@ -157,8 +157,8 @@ This error means Dependabot reached `cgr.dev` but couldn't authenticate. Check t
 
 1. Confirm the secrets are stored under **Dependabot**, not **Actions**. This is the most common cause.
 2. Confirm the pull token is still valid. Run `chainctl auth pull-token list` to see the tokens in your organization and when they expire.
-3. Confirm the username is the complete `<organization ID>/<pull token ID>` string, including the slash.
-4. Test the credentials outside of Dependabot with `docker login cgr.dev --username <identity-id> --password <pull-token>`, followed by a `docker pull` of one of the images in your repository.
+3. Confirm the username is the complete `[[ORGANIZATION_ID]]/[[TOKEN_ID]]` string, including the slash.
+4. Test the credentials outside of Dependabot with `docker login cgr.dev --username [[IDENTITY_ID]] --password [[PULL_TOKEN]]`, followed by a `docker pull` of one of the images in your repository.
 
 ### No pull requests appear
 
