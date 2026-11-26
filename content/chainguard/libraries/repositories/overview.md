@@ -252,8 +252,8 @@ The command writes a `.npmrc` file that contains the following lines:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
-//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
-//libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/:_auth=[[BASE64_ENCODED_TOKEN]]
+//libraries.cgr.dev/javascript-upstream/:_auth=[[BASE64_ENCODED_TOKEN]]
 ```
 
 npm matches credentials by URL prefix, so the credential keyed to
@@ -291,7 +291,7 @@ work:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
-//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/:_auth=[[BASE64_ENCODED_TOKEN]]
 ```
 
 ### Yarn Classic
@@ -301,7 +301,7 @@ full repository URL, and set `always-auth=true`:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/~/example.com/prod/
-//libraries.cgr.dev/javascript/~/example.com/prod/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/~/example.com/prod/:_auth=[[BASE64_ENCODED_TOKEN]]
 always-auth=true
 ```
 
@@ -320,7 +320,7 @@ In `.yarnrc.yml`, set `npmRegistryServer` to the repository URL. Add an
 npmRegistryServer: "https://libraries.cgr.dev/javascript/~/example.com/prod/"
 npmRegistries:
   "//libraries.cgr.dev/javascript/~/example.com/prod/":
-    npmAuthIdent: "<base64-encoded-token>"
+    npmAuthIdent: "[[BASE64_ENCODED_TOKEN]]"
     npmAlwaysAuth: true
 ```
 

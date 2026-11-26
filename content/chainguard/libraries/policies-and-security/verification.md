@@ -102,7 +102,7 @@ You also need:
       `chainctl auth login`, the command creates a pull token to fetch
       provenance data, which requires one of these roles. Each run creates a
       new pull token, which appears in your organization's identity list as
-      `pull-token - libraries.<ecosystem>`.
+      `pull-token - libraries.[[ECOSYSTEM]]`.
     - The `pull` role, such as `libraries.java.pull`, with a libraries-scoped
       token, as described in [Verify with a pull role](#verify-with-a-pull-role).
       The command uses the token directly and creates no pull token.
@@ -130,10 +130,10 @@ verify` and other commands.
 
 If you are a member of multiple organizations, you must provide the name of your
 organization using the `--parent` flag as follows, replacing
-`<your-organization>` with the name of your organization, with every command:
+`[[ORGANIZATION]]` with the name of your organization, with every command. Replace `[[ARTIFACT_PATH]]` with the artifact's path:
 
 ```sh
-chainctl libraries verify --parent <your-organization> /path/to/artifact.jar
+chainctl libraries verify --parent [[ORGANIZATION]] [[ARTIFACT_PATH]]
 ```
 
 To avoid the need for the additional parameter, you can configure a default
@@ -148,7 +148,7 @@ chainctl iam organizations list
 Set the configuration for the default group:
 
 ```sh
-chainctl config set default.group <your-organization>
+chainctl config set default.group [[ORGANIZATION]]
 ```
 
 Verify the configuration:
@@ -169,7 +169,7 @@ the command in the `CHAINCTL_AUTH_TOKEN` environment variable:
 ```sh
 chainctl auth login --audience=libraries.cgr.dev
 export CHAINCTL_AUTH_TOKEN="$(chainctl auth token --audience=libraries.cgr.dev)"
-chainctl libraries verify /path/to/artifact.jar
+chainctl libraries verify [[ARTIFACT_PATH]]
 ```
 
 Without `CHAINCTL_AUTH_TOKEN`, a `pull` role reports 0% coverage, even after you
@@ -347,7 +347,7 @@ chainctl libraries verify -o json --detailed target/chainguard-verify/*.jar \
   > provenance-report.json
 ```
 
-> Note: If you belong to multiple Chainguard organizations, include the `--parent=<org>` flag in the command.
+> Note: If you belong to multiple Chainguard organizations, include the `--parent=[[ORGANIZATION]]` flag in the command.
 
 It can take up to 5 minutes for this command to return results. It returns output similar to the following:
 
@@ -457,11 +457,11 @@ to confirm that your installed JavaScript packages were built by Chainguard. It 
 Verify an npm package tarball to confirm it was built by Chainguard:
 
 ```sh
-chainctl libraries verify PACKAGE-VERSION.tgz
+chainctl libraries verify [[PACKAGE]]-[[VERSION]].tgz
 ```
 
-Replace `PACKAGE`
-and `VERSION` with the package name and version (for example, `@eslint-js`
+Replace `[[PACKAGE]]`
+and `[[VERSION]]` with the package name and version (for example, `@eslint-js`
 and `9.0.0`)
 
 Verification uses SLSA provenance attestations. `chainctl` computes a SHA-512 digest of the tarball locally, fetches the signed attestation bundle, and verifies in-process that the signature is valid, the certificate chains to the Sigstore root, the signer identity matches the Chainguard JavaScript builder, and the digest matches what was attested at build time.
@@ -591,10 +591,10 @@ attestations](/chainguard/libraries/javascript/overview/#provenance-and-attestat
 
 #### Verify a container image
 
-Verify JavaScript packages inside a container image:
+Verify JavaScript packages inside a container image, replacing `[[IMAGE]]` and `[[TAG]]` with the image's name and tag:
 
 ```sh
-chainctl libraries verify IMAGE:TAG
+chainctl libraries verify [[IMAGE]]:[[TAG]]
 ```
 
 Coverage is reported as the percentage of JavaScript packages in the image that are confirmed Chainguard-rebuilt libraries.

@@ -221,15 +221,15 @@ If you belong to a single organization, `chainctl` selects it automatically. If
 you have access to more than one, it asks “With which location is the pull token
 associated?” Use the arrow keys to select the organization that has the
 entitlement to access Chainguard Libraries for Java, and press `/` to filter the
-list. Pass `--parent=<organization>` to skip the prompt.
+list. Pass `--parent=[[ORGANIZATION]]` to skip the prompt.
 
 `chainctl` returns a username and password suitable for basic authentication in
 the response:
 
 ```output
-Username: <identity-id>
+Username: [[IDENTITY_ID]]
 
-Password: <pull-token>
+Password: [[PULL_TOKEN]]
 ```
 
 ### Creating pull tokens with the Chainguard Console
@@ -311,8 +311,8 @@ suitable for integration in a script.
 
 ```shell
 $ chainctl auth pull-token --output env --repository=java
-export CHAINGUARD_JAVA_IDENTITY_ID=<identity-id>
-export CHAINGUARD_JAVA_TOKEN=<pull-token>
+export CHAINGUARD_JAVA_IDENTITY_ID=[[IDENTITY_ID]]
+export CHAINGUARD_JAVA_TOKEN=[[PULL_TOKEN]]
 ```
 
 Combine the call with `eval` to populate the environment variables directly by
@@ -347,8 +347,8 @@ tool configuration with environment variable placeholders:
 
 When using `uv` for Python, you can supply credentials through index-scoped
 environment variables instead of a shared secrets file or `.netrc`. For a named
-index, uv reads `UV_INDEX_<NAME>_USERNAME` and `UV_INDEX_<NAME>_PASSWORD`, where
-`<NAME>` is the index name uppercased with hyphens replaced by underscores.
+index, uv reads `UV_INDEX_[[NAME]]_USERNAME` and `UV_INDEX_[[NAME]]_PASSWORD`, where
+`[[NAME]]` is the index name uppercased with hyphens replaced by underscores.
 
 For an index named `chainguard`, set:
 
@@ -382,23 +382,23 @@ Java](/chainguard/libraries/java/build-configuration/#bazel) or for manual
 testing with curl.
 
 The following example shows a suitable setup for a repo manager available at
-`repo.example.com`:
+`repo.example.com`. Replace `[[REPOSITORY_MANAGER_USERNAME]]` and `[[REPOSITORY_MANAGER_PASSWORD]]` with your repository manager credentials:
 
 ```bash
 machine repo.example.com
-login YOUR_USERNAME_FOR_REPOSITORY_MANAGER
-password YOUR_PASSWORD
+login [[REPOSITORY_MANAGER_USERNAME]]
+password [[REPOSITORY_MANAGER_PASSWORD]]
 ```
 
 For a direct connection to Chainguard Libraries, for example for testing with
 curl, use the following example with the username
-`CHAINGUARD_PYTHON_IDENTITY_ID` and password `CHAINGUARD_PYTHON_TOKEN` value for
+`[[IDENTITY_ID]]` and password `[[PULL_TOKEN]]` value for
 the pull token for the desired language ecosystem:
 
 ```bash
 machine libraries.cgr.dev
-login CHAINGUARD_PYTHON_IDENTITY_ID
-password CHAINGUARD_PYTHON_TOKEN
+login [[IDENTITY_ID]]
+password [[PULL_TOKEN]]
 ```
 
 Note that the long string for the password value must use only one line.

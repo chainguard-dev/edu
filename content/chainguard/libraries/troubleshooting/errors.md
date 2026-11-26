@@ -43,14 +43,14 @@ specific package or version.
 
 How a blocked package appears during development will depend on the package manager and language ecosystem:
 
-* **`npm`** surfaces the block reason directly, reporting a blocked version as a `403` whose message names the reason. A cooldown policy returns `POLICY_COOLDOWN` (for example, `Chainguard Libraries withholds <N> version(s) of <package> ... (POLICY_COOLDOWN)`), and detected malware returns `MALWARE_DETECTED`. These messages are readable by both developers and automated tooling.
+* **`npm`** surfaces the block reason directly, reporting a blocked version as a `403` whose message names the reason. A cooldown policy returns `POLICY_COOLDOWN` (for example, `Chainguard Libraries withholds [[COUNT]] version(s) of [[PACKAGE]] ... (POLICY_COOLDOWN)`), and detected malware returns `MALWARE_DETECTED`. These messages are readable by both developers and automated tooling.
 * **Other package managers** (such as `pnpm`, `yarn`, `pip`, `uv`, `poetry`, `Maven`, and `Gradle`) typically report a blocked version as a `not found` or `no matching version found` error. When an entire package (all of its versions) is blocked for malware, a `409` error surfaces across most package managers.
 
 ## Withheld versions in package metadata
 
 A withheld version is absent from the package's aggregated metadata, not only from a direct install. It does not appear in version listings, and its publish time is absent. You see the block reason only when you request the exact version.
 
-For example, when a cooldown policy holds back an npm version, `npm view <package> versions` omits that version, and the version's publish time is reported as `null`. Requesting the exact version with `npm view <package>@<version>` returns a `403` with the reason (`POLICY_COOLDOWN`).
+For example, when a cooldown policy holds back an npm version, `npm view [[PACKAGE]] versions` omits that version, and the version's publish time is reported as `null`. Requesting the exact version with `npm view [[PACKAGE]]@[[VERSION]]` returns a `403` with the reason (`POLICY_COOLDOWN`).
 
 Automated tooling that reads version metadata — for example, an agent checking whether an advisory's "fixed in" version is available — can misread a withheld version as nonexistent and conclude that no fix exists. When an expected fix version appears to be missing, request that exact version to confirm whether it is withheld rather than absent upstream.
 

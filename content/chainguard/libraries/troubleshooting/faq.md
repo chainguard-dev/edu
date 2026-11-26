@@ -265,16 +265,16 @@ chainctl libraries verify ./node_modules
 
 Without this, a pull-only role will report 0% coverage even after login.
 
-* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example:
+* You're a member of multiple organizations: If you're a member of multiple Chainguard organizations, you must use the `--parent` flag to specify which one to use. For example, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```bash
-chainctl libraries verify --parent <your-organization> ./node_modules
+chainctl libraries verify --parent [[ORGANIZATION]] ./node_modules
 ```
 
 Or set a default organization first:
 
 ```bash
-chainctl config set default.group <your-organization>
+chainctl config set default.group [[ORGANIZATION]]
 ```
 
 ## What are Chibbies?
