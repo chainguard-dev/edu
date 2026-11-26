@@ -8,7 +8,7 @@ aliases:
 type: "article"
 description: "Learn how to install chainctl, Chainguard's command-line interface for managing container images, IAM resources, and security configurations across platforms"
 date: 2022-09-22T15:56:52-07:00
-lastmod: 2026-11-04T00:00:00+00:00
+lastmod: 2026-11-26T00:00:00+00:00
 draft: false
 tags: ["chainctl"]
 images: []
@@ -44,15 +44,11 @@ To check the binary's signature before you run it, [install a pinned version wit
 
 ### Install `chainctl` with Homebrew
 
-The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` formula in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
+The `brew install chainguard-dev/tap/chainctl` command adds Chainguard's tap, trusts the `chainctl` cask in it, and installs `chainctl`. You don't need to run `brew tap` or `brew trust` first.
 
-The formula also installs `docker-credential-cgr`, a symlink to `chainctl` in Homebrew's `bin` directory, so the Docker credential helper is on your `PATH` as soon as the install finishes. The formula doesn't change your Docker configuration, so Docker doesn't use the helper yet. To add the helper to your Docker configuration, run `chainctl auth configure-docker`, as described in [Configure a Docker credential helper](#configure-a-docker-credential-helper).
+The cask also installs `docker-credential-cgr`, a symlink to `chainctl` in Homebrew's `bin` directory, so the Docker credential helper is on your `PATH` as soon as the install finishes. The cask doesn't change your Docker configuration, so Docker doesn't use the helper yet. To add the helper to your Docker configuration, run `chainctl auth configure-docker`, as described in [Configure a Docker credential helper](#configure-a-docker-credential-helper).
 
-On macOS, Homebrew needs the Xcode Command Line Tools to install `chainctl`. The Homebrew installer sets them up, so most Macs already have them. If `brew` reports `No developer tools installed`, install the tools and then run the `brew install` command again:
-
-```sh
-xcode-select --install
-```
+If you installed `chainctl` before November 24, 2026, Homebrew installed it from a formula. The next `brew update` replaces the formula with the cask, and `chainctl` and `docker-credential-cgr` stay on your `PATH`.
 
 ### Troubleshoot a Homebrew installation
 
