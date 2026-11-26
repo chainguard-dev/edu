@@ -71,12 +71,12 @@ However, if you intentionally want to manage fallback ordering yourself, you can
 If you are migrating an existing Python project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from PyPI or through your repository manager. The [`chainctl libraries update-hashes` command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
 for all supported Python lockfile formats.
 
-When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
+When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example, replacing `[[REPO_TOKEN]]` with your repository manager token:
 
 ```bash
 chainctl libraries update-hashes \
   --registry-url https://repo.example.com:8443/repository/python-all/ \
-  --token "$REPO_TOKEN"
+  --token "[[REPO_TOKEN]]"
 ```
 
 {{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
@@ -334,12 +334,12 @@ curl -sSf \
   | grep -o 'https://[^"]*\.whl' | head -1
 ```
 
-1. Fetch a package file directly from `libraries.cgr.dev` and compute its checksum:
+1. Fetch a package file directly from `libraries.cgr.dev` and compute its checksum, replacing `[[WHEEL_URL]]` with the URL from step 1:
 
 ```bash
 curl -sSf -L \
   -u "${CHAINGUARD_PYTHON_IDENTITY_ID}:${CHAINGUARD_PYTHON_TOKEN}" \
-  <url-from-step-1> \
+  [[WHEEL_URL]] \
   | sha256sum
 ```
 
@@ -347,12 +347,12 @@ curl -sSf -L \
 
 ```bash
 curl -sSfL \
-  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
-  "https://<artifactory-host>/artifactory/<python-remote-repository>/${path-to-wheel}" \
+  -u "[[ARTIFACTORY_USERNAME]]:[[ARTIFACTORY_TOKEN]]" \
+  "https://[[ARTIFACTORY_HOST]]/artifactory/[[REMOTE_REPOSITORY]]/[[WHEEL_PATH]]" \
   | sha256sum
 ```
 
-Replace `artifactory-host` with your Artifactory instance hostname and replace `python-remote-repository` with your remote repository name. Replace `path-to-wheel` with the path component of the URL from step 1 (for example: `/files/15f7d141c3b76b85/37e321caa85a8f41/urllib3/urllib3-1.26.9-py2.py3-none-any.whl`)
+Replace `[[ARTIFACTORY_HOST]]` with your Artifactory instance hostname and replace `[[REMOTE_REPOSITORY]]` with your remote repository name. Replace `[[WHEEL_PATH]]` with the path component of the URL from step 1 (for example: `/files/15f7d141c3b76b85/37e321caa85a8f41/urllib3/urllib3-1.26.9-py2.py3-none-any.whl`). Replace `[[ARTIFACTORY_USERNAME]]` and `[[ARTIFACTORY_TOKEN]]` with credentials that can read from Artifactory.
 
 The checksums returned by the commands must match.
 

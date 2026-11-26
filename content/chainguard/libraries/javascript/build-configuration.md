@@ -115,17 +115,17 @@ Authenticating to `libraries.cgr.dev` directly:
   other credential it authenticates with a
   [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
   organization, prompting for one only if you have access to more than one. Pass
-  `--parent <organization>` to skip that prompt. To avoid it entirely,
+  `--parent [[ORGANIZATION]]` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically. (`chainctl auth configure-npm` also sets up this
   libraries-scoped session as part of configuring npm.)
 - **CI or non-interactive**:
-    - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    - For a session token, pass `--token [[TOKEN]]` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
     - For a [pull token](/chainguard/libraries/introduction/access/#pull-token) (an identity and
-    secret), pass it as basic auth: `--username <identity> --password <secret>`,
+    secret), pass it as basic auth: `--username [[IDENTITY]] --password [[SECRET]]`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
   (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/introduction/access/#netrc).
@@ -348,7 +348,7 @@ npm cache verify
 ### Using private npm packages alongside Chainguard Repository
 
 If your organization publishes its own packages to the public npm Registry under
-a scoped prefix (for example, `@your-org/package-name`), you may want those
+a scoped prefix (for example, `@[[SCOPE]]/package-name`), you may want those
 packages to be fetched directly from npm rather than going through the
 [Chainguard Repository](/chainguard/libraries/javascript/overview/); for
 example, to bypass the cooldown period for packages you own and trust.
@@ -361,7 +361,7 @@ with a specific prefix to a different registry:
 registry=https://libraries.cgr.dev/javascript/
 //libraries.cgr.dev/javascript/:_auth=${token}
 
-@your-org:registry=https://registry.npmjs.org/
+@[[SCOPE]]:registry=https://registry.npmjs.org/
 ```
 
 However, npm has a behavior where, when it fetches package metadata from a
@@ -430,16 +430,16 @@ For CI/CD, prefer an assumable identity when using this command. Expand the foll
 
 {{< details "Configure npm in CI and headless environments" >}}
 
-Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. To set one up for GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.javascript.pull` role. Authenticate the workload first, then run a job similar to the following:
+Do not use `--headless` as a CI option. It starts a device-code login and waits for someone to complete authentication in a browser. For CI/CD, Chainguard recommends using an assumable identity. To set one up for GitHub Actions, follow [Create an assumable identity for a GitHub Actions workflow](/platform/administration/assumable-ids/identity-examples/github-identity/) and bind the `libraries.javascript.pull` role. Authenticate the workload first, then run a job similar to the following, replacing `[[PINNED_VERSION]]` with a release tag or commit SHA of `setup-chainctl` and `[[IDENTITY_ID]]` with the assumable identity's ID:
 
 ```yaml
 permissions:
   id-token: write
 
 steps:
-  - uses: chainguard-dev/setup-chainctl@<pinned-version>
+  - uses: chainguard-dev/setup-chainctl@[[PINNED_VERSION]]
     with:
-      identity: <identity-id>
+      identity: [[IDENTITY_ID]]
   - run: chainctl auth configure-npm
 ```
 
@@ -603,7 +603,7 @@ The configuration should look like the following:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/
-//libraries.cgr.dev/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/:_auth=[[BASE64_ENCODED_TOKEN]]
 ```
 
 The registry URL always points to the `/javascript/` repository; you do not point
@@ -622,8 +622,8 @@ error:
 
 ```properties
 registry=https://libraries.cgr.dev/javascript/
-//libraries.cgr.dev/javascript/:_auth=<base64-encoded-token>
-//libraries.cgr.dev/javascript-upstream/:_auth=<base64-encoded-token>
+//libraries.cgr.dev/javascript/:_auth=[[BASE64_ENCODED_TOKEN]]
+//libraries.cgr.dev/javascript-upstream/:_auth=[[BASE64_ENCODED_TOKEN]]
 ```
 
 ### Using a repository manager

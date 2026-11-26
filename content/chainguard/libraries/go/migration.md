@@ -129,10 +129,10 @@ go env GOPROXY GONOSUMDB GOSUMDB
 
 For team and organization-wide deployments, configure your repository manager as the authenticated upstream for Chainguard Libraries for Go.
 
-The repository manager should expose a Go module proxy endpoint to your developers and CI systems. Point Go at that endpoint, for example:
+The repository manager should expose a Go module proxy endpoint to your developers and CI systems. Point Go at that endpoint, replacing `[[REPOSITORY_MANAGER_HOST]]` with your repository manager's hostname. For example:
 
 ```bash
-go env -w GOPROXY=https://<your-repository-manager>/go
+go env -w GOPROXY=https://[[REPOSITORY_MANAGER_HOST]]/go
 ```
 
 Use repository-manager credentials in the developer and CI environments. Do not distribute the Chainguard pull token to every developer when your repository manager can centralize access.

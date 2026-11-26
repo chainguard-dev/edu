@@ -245,8 +245,8 @@ activated profile.
 
 If your repository manager requires authentication, you must specify credentials
 for the server. The `id` value in the server element must match the `id` value
-in the mirror configuration - `repo-example` in the example. The username
-and password values vary depending on the repository manager and the configured
+in the mirror configuration - `repo-example` in the example. The
+`[[REPOSITORY_MANAGER_USERNAME]]` and `[[REPOSITORY_MANAGER_PASSWORD]]` values vary depending on the repository manager and the configured
 authentication; contact the administrator and refer to the [global configuration
 documentation](/chainguard/libraries/java/global-configuration/).
 
@@ -256,8 +256,8 @@ documentation](/chainguard/libraries/java/global-configuration/).
   <servers>
     <server>
       <id>repo-example</id>
-      <username>YOUR_USERNAME_FOR_REPOSITORY_MANAGER</username>
-      <password>YOUR_PASSWORD</password>
+      <username>[[REPOSITORY_MANAGER_USERNAME]]</username>
+      <password>[[REPOSITORY_MANAGER_PASSWORD]]</password>
     </server>
   </servers>
 </settings>
@@ -377,15 +377,15 @@ variables](/chainguard/libraries/introduction/access/#env) for the pull token de
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
-      <!-- <username>YOUR_IDENTITY_ID</username> -->
-      <!-- <password>YOUR_TOKEN</password> -->
+      <!-- <username>[[IDENTITY_ID]]</username> -->
+      <!-- <password>[[PULL_TOKEN]]</password> -->
     </server>
       <id>chainguard-java</id>
       <!-- Use environment variables -->
       <username>${env.CHAINGUARD_JAVA_IDENTITY_ID}</username>
       <password>${env.CHAINGUARD_JAVA_TOKEN}</password>
-      <!-- <username>YOUR_IDENTITY_ID</username> -->
-      <!-- <password>YOUR_TOKEN</password> -->
+      <!-- <username>[[IDENTITY_ID]]</username> -->
+      <!-- <password>[[PULL_TOKEN]]</password> -->
     </server>
   </servers>
 </settings>
@@ -630,8 +630,8 @@ repositories {
     maven {
         url = uri("https://repo.example.com/group/")
         credentials {
-            username = "YOUR_USERNAME_FOR_REPOSITORY_MANAGER"
-            password = "YOUR_PASSWORD"
+            username = "[[REPOSITORY_MANAGER_USERNAME]]"
+            password = "[[REPOSITORY_MANAGER_PASSWORD]]"
         }
     }
 }
@@ -784,10 +784,10 @@ we first use `find` to locate the jar:
 find ~/.gradle/caches/modules-2/files-2.1/com.google.guava/guava -name "*.jar" | sort
 ```
 
-Then copy the exact path to the jar and verify it with `chainctl`:
+Then verify the jar with `chainctl`, replacing `[[JAR_PATH]]` with the exact path that `find` printed:
 
 ```bash
-chainctl libraries verify /full/path/to/guava-<version>.jar
+chainctl libraries verify [[JAR_PATH]]
 ```
 
 {{% blurb/libraries-verify-permissions ecosystem="java" %}}
@@ -863,8 +863,8 @@ maven.install(
     # auth = {
     #     "https://repo.example.com/repository/java-all/": {
     #         "type": "basic",
-    #         "username": "YOUR_USERNAME_FOR_REPOSITORY_MANAGER",
-    #         "password": "YOUR_PASSWORD",
+    #         "username": "[[REPOSITORY_MANAGER_USERNAME]]",
+    #         "password": "[[REPOSITORY_MANAGER_PASSWORD]]",
     #     },
     # },
 )
@@ -882,8 +882,8 @@ Example URLs for repository managers:
 
 If your organization does not use a repository manager, you can configure the
 Chainguard Libraries for Java repository directly, and include the Maven Central
-repository as fallback. Replace the placeholders `CHAINGUARD_JAVA_IDENTITY_ID`
-and `CHAINGUARD_JAVA_TOKEN` with the credentials provided by Chainguard:
+repository as fallback. Replace the placeholders `[[IDENTITY_ID]]`
+and `[[PULL_TOKEN]]` with the credentials provided by Chainguard:
 
 ```MODULE.bazel
 maven.install(
@@ -905,8 +905,8 @@ maven.install(
     auth = {
          "https://libraries.cgr.dev/java/": {
              "type": "basic",
-             "username": "CHAINGUARD_JAVA_IDENTITY_ID",
-             "password": "CHAINGUARD_JAVA_TOKEN",
+             "username": "[[IDENTITY_ID]]",
+             "password": "[[PULL_TOKEN]]",
          },
     },
 )

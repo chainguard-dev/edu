@@ -90,19 +90,19 @@ Fetch the same archive through the Artifactory remote repository and compute its
 
 ```bash
 curl -fsS -L \
-  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
-  "https://<artifactory-host>/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \
+  -u "[[ARTIFACTORY_USERNAME]]:[[ARTIFACTORY_TOKEN]]" \
+  "https://[[ARTIFACTORY_HOST]]/artifactory/go-chainguard/rsc.io/quote/@v/v1.5.2.zip" \
   | sha256sum
 ```
 
-Replace `artifactory-host` with your Artifactory hostname. Replace `ARTIFACTORY_USERNAME` and `ARTIFACTORY_TOKEN` with credentials that can read from Artifactory.
+Replace `[[ARTIFACTORY_HOST]]` with your Artifactory hostname. Replace `[[ARTIFACTORY_USERNAME]]` and `[[ARTIFACTORY_TOKEN]]` with credentials that can read from Artifactory.
 
 Fetch the archive through the virtual repository that developers and CI systems use:
 
 ```bash
 curl -fsS -L \
-  -u "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" \
-  "https://<artifactory-host>/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \
+  -u "[[ARTIFACTORY_USERNAME]]:[[ARTIFACTORY_TOKEN]]" \
+  "https://[[ARTIFACTORY_HOST]]/artifactory/go-all/rsc.io/quote/@v/v1.5.2.zip" \
   | sha256sum
 ```
 

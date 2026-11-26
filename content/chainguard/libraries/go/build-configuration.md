@@ -81,10 +81,10 @@ go env -w GOPROXY=https://libraries.cgr.dev/go
 go env -w GONOSUMDB='*'
 ```
 
-Use your repository manager URL instead when your organization uses a repository manager:
+Use your repository manager URL instead when your organization uses a repository manager, replacing `[[REPOSITORY_MANAGER_HOST]]` with its hostname:
 
 ```bash
-go env -w GOPROXY=https://<your-repository-manager>/go
+go env -w GOPROXY=https://[[REPOSITORY_MANAGER_HOST]]/go
 go env -w GONOSUMDB='*'
 ```
 

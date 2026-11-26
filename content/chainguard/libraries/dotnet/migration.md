@@ -77,7 +77,7 @@ NuGet reads package sources from `nuget.config` files at the project, solution, 
 dotnet nuget list source
 ```
 
-Edit or create a file named `nuget.config` in the project directory, alongside the `.csproj` file. Replace its contents with the following configuration, substituting the username and password with the values of your pull token:
+Edit or create a file named `nuget.config` in the project directory, alongside the `.csproj` file. Replace its contents with the following configuration, replacing `[[IDENTITY_ID]]` and `[[PULL_TOKEN]]` with your pull token's username and password:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -88,8 +88,8 @@ Edit or create a file named `nuget.config` in the project directory, alongside t
   </packageSources>
   <packageSourceCredentials>
     <chainguard>
-      <add key="Username" value="REPLACE WITH USERNAME FROM pull-token" />
-      <add key="ClearTextPassword" value="REPLACE WITH PASSWORD FROM pull-token" />
+      <add key="Username" value="[[IDENTITY_ID]]" />
+      <add key="ClearTextPassword" value="[[PULL_TOKEN]]" />
     </chainguard>
   </packageSourceCredentials>
 </configuration>
@@ -123,7 +123,7 @@ From the project directory, create a NuGet configuration file:
 dotnet new nugetconfig
 ```
 
-Replace its contents with the following configuration, substituting your repository manager URL and credentials:
+Replace its contents with the following configuration, substituting your repository manager URL and replacing `[[REPOSITORY_MANAGER_USERNAME]]` and `[[REPOSITORY_MANAGER_PASSWORD]]` with your repository manager credentials:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -134,8 +134,8 @@ Replace its contents with the following configuration, substituting your reposit
   </packageSources>
   <packageSourceCredentials>
     <organization>
-      <add key="Username" value="REPLACE WITH REPOSITORY MANAGER USERNAME" />
-      <add key="ClearTextPassword" value="REPLACE WITH REPOSITORY MANAGER PASSWORD" />
+      <add key="Username" value="[[REPOSITORY_MANAGER_USERNAME]]" />
+      <add key="ClearTextPassword" value="[[REPOSITORY_MANAGER_PASSWORD]]" />
     </organization>
   </packageSourceCredentials>
 </configuration>

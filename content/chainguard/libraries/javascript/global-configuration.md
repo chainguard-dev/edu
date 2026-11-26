@@ -80,12 +80,12 @@ this page follow this pattern.
 If you are migrating an existing JavaScript project to Chainguard Libraries through a repository manager, your lockfile likely contains integrity hashes generated against packages previously downloaded from npm or through your repository manager. The [`chainctl libraries update-hashes` command](/platform/chainctl/chainctl-docs/chainctl_libraries_update-hashes/) automates lockfile hash updates
 for all supported JavaScript lockfile formats.
 
-When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example:
+When you are using a repository manager, pass the full repository manager URL with `--registry-url` and authenticate with one of the supported methods: `--username` and `--password`, `--token`, or a `.netrc` entry for the registry host. For example, replacing `[[REPO_TOKEN]]` with your repository manager token:
 
 ```bash
 chainctl libraries update-hashes \
   --registry-url https://repo.example.com:8443/repository/javascript-all/ \
-  --token "$REPO_TOKEN"
+  --token "[[REPO_TOKEN]]"
 ```
 
 {{% blurb/libraries-update-hashes-permissions ecosystem="javascript" %}}
@@ -169,7 +169,7 @@ for accessing the repository:
    `https://npm.cloudsmith.io/example/javascript-all/`.
 1. Note that authentication is using an authentication token and the syntax for
    npm in the `example` organization is
-   `//npm.cloudsmith.io/example/javascript-all/:_authToken=YOUR-API-KEY`
+   `//npm.cloudsmith.io/example/javascript-all/:_authToken=[[API_KEY]]`
 
 Use the provided code snippets directly for your use with npm, or adjust as
 necessary for other JavaScript build and packaging tools. Find relevant details
@@ -274,19 +274,19 @@ curl -sSf -L \
 
 ```bash
 curl -sSf -L \
-  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
-  https://<artifactory-host>/artifactory/api/npm/javascript-chainguard/picocolors/-/picocolors-1.1.1.tgz \
+  -H "Authorization: Bearer [[ARTIFACTORY_TOKEN]]" \
+  https://[[ARTIFACTORY_HOST]]/artifactory/api/npm/javascript-chainguard/picocolors/-/picocolors-1.1.1.tgz \
   | openssl dgst -sha512 -binary | base64
 ```
 
-Replace `artifactory-host` with your Artifactory instance hostname, and replace `${ARTIFACTORY_TOKEN}` with your Artifactory identity token.
+Replace `[[ARTIFACTORY_HOST]]` with your Artifactory instance hostname, and replace `[[ARTIFACTORY_TOKEN]]` with your Artifactory identity token.
 
 1. Test the virtual repository your build tools resolve against as well, so that you catch a stray remote still present in it:
 
 ```bash
 curl -sSf -L \
-  -H "Authorization: Bearer ${ARTIFACTORY_TOKEN}" \
-  https://<artifactory-host>/artifactory/api/npm/javascript-all/picocolors/-/picocolors-1.1.1.tgz \
+  -H "Authorization: Bearer [[ARTIFACTORY_TOKEN]]" \
+  https://[[ARTIFACTORY_HOST]]/artifactory/api/npm/javascript-all/picocolors/-/picocolors-1.1.1.tgz \
   | openssl dgst -sha512 -binary | base64
 ```
 
@@ -529,14 +529,14 @@ aws codeartifact create-repository \
   --region $AWS_REGION
 ```
 
-After setup, export the values the mirroring workflow uses:
+After setup, export the values the mirroring workflow uses, replacing `[[IDENTITY_ID]]` and `[[PULL_TOKEN]]` with your pull token's identity ID and token:
 
 ```bash
 export AWS_REGION="us-east-1"
 export CODEARTIFACT_DOMAIN="npm-mirror-test"
 export CODEARTIFACT_REPOSITORY="cg-npm-packages"
-export CGR_USER="your-chainguard-identity"
-export CGR_TOKEN="your-chainguard-token"
+export CGR_USER="[[IDENTITY_ID]]"
+export CGR_TOKEN="[[PULL_TOKEN]]"
 ```
 
 `CODEARTIFACT_DOMAIN_OWNER` is optional. If you do not set it, the workflow can use your current AWS account ID.
