@@ -244,7 +244,7 @@ team may want to approve it before use. Examples include packages that:
 * Send telemetry the documentation doesn't mention, or keep sending it after you opt out.
 * Are documented remote administration tools.
 * Republish security testing or red-team tools under a publisher that isn't the real project.
-* Imitate another package but don't include harmful code.
+* Impersonate another package but contain no harmful code.
 * Hide their code with obfuscation that has nothing harmful behind it.
 
 Telemetry that a package documents and license checks against the publisher's
