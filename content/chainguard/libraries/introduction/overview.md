@@ -6,7 +6,7 @@ description: "Learn about Chainguard Libraries, providing enhanced security for
     comprehensive supply chain protection."
 type: "article"
 date: 2025-03-25T08:04:00+00:00
-lastmod: 2026-11-19T18:33:27+00:00
+lastmod: 2026-11-26T01:00:00+00:00
 draft: false
 tags: ["Chainguard Libraries", "Overview"]
 menu:
@@ -238,12 +238,17 @@ package is malware if installing or using it would require incident response,
 or if it sends out information an attacker can use directly, such as
 credentials, tokens, keys, cookies, or cloud metadata.
 
-Greyware isn't malware and doesn't require incident response, but it does
-things you might not expect. Examples include packages that:
+Greyware isn't malware and doesn't require incident response, but your security
+team may want to approve it before use. Examples include packages that:
 
-* Collect telemetry or usage analytics.
-* Check whether you have a valid license key or paid plan, for example by contacting the publisher's server.
-* Include security testing or red-team tools that don't run anything when you install them.
+* Send telemetry the documentation doesn't mention, or keep sending it after you opt out.
+* Are documented remote administration tools.
+* Republish security testing or red-team tools under a publisher that isn't the real project.
+* Imitate another package but don't include harmful code.
+* Hide their code with obfuscation that has nothing harmful behind it.
+
+Telemetry that a package documents and license checks against the publisher's
+own server are not greyware on their own.
 
 Malware detection is continuous. If a version that was previously cached is
 later identified as malicious, it is added to the block list and will be blocked
