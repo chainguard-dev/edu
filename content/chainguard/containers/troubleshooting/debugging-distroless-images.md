@@ -117,7 +117,7 @@ kubectl debug -it nginx --image=cgr.dev/chainguard/wolfi-base --target=nginx
 
 You should get output similar to:
 
-```
+```output
 Targeting container "nginx". If you don't see processes from this container it may be because the container runtime doesn't support this feature.
 Defaulting debug container name to debugger-87792.
 If you don't see a command prompt, try pressing enter.
@@ -126,7 +126,7 @@ nginx:/#
 
 Now we can try running some debugging commands. Let's start by seeing what's running:
 
-```
+```output
 nginx:/# ps aux
 PID   USER     TIME  COMMAND
     1 65532     0:00 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf -e /dev/stderr
@@ -143,7 +143,7 @@ PID   USER     TIME  COMMAND
 
 And the open ports:
 
-```
+```output
 nginx:/# netstat -lntu
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State
@@ -162,13 +162,13 @@ To work around this issue, you can manually create a copy of the pod definition 
 
 Proxy the Kubernetes API:
 
-```
+```shell
 kubectl proxy
 ```
 
 Patch the pod to add an ephemeral container:
 
-```
+```shell
 curl http://localhost:8001/api/v1/namespaces/default/pods/[[POD_NAME]]/ephemeralcontainers \
 -X PATCH \
 -H 'Content-Type: application/strategic-merge-patch+json' \
@@ -203,11 +203,11 @@ curl http://localhost:8001/api/v1/namespaces/default/pods/[[POD_NAME]]/ephemeral
 
 If the pod enforces `runAsNonRoot: true`, the ephemeral container will fail to start with a `CreateContainerConfigError` because `wolfi-base` runs as root by default. In this case, add a `securityContext` to the patch that matches the target container’s policy:
 
-```
+```shell
 curl http://localhost:8001/api/v1/namespaces/default/pods/[[POD_NAME]]/ephemeralcontainers \
 -X PATCH \
--H ‘Content-Type: application/strategic-merge-patch+json’ \
--d ‘
+-H 'Content-Type: application/strategic-merge-patch+json' \
+-d '
 {
   "spec": {
     "ephemeralContainers": [
@@ -236,10 +236,18 @@ curl http://localhost:8001/api/v1/namespaces/default/pods/[[POD_NAME]]/ephemeral
       }
     ]
   }
-}’
+}'
 ```
 
 Set `runAsUser` to match the UID of the target container’s process. You can find this in the Pod spec’s `securityContext.runAsUser`, or by running `ps aux` in the ephemeral container before the `securityContext` constraint takes effect.
+
+Attach to the debug container:
+
+```shell
+kubectl attach [[POD_NAME]] -c debugger -ti
+```
+
+In the ephemeral container shell, you should now see the expected contents within `/var/log` or other paths you’ve mounted.
 
 #### Accessing the target container’s filesystem without volumeMounts
 
@@ -252,14 +260,6 @@ cat /proc/1/root/var/log/app/app.log
 ```
 
 This requires the ephemeral container to run as the same UID as the target process, which is why the `securityContext` fix above is a prerequisite. If security policies in your environment block `/proc/[[PID]]/root` access (for example, strict seccomp or AppArmor profiles), use the explicit `volumeMounts` approach instead.
-
-Attach to the debug container:
-
-```
-kubectl attach [[POD_NAME]] -c debugger -ti
-```
-
-In the ephemeral container shell, you should now see the expected contents within `/var/log` or other paths you’ve mounted.
 
 For more strategies on how to debug production distroless containers, check the [Kubernetes documentation on debugging running Pods](https://kubernetes.io/docs/tasks/debug/debug-application/debug-running-pod/).
 
