@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-10-13T14:42:18+00:00
+lastmod: 2026-11-27T01:35:19+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -76,13 +76,19 @@ After removing pins, regenerate or update your lockfile.
 
 ### Remove specific package pins
 
-To remove a specific package pin:
+To remove a specific package pin, include the package's ecosystem:
 
 ```bash
-chainctl libraries cache zap --package <PACKAGE>
+chainctl libraries cache zap --ecosystem <ECOSYSTEM> --package <PACKAGE>
 ```
 
-To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`.
+For Java, `<PACKAGE>` is `groupId:artifactId`. For .NET, it's the NuGet package ID, such as `Newtonsoft.Json`.
+
+To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`. For example, to remove the pin for one .NET package version:
+
+```bash
+chainctl libraries cache zap --ecosystem dotnet --package Newtonsoft.Json --version 13.0.3
+```
 
 To skip the confirmation prompt in scripts or automation, include the `--yes` flag.
 
@@ -139,6 +145,21 @@ Python (pip):
 ```bash
 pip install --no-cache-dir --force-reinstall <package>==<version>
 ```
+
+{{< /tab >}}
+
+{{< tab title=".NET" >}}
+
+.NET (NuGet):
+
+Remove the cached package version from the NuGet global packages folder, then restore and regenerate `packages.lock.json`. The global packages folder is `~/.nuget/packages` unless `NUGET_PACKAGES` or `globalPackagesFolder` in `nuget.config` points somewhere else. Use the lowercase package ID in the path.
+
+```bash
+rm -rf ~/.nuget/packages/<package-id-lowercase>/<version>
+dotnet restore --force-evaluate
+```
+
+If your project uses `packages.lock.json`, `--force-evaluate` updates the recorded hash. Without it, `dotnet restore` fails with `NU1403` because the Chainguard build has a different hash than the upstream package. Commit the updated `packages.lock.json`.
 
 {{< /tab >}}
 
