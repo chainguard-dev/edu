@@ -408,11 +408,11 @@ When the configured index changes, `uv sync` automatically re-resolves dependenc
 Note that `uv sync --frozen` does not re-resolve dependencies or update `uv.lock`, but it can still query indexes configured in the project or CI environment. For example, `uv` may need to fetch a build backend or another package required to build a source distribution. CI jobs that run `uv sync --frozen` must therefore still provide credentials for every configured index that the job may query.
 A frozen sync uses the sources and hashes recorded in `uv.lock` for locked packages. If your lock file was generated against PyPI, it can still download locked artifacts from PyPI regardless of your configured index. Run `uv lock` to update the lock file after changing indexes, then commit the updated lockfile before using `--frozen` in CI. For CI, use a pull token or repository manager credential exposed through the index configuration, preferably with `uv`'s index-scoped environment variables.
 
-The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`:
+The credentials from your Chainguard pull token must be embedded in the index URL with the `/` in the username percent-encoded as `%2F`. For example, in `uv.toml`, replace `[[IDENTITY_ID_PART_1]]` and `[[IDENTITY_ID_PART_2]]` with the parts of the username before and after the `/`, and `[[PULL_TOKEN]]` with the password:
 
 ```
 [[index]]
-url = "https://<PULLTOKEN_USERNAME_PART1>%2F<PULLTOKEN_USERNAME_PART2>:<PULLTOKEN_PASSWORD>@libraries.cgr.dev/python/simple/"
+url = "https://[[IDENTITY_ID_PART_1]]%2F[[IDENTITY_ID_PART_2]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/"
 authenticate = "always"
 ```
 
@@ -502,9 +502,9 @@ Chainguard includes a reference to Chainguard in the `creators` section:
 SLSA provenance is available from the Chainguard Python index following the [PEP
 740 – Index support for digital attestations
 specification](https://peps.python.org/pep-0740/) within the integrity context
-at `https://libraries.cgr.dev/python/integrity/PACKAGE/VERSION/FILE/provenance`
-with `PACKAGE` as the Python package name, `VERSION` the package version, and
-`FILE` the filename of the package archive with configured [basic authentication
+at `https://libraries.cgr.dev/python/integrity/[[PACKAGE]]/[[VERSION]]/[[FILE]]/provenance`
+with `[[PACKAGE]]` as the Python package name, `[[VERSION]]` the package version, and
+`[[FILE]]` the filename of the package archive with configured [basic authentication
 using a pull token](/chainguard/libraries/introduction/access/).
 
 For example, for version `2.0.0` of the package `flask` available as a platform

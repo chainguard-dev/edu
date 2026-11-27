@@ -79,11 +79,11 @@ chainctl auth pull-token --repository=javascript --name=my-js-token
 
 This outputs an identity ID and token named `my-js-token`, with a default expiration of 30 days. To configure the expiration, use the `--ttl` flag. Learn more about command options in the [chainctl documentation](/platform/chainctl/chainctl-docs/chainctl_auth_pull-token/).
 
-Set the identity ID and token as environment variables:
+Set the identity ID and token as environment variables, replacing `[[IDENTITY_ID]]` and `[[PULL_TOKEN]]` with the values from the command's output:
 
 ```shell
-export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="<identity-id>"
-export CHAINGUARD_JAVASCRIPT_TOKEN="<pull-token>"
+export CHAINGUARD_JAVASCRIPT_IDENTITY_ID="[[IDENTITY_ID]]"
+export CHAINGUARD_JAVASCRIPT_TOKEN="[[PULL_TOKEN]]"
 ```
 
 > **Do not commit credentials to version control.** Configuration files
@@ -215,7 +215,7 @@ pipeline. For example, in a GitHub Actions workflow using npm:
 steps:
   - uses: chainguard-dev/setup-chainctl@main
     with:
-      identity: "<identity-id>"
+      identity: "[[IDENTITY_ID]]"
   - run: chainctl auth configure-npm
 ```
 
@@ -337,8 +337,10 @@ Learn more in the build configuration docs for [npm](/chainguard/libraries/javas
 
 {{< tab title="pnpm" >}}
 
+Replace `[[REPOSITORY_MANAGER_HOST]]` with your repository manager's hostname:
+
 ```shell
-pnpm config set registry https://<your-repo-manager-url>/repository/javascript-all/ --location=project
+pnpm config set registry https://[[REPOSITORY_MANAGER_HOST]]/repository/javascript-all/ --location=project
 ```
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-1).
@@ -348,7 +350,7 @@ Learn more in the [build configuration docs](/chainguard/libraries/javascript/bu
 {{< tab title="Yarn Berry" >}}
 
 ```shell
-yarn config set npmRegistryServer https://<your-repo-manager-url>/repository/javascript-all
+yarn config set npmRegistryServer https://[[REPOSITORY_MANAGER_HOST]]/repository/javascript-all
 ```
 
 Learn more in the [build configuration docs](/chainguard/libraries/javascript/build-configuration/#using-a-repository-manager-2).
@@ -432,10 +434,10 @@ chainctl libraries update-hashes
 
 If your build tool appends the Chainguard hashes to your lock file, include the flag `--replace` to ensure the hashes are replaced with Chainguard hashes. When using a repo manager, pass the full repository URL with `--registry-url`.
 
-You can also specify a lockfile path directly:
+You can also specify a lockfile path directly, replacing `[[LOCKFILE]]` with the path:
 
 ```bash
-chainctl libraries update-hashes path/to/lockfile
+chainctl libraries update-hashes [[LOCKFILE]]
 ```
 
 After running the command,
@@ -672,10 +674,10 @@ Scan the npm cache:
 chainctl libraries verify ~/.npm
 ```
 
-Verify an npm tarball:
+Verify an npm tarball, replacing `[[PACKAGE]]` and `[[VERSION]]` with the package's name and version:
 
 ```shell
-chainctl libraries verify PACKAGE-VERSION.tgz
+chainctl libraries verify [[PACKAGE]]-[[VERSION]].tgz
 ```
 
 {{< /tab >}}
@@ -755,7 +757,7 @@ rather than configuring a separate public registry fallback in your repository
 manager, to preserve Chainguard's security controls.
 
 If you have private scoped packages published to npm under a prefix like
-`@your-org/`, you can route them back to npm using per-scope registry
+`@[[SCOPE]]/`, you can route them back to npm using per-scope registry
 configuration. Refer to [Using private npm packages alongside Chainguard
 Repository](/chainguard/libraries/javascript/build-configuration/#using-private-npm-packages-alongside-chainguard-repository)
 for details.

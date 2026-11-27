@@ -315,14 +315,14 @@ poetry source add chainguard https://libraries.cgr.dev/python/simple/
 
 If your organization uses a repository manager, configure Chainguard Libraries as an upstream source in that proxy first. Follow the [global configuration documentation](/chainguard/libraries/python/global-configuration/) for your repository manager.
 
-Once configured, point your build tool at your repository manager URL instead of `libraries.cgr.dev` directly. In this setup, the credentials are your repository manager credentials — not a Chainguard pull token.
+Once configured, point your build tool at your repository manager URL instead of `libraries.cgr.dev` directly. In this setup, the credentials are your repository manager credentials — not a Chainguard pull token. Replace `[[REPOSITORY_MANAGER_HOST]]` with your repository manager's hostname.
 
 {{< tabs label="Package manager for repository manager setup" >}}
 
 {{< tab title="pip" >}}
 
 ```shell
-pip config set global.index-url https://<your-repo-manager-url>/repository/python-all/simple/
+pip config set global.index-url https://[[REPOSITORY_MANAGER_HOST]]/repository/python-all/simple/
 ```
 
 {{< /tab >}}
@@ -334,7 +334,7 @@ Configure `~/.config/uv/uv.toml` for a global default across all projects:
 ```bash
 [[tool.uv.index]]
    name = "chainguard"
-   url = "https://<your-repo-manager-url>/repository/python-all/simple/"
+   url = "https://[[REPOSITORY_MANAGER_HOST]]/repository/python-all/simple/"
    default = true
 ```
 
@@ -351,10 +351,10 @@ default = true
 
 {{< tab title="Poetry" >}}
 
-Run the following command:
+Run the following command, replacing `[[REPOSITORY_MANAGER_USERNAME]]` and `[[REPOSITORY_MANAGER_PASSWORD]]` with your repository manager credentials:
 
 ```shell
-poetry config http-basic.python-all REPO_MANAGER_USERNAME REPO_MANAGER_PASSWORD
+poetry config http-basic.python-all [[REPOSITORY_MANAGER_USERNAME]] [[REPOSITORY_MANAGER_PASSWORD]]
 poetry source add python-all https://repo.example.com/repository/python-all/simple/
 ```
 
@@ -368,8 +368,8 @@ Example URLs by repository manager:
 | ----- | ----- |
 | JFrog Artifactory | `https://example.jfrog.io/artifactory/api/pypi/python-all/simple/` |
 | Sonatype Nexus | `https://repo.example.com:8443/repository/python-all/simple/` |
-| Google Artifact Registry | `https://<location>-python.pkg.dev/<project>/python-all/simple/` |
-| Cloudsmith | `https://dl.cloudsmith.io/.../<org>/python-all/python/simple/` |
+| Google Artifact Registry | `https://[[LOCATION]]-python.pkg.dev/[[PROJECT]]/python-all/simple/` |
+| Cloudsmith | `https://dl.cloudsmith.io/.../[[ORGANIZATION]]/python-all/python/simple/` |
 
 For authentication details specific to your repository manager, refer to the [global configuration documentation](/chainguard/libraries/python/global-configuration/).
 
@@ -399,12 +399,12 @@ Or specify the lockfile when running the command. For example:
 chainctl libraries update-hashes requirements.txt
 ```
 
-When using a repo manager, run a command similar to the following:
+When using a repo manager, run a command similar to the following, replacing `[[REPO_TOKEN]]` with your repository manager token:
 
 ```bash
 chainctl libraries update-hashes
   --registry-url https://repo.example.com/repository/python-all/
-  --token "$REPO_TOKEN"
+  --token "[[REPO_TOKEN]]"
 ```
 
 By default, Chainguard hashes are appended alongside your existing hashes rather than replacing them. If your installer fails on a dual-hash entry, use the `--replace` flag.
@@ -589,15 +589,15 @@ Learn more about upstream fallback configurations in the [Libraries overview](/c
 
 ### "403 Forbidden" from the index despite a working keyring
 
-Check for an old or incorrectly scoped `.netrc` entry for `libraries.cgr.dev`, which silently takes priority over keyring authentication. Run with full verbosity to confirm the credential source:
+Check for an old or incorrectly scoped `.netrc` entry for `libraries.cgr.dev`, which silently takes priority over keyring authentication. Run with full verbosity to confirm the credential source, replacing `[[PACKAGE]]` with a package that fails to install:
 
 ```shell
-pip install -vvv <package> 2>&1 | grep -B2 -A2 "credentials\|40[13]"
+pip install -vvv [[PACKAGE]] 2>&1 | grep -B2 -A2 "credentials\|40[13]"
 ```
 
 ### A pinned dependency shows "not verified" after running `chainctl libraries verify`
 
-Check your install output for a local wheel build (`Building wheel for <package>`), which indicates Chainguard has only a source distribution for that specific pinned version.
+Check your install output for a local wheel build (`Building wheel for [[PACKAGE]]`), which indicates Chainguard has only a source distribution for that specific pinned version.
 
 ### Handling coverage gaps
 

@@ -177,16 +177,16 @@ chainctl libraries update-hashes
 
 {{% blurb/libraries-update-hashes-permissions ecosystem="python" %}}
 
-Or specify a lockfile path directly:
+Or specify a lockfile path directly, replacing `[[REQUIREMENTS_FILE]]` with the path:
 
 ```bash
-chainctl libraries update-hashes path/to/requirements.txt
+chainctl libraries update-hashes [[REQUIREMENTS_FILE]]
 ```
 
-If you install through a repository manager rather than pulling from Chainguard directly, pass the full repository URL with `--registry-url` so the hashes are updated against the same source your project actually installs from. For example:
+If you install through a repository manager rather than pulling from Chainguard directly, pass the full repository URL with `--registry-url` so the hashes are updated against the same source your project actually installs from. For example, replacing `[[SERVER_NAME]]` with your Artifactory server name:
 
 ```bash
-chainctl libraries update-hashes --registry-url https://your-org.jfrog.io/artifactory/api/pypi/chainguard-libraries/simple
+chainctl libraries update-hashes --registry-url https://[[SERVER_NAME]].jfrog.io/artifactory/api/pypi/chainguard-libraries/simple
 ```
 
 Learn about using this command with repo managers in the [Global
@@ -203,16 +203,16 @@ which requires authentication. Choose whichever fits your environment:
   other credential it authenticates with a
   [pull token](/chainguard/libraries/introduction/access/#pull-token) for your
   organization, prompting for one only if you have access to more than one. Pass
-  `--parent <organization>` to skip that prompt. To avoid it entirely,
+  `--parent [[ORGANIZATION]]` to skip that prompt. To avoid it entirely,
   scope your login to the libraries registry once with
   `chainctl auth login --audience=libraries.cgr.dev` — that session is then used
   automatically.
 - **CI or non-interactive**:
-    - For a session token, pass `--token <token>` or set `CHAINCTL_AUTH_TOKEN`. The
+    - For a session token, pass `--token [[TOKEN]]` or set `CHAINCTL_AUTH_TOKEN`. The
     token must be scoped to the libraries registry; mint one with
     `chainctl auth token --audience=libraries.cgr.dev`.
     - For a [pull token](/chainguard/libraries/introduction/access/#pull-token) (an identity and
-    secret), pass it as basic auth: `--username <identity> --password <secret>`,
+    secret), pass it as basic auth: `--username [[IDENTITY]] --password [[SECRET]]`,
     or set `CHAINCTL_REGISTRY_USERNAME` / `CHAINCTL_REGISTRY_PASSWORD`.
 - **From `~/.netrc`**: Credentials for the registry host are read from `~/.netrc`
   (or `$NETRC`); refer to [.netrc for authentication](/chainguard/libraries/introduction/access/#netrc).
@@ -254,13 +254,13 @@ mkdir -p ~/.pip
 nano ~/.pip/pip.conf
 ```
 
-Update this configuration file with the following, replacing `<repository-url>`
+Update this configuration file with the following, replacing `[[REPOSITORY_URL]]`
 with the URL provided by your repository manager including the `simple/`
 context:
 
 ```pip.conf
 [global]
-index-url = <repository-url>
+index-url = [[REPOSITORY_URL]]
 ```
 
 Updating this global configuration affects all projects built on the
@@ -269,7 +269,7 @@ projects, you can add the following to it to configure on a project-by-project
 basis:
 
 ```
---index-url <repository-url>
+--index-url [[REPOSITORY_URL]]
 package-name==version
 ```
 
@@ -285,21 +285,21 @@ When using [direct access](#direct-access) to the Chainguard Libraries for
 Python repository with `pip`, you must ensure the following are set in your
 configuration file:
 
-- Replace any `/` in the username value `CG_PULLTOKEN_USERNAME` with `_`.
+- Replace any `/` in the username value `[[IDENTITY_ID]]` with `_`.
 - Ensure the `simple` context is used for the URL.
-- The password value `CG_PULLTOKEN_PASSWORD` remains unchanged.
+- The password value `[[PULL_TOKEN]]` remains unchanged.
 
 Example for `requirements.txt`:
 
 ```
---index-url https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+--index-url https://[[IDENTITY_ID]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/
 ```
 
 Example for `~/.pip/pip.conf`:
 
 ```
 [global]
-index-url = https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/
+index-url = https://[[IDENTITY_ID]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/
 ```
 
 Note that `pip` supports installing Python libraries from one main repository
@@ -402,8 +402,8 @@ poetry build
 #### Using direct access
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
-Poetry, use your username `CG_PULLTOKEN_USERNAME` and password
-`CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
+Poetry, use your username `[[IDENTITY_ID]]` and password
+`[[PULL_TOKEN]]` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`:
 
 In order to install Python libraries from multiple repositories with Chainguard
@@ -415,7 +415,7 @@ for any library access, remediated packages from Chainguard as another choices
 and a fallback to the PyPI public index for any missing packages:
 
 ```shell
-poetry config http-basic.chainguard CG_PULLTOKEN_USERNAME CG_PULLTOKEN_PASSWORD
+poetry config http-basic.chainguard [[IDENTITY_ID]] [[PULL_TOKEN]]
 ```
 
 The authentication is used for the `chainguard` repository that you add to the
@@ -477,13 +477,13 @@ Add the following to your `uv` global configuration file:
 
 ```toml
 [[tool.uv.index]]
-name = "<repository-manager-name>"
-url = "<repository-url>"
+name = "[[REPOSITORY_MANAGER_NAME]]"
+url = "[[REPOSITORY_URL]]"
 ```
 
-Add the name for your repository, such as `corppypi`, within the quotes.
+Replace `[[REPOSITORY_MANAGER_NAME]]` with the name for your repository, such as `corppypi`.
 
-Replace the `<repository-url>` with the URL provided by your repository manager
+Replace the `[[REPOSITORY_URL]]` with the URL provided by your repository manager
 including the `simple/` context.
 
 Note that updating the global configuration affects all projects built on the
@@ -501,24 +501,24 @@ authentication](/chainguard/libraries/introduction/access/#netrc).
 
 For [direct access](#direct-access) to Chainguard Libraries for Python with
 uv, use `.netrc`, environment variables, or embed credentials directly in the
-index URL using your username `CG_PULLTOKEN_USERNAME` and password
-`CG_PULLTOKEN_PASSWORD` values from the pull token creation and the URL with the
+index URL using your username `[[IDENTITY_ID]]` and password
+`[[PULL_TOKEN]]` values from the pull token creation and the URL with the
 simple context `https://libraries.cgr.dev/python/simple/`.
 
 The recommended approach for CI/CD and shared configurations (including jobs
 that run `uv sync --frozen`) is to use uv's native index-scoped environment
 variables. Frozen sync can still query configured indexes, so CI must provide
 credentials even when the lockfile is not being re-resolved. For a named index,
-uv reads credentials from `UV_INDEX_<NAME>_USERNAME` and
-`UV_INDEX_<NAME>_PASSWORD`, where `<NAME>` is the index name uppercased with
+uv reads credentials from `UV_INDEX_[[NAME]]_USERNAME` and
+`UV_INDEX_[[NAME]]_PASSWORD`, where `[[NAME]]` is the index name uppercased with
 hyphens replaced by underscores. This avoids storing credentials in configuration files
 while keeping the index configuration shareable.
 
 For example, with an index named `chainguard`:
 
 ```shell
-export UV_INDEX_CHAINGUARD_USERNAME=CG_PULLTOKEN_USERNAME
-export UV_INDEX_CHAINGUARD_PASSWORD=CG_PULLTOKEN_PASSWORD
+export UV_INDEX_CHAINGUARD_USERNAME=[[IDENTITY_ID]]
+export UV_INDEX_CHAINGUARD_PASSWORD=[[PULL_TOKEN]]
 ```
 
 Configure the index without embedded credentials in `pyproject.toml`:
@@ -548,7 +548,7 @@ Example for `pyproject.toml`:
 ```toml
 [[tool.uv.index]]
 name = "chainguard"
-url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
+url = "https://[[IDENTITY_ID]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/"
 default = true
 ```
 
@@ -556,7 +556,7 @@ Example for `uv.toml`:
 
 ```toml
 [[index]]
-url = "https://CG_PULLTOKEN_USERNAME:CG_PULLTOKEN_PASSWORD@libraries.cgr.dev/python/simple/"
+url = "https://[[IDENTITY_ID]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/"
 ```
 
 Refer to a demonstration using `uv` under [Minimal example projects](#uv-minimal).
@@ -802,10 +802,10 @@ In `~/.pip/pip.conf`, add the following:
 
 ```pip.conf
 [global]
-index-url = https://CHAINGUARD_PYTHON_IDENTITY_ID:CHAINGUARD_PYTHON_TOKEN@libraries.cgr.dev/python/simple/
+index-url = https://[[IDENTITY_ID]]:[[PULL_TOKEN]]@libraries.cgr.dev/python/simple/
 ```
 
-> **Note**: Replace any `/` in your `CHAINGUARD_PYTHON_IDENTITY_ID`'s value with `_` in the URL. The password value remains unchanged.
+> **Note**: Replace any `/` in your `[[IDENTITY_ID]]` value with `_` in the URL. The password value remains unchanged.
 
 **2. Create a virtual environment**
 

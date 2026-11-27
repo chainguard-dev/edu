@@ -76,13 +76,13 @@ After removing pins, regenerate or update your lockfile.
 
 ### Remove specific package pins
 
-To remove a specific package pin:
+To remove a specific package pin, replacing `[[PACKAGE]]` with the package's name:
 
 ```bash
-chainctl libraries cache zap --package <PACKAGE>
+chainctl libraries cache zap --package [[PACKAGE]]
 ```
 
-To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`.
+To narrow the operation to one package version, include the `--version` flag: `--version [[VERSION]]`.
 
 To skip the confirmation prompt in scripts or automation, include the `--yes` flag.
 
@@ -106,10 +106,10 @@ First, force a fresh install:
 
 {{< tab title="Java" >}}
 
-Java (Maven):
+Java (Maven), replacing `[[GROUP_ID]]`, `[[ARTIFACT_ID]]`, and `[[VERSION]]` with the artifact's group ID, artifact ID, and version:
 
 ```bash
-mvn dependency:purge-local-repository -DmanualInclude="<groupId>:<artifactId>:<version>"
+mvn dependency:purge-local-repository -DmanualInclude="[[GROUP_ID]]:[[ARTIFACT_ID]]:[[VERSION]]"
 mvn install
 ```
 
@@ -134,10 +134,10 @@ npm install
 
 {{< tab title="Python" >}}
 
-Python (pip):
+Python (pip), replacing `[[PACKAGE]]` and `[[VERSION]]` with the package's name and version:
 
 ```bash
-pip install --no-cache-dir --force-reinstall <package>==<version>
+pip install --no-cache-dir --force-reinstall [[PACKAGE]]==[[VERSION]]
 ```
 
 {{< /tab >}}
@@ -147,7 +147,7 @@ pip install --no-cache-dir --force-reinstall <package>==<version>
 Next, confirm that the package now resolves to a Chainguard build:
 
 ```bash
-chainctl libraries cache list --package <PACKAGE> --live
+chainctl libraries cache list --package [[PACKAGE]] --live
 ```
 
 After confirming the change, commit the updated lockfile and run your normal install again.

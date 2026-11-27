@@ -379,12 +379,12 @@ Fetch the same artifact through the Artifactory remote repository and compute it
 
 ```bash
 curl -sSf -L \
-  -u "${ARTIFACTORY_USER}:${ARTIFACTORY_TOKEN}" \
-  https://<artifactory-host>/artifactory/java-chainguard/junit/junit/4.13.2/junit-4.13.2.jar \
+  -u "[[ARTIFACTORY_USERNAME]]:[[ARTIFACTORY_TOKEN]]" \
+  https://[[ARTIFACTORY_HOST]]/artifactory/java-chainguard/junit/junit/4.13.2/junit-4.13.2.jar \
   | sha256sum
 ```
 
-Replace `artifactory-host` with your Artifactory instance hostname.
+Replace `[[ARTIFACTORY_HOST]]` with your Artifactory instance hostname. Replace `[[ARTIFACTORY_USERNAME]]` and `[[ARTIFACTORY_TOKEN]]` with credentials that can read from Artifactory.
 
 The checksums returned by the commands must match.
 

@@ -55,14 +55,14 @@ It can take up to 30 minutes for the fallback and cooldown policies to take effe
 
 ## Step 1: Confirm your baseline build
 
-Before making any changes, confirm your project builds cleanly against Maven Central.
+Before making any changes, confirm your project builds cleanly against Maven Central. Replace `[[PROJECT_DIRECTORY]]` with your project's directory.
 
 {{< tabs label="Build tool for confirming your baseline build" >}}
 
 {{< tab title="Maven" >}}
 
 ```shell
-cd your-project
+cd [[PROJECT_DIRECTORY]]
 ./mvnw install
 ```
 
@@ -71,7 +71,7 @@ cd your-project
 {{< tab title="Gradle" >}}
 
 ```shell
-cd your-project
+cd [[PROJECT_DIRECTORY]]
 ./gradlew build
 ```
 
@@ -80,7 +80,7 @@ cd your-project
 {{< tab title="Bazel" >}}
 
 ```shell
-cd your-project
+cd [[PROJECT_DIRECTORY]]
 bazel build //...
 ```
 
@@ -95,7 +95,7 @@ All dependencies should download from Central and tests should pass. This gives 
 You must be an Owner or have the `libraries.java.pull_token_creator` permission to create a pull token.
 You can [create a pull token in the Chainguard Console](/chainguard/libraries/introduction/access/#creating-pull-tokens-with-the-chainguard-console), or via `chainctl`.
 
-The following command creates the token and populates environment variables directly. If you have access to more than one Chainguard organization, add `--parent=<organization>` to choose which one the token belongs to:
+The following command creates the token and populates environment variables directly. If you have access to more than one Chainguard organization, add `--parent=[[ORGANIZATION]]` to choose which one the token belongs to:
 
 ```shell
 eval $(chainctl auth pull-token --repository=java --name=my-java-token --output=env)
@@ -380,12 +380,12 @@ repositories {
 
 {{< tab title="Bazel" >}}
 
-First, configure your repo manager authentication in `~/.netrc`:
+First, configure your repo manager authentication in `~/.netrc`, replacing `[[REPOSITORY_MANAGER_USERNAME]]` and `[[REPOSITORY_MANAGER_PASSWORD]]` with your repository manager credentials:
 
 ```netrc
 machine repo.example.com
-login YOUR_REPO_MANAGER_USERNAME
-password YOUR_REPO_MANAGER_PASSWORD
+login [[REPOSITORY_MANAGER_USERNAME]]
+password [[REPOSITORY_MANAGER_PASSWORD]]
 ```
 
 Then update MODULE.bazel to point to your repo manager:
@@ -422,10 +422,10 @@ Remove local cache:
 rm -rf ~/.m2/repository
 ```
 
-Remove specific artifact:
+Remove a specific artifact, replacing `[[GROUP]]` with its group ID, with dots replaced by slashes, and `[[ARTIFACT]]` with its artifact ID:
 
 ```bash
-rm -rf ~/.m2/repository/<group>/<artifact>
+rm -rf ~/.m2/repository/[[GROUP]]/[[ARTIFACT]]
 ```
 
 {{< /tab >}}
@@ -464,7 +464,7 @@ Run a full build and capture the output.
 {{< tab title="Maven" >}}
 
 ```bash
-cd your-project
+cd [[PROJECT_DIRECTORY]]
 ./mvnw install 2>&1 | tee /tmp/mvn-output.txt
 ```
 
@@ -481,7 +481,7 @@ All downloads should come from `chainguard` or `chainguard-remediated`.
 {{< tab title="Gradle" >}}
 
 ```bash
-cd your-project
+cd [[PROJECT_DIRECTORY]]
 ./gradlew build --info 2>&1 | tee /tmp/gradle-output.txt
 ```
 
@@ -505,7 +505,7 @@ If all artifacts download from Central, your credentials may be invalid or expir
 
 ## Step 6: Verify artifacts
 
-To check whether a specific artifact was built by Chainguard, use `chainctl libraries verify /full/path/to/artifact.jar`. Verify artifacts immediately after a clean build, before any repackaging.
+To check whether a specific artifact was built by Chainguard, use `chainctl libraries verify [[ARTIFACT_PATH]]`, replacing `[[ARTIFACT_PATH]]` with the full path to the artifact. Verify artifacts immediately after a clean build, before any repackaging.
 
 When upstream fallback is enabled, [packages that aren't built by Chainguard] are subject to Chainguard's security controls.
 
@@ -593,7 +593,7 @@ chainctl libraries verify ~/Library/Caches/bazel/_bazel_example/c22a55500...f423
 A successful result shows what percentage of your project's dependencies were built by Chainguard:
 
 ```bash
-Artifact: /path/to/artifact.jar
+Artifact: [[ARTIFACT_PATH]]
 Verification Coverage: 100.00%
 ```
 

@@ -54,7 +54,7 @@ For direct access, add your Chainguard credentials to your NuGet configuration f
 dotnet new nugetconfig
 ```
 
-Add the following configuration, making sure to substitute the username and password returned by `chainctl auth pull-token`:
+Add the following configuration, replacing `[[IDENTITY_ID]]` and `[[PULL_TOKEN]]` with the username and password returned by `chainctl auth pull-token`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -65,8 +65,8 @@ Add the following configuration, making sure to substitute the username and pass
   </packageSources>
   <packageSourceCredentials>
     <chainguard>
-      <add key="Username" value="REPLACE WITH USERNAME" />
-      <add key="ClearTextPassword" value="REPLACE WITH PASSWORD" />
+      <add key="Username" value="[[IDENTITY_ID]]" />
+      <add key="ClearTextPassword" value="[[PULL_TOKEN]]" />
     </chainguard>
   </packageSourceCredentials>
 </configuration>

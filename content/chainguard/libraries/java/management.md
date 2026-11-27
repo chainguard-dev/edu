@@ -29,10 +29,10 @@ steps on the repository manager and the build tool.
 
 ## Verify dependencies
 
-Use `chainctl libraries verify` to check whether an artifact comes from Chainguard Libraries:
+Use `chainctl libraries verify` to check whether an artifact comes from Chainguard Libraries, replacing `[[ARTIFACT_PATH]]` with the artifact's path:
 
 ```bash
-chainctl libraries verify path/to/artifact.jar
+chainctl libraries verify [[ARTIFACT_PATH]]
 ```
 
 For Java, run verification against the individual JAR files in the local Maven repository cache before assembling a fat JAR or other bundled artifact. The verifier identifies artifacts using their checksums and provenance information; it cannot reliably trace merged classes in a fat JAR back to their source JARs.
