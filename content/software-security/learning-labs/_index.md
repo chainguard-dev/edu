@@ -3,7 +3,7 @@ title: "Learning Labs"
 description: "Education and training videos on demand"
 type: "article"
 date: 2025-06-18T21:00:00+00:00
-lastmod: 2026-09-28T15:41:41+00:00
+lastmod: 2026-11-26T12:00:00+00:00
 draft: false
 images: []
 tags: ["Learning Labs", "Overview"]
@@ -28,6 +28,7 @@ The lab notes often include demo projects, a slide presentation, sample
 commands, links to specific sections in the video, and pointers to more
 resources:
 
+- [{{<icon "play-circle-fill">}} Trusted CI/CD with Chainguard Actions - October 2026](/software-security/learning-labs/ll202610/)
 - [{{<icon "play-circle-fill">}} Chainguard Libraries for Java with CVE remediation and fallback - July 2026](/software-security/learning-labs/ll202607/)
 - [{{<icon "play-circle-fill">}} Build safely with AI - May 2026](/software-security/learning-labs/ll202605/)
 - [{{<icon "play-circle-fill">}} Securing CI/CD with Chainguard - April 2026](/software-security/learning-labs/ll202604/)
