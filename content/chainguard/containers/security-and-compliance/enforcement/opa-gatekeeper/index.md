@@ -210,10 +210,10 @@ spec:
 
 To use a private registry, you need a couple more steps.
 
-First set a variable for your org
+First set a variable for your org, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-PARENT=your-organization
+PARENT=[[ORGANIZATION]]
 ```
 
 Next, create two more variables to hold the UIDPs of your organization’s `catalog_syncer` and `apko_builder` identities, respectively:

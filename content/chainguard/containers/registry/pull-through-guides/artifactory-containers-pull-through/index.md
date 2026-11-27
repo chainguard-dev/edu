@@ -70,16 +70,16 @@ Before testing whether you're able to pull Chainguard's Free Containers through 
 {{< blurb/jfrog-token >}}
 {{< /details >}}
 
-After running the `docker login` command, you will be able to pull a Chainguard Free Container through Artifactory. The following example pulls the `go` container image:
+After running the `docker login` command, you will be able to pull a Chainguard Free Container through Artifactory. The following example pulls the `go` container image, replacing `[[SERVER_NAME]]` with the name of your JFrog server:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-public/chainguard/go
+docker pull [[SERVER_NAME]].jfrog.io/cgr-public/chainguard/go
 ```
 
 If you set **Project ID** to `chainguard` when creating the repository, omit that segment:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-public/go
+docker pull [[SERVER_NAME]].jfrog.io/cgr-public/go
 ```
 
 Be sure the `docker pull` command you run includes the name of your project as well as your own repository key in place of `cgr-public`, if different.
@@ -96,7 +96,7 @@ To create a pull token with `chainctl`, run the following command:
 chainctl auth configure-docker --pull-token
 ```
 
-`chainctl` uses your organization automatically when you belong to only one. If you have access to more than one, add `--parent <organization>`, replacing `<organization>` with the name or ID you want to use.
+`chainctl` uses your organization automatically when you belong to only one. If you have access to more than one, add `--parent [[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with the name or ID you want to use.
 
 > **Note**: You can find your Chainguard organization's name or ID by running `chainctl iam organizations list -o table`.
 
@@ -105,10 +105,10 @@ This command returns a `docker login` command like the following:
 ```output
 . . .
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
-Record the values for `<identity-id>` and `<pull-token>` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
+Record the values for `[[IDENTITY_ID]]` and `[[PULL_TOKEN]]` as you'll need these credentials when you configure a new remote Artifactory repository for pulling through Production Containers.
 
 After noting your credentials, you can begin setting up an Artifactory repository from which you can pull Chainguard Production Containers. This process is similar to the one outlined previously:
 
@@ -122,10 +122,10 @@ After noting your credentials, you can begin setting up an Artifactory repositor
 Next, enter the following details for your new remote repository in the **Basic** configuration tab:
 
 * **Repository Key** — Choose whatever name you like here, but this guide's examples use the name `cgr-private`.
-* **URL** — This must be set to `https://cgr.dev/`. This field **must not** include additional path components — setting it to something like `https://cgr.dev/<organization>/` will cause pulls to fail with a `manifest unknown` error. To remove the organization from the pull path, use the **Project ID** field described below instead.
+* **URL** — This must be set to `https://cgr.dev/`. This field **must not** include additional path components — setting it to something like `https://cgr.dev/[[ORGANIZATION]]/` will cause pulls to fail with a `manifest unknown` error. To remove the organization from the pull path, use the **Project ID** field described below instead.
 * **Project ID** — Optional. Set this to your organization's name (for example, `example.com`) and Artifactory prepends it to upstream requests, letting your users omit it from their pull commands. Because this field is set per repository, you need one remote repository per Chainguard organization if you pull from more than one.
-* **User Name** — Enter the `<identity-id>` value you noted from the `docker login` command.
-* **Password / Access Token** — Enter the `<pull-token>` value you noted from the `docker login` command.
+* **User Name** — Enter the `[[IDENTITY_ID]]` value you noted from the `docker login` command.
+* **Password / Access Token** — Enter the `[[PULL_TOKEN]]` value you noted from the `docker login` command.
 * **Include Patterns** — Ensure that you use the default value (`**/*`) in this field.
 * **Enable Token Authentication** — Ensure this setting (under **Docker Settings**) is enabled. This is required, as you must authenticate to the remote repository in order to pull Chainguard Containers through it.
 * **Block Mismatching Mime Types** — In the **Advanced** configuration tab, ensure that this option is checked.
@@ -143,13 +143,13 @@ As with the `cgr-public` repository example, you must retrieve a token generated
 After running the `docker login` command, you will be able to pull Chainguard Production Containers through Artifactory. The following example pulls the `chainguard-base` image if your organization has access to it:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-private/<organization>/chainguard-base:latest
+docker pull [[SERVER_NAME]].jfrog.io/cgr-private/[[ORGANIZATION]]/chainguard-base:latest
 ```
 
 If you set **Project ID** to your organization's name when creating the repository, omit the organization from the pull path:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-private/chainguard-base:latest
+docker pull [[SERVER_NAME]].jfrog.io/cgr-private/chainguard-base:latest
 ```
 
 Be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Additionally, if you entered a different repository key in the setup section, use it in place of `cgr-private`.
@@ -189,18 +189,18 @@ After retrieving your token and logging into `docker`, you will be able to pull 
 To pull a public image, you would run a command like the following, which pulls the public `mariadb` image:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-virt/chainguard/mariadb:latest
+docker pull [[SERVER_NAME]].jfrog.io/cgr-virt/chainguard/mariadb:latest
 ```
 
 To pull a Production Container, replace `chainguard` with the name of your organization's registry. The following example pulls the `chainguard-base` image if your organization has access to it:
 
 ```sh
-docker pull <my-project>.jfrog.io/cgr-virt/<organization>/chainguard-base:latest
+docker pull [[SERVER_NAME]].jfrog.io/cgr-virt/[[ORGANIZATION]]/chainguard-base:latest
 ```
 
 For both of these commands, be sure the `docker pull` command you run includes the name of your Artifactory project and the name of your organization's registry. Also, if you used a different repository key, substitute it for `cgr-virt` in the previous commands.
 
-> **Note**: Take care when aggregating remote repositories that each set a **Project ID**. If both the free and private remotes strip their path prefixes, image names from different sources collapse into the same namespace within the virtual repository — for example, both `chainguard/go` and `<organization>/go` would resolve as `go`, and the virtual repository's resolution order determines which one you get.
+> **Note**: Take care when aggregating remote repositories that each set a **Project ID**. If both the free and private remotes strip their path prefixes, image names from different sources collapse into the same namespace within the virtual repository — for example, both `chainguard/go` and `[[ORGANIZATION]]/go` would resolve as `go`, and the virtual repository's resolution order determines which one you get.
 
 ## Debugging pull-through from Chainguard’s registry to Artifactory
 
@@ -208,8 +208,8 @@ If you run into issues when trying to pull images from Chainguard's container re
 
 * Ensure that all Containers [network requirements](/chainguard/containers/registry/network-requirements/) are met.
 * If you attempt to pull a nonexistent image via pull-through, Artifactory will also make calls to `chainguard.dev` and `www.chainguard.dev`. Calls to these domains should not occur when pulling a valid image.
-* When configuring a remote Artifactory repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. Adding a path such as `https://cgr.dev/<organization>/` produces a `manifest unknown: The named manifest is not known to the registry` error, because Artifactory ignores the path portion of a Docker remote's URL. If your goal is to shorten the pull path, set the repository's **Project ID** to your organization's name instead.
-* You can troubleshoot by running `docker login` from another node (using the Artifactory pull token credentials) and then trying to pull a Container from `cgr.dev/chainguard/<image name>` or `cgr.dev/<organization>/<image name>`.
+* When configuring a remote Artifactory repository, ensure that the **URL** field is set to `https://cgr.dev/`. This field **must not** contain additional components. Adding a path such as `https://cgr.dev/[[ORGANIZATION]]/` produces a `manifest unknown: The named manifest is not known to the registry` error, because Artifactory ignores the path portion of a Docker remote's URL. If your goal is to shorten the pull path, set the repository's **Project ID** to your organization's name instead.
+* You can troubleshoot by running `docker login` from another node (using the Artifactory pull token credentials) and then trying to pull a Container from `cgr.dev/chainguard/[[IMAGE_NAME]]` or `cgr.dev/[[ORGANIZATION]]/[[IMAGE_NAME]]`.
 * It may help to [clear the Artifactory cache](https://jfrog.com/help/r/artifactory-cleanup-best-practices/clearing-an-oversized-cache).
 * Your Artifactory repository may be misconfigured. In this case, create and configure a new remote Artifactory repository to test with.
 

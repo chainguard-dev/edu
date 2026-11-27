@@ -27,7 +27,7 @@ If you would like to learn more about **Chainguard Containers**, you can review 
 
 ## What your organization can pull
 
-Your organization's registry at `cgr.dev/$ORGANIZATION/` holds only the containers your organization has access to, which is a subset of what the public [Chainguard Containers Directory](https://images.chainguard.dev/) lists. Browsing a container in the Directory doesn't mean you can pull it. Refer to [Onboard your teams](/get-started/onboard-your-teams/#what-your-organization-can-pull) for how your subscription determines what's available, and to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/) when a container you expected is missing.
+Your organization's registry at `cgr.dev/[[ORGANIZATION]]/` holds only the containers your organization has access to, which is a subset of what the public [Chainguard Containers Directory](https://images.chainguard.dev/) lists. Browsing a container in the Directory doesn't mean you can pull it. Refer to [Onboard your teams](/get-started/onboard-your-teams/#what-your-organization-can-pull) for how your subscription determines what's available, and to [Troubleshoot container and version availability](/chainguard/containers/troubleshooting/container-version-troubleshooting/) when a container you expected is missing.
 
 ## Troubleshooting authentication errors
 

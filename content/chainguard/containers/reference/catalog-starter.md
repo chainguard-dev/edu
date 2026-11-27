@@ -59,7 +59,7 @@ Because Starter organizations can't create assumable identities, CI pipelines au
 chainctl auth pull-token create --output=env
 ```
 
-This sets `CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password. Store both as secrets in your CI platform, then log in to `cgr.dev` with them. For example, in a GitHub Actions workflow:
+This sets `CHAINGUARD_IDENTITY_ID` to the username and `CHAINGUARD_TOKEN` to the password. Store both as secrets in your CI platform, then log in to `cgr.dev` with them. For example, in a GitHub Actions workflow, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```yaml
 name: Pull a Chainguard container
@@ -82,7 +82,7 @@ jobs:
         run: |
           echo "$CHAINGUARD_TOKEN" | docker login cgr.dev \
             --username "$CHAINGUARD_IDENTITY_ID" --password-stdin
-      - run: docker pull cgr.dev/$ORGANIZATION/python:latest
+      - run: docker pull cgr.dev/[[ORGANIZATION]]/python:latest
 ```
 
 This workflow doesn't need the `id-token: write` permission, because it federates no OIDC token.
@@ -135,16 +135,16 @@ chainctl starter request-access
 
 ### Add images with `chainctl`
 
-You can see which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), substituting the desired image names for the variables:
+You can find which images are available [using the Chainguard Directory](/chainguard/containers/registry/chainguard-directory/). To add one or more images, run [`chainctl starter add-images`](/platform/chainctl/chainctl-docs/chainctl_starter_add-images/), replacing `[[IMAGE1]]`, `[[IMAGE2]]`, and so on with the names of the images to add:
 
 ```shell
-chainctl starter add-images $IMAGE1 [$IMAGE2 ...]
+chainctl starter add-images [[IMAGE1]] [[[IMAGE2]] ...]
 ```
 
-After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `$ORGANIZATION` with your organization's name, or with its ID if you created it with a personal email address, and `$IMAGE` with the desired image's name:
+After the Chainguard system has processed your request, the images become accessible. This can take up to a few hours. When available, you can pull the images like this, replacing `[[ORGANIZATION]]` with your organization's name, or with its ID if you created it with a personal email address, and `[[IMAGE]]` with the desired image's name:
 
 ```shell
-docker pull cgr.dev/$ORGANIZATION/$IMAGE:latest
+docker pull cgr.dev/[[ORGANIZATION]]/[[IMAGE]]:latest
 ```
 
 ### Check status with `chainctl`
@@ -172,7 +172,7 @@ Starter allows users to try out Chainguard Containers, but it comes with certain
 * The user who creates a Starter organization gets the `limited_owner` role, which lets them browse the Console, pull images, create pull tokens, invite colleagues whose email address is in your organization's domain or one of its subdomains, and remove members. It doesn't include access to features like [Custom Assembly](/chainguard/containers/custom-assembly/).
 * You can create pull tokens, but not [assumable identities](/platform/administration/assumable-ids/assumable-ids/). A pull token is the only credential a Starter organization can issue for automation. If you try to create any other identity, the request fails with `starter organizations are not allowed to create identities`.
 * The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) GitHub Action doesn't work with Starter. It authenticates by assuming a Chainguard identity with the OIDC token GitHub issues to the workflow, and it has no pull token mode. The same applies to the OIDC federation examples for GitLab, CircleCI, Buildkite, Jenkins, and Kubernetes. Authenticate your pipelines with a pull token instead, as described in [Authenticate CI pipelines with a pull token](#authenticate-ci-pipelines-with-a-pull-token).
-* Revoking a pull token takes a different path. On the Console's **Access Tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete <role-binding-id>`. This removes the token's access, although the identity itself remains in the list.
+* Revoking a pull token takes a different path. On the Console's **Access Tokens** page, the **Delete** and **Edit** actions are unavailable, and `chainctl iam identity delete` fails, because the `limited_owner` role can't delete identities. To revoke a token, delete its role binding instead: run `chainctl iam role-bindings list` to find the binding, then `chainctl iam role-bindings delete [[ROLE_BINDING_ID]]`. This removes the token's access, although the identity itself remains in the list.
 * Neither Custom Assembly nor Commercial Builds, Chainguard's bespoke paid build services, are included in the Starter plan.
 * Starter cannot be combined with an existing Chainguard Containers license. Existing customers remain on their current paid plans; this free offering can’t be used to subsidize or partially offset paid image counts.
 
@@ -198,10 +198,10 @@ No. The [`setup-chainctl`](https://github.com/chainguard-dev/setup-chainctl) act
 
 Yes. Everyone in a Starter organization uses the same five images, and no one can swap them.
 
-Anyone with the `limited_owner` role can invite a colleague whose email address is in the organization's domain or one of its subdomains. The `viewer` role is enough to pull images. Replace `$ORGANIZATION` with your organization's name and `$EMAIL` with your colleague's email address:
+Anyone with the `limited_owner` role can invite a colleague whose email address is in the organization's domain or one of its subdomains. The `viewer` role is enough to pull images. Replace `[[ORGANIZATION]]` with your organization's name and `[[EMAIL]]` with your colleague's email address:
 
 ```shell
-chainctl iam invite create $ORGANIZATION --role viewer --email $EMAIL
+chainctl iam invite create [[ORGANIZATION]] --role viewer --email [[EMAIL]]
 ```
 
 To let your colleague invite others too, use `--role limited_owner` instead. That role also manages your organization's billing.

@@ -101,10 +101,10 @@ trivy image cgr.dev/chainguard/nginx:latest
 Trivy can recursively scan directories on a local machine. To start a filesystem scan, run:
 
 ```shell
-trivy fs <path>
+trivy fs [[PATH]]
 ```
 
-where `<path>` indicates the root folder where the scan will begin. Trivy looks out for specific files containing lists of packages, such as Python's `requirements.txt` or `poetry.lock`, PHP's `composer.lock`, or Node's `package-lock.json`.
+where `[[PATH]]` indicates the root folder where the scan will begin. Trivy looks out for specific files containing lists of packages, such as Python's `requirements.txt` or `poetry.lock`, PHP's `composer.lock`, or Node's `package-lock.json`.
 
 The following creates a Python project folder with virtual environment, installs a set of older packages, generates a `requirements.txt` file itemizing all transitive dependencies, and scans the project folder using Trivy:
 
@@ -129,10 +129,10 @@ You should see a summary and itemized list of CVEs for the outdated Node package
 
 ### Scanning clusters
 
-To scan a Kubernetes cluster:
+To scan a Kubernetes cluster, run the following command, replacing `[[CLUSTER_NAME]]` with the cluster's name:
 
 ```shell
-trivy k8s --report summary <cluster-name>
+trivy k8s --report summary [[CLUSTER_NAME]]
 ```
 
 To try out the above command on a test Kubernetes cluster, First install [Kind](https://kind.sigs.k8s.io/docs/user/quick-start/#installation), a utility allowing Kubernetes to be run on your local machine.

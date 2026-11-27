@@ -52,7 +52,7 @@ cgr.dev/example.com/go:1.22@sha256:0d0e0f5e9b7f8ee0dbcbb6d1c40ad1bbd0da5b2bb56de
 Both parts are required:
 
 * Digestabot never matches a reference with a tag and no digest. It updates a digest that's already there; it doesn't add one.
-* Digestabot skips a reference with a digest and no tag, because it has no tag to look up. The job log records `Image <name> in file <file> does not have a tag, ignoring...`.
+* Digestabot skips a reference with a digest and no tag, because it has no tag to look up. The job log records `Image [[NAME]] in file [[FILE]] does not have a tag, ignoring...`.
 
 This is the most common reason a Digestabot run reports nothing to do.
 
@@ -81,11 +81,11 @@ For a private repository in `cgr.dev`, add a [`setup-chainctl`](https://github.c
 
 Digestabot needs no static pull token, which is where it differs most from Dependabot. The identity mints a short-lived token for each run, so there is no credential to store or rotate.
 
-Create an identity for your repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies.
+Create an identity for your repository. The `--github-repo` value embeds GitHub's immutable numeric owner and repository IDs; refer to [Finding your repository's numeric identifiers](/platform/administration/assumable-ids/identity-examples/github-identity/#finding-your-repositorys-numeric-identifiers) for how to retrieve them and when the format applies. Replace `[[GITHUB_ORG]]` and `[[GITHUB_REPO]]` with the repository's owner and name, and `[[GITHUB_OWNER_ID]]` and `[[GITHUB_REPO_ID]]` with their numeric IDs.
 
 ```shell
 chainctl iam identities create github digestabot \
-  --github-repo=<github-org>@<owner-id>/<github-repo-name>@<repo-id> \
+  --github-repo=[[GITHUB_ORG]]@[[GITHUB_OWNER_ID]]/[[GITHUB_REPO]]@[[GITHUB_REPO_ID]] \
   --github-ref=refs/heads/main \
   --role=registry.pull
 ```
@@ -96,7 +96,7 @@ Digestabot only reads image digests, so the `registry.pull` role covers everythi
 
 ## Create the workflow
 
-Create a file named `.github/workflows/digestabot.yaml` with the following content, replacing `<identity-id>` with the ID from the previous section:
+Create a file named `.github/workflows/digestabot.yaml` with the following content, replacing `[[IDENTITY_ID]]` with the ID from the previous section:
 
 ```yaml
 name: Digestabot
@@ -126,7 +126,7 @@ jobs:
 
     - uses: chainguard-dev/setup-chainctl@2cddd35a2f120d9973e58094dc6878c93cf58c28 # v0.5.1
       with:
-        identity: "<identity-id>"
+        identity: "[[IDENTITY_ID]]"
 
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
@@ -261,11 +261,11 @@ If the job succeeds but no pull request appears, check the following:
 
 ### Digest lookups fail
 
-The job summary records `Failed to retrieve digest info for <image>` for each reference Digestabot couldn't resolve, followed by the error from the registry. Check the following, in order:
+The job summary records `Failed to retrieve digest info for [[IMAGE]]` for each reference Digestabot couldn't resolve, followed by the error from the registry. Check the following, in order:
 
 1. Confirm that the `setup-chainctl` step runs before the Digestabot step and completes successfully.
 2. Confirm the identity has the `registry.pull` role and access to the repository holding the image. Run `chainctl iam identities list` to review the identities in your organization.
-3. Test the reference outside the workflow. Run `chainctl auth configure-docker`, then `crane digest <reference>` or `docker pull <reference>`.
+3. Test the reference outside the workflow. Run `chainctl auth configure-docker`, then `crane digest [[REFERENCE]]` or `docker pull [[REFERENCE]]`.
 4. If you pull through a registry proxy, confirm whether the lookups need [`registry-map`](#resolve-digests-through-a-registry-proxy).
 
 ## Video overview

@@ -130,10 +130,10 @@ contents:
 
 When Chainguard builds each tag, it replaces the placeholders with the major and minor version of the image's main package. The `3.12` tags of the `python` image receive `py3.12-cryptography`, and the `3.14` tags receive `py3.14-cryptography`. When a tag moves to a new version, the package follows it.
 
-Chainguard reads each image's main package from its `dev.chainguard.package.main` label. To check the label, run the following [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) command:
+Chainguard reads each image's main package from its `dev.chainguard.package.main` label. To check the label, run the following [crane](https://github.com/google/go-containerregistry/tree/main/cmd/crane) command, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-crane config cgr.dev/$ORGANIZATION/python:3.12 | jq -r '.config.Labels["dev.chainguard.package.main"]'
+crane config cgr.dev/[[ORGANIZATION]]/python:3.12 | jq -r '.config.Labels["dev.chainguard.package.main"]'
 ```
 
 ```output

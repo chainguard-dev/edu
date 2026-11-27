@@ -103,16 +103,16 @@ This command will return a table showing the UIDPs of every Chainguard Container
 ```output
                 ID                 |      REGISTRY       |   REPO   |        BUNDLES        |    TIER
 -----------------------------------+---------------------+----------+-----------------------+--------------
-  ORGANIZATION_ID/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION
-  ORGANIZATION_ID/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN
-  ORGANIZATION_ID/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN
+  [[ORGANIZATION_ID]]/165aEXAMPLE5b7ae | cgr.dev/example.com | nginx    | application, featured | APPLICATION
+  [[ORGANIZATION_ID]]/4408EXAMPLE4131a | cgr.dev/example.com | node     | base                  | UNKNOWN
+  [[ORGANIZATION_ID]]/37a2EXAMPLE0d419 | cgr.dev/example.com | python   | base, featured        | UNKNOWN
 
 ```
 
-With the image repository ID, you can make a request to the API endpoint with a command like the following. Make sure to replace `$ORGANIZATION_ID/4408EXAMPLE4131a` with the container image repository UIDP you just found:
+With the image repository ID, you can make a request to the API endpoint with a command like the following. Make sure to replace `[[REPO_UIDP]]` with the container image repository UIDP you just found:
 
 ```shell
-curl -H "Authorization: Bearer $(chainctl auth token)" 'https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=$ORGANIZATION_ID/4408EXAMPLE4131a' | jq .
+curl -H "Authorization: Bearer $(chainctl auth token)" 'https://console-api.enforce.dev/registry/v1/eoltags?uidp.childrenOf=[[REPO_UIDP]]' | jq .
 ```
 
 Note that this example includes the `-H` argument to pass an authorization header to the API. This header is constructed with the `chainctl auth token` command which prints the local Chainguard token, allowing you to authenticate to the API.

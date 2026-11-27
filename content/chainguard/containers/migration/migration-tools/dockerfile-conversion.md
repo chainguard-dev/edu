@@ -62,7 +62,7 @@ dfc version v0.9.3
 
 ## Getting started
 
-DFC supports inline conversion of entire Dockerfiles and single `FROM` and `RUN` instructions. It can also read Dockerfiles from files or standard input (stdin). The converted Dockerfile will use Chainguard Containers as the base image, which are available at `cgr.dev/<org>`.
+DFC supports inline conversion of entire Dockerfiles and single `FROM` and `RUN` instructions. It can also read Dockerfiles from files or standard input (stdin). The converted Dockerfile will use Chainguard Containers as the base image, which are available at `cgr.dev/[[ORGANIZATION]]`.
 
 ### Inline usage
 

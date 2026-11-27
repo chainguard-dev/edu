@@ -49,10 +49,10 @@ With Custom Assembly, you can add custom certificates to your Chainguard Contain
 You can add certificates interactively by running a command like the following:
 
 ```shell
-chainctl images repos build edit --repo $CONTAINER
+chainctl images repos build edit --repo [[CONTAINER]]
 ```
 
-This will open your default text editor with the current configuration. This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
+This will open your default text editor with the current configuration. This example includes the `--repo` argument, which points to the name of the image you want to customize. If you omit it, `chainctl` prompts you to select a container image interactively. It also prompts for the organization when you have access to more than one; pass `--parent=[[ORGANIZATION]]` to skip that prompt.
 
 In the editor, add one or more `certificates` sections with your custom certificates. Note that each entry must contain exactly one PEM block (`BEGIN CERTIFICATE` to `END CERTIFICATE`):
 
@@ -95,14 +95,14 @@ This adds (concatenates) the provided inline certificates to the default trustst
 Alternatively, you can use the `--with-certificates` flag to pre-populate the `certificates.additional` section from a selected `.pem` file. Here is an example invocation that uses a `.pem` file named `certificates.pem`:
 
 ```shell
-chainctl images repos build edit --with-certificates certificate.pem --repo $CONTAINER
+chainctl images repos build edit --with-certificates certificate.pem --repo [[CONTAINER]]
 ```
 
 As with the previous example, this will open up the configuration in your default editor. After saving and closing the editor, `chainctl` will prompt you to confirm the changes before applying them.
 
 ### Non-interactive usage
 
-To add certificates without any interactivity, you can use the `apply` subcommand. This requires you to supply a YAML configuration file listing the certificates, like the example created with this command:
+To add certificates without any interactivity, you can use the `apply` subcommand. This requires you to supply a YAML configuration file listing the certificates, like the example created with this command, replacing `[[CERTIFICATE_CONTENTS]]` with the contents of your certificate:
 
 ```shell
 cat > cert.yaml <<EOF
@@ -111,7 +111,7 @@ certificates:
   - name: ca1
     content: |
       -----BEGIN CERTIFICATE-----
-      <certificate contents>
+      [[CERTIFICATE_CONTENTS]]
       -----END CERTIFICATE-----
 EOF
 ```
@@ -119,7 +119,7 @@ EOF
 Then include this file in the `apply` command by adding the `-f` argument:
 
 ```shell
-chainctl image repos build apply --repo $CONTAINER -f cert.yaml --yes
+chainctl image repos build apply --repo [[CONTAINER]] -f cert.yaml --yes
 ```
 
 This command will again ask you to confirm that you want to apply the new configuration. To make this example completely declarative, this example includes `--yes` to automatically confirm the changes:
@@ -152,10 +152,10 @@ The non-interactive approach is particularly useful for CI/CD pipelines and auto
 
 Before following the steps below, ensure you have [`crane` installed](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md#installation).
 
-You can verify that your certificates are present in the system trust bundle by using `crane` to export the image filesystem, extract the system CA bundle from the archive, and write it to a local file for inspection:
+You can verify that your certificates are present in the system trust bundle by using `crane` to export the image filesystem, extract the system CA bundle from the archive, and write it to a local file for inspection, replacing `[[ORGANIZATION]]` with your organization's name and `[[CONTAINER]]` with the name of your customized image:
 
 ```shell
-crane export cgr.dev/my-org/my-custom-image:latest - | tar -xOf - etc/ssl/certs/ca-certificates.crt > ca-certificates.crt
+crane export cgr.dev/[[ORGANIZATION]]/[[CONTAINER]]:latest - | tar -xOf - etc/ssl/certs/ca-certificates.crt > ca-certificates.crt
 ```
 
 After running this command, inspect the copied file locally to confirm that your certificate is present.

@@ -102,17 +102,17 @@ After creating this custom role, you would need to bind it to any identities in 
 You can use Docker to download the customized container image for testing or use, like this:
 
 ```shell
-docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-CONTAINER:latest
+docker pull cgr.dev/[[ORGANIZATION]]/[[CUSTOMIZED_CONTAINER]]:latest
 ```
 
-Be sure to change `$ORGANIZATION` to reflect the name used for your organization's private repository within the Chainguard registry and replace `$CUSTOMIZED-CONTAINER` with the actual name of your customized container image.
+Be sure to change `[[ORGANIZATION]]` to reflect the name used for your organization's private repository within the Chainguard registry and replace `[[CUSTOMIZED_CONTAINER]]` with the actual name of your customized container image.
 
 Additionally, replace `latest` with your chosen tag, if different. You can find a list of all the available tags for your customized container in its **Tags** tab in the Console.
 
 Note that you can also download specific builds of an container image by referencing the build's unique digest, as in this example:
 
 ```shell
-docker pull cgr.dev/$ORGANIZATION/$CUSTOMIZED-CONTAINER@sha256:e24d3X4MPL338cb75b3X4MPL3674bd908681fca3X4MPL31e3d0321b892b9611d
+docker pull cgr.dev/[[ORGANIZATION]]/[[CUSTOMIZED_CONTAINER]]@sha256:e24d3X4MPL338cb75b3X4MPL3674bd908681fca3X4MPL31e3d0321b892b9611d
 ```
 
 Pulling container images by digest can [improve reproducibility](/chainguard/containers/troubleshooting/inspecting-containers/).
@@ -130,7 +130,7 @@ As an example, run a container with a Custom Assembly container image that has a
 ```shell
 docker run -it --entrypoint /bin/sh --user root  \
 -e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)" \
-cgr.dev/$ORGANIZATION/$CUSTOMIZED-CONTAINER:latest-dev
+cgr.dev/[[ORGANIZATION]]/[[CUSTOMIZED_CONTAINER]]:latest-dev
 ```
 
 Note that this command injects an `HTTP_AUTH` environment variable directly into the container by calling `chainctl` from the host machine to obtain an ephemeral token. This is necessary to authenticate to the private repository.

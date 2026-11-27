@@ -224,7 +224,7 @@ instead of `npm install` to ensure the correct version of all dependencies is us
 
 If Chainguard's Node.js image has been added to your organization's Chainguard Registry, you will have access to more tags than just `latest`, including *slim tags*. These represent Chainguard's [slim variants](/chainguard/containers/concepts/container-variants/#slim-container-variants), which have an even smaller attack surface than our standard container images. In the case of Node.js, the slim variants omit some packages that are included in the standard image for compatibility purposes, including `npm` and `busybox`.
 
-Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images:
+Because they lack these compatibility packages, the slim Node.js images are often used in multi-stage builds. The following example updates the `Dockerfile-multi` file shown previously to point to one of Chainguard's slim Node.js images, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```Docker
 FROM cgr.dev/chainguard/node:latest-dev AS builder
@@ -238,7 +238,7 @@ RUN npm install
 USER node
 COPY . .
 
-FROM cgr.dev/$ORGANIZATION/node:25-slim
+FROM cgr.dev/[[ORGANIZATION]]/node:25-slim
 
 COPY --from=builder --chown=node:node /usr/src/app /app
 EXPOSE 3000
@@ -251,7 +251,7 @@ CMD ["node", "app.js"]
 
 This example specifies the `:25-slim` tag, but be aware that Chainguard includes slim variants for every version of Node.js it offers.
 
-To build an image with a Dockerfile like this, your organization would need to have Chainguard's Node.js image included in its registry. You would also need to update `$ORGANIZATION` to reflect the name of your organization's registry.
+To build an image with a Dockerfile like this, your organization would need to have Chainguard's Node.js image included in its registry. You would also need to update `[[ORGANIZATION]]` to reflect the name of your organization's registry.
 
 ## Additional resources
 

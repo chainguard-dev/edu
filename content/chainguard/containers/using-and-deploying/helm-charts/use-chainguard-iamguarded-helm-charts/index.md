@@ -38,18 +38,18 @@ If there is a FIPS version of the iamguarded image the chart needs, you can use 
 
 If you are pulling container images directly from Chainguard, then you must set a `global.org` value. You don't need this if you are pulling from your own internal registry.
 
-You can set a `global.org` value using a `--set` flag during installation, as shown in this example:
+You can set a `global.org` value using a `--set` flag during installation, as shown in this example, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION"
+helm install rabbitmq oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/rabbitmq \
+  --set "global.org=[[ORGANIZATION]]"
 ```
 
 Alternately, you can set this value in a YAML file:
 
 ```yaml
 global:
-  org: $ORGANIZATION
+  org: [[ORGANIZATION]]
 ```
 
 In addition, users who mirror images to custom repositories should use `global.imageRegistry` to override the default `cgr.dev`. If you have a complex mirroring strategy, consult the chart’s `values.yaml` for individual image configuration options including `registry`, `repository`, `tag` and `digest`. Here’s a sample from the RabbitMQ `iamguarded` chart documentation:
@@ -114,28 +114,28 @@ chainctl auth configure-docker --pull-token --save --ttl=24h
 
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 
-Configuring identity "<identity-id>" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Configuring identity "[[IDENTITY_ID]]" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
 Overwriting existing credentials.
 ```
 
 Save the credentials as variables, like this.
 
 ```sh
-HELMUSER="<identity-id>"
+HELMUSER="[[IDENTITY_ID]]"
 
-HELMPASS="<pull-token>"
+HELMPASS="[[PULL_TOKEN]]"
 ```
 
-Create your Kubernetes secret using the variables you just created.
+Create your Kubernetes secret using the variables you just created, replacing `[[NAMESPACE]]` with your Kubernetes namespace.
 
 ```sh
 kubectl create secret docker-registry chainguard-pull-secret \
   --docker-server=cgr.dev \
   --docker-username=$(echo $HELMUSER) \
   --docker-password=$(echo $HELMPASS) \
-  -n <your-namespace>
+  -n [[NAMESPACE]]
 ```
 
 Log in to the `cgr.dev` Helm registry. The secret you just created covers the image pulls your pods make, but it has no effect on the Helm client, which authenticates on its own to fetch the chart.
@@ -149,8 +149,8 @@ helm registry login cgr.dev \
 Reference the secret in your Helm installation:
 
 ```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION" \
+helm install rabbitmq oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/rabbitmq \
+  --set "global.org=[[ORGANIZATION]]" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
@@ -204,12 +204,12 @@ If you manage access and permissions at cluster-wide and node-specific levels, t
 
 **Use Image Pinning:** All `iamguarded` charts pin images to specific **digests** that have been tested for compatibility, ensuring reliable deployments.
 
-**Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart **digest** to prevent unexpected updates:
+**Pin to Digest:** While charts follow the same tagging scheme as Chainguard images, always pin to a specific chart **digest** to prevent unexpected updates, replacing `[[DIGEST]]` with the chart's digest:
 
 ```sh
 helm install rabbitmq \
-oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
-     --set "global.org=$ORGANIZATION"
+oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/rabbitmq@sha256:[[DIGEST]] \
+     --set "global.org=[[ORGANIZATION]]"
 ```
 
 **Review Default Values:** The chart provides security-minded defaults that are sensible but may not suit all use cases. Review the chart's `values.yaml` for the full range of configuration options and adjust as needed.
@@ -218,11 +218,11 @@ oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq@sha256:DIGEST \
 
 ### Install with details passed in a flag
 
-To install a Helm chart using standard Helm commands and passing details as flag values in the command itself, add the flags and values at the end like this example, substituting your organization for `$ORGANIZATION`.
+To install a Helm chart using standard Helm commands and passing details as flag values in the command itself, add the flags and values at the end like this example, substituting your organization for `[[ORGANIZATION]]`.
 
 ```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
- --set "global.org=$ORGANIZATION"
+helm install rabbitmq oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/rabbitmq \
+ --set "global.org=[[ORGANIZATION]]"
 ```
 
 ### Install with details in a file
@@ -232,7 +232,7 @@ Alternatively, you can put values in a file, such as our `values.yaml` sample, a
 ```sh
 image:
   registry: cgr.dev
-  repository: $ORGANIZATION/rabbitmq # replace $ORGANIZATION
+  repository: [[ORGANIZATION]]/rabbitmq # replace [[ORGANIZATION]]
   tag: latest # pin to specific version instead of latest
 ```
 
@@ -264,8 +264,8 @@ EOF
 You then pass the storage class's name to the `helm install` command. Here, we use `rabbitmq` as an example:
 
 ```sh
-helm install rabbitmq oci://cgr.dev/$ORGANIZATION/iamguarded-charts/rabbitmq \
-  --set "global.org=$ORGANIZATION" \
+helm install rabbitmq oci://cgr.dev/[[ORGANIZATION]]/iamguarded-charts/rabbitmq \
+  --set "global.org=[[ORGANIZATION]]" \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
   --set "persistence.storageClass=gp3-automode"
 ```

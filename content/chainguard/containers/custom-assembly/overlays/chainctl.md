@@ -130,7 +130,7 @@ The `3.12` tags receive `py3.12-cryptography`, the `3.14` tags receive `py3.14-c
 
 The `--package` flag sets only packages. To set environment variables, annotations, certificates, user accounts, or runtime repositories, write the overlay as a YAML file and pass it with `-f`. The file uses the same format as [`chainctl images repos build apply`](/chainguard/containers/custom-assembly/custom-assembly-chainctl/#applying-packages-non-interactively).
 
-The following commands write an overlay that adds an internal certificate authority and an environment variable, then create the overlay from the file:
+The following commands write an overlay that adds an internal certificate authority and an environment variable, then create the overlay from the file, replacing `[[CERTIFICATE_CONTENTS]]` with the contents of your certificate:
 
 ```shell
 cat > internal-ca.yaml <<EOF
@@ -139,7 +139,7 @@ certificates:
     - name: internal-ca
       content: |
         -----BEGIN CERTIFICATE-----
-        <certificate contents>
+        [[CERTIFICATE_CONTENTS]]
         -----END CERTIFICATE-----
 environment:
   REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
@@ -154,7 +154,7 @@ For certificates, runtime repositories, and runtime keys, you can skip the YAML 
 
 * `--with-certificates`: a comma-separated list of files to read custom certificates from.
 * `--with-runtime-repositories`: a comma-separated list of runtime APK repository URLs to write to `/etc/apk/repositories` in the image.
-* `--with-runtime-keys`: a comma-separated list of files to read APK signing public keys from. Each file becomes a key in `/etc/apk/keys` named after the file's basename, which must match the filename referenced by the repository's `APKINDEX` signature (`.SIGN.RSA256.<name>`).
+* `--with-runtime-keys`: a comma-separated list of files to read APK signing public keys from. Each file becomes a key in `/etc/apk/keys` named after the file's basename, which must match the filename referenced by the repository's `APKINDEX` signature (`.SIGN.RSA256.[[NAME]]`).
 
 For example, the following command creates an overlay that carries certificates from a PEM bundle, with no YAML file:
 

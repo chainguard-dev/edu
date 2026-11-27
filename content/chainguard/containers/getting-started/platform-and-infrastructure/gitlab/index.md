@@ -65,7 +65,7 @@ chainctl auth configure-docker
 Set your Chainguard organization name as an environment variable. If you don't know your organization name, run `chainctl iam organizations list -o table` to find it.
 
 ```shell
-export ORGANIZATION=<your-chainguard-organization>
+export ORGANIZATION=[[ORGANIZATION_NAME]]
 ```
 
 ## Step 2: Create a local Kubernetes cluster
@@ -128,8 +128,8 @@ The command outputs a username and password. Use those values to create a Kubern
 kubectl create secret docker-registry cgr-pull-secret \
   --namespace gitlab-system \
   --docker-server=cgr.dev \
-  --docker-username=<username-from-pull-token> \
-  --docker-password=<password-from-pull-token>
+  --docker-username=[[IDENTITY_ID]] \
+  --docker-password=[[PULL_TOKEN]]
 ```
 
 ```output

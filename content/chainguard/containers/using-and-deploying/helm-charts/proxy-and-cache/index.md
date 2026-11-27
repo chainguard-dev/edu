@@ -33,7 +33,7 @@ Output will look like this:
 ```bash
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 ```
 
 In the repository's configuration, set the **URL** to `https://cgr.dev`, and set the **User Name** and **Password / Access Token** to the values from the command output above.
@@ -42,15 +42,15 @@ Once created, the next step is to configure Helm to pull from the mirrored repos
 
 ## Configure Helm to pull from the mirrored repository and install
 
-> **NOTE:** In the following example, $JFROG_USERNAME and $JFROG_TOKEN refer to the Artifactory username and token used to gain access to the newly created Helm repository. For testing purposes, a quick way to generate this against any repository is by using the "Set Me Up" button in the top right corner of the UI.
+> **NOTE:** In the following example, $JFROG_USERNAME and $JFROG_TOKEN refer to the Artifactory username and token used to gain access to the newly created Helm repository. Replace `[[ORGANIZATION_NAME]]` with your organization's name. For testing purposes, a quick way to generate this against any repository is by using the "Set Me Up" button in the top right corner of the UI.
 
 ```bash
-JFROG_USERNAME= # Your username, i.e. username@chainguard.dev
-JFROG_TOKEN= # Your token
+JFROG_USERNAME=[[ARTIFACTORY_USERNAME]]
+JFROG_TOKEN=[[ARTIFACTORY_TOKEN]]
 helm registry login -u $JFROG_USERNAME -p $JFROG_TOKEN chainguard.jfrog.io
 Login Succeeded
-helm pull oci://chainguard.jfrog.io/iamguarded-charts/YOUR-ORGANIZATION/iamguarded-charts/kafka
-Pulled: chainguard.jfrog.io/iamguarded-charts/YOUR-ORGANIZATION/iamguarded-charts/kafka:32.2.18
+helm pull oci://chainguard.jfrog.io/iamguarded-charts/[[ORGANIZATION_NAME]]/iamguarded-charts/kafka
+Pulled: chainguard.jfrog.io/iamguarded-charts/[[ORGANIZATION_NAME]]/iamguarded-charts/kafka:32.2.18
 Digest: sha256:8cc051f049fbd75cfc84306bf11adf0ef4ea0d19bc3a1d3ae46284b3aab5b083
 ```
 
@@ -59,9 +59,9 @@ Finally, we'll create a Kubernetes Secret that will be used to pull the `kafka-i
 > **NOTE:** Similar to the Helm example, `$JFROG_USERNAME` and `$JFROG_TOKEN` refer to the Artifactory username and token used to gain access to your existing remote repository used to mirror Chainguard images from your organization. This may be different than the credentials used to gain access to your remote Helm repository.
 
 ```bash
-JFROG_USERNAME= # Your username, i.e. username@chainguard.dev
-JFROG_TOKEN= # Your token
-ORGANIZATION= # Your organization, i.e. YOUR-ORGANIZATION
+JFROG_USERNAME=[[ARTIFACTORY_USERNAME]]
+JFROG_TOKEN=[[ARTIFACTORY_TOKEN]]
+ORGANIZATION=[[ORGANIZATION_NAME]]
 kubectl create secret docker-registry chainguard-pull-secret \
     --docker-server=chainguard.jfrog.io \
     --docker-username=$JFROG_USERNAME \
@@ -69,13 +69,13 @@ kubectl create secret docker-registry chainguard-pull-secret \
 
 secret/chainguard-pull-secret created
 
-helm install kafka oci://chainguard.jfrog.io/iamguarded-charts/YOUR-ORGANIZATION/iamguarded-charts/kafka \
+helm install kafka oci://chainguard.jfrog.io/iamguarded-charts/$ORGANIZATION/iamguarded-charts/kafka \
     --set image.registry=chainguard.jfrog.io \
-    --set image.repository=iamguarded-charts/YOUR-ORGANIZATION/iamguarded-charts/kafka \
+    --set image.repository=iamguarded-charts/$ORGANIZATION/iamguarded-charts/kafka \
     --set "global.org=$ORGANIZATION" \
     --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 
-    Pulled: chainguard.jfrog.io/iamguarded-charts/YOUR-ORGANIZATION/iamguarded-charts/kafka:32.2.18
+    Pulled: chainguard.jfrog.io/iamguarded-charts/[[ORGANIZATION_NAME]]/iamguarded-charts/kafka:32.2.18
     Digest: sha256:8cc051f049fbd75cfc84306bf11adf0ef4ea0d19bc3a1d3ae46284b3aab5b083
     NAME: kafka
     LAST DEPLOYED: Fri Jul 11 15:10:56 2025

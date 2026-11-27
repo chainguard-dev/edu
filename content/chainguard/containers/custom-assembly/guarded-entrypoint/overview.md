@@ -53,8 +53,8 @@ Before you start, you need the following:
 The examples on this page use the following environment variables. Set them to match your organization and repo:
 
 ```shell
-export ORGANIZATION=example.com
-export REPO=my-custom-python
+export ORGANIZATION=[[ORGANIZATION_NAME]]
+export REPO=[[REPO_NAME]]
 ```
 
 ## Turn on Guarded Entrypoint with chainctl
@@ -143,12 +143,12 @@ The Chainguard API accepts the same five fields. They are `guardedEntrypoint`, `
 
 The API's enum fields take enum names. `failMode` is `FAIL_MODE_CLOSED` or `FAIL_MODE_OPEN`. A `commandOverride` `mode` is `MODE_DEFAULT`, `MODE_PREPEND`, or `MODE_OVERRIDE`. A preflight `onFailure` is `ON_FAILURE_FAIL` or `ON_FAILURE_CONTINUE`. A truststore `format` is `FORMAT_JKS`.
 
-The following request turns on Guarded Entrypoint for a repo, with a fail-open setting and one preflight check:
+The following request turns on Guarded Entrypoint for a repo, with a fail-open setting and one preflight check. Replace `[[REPOSITORY_UID]]` with the repo's UID:
 
 ```shell
 export TOKEN=$(chainctl auth token)
 export API=https://console-api.enforce.dev
-export REPO_UID=YOUR_REPO_UID
+export REPO_UID=[[REPOSITORY_UID]]
 
 curl -s -X PATCH -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -209,7 +209,7 @@ Guarded Entrypoint has its own enrollment, separate from Custom Assembly Overlay
 
 A repo uses its own configuration or overlay bindings, not both. The overlay examples that follow use a different repo from the one you configured with `build edit`. Attaching an overlay to a repo that has its own configuration fails with the error `repository custom overlay and overlay binding not allowed`. Setting a configuration on a repo that has bindings fails the same way.
 
-Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags:
+Write the overlay as a YAML file in the same shape as a repo manifest, create the overlay from it, and bind it to tags, replacing `[[TAG_REPO_NAME]]` with the name of a repo that has no configuration of its own:
 
 ```shell
 cat > startup.yaml <<EOF
@@ -223,7 +223,7 @@ EOF
 
 chainctl images overlays create startup --parent $ORGANIZATION -f startup.yaml
 
-export TAG_REPO=my-tagged-python
+export TAG_REPO=[[TAG_REPO_NAME]]
 
 chainctl images overlays attach \
   --overlay startup \
@@ -234,10 +234,10 @@ chainctl images overlays attach \
 
 For the other selectors, refer to [Manage Custom Assembly Overlays with chainctl](/chainguard/containers/custom-assembly/overlays/chainctl/).
 
-Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/$TAG_REPO_UID`, where `$TAG_REPO_UID` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`:
+Through the API, create the overlay with `POST /registry/v2beta1/overlays/$ORG_ID` and bind it with `POST /registry/v2beta1/overlayBindings/[[TAG_REPO_UID]]`, where `[[TAG_REPO_UID]]` is the UID of a repo that has no configuration of its own. The overlay's `config` takes the same fields as the repo's `customOverlay`. Replace `[[ORGANIZATION_ID]]` with your organization's ID:
 
 ```shell
-export ORG_ID=YOUR_ORG_ID
+export ORG_ID=[[ORGANIZATION_ID]]
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
@@ -255,7 +255,7 @@ curl -s -X POST -H "Authorization: Bearer $TOKEN" \
 
 curl -s -X POST -H "Authorization: Bearer $TOKEN" \
   -H "Content-Type: application/json" \
-  "$API/registry/v2beta1/overlayBindings/$TAG_REPO_UID" \
+  "$API/registry/v2beta1/overlayBindings/[[TAG_REPO_UID]]" \
   -d '{
     "overlay": "startup",
     "tagSelector": { "kind": "KIND_ALL" }
@@ -343,37 +343,37 @@ The same check runs when you update an overlay, against every repo the overlay i
 
 ## API errors
 
-The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `<prefix>` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. The truststore messages also begin with `Invalid argument:` on both paths, which the table leaves out. In a message, `[i]` is the index of the entry in the list, starting at 0.
+The API validates the Guarded Entrypoint fields the same way for repos and for overlays. In the messages, `[[PREFIX]]` is `custom_overlay` when you set the fields on a repo, and `config` when you set them on an overlay. On the overlay path, the API adds the text `Invalid argument: config:` and a space to the start of each `InvalidArgument` message. For `FailedPrecondition` errors on either path, the API adds `Precondition failed:` and a space, except where the table shows the message without it. The truststore messages also begin with `Invalid argument:` on both paths, which the table leaves out. In a message, `[i]` is the index of the entry in the list, starting at 0.
 
 | Trigger | Code | Message |
 | --- | --- | --- |
-| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using <prefix>.guarded_entrypoint is not allowed: this organization is not enrolled in guarded entrypoint. Contact Chainguard customer support to get access.` |
-| `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.preflight requires guarded_entrypoint` |
-| `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.command_override requires guarded_entrypoint` |
-| `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.fail_mode requires guarded_entrypoint` |
-| More than 32 preflight entries | `InvalidArgument` | `<prefix>.preflight: at most 32 entries` |
-| Preflight entry with neither or both of `tcp` and `path` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = exactly one of tcp or path is required` |
-| Preflight `timeout` or `interval` is not a Go duration | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "abc": time: invalid duration "abc"` |
-| Preflight `timeout` or `interval` is negative | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = timeout "-5s" must be non-negative` |
-| Preflight value contains `,` or `=` | `InvalidArgument` | `<prefix>.preflight[i]: rpc error: code = InvalidArgument desc = tcp "a:1,b:2" must not contain ',' or '='` (the message names the field that holds the character) |
-| `command_override.mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "99" must be "default", "prepend", or "override"` |
-| `prepend` or `override` with an empty `command` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = mode "prepend" requires a non-empty command` |
-| `command` entry contains a NUL byte | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] contains a NUL byte` |
-| `command` entry has a `${` with no closing `}` | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
-| `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `<prefix>.command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
-| `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `<prefix>.fail_mode must be one of "closed" or "open", got "99"` |
-| `truststore` set without `guarded_entrypoint` | `InvalidArgument` | `<prefix>.truststores: requires guarded_entrypoint` |
-| Truststore entry has no `sources` | `InvalidArgument` | `<prefix>.truststores[i]: at least one source is required` |
-| A source isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: sources must be absolute paths` |
-| A source contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: sources must not contain ',' or '='` |
-| Truststore entry has no `output` | `InvalidArgument` | `<prefix>.truststores[i]: output is required` |
-| `output` isn't an absolute path | `InvalidArgument` | `<prefix>.truststores[i]: output must be an absolute path` |
-| `output` ends in `/` | `InvalidArgument` | `<prefix>.truststores[i]: output must name a file, not a directory` |
-| `output` contains whitespace or a quote | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain whitespace or quotes` |
-| `output` contains `,` or `=` | `InvalidArgument` | `<prefix>.truststores[i]: output must not contain ',' or '='` |
-| `password_env` isn't a variable name | `InvalidArgument` | `<prefix>.truststores[i]: password_env must be an environment variable name` |
-| `format` isn't `FORMAT_JKS` | `InvalidArgument` | `<prefix>.truststores[i]: format must be "jks"` |
-| More than one truststore entry uses the `jks` format | `InvalidArgument` | `<prefix>.truststores: at most one entry may use format "jks", since the JVM reads one trust store` |
+| `guarded_entrypoint: true` on an organization that doesn't have Guarded Entrypoint enabled. Contact Chainguard customer support to get access. | `PermissionDenied` | `using [[PREFIX]].guarded_entrypoint is not allowed: this organization is not enrolled in guarded entrypoint. Contact Chainguard customer support to get access.` |
+| `preflight` set without `guarded_entrypoint` | `InvalidArgument` | `[[PREFIX]].preflight requires guarded_entrypoint` |
+| `command_override` set without `guarded_entrypoint` | `InvalidArgument` | `[[PREFIX]].command_override requires guarded_entrypoint` |
+| `fail_mode` set without `guarded_entrypoint` | `InvalidArgument` | `[[PREFIX]].fail_mode requires guarded_entrypoint` |
+| More than 32 preflight entries | `InvalidArgument` | `[[PREFIX]].preflight: at most 32 entries` |
+| Preflight entry with neither or both of `tcp` and `path` | `InvalidArgument` | `[[PREFIX]].preflight[i]: rpc error: code = InvalidArgument desc = exactly one of tcp or path is required` |
+| Preflight `timeout` or `interval` is not a Go duration | `InvalidArgument` | `[[PREFIX]].preflight[i]: rpc error: code = InvalidArgument desc = timeout "abc": time: invalid duration "abc"` |
+| Preflight `timeout` or `interval` is negative | `InvalidArgument` | `[[PREFIX]].preflight[i]: rpc error: code = InvalidArgument desc = timeout "-5s" must be non-negative` |
+| Preflight value contains `,` or `=` | `InvalidArgument` | `[[PREFIX]].preflight[i]: rpc error: code = InvalidArgument desc = tcp "a:1,b:2" must not contain ',' or '='` (the message names the field that holds the character) |
+| `command_override.mode` is a number that isn't a declared mode | `InvalidArgument` | `[[PREFIX]].command_override: rpc error: code = InvalidArgument desc = mode "99" must be "default", "prepend", or "override"` |
+| `prepend` or `override` with an empty `command` | `InvalidArgument` | `[[PREFIX]].command_override: rpc error: code = InvalidArgument desc = mode "prepend" requires a non-empty command` |
+| `command` entry contains a NUL byte | `InvalidArgument` | `[[PREFIX]].command_override: rpc error: code = InvalidArgument desc = command[i] contains a NUL byte` |
+| `command` entry has a `${` with no closing `}` | `InvalidArgument` | `[[PREFIX]].command_override: rpc error: code = InvalidArgument desc = command[i] has an unterminated ${ reference` |
+| `command` entry has a `${...}` reference with an invalid variable name | `InvalidArgument` | `[[PREFIX]].command_override: rpc error: code = InvalidArgument desc = command[i] has an invalid variable name in a ${...} reference` |
+| `fail_mode` is a number that isn't a declared mode | `InvalidArgument` | `[[PREFIX]].fail_mode must be one of "closed" or "open", got "99"` |
+| `truststore` set without `guarded_entrypoint` | `InvalidArgument` | `[[PREFIX]].truststores: requires guarded_entrypoint` |
+| Truststore entry has no `sources` | `InvalidArgument` | `[[PREFIX]].truststores[i]: at least one source is required` |
+| A source isn't an absolute path | `InvalidArgument` | `[[PREFIX]].truststores[i]: sources must be absolute paths` |
+| A source contains `,` or `=` | `InvalidArgument` | `[[PREFIX]].truststores[i]: sources must not contain ',' or '='` |
+| Truststore entry has no `output` | `InvalidArgument` | `[[PREFIX]].truststores[i]: output is required` |
+| `output` isn't an absolute path | `InvalidArgument` | `[[PREFIX]].truststores[i]: output must be an absolute path` |
+| `output` ends in `/` | `InvalidArgument` | `[[PREFIX]].truststores[i]: output must name a file, not a directory` |
+| `output` contains whitespace or a quote | `InvalidArgument` | `[[PREFIX]].truststores[i]: output must not contain whitespace or quotes` |
+| `output` contains `,` or `=` | `InvalidArgument` | `[[PREFIX]].truststores[i]: output must not contain ',' or '='` |
+| `password_env` isn't a variable name | `InvalidArgument` | `[[PREFIX]].truststores[i]: password_env must be an environment variable name` |
+| `format` isn't `FORMAT_JKS` | `InvalidArgument` | `[[PREFIX]].truststores[i]: format must be "jks"` |
+| More than one truststore entry uses the `jks` format | `InvalidArgument` | `[[PREFIX]].truststores: at most one entry may use format "jks", since the JVM reads one trust store` |
 | `environment` key starts with `GUARDED_` | `InvalidArgument` | `environment variable "GUARDED_DISABLE" uses reserved prefix 'GUARDED_'` |
 | `environment` key starts with `CHAINGUARD_` | `InvalidArgument` | `environment variable "CHAINGUARD_X" uses reserved prefix 'CHAINGUARD_'` |
 | Version 1 repo API: `sync_config.apko_overlay.environment` key starts with `GUARDED_` | `InvalidArgument` | `sync_config.apko_overlay.environment: variable "..." uses reserved prefix 'GUARDED_'` |

@@ -92,10 +92,10 @@ git commit -am "Initial Commit"
 Add a GitHub repository that you have control over as a remote named `origin`. This example assumes that the repository is named `empty` but you can use any empty GitHub repository you have created:
 
 ```shell
-git remote add origin https://github.com/$YOUR-GITHUB-PROFILE/empty.git
+git remote add origin https://github.com/[[GITHUB_USERNAME]]/empty.git
 ```
 
-Be sure to change `$YOUR-GITHUB-PROFILE` to reflect the name of your GitHub profile.
+Be sure to change `[[GITHUB_USERNAME]]` to reflect the name of your GitHub profile.
 
 Finally, push the commit to the remote repository you just configured:
 
@@ -176,7 +176,7 @@ EOF
 
 Here's what each line of this Dockerfile does:
 
-* `FROM`: Many Chainguard images are available at Docker Hub, meaning you can set the `FROM` line in the `Dockerfile` like this example. Alternatively, you could set this with `cgr.dev/chainguard/python` or, if your Chainguard organization has access to a Production Python image, `cgr.dev/$ORGANIZATION/python:$TAG`.
+* `FROM`: Many Chainguard images are available at Docker Hub, meaning you can set the `FROM` line in the `Dockerfile` like this example. Alternatively, you could set this with `cgr.dev/chainguard/python` or, if your Chainguard organization has access to a Production Python image, `cgr.dev/[[ORGANIZATION]]/python:[[TAG]]`.
 * `USER root`: Including this line forces the next commands to run as root instead of the unprivileged user. Whether you need to include this line or not will depend on what image you're using.
     * You can check by running your image locally and using the `id` command. The following example shows that the Python image uses the nonroot user by default while the Go image uses root by default:
 

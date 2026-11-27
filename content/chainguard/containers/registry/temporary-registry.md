@@ -106,10 +106,10 @@ The same applies to any cluster that can reach the internet: hand it the image r
 
 ## Ground rules
 
-- **Everything is public and anonymous.** Anyone can pull or overwrite any tag. Nobody can delete a tag or an image, including the person who pushed it; content is removed when it expires. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters:
+- **Everything is public and anonymous.** Anyone can pull or overwrite any tag. Nobody can delete a tag or an image, including the person who pushed it; content is removed when it expires. Use a long random repository name (the `uuidgen` trick above) and pull by digest when integrity matters, replacing `[[NAME]]` with your repository's random name and `[[DIGEST]]` with the digest that `docker push` printed:
 
   ```sh
-  docker pull lockers.cgruser.dev/<name>/demo@sha256:<digest>
+  docker pull lockers.cgruser.dev/[[NAME]]/demo@sha256:[[DIGEST]]
   ```
 
 - **Repositories cannot be listed.** There is no catalog endpoint, so content is only reachable by someone who knows the name. Tag listing works within a repository you already know.

@@ -31,7 +31,7 @@ To complete this tutorial, you need the following:
 
 ## Private repository
 
-[Chainguard private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) hold packages that are exclusive to a specific Chainguard organization. They're served from `apk.cgr.dev/<organization>` and require a pull token for access.
+[Chainguard private APK repositories](/chainguard/containers/building-and-modifying/packages/private-apk-repos/) hold packages that are exclusive to a specific Chainguard organization. They're served from `apk.cgr.dev/[[ORGANIZATION]]` and require a pull token for access.
 
 Specific package versions should be immutable and can be cached indefinitely, whereas the upstream updates `APKINDEX.tar.gz` whenever it adds new packages. To give each artifact type its own caching properties, you'll create two raw proxy repositories (one for the packages, one for the `APKINDEX.tar.gz`) and a pair of routing rules that direct traffic to the correct proxy. Both proxies sit behind a raw group repository. Clients point `apk` at the group's URL.
 
@@ -52,9 +52,9 @@ Creating new APK registry pull-token in example.org
 
 To use this pull token in another environment, supply the following for Basic authorization:
 
-Username: <identity_id>
+Username: [[IDENTITY_ID]]
 
-Password: <pull_token>
+Password: [[PULL_TOKEN]]
 ```
 
 Take note of the `Username` and `Password`. You'll need them when you set up the proxies.
@@ -87,7 +87,7 @@ From **Settings**, select **Repository** ⇒ **Repositories**. Click **Create re
 
 * **Name** — `chainguard-apk-packages`
 * **Online** — Enabled.
-* **Remote storage** — `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console.
+* **Remote storage** — `https://apk.cgr.dev/[[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with your organization's name as it appears in the Chainguard Console.
 * **Preserve encoded characters in URLs** — Enabled. `apk.cgr.dev` redirects `.apk` requests to a Cloudflare R2 presigned URL whose signature covers percent-encoded characters (`%2B`, `%2F`, `%3D`). Nexus's default URL normalization would decode them and break the signature.
 * **Strict Content Type Validation** — Disabled. Nexus enables this setting on every new proxy, so you have to clear the checkbox. While it's on, Nexus compares each file it fetches against the content type implied by the file's extension and rejects anything that doesn't match. An Alpine package is a gzip archive, but Nexus maps the `.apk` extension to `application/vnd.android.package-archive`, so every package fails the check and clients receive a 404.
 * **Maximum component age** — `-1` (never expire).
@@ -102,7 +102,7 @@ This proxy handles `APKINDEX.tar.gz` requests. The upstream regenerates the inde
 Repeat the process to create a second raw (proxy) repository with the following details:
 
 * **Name** — `chainguard-apk-index`
-* **Remote storage** — `https://apk.cgr.dev/<organization>`, replacing `<organization>` with your organization's name as it appears in the Chainguard Console.
+* **Remote storage** — `https://apk.cgr.dev/[[ORGANIZATION]]`, replacing `[[ORGANIZATION]]` with your organization's name as it appears in the Chainguard Console.
 * **Preserve encoded characters in URLs** — Enabled.
 * **Strict Content Type Validation** — Leave this enabled. This proxy only ever serves `APKINDEX.tar.gz`, whose extension correctly implies gzip, so it passes the check that `.apk` files fail.
 * **Maximum component age** — `15` (minutes). Tune higher to reduce origin fetches, or lower for faster visibility of new packages.
@@ -124,7 +124,7 @@ Click **Create repository**.
 
 ### Testing
 
-Your group URL is `<nexus_url>/repository/chainguard-apk`, replacing `<nexus_url>` with the base URL of your Nexus instance, including the scheme (for example, `http://localhost:8081`).
+Your group URL is `[[NEXUS_BASE_URL]]/repository/chainguard-apk`, replacing `[[NEXUS_BASE_URL]]` with the base URL of your Nexus instance, including the scheme (for example, `http://localhost:8081`).
 
 Open a terminal and create a Dockerfile. The single quotes around `'EOF'` stop the shell from expanding `$` variables, so Docker interprets them as build arguments and secret references at build time:
 
@@ -149,9 +149,9 @@ Not every package is available in every private APK repository. For example, you
 Before building, export your Nexus credentials and base URL. Include the scheme in `NEXUS_URL`, since the Dockerfile writes this value into `/etc/apk/repositories` as-is. For a Nexus instance running locally over plain HTTP, that's something like `http://localhost:8081`:
 
 ```shell
-export NEXUS_USER=my-nexus-user
-export NEXUS_PASSWORD=my-nexus-password
-export NEXUS_URL=https://my-nexus-hostname:8081
+export NEXUS_USER=[[NEXUS_USERNAME]]
+export NEXUS_PASSWORD=[[PASSWORD]]
+export NEXUS_URL=https://[[NEXUS_HOST]]:8081
 export HTTP_AUTH="basic:*:${NEXUS_USER}:${NEXUS_PASSWORD}"
 ```
 
@@ -186,7 +186,7 @@ For each public repository you want to cache, follow the [private repository pro
 
 * Reuse the `chainguard-apk-block-index` and `chainguard-apk-only-index` routing rules from earlier. They match on request paths and aren't tied to a specific upstream.
 * Name the repositories after the upstream. For example, use `chainguard-apk-public-packages`, `chainguard-apk-public-index`, and `chainguard-apk-public` for the `chainguard` repository, and the matching `chainguard-apk-extras-*` names for `extra-packages`.
-* Set **Remote storage** on each proxy to `https://virtualapk.cgr.dev/<organization_id>/chainguard` or `https://virtualapk.cgr.dev/<organization_id>/extra-packages`, replacing `<organization_id>` with your Chainguard organization's UID. Run `chainctl iam organizations list -o table` to find it, or check the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
+* Set **Remote storage** on each proxy to `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/chainguard` or `https://virtualapk.cgr.dev/[[ORGANIZATION_ID]]/extra-packages`, replacing `[[ORGANIZATION_ID]]` with your Chainguard organization's UID. Run `chainctl iam organizations list -o table` to find it, or check the **Settings** ⇒ **General** page in the [Chainguard Console](https://console.chainguard.dev).
 * Disable **Strict Content Type Validation** on each packages proxy, as in the private setup. The public repositories serve the same gzip `.apk` files, so they fail the same content type check.
 * Leave the **HTTP** authentication section unchecked. The public repositories don't require authentication.
 

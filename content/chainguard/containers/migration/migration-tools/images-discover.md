@@ -77,7 +77,7 @@ In a narrow terminal, the same results print as a list instead of a table. Each 
 | `entitled` | Your organization has this image and the tag, ready to pull. | Switch the reference to the suggested image. |
 | `entitled, not ready` | Your organization has this image, but the suggested tag isn't in your repository yet. | Wait for the tag to sync, or choose another tag. |
 | `available to add` | Chainguard publishes this image, but your organization doesn't have it. | [Add the image to your organization](/chainguard/containers/troubleshooting/container-version-troubleshooting/#the-container-isnt-in-your-organizations-catalog), then switch. |
-| `no maintained tag for <tag>` | Chainguard publishes this image, but no maintained tag matches the one you asked for. | Choose a maintained tag. Use `--all-candidates` to list them. |
+| `no maintained tag for [[TAG]]` | Chainguard publishes this image, but no maintained tag matches the one you asked for. | Choose a maintained tag. Use `--all-candidates` to list them. |
 | `on chainguard` | The reference already uses a Chainguard image. | No action needed. |
 | `not available` | Chainguard doesn't publish a replacement. | Nothing to move to. Keep the image or find an alternative. |
 

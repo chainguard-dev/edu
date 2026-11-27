@@ -22,7 +22,7 @@ You need a container image, or a particular version of one, and you can't pull i
 First, distinguish between the public container registry and your organization's registry:
 
 * The [Chainguard Containers Directory](https://images.chainguard.dev/) at `images.chainguard.dev` is public. It lists every container image Chainguard builds, along with the tags, sizes, and metadata for each. Anyone can browse it.
-* Your organization's registry at `cgr.dev/$ORGANIZATION/` holds only the images your organization has access to. This is what your teams pull from.
+* Your organization's registry at `cgr.dev/[[ORGANIZATION]]/` holds only the images your organization has access to. This is what your teams pull from.
 
 Browsing an image in the Directory doesn't mean your organization can pull it. For a fuller explanation of that distinction and how it relates to your subscription, see [Onboard your teams](/get-started/onboard-your-teams/).
 
@@ -83,10 +83,10 @@ When a container is added to an organization, only its actively supported tags c
 
 Those records outlive the images they name. A superseded tag can still appear in the Console with a pull URL beside it, and still be listed by `chainctl`, while pulling it returns `MANIFEST_UNKNOWN`. A tag's presence in a listing is a weaker signal than whether that tag is still active.
 
-So check against the active tags. This command reads your default organization:
+So check against the active tags. This command reads your default organization. Replace `[[IMAGE]]` with the image's name:
 
 ```shell
-chainctl images tags list --repo=$IMAGE --active-only
+chainctl images tags list --repo=[[IMAGE]] --active-only
 ```
 
 If the tag you want isn't in that output, treat it as unavailable, whatever the Directory or the Console shows for it. Drop `--active-only` to see everything your organization holds, including tags that are no longer maintained. Some of those will fail to pull.
@@ -111,20 +111,20 @@ That combination explains most missing-version reports. If you need `7.79.2` and
 Two related points follow from how tags float:
 
 * A newer epoch tag supersedes the previous one. Once `1.14.5-r4` exists, `1.14.5-r3` stops being updated. Epoch tags aren't a locking mechanism.
-* To list what's actually maintained for an image, run `chainctl image repo list --repo=$IMAGE -o json | jq -r '.items[].active_tags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
+* To list what's actually maintained for an image, run `chainctl image repo list --repo=[[IMAGE]] -o json | jq -r '.items[].active_tags'`. See [Chainguard Containers product release lifecycle](/chainguard/containers/concepts/lifecycle-and-eol/versions/) for more on tags, epochs, and how to inspect them.
 
 ### Pin to a specific build with a digest
 
-If your reason for wanting a specific patch version is reproducibility, use a digest instead of a tag. A digest is a content-addressed reference to one exact build, and it never changes:
+If your reason for wanting a specific patch version is reproducibility, use a digest instead of a tag. A digest is a content-addressed reference to one exact build, and it never changes. Replace `[[ORGANIZATION]]` with your organization's name:
 
 ```shell
-docker pull cgr.dev/$ORGANIZATION/node@sha256:ede7ef4ca485553f5313f7a02ad3537db1fe337079fc7cfb879f44cf709326db
+docker pull cgr.dev/[[ORGANIZATION]]/node@sha256:ede7ef4ca485553f5313f7a02ad3537db1fe337079fc7cfb879f44cf709326db
 ```
 
 Retrieve the digest for a tag with `crane`:
 
 ```shell
-crane digest --full-ref cgr.dev/$ORGANIZATION/node:latest
+crane digest --full-ref cgr.dev/[[ORGANIZATION]]/node:latest
 ```
 
 A digest identifies one build and keeps identifying that same build even after the tag that pointed to it has moved on. Note the tradeoff: a pinned digest also stops receiving patches, so pair digest pinning with a process for updating the pin. Refer to [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) for the full workflow.

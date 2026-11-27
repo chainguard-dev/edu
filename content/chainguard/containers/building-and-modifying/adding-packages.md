@@ -73,12 +73,12 @@ mongodb-kubernetes-operator-compat-0.13.0-r14
 mongodb-kubernetes-operator-readinessprobe-0.13.0-r14
 ```
 
-To search the packages your organization is entitled to, start a `-dev` variant of one of your organization's images with an `HTTP_AUTH` variable so that `apk` can reach your [Private APK Repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/):
+To search the packages your organization is entitled to, start a `-dev` variant of one of your organization's images with an `HTTP_AUTH` variable so that `apk` can reach your [Private APK Repository](/chainguard/containers/building-and-modifying/packages/private-apk-repos/), replacing `[[ORGANIZATION]]` with your organization's name and `[[CONTAINER]]` with the name of one of its images:
 
 ```shell
 docker run -it --rm --entrypoint /bin/sh --user root \
   -e "HTTP_AUTH=basic:apk.cgr.dev:user:$(chainctl auth token --audience apk.cgr.dev)" \
-  cgr.dev/$ORGANIZATION/$CONTAINER:latest-dev
+  cgr.dev/[[ORGANIZATION]]/[[CONTAINER]]:latest-dev
 ```
 
 From the container's shell, run `apk update` and then `apk search`.
@@ -110,10 +110,10 @@ For the full walkthrough, including how to edit or remove customizations later, 
 1. Open the image's build configuration:
 
     ```shell
-    chainctl images repos build edit --repo $CONTAINER
+    chainctl images repos build edit --repo [[CONTAINER]]
     ```
 
-    Replace `$CONTAINER` with the name of the image. If you omit it, `chainctl` prompts you to choose. It also prompts for the organization when you have access to more than one; pass `--parent=<organization>` to skip that prompt.
+    Replace `[[CONTAINER]]` with the name of the image. If you omit it, `chainctl` prompts you to choose. It also prompts for the organization when you have access to more than one; pass `--parent=[[ORGANIZATION]]` to skip that prompt.
 
 2. `chainctl` opens the configuration in your default text editor. Add the package under `contents.packages`:
 
@@ -136,14 +136,14 @@ For the full walkthrough, including how to edit or remove customizations later, 
        - wget
     +  - bash
 
-    Applying build config to $CONTAINER
+    Applying build config to [[CONTAINER]]
     Are you sure?
     Do you want to continue? [y,N]:
     ```
 
 4. Enter `y` to start the build.
 
-To save the result as a new image rather than changing the existing one, add `--save-as $NEW_NAME`. For the rest of what you can set in this file, including environment variables, annotations, and custom user accounts, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
+To save the result as a new image rather than changing the existing one, add `--save-as [[NEW_NAME]]`. For the rest of what you can set in this file, including environment variables, annotations, and custom user accounts, see [Using chainctl to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-chainctl/).
 
 {{< /tab >}}
 
@@ -166,7 +166,7 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 2. Preview what the file would change, without changing anything:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --repo $CONTAINER --dry-run
+    chainctl images repos build apply -f build.yaml --repo [[CONTAINER]] --dry-run
     ```
 
     `--dry-run` prints the diff and exits with a non-zero status if there's anything to apply, which makes it usable as a drift check in a pipeline.
@@ -174,10 +174,10 @@ Both `apply` and `edit` accept a configuration file, which skips the editor and 
 3. Apply the configuration. `--yes` confirms the change without prompting:
 
     ```shell
-    chainctl images repos build apply -f build.yaml --repo $CONTAINER --yes
+    chainctl images repos build apply -f build.yaml --repo [[CONTAINER]] --yes
     ```
 
-To save the result as a new image, add `--save-as $NEW_NAME`. This works when you target a single repository; it isn't available when you target several at once with repeated `--repo` flags or a wildcard.
+To save the result as a new image, add `--save-as [[NEW_NAME]]`. This works when you target a single repository; it isn't available when you target several at once with repeated `--repo` flags or a wildcard.
 
 For a worked GitHub Actions pipeline built around these commands, see [Using GitOps to manage Custom Assembly resources](/chainguard/containers/custom-assembly/custom-assembly-gitops/).
 
@@ -192,7 +192,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 1. Check that the build succeeded:
 
     ```shell
-    chainctl images repos build list --repo $CONTAINER
+    chainctl images repos build list --repo [[CONTAINER]]
     ```
 
     ```output
@@ -207,14 +207,14 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 2. Pull the image:
 
     ```shell
-    docker pull cgr.dev/$ORGANIZATION/$CONTAINER:latest
+    docker pull cgr.dev/[[ORGANIZATION]]/[[CONTAINER]]:latest
     ```
 
 3. Check for the package. If the image includes `apk`, query it directly. `apk info -e` prints the package name when the package is installed and exits with a non-zero status when it isn't:
 
     ```shell
     docker run --rm --entrypoint apk \
-      cgr.dev/$ORGANIZATION/$CONTAINER:latest-dev info -e bash
+      cgr.dev/[[ORGANIZATION]]/[[CONTAINER]]:latest-dev info -e bash
     ```
 
     ```output
@@ -227,7 +227,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
     cosign download attestation \
       --platform linux/amd64 \
       --predicate-type https://spdx.dev/Document \
-      cgr.dev/$ORGANIZATION/$CONTAINER:latest \
+      cgr.dev/[[ORGANIZATION]]/[[CONTAINER]]:latest \
       | jq -r '.payload' | base64 -d \
       | jq -r '.predicate.packages[]
                | select(.externalRefs[]?.referenceLocator? // "" | startswith("pkg:apk/"))
@@ -249,7 +249,7 @@ Custom Assembly builds run on Chainguard's infrastructure and normally finish in
 A Custom Assembly build reports failure only after it finishes. Retrieve the logs for a build with the `logs` subcommand, which prompts you to pick a build report:
 
 ```shell
-chainctl images repos build logs --repo $CONTAINER
+chainctl images repos build logs --repo [[CONTAINER]]
 ```
 
 In the Console, click a row on the image's **Builds** tab to open the same logs.

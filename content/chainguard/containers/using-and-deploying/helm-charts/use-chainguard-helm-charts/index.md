@@ -106,28 +106,28 @@ chainctl auth configure-docker --pull-token --save --ttl=24h
 
 To use this pull token in another environment, run this command:
 
-    docker login "cgr.dev" --username "<identity-id>" --password "<pull-token>"
+    docker login "cgr.dev" --username "[[IDENTITY_ID]]" --password "[[PULL_TOKEN]]"
 
-Configuring identity "<identity-id>" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
+Configuring identity "[[IDENTITY_ID]]" for pulls from cgr.dev (expires 2025-06-12T09:27:45-05:00).
 Overwriting existing credentials.
 ```
 
 Save the credentials as variables, like this.
 
 ```sh
-HELMUSER="<identity-id>"
+HELMUSER="[[IDENTITY_ID]]"
 
-HELMPASS="<pull-token>"
+HELMPASS="[[PULL_TOKEN]]"
 ```
 
-Create your Kubernetes secret using the variables you just created.
+Create your Kubernetes secret using the variables you just created, replacing `[[NAMESPACE]]` with your Kubernetes namespace.
 
 ```sh
 kubectl create secret docker-registry chainguard-pull-secret \
   --docker-server=cgr.dev \
   --docker-username=$(echo $HELMUSER) \
   --docker-password=$(echo $HELMPASS) \
-  -n <your-namespace>
+  -n [[NAMESPACE]]
 ```
 
 Log in to the `cgr.dev` Helm registry. The secret you just created covers the image pulls your pods make, but it has no effect on the Helm client, which authenticates on its own to fetch the chart.
@@ -138,10 +138,10 @@ helm registry login cgr.dev \
   --password=$HELMPASS
 ```
 
-Reference the secret in your Helm installation:
+Reference the secret in your Helm installation, replacing `[[ORGANIZATION]]` with your organization's name:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm install grafana oci://cgr.dev/[[ORGANIZATION]]/charts/grafana \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret"
 ```
 
@@ -193,7 +193,7 @@ Pin to digests like this:
 1. Get the digest.
 
   ```sh
-  crane digest cgr.dev/$ORGANIZATION/charts/grafana:10.5.13
+  crane digest cgr.dev/[[ORGANIZATION]]/charts/grafana:10.5.13
   ```
 
   Which returns a digest like this:
@@ -202,17 +202,17 @@ Pin to digests like this:
   sha256:38850bacab587e4cf1177d0fe5b8bd62bad27d3f04f5a1c65ddcd86ea9748a73
   ```
 
-1. Use the digest to install your chart, replacing `sha256:DIGEST` with the response you just received.
+1. Use the digest to install your chart, replacing `sha256:[[DIGEST]]` with the response you just received.
 
   ```sh
   helm install grafana \
-  oci://cgr.dev/$ORGANIZATION/charts/grafana@sha256:$DIGEST
+  oci://cgr.dev/[[ORGANIZATION]]/charts/grafana@sha256:[[DIGEST]]
   ```
 
 If you must, use tags like this:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana --version 10.5.13
+helm install grafana oci://cgr.dev/[[ORGANIZATION]]/charts/grafana --version 10.5.13
 ```
 
 ### Review Helm chart default values
@@ -229,24 +229,24 @@ Refer to the documentation for charts in the Chainguard Console in the **Helm ch
 
 When you override values, you need to stay aware of how the original value was being used and think through the implications of your change.
 
-For example, because Chainguard specifies digests in our chart values, you need to override that digest along with the tag.
+For example, because Chainguard specifies digests in our chart values, you need to override that digest along with the tag. In the following commands, replace `[[CHART]]` with the chart's name, `[[DIGEST]]` with the image digest, and `[[TAG]]` with the image tag.
 
 Use:
 
 ```sh
-helm install <chart> --set image.digest=<desired-digest>
+helm install [[CHART]] --set image.digest=[[DIGEST]]
 ```
 
 or
 
 ```sh
-helm install <chart> --set image.tag=<desired-tag> --set image.digest=""
+helm install [[CHART]] --set image.tag=[[TAG]] --set image.digest=""
 ```
 
 **Do not** use:
 
 ```sh
-helm install <chart> --set image.tag=<desired-tag>
+helm install [[CHART]] --set image.tag=[[TAG]]
 ```
 
 Getting this wrong could cause you to unknowingly run the version specified by the digest instead of the version you intend.
@@ -260,14 +260,14 @@ You can put values in a file, such as our `values.yaml` sample, and then refer t
 ```sh
 image:
   registry: cgr.dev
-  repository: $ORGANIZATION/grafana # replace $ORGANIZATION
+  repository: [[ORGANIZATION]]/grafana # replace [[ORGANIZATION]]
   tag: latest # pin to specific version instead of latest
 ```
 
 Then you refer to the file like this:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm install grafana oci://cgr.dev/[[ORGANIZATION]]/charts/grafana \
   --values ./values.yaml
 ```
 
@@ -293,7 +293,7 @@ EOF
 You then pass the storage class's name to the `helm install` command. Here, we use `grafana` as an example:
 
 ```sh
-helm install grafana oci://cgr.dev/$ORGANIZATION/charts/grafana \
+helm install grafana oci://cgr.dev/[[ORGANIZATION]]/charts/grafana \
   --set "global.imagePullSecrets[0].name=chainguard-pull-secret" \
   --set "persistence.storageClass=gp3-automode"
 ```
@@ -317,13 +317,13 @@ To check the Helm configuration, you can run `helm install` with `--dry-run` fla
 To see the files, run:
 
 ```sh
-helm pull --untar oci://cgr.dev/$ORGANIZATION/charts/grafana
+helm pull --untar oci://cgr.dev/[[ORGANIZATION]]/charts/grafana
 ```
 
 To get the `values.yaml` so you can examine it, run:
 
 ```sh
-helm show values oci://cgr.dev/$ORGANIZATION/charts/grafana
+helm show values oci://cgr.dev/[[ORGANIZATION]]/charts/grafana
 ```
 
 If `helm registry login` fails, or if the login succeeds and the install then returns a `403`, refer to [Troubleshoot registry authentication errors](/chainguard/containers/troubleshooting/registry-errors/). Those two failures have different causes, and that page tells them apart. If the install succeeds and the pods then stay in `ImagePullBackOff`, refer to [Pods stuck in ImagePullBackOff](/chainguard/containers/troubleshooting/registry-errors/#pods-stuck-in-imagepullbackoff).
