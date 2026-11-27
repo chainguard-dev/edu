@@ -82,7 +82,7 @@ Here we include the hostname we specified previously (`www.example.com`) as well
 
 This command will return a warning that self-signed certificates are insecure. This is the expected behavior for `cfssl`, and since we are only using these certificates to demonstrate how `incert` works there won't be any security concerns.
 
-```
+```output
 . . .
 
 *** WARNING ***
@@ -102,7 +102,7 @@ Following that, if you check the contents of your working directory you will fin
 ls
 ```
 
-```
+```output
 csr.json  selfsigned.csr  selfsigned-key.pem  selfsigned.pem
 ```
 
@@ -133,6 +133,14 @@ server {
 EOF
 ```
 
+The Chainguard nginx image runs as a non-root user, but `cfssljson` saves `selfsigned-key.pem` so that only your user can read it. If nginx can't read the key, the container exits as soon as it starts. Make the key readable by all users:
+
+```sh
+chmod 644 selfsigned-key.pem
+```
+
+This key exists only for this tutorial. Don't loosen the permissions on a private key that you use for anything else.
+
 Then run the following command to create the nginx container. This command uses Chainguard's public nginx image and mounts the `cert.pem`, `key.pem`, and `nginx.default.conf` files we've created into the `/etc/nginx/conf.d` directory within the container. It also includes the `-p` option, allowing you to forward requests on your host's port `8443` to the container's port `8443`.
 
 ```sh
@@ -143,26 +151,26 @@ docker run -p 8443:8443 -d \
 cgr.dev/chainguard/nginx
 ```
 
-> **Note**: You may encounter permissions errors relating to the `selfsigned.pem` and `selfsigned-key.pem` files after running this command. In these cases, you can update their permissions by running `sudo chmod 644 *.pem`.
-
 ## Test connections to the nginx service with `curl`
 
-At this point, if you tried to use `curl` to access the running nginx container, the command will fail because `curl` disallows insecure connections by default.
+At this point, if you use `curl` to access the running nginx container, the command fails. `curl` checks the server's certificate by default, and this certificate is self-signed and issued for `www.example.com`, not `localhost`:
 
 ```sh
 curl https://localhost:8443
 ```
 
-```
-curl: (60) SSL certificate problem: self-signed certificate
+```output
+curl: (60) SSL: no alternative certificate subject name matches target hostname 'localhost'
 More details here: https://curl.se/docs/sslcerts.html
 
 curl failed to verify the legitimacy of the server and therefore could not
 establish a secure connection to it. To learn more about this situation and
-how to fix it, please visit the web page mentioned above.
+how to fix it, please visit the webpage mentioned above.
 ```
 
-You can force `curl` to ignore the self-signed certificate by passing it the `-k` argument, as in `curl -k https://localhost:8443`. However, our goal is to connect to the service securely using the certificate infrastructure created previously.
+Depending on your version of `curl`, the error might name the self-signed certificate instead of the hostname.
+
+You can force `curl` to skip these certificate checks by passing it the `-k` argument, as in `curl -k https://localhost:8443`. However, our goal is to connect to the service securely using the certificate infrastructure created previously.
 
 In the next section we will use `incert` to create a new container image (using Chainguard's `curl` image as the foundation) with your `selfsigned.pem` certificate built into it. Before doing this, though, let's attempt to reach the nginx service with a `curl` container that does not have the certificate included.
 
@@ -172,7 +180,7 @@ To do this you'll need to find the nginx container's IP address. First, find the
 docker ps
 ```
 
-```
+```output
 CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                       NAMES
 9e211033635b   cgr.dev/chainguard/nginx   "/usr/sbin/nginx -c …"   2 minutes ago   Up 2 minutes   0.0.0.0:8443->8443/tcp, :::8443->8443/tcp   agitated_jones
 ```
@@ -185,7 +193,7 @@ docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}
 
 This will return the container's IP address:
 
-```
+```output
 172.17.0.2
 ```
 
@@ -199,7 +207,7 @@ docker run -it --add-host example.com:172.17.0.2 cgr.dev/chainguard/curl:latest-
 
 However, the public Chainguard `curl` image doesn't have the certificate inside it, so this command will fail.
 
-```
+```output
 curl: (60) rustls_connection_process_new_packets: invalid peer certificate: UnknownIssuer
 More details here: https://curl.se/docs/sslcerts.html
 
@@ -217,28 +225,29 @@ The next step is to create an image that has our self-signed certificate built i
 Run the following command to build a new image using Chainguard's `curl` image as its base and insert the `selfsigned.pem` certificate into it.
 
 ```sh
-incert -ca-certs-file selfsigned.pem -platform linux/arm64 -image-url cgr.dev/chainguard/curl:latest -dest-image-url ttl.sh/curl-with-cert:1h
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/curl-with-cert:1h"
+incert -ca-certs-file selfsigned.pem -platform linux/arm64 -image-url cgr.dev/chainguard/curl:latest -dest-image-url "$IMAGE"
 ```
 
 This command uses the `-ca-certs-file` option to specify that `incert` should use the `selfisgned.pem` certificate file and the `-platform` option to specify that it wants to build an image for `linux/arm64`. Be aware that you should change the value passed to the `-platform` argument to reflect that of the host platform. It also includes the `-image-url` option to specify the image we want to build on as our base image (here we specify Chainguard's `curl` image) and the `-dest-image-url` to pass the registry where we want the resulting image to be uploaded to.
 
-For this final option, this example specifies [`ttl.sh`](http://ttl.sh/), an ephemeral Docker image registry. `ttl.sh` is free to use and does not require a login, making it useful for testing. However, it's also public, so be sure that you **do not** upload any important private certificates there.
+For this final option, this example specifies [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. The first line of the command stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Lockers doesn't require a login, which makes it useful for testing. However, Lockers is experimental and not meant for production, so don't push production images to it. It's also public, so be sure that you **do not** upload any important private certificates there.
 
 This command will take a few moments to complete, but once it finishes you will receive output showing the image that was created and uploaded to the destination repo.
 
-```
-ttl.sh/curl-with-cert:1h@sha256:877762fdd511a3df8aa24faf6a6209036370b7cfc1638e16b81098143c2a0215
+```output
+lockers.cgruser.dev/7586706b-686c-4c28-97da-7c6bcb4d8486/curl-with-cert:1h@sha256:cc52dbbbc43333713ed95140b1cab12ca68e8170f2a75a7d1e9ea238b4fd2f0f
 ```
 
-Following that, you can re-execute the `docker run` command from the previous section, but replace the standard Chainguard `curl` image with the image you just built.
+Following that, you can re-execute the `docker run` command from the previous section, but replace the standard Chainguard `curl` image with the image you just built. Replace `[[IP_ADDRESS]]` with your nginx container's IP address:
 
 ```sh
-docker run -it --add-host example.com:[ipaddress] ttl.sh/curl-with-cert:1h https://example.com:8443
+docker run -it --add-host example.com:[[IP_ADDRESS]] "$IMAGE" https://example.com:8443
 ```
 
 This time, the `curl` container is able to reach the running nginx container.
 
-```
+```output
 . . .
 <!DOCTYPE html>
 <html>

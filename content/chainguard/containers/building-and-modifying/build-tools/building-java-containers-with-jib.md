@@ -4,7 +4,7 @@ linktitle: "Jib"
 type: "article"
 description: "In this tutorial, you'll learn how to build minimal Java containers using Jib and Chainguard base images"
 date: 2025-09-23T00:49:31+00:00
-lastmod: 2026-10-16T13:40:09+00:00
+lastmod: 2026-11-23T12:00:00+00:00
 draft: false
 tags: ["Chainguard Containers"]
 images: []
@@ -60,7 +60,7 @@ docker run --rm cgr.dev/chainguard/jre:latest -version
 
 This will display the Java version information from the image:
 
-```
+```output
 openjdk version "25" 2025-09-16
 OpenJDK Runtime Environment (build 25+-wolfi-r1)
 OpenJDK 64-Bit Server VM (build 25+-wolfi-r1, mixed mode, sharing)
@@ -127,7 +127,7 @@ The application is bootstrapped, but still needs build details for Maven. The
 following command will create the pom.xml file with basic build settings for
 Java 21:
 
-```xml
+```shell
 cat > pom.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0           http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -140,7 +140,6 @@ cat > pom.xml <<EOF
     <maven.compiler.release>21</maven.compiler.release>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
   </properties>
   <dependencies>
     <dependency>
@@ -177,7 +176,7 @@ mvn clean install
 
 Observe the output indicating that the build was successful:
 
-```
+```output
 ...
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
@@ -202,7 +201,7 @@ curl localhost:8080
 
 You should get output like the following:
 
-```
+```output
 Hello from Jib and Chainguard!
 ```
 
@@ -222,7 +221,7 @@ definition like this:
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -281,7 +280,7 @@ mvn clean install
 
 You’ll get output like the following:
 
-```
+```output
 ...
 [WARNING] Detected multi-platform configuration, only building image that matches the local Docker Engine's os and architecture (linux/arm64) or the first platform specified
 [INFO]
@@ -296,18 +295,21 @@ You’ll get output like the following:
 This command has compiled the application, built the container, and loaded it
 into the local Docker instance.
 
-To verify that the image was built:
+To verify that Jib built the image, list it:
 
 ```sh
-docker images linky
+docker images linky:latest
 ```
 
-Which will provide details on the new image:
+Docker shows the image's ID and size:
 
+```output
+IMAGE          ID             DISK USAGE   CONTENT SIZE   EXTRA
+linky:latest   23e20a911821        395MB          110MB
 ```
-REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
-linky        latest    43171844f68e   3 minutes ago   466MB
-```
+
+This output comes from Docker 29. Earlier Docker versions show different
+columns, and your image's ID and size differ from this example.
 
 You should also scan the image for CVEs. This example uses
 [grype](https://github.com/anchore/grype), but you can use your preferred
@@ -319,7 +321,7 @@ grype linky
 
 This should give you output similar to the following:
 
-```
+```output
  ✔ Vulnerability DB                [updated]
  ✔ Loaded image                                                  linky:latest
  ✔ Parsed image                    sha256:bf2e8781db85416a96815753aa5dce19f9d8
@@ -353,7 +355,7 @@ curl http://localhost:8080/
 
 This should return:
 
-```
+```output
 Hello from Jib and Chainguard!
 ```
 
@@ -365,7 +367,7 @@ curl http://localhost:8080/health
 
 Expected output:
 
-```
+```output
 Application is healthy
 ```
 
@@ -377,7 +379,7 @@ One of the strongest points of jib is that you don't need Docker installed to
 build and distribute container images. In this step we will change `pom.xml` to
 push the image directly to a container registry.
 
-This example uses `ttl.sh`, which is a free-to-use Docker registry for short-lived hosting of images. You can also change the code to use your own registry such as a local one or the Docker Hub.
+This example uses [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry for temporary images. Lockers is experimental and meant only for testing, so don't push production images or anything secret to it. You can also change the code to use your own registry such as a local one or the Docker Hub.
 
 Replace the previous plugin definition with this one (or add this one if you skipped Stage 3):
 
@@ -385,7 +387,7 @@ Replace the previous plugin definition with this one (or add this one if you ski
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -409,7 +411,7 @@ Replace the previous plugin definition with this one (or add this one if you ski
             </platforms>
           </from>
           <to>
-            <image>ttl.sh/jib-demo-${maven.build.timestamp}:20m</image>
+            <image>${image}</image>
           </to>
           <container>
             <ports>
@@ -425,44 +427,45 @@ This contains a couple of changes:
 
 - The execution goal is now `build`. This will push to the registry rather than the
 local Docker instance.
-- The image name now refers to the `ttl.sh` registry and includes a timestamp for uniqueness.
+- The image name comes from the `image` property, which you set when you run
+the build.
 
-Run the build again:
-
-```sh
-mvn clean install
-```
-
-You’ll get output like this:
-
-```
-...
-[INFO] Using base image with digest: sha256:60a6d264537fbad2f5d37a01cf6222f2f172415f686bf59afe3b1043f79323f0
-[INFO]
-[INFO]
-[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
-[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
-[INFO]
-[INFO] Built and pushed image as ttl.sh/jib-demo-20250925104449:20m
-...
-```
-
-The image name is parameterised with a timestamp, so yours will look different.
-The image won't be in your local Docker instance, but you can pull it as
-normal (remember to copy your unique image name from the output):
+Anyone can push to Lockers, so use a repository name that nobody else can
+guess. The following commands store a random repository name in the `REPO`
+variable and build the image with a `20m` tag, which means the tag stops
+working after 20 minutes:
 
 ```sh
-docker pull ttl.sh/jib-demo-20250925104449:20m
+REPO="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/jib-demo"
+mvn clean install -Dimage="$REPO:20m"
+```
+
+You’ll get output like this, where `[[UUID]]` is the random repository name
+that `uuidgen` generated:
+
+```output
+...
+[INFO] Using base image with digest: sha256:c6c5cfe7b92ead2d5a76ee09483a9c66b15e16283e8868981ccb9670ea2475fa
+[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
+[INFO] Container entrypoint set to [java, -cp, @/app/jib-classpath-file, com.example.demo.DemoApplication]
+[INFO] Built and pushed image as lockers.cgruser.dev/[[UUID]]/jib-demo:20m
+...
+```
+
+The image won't be in your local Docker instance. Anyone can also overwrite a
+tag on Lockers, so pull the image by the digest of your own build rather than by
+its tag. Jib writes that digest to `target/jib-image.digest`:
+
+```sh
+DIGEST=$(cat target/jib-image.digest)
+docker pull "$REPO@$DIGEST"
 ```
 
 And run it as before:
 
 ```sh
-docker run -p 8080:8080 ttl.sh/jib-demo-20250925104449:20m
+docker run -p 8080:8080 "$REPO@$DIGEST"
 ```
-
-The `ttl.sh` registry is only for temporary testing of images and your image
-will be deleted in 20 minutes.
 
 This time the built image is a multi-platform image -- if you pull the image
 from an `amd64` host you will get the `amd64` version and if you pull from an
@@ -470,7 +473,7 @@ from an `amd64` host you will get the `amd64` version and if you pull from an
 when pulling:
 
 ```sh
-docker pull --platform amd64 ttl.sh/jib-demo-20250925104449:20m
+docker pull --platform linux/arm64 "$REPO@$DIGEST"
 ```
 
 ## Other features
@@ -491,7 +494,7 @@ The following plugin definition will build a tarball for the `amd64` platform:
       <plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.4.6</version>
+        <version>3.5.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -531,7 +534,7 @@ mvn clean install
 
 And the output should give you the location of the built tarball:
 
-```
+```output
 ...
 [INFO]
 [INFO] Built image tarball at /Users/amouat/proj/jib-demo/target/jib-image.tar
@@ -546,7 +549,7 @@ docker load < target/jib-image.tar
 
 This should respond with the name of the built image:
 
-```
+```output
 Loaded image: linky:latest
 ```
 

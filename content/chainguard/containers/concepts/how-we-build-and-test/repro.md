@@ -40,10 +40,10 @@ crane digest cgr.dev/chainguard/nginx:latest
 ```
 
 ```output
-sha256:<digest>
+sha256:[[DIGEST]]
 ```
 
-Chainguard moves the `latest` tag as it publishes rebuilds, so start by pinning down which build you're reproducing. The `<digest>` you get back is the value to match at the end; it differs from the one anyone else gets unless you both pull the same build. [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) covers digests in more detail.
+Chainguard moves the `latest` tag as it publishes rebuilds, so start by pinning down which build you're reproducing. The `[[DIGEST]]` you get back is the value to match at the end; it differs from the one anyone else gets unless you both pull the same build. [Inspecting Chainguard Containers](/chainguard/containers/troubleshooting/inspecting-containers/) covers digests in more detail.
 
 ### Retrieve the build configuration
 
@@ -100,31 +100,32 @@ apko builds are declarative: the configuration names a list of APK packages and 
 Point apko at the configuration and give it somewhere to push:
 
 ```sh
-apko publish latest.apko.json ttl.sh/nginx-repro
+IMAGE="lockers.cgruser.dev/$(uuidgen | tr 'A-F' 'a-f')/nginx-repro:1h"
+apko publish latest.apko.json "$IMAGE"
 ```
 
-apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line:
+apko builds one image per architecture in the `archs` list, assembles them into an index, pushes the result, and prints the digest of what it pushed as its final line. In this output, `[[UUID]]` is the random repository name that `uuidgen` generated:
 
 ```output
-ttl.sh/nginx-repro@sha256:<digest>
+lockers.cgruser.dev/[[UUID]]/nginx-repro@sha256:[[DIGEST]]
 ```
 
-That digest is the same `<digest>` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
+That digest is the same `[[DIGEST]]` the first step recorded, which means the rebuild is byte-for-byte identical to the container Chainguard published. The registry it was pushed to has no bearing on the value: a digest covers the content, not where it lives.
 
 To run apko from its container instead of installing it, mount the directory holding the configuration and pass the same arguments:
 
 ```shell
-docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json ttl.sh/nginx-repro
+docker run --rm -v "$PWD":/work -w /work cgr.dev/chainguard/apko:latest publish latest.apko.json "$IMAGE"
 ```
 
-`apko publish` needs a registry to push to. These examples use [ttl.sh](https://ttl.sh), a free registry whose images expire after a short time, which suits a throwaway comparison. Any registry you can write to works.
+`apko publish` needs a registry to push to. These examples use [Chainguard Lockers](/chainguard/containers/registry/temporary-registry/) (`lockers.cgruser.dev`), a free, anonymous registry whose images expire automatically, which suits a throwaway comparison. Lockers is experimental and meant only for testing, so don't push production images or anything secret to it. The first line stores a destination with a random repository name in the `IMAGE` variable, and the `1h` tag means the tag stops working after one hour. Any registry you can write to works.
 
 ### Compare images that don't match
 
 When two digests differ, [diffoci](https://github.com/reproducible-containers/diffoci) reports the specific differences between the images rather than leaving you to compare two hashes:
 
 ```sh
-diffoci diff cgr.dev/chainguard/nginx:latest ttl.sh/nginx-repro
+diffoci diff cgr.dev/chainguard/nginx:latest "$IMAGE"
 ```
 
 On macOS, add `--platform=linux/arm64` or `--platform=linux/amd64`, because diffoci otherwise looks for an image built for macOS and stops with an error. When the images match, the command exits without reporting anything. When they differ, it lists the differing files and where they differ. Add `--ignore-timestamps` to set aside timestamp differences, or `--semantic` to ignore everything diffoci treats as non-substantive, including file ordering and redundant file mode bits.
