@@ -4,7 +4,7 @@ type: "article"
 linktitle: "Build pinning"
 description: "Use build pinning to keep library artifacts stable across rebuilds."
 date: 2026-08-19T08:04:00+00:00
-lastmod: 2026-10-13T14:42:18+00:00
+lastmod: 2026-11-27T00:29:28+00:00
 draft: false
 tags: ["Chainguard Libraries", "Build pinning"]
 menu:
@@ -20,7 +20,7 @@ Chainguard Libraries can serve a package version as either a Chainguard-built ar
 
 Build pinning keeps library artifacts stable when Chainguard publishes a new build of a package version you previously pulled from the scanned upstream fallback. Chainguard-built artifacts are always the default and take priority when available. Pinning only affects the exact package version already pinned. When enabled, Chainguard remembers which upstream versions your organization pulled and continues serving those specific versions even if a new Chainguard build is available, until you remove the pin. Moving to a different version of the package is unaffected; since that version was never pinned, it resolves fresh and Chainguard’s build is served by default.
 
-This feature is enabled by default.
+This feature is enabled by default for Java, JavaScript, .NET, and Python.
 
 > Note: Build pinning does not override Chainguard policy or malware controls. If a pinned upstream package is blocked by a policy or by malware scanning, the request will return an error.
 
@@ -66,7 +66,7 @@ chainctl libraries cache zap --dry-run
 
 ### Remove all pins
 
-You can remove all pins per ecosystem. For example, to remove all pins for JavaScript:
+You can remove all pins per ecosystem. The `--ecosystem` flag accepts `java`, `javascript`, `dotnet`, and `python`. For example, to remove all pins for JavaScript:
 
 ```bash
 chainctl libraries cache zap --ecosystem javascript
@@ -76,13 +76,19 @@ After removing pins, regenerate or update your lockfile.
 
 ### Remove specific package pins
 
-To remove a specific package pin:
+To remove a specific package pin, include the package's ecosystem:
 
 ```bash
-chainctl libraries cache zap --package <PACKAGE>
+chainctl libraries cache zap --ecosystem <ECOSYSTEM> --package <PACKAGE>
 ```
 
-To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`.
+For Java, `<PACKAGE>` is `groupId:artifactId`. For .NET, it's the NuGet package ID, such as `Newtonsoft.Json`.
+
+To narrow the operation to one package version, include the `--version` flag: `--version <VERSION>`. For example, to remove the pin for one .NET package version:
+
+```bash
+chainctl libraries cache zap --ecosystem dotnet --package Newtonsoft.Json --version 13.0.3
+```
 
 To skip the confirmation prompt in scripts or automation, include the `--yes` flag.
 
@@ -121,6 +127,21 @@ Java (Gradle):
 
 {{< /tab >}}
 
+{{< tab title=".NET" >}}
+
+.NET (NuGet):
+
+Remove the cached package version from the NuGet global packages folder, then restore and regenerate `packages.lock.json`. The global packages folder is `~/.nuget/packages` unless `NUGET_PACKAGES` or `globalPackagesFolder` in `nuget.config` points somewhere else. Use the lowercase package ID in the path.
+
+```bash
+rm -rf ~/.nuget/packages/<package-id-lowercase>/<version>
+dotnet restore --force-evaluate
+```
+
+If your project uses `packages.lock.json`, `--force-evaluate` updates the recorded hash. Without it, `dotnet restore` fails with `NU1403` because the Chainguard build has a different hash than the upstream package. Commit the updated `packages.lock.json`.
+
+{{< /tab >}}
+
 {{< tab title="JavaScript" >}}
 
 JavaScript (npm):
@@ -147,7 +168,7 @@ pip install --no-cache-dir --force-reinstall <package>==<version>
 Next, confirm that the package now resolves to a Chainguard build:
 
 ```bash
-chainctl libraries cache list --package <PACKAGE> --live
+chainctl libraries cache list --ecosystem <ECOSYSTEM> --package <PACKAGE> --live
 ```
 
 After confirming the change, commit the updated lockfile and run your normal install again.
