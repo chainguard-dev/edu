@@ -830,7 +830,7 @@
       },
       "chainguard.platform.argos.ArgosDocumentFileBinding.FailureReason": {
         "default": "FAILURE_REASON_UNSPECIFIED",
-        "description": "FailureReason is the category of a failed analysis. New values may\nappear; a client that does not know a value treats it as\nFAILURE_REASON_UNSPECIFIED.\n\n - FAILURE_REASON_UNSPECIFIED: No reason was recorded, or the file did not fail.\n - FAILURE_REASON_TOO_LARGE: The finding is larger than the platform processes.\n - FAILURE_REASON_UNSUPPORTED_ECOSYSTEM: The package's ecosystem is not one the platform analyzes.\n - FAILURE_REASON_NO_PACKAGE: The finding does not describe a package the platform can analyze.\n - FAILURE_REASON_NO_VERSION: The version of the package the finding is about could not be\ndetermined.\n - FAILURE_REASON_VERSION_NOT_PUBLISHED: The package exists, but the version in the finding is not a published\nrelease.\n - FAILURE_REASON_UNKNOWN_PACKAGE: No registry the platform checks publishes the package.\n - FAILURE_REASON_INVALID_COORDINATE: The package name or coordinate is malformed, or does not resolve to a\nsingle package.\n - FAILURE_REASON_NO_REPO_URL: No source repository was found for the package.\n - FAILURE_REASON_REPO_URL_NOT_GIT: The package's source repository is not a git repository.\n - FAILURE_REASON_REPO_HAS_NO_TAGS: The package's source repository has no tags, so the source for the\nreported version could not be found.\n - FAILURE_REASON_SOURCE_UNAVAILABLE: The platform could not read the package's source repository. The\ncause is on the platform's side, not in the finding.\n - FAILURE_REASON_PACKAGE_LINK_FAILED: The platform could not link the finding to the package. The cause is\non the platform's side, not in the finding.\n - FAILURE_REASON_RETRIES_EXHAUSTED: Analysis failed on every attempt for a transient reason. The cause is\nusually on the platform's side, not in the finding.\n - FAILURE_REASON_SOURCE_TOO_LARGE: The package's source repository is larger than the platform can\nanalyze. The cause is on the platform's side, not in the finding.",
+        "description": "FailureReason is the category of a failed analysis. New values may\nappear; a client that does not know a value treats it as\nFAILURE_REASON_UNSPECIFIED.\n\n - FAILURE_REASON_UNSPECIFIED: No reason was recorded, or the file did not fail.\n - FAILURE_REASON_TOO_LARGE: The finding is larger than the platform processes.\n - FAILURE_REASON_UNSUPPORTED_ECOSYSTEM: The package's ecosystem is not one the platform analyzes.\n - FAILURE_REASON_NO_PACKAGE: The finding does not describe a package the platform can analyze.\n - FAILURE_REASON_NO_VERSION: The version of the package the finding is about could not be\ndetermined.\n - FAILURE_REASON_VERSION_NOT_PUBLISHED: The package exists, but the version in the finding is not a published\nrelease.\n - FAILURE_REASON_UNKNOWN_PACKAGE: No registry the platform checks publishes the package.\n - FAILURE_REASON_INVALID_COORDINATE: The package name or coordinate is malformed, or does not resolve to a\nsingle package.\n - FAILURE_REASON_NO_REPO_URL: No source repository was found for the package.\n - FAILURE_REASON_REPO_URL_NOT_GIT: The package's source repository is not a git repository.\n - FAILURE_REASON_REPO_HAS_NO_TAGS: The package's source repository has no tags, so the source for the\nreported version could not be found.\n - FAILURE_REASON_SOURCE_UNAVAILABLE: The platform could not read the package's source repository. The\ncause is on the platform's side, not in the finding.\n - FAILURE_REASON_PACKAGE_LINK_FAILED: The platform could not link the finding to the package. The cause is\non the platform's side, not in the finding.\n - FAILURE_REASON_RETRIES_EXHAUSTED: Analysis failed on every attempt for a transient reason. The cause is\nusually on the platform's side, not in the finding.\n - FAILURE_REASON_SOURCE_TOO_LARGE: The package's source repository is larger than the platform can\nanalyze. The cause is on the platform's side, not in the finding.\n - FAILURE_REASON_CONFIDENTIALITY_REFUSED: The platform refused to publish the finding because its record read\nas containing customer-confidential details, and quarantined it\ninstead. The cause is in the finding's content, not on the platform's\nside: resubmit it with the confidential details removed.",
         "enum": [
           "FAILURE_REASON_UNSPECIFIED",
           "FAILURE_REASON_TOO_LARGE",
@@ -846,7 +846,8 @@
           "FAILURE_REASON_SOURCE_UNAVAILABLE",
           "FAILURE_REASON_PACKAGE_LINK_FAILED",
           "FAILURE_REASON_RETRIES_EXHAUSTED",
-          "FAILURE_REASON_SOURCE_TOO_LARGE"
+          "FAILURE_REASON_SOURCE_TOO_LARGE",
+          "FAILURE_REASON_CONFIDENTIALITY_REFUSED"
         ],
         "type": "string"
       },
@@ -1106,6 +1107,38 @@
             "type": "integer"
           },
           "pageToken": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.argos.Assessment": {
+        "description": "Assessment is the judgement that a reported vulnerability is not one, in\nOpenVEX terms (https://github.com/openvex/spec): status, justification and\nimpact_statement carry the OpenVEX field names and values, so a VEX consumer\ncan copy them. A record carrying one is withdrawn, has no affected entry,\nand its summary starts \"Withdrawn, false positive determined. \".\n\nIt is identical for every recipient of the record: no field here varies by\ncaller.",
+        "properties": {
+          "assessed_at": {
+            "description": "assessed_at is when the current assessment was made, in UTC. The\nrecord's modified time matches it, and its withdrawn time is when the\nvulnerability was first ruled out.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "impact_statement": {
+            "description": "impact_statement explains, at the level of the project and its code, why\nthe reported vulnerability does not apply.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "justification": {
+            "description": "justification is the OpenVEX justification token for the not_affected\nstatus, one of \"component_not_present\", \"vulnerable_code_not_present\",\n\"vulnerable_code_not_in_execute_path\",\n\"vulnerable_code_cannot_be_controlled_by_adversary\" or\n\"inline_mitigations_already_exist\". It is a string for the same reason as\nstatus.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "status": {
+            "description": "status is the OpenVEX status token. It is always \"not_affected\" on a\nserved assessment. It is a string, not an enum, so that the JSON form is\nthe OpenVEX token itself; other OpenVEX status tokens may appear later.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "superseded_by": {
+            "description": "superseded_by is the id of a published record that supersedes this one:\na later report brought evidence this assessment did not consider, and\nwas confirmed. Empty when none does. The record stays withdrawn and\nnot_affected. Its summary then starts \"Withdrawn, false positive\ndetermined. Superseded by \u003cid\u003e. \", and related names the id as well.",
+            "readOnly": true,
             "type": "string"
           }
         },
@@ -1865,6 +1898,15 @@
       "chainguard.platform.argos.TopLevelDatabaseSpecific": {
         "description": "TopLevelDatabaseSpecific is the Chainguard-defined content for the OSV-spec\ntop-level database_specific field: a JSON object holding additional\ninformation about the vulnerability as defined by the database from which\nthe record was obtained. Unlike the per-Affected DatabaseSpecific, this\napplies to the whole vulnerability record.",
         "properties": {
+          "assessment": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.argos.Assessment"
+              }
+            ],
+            "description": "assessment is why the record is a false positive. It is present only on\na withdrawn record that was reported and ruled out, and tells that record\napart from one withdrawn after publication, which never carries it.",
+            "readOnly": true
+          },
           "disclosure": {
             "allOf": [
               {
@@ -4017,7 +4059,7 @@
       },
       "chainguard.platform.libraries.Ecosystem": {
         "default": "UNKNOWN",
-        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+        "description": "Ecosystem represents the language libraries an org can be entitled to.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
         "enum": [
           "UNKNOWN",
           "JAVA",
@@ -4033,7 +4075,9 @@
           "RUBY",
           "RUBY_ATHENA",
           "RUST",
-          "RUST_ATHENA"
+          "RUST_ATHENA",
+          "PHP",
+          "PHP_ATHENA"
         ],
         "type": "string"
       },
@@ -11298,7 +11342,7 @@
             }
           },
           {
-            "description": "embargo_ends_after keeps records whose public embargo end is at or after\nit, rounded up to the microsecond. With embargo_ends_before it forms the\nwindow [after, before); alone it is a lower bound. A record without an\nembargo end never matches. Send the same bounds on every page: the page\ntoken does not carry them.",
+            "description": "embargo_ends_after keeps records whose public embargo end is at or after\nit, rounded up to the microsecond. With embargo_ends_before it forms the\nwindow [after, before); alone it is a lower bound. A record without an\nembargo end never matches. Send the same bounds on every page: a\npage_token is valid only for the bounds it was minted under.",
             "in": "query",
             "name": "embargoEndsAfter",
             "schema": {
@@ -11332,11 +11376,19 @@
             }
           },
           {
-            "description": "cgp_id_prefix keeps records whose CGP ID starts with it, compared\nignoring case. It holds at most 18 ASCII letters, digits and hyphens.\nSend the same prefix on every page: the page token does not carry it.",
+            "description": "cgp_id_prefix keeps records whose CGP ID starts with it, compared\nignoring case. It holds at most 18 ASCII letters, digits and hyphens.\nSend the same prefix on every page. With another filter or an order_by, a\npage_token is valid only for the prefix it was minted under, compared\nignoring case.",
             "in": "query",
             "name": "cgpIdPrefix",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "description": "disclosed keeps records whose served database_specific.disclosure status\nis DISCLOSED (true) or any other status (false); unset keeps both. Like\nhas_fix it is a yes/no predicate, not the status: a new status lands on\none side, and a filter on the status itself would be its own field. Send\nthe same value on every page: a page_token is valid only for the value\nit was minted under.",
+            "in": "query",
+            "name": "disclosed",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -15081,7 +15133,7 @@
         "operationId": "Artifacts_List",
         "parameters": [
           {
-            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "The language ecosystems to return artifacts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "explode": true,
             "in": "query",
             "name": "ecosystems",
@@ -15102,7 +15154,9 @@
                   "RUBY",
                   "RUBY_ATHENA",
                   "RUST",
-                  "RUST_ATHENA"
+                  "RUST_ATHENA",
+                  "PHP",
+                  "PHP_ATHENA"
                 ],
                 "type": "string"
               },
@@ -15221,7 +15275,7 @@
         "operationId": "Artifacts_GetArtifactCount",
         "parameters": [
           {
-            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "The language ecosystems to request the artifact counts for.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "explode": true,
             "in": "query",
             "name": "ecosystems",
@@ -15242,7 +15296,9 @@
                   "RUBY",
                   "RUBY_ATHENA",
                   "RUST",
-                  "RUST_ATHENA"
+                  "RUST_ATHENA",
+                  "PHP",
+                  "PHP_ATHENA"
                 ],
                 "type": "string"
               },
@@ -15683,7 +15739,7 @@
             }
           },
           {
-            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "Only events for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -15703,7 +15759,9 @@
                 "RUBY",
                 "RUBY_ATHENA",
                 "RUST",
-                "RUST_ATHENA"
+                "RUST_ATHENA",
+                "PHP",
+                "PHP_ATHENA"
               ],
               "type": "string"
             }
@@ -15812,7 +15870,7 @@
             }
           },
           {
-            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "ecosystems are the language ecosystems to list entitlements for. If empty, all entitlements for the group will be listed.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "explode": true,
             "in": "query",
             "name": "ecosystems",
@@ -15833,7 +15891,9 @@
                   "RUBY",
                   "RUBY_ATHENA",
                   "RUST",
-                  "RUST_ATHENA"
+                  "RUST_ATHENA",
+                  "PHP",
+                  "PHP_ATHENA"
                 ],
                 "type": "string"
               },
@@ -16556,7 +16616,7 @@
             }
           },
           {
-            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "Only return bindings for this ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -16576,7 +16636,9 @@
                 "RUBY",
                 "RUBY_ATHENA",
                 "RUST",
-                "RUST_ATHENA"
+                "RUST_ATHENA",
+                "PHP",
+                "PHP_ATHENA"
               ],
               "type": "string"
             }
@@ -16817,7 +16879,7 @@
             }
           },
           {
-            "description": "ecosystem is the language ecosystem whose entries to list.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "ecosystem is the language ecosystem whose entries to list.\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "required": true,
@@ -16838,7 +16900,9 @@
                 "RUBY",
                 "RUBY_ATHENA",
                 "RUST",
-                "RUST_ATHENA"
+                "RUST_ATHENA",
+                "PHP",
+                "PHP_ATHENA"
               ],
               "type": "string"
             }
@@ -17228,7 +17292,7 @@
             }
           },
           {
-            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
+            "description": "ecosystem lists entries for one ecosystem (UNKNOWN = all).\n\n - JAVA_ATHENA: Athena tiers grant access to Chainguard-remediated artifacts for the\npaired ecosystem. These ecosystems are not eligible for self-serve\nprovisioning and cannot be created with source=SOURCE_TRIAL.\n - DOTNET: .NET (NuGet) ecosystem. Numbered after the Athena tiers to avoid\ncolliding with them (mirrors DOTNET = 7 in the datastore Ecosystem enum).\n - DOTNET_ATHENA: Athena tier for .NET, paired with DOTNET (mirrors DOTNET_SECURE = 8 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated NuGet\nartifacts and, like the other Athena tiers, is not self-serve provisionable.\n - GO: Go modules ecosystem, served over the GOPROXY protocol (mirrors GO = 9 in\nthe datastore Ecosystem enum).\n - GO_ATHENA: Athena tier for Go, paired with GO (mirrors GO_SECURE = 10 in the\ndatastore Ecosystem enum). Grants access to Chainguard-remediated Go\nmodules and, like the other Athena tiers, is not self-serve provisionable.\n - RUBY: Ruby gems ecosystem (mirrors RUBY = 11 in the datastore Ecosystem enum).\n - RUBY_ATHENA: Athena tier for Ruby, paired with RUBY (mirrors RUBY_SECURE = 12 in the\ndatastore Ecosystem enum). Not eligible for self-serve provisioning.\n - RUST: Rust (Cargo) crates ecosystem (mirrors RUST = 13 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - RUST_ATHENA: Reserved to pair RUST (mirrors RUST_SECURE = 14 in the datastore Ecosystem\nenum). No Athena tier is planned for Rust; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.\n - PHP: PHP (Composer/Packagist) ecosystem (mirrors PHP = 15 in the datastore\nEcosystem enum). Registering this value does not activate serving.\n - PHP_ATHENA: Reserved to pair PHP (mirrors PHP_SECURE = 16 in the datastore Ecosystem\nenum). No Athena tier is planned for PHP; registering this value\nactivates nothing and it is not eligible for self-serve provisioning.",
             "in": "query",
             "name": "ecosystem",
             "schema": {
@@ -17248,7 +17312,9 @@
                 "RUBY",
                 "RUBY_ATHENA",
                 "RUST",
-                "RUST_ATHENA"
+                "RUST_ATHENA",
+                "PHP",
+                "PHP_ATHENA"
               ],
               "type": "string"
             }

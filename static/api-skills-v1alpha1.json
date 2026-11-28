@@ -266,6 +266,22 @@
         },
         "type": "object"
       },
+      "chainguard.platform.skills.v1alpha1.ListHardenOperationsResponse": {
+        "properties": {
+          "nextPageToken": {
+            "description": "next_page_token is empty once there are no more operations to list. It can\nbe set on a short or empty page.",
+            "type": "string"
+          },
+          "operations": {
+            "description": "operations are in the same form GetHardenOperation returns.",
+            "items": {
+              "$ref": "#/components/schemas/google.longrunning.Operation"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
       "chainguard.platform.skills.v1alpha1.ListHardeningFindingsResponse": {
         "properties": {
           "digest": {
@@ -1003,6 +1019,74 @@
           }
         },
         "summary": "Cancel Harden Operation",
+        "tags": [
+          "SkillsHarden"
+        ]
+      }
+    },
+    "/skills/v1alpha1/hardenOperations": {
+      "get": {
+        "description": "ListHardenOperations lists the harden operations of one group. It lists\nthat exact group only: operations hardened into a descendant folder are not\nincluded. Only operations still inside the store's 30-day retention\nwindow are returned. Order is unspecified. A page can hold fewer than\npage_size operations, or none, while next_page_token is still set, so keep\npaging until it is empty.",
+        "operationId": "SkillsHarden_ListHardenOperations",
+        "parameters": [
+          {
+            "description": "group is the group UIDP whose operations are listed; the IAM scope. Only\noperations of this exact group are listed, not those of its descendants.",
+            "in": "query",
+            "name": "group",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "filter is an AIP-160 subset: one or more `field = value` comparisons\njoined by AND, each field at most once. Fields are actor and skill_name\n(strings, quoted when they hold spaces or symbols), phase (a HardenPhase\nname other than HARDEN_PHASE_UNSPECIFIED) and done (true or false). For\nexample: skill_name = \"pdf\" AND phase = HARDEN_PHASE_COMPLETED. Empty\nmatches every operation.",
+            "in": "query",
+            "name": "filter",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of operations to return: 0 uses 50 and\nvalues above 100 are capped at 100. Negative values are rejected.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is the next_page_token from a previous response with the same\ngroup and filter.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.skills.v1alpha1.ListHardenOperationsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Harden Operations",
         "tags": [
           "SkillsHarden"
         ]

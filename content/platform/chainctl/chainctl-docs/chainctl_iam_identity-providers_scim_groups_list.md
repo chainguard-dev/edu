@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl iam identity-providers scim groups list"
 slug: chainctl_iam_identity-providers_scim_groups_list
 url: /platform/chainctl/chainctl-docs/chainctl_iam_identity-providers_scim_groups_list/

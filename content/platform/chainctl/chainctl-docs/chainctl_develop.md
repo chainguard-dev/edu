@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl develop"
 slug: chainctl_develop
 url: /platform/chainctl/chainctl-docs/chainctl_develop/
@@ -89,7 +89,7 @@ chainctl develop [DIR|REPO|SESSION] [flags]
       --new                  Create a new session instead of resuming one.
       --non-interactive      Disable prompts; fail if a session or group choice is ambiguous.
       --parent string        Organization or folder name/ID (defaults to $CHAINCTL_SANDBOX_GROUP, then default.group).
-      --with stringArray     Grant access (repeatable, comma-separated): claude, cgr.dev, chainguard, gcp, aws, azure, github:OWNER/REPO[+push], github:OWNER/*, github:*, all (excludes cloud providers), or none (own repository only).
+      --with stringArray     Grant access (repeatable, comma-separated): claude, cgr.dev, chainguard, gcp, aws, azure, connector:NAME (a claude.ai connector of this laptop's Claude login), mcp:NAME (a remote MCP server this laptop's Claude Code signed in to), github:OWNER/REPO[+push], github:OWNER/*, github:*, all (excludes cloud providers), or none (own repository only).
 ```
 
 ### Options inherited from parent commands

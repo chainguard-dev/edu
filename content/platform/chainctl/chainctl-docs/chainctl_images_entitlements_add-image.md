@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl images entitlements add-image"
 slug: chainctl_images_entitlements_add-image
 url: /platform/chainctl/chainctl-docs/chainctl_images_entitlements_add-image/
@@ -11,7 +11,18 @@ toc: true
 ---
 ## chainctl images entitlements add-image
 
-Add a catalog image to an organization's registry entitlement.
+Add a catalog image to a Per-Image, Starter or Team organization's registry entitlement.
+
+### Synopsis
+
+Add a catalog image to a Per-Image, Starter or Team organization's registry entitlement.
+
+This command fills an image slot on an entitlement that lists specific
+images. Organizations with catalog-tier access are not managed this way:
+every image in their entitled tiers is already available, and the call is
+refused. To bring a catalog image into such an organization's registry,
+run 'chainctl images repos create IMAGE_NAME --parent ORG' or use Add image
+in the Console.
 
 ```
 chainctl images entitlements add-image (--parent=PARENT | --entitlement-id=ENTITLEMENT_ID) IMAGE_NAME [flags]

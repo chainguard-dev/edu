@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl skills accept-terms"
 slug: chainctl_skills_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_skills_accept-terms/

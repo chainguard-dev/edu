@@ -1,0 +1,623 @@
+{
+  "components": {
+    "schemas": {
+      "chainguard.platform.harness.v1alpha2.CreateUploadResponse": {
+        "description": "CreateUploadResponse is the recorded upload and how to send its bundle.",
+        "properties": {
+          "maxPartSize": {
+            "description": "max_part_size is the largest part, in bytes, WriteUpload accepts for this\nupload. It is a multiple of 256 KiB and stays fixed for the upload's\nlifetime.",
+            "format": "int64",
+            "type": "string"
+          },
+          "upload": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Upload"
+              }
+            ],
+            "description": "upload is the recorded upload."
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.ListUploadsResponse": {
+        "description": "ListUploadsResponse is one page of uploads.",
+        "properties": {
+          "items": {
+            "description": "items are the uploads on this page, newest first.",
+            "items": {
+              "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Upload"
+            },
+            "type": "array"
+          },
+          "nextPageToken": {
+            "description": "next_page_token is the token for the next page, empty when there are no\nmore.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.OrgPublicKey": {
+        "description": "OrgPublicKey is the public half of an organization's harness key.",
+        "properties": {
+          "algorithm": {
+            "description": "algorithm names the RSA-OAEP algorithm to wrap with (for example\n\"RSA_DECRYPT_OAEP_3072_SHA256\"), spelled as the Cloud KMS\nCryptoKeyVersionAlgorithm enum spells it.",
+            "type": "string"
+          },
+          "keyVersion": {
+            "description": "key_version is the integer Cloud KMS CryptoKeyVersion pem belongs to. The\nclient echoes it in the envelope so a reader running after a rotation knows\nwhich version's private half to decrypt against.",
+            "type": "string"
+          },
+          "pem": {
+            "description": "pem is the PEM-encoded SubjectPublicKeyInfo of the org's RSA-OAEP-3072\nharness key. Wrap the fresh per-upload AES-256 key under it and carry the\nwrapped key in the envelope alongside the ciphertext.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.Upload": {
+        "description": "Upload is one repository's sealed source bundle and whether it arrived\nintact. It is metadata only: the bundle's contents, and the storage\nidentifier the pipeline knows the upload by, are reached elsewhere. That\nidentifier stays off this message because, placed beside an organization, it\nwould create a second record of which customer an upload belongs to.",
+        "properties": {
+          "bundleSha256": {
+            "description": "bundle_sha256 is the declared sha256 of the plaintext bundle, as\n\"sha256:\u003c64-hex\u003e\". Recorded as a claim and checked by a hunt over the\ndecrypted bytes.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "bundleSize": {
+            "description": "bundle_size is the declared size in bytes of the plaintext bundle. The\nfront end records it as a claim; a hunt is what checks it.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "contentBytes": {
+            "description": "content_bytes is the total content size of those files. Zero until a hunt\nhas opened the bundle.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "createTime": {
+            "description": "create_time is when the upload was recorded.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          },
+          "droppedEntryCount": {
+            "description": "dropped_entry_count is the number of candidate source entries omitted\nduring packaging because the bundle format could not represent them.\nZero until a hunt has opened the bundle.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "envelopeSize": {
+            "description": "envelope_size is the size in bytes of the sealed object, as declared at\nCreateUpload and verified against storage at CompleteUpload.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "fileCount": {
+            "description": "file_count is the number of regular files the bundle's manifest declares.\nZero until a hunt has opened the bundle.",
+            "format": "int64",
+            "readOnly": true,
+            "type": "string"
+          },
+          "id": {
+            "description": "id is the upload's UIDP, a child of the submitting organization.",
+            "readOnly": true,
+            "type": "string"
+          },
+          "rejectionReason": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.UploadRejectionReason"
+              }
+            ],
+            "description": "rejection_reason says why the upload was refused, and is set only when\nstatus is UPLOAD_STATUS_REJECTED.",
+            "readOnly": true
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.UploadStatus"
+              }
+            ],
+            "description": "status is where the upload is in its lifecycle.",
+            "readOnly": true
+          },
+          "updateTime": {
+            "description": "update_time is when the upload last changed status.",
+            "format": "date-time",
+            "readOnly": true,
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.UploadRejectionReason": {
+        "default": "UPLOAD_REJECTION_REASON_UNSPECIFIED",
+        "description": "UploadRejectionReason says why an upload was refused. Every value is a\nstable identifier: a reason never carries a path, an excerpt or any other\ncontent taken from the submitted source.\n\n - UPLOAD_REJECTION_REASON_UNSPECIFIED: Not set; the upload was not rejected.\n - UPLOAD_REJECTION_REASON_BUNDLE_TOO_LARGE: The bundle exceeds the size the intake accepts.\n - UPLOAD_REJECTION_REASON_PATH_INVALID: An entry's path is absolute, escapes the bundle root, or is otherwise\nunusable.\n - UPLOAD_REJECTION_REASON_ENTRY_TYPE_FORBIDDEN: An entry is neither a file, a directory nor a symlink.\n - UPLOAD_REJECTION_REASON_RATIO_EXCEEDED: The bundle decompresses to more than its permitted ratio.\n - UPLOAD_REJECTION_REASON_BUNDLE_DIGEST_MISMATCH: The decrypted bundle does not hash to the declared bundle_sha256, or its\ntree hash disagrees with its manifest.\n - UPLOAD_REJECTION_REASON_MANIFEST_MISMATCH: The manifest disagrees with the entries it describes.\n - UPLOAD_REJECTION_REASON_FORMAT_UNSUPPORTED: The bundle is not in a format this intake understands.\n - UPLOAD_REJECTION_REASON_UPLOAD_MISMATCH: The stored object's size or CRC32C did not match what CompleteUpload\ndeclared.\n - UPLOAD_REJECTION_REASON_BUNDLE_EMPTY: The bundle declares no source entries. There is no source to hunt through,\nso the validator refuses it rather than accepting an empty submission.",
+        "enum": [
+          "UPLOAD_REJECTION_REASON_UNSPECIFIED",
+          "UPLOAD_REJECTION_REASON_BUNDLE_TOO_LARGE",
+          "UPLOAD_REJECTION_REASON_PATH_INVALID",
+          "UPLOAD_REJECTION_REASON_ENTRY_TYPE_FORBIDDEN",
+          "UPLOAD_REJECTION_REASON_RATIO_EXCEEDED",
+          "UPLOAD_REJECTION_REASON_BUNDLE_DIGEST_MISMATCH",
+          "UPLOAD_REJECTION_REASON_MANIFEST_MISMATCH",
+          "UPLOAD_REJECTION_REASON_FORMAT_UNSUPPORTED",
+          "UPLOAD_REJECTION_REASON_UPLOAD_MISMATCH",
+          "UPLOAD_REJECTION_REASON_BUNDLE_EMPTY"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.harness.v1alpha2.UploadStatus": {
+        "default": "UPLOAD_STATUS_UNSPECIFIED",
+        "description": "UploadStatus is where an upload is in its lifecycle. An upload ends at\nUPLOAD_STATUS_READY or UPLOAD_STATUS_REJECTED.\n\n - UPLOAD_STATUS_UNSPECIFIED: Not set.\n - UPLOAD_STATUS_PENDING: The upload is recorded and accepts WriteUpload, but CompleteUpload has not\nverified a stored bundle. An upload left here is reclaimed.\n - UPLOAD_STATUS_READY: The sealed bundle is stored and its size and checksum matched. A hunt can\nbe started over it.\n - UPLOAD_STATUS_REJECTED: The upload was refused; see rejection_reason.",
+        "enum": [
+          "UPLOAD_STATUS_UNSPECIFIED",
+          "UPLOAD_STATUS_PENDING",
+          "UPLOAD_STATUS_READY",
+          "UPLOAD_STATUS_REJECTED"
+        ],
+        "type": "string"
+      },
+      "chainguard.platform.harness.v1alpha2.Uploads.CompleteUploadBody": {
+        "description": "CompleteUploadRequest closes an upload.",
+        "properties": {
+          "envelopeCrc32c": {
+            "description": "envelope_crc32c is the CRC32C the client computed over the sealed bytes as\nit wrote them, an unsigned 32-bit value. The client seals while it uploads\nand the ciphertext is randomized, so the checksum is known only at the end.\nThe server compares it with the CRC32C storage computed for the stored\nobject.",
+            "format": "int64",
+            "type": "string"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the organization the upload belongs to. It is the\nIAM scope, and id must fall within its subtree.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parentId",
+          "envelopeCrc32c"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.Uploads.CreateUploadBody": {
+        "description": "CreateUploadRequest declares what the client is about to upload.",
+        "properties": {
+          "bundleSha256": {
+            "description": "bundle_sha256 is the sha256 of the plaintext bundle, as\n\"sha256:\u003c64-hex\u003e\". The server never sees the plaintext, so it cannot\nverify it, and records it as a claim for a hunt to check after decryption.",
+            "type": "string"
+          },
+          "bundleSize": {
+            "description": "bundle_size is the size in bytes of the plaintext bundle.",
+            "format": "int64",
+            "type": "string"
+          },
+          "envelopeSize": {
+            "description": "envelope_size is the exact size in bytes of the sealed object the client\nwill upload. The envelope's framing is fixed, so the client knows it before\nit starts sealing. WriteUpload refuses bytes past it.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "required": [
+          "envelopeSize",
+          "bundleSize",
+          "bundleSha256"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.Uploads.WriteUploadBody": {
+        "description": "WriteUploadRequest carries one part of an upload's sealed bundle.",
+        "properties": {
+          "data": {
+            "description": "data is the part's sealed bytes. WriteUpload states the size rules.",
+            "format": "byte",
+            "type": "string"
+          },
+          "offset": {
+            "description": "offset is the position in the sealed bundle of data's first byte. It is a\nmultiple of 256 KiB. The first part starts at 0, which is also what an\nomitted offset means.",
+            "format": "int64",
+            "type": "string"
+          },
+          "parentId": {
+            "description": "parent_id is the UIDP of the organization the upload belongs to. It is the\nIAM scope, and id must fall within its subtree.",
+            "type": "string"
+          }
+        },
+        "required": [
+          "parentId",
+          "data"
+        ],
+        "type": "object"
+      },
+      "chainguard.platform.harness.v1alpha2.WriteUploadResponse": {
+        "description": "WriteUploadResponse reports how much of the sealed bundle storage holds.",
+        "properties": {
+          "committedSize": {
+            "description": "committed_size is the number of bytes storage holds from the start of the\nsealed bundle. It is a multiple of 256 KiB until the last part is stored.\nThe next part starts at or before it.",
+            "format": "int64",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "google.protobuf.Any": {
+        "additionalProperties": {},
+        "properties": {
+          "@type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "google.rpc.Status": {
+        "properties": {
+          "code": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/components/schemas/google.protobuf.Any"
+            },
+            "type": "array"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "Chainguard Harness Uploads API v1alpha2 (alpha)",
+    "version": "v1alpha2"
+  },
+  "openapi": "3.0.3",
+  "paths": {
+    "/harness/v1alpha2/orgs/{parentId}/publicKey": {
+      "get": {
+        "description": "ArgosDocuments.GetOrgPublicKey answers from the Argos keyring. A submitter\nsealing against it would put customer source under an Argos key, outside\nthe harness's break-glass boundary and its US-only residency.",
+        "operationId": "Uploads_GetOrgPublicKey",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization whose public key is requested,\nand the IAM scope.",
+            "in": "path",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.OrgPublicKey"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Org Public Key",
+        "tags": [
+          "Uploads"
+        ]
+      }
+    },
+    "/harness/v1alpha2/uploads": {
+      "get": {
+        "description": "ListUploads lists an organization's uploads, newest first, one bounded page\nat a time.",
+        "operationId": "Uploads_ListUploads",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization whose uploads to list, and the\nIAM scope. One organization is required; there is no cross-org listing.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "status optionally narrows results to one lifecycle status.\n\n - UPLOAD_STATUS_UNSPECIFIED: Not set.\n - UPLOAD_STATUS_PENDING: The upload is recorded and accepts WriteUpload, but CompleteUpload has not\nverified a stored bundle. An upload left here is reclaimed.\n - UPLOAD_STATUS_READY: The sealed bundle is stored and its size and checksum matched. A hunt can\nbe started over it.\n - UPLOAD_STATUS_REJECTED: The upload was refused; see rejection_reason.",
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "default": "UPLOAD_STATUS_UNSPECIFIED",
+              "enum": [
+                "UPLOAD_STATUS_UNSPECIFIED",
+                "UPLOAD_STATUS_PENDING",
+                "UPLOAD_STATUS_READY",
+                "UPLOAD_STATUS_REJECTED"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "page_size is the maximum number of uploads to return per page. It is\nbounded server-side: omitting it applies a default and any value is\ncapped, so a list is always paginated.",
+            "in": "query",
+            "name": "pageSize",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          },
+          {
+            "description": "page_token is a token from a previous response's next_page_token. Omit to\nstart from the first page.",
+            "in": "query",
+            "name": "pageToken",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.ListUploadsResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "List Uploads",
+        "tags": [
+          "Uploads"
+        ]
+      }
+    },
+    "/harness/v1alpha2/uploads/{id}": {
+      "get": {
+        "description": "GetUpload returns one upload's metadata.",
+        "operationId": "Uploads_GetUpload",
+        "parameters": [
+          {
+            "description": "id is the upload's UIDP.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          },
+          {
+            "description": "parent_id is the UIDP of the organization the upload belongs to. It is the\nIAM scope, and id must fall within its subtree.",
+            "in": "query",
+            "name": "parentId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Upload"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Get Upload",
+        "tags": [
+          "Uploads"
+        ]
+      },
+      "post": {
+        "description": "Every call records a new upload, even for an identical bundle.",
+        "operationId": "Uploads_CreateUpload",
+        "parameters": [
+          {
+            "description": "parent_id is the UIDP of the organization to record the upload under. It\nis authorized against the caller and is never derived from identity.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Uploads.CreateUploadBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.CreateUploadResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Create Upload",
+        "tags": [
+          "Uploads"
+        ]
+      }
+    },
+    "/harness/v1alpha2/uploads/{id}:completeUpload": {
+      "post": {
+        "description": "While bytes are still missing it fails with FAILED_PRECONDITION and the\nupload stays UPLOAD_STATUS_PENDING. Calling it on a closed upload returns\nthe upload unchanged.",
+        "operationId": "Uploads_CompleteUpload",
+        "parameters": [
+          {
+            "description": "id is the upload's UIDP, CreateUploadResponse.upload.id.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Uploads.CompleteUploadBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Upload"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Complete Upload",
+        "tags": [
+          "Uploads"
+        ]
+      }
+    },
+    "/harness/v1alpha2/uploads/{id}:writeUpload": {
+      "post": {
+        "description": "Send parts in order, one at a time, while the upload is\nUPLOAD_STATUS_PENDING. On an UPLOAD_STATUS_READY or UPLOAD_STATUS_REJECTED\nupload, or once the upload's write window has passed, WriteUpload fails\nwith FAILED_PRECONDITION.\n\nA part must start at or before committed_size. Bytes before committed_size\nare already stored, and are skipped without being compared. A part that\nstarts past committed_size fails with FAILED_PRECONDITION.\n\nA part fails with INVALID_ARGUMENT, whatever the upload's progress, if:\n  - it is empty,\n  - it is larger than CreateUploadResponse.max_part_size,\n  - its offset is not a multiple of 256 KiB,\n  - it ends before envelope_size and its size is not a multiple of 256 KiB,\n  - or it extends past the envelope_size declared at CreateUpload.\n\nThe last part ends exactly at envelope_size, and storing it finalizes the\nobject.\n\nStorage can keep less of a part than was sent, so committed_size can stop\nshort of the part's end. Continue from committed_size. Retrying a part\nwhose response was lost succeeds and returns the current committed_size.\nThe sealed bytes are randomized and cannot be produced again, so keep each\npart until a response's committed_size covers it.",
+        "operationId": "Uploads_WriteUpload",
+        "parameters": [
+          {
+            "description": "id is the upload's UIDP, CreateUploadResponse.upload.id.",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "pattern": ".+",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "*/*": {
+              "schema": {
+                "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.Uploads.WriteUploadBody"
+              }
+            }
+          },
+          "required": true,
+          "x-originalParamName": "body"
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/chainguard.platform.harness.v1alpha2.WriteUploadResponse"
+                }
+              }
+            },
+            "description": "A successful response."
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/google.rpc.Status"
+                }
+              }
+            },
+            "description": "An unexpected error response."
+          }
+        },
+        "summary": "Write Upload",
+        "tags": [
+          "Uploads"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://console-api.enforce.dev"
+    }
+  ],
+  "tags": [
+    {
+      "description": "Uploads is the customer-facing intake for `chainctl harness upload`: a\ncustomer submits one repository's source as a sealed bundle, and an operator\nlater starts a hunt over one or more of those uploads. Uploading starts\nnothing, and each hunt expects fresh uploads.\n\nSource bytes never travel on this API. CreateUpload records the upload and\nhands back a short-lived signed URL for one object; the client seals the\nbundle under the organization's harness key (GetOrgPublicKey) and uploads the\nciphertext directly to storage, then calls CompleteUpload. The server never\nholds plaintext and never holds the key that opens it.",
+      "name": "Uploads"
+    }
+  ]
+}

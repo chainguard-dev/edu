@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl plans update"
 slug: chainctl_plans_update
 url: /platform/chainctl/chainctl-docs/chainctl_plans_update/
@@ -17,10 +17,13 @@ Move your organization to another plan.
 
 Move your organization to another plan.
 
-With --plan team, this opens a hosted checkout page where an owner
-enters a card. Nothing is charged on the page itself. The organization
-moves to Team once the card is charged, which usually follows within a
-minute but can take up to an hour. Until then it stays on Starter and
+With --plan team, this prints the plan's terms and asks you to accept
+them, then opens a hosted checkout page where an owner enters a card.
+With --yes, the terms are still printed, and accepted without asking.
+
+Nothing is charged on the page itself. The organization moves to Team
+once the card is charged, which usually follows within a minute but can
+take up to an hour. Until then it stays on Starter and
 'chainctl plans describe' still reads Starter.
 
 The upgrade makes the purchaser an owner of the organization. The
@@ -35,7 +38,7 @@ ask Chainguard for the change.
 To cancel Team, contact Chainguard support.
 
 ```
-chainctl plans update --plan team|enterprise|starter [--parent ORG] [--no-browser] [--no-wait] [--output=json|table] [flags]
+chainctl plans update --plan team|enterprise|starter [--parent ORG] [--no-browser] [--no-wait] [--yes] [--output=json|table] [flags]
 ```
 
 ### Options
@@ -45,6 +48,7 @@ chainctl plans update --plan team|enterprise|starter [--parent ORG] [--no-browse
       --no-wait         Exit once the checkout page is shown, instead of waiting for the organization to move to Team.
       --parent string   The name or id of the organization whose plan to change.
       --plan string     The plan to move to: team, enterprise, or starter.
+  -y, --yes             Accept the plan's terms without asking. The terms are still printed.
 ```
 
 ### Options inherited from parent commands

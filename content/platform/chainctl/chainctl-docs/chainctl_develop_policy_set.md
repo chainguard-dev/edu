@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl develop policy set"
 slug: chainctl_develop_policy_set
 url: /platform/chainctl/chainctl-docs/chainctl_develop_policy_set/
