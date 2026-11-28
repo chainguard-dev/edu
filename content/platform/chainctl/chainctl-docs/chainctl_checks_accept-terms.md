@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl checks accept-terms"
 slug: chainctl_checks_accept-terms
 url: /platform/chainctl/chainctl-docs/chainctl_checks_accept-terms/

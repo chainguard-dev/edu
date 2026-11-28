@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl"
 slug: chainctl
 url: /platform/chainctl/chainctl-docs/chainctl/
@@ -65,6 +65,7 @@ chainctl [flags]
 * [chainctl packages](/platform/chainctl/chainctl-docs/chainctl_packages/)	 - Interact with Chainguard packages
 * [chainctl plans](/platform/chainctl/chainctl-docs/chainctl_plans/)	 - Show your organization's plan, limits, and usage.
 * [chainctl policy](/platform/chainctl/chainctl-docs/chainctl_policy/)	 - Manage policies.
+* [chainctl repository](/platform/chainctl/chainctl-docs/chainctl_repository/)	 - Commands for uploading your organization's own packages and container images.
 * [chainctl skills](/platform/chainctl/chainctl-docs/chainctl_skills/)	 - Skills registry related commands.
 * [chainctl starter](/platform/chainctl/chainctl-docs/chainctl_starter/)	 - Manage Chainguard Starter organizations
 * [chainctl update](/platform/chainctl/chainctl-docs/chainctl_update/)	 - Update chainctl.

@@ -1,5 +1,5 @@
 ---
-date: 2026-11-24T18:17:18Z
+date: 2026-11-27T13:55:02Z
 title: "chainctl libraries packages blocked"
 slug: chainctl_libraries_packages_blocked
 url: /platform/chainctl/chainctl-docs/chainctl_libraries_packages_blocked/
@@ -20,7 +20,7 @@ List packages that were withheld by an active Libraries policy, and the reposito
 COUNT is every time the version was withheld. REQUESTED is how many of those were a client asking for the version by name and being refused; the rest were versions left out of a listing. Rows recorded before the serve layer began stamping the request site show 0.
 
 ```
-chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCE|PREVIEW] [--requested-only] [--limit N] [--output=json|table] [flags]
+chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_ID | FOLDER_NAME | FOLDER_ID] [--ecosystem ECOSYSTEM] [--package NAME] [--mode ENFORCE|PREVIEW] [--requested-only] [--limit N] [--output=json|table] [flags]
 ```
 
 ### Options
@@ -30,7 +30,7 @@ chainctl libraries packages blocked [--parent ORGANIZATION_NAME | ORGANIZATION_I
       --limit int32        The number of blocked packages per page in an interactive terminal; otherwise the maximum number to return. (default 50)
       --mode string        Only show events in this mode (ENFORCE or PREVIEW). Defaults to ENFORCE.
       --package string     Only show events whose full package name matches, as shown in the PACKAGE column (exact, case-insensitive; e.g. @nx/web, or group/artifact for java).
-      --parent string      The name or id of the organization to scope events to, or <org>/<repository> for one repository.
+      --parent string      The name or id of the organization or folder to scope events to, or <org>/<repository> for one repository.
       --requested-only     Only show versions a client asked for by name and was refused, not versions that were only left out of a listing.
 ```
 
